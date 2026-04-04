@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politique de confidentialité — Estimation Cave</title>
+    <meta name="description" content="Politique de confidentialité et protection des données personnelles — estimationcave.com respecte le RGPD.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #FAF6F0;
+            --bordeaux: #2D1B2E;
+            --gold: #C5A258;
+            --gold-light: #D4B76A;
+            --text-dark: #2D1B2E;
+            --text-body: #4A3A4B;
+            --text-muted: #7A6A7B;
+            --border: rgba(45, 27, 46, 0.1);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cream);
+            color: var(--text-body);
+            font-size: 16px;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── Navigation ── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(250, 246, 240, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--bordeaux);
+            text-decoration: none;
+            letter-spacing: 0.02em;
+        }
+
+        .nav-logo span {
+            color: var(--gold);
+        }
+
+        .nav-back {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--gold);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: color 0.25s ease;
+        }
+
+        .nav-back:hover {
+            color: var(--bordeaux);
+        }
+
+        .nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .btn-cta {
+            display: inline-block;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 0.85rem;
+            letter-spacing: 0.03em;
+            background: var(--bordeaux);
+            color: var(--cream);
+            padding: 0.65rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-cta:hover {
+            background: #3D2940;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 30px rgba(45, 27, 46, 0.2);
+            border-bottom: none;
+        }
+
+        /* ── Main Content ── */
+        main {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 8rem 2rem 5rem;
+        }
+
+        .page-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.75rem;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 600;
+            color: var(--bordeaux);
+            line-height: 1.2;
+            margin-bottom: 0.75rem;
+        }
+
+        .page-intro {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .legal-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .legal-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--bordeaux);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--gold);
+            display: inline-block;
+        }
+
+        .legal-section p {
+            margin-bottom: 0.85rem;
+        }
+
+        .legal-section strong {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .info-block {
+            background: rgba(45, 27, 46, 0.03);
+            border-left: 3px solid var(--gold);
+            padding: 1.25rem 1.5rem;
+            border-radius: 0 6px 6px 0;
+            margin: 1rem 0 1.5rem;
+        }
+
+        .info-block p {
+            margin-bottom: 0.5rem;
+        }
+
+        .info-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        .rights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin: 1.25rem 0 1.5rem;
+        }
+
+        .right-card {
+            background: rgba(45, 27, 46, 0.03);
+            border-radius: 8px;
+            padding: 1.15rem 1.25rem;
+            border: 1px solid var(--border);
+            transition: border-color 0.25s ease;
+        }
+
+        .right-card:hover {
+            border-color: var(--gold);
+        }
+
+        .right-card .right-icon {
+            font-size: 1.25rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .right-card .right-title {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            margin-bottom: 0.3rem;
+        }
+
+        .right-card .right-desc {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        a {
+            color: var(--gold);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.25s ease;
+        }
+
+        a:hover {
+            border-bottom-color: var(--gold);
+        }
+
+        .update-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            font-style: italic;
+        }
+
+        /* ── Footer ── */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 2.5rem 2rem;
+            text-align: center;
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .footer-brand {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--bordeaux);
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-brand span {
+            color: var(--gold);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.25s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .footer-copy {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 640px) {
+            main { padding: 7rem 1.25rem 3rem; }
+            .nav-inner { padding: 0.85rem 1.25rem; }
+            .rights-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-inner">
+            <a href="https://estimationcave.com" class="nav-logo">estimation<span>cave</span>.com</a>
+            <div style="display:flex;align-items:center;gap:2rem;">
+                <a href="https://estimationcave.com" class="nav-back">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    Retour au site
+                </a>
+                <a href="https://buy.stripe.com/dRm28kc5ffAy5ll8hp4Rq00" target="_blank" rel="noopener" class="btn-cta">Demander un audit</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <main>
+        <p class="page-label">Protection des données</p>
+        <h1>Politique de confidentialité</h1>
+        <p class="page-intro">Chez Estimation Cave, la protection de vos données personnelles est une priorité. Cette page vous explique simplement quelles informations sont collectées, pourquoi, et ce que vous pouvez faire à tout moment.</p>
+
+        <section class="legal-section">
+            <h2>Responsable du traitement</h2>
+            <div class="info-block">
+                <p><strong>Nom :</strong> Fanny Lonqueu-Brochard</p>
+                <p><strong>Email (DPO) :</strong> <a href="mailto:contact@estimationcave.com">contact@estimationcave.com</a></p>
+                <p><strong>Site :</strong> estimationcave.com</p>
+            </div>
+            <p>En tant que responsable du traitement, Fanny Lonqueu-Brochard détermine les finalités et les moyens du traitement des données personnelles collectées via le site.</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>Données collectées</h2>
+            <p>Lorsque vous passez commande via notre formulaire (hébergé par Tally), les données suivantes sont collectées :</p>
+            <div class="info-block">
+                <p><strong>Identité :</strong> Nom et prénom</p>
+                <p><strong>Contact :</strong> Adresse email</p>
+                <p><strong>Informations sur la cave :</strong> Nombre de bouteilles, objectif de l'estimation (vendre, assurer, inventorier), informations complémentaires éventuelles</p>
+                <p><strong>Photos :</strong> Photographies des étiquettes, niveaux et capsules des bouteilles</p>
+            </div>
+            <p>Aucune donnée bancaire n'est collectée directement par Estimation Cave. Les paiements sont traités de manière sécurisée par notre prestataire de paiement (Stripe ou Gumroad), qui dispose de ses propres conditions de traitement des données.</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>Finalité du traitement</h2>
+            <p>Vos données sont collectées et traitées dans un seul but : la réalisation de votre rapport d'estimation de cave à vins. Plus précisément, elles permettent d'identifier les bouteilles à partir des photos transmises, d'estimer leur valeur sur le marché actuel, de rédiger et vous livrer votre rapport au format PDF, et de vous contacter par email pour la livraison du rapport et le suivi de votre commande.</p>
+            <p>Vos données ne sont jamais utilisées à des fins de prospection commerciale, de revente à des tiers, ou de profilage.</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>Base juridique</h2>
+            <p>Le traitement de vos données repose sur <strong>l'exécution du contrat</strong> (article 6.1.b du RGPD) : en passant commande, vous demandez la réalisation d'une prestation qui nécessite le traitement de ces informations.</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>Durée de conservation</h2>
+            <p>Vos données personnelles et vos photos sont <strong>supprimées après la livraison du rapport d'estimation</strong>. Seules les informations strictement nécessaires aux obligations comptables et fiscales sont conservées pour la durée légale requise (factures : 10 ans conformément au Code de commerce).</p>
+            <p>Les éventuels témoignages publiés sur le site sont conservés jusqu'à demande de retrait de votre part.</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>Hébergement des données</h2>
+            <div class="info-block">
+                <p><strong>Formulaire :</strong> Tally — données hébergées en Europe (infrastructure conforme RGPD)</p>
+                <p><strong>Site web :</strong> Netlify, Inc. — 44 Montgomery Street, Suite 300, San Francisco, CA 94104, États-Unis</p>
+                <p><strong>Paiement :</strong> Stripe / Gumroad — prestataires certifiés PCI-DSS</p>
+            </div>
+            <p>Les transferts de données hors Union européenne (hébergement Netlify) sont encadrés par les clauses contractuelles types approuvées par la Commission européenne.</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>Vos droits</h2>
+            <p>Conformément au RGPD, vous disposez à tout moment des droits suivants sur vos données personnelles :</p>
+
+            <div class="rights-grid">
+                <div class="right-card">
+                    <div class="right-icon">&#128269;</div>
+                    <div class="right-title">Droit d'accès</div>
+                    <div class="right-desc">Savoir quelles données sont détenues à votre sujet.</div>
+                </div>
+                <div class="right-card">
+                    <div class="right-icon">&#9998;</div>
+                    <div class="right-title">Droit de rectification</div>
+                    <div class="right-desc">Corriger des informations inexactes ou incomplètes.</div>
+                </div>
+                <div class="right-card">
+                    <div class="right-icon">&#128465;</div>
+                    <div class="right-title">Droit à l'effacement</div>
+                    <div class="right-desc">Demander la suppression de vos données personnelles.</div>
+                </div>
+                <div class="right-card">
+                    <div class="right-icon">&#9995;</div>
+                    <div class="right-title">Droit d'opposition</div>
+                    <div class="right-desc">Vous opposer au traitement de vos données.</div>
+                </div>
+                <div class="right-card">
+                    <div class="right-icon">&#128230;</div>
+                    <div class="right-title">Droit à la portabilité</div>
+                    <div class="right-desc">Recevoir vos données dans un format structuré et lisible.</div>
+                </div>
+                <div class="right-card">
+                    <div class="right-icon">&#9200;</div>
+                    <div class="right-title">Droit à la limitation</div>
+                    <div class="right-desc">Limiter temporairement le traitement de vos données.</div>
+                </div>
+            </div>
+
+            <p>Pour exercer l'un de ces droits, envoyez un email à <a href="mailto:contact@estimationcave.com">contact@estimationcave.com</a>. Nous nous engageons à répondre dans un délai d'un mois.</p>
+            <p>Si vous estimez que vos droits ne sont pas respectés, vous pouvez introduire une réclamation auprès de la <strong>Commission Nationale de l'Informatique et des Libertés (CNIL)</strong> — <a href="https://www.cnil.fr" target="_blank" rel="noopener">www.cnil.fr</a>.</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>Cookies</h2>
+            <p>Le site estimationcave.com n'utilise pas de cookies de suivi ni de cookies publicitaires. Seuls des cookies strictement nécessaires au fonctionnement technique du site peuvent être déposés (par exemple par l'hébergeur Netlify). Ces cookies techniques ne nécessitent pas votre consentement préalable conformément à la directive ePrivacy.</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>Modifications</h2>
+            <p>La présente politique de confidentialité peut être mise à jour pour refléter des évolutions légales ou des changements dans nos pratiques. En cas de modification substantielle, un avis sera affiché sur le site. La date de dernière mise à jour est indiquée ci-dessous.</p>
+        </section>
+
+        <p class="update-date">Dernière mise à jour : avril 2026</p>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <p class="footer-brand">estimation<span>cave</span>.com</p>
+            <div class="footer-links">
+                <a href="https://estimationcave.com">Accueil</a>
+                <a href="mentions-legales.html">Mentions légales</a>
+                <a href="confidentialite.html">Confidentialité</a>
+                <a href="faq.html">FAQ</a>
+            <span class="footer-sep">·</span>
+            <a href="blog.html">Blog</a>
+                <a href="mailto:contact@estimationcave.com">Contact</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 Estimation Cave — Fanny Lonqueu-Brochard. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+  <button id="btt" aria-label="Retour en haut" style="position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:#2D1B2E;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease,transform .3s ease;z-index:999;box-shadow:0 4px 16px rgba(45,27,46,.25);" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C5A258" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
+  <script>
+    (function(){var b=document.getElementById('btt');window.addEventListener('scroll',function(){if(window.scrollY>300){b.style.opacity='1';b.style.visibility='visible'}else{b.style.opacity='0';b.style.visibility='hidden'}});b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})})})();
+  </script>
+
+</body>
+</html>

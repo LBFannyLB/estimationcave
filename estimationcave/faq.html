@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Questions fréquentes sur le service d'estimation de cave à vins estimationcave.com — comment ça marche, délais, confidentialité, paiement.">
+  <title>FAQ — estimationcave.com</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bordeaux: #2D1B2E;
+      --or: #C5A258;
+      --or-light: #D4B76E;
+      --or-pale: rgba(197, 162, 88, 0.10);
+      --fond: #FAF6F0;
+      --texte: #3A3035;
+      --texte-light: #6B5F65;
+      --blanc: #FFFFFF;
+      --border: rgba(45, 27, 46, 0.08);
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Inter', -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--fond);
+      color: var(--texte);
+      line-height: 1.7;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    h1, h2, h3 { font-family: var(--font-display); font-weight: 600; color: var(--bordeaux); line-height: 1.2; }
+    h1 { font-size: clamp(2rem, 4vw, 2.8rem); letter-spacing: -0.02em; }
+    h2 { font-size: clamp(1.4rem, 2.5vw, 1.8rem); }
+
+    .ornament {
+      display: block;
+      width: 48px;
+      height: 2px;
+      background: var(--or);
+      margin: 1.5rem auto;
+    }
+
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--or);
+      margin-bottom: 0.75rem;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(250, 246, 240, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--bordeaux);
+    }
+    .nav-logo span { color: var(--or); }
+
+    .nav-back {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--or);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.25s ease;
+    }
+    .nav-back:hover { color: var(--bordeaux); }
+    .nav-back svg { width: 16px; height: 16px; }
+
+    .btn-primary {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.85rem;
+      letter-spacing: 0.03em;
+      background: var(--bordeaux);
+      color: var(--fond);
+      padding: 0.65rem 1.5rem;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .btn-primary:hover {
+      background: #3D2940;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 30px rgba(45, 27, 46, 0.2);
+    }
+
+    .btn-outline {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.95rem;
+      letter-spacing: 0.03em;
+      background: transparent;
+      color: var(--bordeaux);
+      padding: 0.85rem 2rem;
+      border: 1.5px solid var(--bordeaux);
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .btn-outline:hover {
+      background: var(--bordeaux);
+      color: var(--fond);
+    }
+
+    /* ── HEADER ── */
+    .page-header {
+      padding: 8.5rem 0 3.5rem;
+      text-align: center;
+    }
+
+    .page-header p.intro {
+      font-size: 1.05rem;
+      color: var(--texte-light);
+      font-weight: 300;
+      max-width: 500px;
+      margin: 1rem auto 0;
+      line-height: 1.8;
+    }
+
+    /* ── FAQ CATEGORIES ── */
+    .faq-section {
+      margin-bottom: 3.5rem;
+    }
+
+    .faq-category {
+      margin-bottom: 0.75rem;
+    }
+
+    .faq-category h2 {
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--or);
+      margin-bottom: 0;
+      display: inline-block;
+    }
+
+    /* ── ACCORDION ── */
+    .accordion-item {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .accordion-trigger {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 1.25rem 2.5rem 1.25rem 0;
+      text-align: left;
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--bordeaux);
+      line-height: 1.5;
+      position: relative;
+      transition: color 0.2s ease;
+    }
+
+    .accordion-trigger:hover { color: var(--or); }
+
+    .accordion-trigger::after {
+      content: '+';
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.3rem;
+      font-weight: 300;
+      color: var(--or);
+      transition: transform 0.3s ease;
+    }
+
+    .accordion-item.open .accordion-trigger::after {
+      content: '−';
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+    }
+
+    .accordion-item.open .accordion-content {
+      max-height: 500px;
+    }
+
+    .accordion-answer {
+      padding: 0 0 1.5rem 0;
+      font-size: 0.92rem;
+      color: var(--texte-light);
+      line-height: 1.85;
+    }
+
+    .accordion-answer p { margin-bottom: 0.75rem; }
+    .accordion-answer p:last-child { margin-bottom: 0; }
+
+    /* ── CTA ── */
+    .faq-cta {
+      text-align: center;
+      padding: 3rem 0 5rem;
+      border-top: 1px solid var(--border);
+      margin-top: 1rem;
+    }
+
+    .faq-cta p {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--bordeaux);
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      padding: 2.5rem 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.5rem;
+      font-size: 0.82rem;
+      color: var(--texte-light);
+    }
+
+    .footer-logo {
+      font-family: var(--font-display);
+      font-weight: 600;
+      color: var(--bordeaux);
+      font-size: 0.95rem;
+    }
+
+    .footer-sep { color: var(--or); opacity: 0.5; }
+    .footer a:hover { color: var(--or); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .container { padding: 0 1.25rem; }
+      .nav-inner { padding: 0 1.25rem; height: 64px; }
+      .nav-logo { font-size: 1.05rem; }
+      .nav .btn-primary { padding: 0.5rem 1rem; font-size: 0.8rem; }
+      .page-header { padding: 7rem 0 2.5rem; }
+      .footer-inner { flex-direction: column; gap: 0.5rem; }
+      .footer-sep { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">estimation<span>cave</span>.com</a>
+      <div style="display:flex;align-items:center;gap:2rem;">
+        <a href="index.html" class="nav-back">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          Retour au site
+        </a>
+        <a href="https://buy.stripe.com/dRm28kc5ffAy5ll8hp4Rq00" target="_blank" rel="noopener" class="btn-primary">Demander un audit</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── HEADER ── -->
+  <header class="page-header">
+    <div class="container">
+      <p class="section-label">FAQ</p>
+      <h1>Questions fréquentes</h1>
+      <span class="ornament"></span>
+      <p class="intro">Tout ce que vous devez savoir avant de passer commande.</p>
+    </div>
+  </header>
+
+  <!-- ── FAQ ── -->
+  <main>
+    <div class="container">
+
+      <!-- CATÉGORIE 1 — LE SERVICE -->
+      <div class="faq-section">
+        <div class="faq-category"><h2>Le service</h2></div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">Comment se passe l'estimation à distance ?</button>
+          <div class="accordion-content"><div class="accordion-answer">
+            <p>Tout se fait en ligne. Vous remplissez un formulaire pour décrire votre cave et vos objectifs, vous joignez vos photos et/ou un fichier avec la liste de vos vins, et vous recevez votre rapport PDF complet par e-mail sous 5 jours ouvrés. Aucun déplacement, aucun rendez-vous, aucun appel téléphonique nécessaire.</p>
+          </div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">Avez-vous besoin de voir les bouteilles en vrai ?</button>
+          <div class="accordion-content"><div class="accordion-answer">
+            <p>Non. L'estimation se fait intégralement sur la base de vos photos. Des clichés nets de l'étiquette, du niveau de vin dans la bouteille et de la capsule suffisent pour réaliser une analyse fiable. Si vous n'avez pas toutes les photos dès le départ, cela ne bloque pas l'audit, il pourra être affiné si besoin dans un second temps.</p>
+          </div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">Quels types de vins estimez-vous ?</button>
+          <div class="accordion-content"><div class="accordion-answer">
+            <p>J'estime tous les types de vins : rouges, blancs, rosés, liquoreux, effervescents. L'estimation couvre à la fois les appellations françaises et les principales appellations internationales. Si votre cave contient des spiritueux, n'hésitez pas à les mentionner dans le formulaire, ils feront l'objet d'un traitement à part.</p>
+          </div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">Combien de temps prend l'estimation ?</button>
+          <div class="accordion-content"><div class="accordion-answer">
+            <p>Le rapport vous est livré sous 5 jours ouvrés après réception de vos photos et de votre formulaire complété. La plupart des rapports sont livrés en 3 à 4 jours.</p>
+          </div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">J'ai une petite cave — est-ce vraiment adapté pour moi ?</button>
+          <div class="accordion-content"><div class="accordion-answer">
+            <p>Absolument. Qu'il s'agisse de 10 ou de 200 bouteilles, l'audit s'adapte à votre situation. Une petite cave peut contenir des références très intéressantes sans que vous le sachiez. C'est justement l'intérêt de faire le point avec un regard professionnel.</p>
+          </div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">Je suis totalement novice en vin — cet audit me sera-t-il accessible ?</button>
+          <div class="accordion-content"><div class="accordion-answer">
+            <p>Le rapport est conçu pour être lu et compris par tout le monde, même sans aucune connaissance en vin. Chaque recommandation est formulée clairement, sans jargon inutile. Mon objectif est que vous puissiez prendre une décision éclairée, pas que vous deveniez sommelier. N'hésitez pas à le préciser dans le formulaire, je pourrais ainsi adapter davantage mes réponses à votre niveau.</p>
+          </div></div>
+        </div>
+      </div>
+
+      <!-- CATÉGORIE 2 — LES PHOTOS -->
+      <div class="faq-section">
+        <div class="faq-category"><h2>Les photos</h2></div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">Comment photographier mes bouteilles ?</button>
+          <div class="accordion-content"><div class="accordion-answer">
+            <p>Trois éléments importants pour chaque bouteille : l'étiquette (face avant, bien lisible), le niveau de vin (visible à travers la bouteille) et la capsule (état général). Un smartphone suffit largement — prenez les photos à la lumière naturelle si possible et veillez à ce que le texte de l'étiquette soit net. Il faut que les bouteilles soient en position debout et non couchées.</p>
+          </div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">Combien de photos faut-il fournir ?</button>
+          <div class="accordion-content"><div class="accordion-answer">
+            <p>Comptez 1 à 3 photos par bouteille (étiquette + niveau + capsule). Si vous avez plusieurs bouteilles identiques, une seule série de photos suffit pour le lot. Pas besoin de photographier les contre-étiquettes sauf si l'étiquette principale est illisible.</p>
+          </div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">Je n'ai pas toutes les bouteilles accessibles — que faire ?</button>
+          <div class="accordion-content"><div class="accordion-answer">
+            <p>Pas de problème. Envoyez les photos de ce que vous pouvez atteindre et décrivez le reste dans le formulaire (appellations, millésimes, quantités approximatives si vous les connaissez). Je ferai l'estimation sur ce qui est documenté et vous indiquerai comment compléter si nécessaire.</p>
+          </div></div>
+        </div>
+      </div>
+
+      <!-- CATÉGORIE 3 — LE RAPPORT -->
+      <div class="faq-section">
+        <div class="faq-category"><h2>Le rapport</h2></div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">Que contient exactement le rapport ?</button>
+          <div class="accordion-content"><div class="accordion-answer">
+            <p>Le rapport comprend un inventaire structuré de chaque référence, une estimation de la valeur de marché, des recommandations par lot (à vendre, à conserver, à surveiller), des graphiques de répartition (région, couleur, potentiel de garde), un contexte marché personnalisé et un plan d'action concret adapté à votre situation. Il contient une dizaine de pages.</p>
+          </div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">Le rapport est-il utilisable pour une succession ou une assurance ?</button>
+          <div class="accordion-content"><div class="accordion-answer">
+            <p>Le rapport fournit une estimation argumentée de la valeur de marché de votre cave, ce qui peut constituer une base solide pour une discussion avec un notaire ou un assureur. Il ne remplace pas une expertise judiciaire assermentée, mais il apporte un éclairage professionnel clair et documenté sur la valeur réelle de vos bouteilles.</p>
+          </div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">Puis-je utiliser le rapport pour vendre aux enchères ?</button>
+          <div class="accordion-content"><div class="accordion-answer">
+            <p>Oui. Le rapport identifie les références les plus adaptées à une vente aux enchères et vous donne les éléments nécessaires pour contacter une maison de ventes en connaissance de cause. Vous saurez quelles bouteilles ont un réel potentiel sur le marché secondaire et lesquelles seraient mieux valorisées autrement.</p>
+          </div></div>
+        </div>
+      </div>
+
+      <!-- CATÉGORIE 4 — PAIEMENT ET CONFIANCE -->
+      <div class="faq-section">
+        <div class="faq-category"><h2>Paiement et confiance</h2></div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">Quand dois-je payer ?</button>
+          <div class="accordion-content"><div class="accordion-answer">
+            <p>Le paiement s'effectue au moment de la commande, directement via le formulaire sécurisé. Cela me permet de démarrer l'analyse dès réception de vos photos.</p>
+          </div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">Comment garantir que je recevrai bien mon rapport après le paiement ?</button>
+          <div class="accordion-content"><div class="accordion-answer">
+            <p>Dès votre commande validée, vous recevez un e-mail de confirmation qui fait office de preuve de commande. Le rapport est livré par e-mail sous 5 jours ouvrés. En cas de non-livraison dans ce délai — quelle qu'en soit la raison — vous êtes remboursé intégralement. C'est un engagement simple et sans ambiguïté.</p>
+          </div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">Y a-t-il des frais cachés ?</button>
+          <div class="accordion-content"><div class="accordion-answer">
+            <p>Aucun. Le service est actuellement proposé à 99 € dans le cadre d'un tarif fondateur privé réservé aux premières demandes. Le tarif de référence sera ensuite fixé à 149 €. Il n'y a pas de supplément, pas d'abonnement, pas de frais de dossier. Ce que vous voyez est ce que vous payez.</p>
+          </div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">Mes informations sont-elles protégées ?</button>
+          <div class="accordion-content"><div class="accordion-answer">
+            <p>Oui. Toutes les informations que vous transmettez — photos, inventaire, coordonnées — sont traitées de manière strictement confidentielle. Elles ne sont jamais partagées, revendues ou utilisées à d'autres fins que votre estimation. La confidentialité est réciproque et garantie.</p>
+          </div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">Qui aura accès à mon inventaire ?</button>
+          <div class="accordion-content"><div class="accordion-answer">
+            <p>Moi uniquement. Votre inventaire et vos photos ne sont transmis à aucun tiers — ni maison de ventes, ni partenaire, ni plateforme. Ce que vous partagez reste entre vous et moi, point final.</p>
+          </div></div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="faq-cta">
+        <p>Une autre question ?</p>
+        <a href="mailto:contact@estimationcave.com" class="btn-outline">Écrivez-nous</a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-logo">estimationcave.com</span>
+      <span class="footer-sep">·</span>
+      <a href="mailto:contact@estimationcave.com">contact@estimationcave.com</a>
+      <span class="footer-sep">·</span>
+      <a href="mentions-legales.html">Mentions légales</a>
+      <span class="footer-sep">·</span>
+      <a href="confidentialite.html">Confidentialité</a>
+      <span class="footer-sep">·</span>
+      <a href="faq.html">FAQ</a>
+            <span class="footer-sep">·</span>
+            <a href="blog.html">Blog</a>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.accordion-trigger').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = this.parentElement;
+        var isOpen = item.classList.contains('open');
+        item.classList.toggle('open');
+        this.setAttribute('aria-expanded', !isOpen);
+      });
+    });
+  </script>
+
+  <button id="btt" aria-label="Retour en haut" style="position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:#2D1B2E;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease,transform .3s ease;z-index:999;box-shadow:0 4px 16px rgba(45,27,46,.25);" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C5A258" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
+  <script>
+    (function(){var b=document.getElementById('btt');window.addEventListener('scroll',function(){if(window.scrollY>300){b.style.opacity='1';b.style.visibility='visible'}else{b.style.opacity='0';b.style.visibility='hidden'}});b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})})})();
+  </script>
+
+</body>
+</html>

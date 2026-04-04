@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Estimez votre cave à vins à distance : rapport d'audit complet, inventaire, estimation de valeur, recommandations par lot. Livraison sous 5 jours.">
+  <meta property="og:title" content="Que vaut réellement votre cave à vins ?">
+  <meta property="og:description" content="Recevez un audit professionnel de votre cave à vins à distance. Rapport complet sous 5 jours ouvrés.">
+  <meta property="og:url" content="https://estimationcave.com">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <title>estimationcave.com — Audit et estimation de cave à vins</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ── RESET & BASE ── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bordeaux: #2D1B2E;
+      --or: #C5A258;
+      --or-light: #D4B76E;
+      --or-pale: rgba(197, 162, 88, 0.10);
+      --fond: #FAF6F0;
+      --fond-alt: #F4EDE3;
+      --texte: #3A3035;
+      --texte-light: #6B5F65;
+      --blanc: #FFFFFF;
+      --border: rgba(45, 27, 46, 0.08);
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Inter', -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--fond);
+      color: var(--texte);
+      line-height: 1.7;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ── TYPOGRAPHY ── */
+    h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(--bordeaux); line-height: 1.2; }
+
+    h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); letter-spacing: -0.02em; }
+    h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); letter-spacing: -0.01em; }
+    h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); }
+
+    .section-subtitle {
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      color: var(--texte-light);
+      font-weight: 300;
+      max-width: 600px;
+      margin: 1rem auto 0;
+      line-height: 1.8;
+    }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.95rem;
+      letter-spacing: 0.03em;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: var(--bordeaux);
+      color: var(--fond);
+      padding: 1rem 2.4rem;
+      border-radius: 4px;
+    }
+    .btn-primary:hover {
+      background: #3D2940;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 30px rgba(45, 27, 46, 0.2);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--bordeaux);
+      padding: 0.85rem 2rem;
+      border: 1.5px solid var(--bordeaux);
+      border-radius: 4px;
+    }
+    .btn-outline:hover {
+      background: var(--bordeaux);
+      color: var(--fond);
+    }
+
+    .btn-gold {
+      background: var(--or);
+      color: var(--bordeaux);
+      padding: 1.1rem 2.6rem;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    .btn-gold:hover {
+      background: var(--or-light);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 30px rgba(197, 162, 88, 0.3);
+    }
+
+    /* ── ORNAMENTS ── */
+    .ornament {
+      display: block;
+      width: 48px;
+      height: 2px;
+      background: var(--or);
+      margin: 1.5rem auto;
+    }
+
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--or);
+      margin-bottom: 0.75rem;
+    }
+
+    /* ══════════════════════════════════
+       1. NAVIGATION
+    ══════════════════════════════════ */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(250, 246, 240, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--bordeaux);
+      letter-spacing: -0.01em;
+    }
+    .nav-logo span { color: var(--or); }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .nav-link {
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--bordeaux);
+      transition: color 0.25s ease;
+    }
+    .nav-link:hover { color: var(--or); }
+
+    .nav .btn-primary {
+      padding: 0.65rem 1.5rem;
+      font-size: 0.85rem;
+    }
+
+    /* ══════════════════════════════════
+       2. HERO
+    ══════════════════════════════════ */
+    .hero {
+      padding: 10rem 0 3.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(197,162,88,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero h1 {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--texte-light);
+      max-width: 540px;
+      margin: 1.5rem auto 2.5rem;
+      line-height: 1.85;
+    }
+
+    .hero-mention {
+      display: block;
+      margin-top: 1.2rem;
+      font-size: 0.82rem;
+      color: var(--texte-light);
+      letter-spacing: 0.02em;
+    }
+
+    .hero-mention span {
+      margin: 0 0.5rem;
+      color: var(--or);
+    }
+
+    /* ══════════════════════════════════
+       2b. INTRO
+    ══════════════════════════════════ */
+    .intro {
+      padding: 1.5rem 0 1.5rem;
+    }
+
+    .intro-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .intro-inner p {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--texte-light);
+      line-height: 1.85;
+      margin-bottom: 1.25rem;
+    }
+
+    .intro-inner p:last-of-type { margin-bottom: 0; }
+
+    .intro-inner em {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      color: var(--bordeaux);
+      font-weight: 600;
+      font-style: normal;
+      letter-spacing: -0.02em;
+      line-height: 1.3;
+    }
+
+    .intro-ornament {
+      display: block;
+      width: 48px;
+      height: 2px;
+      background: var(--or);
+      margin: 2rem auto 0;
+    }
+
+    /* ══════════════════════════════════
+       3. PROBLÈME
+    ══════════════════════════════════ */
+    .probleme {
+      padding: 3.5rem 0 6rem;
+    }
+
+    .probleme-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .probleme-header h2 {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .situations {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .situation-card {
+      background: var(--blanc);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 2.5rem 2rem;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .situation-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 2rem;
+      right: 2rem;
+      height: 2px;
+      background: var(--or);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .situation-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(45, 27, 46, 0.06);
+    }
+    .situation-card:hover::before { opacity: 1; }
+
+    .situation-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--or-pale);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      font-size: 1.2rem;
+    }
+
+    .situation-card h3 {
+      margin-bottom: 0.75rem;
+      font-size: 1.25rem;
+    }
+
+    .situation-card p {
+      font-size: 0.92rem;
+      color: var(--texte-light);
+      line-height: 1.75;
+    }
+
+    /* ══════════════════════════════════
+       4. CE QUE VOUS RECEVEZ
+    ══════════════════════════════════ */
+    .livrables {
+      padding: 6rem 0;
+      background: var(--blanc);
+    }
+
+    .livrables-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .livrables-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      max-width: 880px;
+      margin: 0 auto;
+    }
+
+    .livrable-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.5rem;
+      border-radius: 6px;
+      background: var(--fond);
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    .livrable-item:hover {
+      border-color: rgba(197, 162, 88, 0.3);
+    }
+
+    .livrable-check {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      background: var(--or-pale);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--or);
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-top: 0.1rem;
+    }
+
+    .livrable-item h4 {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--bordeaux);
+      margin-bottom: 0.2rem;
+    }
+
+    .livrable-item p {
+      font-size: 0.85rem;
+      color: var(--texte-light);
+      line-height: 1.6;
+    }
+
+    /* ══════════════════════════════════
+       5. COMMENT ÇA MARCHE
+    ══════════════════════════════════ */
+    .process {
+      padding: 6rem 0;
+    }
+
+    .process-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+      position: relative;
+    }
+
+    .steps::before {
+      content: '';
+      position: absolute;
+      top: 32px;
+      left: calc(16.66% + 1.25rem);
+      right: calc(16.66% + 1.25rem);
+      height: 1px;
+      background: linear-gradient(90deg, var(--or), rgba(197,162,88,0.2), var(--or));
+    }
+
+    .step {
+      text-align: center;
+      position: relative;
+    }
+
+    .step-number {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--fond);
+      border: 2px solid var(--or);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--or);
+      position: relative;
+      z-index: 2;
+    }
+
+    .step h3 {
+      margin-bottom: 0.75rem;
+      font-size: 1.15rem;
+    }
+
+    .step p {
+      font-size: 0.9rem;
+      color: var(--texte-light);
+      line-height: 1.75;
+      max-width: 280px;
+      margin: 0 auto;
+    }
+
+    /* ══════════════════════════════════
+       6. TARIF
+    ══════════════════════════════════ */
+    .tarif {
+      padding: 6rem 0;
+      background: var(--blanc);
+    }
+
+    .tarif-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .tarif-card {
+      max-width: 640px;
+      margin: 0 auto;
+      background: var(--fond);
+      border: 1.5px solid rgba(197, 162, 88, 0.25);
+      border-radius: 8px;
+      padding: 3.5rem 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tarif-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--or), var(--bordeaux), var(--or));
+    }
+
+    .tarif-prix {
+      font-family: var(--font-display);
+      font-size: 4rem;
+      font-weight: 700;
+      color: var(--bordeaux);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+
+    .tarif-prix-label {
+      font-size: 0.9rem;
+      color: var(--texte-light);
+      margin-bottom: 2rem;
+    }
+
+    .tarif-features {
+      text-align: left;
+      max-width: 440px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .tarif-feature {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      padding: 0.55rem 0;
+      font-size: 0.92rem;
+      color: var(--texte);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tarif-feature:last-child { border-bottom: none; }
+
+    .tarif-feature .dot {
+      flex-shrink: 0;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--or);
+      margin-top: 0.4rem;
+    }
+
+    /* ══════════════════════════════════
+       7. TÉMOIGNAGES
+    ══════════════════════════════════ */
+    .temoignages {
+      padding: 6rem 0;
+    }
+
+    .temoignages-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .temoignages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .temoignage-card {
+      background: var(--blanc);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 2.5rem 2rem;
+      position: relative;
+    }
+
+    .temoignage-card::before {
+      content: '\201C';
+      font-family: var(--font-display);
+      font-size: 4rem;
+      color: var(--or);
+      opacity: 0.3;
+      position: absolute;
+      top: 0.75rem;
+      left: 1.5rem;
+      line-height: 1;
+    }
+
+    .temoignage-text {
+      font-style: italic;
+      color: var(--texte-light);
+      font-size: 0.92rem;
+      line-height: 1.75;
+      margin-bottom: 1.5rem;
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .temoignage-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .temoignage-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--or-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 600;
+      color: var(--or);
+      font-size: 1rem;
+    }
+
+    .temoignage-name {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--bordeaux);
+    }
+    .temoignage-role {
+      font-size: 0.78rem;
+      color: var(--texte-light);
+    }
+
+    /* ══════════════════════════════════
+       8. CONFIDENTIALITÉ
+    ══════════════════════════════════ */
+    .confidentialite {
+      padding: 5rem 0;
+      background: var(--bordeaux);
+      color: rgba(250, 246, 240, 0.85);
+    }
+
+    .confidentialite-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .confidentialite h2 {
+      color: var(--fond);
+      margin-bottom: 0.5rem;
+    }
+
+    .confidentialite .ornament {
+      background: var(--or);
+      margin: 1.5rem auto;
+    }
+
+    .confidentialite p {
+      font-size: 1rem;
+      line-height: 1.85;
+      font-weight: 300;
+    }
+
+    .confidentialite-icon {
+      width: 56px;
+      height: 56px;
+      border: 1.5px solid rgba(197, 162, 88, 0.4);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 1.4rem;
+    }
+
+    /* ══════════════════════════════════
+       9. FORMULAIRE
+    ══════════════════════════════════ */
+    .formulaire {
+      padding: 6rem 0;
+    }
+
+    .formulaire-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .tally-embed-zone {
+      max-width: 720px;
+      margin: 0 auto;
+      background: var(--blanc);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 3rem 2.5rem;
+      text-align: center;
+    }
+
+    .tally-placeholder {
+      padding: 2rem;
+      border: 2px dashed rgba(197, 162, 88, 0.3);
+      border-radius: 6px;
+      color: var(--texte-light);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .tally-placeholder code {
+      display: block;
+      background: var(--fond);
+      padding: 1rem;
+      border-radius: 4px;
+      font-size: 0.82rem;
+      margin-top: 1rem;
+      font-family: 'Courier New', monospace;
+      color: var(--bordeaux);
+      word-break: break-all;
+    }
+
+    .tally-alt {
+      font-size: 0.85rem;
+      color: var(--texte-light);
+      margin-top: 1rem;
+    }
+
+    /* ══════════════════════════════════
+       10. FOOTER
+    ══════════════════════════════════ */
+    .footer {
+      padding: 2.5rem 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.5rem;
+      font-size: 0.82rem;
+      color: var(--texte-light);
+    }
+
+    .footer-logo {
+      font-family: var(--font-display);
+      font-weight: 600;
+      color: var(--bordeaux);
+      font-size: 0.95rem;
+    }
+
+    .footer-sep { color: var(--or); opacity: 0.5; }
+
+    .footer a:hover { color: var(--or); }
+
+    /* ══════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════ */
+    @media (max-width: 900px) {
+      .situations,
+      .steps,
+      .temoignages-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .steps::before { display: none; }
+
+      .livrables-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero { padding: 8rem 0 4rem; }
+
+      .tarif-card { padding: 2.5rem 1.5rem; }
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 0 1.25rem; }
+      .nav-inner { padding: 0 1.25rem; height: 64px; gap: 1rem; }
+      .nav-logo { font-size: 1.05rem; flex-shrink: 0; }
+      .nav .btn-primary { padding: 0.5rem 1rem; font-size: 0.8rem; }
+      .nav-right { gap: 1rem; }
+      .nav-link { font-size: 0.8rem; }
+      .hero { padding: 7rem 0 3.5rem; }
+      .hero-subtitle { font-size: 1rem; }
+      .btn-gold { padding: 0.95rem 2rem; font-size: 0.92rem; }
+      .tarif-prix { font-size: 3rem; }
+      .tally-embed-zone { padding: 2rem 1.25rem; }
+      .footer-inner { flex-direction: column; gap: 0.5rem; }
+      .footer-sep { display: none; }
+
+      .probleme, .livrables, .process, .tarif, .temoignages, .formulaire {
+        padding: 4rem 0;
+      }
+    }
+
+    /* ── ANIMATIONS ── */
+    @media (prefers-reduced-motion: no-preference) {
+      .situation-card,
+      .livrable-item,
+      .step,
+      .temoignage-card {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeUp 0.6s ease forwards;
+      }
+      .situation-card:nth-child(1), .step:nth-child(1), .temoignage-card:nth-child(1) { animation-delay: 0.1s; }
+      .situation-card:nth-child(2), .step:nth-child(2), .temoignage-card:nth-child(2) { animation-delay: 0.2s; }
+      .situation-card:nth-child(3), .step:nth-child(3), .temoignage-card:nth-child(3) { animation-delay: 0.3s; }
+      .livrable-item:nth-child(1) { animation-delay: 0.05s; }
+      .livrable-item:nth-child(2) { animation-delay: 0.1s; }
+      .livrable-item:nth-child(3) { animation-delay: 0.15s; }
+      .livrable-item:nth-child(4) { animation-delay: 0.2s; }
+      .livrable-item:nth-child(5) { animation-delay: 0.25s; }
+      .livrable-item:nth-child(6) { animation-delay: 0.3s; }
+    }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+
+  <!-- ════════════ 1. NAVIGATION ════════════ -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">estimation<span>cave</span>.com</a>
+      <div class="nav-right">
+        <a href="faq.html" class="nav-link">FAQ</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="#formulaire" class="btn btn-primary">Demander un audit</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ════════════ 2. HERO ════════════ -->
+  <section class="hero">
+    <div class="container">
+      <p class="section-label">Audit &amp; estimation de cave à vins</p>
+      <h1>Que vaut réellement votre cave à vins&nbsp;?</h1>
+      <p class="hero-subtitle">Recevez un diagnostic clair, complet et structuré pour vous aider à prendre une décision sereinement : pour vendre au bon moment, garder ce qui a de la valeur, et ne rien regretter.</p>
+      <a href="#formulaire" class="btn btn-gold">Demander un audit — 99&thinsp;€ (tarif fondateur)</a>
+      <span class="hero-mention">
+        Livraison sous 5 jours ouvrés <span>·</span> 100% à distance <span>·</span> Strictement confidentiel
+      </span>
+    </div>
+  </section>
+
+
+  <!-- ════════════ 2b. INTRO ════════════ -->
+  <section class="intro">
+    <div class="container">
+      <div class="intro-inner">
+        <p><em>Avant de vendre une cave à vin, il faut d'abord la comprendre.</em></p>
+        <p>Entre la valeur réelle des bouteilles, leur état de conservation, leur potentiel de revente et les écarts parfois importants entre prix "affichés" et prix réellement obtenus, une cave ne s'évalue pas sérieusement en quelques minutes.</p>
+        <p>Mon rôle est de vous aider à y voir clair grâce à un audit indépendant de votre cave, afin que vous puissiez prendre une décision éclairée, sereine et adaptée à votre situation.</p>
+        <p>Que vous envisagiez une vente aux enchères, une vente partielle, une succession, un partage familial ou simplement une mise à plat de votre cave, vous recevez un rapport structuré, lisible et directement utile.</p>
+        <span class="intro-ornament"></span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════ 3. PROBLÈME ════════════ -->
+  <section class="probleme">
+    <div class="container">
+      <div class="probleme-header">
+        <p class="section-label">Le problème</p>
+        <h2>Vous avez une cave. Mais savez-vous vraiment ce qu'elle vaut&nbsp;?</h2>
+        <span class="ornament"></span>
+      </div>
+      <div class="situations">
+        <div class="situation-card">
+          <div class="situation-icon">&#127942;</div>
+          <h3>Succession ou héritage</h3>
+          <p>Vous avez hérité d'une cave et vous ne savez pas précisément ce qu'elle contient, ni quelle valeur elle représente.</p>
+        </div>
+        <div class="situation-card">
+          <div class="situation-icon">&#128200;</div>
+          <h3>Vente partielle ou totale</h3>
+          <p>Vous voulez vendre au bon prix, au bon moment, sans sous-estimer vos bouteilles ni passer à côté d'une opportunité.</p>
+        </div>
+        <div class="situation-card">
+          <div class="situation-icon">&#128218;</div>
+          <h3>Inventaire personnel</h3>
+          <p>Vous possédez une cave constituée au fil des années et vous souhaitez faire un point sérieux sur sa valeur, son état général et les meilleures décisions à prendre.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════ 4. CE QUE VOUS RECEVEZ ════════════ -->
+  <section class="livrables">
+    <div class="container">
+      <div class="livrables-header">
+        <p class="section-label">Ce que vous recevez</p>
+        <h2>Un rapport professionnel de A à Z</h2>
+        <span class="ornament"></span>
+        <p class="section-subtitle">Un document structuré, lisible et directement actionnable — que vous soyez novice ou connaisseur.</p>
+      </div>
+      <div class="livrables-grid">
+        <div class="livrable-item">
+          <div class="livrable-check">&#10003;</div>
+          <div>
+            <h4>Inventaire structuré</h4>
+            <p>Chaque référence identifiée, classée et documentée avec soin.</p>
+          </div>
+        </div>
+        <div class="livrable-item">
+          <div class="livrable-check">&#10003;</div>
+          <div>
+            <h4>Estimation de la valeur de marché</h4>
+            <p>Un prix de marché réaliste pour chaque lot, basé sur les transactions réelles.</p>
+          </div>
+        </div>
+        <div class="livrable-item">
+          <div class="livrable-check">&#10003;</div>
+          <div>
+            <h4>Recommandation par lot</h4>
+            <p>À vendre, à conserver ou à surveiller — avec justification claire.</p>
+          </div>
+        </div>
+        <div class="livrable-item">
+          <div class="livrable-check">&#10003;</div>
+          <div>
+            <h4>Graphiques de répartition</h4>
+            <p>Région, couleur, potentiel de garde — votre cave en un coup d'œil.</p>
+          </div>
+        </div>
+        <div class="livrable-item">
+          <div class="livrable-check">&#10003;</div>
+          <div>
+            <h4>Contexte marché et liquidité</h4>
+            <p>Où en sont vos références sur le marché actuel des enchères et du négoce.</p>
+          </div>
+        </div>
+        <div class="livrable-item">
+          <div class="livrable-check">&#10003;</div>
+          <div>
+            <h4>Plan d'action personnalisé</h4>
+            <p>Des étapes concrètes pour valoriser votre cave selon vos objectifs.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════ 5. COMMENT ÇA MARCHE ════════════ -->
+  <section class="process">
+    <div class="container">
+      <div class="process-header">
+        <p class="section-label">Comment ça marche</p>
+        <h2>Simple. Rapide. À distance.</h2>
+        <span class="ornament"></span>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Décrivez votre cave</h3>
+          <p>Remplissez le formulaire en ligne et décrivez votre cave en 10 à 15 minutes.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Envoyez vos photos</h3>
+          <p>Ajoutez vos photos directement via le formulaire ou partagez un lien Drive.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Recevez votre rapport</h3>
+          <p>Vous recevez votre rapport PDF complet sous 5 jours ouvrés par e-mail.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════ 6. TARIF ════════════ -->
+  <section class="tarif">
+    <div class="container">
+      <div class="tarif-header">
+        <p class="section-label">Tarif</p>
+        <h2>Tarif fondateur privé — 99&thinsp;€</h2>
+        <span class="ornament"></span>
+        <p class="section-subtitle" style="max-width:620px;">À l'occasion du lancement, quelques premiers clients pourront accéder à un tarif fondateur privé de 99&thinsp;€, avant le passage au tarif de référence de 149&thinsp;€. Une ouverture confidentielle, réservée aux premières demandes.</p>
+      </div>
+      <div class="tarif-card">
+        <div class="tarif-prix">99&thinsp;€</div>
+        <p class="tarif-prix-label">au lieu de 149&thinsp;€ — Tarif fondateur</p>
+        <div class="tarif-features">
+          <div class="tarif-feature"><div class="dot"></div>Inventaire détaillé de chaque référence</div>
+          <div class="tarif-feature"><div class="dot"></div>Estimation de la valeur de marché</div>
+          <div class="tarif-feature"><div class="dot"></div>Recommandations par lot (à vendre, à conserver, à surveiller)</div>
+          <div class="tarif-feature"><div class="dot"></div>Graphiques de répartition</div>
+          <div class="tarif-feature"><div class="dot"></div>Contexte marché personnalisé et liquidité des références</div>
+          <div class="tarif-feature"><div class="dot"></div>Plan d'action concret</div>
+          <div class="tarif-feature"><div class="dot"></div>Livraison PDF sous 5 jours ouvrés</div>
+        </div>
+        <a href="#formulaire" class="btn btn-gold">Demander un audit</a>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <!-- ════════════ 8. CONFIDENTIALITÉ ════════════ -->
+  <section class="confidentialite">
+    <div class="container">
+      <div class="confidentialite-inner">
+        <div class="confidentialite-icon">&#128274;</div>
+        <p class="section-label" style="color: var(--or);">Engagement</p>
+        <h2>Votre cave reste votre secret</h2>
+        <span class="ornament"></span>
+        <p>Toutes les informations transmises sont traitées avec une confidentialité absolue. Vos données ne sont jamais partagées, revendues ou utilisées à d'autres fins que votre mission d'estimation. Confidentialité réciproque garantie par contrat.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════ 9. FORMULAIRE ════════════ -->
+  <section class="formulaire" id="formulaire">
+    <div class="container">
+      <div class="formulaire-header">
+        <p class="section-label">Commencer</p>
+        <h2>Prêt à connaître la valeur de votre cave&nbsp;?</h2>
+        <span class="ornament"></span>
+        <p class="section-subtitle">Avant de procéder au paiement, voici ce que vous aurez à préparer&nbsp;:</p>
+      </div>
+      <div class="tally-embed-zone" style="text-align:left;">
+        <p style="font-size:1rem;font-weight:500;color:var(--bordeaux);margin-bottom:1.25rem;">📋 Le formulaire vous prendra moins de 10 minutes et vous demandera&nbsp;:</p>
+        <div style="margin-bottom:1.5rem;">
+          <div class="tarif-feature"><div class="dot"></div>Votre objectif (succession, vente, inventaire...)</div>
+          <div class="tarif-feature"><div class="dot"></div>Le nombre approximatif de bouteilles</div>
+          <div class="tarif-feature"><div class="dot"></div>Une liste de vos vins (par fichier, via photos, ou en texte libre)</div>
+          <div class="tarif-feature"><div class="dot"></div>Toutes les informations que vous jugerez nécessaire de nous communiquer sur la conservation et la constitution de la cave</div>
+        </div>
+        <p style="font-style:italic;font-size:0.92rem;color:var(--texte-light);margin-bottom:2rem;">Un smartphone suffit pour les photos. Pas besoin de connaissances en vin.</p>
+        <div style="text-align:center;">
+          <a href="https://buy.stripe.com/dRm28kc5ffAy5ll8hp4Rq00" target="_blank" rel="noopener" class="btn btn-gold">Demander mon audit — 99&thinsp;€</a>
+          <span class="hero-mention" style="margin-top:1.2rem;">
+            Paiement sécurisé <span>·</span> Livraison sous 5 jours ouvrés <span>·</span> 100% confidentiel
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════ 10. FOOTER ════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-logo">estimationcave.com</span>
+        <span class="footer-sep">·</span>
+        <a href="mailto:contact@estimationcave.com">contact@estimationcave.com</a>
+        <span class="footer-sep">·</span>
+        <a href="mentions-legales.html">Mentions légales</a>
+        <span class="footer-sep">·</span>
+        <a href="confidentialite.html">Confidentialité</a>
+        <span class="footer-sep">·</span>
+        <a href="faq.html">FAQ</a>
+      </div>
+    </div>
+  </footer>
+
+  <button id="btt" aria-label="Retour en haut" style="position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:#2D1B2E;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease,transform .3s ease;z-index:999;box-shadow:0 4px 16px rgba(45,27,46,.25);" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C5A258" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
+  <script>
+    (function(){var b=document.getElementById('btt');window.addEventListener('scroll',function(){if(window.scrollY>300){b.style.opacity='1';b.style.visibility='visible'}else{b.style.opacity='0';b.style.visibility='hidden'}});b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})})})();
+  </script>
+
+</body>
+</html>
