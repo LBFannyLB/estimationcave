@@ -1,0 +1,4246 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Page introuvable — estimationcave.com">
+    <title>Page introuvable — estimationcave.com</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bordeaux: #2D1B2E;
+            --or: #C5A258;
+            --fond: #FAF6F0;
+            --texte: #3A3035;
+            --texte-light: #6B5F65;
+            --border: rgba(45, 27, 46, 0.08);
+            --font-display: 'Cormorant Garamond', Georgia, serif;
+            --font-body: 'Inter', -apple-system, sans-serif;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--fond);
+            color: var(--texte);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            background: rgba(250, 246, 240, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-inner {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--bordeaux);
+        }
+
+        .nav-logo span { color: var(--or); }
+
+        .btn-primary {
+            display: inline-block;
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 0.85rem;
+            letter-spacing: 0.03em;
+            background: var(--bordeaux);
+            color: var(--fond);
+            padding: 0.65rem 1.5rem;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: #3D2940;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 30px rgba(45, 27, 46, 0.2);
+        }
+
+        .btn-gold {
+            display: inline-block;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 0.03em;
+            background: var(--or);
+            color: var(--bordeaux);
+            padding: 1rem 2.4rem;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-gold:hover {
+            background: #D4B76E;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 30px rgba(197, 162, 88, 0.3);
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+        }
+
+        .error-code {
+            font-family: var(--font-display);
+            font-size: clamp(5rem, 12vw, 8rem);
+            font-weight: 700;
+            color: var(--bordeaux);
+            line-height: 1;
+            opacity: 0.12;
+            margin-bottom: -1.5rem;
+            position: relative;
+            z-index: 0;
+        }
+
+        .error-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .error-content h1 {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            font-weight: 600;
+            color: var(--bordeaux);
+            margin-bottom: 0.75rem;
+        }
+
+        .ornament {
+            display: block;
+            width: 48px;
+            height: 2px;
+            background: var(--or);
+            margin: 1.25rem auto;
+        }
+
+        .error-content p {
+            font-size: 1.05rem;
+            font-weight: 300;
+            color: var(--texte-light);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 2.5rem 2rem;
+            text-align: center;
+        }
+
+        .footer-inner {
+            max-width: 1120px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.5rem;
+            font-size: 0.82rem;
+            color: var(--texte-light);
+        }
+
+        .footer-logo {
+            font-family: var(--font-display);
+            font-weight: 600;
+            color: var(--bordeaux);
+            font-size: 0.95rem;
+        }
+
+        .footer-sep { color: var(--or); opacity: 0.5; }
+        .footer-inner a:hover { color: var(--or); }
+
+        @media (max-width: 600px) {
+            .nav-inner { padding: 0 1.25rem; height: 64px; }
+            .nav-logo { font-size: 1.05rem; }
+            .footer-inner { flex-direction: column; gap: 0.5rem; }
+            .footer-sep { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">estimation<span>cave</span>.com</a>
+            <a href="https://buy.stripe.com/dRm28kc5ffAy5ll8hp4Rq00" target="_blank" rel="noopener" class="btn-primary">Demander un audit</a>
+        </div>
+    </nav>
+
+    <main>
+        <div>
+            <div class="error-code">404</div>
+            <div class="error-content">
+                <h1>Page introuvable</h1>
+                <span class="ornament"></span>
+                <p>Cette page n'existe pas ou a été déplacée.</p>
+                <a href="index.html" class="btn-gold">Retourner à l'accueil</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <span class="footer-logo">estimationcave.com</span>
+            <span class="footer-sep">·</span>
+            <a href="mailto:contact@estimationcave.com">contact@estimationcave.com</a>
+            <span class="footer-sep">·</span>
+            <a href="mentions-legales.html">Mentions légales</a>
+            <span class="footer-sep">·</span>
+            <a href="confidentialite.html">Confidentialité</a>
+            <span class="footer-sep">·</span>
+            <a href="faq.html">FAQ</a>
+            <span class="footer-sep">·</span>
+            <a href="blog.html">Blog</a>
+        </div>
+    </footer>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comment fonctionne une estimation de cave à vins à distance ? Découvrez le processus complet : formulaire, photos, rapport PDF, et pour qui c'est adapté.">
+    <title>Estimation de cave à vins à distance : comment ça fonctionne ? — estimationcave.com</title>
+    <meta property="og:title" content="Estimation de cave à vins à distance : comment ça fonctionne ?">
+    <meta property="og:description" content="Comment fonctionne une estimation de cave à vins à distance ? Découvrez le processus complet : formulaire, photos, rapport PDF, et pour qui c'est adapté.">
+    <meta property="og:url" content="https://estimationcave.com/article-estimation-distance.html">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="fr_FR">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Estimation de cave à vins à distance : comment ça fonctionne ?","datePublished":"2026-04-01","dateModified":"2026-04-01","publisher":{"@type":"Organization","name":"estimationcave.com","url":"https://estimationcave.com"},"url":"https://estimationcave.com/article-estimation-distance.html","description":"Comment fonctionne une estimation de cave à vins à distance ? Découvrez le processus complet : formulaire, photos, rapport PDF, et pour qui c'est adapté."}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Combien coûte une estimation de cave à vins ?","acceptedAnswer":{"@type":"Answer","text":"Le service est proposé à 99€, tout compris. Ce tarif unique couvre l'inventaire complet, l'estimation de la valeur de marché, les recommandations par lot, les graphiques de répartition et le plan d'action."}},{"@type":"Question","name":"En combien de temps reçoit-on le rapport ?","acceptedAnswer":{"@type":"Answer","text":"Le rapport est livré sous 5 jours ouvrés après réception de vos photos et de votre formulaire complété. La plupart des rapports sont livrés en 3 à 4 jours."}},{"@type":"Question","name":"Faut-il connaître le vin pour utiliser ce service ?","acceptedAnswer":{"@type":"Answer","text":"Non. Le service est conçu pour les particuliers, y compris ceux qui n'ont aucune connaissance en vin. Vous n'avez besoin que de votre smartphone pour les photos et de quelques minutes pour remplir le formulaire."}}]}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bordeaux: #2D1B2E;
+            --or: #C5A258;
+            --or-light: #D4B76E;
+            --or-pale: rgba(197, 162, 88, 0.10);
+            --fond: #FAF6F0;
+            --texte: #3A3035;
+            --texte-light: #6B5F65;
+            --blanc: #FFFFFF;
+            --border: rgba(45, 27, 46, 0.08);
+            --font-display: 'Cormorant Garamond', Georgia, serif;
+            --font-body: 'Inter', -apple-system, sans-serif;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--fond);
+            color: var(--texte);
+            line-height: 1.7;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { color: var(--or); text-decoration: none; transition: color 0.25s ease; }
+        a:hover { color: var(--bordeaux); }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* ── NAV ── */
+        .nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: rgba(250, 246, 240, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-inner {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--bordeaux);
+            text-decoration: none;
+        }
+        .nav-logo span { color: var(--or); }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-back {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--or);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            text-decoration: none;
+        }
+        .nav-back:hover { color: var(--bordeaux); }
+        .nav-back svg { width: 16px; height: 16px; }
+
+        .btn-primary {
+            display: inline-block;
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 0.85rem;
+            letter-spacing: 0.03em;
+            background: var(--bordeaux);
+            color: var(--fond);
+            padding: 0.65rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background: #3D2940;
+            color: var(--fond);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 30px rgba(45, 27, 46, 0.2);
+        }
+
+        /* ── ARTICLE HEADER ── */
+        .article-header {
+            padding: 8.5rem 0 2.5rem;
+            text-align: center;
+        }
+
+        .article-meta {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--or);
+            margin-bottom: 1rem;
+        }
+
+        .article-header h1 {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            font-weight: 600;
+            color: var(--bordeaux);
+            line-height: 1.25;
+            letter-spacing: -0.02em;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .ornament {
+            display: block;
+            width: 48px;
+            height: 2px;
+            background: var(--or);
+            margin: 1.75rem auto;
+        }
+
+        .article-intro {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: var(--texte-light);
+            line-height: 1.85;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ── ARTICLE BODY ── */
+        .article-body {
+            padding: 2rem 0 4rem;
+        }
+
+        .article-body h2 {
+            font-family: var(--font-display);
+            font-size: 1.55rem;
+            font-weight: 600;
+            color: var(--bordeaux);
+            margin: 2.5rem 0 1rem;
+            line-height: 1.3;
+        }
+
+        .article-body p {
+            font-size: 1rem;
+            line-height: 1.85;
+            color: var(--texte);
+            margin-bottom: 1.25rem;
+        }
+
+        .article-body strong {
+            color: var(--bordeaux);
+            font-weight: 600;
+        }
+
+        /* ── SECTION DIVIDERS ── */
+        .section-divider {
+            display: block;
+            width: 48px;
+            height: 2px;
+            background: var(--or);
+            margin: 3rem auto;
+        }
+
+        /* ── KEY POINTS BOX ── */
+        .key-points {
+            background: var(--fond);
+            border-left: 3px solid var(--or);
+            border-radius: 0 6px 6px 0;
+            padding: 1.75rem 2rem;
+            margin: 1rem 0 1rem;
+        }
+
+        .key-points-title {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--bordeaux);
+            margin-bottom: 1rem;
+        }
+
+        .key-point {
+            display: flex;
+            align-items: baseline;
+            gap: 0.75rem;
+            margin-bottom: 0.65rem;
+            font-size: 0.92rem;
+            color: var(--texte);
+            line-height: 1.65;
+        }
+
+        .key-point:last-child { margin-bottom: 0; }
+
+        .key-point-dot {
+            flex-shrink: 0;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--or);
+            margin-top: 0.5rem;
+        }
+
+        /* ── STEPS GRID ── */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 1.5rem 0 1.25rem;
+        }
+
+        .step-card {
+            background: var(--blanc);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(45, 27, 46, 0.06);
+        }
+
+        .step-number {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            border: 2px solid var(--or);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.25rem;
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--or);
+        }
+
+        .step-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--bordeaux);
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        .step-card p {
+            font-size: 0.88rem;
+            color: var(--texte-light);
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        /* ── INLINE FAQ ── */
+        .inline-faq {
+            margin: 1rem 0 0;
+        }
+
+        .inline-faq-title {
+            font-family: var(--font-display);
+            font-size: 1.55rem;
+            font-weight: 600;
+            color: var(--bordeaux);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .inline-faq-item {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .inline-faq-trigger {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 1.1rem 2.5rem 1.1rem 0;
+            text-align: left;
+            cursor: pointer;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--bordeaux);
+            line-height: 1.5;
+            position: relative;
+            transition: color 0.2s ease;
+        }
+
+        .inline-faq-trigger:hover { color: var(--or); }
+
+        .inline-faq-trigger::after {
+            content: '+';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.3rem;
+            font-weight: 300;
+            color: var(--or);
+        }
+
+        .inline-faq-item.open .inline-faq-trigger::after {
+            content: '−';
+        }
+
+        .inline-faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease;
+        }
+
+        .inline-faq-item.open .inline-faq-content {
+            max-height: 300px;
+        }
+
+        .inline-faq-answer {
+            padding: 0 0 1.25rem;
+            font-size: 0.92rem;
+            color: var(--texte-light);
+            line-height: 1.8;
+        }
+
+        /* ── CTA ── */
+        .article-cta {
+            background: var(--blanc);
+            border: 1.5px solid rgba(197, 162, 88, 0.25);
+            border-radius: 8px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            margin: 3rem 0 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .article-cta::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--or), var(--bordeaux), var(--or));
+        }
+
+        .article-cta h2 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--bordeaux);
+            margin: 0 0 0.5rem;
+        }
+
+        .article-cta p {
+            font-size: 0.95rem;
+            color: var(--texte-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-gold {
+            display: inline-block;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 0.03em;
+            background: var(--or);
+            color: var(--bordeaux);
+            padding: 1rem 2.4rem;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .btn-gold:hover {
+            background: var(--or-light);
+            color: var(--bordeaux);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 30px rgba(197, 162, 88, 0.3);
+        }
+
+        /* ── BACK LINK ── */
+        .back-to-blog {
+            text-align: center;
+            padding: 2.5rem 0 4rem;
+        }
+
+        .back-to-blog a {
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: var(--or);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .back-to-blog a:hover { color: var(--bordeaux); }
+        .back-to-blog svg { width: 14px; height: 14px; }
+
+        /* ── FOOTER ── */
+        .footer {
+            padding: 2.5rem 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .footer-inner {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.5rem;
+            font-size: 0.82rem;
+            color: var(--texte-light);
+        }
+
+        .footer-logo {
+            font-family: var(--font-display);
+            font-weight: 600;
+            color: var(--bordeaux);
+            font-size: 0.95rem;
+        }
+
+        .footer-sep { color: var(--or); opacity: 0.5; }
+        .footer-inner a { color: var(--texte-light); text-decoration: none; }
+        .footer-inner a:hover { color: var(--or); }
+
+        @media (max-width: 700px) {
+            .steps-grid { grid-template-columns: 1fr; gap: 1rem; }
+            .key-points { padding: 1.5rem 1.25rem; }
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 0 1.25rem; }
+            .nav-inner { padding: 0 1.25rem; height: 64px; }
+            .nav-logo { font-size: 1.05rem; }
+            .article-header { padding: 7rem 0 2rem; }
+            .article-cta { padding: 2rem 1.25rem; }
+            .footer-inner { flex-direction: column; gap: 0.5rem; }
+            .footer-sep { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">estimation<span>cave</span>.com</a>
+            <div class="nav-right">
+                <a href="blog.html" class="nav-back">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    Retour au blog
+                </a>
+                <a href="https://buy.stripe.com/dRm28kc5ffAy5ll8hp4Rq00" target="_blank" rel="noopener" class="btn-primary">Demander un audit</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="article-header">
+        <div class="container">
+            <p class="article-meta">Avril 2026 · Estimation</p>
+            <h1>Estimation de cave à vins à distance : comment ça fonctionne ?</h1>
+            <span class="ornament"></span>
+            <p class="article-intro">Vous possédez une cave mais vous ne savez pas exactement ce qu'elle vaut. Bonne nouvelle : il n'est plus nécessaire de faire venir un expert chez vous pour obtenir une réponse fiable.</p>
+        </div>
+    </header>
+
+    <main class="article-body">
+        <div class="container">
+
+            <div class="key-points">
+                <p class="key-points-title">Points clés</p>
+                <div class="key-point"><div class="key-point-dot"></div>Une estimation à distance est aussi fiable qu'une estimation physique dans la très grande majorité des cas</div>
+                <div class="key-point"><div class="key-point-dot"></div>Tout se fait en ligne : formulaire, photos, rapport PDF reçu par email</div>
+                <div class="key-point"><div class="key-point-dot"></div>Le rapport comprend inventaire, estimations, recommandations et plan d'action</div>
+                <div class="key-point"><div class="key-point-dot"></div>Adapté à tous : succession, vente, inventaire personnel — aucune connaissance en vin requise</div>
+            </div>
+
+            <h2>Pourquoi estimer sa cave est plus compliqué qu'il n'y paraît</h2>
+
+            <p>On pourrait croire qu'il suffit de chercher le prix d'une bouteille sur Internet pour connaître sa valeur. En pratique, c'est rarement aussi simple. Le <strong>prix affiché sur un site de vente ne correspond pas forcément au prix réellement obtenu</strong> lors d'une transaction. Il y a souvent un écart significatif entre une cote théorique et ce qu'un acheteur est prêt à payer.</p>
+
+            <p>Plusieurs facteurs entrent en jeu et sont difficiles à évaluer sans expérience : <strong>l'état de conservation</strong> de la bouteille, le niveau du vin, l'état de l'étiquette et de la capsule, le millésime, <strong>la réputation du domaine</strong>, la rareté de la cuvée, et surtout <strong>la demande réelle sur le marché</strong> à un instant donné. Deux bouteilles du même vin peuvent avoir des valeurs très différentes selon leur état.</p>
+
+            <p>Pour un particulier qui n'est pas du métier — et c'est le cas de la grande majorité des personnes qui possèdent une cave — il est quasiment impossible de tenir compte de tous ces paramètres. C'est précisément là qu'un audit professionnel prend tout son sens.</p>
+
+            <span class="section-divider"></span>
+
+            <h2>Ce que permet une estimation à distance</h2>
+
+            <p>L'estimation à distance repose sur un principe simple : les <strong>informations visuelles d'une bouteille</strong> — étiquette, niveau, capsule — suffisent dans la très grande majorité des cas à réaliser une analyse fiable. Pas besoin de manipuler physiquement la bouteille ni d'être sur place.</p>
+
+            <p>Ce format présente plusieurs avantages concrets. <strong>Vous n'avez pas besoin de prendre rendez-vous</strong> ni de recevoir quelqu'un chez vous. Vous faites les photos à votre rythme, quand vous le souhaitez. Le service fonctionne <strong>partout en France et à l'étranger</strong>, sans aucune contrainte géographique. Et surtout, vous recevez un <strong>document écrit, structuré et consultable à tout moment</strong> — bien plus utile qu'un avis donné à l'oral lors d'une visite.</p>
+
+            <p>L'estimation à distance n'est pas une version dégradée d'une estimation physique. C'est un format différent, adapté aux besoins réels des particuliers qui veulent une réponse claire, sans complications logistiques.</p>
+
+            <span class="section-divider"></span>
+
+            <h2>Comment se déroule concrètement le processus</h2>
+
+            <p>Le fonctionnement est pensé pour être le plus simple possible, même si vous n'avez aucune connaissance en vin.</p>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Vous décrivez votre cave</h3>
+                    <p>Vous remplissez un formulaire en ligne en quelques minutes. On vous demande le nombre approximatif de bouteilles, votre objectif (vendre, assurer, inventorier, succession…), et quelques informations complémentaires si vous les avez. Si vous disposez d'une liste de vos vins, vous pouvez la joindre directement.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Vous envoyez vos photos</h3>
+                    <p>Vous photographiez vos bouteilles avec votre smartphone. Trois éléments comptent : l'étiquette, le niveau de vin visible dans la bouteille, et l'état de la capsule. Les bouteilles doivent être debout. Les clichés sont transmis via le formulaire ou via un lien vers un dossier en ligne.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Vous recevez votre rapport</h3>
+                    <p>Sous cinq jours ouvrés, vous recevez par e-mail un rapport complet au format PDF. Ce document est conçu pour être lu et compris facilement, même sans aucune connaissance préalable en vin.</p>
+                </div>
+            </div>
+
+            <span class="section-divider"></span>
+
+            <h2>Ce que contient le rapport</h2>
+
+            <p>Le rapport n'est pas un simple tableau de prix. C'est un document d'une dizaine de pages qui vous donne une vision complète de votre cave.</p>
+
+            <p>Il comprend un <strong>inventaire structuré</strong> de chaque référence identifiée, avec l'appellation, le domaine, le millésime, la couleur, le format et l'état observé. Chaque lot est associé à une <strong>estimation de la valeur de marché</strong>, basée sur les prix réellement pratiqués sur le marché des enchères et du négoce.</p>
+
+            <p>Vous y trouvez également des <strong>recommandations par lot</strong> — à vendre, à conserver ou à surveiller — avec une justification claire pour chaque décision. Des <strong>graphiques de répartition</strong> vous permettent de visualiser votre cave en un coup d'œil : par région, par couleur, par potentiel de garde.</p>
+
+            <p>Le rapport inclut un <strong>contexte marché personnalisé</strong> qui situe vos références dans le paysage actuel — quels domaines sont recherchés, lesquels se vendent bien, lesquels sont plus difficiles à écouler. Enfin, un <strong>plan d'action concret</strong> vous indique les prochaines étapes en fonction de votre situation et de vos objectifs.</p>
+
+            <span class="section-divider"></span>
+
+            <h2>Pour qui ce service est-il adapté ?</h2>
+
+            <p>Le service s'adresse à toute personne qui possède une cave et qui a besoin d'y voir clair, quelle que soit la raison.</p>
+
+            <p><strong>Vous avez hérité d'une cave</strong> et vous ne savez pas ce qu'elle contient ni ce qu'elle vaut. Vous devez peut-être la partager entre plusieurs héritiers ou décider quoi en faire. L'audit vous donne une base factuelle pour avancer. Si vous vous trouvez dans cette situation, consultez notre guide complet : <a href="article-heritage-cave.html">J'ai hérité d'une cave à vins : par où commencer ?</a></p>
+
+            <p><strong>Vous envisagez de vendre tout ou partie de votre cave</strong> — aux enchères, à un caviste, ou entre particuliers. Avant de contacter qui que ce soit, vous avez besoin de savoir ce que vous avez entre les mains. Le rapport vous permet de négocier en connaissance de cause et de ne pas sous-estimer vos bouteilles.</p>
+
+            <p><strong>Vous voulez simplement faire le point.</strong> Votre cave s'est constituée au fil des années, au gré des achats, des cadeaux et des découvertes. Vous aimeriez savoir ce que vous possédez vraiment, ce qui a pris de la valeur, ce qui devrait être bu prochainement et ce qui mérite d'attendre encore.</p>
+
+            <p>Dans tous les cas, vous n'avez besoin d'aucune connaissance technique en vin. Le rapport est conçu pour être compris par tout le monde.</p>
+
+            <span class="section-divider"></span>
+
+            <h2>Un format pensé pour les particuliers</h2>
+
+            <p>L'estimation à distance n'est pas un service réservé aux grandes caves ou aux collectionneurs expérimentés. Elle est conçue pour <strong>les particuliers</strong>, y compris ceux qui ne savent pas du tout par où commencer.</p>
+
+            <p>Tout se passe <strong>en ligne, sans appel téléphonique, sans rendez-vous, sans déplacement</strong>. Vous envoyez vos informations quand vous le souhaitez et vous recevez un document que vous pouvez conserver, partager avec un notaire, transmettre à une maison de ventes ou simplement garder pour vous.</p>
+
+            <p>Le <strong>tarif est unique et affiché clairement</strong> — pas de devis personnalisé, pas de surprise, pas de frais cachés. Et si vous avez la moindre question avant de commander, un simple e-mail suffit.</p>
+
+            <span class="section-divider"></span>
+
+            <div class="inline-faq">
+                <p class="inline-faq-title">Questions fréquentes</p>
+
+                <div class="inline-faq-item">
+                    <button class="inline-faq-trigger">Combien coûte une estimation de cave à vins ?</button>
+                    <div class="inline-faq-content"><div class="inline-faq-answer">Le service est actuellement proposé à 99€ dans le cadre d'un tarif fondateur privé réservé aux premières demandes. Le tarif de référence sera ensuite fixé à 149€. Ce tarif couvre l'inventaire complet, l'estimation de la valeur de marché, les recommandations par lot, les graphiques de répartition et le plan d'action.</div></div>
+                </div>
+
+                <div class="inline-faq-item">
+                    <button class="inline-faq-trigger">En combien de temps reçoit-on le rapport ?</button>
+                    <div class="inline-faq-content"><div class="inline-faq-answer">Le rapport est livré sous 5 jours ouvrés après réception de vos photos et de votre formulaire complété. La plupart des rapports sont livrés en 3 à 4 jours.</div></div>
+                </div>
+
+                <div class="inline-faq-item">
+                    <button class="inline-faq-trigger">Faut-il connaître le vin pour utiliser ce service ?</button>
+                    <div class="inline-faq-content"><div class="inline-faq-answer">Non. Le service est conçu pour les particuliers, y compris ceux qui n'ont aucune connaissance en vin. Vous n'avez besoin que de votre smartphone pour les photos et de quelques minutes pour remplir le formulaire.</div></div>
+                </div>
+            </div>
+
+            <div class="article-cta">
+                <h2>Prêt à faire estimer votre cave ?</h2>
+                <p>Recevez un rapport complet sous 5 jours ouvrés, 100% à distance.</p>
+                <a href="https://buy.stripe.com/dRm28kc5ffAy5ll8hp4Rq00" target="_blank" rel="noopener" class="btn-gold">Demander un audit — 99 € (tarif fondateur privé)</a>
+            </div>
+        </div>
+    </main>
+
+    <div class="back-to-blog">
+        <a href="blog.html">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            Tous les articles
+        </a>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <span class="footer-logo">estimationcave.com</span>
+            <span class="footer-sep">·</span>
+            <a href="mailto:contact@estimationcave.com">contact@estimationcave.com</a>
+            <span class="footer-sep">·</span>
+            <a href="mentions-legales.html">Mentions légales</a>
+            <span class="footer-sep">·</span>
+            <a href="confidentialite.html">Confidentialité</a>
+            <span class="footer-sep">·</span>
+            <a href="faq.html">FAQ</a>
+            <span class="footer-sep">·</span>
+            <a href="blog.html">Blog</a>
+        </div>
+    </footer>
+
+    <button id="btt" aria-label="Retour en haut" style="position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:#2D1B2E;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease,transform .3s ease;z-index:999;box-shadow:0 4px 16px rgba(45,27,46,.25);" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C5A258" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+    </button>
+    <script>
+        (function(){var b=document.getElementById('btt');window.addEventListener('scroll',function(){if(window.scrollY>300){b.style.opacity='1';b.style.visibility='visible'}else{b.style.opacity='0';b.style.visibility='hidden'}});b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})})})();
+        document.querySelectorAll('.inline-faq-trigger').forEach(function(btn){btn.addEventListener('click',function(){var item=this.parentElement;item.classList.toggle('open')})});
+    </script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vous venez d'hériter d'une cave à vins et vous ne savez pas par où commencer ? Découvrez les étapes essentielles pour faire le point, estimer la valeur et prendre les bonnes décisions.">
+    <title>J'ai hérité d'une cave à vins : par où commencer ? — estimationcave.com</title>
+    <meta property="og:title" content="J'ai hérité d'une cave à vins : par où commencer ?">
+    <meta property="og:description" content="Vous venez d'hériter d'une cave à vins et vous ne savez pas par où commencer ? Découvrez les étapes essentielles pour faire le point, estimer la valeur et prendre les bonnes décisions.">
+    <meta property="og:url" content="https://estimationcave.com/article-heritage-cave.html">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="fr_FR">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"J'ai hérité d'une cave à vins : par où commencer ?","datePublished":"2026-04-01","dateModified":"2026-04-01","publisher":{"@type":"Organization","name":"estimationcave.com","url":"https://estimationcave.com"},"url":"https://estimationcave.com/article-heritage-cave.html","description":"Vous venez d'hériter d'une cave à vins et vous ne savez pas par où commencer ? Découvrez les étapes essentielles pour faire le point, estimer la valeur et prendre les bonnes décisions."}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bordeaux: #2D1B2E;
+            --or: #C5A258;
+            --or-light: #D4B76E;
+            --or-pale: rgba(197, 162, 88, 0.10);
+            --fond: #FAF6F0;
+            --texte: #3A3035;
+            --texte-light: #6B5F65;
+            --blanc: #FFFFFF;
+            --border: rgba(45, 27, 46, 0.08);
+            --font-display: 'Cormorant Garamond', Georgia, serif;
+            --font-body: 'Inter', -apple-system, sans-serif;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--fond);
+            color: var(--texte);
+            line-height: 1.7;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { color: var(--or); text-decoration: none; transition: color 0.25s ease; }
+        a:hover { color: var(--bordeaux); }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* ── NAV ── */
+        .nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: rgba(250, 246, 240, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-inner {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--bordeaux);
+            text-decoration: none;
+        }
+        .nav-logo span { color: var(--or); }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-back {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--or);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            text-decoration: none;
+        }
+        .nav-back:hover { color: var(--bordeaux); }
+        .nav-back svg { width: 16px; height: 16px; }
+
+        .btn-primary {
+            display: inline-block;
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 0.85rem;
+            letter-spacing: 0.03em;
+            background: var(--bordeaux);
+            color: var(--fond);
+            padding: 0.65rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background: #3D2940;
+            color: var(--fond);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 30px rgba(45, 27, 46, 0.2);
+        }
+
+        /* ── ARTICLE HEADER ── */
+        .article-header {
+            padding: 8.5rem 0 2.5rem;
+            text-align: center;
+        }
+
+        .article-meta {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--or);
+            margin-bottom: 1rem;
+        }
+
+        .article-header h1 {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            font-weight: 600;
+            color: var(--bordeaux);
+            line-height: 1.25;
+            letter-spacing: -0.02em;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .ornament {
+            display: block;
+            width: 48px;
+            height: 2px;
+            background: var(--or);
+            margin: 1.75rem auto;
+        }
+
+        .article-intro {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: var(--texte-light);
+            line-height: 1.85;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ── ARTICLE BODY ── */
+        .article-body {
+            padding: 2rem 0 4rem;
+        }
+
+        .article-body h2 {
+            font-family: var(--font-display);
+            font-size: 1.55rem;
+            font-weight: 600;
+            color: var(--bordeaux);
+            margin: 2.5rem 0 1rem;
+            line-height: 1.3;
+        }
+
+        .article-body p {
+            font-size: 1rem;
+            line-height: 1.85;
+            color: var(--texte);
+            margin-bottom: 1.25rem;
+        }
+
+        .article-body strong {
+            color: var(--bordeaux);
+            font-weight: 600;
+        }
+
+        /* ── SECTION DIVIDERS ── */
+        .section-divider {
+            display: block;
+            width: 48px;
+            height: 2px;
+            background: var(--or);
+            margin: 3rem auto;
+        }
+
+        /* ── KEY POINTS BOX ── */
+        .key-points {
+            background: var(--fond);
+            border-left: 3px solid var(--or);
+            border-radius: 0 6px 6px 0;
+            padding: 1.75rem 2rem;
+            margin: 1rem 0 1rem;
+        }
+
+        .key-points-title {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--bordeaux);
+            margin-bottom: 1rem;
+        }
+
+        .key-point {
+            display: flex;
+            align-items: baseline;
+            gap: 0.75rem;
+            margin-bottom: 0.65rem;
+            font-size: 0.92rem;
+            color: var(--texte);
+            line-height: 1.65;
+        }
+
+        .key-point:last-child { margin-bottom: 0; }
+
+        .key-point-dot {
+            flex-shrink: 0;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--or);
+            margin-top: 0.5rem;
+        }
+
+        /* ── STEPS GRID ── */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 1.5rem 0 1.25rem;
+        }
+
+        .step-card {
+            background: var(--blanc);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(45, 27, 46, 0.06);
+        }
+
+        .step-number {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            border: 2px solid var(--or);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.25rem;
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--or);
+        }
+
+        .step-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--bordeaux);
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        .step-card p {
+            font-size: 0.88rem;
+            color: var(--texte-light);
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        /* ── CTA ── */
+        .article-cta {
+            background: var(--blanc);
+            border: 1.5px solid rgba(197, 162, 88, 0.25);
+            border-radius: 8px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            margin: 3rem 0 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .article-cta::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--or), var(--bordeaux), var(--or));
+        }
+
+        .article-cta h2 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--bordeaux);
+            margin: 0 0 0.5rem;
+        }
+
+        .article-cta p {
+            font-size: 0.95rem;
+            color: var(--texte-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-gold {
+            display: inline-block;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 0.03em;
+            background: var(--or);
+            color: var(--bordeaux);
+            padding: 1rem 2.4rem;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .btn-gold:hover {
+            background: var(--or-light);
+            color: var(--bordeaux);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 30px rgba(197, 162, 88, 0.3);
+        }
+
+        /* ── BACK LINK ── */
+        .back-to-blog {
+            text-align: center;
+            padding: 2.5rem 0 4rem;
+        }
+
+        .back-to-blog a {
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: var(--or);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .back-to-blog a:hover { color: var(--bordeaux); }
+        .back-to-blog svg { width: 14px; height: 14px; }
+
+        /* ── FOOTER ── */
+        .footer {
+            padding: 2.5rem 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .footer-inner {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.5rem;
+            font-size: 0.82rem;
+            color: var(--texte-light);
+        }
+
+        .footer-logo {
+            font-family: var(--font-display);
+            font-weight: 600;
+            color: var(--bordeaux);
+            font-size: 0.95rem;
+        }
+
+        .footer-sep { color: var(--or); opacity: 0.5; }
+        .footer-inner a { color: var(--texte-light); text-decoration: none; }
+        .footer-inner a:hover { color: var(--or); }
+
+        @media (max-width: 700px) {
+            .steps-grid { grid-template-columns: 1fr; gap: 1rem; }
+            .key-points { padding: 1.5rem 1.25rem; }
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 0 1.25rem; }
+            .nav-inner { padding: 0 1.25rem; height: 64px; }
+            .nav-logo { font-size: 1.05rem; }
+            .article-header { padding: 7rem 0 2rem; }
+            .article-cta { padding: 2rem 1.25rem; }
+            .footer-inner { flex-direction: column; gap: 0.5rem; }
+            .footer-sep { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">estimation<span>cave</span>.com</a>
+            <div class="nav-right">
+                <a href="blog.html" class="nav-back">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    Retour au blog
+                </a>
+                <a href="https://buy.stripe.com/dRm28kc5ffAy5ll8hp4Rq00" target="_blank" rel="noopener" class="btn-primary">Demander un audit</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="article-header">
+        <div class="container">
+            <p class="article-meta">Avril 2026 · Succession</p>
+            <h1>J'ai hérité d'une cave à vins : par où commencer ?</h1>
+            <span class="ornament"></span>
+            <p class="article-intro">Hériter d'une cave à vins est une situation plus fréquente qu'on ne le croit — et souvent source de questions pratiques auxquelles on n'est pas préparé.</p>
+        </div>
+    </header>
+
+    <main class="article-body">
+        <div class="container">
+
+            <div class="key-points">
+                <p class="key-points-title">Points clés</p>
+                <div class="key-point"><div class="key-point-dot"></div>Ne rien vendre ni jeter avant d'avoir fait estimer la cave</div>
+                <div class="key-point"><div class="key-point-dot"></div>Une cave héritée peut valoir bien plus que ce qu'on imagine</div>
+                <div class="key-point"><div class="key-point-dot"></div>L'estimation est la base de toute décision éclairée : partage, vente ou conservation</div>
+                <div class="key-point"><div class="key-point-dot"></div>Vous n'avez pas besoin de connaître le vin pour faire estimer votre cave</div>
+            </div>
+
+            <h2>Une cave héritée, c'est souvent une inconnue</h2>
+
+            <p>Quand on hérite d'une cave à vins, on se retrouve rarement face à un inventaire bien rangé avec des étiquettes lisibles et un tableur à jour. La réalité est souvent plus confuse : des bouteilles empilées dans un sous-sol, des caisses jamais ouvertes, des étiquettes abîmées par l'humidité, et <strong>aucune idée de ce que tout cela représente</strong>.</p>
+
+            <p>Dans beaucoup de cas, la personne qui a constitué la cave est la seule à en connaître le contenu. Quand elle n'est plus là pour l'expliquer, c'est un patrimoine entier qui devient opaque. On ne sait pas quels vins ont de la valeur, lesquels sont encore bons, lesquels auraient dû être bus il y a dix ans.</p>
+
+            <p>Et c'est parfaitement normal. <strong>La majorité des héritiers ne connaissent pas le vin</strong>, ou pas suffisamment pour évaluer seuls ce qu'ils ont entre les mains. Ce n'est pas un défaut — c'est simplement une situation qui demande un regard extérieur.</p>
+
+            <span class="section-divider"></span>
+
+            <h2>Les premières questions à se poser</h2>
+
+            <p>Avant de toucher quoi que ce soit, prenez un moment pour clarifier votre situation. Quelques questions simples peuvent vous aider à y voir plus clair.</p>
+
+            <p><strong>Quel est votre objectif ?</strong> Souhaitez-vous garder la cave, la vendre en totalité, en vendre une partie, ou la partager entre plusieurs héritiers ? Vous n'avez pas besoin d'avoir une réponse définitive tout de suite, mais poser la question dès le départ vous évitera de prendre des décisions à l'aveugle.</p>
+
+            <p><strong>Y a-t-il une urgence ?</strong> Si la cave est stockée dans de bonnes conditions — un endroit frais, sombre et stable — rien ne presse. Les bouteilles ne vont pas se détériorer en quelques semaines. En revanche, si elles sont entreposées dans un garage en plein soleil ou un grenier, il peut être utile d'agir rapidement pour <strong>les déplacer dans un endroit adapté</strong>.</p>
+
+            <p><strong>Êtes-vous seul décisionnaire ?</strong> Dans le cadre d'une succession avec plusieurs héritiers, toute décision de vente ou de partage nécessite un accord commun. Un rapport d'estimation devient alors un outil concret pour faciliter la discussion et poser des bases objectives.</p>
+
+            <span class="section-divider"></span>
+
+            <h2>Ne rien faire dans la précipitation</h2>
+
+            <p>C'est probablement le conseil le plus important de cet article : <strong>ne vendez rien et ne jetez rien avant d'avoir fait le point</strong>.</p>
+
+            <p>Il arrive régulièrement que des héritiers donnent ou jettent des bouteilles qu'ils pensaient sans valeur, pour découvrir ensuite qu'elles valaient plusieurs centaines d'euros pièce. Une bouteille poussiéreuse avec une étiquette à moitié décollée peut être un grand cru très recherché sur le marché secondaire. L'apparence ne dit rien de la valeur.</p>
+
+            <p>De la même manière, <strong>ne vous fiez pas aux prix trouvés en ligne sans discernement</strong>. Les cotes affichées sur les sites de vente correspondent rarement au prix réellement obtenu lors d'une transaction. L'état de la bouteille, le niveau du vin, le millésime et la demande actuelle sont autant de facteurs qui font varier la valeur réelle — parfois du simple au triple.</p>
+
+            <p>Prendre quelques jours ou quelques semaines pour faire les choses correctement ne coûte rien. Vendre trop vite peut en revanche coûter cher.</p>
+
+            <span class="section-divider"></span>
+
+            <h2>Faire l'inventaire : comment s'y prendre sans connaissances en vin</h2>
+
+            <p>Vous n'avez pas besoin d'être sommelier pour faire un premier inventaire. L'idée n'est pas de tout identifier vous-même, mais de <strong>rassembler les informations de base</strong> pour qu'un professionnel puisse travailler dessus.</p>
+
+            <p>Commencez par <strong>photographier chaque bouteille</strong> — ou chaque lot de bouteilles identiques. Trois clichés suffisent : l'étiquette face avant (bien lisible), le niveau du vin visible dans la bouteille, et l'état de la capsule. Les bouteilles doivent être en position debout pour les photos.</p>
+
+            <p>Si vous disposez d'une liste, même partielle — un carnet, un fichier Excel, une application — joignez-la. Tout document existant fait gagner du temps. Et si vous n'avez rien du tout, ce n'est pas un problème : les photos seules permettent déjà de travailler.</p>
+
+            <p>Ne vous inquiétez pas si certaines étiquettes sont illisibles ou si vous ne reconnaissez pas les appellations. <strong>C'est précisément pour ça qu'on fait appel à un expert.</strong></p>
+
+            <span class="section-divider"></span>
+
+            <h2>Faire estimer la cave : pourquoi c'est indispensable avant toute décision</h2>
+
+            <p>Que vous envisagiez de vendre, de garder ou de partager la cave, <strong>l'estimation est le point de départ de toute décision éclairée</strong>. Pour comprendre en détail comment se déroule ce processus, consultez notre article <a href="article-estimation-distance.html">Estimation de cave à vins à distance : comment ça fonctionne ?</a></p>
+
+            <p>Sans estimation, vous ne savez pas ce que vaut la cave dans son ensemble. Vous ne savez pas quelles bouteilles ont une vraie valeur marchande et lesquelles n'en ont pas. Vous ne savez pas lesquelles devraient être bues rapidement et lesquelles peuvent encore vieillir. Et vous ne pouvez pas répartir équitablement entre héritiers sans base de référence.</p>
+
+            <p>Un audit professionnel vous donne tout cela dans un seul document : un inventaire structuré, une estimation de la valeur de marché pour chaque lot, des recommandations claires (vendre, conserver ou surveiller), et un plan d'action adapté à votre situation. Le tout <strong>livré à distance, sous cinq jours ouvrés</strong>, sans que vous ayez besoin de vous déplacer ou de connaître quoi que ce soit au vin.</p>
+
+            <p>C'est un investissement modeste par rapport à ce qu'il peut vous faire économiser — ou gagner — en prenant les bonnes décisions au bon moment.</p>
+
+            <span class="section-divider"></span>
+
+            <h2>Les options qui s'offrent à vous</h2>
+
+            <p>Une fois l'estimation en main, vous pouvez envisager sereinement les différentes possibilités.</p>
+
+            <p><strong>Garder la cave</strong>, en totalité ou en partie, si elle contient des bouteilles avec un bon potentiel de garde ou un intérêt personnel. Le rapport vous indique précisément lesquelles méritent d'être conservées et pourquoi.</p>
+
+            <p><strong>Vendre aux enchères</strong> les références qui ont une vraie valeur sur le marché secondaire. C'est souvent le canal le plus adapté pour les grands crus et les millésimes recherchés. Le rapport identifie les bouteilles éligibles et vous donne les éléments nécessaires pour contacter une maison de ventes.</p>
+
+            <p><strong>Vendre de gré à gré</strong> à un caviste ou un négociant, pour les lots qui ne justifient pas une mise aux enchères mais qui ont néanmoins une valeur marchande.</p>
+
+            <p><strong>Partager entre héritiers</strong> sur la base de l'estimation, en constituant des lots de valeur équivalente. Le rapport sert de référence commune pour éviter les désaccords.</p>
+
+            <p>Quelle que soit l'option choisie, l'important est de <strong>décider en connaissance de cause</strong>. Et pour cela, il faut d'abord savoir ce que l'on a.</p>
+
+            <div class="article-cta">
+                <h2>Vous avez hérité d'une cave ?</h2>
+                <p>Faites estimer votre cave à distance — rapport complet sous 5 jours ouvrés.</p>
+                <a href="https://buy.stripe.com/dRm28kc5ffAy5ll8hp4Rq00" target="_blank" rel="noopener" class="btn-gold">Demander un audit — 99 € (tarif fondateur privé)</a>
+            </div>
+        </div>
+    </main>
+
+    <div class="back-to-blog">
+        <a href="blog.html">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            Tous les articles
+        </a>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <span class="footer-logo">estimationcave.com</span>
+            <span class="footer-sep">·</span>
+            <a href="mailto:contact@estimationcave.com">contact@estimationcave.com</a>
+            <span class="footer-sep">·</span>
+            <a href="mentions-legales.html">Mentions légales</a>
+            <span class="footer-sep">·</span>
+            <a href="confidentialite.html">Confidentialité</a>
+            <span class="footer-sep">·</span>
+            <a href="faq.html">FAQ</a>
+            <span class="footer-sep">·</span>
+            <a href="blog.html">Blog</a>
+        </div>
+    </footer>
+
+    <button id="btt" aria-label="Retour en haut" style="position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:#2D1B2E;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease,transform .3s ease;z-index:999;box-shadow:0 4px 16px rgba(45,27,46,.25);" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C5A258" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+    </button>
+    <script>
+        (function(){var b=document.getElementById('btt');window.addEventListener('scroll',function(){if(window.scrollY>300){b.style.opacity='1';b.style.visibility='visible'}else{b.style.opacity='0';b.style.visibility='hidden'}});b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})})})();
+    </script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conseils et expertise sur l'estimation, la vente et la gestion de cave à vins — le blog d'estimationcave.com.">
+    <title>Blog — estimationcave.com</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bordeaux: #2D1B2E;
+            --or: #C5A258;
+            --or-light: #D4B76E;
+            --or-pale: rgba(197, 162, 88, 0.10);
+            --fond: #FAF6F0;
+            --texte: #3A3035;
+            --texte-light: #6B5F65;
+            --blanc: #FFFFFF;
+            --border: rgba(45, 27, 46, 0.08);
+            --font-display: 'Cormorant Garamond', Georgia, serif;
+            --font-body: 'Inter', -apple-system, sans-serif;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--fond);
+            color: var(--texte);
+            line-height: 1.7;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        h1, h2, h3 { font-family: var(--font-display); font-weight: 600; color: var(--bordeaux); line-height: 1.2; }
+        h1 { font-size: clamp(2rem, 4vw, 2.8rem); letter-spacing: -0.02em; }
+        h2 { font-size: clamp(1.4rem, 2.5vw, 1.8rem); }
+
+        .ornament {
+            display: block;
+            width: 48px;
+            height: 2px;
+            background: var(--or);
+            margin: 1.5rem auto;
+        }
+
+        .section-label {
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--or);
+            margin-bottom: 0.75rem;
+        }
+
+        /* ── NAV ── */
+        .nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: rgba(250, 246, 240, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-inner {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--bordeaux);
+        }
+        .nav-logo span { color: var(--or); }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-back {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--or);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: color 0.25s ease;
+        }
+        .nav-back:hover { color: var(--bordeaux); }
+        .nav-back svg { width: 16px; height: 16px; }
+
+        .btn-primary {
+            display: inline-block;
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 0.85rem;
+            letter-spacing: 0.03em;
+            background: var(--bordeaux);
+            color: var(--fond);
+            padding: 0.65rem 1.5rem;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background: #3D2940;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 30px rgba(45, 27, 46, 0.2);
+        }
+
+        /* ── HEADER ── */
+        .page-header {
+            padding: 8.5rem 0 3.5rem;
+            text-align: center;
+        }
+
+        .page-header .intro {
+            font-size: 1.05rem;
+            color: var(--texte-light);
+            font-weight: 300;
+            max-width: 560px;
+            margin: 1rem auto 0;
+            line-height: 1.8;
+        }
+
+        /* ── ARTICLES GRID ── */
+        .articles {
+            padding: 0 0 5rem;
+        }
+
+        .article-card {
+            background: var(--blanc);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 2.5rem 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            display: block;
+        }
+
+        .article-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 2rem;
+            right: 2rem;
+            height: 2px;
+            background: var(--or);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .article-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(45, 27, 46, 0.06);
+        }
+
+        .article-card:hover::before { opacity: 1; }
+
+        .article-date {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--or);
+            margin-bottom: 0.75rem;
+        }
+
+        .article-card h2 {
+            margin-bottom: 0.75rem;
+            font-size: 1.4rem;
+            transition: color 0.25s ease;
+        }
+
+        .article-card:hover h2 { color: var(--or); }
+
+        .article-card p {
+            font-size: 0.95rem;
+            color: var(--texte-light);
+            line-height: 1.75;
+            margin-bottom: 1.25rem;
+        }
+
+        .read-more {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--or);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: gap 0.25s ease;
+        }
+
+        .article-card:hover .read-more { gap: 0.7rem; }
+
+        .read-more svg { width: 14px; height: 14px; }
+
+        /* ── FOOTER ── */
+        .footer {
+            padding: 2.5rem 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .footer-inner {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.5rem;
+            font-size: 0.82rem;
+            color: var(--texte-light);
+        }
+
+        .footer-logo {
+            font-family: var(--font-display);
+            font-weight: 600;
+            color: var(--bordeaux);
+            font-size: 0.95rem;
+        }
+
+        .footer-sep { color: var(--or); opacity: 0.5; }
+        .footer a:hover { color: var(--or); }
+
+        @media (max-width: 600px) {
+            .container { padding: 0 1.25rem; }
+            .nav-inner { padding: 0 1.25rem; height: 64px; }
+            .nav-logo { font-size: 1.05rem; }
+            .page-header { padding: 7rem 0 2.5rem; }
+            .footer-inner { flex-direction: column; gap: 0.5rem; }
+            .footer-sep { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">estimation<span>cave</span>.com</a>
+            <div class="nav-right">
+                <a href="index.html" class="nav-back">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    Retour au site
+                </a>
+                <a href="https://buy.stripe.com/dRm28kc5ffAy5ll8hp4Rq00" target="_blank" rel="noopener" class="btn-primary">Demander un audit</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <p class="section-label">Blog</p>
+            <h1>Conseils &amp; expertise</h1>
+            <span class="ornament"></span>
+            <p class="intro">Tout ce que vous devez savoir sur l'estimation et la vente de cave à vins.</p>
+        </div>
+    </header>
+
+    <main class="articles">
+        <div class="container">
+            <a href="article-estimation-distance.html" class="article-card">
+                <p class="article-date">Avril 2026</p>
+                <h2>Estimation de cave à vins à distance : comment ça fonctionne ?</h2>
+                <p>Faire estimer sa cave sans déplacer une seule bouteille, c'est possible. Découvrez comment fonctionne un audit à distance, ce que contient le rapport et pour qui ce service est adapté.</p>
+                <span class="read-more">
+                    Lire l'article
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </span>
+            </a>
+
+            <a href="article-heritage-cave.html" class="article-card" style="margin-top:1.5rem;">
+                <p class="article-date">Avril 2026</p>
+                <h2>J'ai hérité d'une cave à vins : par où commencer ?</h2>
+                <p>Hériter d'une cave soulève beaucoup de questions. Découvrez les étapes essentielles pour faire le point, estimer la valeur et prendre les bonnes décisions sans vous précipiter.</p>
+                <span class="read-more">
+                    Lire l'article
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </span>
+            </a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <span class="footer-logo">estimationcave.com</span>
+            <span class="footer-sep">·</span>
+            <a href="mailto:contact@estimationcave.com">contact@estimationcave.com</a>
+            <span class="footer-sep">·</span>
+            <a href="mentions-legales.html">Mentions légales</a>
+            <span class="footer-sep">·</span>
+            <a href="confidentialite.html">Confidentialité</a>
+            <span class="footer-sep">·</span>
+            <a href="faq.html">FAQ</a>
+            <span class="footer-sep">·</span>
+            <a href="blog.html">Blog</a>
+        </div>
+    </footer>
+
+    <button id="btt" aria-label="Retour en haut" style="position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:#2D1B2E;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease,transform .3s ease;z-index:999;box-shadow:0 4px 16px rgba(45,27,46,.25);" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C5A258" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+    </button>
+    <script>
+        (function(){var b=document.getElementById('btt');window.addEventListener('scroll',function(){if(window.scrollY>300){b.style.opacity='1';b.style.visibility='visible'}else{b.style.opacity='0';b.style.visibility='hidden'}});b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})})})();
+    </script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politique de confidentialité — Estimation Cave</title>
+    <meta name="description" content="Politique de confidentialité et protection des données personnelles — estimationcave.com respecte le RGPD.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #FAF6F0;
+            --bordeaux: #2D1B2E;
+            --gold: #C5A258;
+            --gold-light: #D4B76A;
+            --text-dark: #2D1B2E;
+            --text-body: #4A3A4B;
+            --text-muted: #7A6A7B;
+            --border: rgba(45, 27, 46, 0.1);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cream);
+            color: var(--text-body);
+            font-size: 16px;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── Navigation ── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(250, 246, 240, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--bordeaux);
+            text-decoration: none;
+            letter-spacing: 0.02em;
+        }
+
+        .nav-logo span {
+            color: var(--gold);
+        }
+
+        .nav-back {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--gold);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: color 0.25s ease;
+        }
+
+        .nav-back:hover {
+            color: var(--bordeaux);
+        }
+
+        .nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .btn-cta {
+            display: inline-block;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 0.85rem;
+            letter-spacing: 0.03em;
+            background: var(--bordeaux);
+            color: var(--cream);
+            padding: 0.65rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-cta:hover {
+            background: #3D2940;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 30px rgba(45, 27, 46, 0.2);
+            border-bottom: none;
+        }
+
+        /* ── Main Content ── */
+        main {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 8rem 2rem 5rem;
+        }
+
+        .page-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.75rem;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 600;
+            color: var(--bordeaux);
+            line-height: 1.2;
+            margin-bottom: 0.75rem;
+        }
+
+        .page-intro {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .legal-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .legal-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--bordeaux);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--gold);
+            display: inline-block;
+        }
+
+        .legal-section p {
+            margin-bottom: 0.85rem;
+        }
+
+        .legal-section strong {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .info-block {
+            background: rgba(45, 27, 46, 0.03);
+            border-left: 3px solid var(--gold);
+            padding: 1.25rem 1.5rem;
+            border-radius: 0 6px 6px 0;
+            margin: 1rem 0 1.5rem;
+        }
+
+        .info-block p {
+            margin-bottom: 0.5rem;
+        }
+
+        .info-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        .rights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin: 1.25rem 0 1.5rem;
+        }
+
+        .right-card {
+            background: rgba(45, 27, 46, 0.03);
+            border-radius: 8px;
+            padding: 1.15rem 1.25rem;
+            border: 1px solid var(--border);
+            transition: border-color 0.25s ease;
+        }
+
+        .right-card:hover {
+            border-color: var(--gold);
+        }
+
+        .right-card .right-icon {
+            font-size: 1.25rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .right-card .right-title {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            margin-bottom: 0.3rem;
+        }
+
+        .right-card .right-desc {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        a {
+            color: var(--gold);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.25s ease;
+        }
+
+        a:hover {
+            border-bottom-color: var(--gold);
+        }
+
+        .update-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            font-style: italic;
+        }
+
+        /* ── Footer ── */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 2.5rem 2rem;
+            text-align: center;
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .footer-brand {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--bordeaux);
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-brand span {
+            color: var(--gold);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.25s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .footer-copy {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 640px) {
+            main { padding: 7rem 1.25rem 3rem; }
+            .nav-inner { padding: 0.85rem 1.25rem; }
+            .rights-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-inner">
+            <a href="https://estimationcave.com" class="nav-logo">estimation<span>cave</span>.com</a>
+            <div style="display:flex;align-items:center;gap:2rem;">
+                <a href="https://estimationcave.com" class="nav-back">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    Retour au site
+                </a>
+                <a href="https://buy.stripe.com/dRm28kc5ffAy5ll8hp4Rq00" target="_blank" rel="noopener" class="btn-cta">Demander un audit</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <main>
+        <p class="page-label">Protection des données</p>
+        <h1>Politique de confidentialité</h1>
+        <p class="page-intro">Chez Estimation Cave, la protection de vos données personnelles est une priorité. Cette page vous explique simplement quelles informations sont collectées, pourquoi, et ce que vous pouvez faire à tout moment.</p>
+
+        <section class="legal-section">
+            <h2>Responsable du traitement</h2>
+            <div class="info-block">
+                <p><strong>Nom :</strong> Fanny Lonqueu-Brochard</p>
+                <p><strong>Email (DPO) :</strong> <a href="mailto:contact@estimationcave.com">contact@estimationcave.com</a></p>
+                <p><strong>Site :</strong> estimationcave.com</p>
+            </div>
+            <p>En tant que responsable du traitement, Fanny Lonqueu-Brochard détermine les finalités et les moyens du traitement des données personnelles collectées via le site.</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>Données collectées</h2>
+            <p>Lorsque vous passez commande via notre formulaire (hébergé par Tally), les données suivantes sont collectées :</p>
+            <div class="info-block">
+                <p><strong>Identité :</strong> Nom et prénom</p>
+                <p><strong>Contact :</strong> Adresse email</p>
+                <p><strong>Informations sur la cave :</strong> Nombre de bouteilles, objectif de l'estimation (vendre, assurer, inventorier), informations complémentaires éventuelles</p>
+                <p><strong>Photos :</strong> Photographies des étiquettes, niveaux et capsules des bouteilles</p>
+            </div>
+            <p>Aucune donnée bancaire n'est collectée directement par Estimation Cave. Les paiements sont traités de manière sécurisée par notre prestataire de paiement (Stripe ou Gumroad), qui dispose de ses propres conditions de traitement des données.</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>Finalité du traitement</h2>
+            <p>Vos données sont collectées et traitées dans un seul but : la réalisation de votre rapport d'estimation de cave à vins. Plus précisément, elles permettent d'identifier les bouteilles à partir des photos transmises, d'estimer leur valeur sur le marché actuel, de rédiger et vous livrer votre rapport au format PDF, et de vous contacter par email pour la livraison du rapport et le suivi de votre commande.</p>
+            <p>Vos données ne sont jamais utilisées à des fins de prospection commerciale, de revente à des tiers, ou de profilage.</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>Base juridique</h2>
+            <p>Le traitement de vos données repose sur <strong>l'exécution du contrat</strong> (article 6.1.b du RGPD) : en passant commande, vous demandez la réalisation d'une prestation qui nécessite le traitement de ces informations.</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>Durée de conservation</h2>
+            <p>Vos données personnelles et vos photos sont <strong>supprimées après la livraison du rapport d'estimation</strong>. Seules les informations strictement nécessaires aux obligations comptables et fiscales sont conservées pour la durée légale requise (factures : 10 ans conformément au Code de commerce).</p>
+            <p>Les éventuels témoignages publiés sur le site sont conservés jusqu'à demande de retrait de votre part.</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>Hébergement des données</h2>
+            <div class="info-block">
+                <p><strong>Formulaire :</strong> Tally — données hébergées en Europe (infrastructure conforme RGPD)</p>
+                <p><strong>Site web :</strong> Netlify, Inc. — 44 Montgomery Street, Suite 300, San Francisco, CA 94104, États-Unis</p>
+                <p><strong>Paiement :</strong> Stripe / Gumroad — prestataires certifiés PCI-DSS</p>
+            </div>
+            <p>Les transferts de données hors Union européenne (hébergement Netlify) sont encadrés par les clauses contractuelles types approuvées par la Commission européenne.</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>Vos droits</h2>
+            <p>Conformément au RGPD, vous disposez à tout moment des droits suivants sur vos données personnelles :</p>
+
+            <div class="rights-grid">
+                <div class="right-card">
+                    <div class="right-icon">&#128269;</div>
+                    <div class="right-title">Droit d'accès</div>
+                    <div class="right-desc">Savoir quelles données sont détenues à votre sujet.</div>
+                </div>
+                <div class="right-card">
+                    <div class="right-icon">&#9998;</div>
+                    <div class="right-title">Droit de rectification</div>
+                    <div class="right-desc">Corriger des informations inexactes ou incomplètes.</div>
+                </div>
+                <div class="right-card">
+                    <div class="right-icon">&#128465;</div>
+                    <div class="right-title">Droit à l'effacement</div>
+                    <div class="right-desc">Demander la suppression de vos données personnelles.</div>
+                </div>
+                <div class="right-card">
+                    <div class="right-icon">&#9995;</div>
+                    <div class="right-title">Droit d'opposition</div>
+                    <div class="right-desc">Vous opposer au traitement de vos données.</div>
+                </div>
+                <div class="right-card">
+                    <div class="right-icon">&#128230;</div>
+                    <div class="right-title">Droit à la portabilité</div>
+                    <div class="right-desc">Recevoir vos données dans un format structuré et lisible.</div>
+                </div>
+                <div class="right-card">
+                    <div class="right-icon">&#9200;</div>
+                    <div class="right-title">Droit à la limitation</div>
+                    <div class="right-desc">Limiter temporairement le traitement de vos données.</div>
+                </div>
+            </div>
+
+            <p>Pour exercer l'un de ces droits, envoyez un email à <a href="mailto:contact@estimationcave.com">contact@estimationcave.com</a>. Nous nous engageons à répondre dans un délai d'un mois.</p>
+            <p>Si vous estimez que vos droits ne sont pas respectés, vous pouvez introduire une réclamation auprès de la <strong>Commission Nationale de l'Informatique et des Libertés (CNIL)</strong> — <a href="https://www.cnil.fr" target="_blank" rel="noopener">www.cnil.fr</a>.</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>Cookies</h2>
+            <p>Le site estimationcave.com n'utilise pas de cookies de suivi ni de cookies publicitaires. Seuls des cookies strictement nécessaires au fonctionnement technique du site peuvent être déposés (par exemple par l'hébergeur Netlify). Ces cookies techniques ne nécessitent pas votre consentement préalable conformément à la directive ePrivacy.</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>Modifications</h2>
+            <p>La présente politique de confidentialité peut être mise à jour pour refléter des évolutions légales ou des changements dans nos pratiques. En cas de modification substantielle, un avis sera affiché sur le site. La date de dernière mise à jour est indiquée ci-dessous.</p>
+        </section>
+
+        <p class="update-date">Dernière mise à jour : avril 2026</p>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <p class="footer-brand">estimation<span>cave</span>.com</p>
+            <div class="footer-links">
+                <a href="https://estimationcave.com">Accueil</a>
+                <a href="mentions-legales.html">Mentions légales</a>
+                <a href="confidentialite.html">Confidentialité</a>
+                <a href="faq.html">FAQ</a>
+            <span class="footer-sep">·</span>
+            <a href="blog.html">Blog</a>
+                <a href="mailto:contact@estimationcave.com">Contact</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 Estimation Cave — Fanny Lonqueu-Brochard. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+  <button id="btt" aria-label="Retour en haut" style="position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:#2D1B2E;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease,transform .3s ease;z-index:999;box-shadow:0 4px 16px rgba(45,27,46,.25);" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C5A258" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
+  <script>
+    (function(){var b=document.getElementById('btt');window.addEventListener('scroll',function(){if(window.scrollY>300){b.style.opacity='1';b.style.visibility='visible'}else{b.style.opacity='0';b.style.visibility='hidden'}});b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})})})();
+  </script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Questions fréquentes sur le service d'estimation de cave à vins estimationcave.com — comment ça marche, délais, confidentialité, paiement.">
+  <title>FAQ — estimationcave.com</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bordeaux: #2D1B2E;
+      --or: #C5A258;
+      --or-light: #D4B76E;
+      --or-pale: rgba(197, 162, 88, 0.10);
+      --fond: #FAF6F0;
+      --texte: #3A3035;
+      --texte-light: #6B5F65;
+      --blanc: #FFFFFF;
+      --border: rgba(45, 27, 46, 0.08);
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Inter', -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--fond);
+      color: var(--texte);
+      line-height: 1.7;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    h1, h2, h3 { font-family: var(--font-display); font-weight: 600; color: var(--bordeaux); line-height: 1.2; }
+    h1 { font-size: clamp(2rem, 4vw, 2.8rem); letter-spacing: -0.02em; }
+    h2 { font-size: clamp(1.4rem, 2.5vw, 1.8rem); }
+
+    .ornament {
+      display: block;
+      width: 48px;
+      height: 2px;
+      background: var(--or);
+      margin: 1.5rem auto;
+    }
+
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--or);
+      margin-bottom: 0.75rem;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(250, 246, 240, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--bordeaux);
+    }
+    .nav-logo span { color: var(--or); }
+
+    .nav-back {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--or);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.25s ease;
+    }
+    .nav-back:hover { color: var(--bordeaux); }
+    .nav-back svg { width: 16px; height: 16px; }
+
+    .btn-primary {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.85rem;
+      letter-spacing: 0.03em;
+      background: var(--bordeaux);
+      color: var(--fond);
+      padding: 0.65rem 1.5rem;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .btn-primary:hover {
+      background: #3D2940;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 30px rgba(45, 27, 46, 0.2);
+    }
+
+    .btn-outline {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.95rem;
+      letter-spacing: 0.03em;
+      background: transparent;
+      color: var(--bordeaux);
+      padding: 0.85rem 2rem;
+      border: 1.5px solid var(--bordeaux);
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .btn-outline:hover {
+      background: var(--bordeaux);
+      color: var(--fond);
+    }
+
+    /* ── HEADER ── */
+    .page-header {
+      padding: 8.5rem 0 3.5rem;
+      text-align: center;
+    }
+
+    .page-header p.intro {
+      font-size: 1.05rem;
+      color: var(--texte-light);
+      font-weight: 300;
+      max-width: 500px;
+      margin: 1rem auto 0;
+      line-height: 1.8;
+    }
+
+    /* ── FAQ CATEGORIES ── */
+    .faq-section {
+      margin-bottom: 3.5rem;
+    }
+
+    .faq-category {
+      margin-bottom: 0.75rem;
+    }
+
+    .faq-category h2 {
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--or);
+      margin-bottom: 0;
+      display: inline-block;
+    }
+
+    /* ── ACCORDION ── */
+    .accordion-item {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .accordion-trigger {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 1.25rem 2.5rem 1.25rem 0;
+      text-align: left;
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--bordeaux);
+      line-height: 1.5;
+      position: relative;
+      transition: color 0.2s ease;
+    }
+
+    .accordion-trigger:hover { color: var(--or); }
+
+    .accordion-trigger::after {
+      content: '+';
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.3rem;
+      font-weight: 300;
+      color: var(--or);
+      transition: transform 0.3s ease;
+    }
+
+    .accordion-item.open .accordion-trigger::after {
+      content: '−';
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+    }
+
+    .accordion-item.open .accordion-content {
+      max-height: 500px;
+    }
+
+    .accordion-answer {
+      padding: 0 0 1.5rem 0;
+      font-size: 0.92rem;
+      color: var(--texte-light);
+      line-height: 1.85;
+    }
+
+    .accordion-answer p { margin-bottom: 0.75rem; }
+    .accordion-answer p:last-child { margin-bottom: 0; }
+
+    /* ── CTA ── */
+    .faq-cta {
+      text-align: center;
+      padding: 3rem 0 5rem;
+      border-top: 1px solid var(--border);
+      margin-top: 1rem;
+    }
+
+    .faq-cta p {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--bordeaux);
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      padding: 2.5rem 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.5rem;
+      font-size: 0.82rem;
+      color: var(--texte-light);
+    }
+
+    .footer-logo {
+      font-family: var(--font-display);
+      font-weight: 600;
+      color: var(--bordeaux);
+      font-size: 0.95rem;
+    }
+
+    .footer-sep { color: var(--or); opacity: 0.5; }
+    .footer a:hover { color: var(--or); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .container { padding: 0 1.25rem; }
+      .nav-inner { padding: 0 1.25rem; height: 64px; }
+      .nav-logo { font-size: 1.05rem; }
+      .nav .btn-primary { padding: 0.5rem 1rem; font-size: 0.8rem; }
+      .page-header { padding: 7rem 0 2.5rem; }
+      .footer-inner { flex-direction: column; gap: 0.5rem; }
+      .footer-sep { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">estimation<span>cave</span>.com</a>
+      <div style="display:flex;align-items:center;gap:2rem;">
+        <a href="index.html" class="nav-back">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          Retour au site
+        </a>
+        <a href="https://buy.stripe.com/dRm28kc5ffAy5ll8hp4Rq00" target="_blank" rel="noopener" class="btn-primary">Demander un audit</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── HEADER ── -->
+  <header class="page-header">
+    <div class="container">
+      <p class="section-label">FAQ</p>
+      <h1>Questions fréquentes</h1>
+      <span class="ornament"></span>
+      <p class="intro">Tout ce que vous devez savoir avant de passer commande.</p>
+    </div>
+  </header>
+
+  <!-- ── FAQ ── -->
+  <main>
+    <div class="container">
+
+      <!-- CATÉGORIE 1 — LE SERVICE -->
+      <div class="faq-section">
+        <div class="faq-category"><h2>Le service</h2></div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">Comment se passe l'estimation à distance ?</button>
+          <div class="accordion-content"><div class="accordion-answer">
+            <p>Tout se fait en ligne. Vous remplissez un formulaire pour décrire votre cave et vos objectifs, vous joignez vos photos et/ou un fichier avec la liste de vos vins, et vous recevez votre rapport PDF complet par e-mail sous 5 jours ouvrés. Aucun déplacement, aucun rendez-vous, aucun appel téléphonique nécessaire.</p>
+          </div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">Avez-vous besoin de voir les bouteilles en vrai ?</button>
+          <div class="accordion-content"><div class="accordion-answer">
+            <p>Non. L'estimation se fait intégralement sur la base de vos photos. Des clichés nets de l'étiquette, du niveau de vin dans la bouteille et de la capsule suffisent pour réaliser une analyse fiable. Si vous n'avez pas toutes les photos dès le départ, cela ne bloque pas l'audit, il pourra être affiné si besoin dans un second temps.</p>
+          </div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">Quels types de vins estimez-vous ?</button>
+          <div class="accordion-content"><div class="accordion-answer">
+            <p>J'estime tous les types de vins : rouges, blancs, rosés, liquoreux, effervescents. L'estimation couvre à la fois les appellations françaises et les principales appellations internationales. Si votre cave contient des spiritueux, n'hésitez pas à les mentionner dans le formulaire, ils feront l'objet d'un traitement à part.</p>
+          </div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">Combien de temps prend l'estimation ?</button>
+          <div class="accordion-content"><div class="accordion-answer">
+            <p>Le rapport vous est livré sous 5 jours ouvrés après réception de vos photos et de votre formulaire complété. La plupart des rapports sont livrés en 3 à 4 jours.</p>
+          </div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">J'ai une petite cave — est-ce vraiment adapté pour moi ?</button>
+          <div class="accordion-content"><div class="accordion-answer">
+            <p>Absolument. Qu'il s'agisse de 10 ou de 200 bouteilles, l'audit s'adapte à votre situation. Une petite cave peut contenir des références très intéressantes sans que vous le sachiez. C'est justement l'intérêt de faire le point avec un regard professionnel.</p>
+          </div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">Je suis totalement novice en vin — cet audit me sera-t-il accessible ?</button>
+          <div class="accordion-content"><div class="accordion-answer">
+            <p>Le rapport est conçu pour être lu et compris par tout le monde, même sans aucune connaissance en vin. Chaque recommandation est formulée clairement, sans jargon inutile. Mon objectif est que vous puissiez prendre une décision éclairée, pas que vous deveniez sommelier. N'hésitez pas à le préciser dans le formulaire, je pourrais ainsi adapter davantage mes réponses à votre niveau.</p>
+          </div></div>
+        </div>
+      </div>
+
+      <!-- CATÉGORIE 2 — LES PHOTOS -->
+      <div class="faq-section">
+        <div class="faq-category"><h2>Les photos</h2></div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">Comment photographier mes bouteilles ?</button>
+          <div class="accordion-content"><div class="accordion-answer">
+            <p>Trois éléments importants pour chaque bouteille : l'étiquette (face avant, bien lisible), le niveau de vin (visible à travers la bouteille) et la capsule (état général). Un smartphone suffit largement — prenez les photos à la lumière naturelle si possible et veillez à ce que le texte de l'étiquette soit net. Il faut que les bouteilles soient en position debout et non couchées.</p>
+          </div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">Combien de photos faut-il fournir ?</button>
+          <div class="accordion-content"><div class="accordion-answer">
+            <p>Comptez 1 à 3 photos par bouteille (étiquette + niveau + capsule). Si vous avez plusieurs bouteilles identiques, une seule série de photos suffit pour le lot. Pas besoin de photographier les contre-étiquettes sauf si l'étiquette principale est illisible.</p>
+          </div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">Je n'ai pas toutes les bouteilles accessibles — que faire ?</button>
+          <div class="accordion-content"><div class="accordion-answer">
+            <p>Pas de problème. Envoyez les photos de ce que vous pouvez atteindre et décrivez le reste dans le formulaire (appellations, millésimes, quantités approximatives si vous les connaissez). Je ferai l'estimation sur ce qui est documenté et vous indiquerai comment compléter si nécessaire.</p>
+          </div></div>
+        </div>
+      </div>
+
+      <!-- CATÉGORIE 3 — LE RAPPORT -->
+      <div class="faq-section">
+        <div class="faq-category"><h2>Le rapport</h2></div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">Que contient exactement le rapport ?</button>
+          <div class="accordion-content"><div class="accordion-answer">
+            <p>Le rapport comprend un inventaire structuré de chaque référence, une estimation de la valeur de marché, des recommandations par lot (à vendre, à conserver, à surveiller), des graphiques de répartition (région, couleur, potentiel de garde), un contexte marché personnalisé et un plan d'action concret adapté à votre situation. Il contient une dizaine de pages.</p>
+          </div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">Le rapport est-il utilisable pour une succession ou une assurance ?</button>
+          <div class="accordion-content"><div class="accordion-answer">
+            <p>Le rapport fournit une estimation argumentée de la valeur de marché de votre cave, ce qui peut constituer une base solide pour une discussion avec un notaire ou un assureur. Il ne remplace pas une expertise judiciaire assermentée, mais il apporte un éclairage professionnel clair et documenté sur la valeur réelle de vos bouteilles.</p>
+          </div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">Puis-je utiliser le rapport pour vendre aux enchères ?</button>
+          <div class="accordion-content"><div class="accordion-answer">
+            <p>Oui. Le rapport identifie les références les plus adaptées à une vente aux enchères et vous donne les éléments nécessaires pour contacter une maison de ventes en connaissance de cause. Vous saurez quelles bouteilles ont un réel potentiel sur le marché secondaire et lesquelles seraient mieux valorisées autrement.</p>
+          </div></div>
+        </div>
+      </div>
+
+      <!-- CATÉGORIE 4 — PAIEMENT ET CONFIANCE -->
+      <div class="faq-section">
+        <div class="faq-category"><h2>Paiement et confiance</h2></div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">Quand dois-je payer ?</button>
+          <div class="accordion-content"><div class="accordion-answer">
+            <p>Le paiement s'effectue au moment de la commande, directement via le formulaire sécurisé. Cela me permet de démarrer l'analyse dès réception de vos photos.</p>
+          </div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">Comment garantir que je recevrai bien mon rapport après le paiement ?</button>
+          <div class="accordion-content"><div class="accordion-answer">
+            <p>Dès votre commande validée, vous recevez un e-mail de confirmation qui fait office de preuve de commande. Le rapport est livré par e-mail sous 5 jours ouvrés. En cas de non-livraison dans ce délai — quelle qu'en soit la raison — vous êtes remboursé intégralement. C'est un engagement simple et sans ambiguïté.</p>
+          </div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">Y a-t-il des frais cachés ?</button>
+          <div class="accordion-content"><div class="accordion-answer">
+            <p>Aucun. Le service est actuellement proposé à 99 € dans le cadre d'un tarif fondateur privé réservé aux premières demandes. Le tarif de référence sera ensuite fixé à 149 €. Il n'y a pas de supplément, pas d'abonnement, pas de frais de dossier. Ce que vous voyez est ce que vous payez.</p>
+          </div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">Mes informations sont-elles protégées ?</button>
+          <div class="accordion-content"><div class="accordion-answer">
+            <p>Oui. Toutes les informations que vous transmettez — photos, inventaire, coordonnées — sont traitées de manière strictement confidentielle. Elles ne sont jamais partagées, revendues ou utilisées à d'autres fins que votre estimation. La confidentialité est réciproque et garantie.</p>
+          </div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">Qui aura accès à mon inventaire ?</button>
+          <div class="accordion-content"><div class="accordion-answer">
+            <p>Moi uniquement. Votre inventaire et vos photos ne sont transmis à aucun tiers — ni maison de ventes, ni partenaire, ni plateforme. Ce que vous partagez reste entre vous et moi, point final.</p>
+          </div></div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="faq-cta">
+        <p>Une autre question ?</p>
+        <a href="mailto:contact@estimationcave.com" class="btn-outline">Écrivez-nous</a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-logo">estimationcave.com</span>
+      <span class="footer-sep">·</span>
+      <a href="mailto:contact@estimationcave.com">contact@estimationcave.com</a>
+      <span class="footer-sep">·</span>
+      <a href="mentions-legales.html">Mentions légales</a>
+      <span class="footer-sep">·</span>
+      <a href="confidentialite.html">Confidentialité</a>
+      <span class="footer-sep">·</span>
+      <a href="faq.html">FAQ</a>
+            <span class="footer-sep">·</span>
+            <a href="blog.html">Blog</a>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.accordion-trigger').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = this.parentElement;
+        var isOpen = item.classList.contains('open');
+        item.classList.toggle('open');
+        this.setAttribute('aria-expanded', !isOpen);
+      });
+    });
+  </script>
+
+  <button id="btt" aria-label="Retour en haut" style="position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:#2D1B2E;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease,transform .3s ease;z-index:999;box-shadow:0 4px 16px rgba(45,27,46,.25);" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C5A258" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
+  <script>
+    (function(){var b=document.getElementById('btt');window.addEventListener('scroll',function(){if(window.scrollY>300){b.style.opacity='1';b.style.visibility='visible'}else{b.style.opacity='0';b.style.visibility='hidden'}});b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})})})();
+  </script>
+
+</body>
+</html>
+
+google-site-verification: googlea7875a85f9e9f0aa.html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Estimez votre cave à vins à distance : rapport d'audit complet, inventaire, estimation de valeur, recommandations par lot. Livraison sous 5 jours.">
+  <meta property="og:title" content="Que vaut réellement votre cave à vins ?">
+  <meta property="og:description" content="Recevez un audit professionnel de votre cave à vins à distance. Rapport complet sous 5 jours ouvrés.">
+  <meta property="og:url" content="https://estimationcave.com">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <title>estimationcave.com — Audit et estimation de cave à vins</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ── RESET & BASE ── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bordeaux: #2D1B2E;
+      --or: #C5A258;
+      --or-light: #D4B76E;
+      --or-pale: rgba(197, 162, 88, 0.10);
+      --fond: #FAF6F0;
+      --fond-alt: #F4EDE3;
+      --texte: #3A3035;
+      --texte-light: #6B5F65;
+      --blanc: #FFFFFF;
+      --border: rgba(45, 27, 46, 0.08);
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Inter', -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--fond);
+      color: var(--texte);
+      line-height: 1.7;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ── TYPOGRAPHY ── */
+    h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(--bordeaux); line-height: 1.2; }
+
+    h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); letter-spacing: -0.02em; }
+    h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); letter-spacing: -0.01em; }
+    h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); }
+
+    .section-subtitle {
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      color: var(--texte-light);
+      font-weight: 300;
+      max-width: 600px;
+      margin: 1rem auto 0;
+      line-height: 1.8;
+    }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.95rem;
+      letter-spacing: 0.03em;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: var(--bordeaux);
+      color: var(--fond);
+      padding: 1rem 2.4rem;
+      border-radius: 4px;
+    }
+    .btn-primary:hover {
+      background: #3D2940;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 30px rgba(45, 27, 46, 0.2);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--bordeaux);
+      padding: 0.85rem 2rem;
+      border: 1.5px solid var(--bordeaux);
+      border-radius: 4px;
+    }
+    .btn-outline:hover {
+      background: var(--bordeaux);
+      color: var(--fond);
+    }
+
+    .btn-gold {
+      background: var(--or);
+      color: var(--bordeaux);
+      padding: 1.1rem 2.6rem;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    .btn-gold:hover {
+      background: var(--or-light);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 30px rgba(197, 162, 88, 0.3);
+    }
+
+    /* ── ORNAMENTS ── */
+    .ornament {
+      display: block;
+      width: 48px;
+      height: 2px;
+      background: var(--or);
+      margin: 1.5rem auto;
+    }
+
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--or);
+      margin-bottom: 0.75rem;
+    }
+
+    /* ══════════════════════════════════
+       1. NAVIGATION
+    ══════════════════════════════════ */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(250, 246, 240, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--bordeaux);
+      letter-spacing: -0.01em;
+    }
+    .nav-logo span { color: var(--or); }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .nav-link {
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--bordeaux);
+      transition: color 0.25s ease;
+    }
+    .nav-link:hover { color: var(--or); }
+
+    .nav .btn-primary {
+      padding: 0.65rem 1.5rem;
+      font-size: 0.85rem;
+    }
+
+    /* ══════════════════════════════════
+       2. HERO
+    ══════════════════════════════════ */
+    .hero {
+      padding: 10rem 0 3.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(197,162,88,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero h1 {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--texte-light);
+      max-width: 540px;
+      margin: 1.5rem auto 2.5rem;
+      line-height: 1.85;
+    }
+
+    .hero-mention {
+      display: block;
+      margin-top: 1.2rem;
+      font-size: 0.82rem;
+      color: var(--texte-light);
+      letter-spacing: 0.02em;
+    }
+
+    .hero-mention span {
+      margin: 0 0.5rem;
+      color: var(--or);
+    }
+
+    /* ══════════════════════════════════
+       2b. INTRO
+    ══════════════════════════════════ */
+    .intro {
+      padding: 1.5rem 0 1.5rem;
+    }
+
+    .intro-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .intro-inner p {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--texte-light);
+      line-height: 1.85;
+      margin-bottom: 1.25rem;
+    }
+
+    .intro-inner p:last-of-type { margin-bottom: 0; }
+
+    .intro-inner em {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      color: var(--bordeaux);
+      font-weight: 600;
+      font-style: normal;
+      letter-spacing: -0.02em;
+      line-height: 1.3;
+    }
+
+    .intro-ornament {
+      display: block;
+      width: 48px;
+      height: 2px;
+      background: var(--or);
+      margin: 2rem auto 0;
+    }
+
+    /* ══════════════════════════════════
+       3. PROBLÈME
+    ══════════════════════════════════ */
+    .probleme {
+      padding: 3.5rem 0 6rem;
+    }
+
+    .probleme-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .probleme-header h2 {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .situations {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .situation-card {
+      background: var(--blanc);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 2.5rem 2rem;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .situation-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 2rem;
+      right: 2rem;
+      height: 2px;
+      background: var(--or);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .situation-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(45, 27, 46, 0.06);
+    }
+    .situation-card:hover::before { opacity: 1; }
+
+    .situation-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--or-pale);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      font-size: 1.2rem;
+    }
+
+    .situation-card h3 {
+      margin-bottom: 0.75rem;
+      font-size: 1.25rem;
+    }
+
+    .situation-card p {
+      font-size: 0.92rem;
+      color: var(--texte-light);
+      line-height: 1.75;
+    }
+
+    /* ══════════════════════════════════
+       4. CE QUE VOUS RECEVEZ
+    ══════════════════════════════════ */
+    .livrables {
+      padding: 6rem 0;
+      background: var(--blanc);
+    }
+
+    .livrables-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .livrables-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      max-width: 880px;
+      margin: 0 auto;
+    }
+
+    .livrable-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.5rem;
+      border-radius: 6px;
+      background: var(--fond);
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    .livrable-item:hover {
+      border-color: rgba(197, 162, 88, 0.3);
+    }
+
+    .livrable-check {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      background: var(--or-pale);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--or);
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-top: 0.1rem;
+    }
+
+    .livrable-item h4 {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--bordeaux);
+      margin-bottom: 0.2rem;
+    }
+
+    .livrable-item p {
+      font-size: 0.85rem;
+      color: var(--texte-light);
+      line-height: 1.6;
+    }
+
+    /* ══════════════════════════════════
+       5. COMMENT ÇA MARCHE
+    ══════════════════════════════════ */
+    .process {
+      padding: 6rem 0;
+    }
+
+    .process-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+      position: relative;
+    }
+
+    .steps::before {
+      content: '';
+      position: absolute;
+      top: 32px;
+      left: calc(16.66% + 1.25rem);
+      right: calc(16.66% + 1.25rem);
+      height: 1px;
+      background: linear-gradient(90deg, var(--or), rgba(197,162,88,0.2), var(--or));
+    }
+
+    .step {
+      text-align: center;
+      position: relative;
+    }
+
+    .step-number {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--fond);
+      border: 2px solid var(--or);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--or);
+      position: relative;
+      z-index: 2;
+    }
+
+    .step h3 {
+      margin-bottom: 0.75rem;
+      font-size: 1.15rem;
+    }
+
+    .step p {
+      font-size: 0.9rem;
+      color: var(--texte-light);
+      line-height: 1.75;
+      max-width: 280px;
+      margin: 0 auto;
+    }
+
+    /* ══════════════════════════════════
+       6. TARIF
+    ══════════════════════════════════ */
+    .tarif {
+      padding: 6rem 0;
+      background: var(--blanc);
+    }
+
+    .tarif-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .tarif-card {
+      max-width: 640px;
+      margin: 0 auto;
+      background: var(--fond);
+      border: 1.5px solid rgba(197, 162, 88, 0.25);
+      border-radius: 8px;
+      padding: 3.5rem 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tarif-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--or), var(--bordeaux), var(--or));
+    }
+
+    .tarif-prix {
+      font-family: var(--font-display);
+      font-size: 4rem;
+      font-weight: 700;
+      color: var(--bordeaux);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+
+    .tarif-prix-label {
+      font-size: 0.9rem;
+      color: var(--texte-light);
+      margin-bottom: 2rem;
+    }
+
+    .tarif-features {
+      text-align: left;
+      max-width: 440px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .tarif-feature {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      padding: 0.55rem 0;
+      font-size: 0.92rem;
+      color: var(--texte);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tarif-feature:last-child { border-bottom: none; }
+
+    .tarif-feature .dot {
+      flex-shrink: 0;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--or);
+      margin-top: 0.4rem;
+    }
+
+    /* ══════════════════════════════════
+       7. TÉMOIGNAGES
+    ══════════════════════════════════ */
+    .temoignages {
+      padding: 6rem 0;
+    }
+
+    .temoignages-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .temoignages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .temoignage-card {
+      background: var(--blanc);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 2.5rem 2rem;
+      position: relative;
+    }
+
+    .temoignage-card::before {
+      content: '\201C';
+      font-family: var(--font-display);
+      font-size: 4rem;
+      color: var(--or);
+      opacity: 0.3;
+      position: absolute;
+      top: 0.75rem;
+      left: 1.5rem;
+      line-height: 1;
+    }
+
+    .temoignage-text {
+      font-style: italic;
+      color: var(--texte-light);
+      font-size: 0.92rem;
+      line-height: 1.75;
+      margin-bottom: 1.5rem;
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .temoignage-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .temoignage-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--or-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 600;
+      color: var(--or);
+      font-size: 1rem;
+    }
+
+    .temoignage-name {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--bordeaux);
+    }
+    .temoignage-role {
+      font-size: 0.78rem;
+      color: var(--texte-light);
+    }
+
+    /* ══════════════════════════════════
+       8. CONFIDENTIALITÉ
+    ══════════════════════════════════ */
+    .confidentialite {
+      padding: 5rem 0;
+      background: var(--bordeaux);
+      color: rgba(250, 246, 240, 0.85);
+    }
+
+    .confidentialite-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .confidentialite h2 {
+      color: var(--fond);
+      margin-bottom: 0.5rem;
+    }
+
+    .confidentialite .ornament {
+      background: var(--or);
+      margin: 1.5rem auto;
+    }
+
+    .confidentialite p {
+      font-size: 1rem;
+      line-height: 1.85;
+      font-weight: 300;
+    }
+
+    .confidentialite-icon {
+      width: 56px;
+      height: 56px;
+      border: 1.5px solid rgba(197, 162, 88, 0.4);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 1.4rem;
+    }
+
+    /* ══════════════════════════════════
+       9. FORMULAIRE
+    ══════════════════════════════════ */
+    .formulaire {
+      padding: 6rem 0;
+    }
+
+    .formulaire-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .tally-embed-zone {
+      max-width: 720px;
+      margin: 0 auto;
+      background: var(--blanc);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 3rem 2.5rem;
+      text-align: center;
+    }
+
+    .tally-placeholder {
+      padding: 2rem;
+      border: 2px dashed rgba(197, 162, 88, 0.3);
+      border-radius: 6px;
+      color: var(--texte-light);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .tally-placeholder code {
+      display: block;
+      background: var(--fond);
+      padding: 1rem;
+      border-radius: 4px;
+      font-size: 0.82rem;
+      margin-top: 1rem;
+      font-family: 'Courier New', monospace;
+      color: var(--bordeaux);
+      word-break: break-all;
+    }
+
+    .tally-alt {
+      font-size: 0.85rem;
+      color: var(--texte-light);
+      margin-top: 1rem;
+    }
+
+    /* ══════════════════════════════════
+       10. FOOTER
+    ══════════════════════════════════ */
+    .footer {
+      padding: 2.5rem 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.5rem;
+      font-size: 0.82rem;
+      color: var(--texte-light);
+    }
+
+    .footer-logo {
+      font-family: var(--font-display);
+      font-weight: 600;
+      color: var(--bordeaux);
+      font-size: 0.95rem;
+    }
+
+    .footer-sep { color: var(--or); opacity: 0.5; }
+
+    .footer a:hover { color: var(--or); }
+
+    /* ══════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════ */
+    @media (max-width: 900px) {
+      .situations,
+      .steps,
+      .temoignages-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .steps::before { display: none; }
+
+      .livrables-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero { padding: 8rem 0 4rem; }
+
+      .tarif-card { padding: 2.5rem 1.5rem; }
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 0 1.25rem; }
+      .nav-inner { padding: 0 1.25rem; height: 64px; gap: 1rem; }
+      .nav-logo { font-size: 1.05rem; flex-shrink: 0; }
+      .nav .btn-primary { padding: 0.5rem 1rem; font-size: 0.8rem; }
+      .nav-right { gap: 1rem; }
+      .nav-link { font-size: 0.8rem; }
+      .hero { padding: 7rem 0 3.5rem; }
+      .hero-subtitle { font-size: 1rem; }
+      .btn-gold { padding: 0.95rem 2rem; font-size: 0.92rem; }
+      .tarif-prix { font-size: 3rem; }
+      .tally-embed-zone { padding: 2rem 1.25rem; }
+      .footer-inner { flex-direction: column; gap: 0.5rem; }
+      .footer-sep { display: none; }
+
+      .probleme, .livrables, .process, .tarif, .temoignages, .formulaire {
+        padding: 4rem 0;
+      }
+    }
+
+    /* ── ANIMATIONS ── */
+    @media (prefers-reduced-motion: no-preference) {
+      .situation-card,
+      .livrable-item,
+      .step,
+      .temoignage-card {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeUp 0.6s ease forwards;
+      }
+      .situation-card:nth-child(1), .step:nth-child(1), .temoignage-card:nth-child(1) { animation-delay: 0.1s; }
+      .situation-card:nth-child(2), .step:nth-child(2), .temoignage-card:nth-child(2) { animation-delay: 0.2s; }
+      .situation-card:nth-child(3), .step:nth-child(3), .temoignage-card:nth-child(3) { animation-delay: 0.3s; }
+      .livrable-item:nth-child(1) { animation-delay: 0.05s; }
+      .livrable-item:nth-child(2) { animation-delay: 0.1s; }
+      .livrable-item:nth-child(3) { animation-delay: 0.15s; }
+      .livrable-item:nth-child(4) { animation-delay: 0.2s; }
+      .livrable-item:nth-child(5) { animation-delay: 0.25s; }
+      .livrable-item:nth-child(6) { animation-delay: 0.3s; }
+    }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+
+  <!-- ════════════ 1. NAVIGATION ════════════ -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">estimation<span>cave</span>.com</a>
+      <div class="nav-right">
+        <a href="faq.html" class="nav-link">FAQ</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="#formulaire" class="btn btn-primary">Demander un audit</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ════════════ 2. HERO ════════════ -->
+  <section class="hero">
+    <div class="container">
+      <p class="section-label">Audit &amp; estimation de cave à vins</p>
+      <h1>Que vaut réellement votre cave à vins&nbsp;?</h1>
+      <p class="hero-subtitle">Recevez un diagnostic clair, complet et structuré pour vous aider à prendre une décision sereinement : pour vendre au bon moment, garder ce qui a de la valeur, et ne rien regretter.</p>
+      <a href="#formulaire" class="btn btn-gold">Demander un audit — 99&thinsp;€ (tarif fondateur)</a>
+      <span class="hero-mention">
+        Livraison sous 5 jours ouvrés <span>·</span> 100% à distance <span>·</span> Strictement confidentiel
+      </span>
+    </div>
+  </section>
+
+
+  <!-- ════════════ 2b. INTRO ════════════ -->
+  <section class="intro">
+    <div class="container">
+      <div class="intro-inner">
+        <p><em>Avant de vendre une cave à vin, il faut d'abord la comprendre.</em></p>
+        <p>Entre la valeur réelle des bouteilles, leur état de conservation, leur potentiel de revente et les écarts parfois importants entre prix "affichés" et prix réellement obtenus, une cave ne s'évalue pas sérieusement en quelques minutes.</p>
+        <p>Mon rôle est de vous aider à y voir clair grâce à un audit indépendant de votre cave, afin que vous puissiez prendre une décision éclairée, sereine et adaptée à votre situation.</p>
+        <p>Que vous envisagiez une vente aux enchères, une vente partielle, une succession, un partage familial ou simplement une mise à plat de votre cave, vous recevez un rapport structuré, lisible et directement utile.</p>
+        <span class="intro-ornament"></span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════ 3. PROBLÈME ════════════ -->
+  <section class="probleme">
+    <div class="container">
+      <div class="probleme-header">
+        <p class="section-label">Le problème</p>
+        <h2>Vous avez une cave. Mais savez-vous vraiment ce qu'elle vaut&nbsp;?</h2>
+        <span class="ornament"></span>
+      </div>
+      <div class="situations">
+        <div class="situation-card">
+          <div class="situation-icon">&#127942;</div>
+          <h3>Succession ou héritage</h3>
+          <p>Vous avez hérité d'une cave et vous ne savez pas précisément ce qu'elle contient, ni quelle valeur elle représente.</p>
+        </div>
+        <div class="situation-card">
+          <div class="situation-icon">&#128200;</div>
+          <h3>Vente partielle ou totale</h3>
+          <p>Vous voulez vendre au bon prix, au bon moment, sans sous-estimer vos bouteilles ni passer à côté d'une opportunité.</p>
+        </div>
+        <div class="situation-card">
+          <div class="situation-icon">&#128218;</div>
+          <h3>Inventaire personnel</h3>
+          <p>Vous possédez une cave constituée au fil des années et vous souhaitez faire un point sérieux sur sa valeur, son état général et les meilleures décisions à prendre.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════ 4. CE QUE VOUS RECEVEZ ════════════ -->
+  <section class="livrables">
+    <div class="container">
+      <div class="livrables-header">
+        <p class="section-label">Ce que vous recevez</p>
+        <h2>Un rapport professionnel de A à Z</h2>
+        <span class="ornament"></span>
+        <p class="section-subtitle">Un document structuré, lisible et directement actionnable — que vous soyez novice ou connaisseur.</p>
+      </div>
+      <div class="livrables-grid">
+        <div class="livrable-item">
+          <div class="livrable-check">&#10003;</div>
+          <div>
+            <h4>Inventaire structuré</h4>
+            <p>Chaque référence identifiée, classée et documentée avec soin.</p>
+          </div>
+        </div>
+        <div class="livrable-item">
+          <div class="livrable-check">&#10003;</div>
+          <div>
+            <h4>Estimation de la valeur de marché</h4>
+            <p>Un prix de marché réaliste pour chaque lot, basé sur les transactions réelles.</p>
+          </div>
+        </div>
+        <div class="livrable-item">
+          <div class="livrable-check">&#10003;</div>
+          <div>
+            <h4>Recommandation par lot</h4>
+            <p>À vendre, à conserver ou à surveiller — avec justification claire.</p>
+          </div>
+        </div>
+        <div class="livrable-item">
+          <div class="livrable-check">&#10003;</div>
+          <div>
+            <h4>Graphiques de répartition</h4>
+            <p>Région, couleur, potentiel de garde — votre cave en un coup d'œil.</p>
+          </div>
+        </div>
+        <div class="livrable-item">
+          <div class="livrable-check">&#10003;</div>
+          <div>
+            <h4>Contexte marché et liquidité</h4>
+            <p>Où en sont vos références sur le marché actuel des enchères et du négoce.</p>
+          </div>
+        </div>
+        <div class="livrable-item">
+          <div class="livrable-check">&#10003;</div>
+          <div>
+            <h4>Plan d'action personnalisé</h4>
+            <p>Des étapes concrètes pour valoriser votre cave selon vos objectifs.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════ 5. COMMENT ÇA MARCHE ════════════ -->
+  <section class="process">
+    <div class="container">
+      <div class="process-header">
+        <p class="section-label">Comment ça marche</p>
+        <h2>Simple. Rapide. À distance.</h2>
+        <span class="ornament"></span>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Décrivez votre cave</h3>
+          <p>Remplissez le formulaire en ligne et décrivez votre cave en 10 à 15 minutes.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Envoyez vos photos</h3>
+          <p>Ajoutez vos photos directement via le formulaire ou partagez un lien Drive.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Recevez votre rapport</h3>
+          <p>Vous recevez votre rapport PDF complet sous 5 jours ouvrés par e-mail.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════ 6. TARIF ════════════ -->
+  <section class="tarif">
+    <div class="container">
+      <div class="tarif-header">
+        <p class="section-label">Tarif</p>
+        <h2>Tarif fondateur privé — 99&thinsp;€</h2>
+        <span class="ornament"></span>
+        <p class="section-subtitle" style="max-width:620px;">À l'occasion du lancement, quelques premiers clients pourront accéder à un tarif fondateur privé de 99&thinsp;€, avant le passage au tarif de référence de 149&thinsp;€. Une ouverture confidentielle, réservée aux premières demandes.</p>
+      </div>
+      <div class="tarif-card">
+        <div class="tarif-prix">99&thinsp;€</div>
+        <p class="tarif-prix-label">au lieu de 149&thinsp;€ — Tarif fondateur</p>
+        <div class="tarif-features">
+          <div class="tarif-feature"><div class="dot"></div>Inventaire détaillé de chaque référence</div>
+          <div class="tarif-feature"><div class="dot"></div>Estimation de la valeur de marché</div>
+          <div class="tarif-feature"><div class="dot"></div>Recommandations par lot (à vendre, à conserver, à surveiller)</div>
+          <div class="tarif-feature"><div class="dot"></div>Graphiques de répartition</div>
+          <div class="tarif-feature"><div class="dot"></div>Contexte marché personnalisé et liquidité des références</div>
+          <div class="tarif-feature"><div class="dot"></div>Plan d'action concret</div>
+          <div class="tarif-feature"><div class="dot"></div>Livraison PDF sous 5 jours ouvrés</div>
+        </div>
+        <a href="#formulaire" class="btn btn-gold">Demander un audit</a>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <!-- ════════════ 8. CONFIDENTIALITÉ ════════════ -->
+  <section class="confidentialite">
+    <div class="container">
+      <div class="confidentialite-inner">
+        <div class="confidentialite-icon">&#128274;</div>
+        <p class="section-label" style="color: var(--or);">Engagement</p>
+        <h2>Votre cave reste votre secret</h2>
+        <span class="ornament"></span>
+        <p>Toutes les informations transmises sont traitées avec une confidentialité absolue. Vos données ne sont jamais partagées, revendues ou utilisées à d'autres fins que votre mission d'estimation. Confidentialité réciproque garantie par contrat.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════ 9. FORMULAIRE ════════════ -->
+  <section class="formulaire" id="formulaire">
+    <div class="container">
+      <div class="formulaire-header">
+        <p class="section-label">Commencer</p>
+        <h2>Prêt à connaître la valeur de votre cave&nbsp;?</h2>
+        <span class="ornament"></span>
+        <p class="section-subtitle">Avant de procéder au paiement, voici ce que vous aurez à préparer&nbsp;:</p>
+      </div>
+      <div class="tally-embed-zone" style="text-align:left;">
+        <p style="font-size:1rem;font-weight:500;color:var(--bordeaux);margin-bottom:1.25rem;">📋 Le formulaire vous prendra moins de 10 minutes et vous demandera&nbsp;:</p>
+        <div style="margin-bottom:1.5rem;">
+          <div class="tarif-feature"><div class="dot"></div>Votre objectif (succession, vente, inventaire...)</div>
+          <div class="tarif-feature"><div class="dot"></div>Le nombre approximatif de bouteilles</div>
+          <div class="tarif-feature"><div class="dot"></div>Une liste de vos vins (par fichier, via photos, ou en texte libre)</div>
+          <div class="tarif-feature"><div class="dot"></div>Toutes les informations que vous jugerez nécessaire de nous communiquer sur la conservation et la constitution de la cave</div>
+        </div>
+        <p style="font-style:italic;font-size:0.92rem;color:var(--texte-light);margin-bottom:2rem;">Un smartphone suffit pour les photos. Pas besoin de connaissances en vin.</p>
+        <div style="text-align:center;">
+          <a href="https://buy.stripe.com/dRm28kc5ffAy5ll8hp4Rq00" target="_blank" rel="noopener" class="btn btn-gold">Demander mon audit — 99&thinsp;€</a>
+          <span class="hero-mention" style="margin-top:1.2rem;">
+            Paiement sécurisé <span>·</span> Livraison sous 5 jours ouvrés <span>·</span> 100% confidentiel
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════ 10. FOOTER ════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-logo">estimationcave.com</span>
+        <span class="footer-sep">·</span>
+        <a href="mailto:contact@estimationcave.com">contact@estimationcave.com</a>
+        <span class="footer-sep">·</span>
+        <a href="mentions-legales.html">Mentions légales</a>
+        <span class="footer-sep">·</span>
+        <a href="confidentialite.html">Confidentialité</a>
+        <span class="footer-sep">·</span>
+        <a href="faq.html">FAQ</a>
+      </div>
+    </div>
+  </footer>
+
+  <button id="btt" aria-label="Retour en haut" style="position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:#2D1B2E;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease,transform .3s ease;z-index:999;box-shadow:0 4px 16px rgba(45,27,46,.25);" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C5A258" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
+  <script>
+    (function(){var b=document.getElementById('btt');window.addEventListener('scroll',function(){if(window.scrollY>300){b.style.opacity='1';b.style.visibility='visible'}else{b.style.opacity='0';b.style.visibility='hidden'}});b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})})})();
+  </script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentions légales — Estimation Cave</title>
+    <meta name="description" content="Mentions légales du site estimationcave.com — service d'audit et d'estimation de cave à vins à distance.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #FAF6F0;
+            --bordeaux: #2D1B2E;
+            --gold: #C5A258;
+            --gold-light: #D4B76A;
+            --text-dark: #2D1B2E;
+            --text-body: #4A3A4B;
+            --text-muted: #7A6A7B;
+            --border: rgba(45, 27, 46, 0.1);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cream);
+            color: var(--text-body);
+            font-size: 16px;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── Navigation ── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(250, 246, 240, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--bordeaux);
+            text-decoration: none;
+            letter-spacing: 0.02em;
+        }
+
+        .nav-logo span {
+            color: var(--gold);
+        }
+
+        .nav-back {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--gold);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: color 0.25s ease;
+        }
+
+        .nav-back:hover {
+            color: var(--bordeaux);
+        }
+
+        .nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .btn-cta {
+            display: inline-block;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 0.85rem;
+            letter-spacing: 0.03em;
+            background: var(--bordeaux);
+            color: var(--cream);
+            padding: 0.65rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-cta:hover {
+            background: #3D2940;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 30px rgba(45, 27, 46, 0.2);
+            border-bottom: none;
+        }
+
+        /* ── Main Content ── */
+        main {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 8rem 2rem 5rem;
+        }
+
+        .page-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.75rem;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 600;
+            color: var(--bordeaux);
+            line-height: 1.2;
+            margin-bottom: 0.75rem;
+        }
+
+        .page-intro {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .legal-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .legal-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--bordeaux);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--gold);
+            display: inline-block;
+        }
+
+        .legal-section p {
+            margin-bottom: 0.85rem;
+        }
+
+        .legal-section strong {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .info-block {
+            background: rgba(45, 27, 46, 0.03);
+            border-left: 3px solid var(--gold);
+            padding: 1.25rem 1.5rem;
+            border-radius: 0 6px 6px 0;
+            margin: 1rem 0 1.5rem;
+        }
+
+        .info-block p {
+            margin-bottom: 0.5rem;
+        }
+
+        .info-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        a {
+            color: var(--gold);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.25s ease;
+        }
+
+        a:hover {
+            border-bottom-color: var(--gold);
+        }
+
+        .update-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            font-style: italic;
+        }
+
+        /* ── Footer ── */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 2.5rem 2rem;
+            text-align: center;
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .footer-brand {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--bordeaux);
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-brand span {
+            color: var(--gold);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.25s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .footer-copy {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 640px) {
+            main { padding: 7rem 1.25rem 3rem; }
+            .nav-inner { padding: 0.85rem 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-inner">
+            <a href="https://estimationcave.com" class="nav-logo">estimation<span>cave</span>.com</a>
+            <div style="display:flex;align-items:center;gap:2rem;">
+                <a href="https://estimationcave.com" class="nav-back">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    Retour au site
+                </a>
+                <a href="https://buy.stripe.com/dRm28kc5ffAy5ll8hp4Rq00" target="_blank" rel="noopener" class="btn-cta">Demander un audit</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <main>
+        <p class="page-label">Informations légales</p>
+        <h1>Mentions légales</h1>
+        <p class="page-intro">Conformément aux dispositions des articles 6-III et 19 de la loi n°&nbsp;2004-575 du 21 juin 2004 pour la Confiance dans l'Économie Numérique (LCEN), les présentes mentions légales sont portées à la connaissance des utilisateurs du site estimationcave.com.</p>
+
+        <section class="legal-section">
+            <h2>Éditeur du site</h2>
+            <div class="info-block">
+                <p><strong>Nom :</strong> Fanny Lonqueu-Brochard</p>
+                <p><strong>Statut :</strong> [À compléter — auto-entrepreneur ou autre forme juridique]</p>
+                <p><strong>Numéro SIRET :</strong> [À compléter]</p>
+                <p><strong>Adresse :</strong> France</p>
+                <p><strong>Email :</strong> <a href="mailto:contact@estimationcave.com">contact@estimationcave.com</a></p>
+                <p><strong>Directrice de la publication :</strong> Fanny Lonqueu-Brochard</p>
+            </div>
+        </section>
+
+        <section class="legal-section">
+            <h2>Hébergeur</h2>
+            <div class="info-block">
+                <p><strong>Raison sociale :</strong> Netlify, Inc.</p>
+                <p><strong>Adresse :</strong> 44 Montgomery Street, Suite 300, San Francisco, CA 94104, États-Unis</p>
+                <p><strong>Site web :</strong> <a href="https://www.netlify.com" target="_blank" rel="noopener">www.netlify.com</a></p>
+            </div>
+        </section>
+
+        <section class="legal-section">
+            <h2>Activité</h2>
+            <p>Le site estimationcave.com est un service en ligne d'estimation de caves à vins à distance, proposé aux particuliers. Les estimations sont réalisées sur la base de photographies transmises par le client et donnent lieu à la livraison d'un rapport au format PDF.</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>Propriété intellectuelle</h2>
+            <p>L'ensemble des contenus présents sur le site estimationcave.com — textes, images, graphismes, logo, icônes, structure et mise en page — est la propriété exclusive de Fanny Lonqueu-Brochard, sauf mention contraire. Toute reproduction, représentation, modification, publication ou adaptation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite sans autorisation écrite préalable.</p>
+            <p>Toute exploitation non autorisée du site ou de l'un de ses éléments sera considérée comme constitutive d'une contrefaçon et poursuivie conformément aux dispositions des articles L.335-2 et suivants du Code de la propriété intellectuelle.</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>Responsabilité</h2>
+            <p>Les estimations fournies par le service Estimation Cave sont réalisées à titre indicatif, sur la base des informations et photographies communiquées par le client. Elles ne constituent en aucun cas une expertise certifiée, une garantie de prix de vente, ni un conseil en investissement. L'éditrice ne saurait être tenue responsable de toute décision prise sur la base de ces estimations.</p>
+            <p>L'éditrice s'efforce d'assurer l'exactitude et la mise à jour des informations diffusées sur le site, mais ne saurait garantir l'exactitude, la complétude ou l'actualité des informations publiées.</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>Liens hypertextes</h2>
+            <p>Le site estimationcave.com peut contenir des liens vers d'autres sites. L'éditrice n'exerce aucun contrôle sur le contenu de ces sites tiers et décline toute responsabilité quant à leur contenu ou aux éventuels dommages résultant de leur consultation.</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>Données personnelles</h2>
+            <p>Les informations relatives au traitement des données personnelles sont détaillées dans notre <a href="confidentialite.html">Politique de confidentialité</a>, conformément au Règlement Général sur la Protection des Données (RGPD) — Règlement (UE) 2016/679.</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>Droit applicable</h2>
+            <p>Les présentes mentions légales sont régies par le droit français. En cas de litige, les tribunaux français seront seuls compétents.</p>
+        </section>
+
+        <p class="update-date">Dernière mise à jour : avril 2026</p>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <p class="footer-brand">estimation<span>cave</span>.com</p>
+            <div class="footer-links">
+                <a href="https://estimationcave.com">Accueil</a>
+                <a href="mentions-legales.html">Mentions légales</a>
+                <a href="confidentialite.html">Confidentialité</a>
+                <a href="faq.html">FAQ</a>
+            <span class="footer-sep">·</span>
+            <a href="blog.html">Blog</a>
+                <a href="mailto:contact@estimationcave.com">Contact</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 Estimation Cave — Fanny Lonqueu-Brochard. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+  <button id="btt" aria-label="Retour en haut" style="position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:#2D1B2E;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease,transform .3s ease;z-index:999;box-shadow:0 4px 16px rgba(45,27,46,.25);" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C5A258" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
+  <script>
+    (function(){var b=document.getElementById('btt');window.addEventListener('scroll',function(){if(window.scrollY>300){b.style.opacity='1';b.style.visibility='visible'}else{b.style.opacity='0';b.style.visibility='hidden'}});b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})})})();
+  </script>
+
+</body>
+</html>
+User-agent: *
+Allow: /
+
+Sitemap: https://estimationcave.com/sitemap.xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://estimationcave.com/</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://estimationcave.com/blog.html</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://estimationcave.com/article-estimation-distance.html</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://estimationcave.com/article-heritage-cave.html</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://estimationcave.com/faq.html</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://estimationcave.com/mentions-legales.html</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://estimationcave.com/confidentialite.html</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://estimationcave.com/404.html</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
+  </url>
+</urlset>
