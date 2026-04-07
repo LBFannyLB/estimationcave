@@ -428,15 +428,120 @@
     }
 
     /* ══════════════════════════════════
+       4b. APERÇU RAPPORT
+    ══════════════════════════════════ */
+    .rapport-apercu {
+      padding: 6rem 0;
+    }
+
+    .rapport-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .rapport-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+
+    .rapport-card {
+      background: var(--blanc);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .rapport-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(45, 27, 46, 0.08);
+    }
+
+    .rapport-img-wrapper {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 3 / 4;
+      background: var(--fond-alt);
+    }
+
+    .rapport-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+    }
+
+    .rapport-img-wrapper::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 40%;
+      background: linear-gradient(to bottom, transparent, rgba(250, 246, 240, 0.85));
+      pointer-events: none;
+    }
+
+    .rapport-card-text {
+      padding: 1rem 1.25rem 1.25rem;
+    }
+
+    .rapport-card-text h3 {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--bordeaux);
+      margin-bottom: 0.3rem;
+    }
+
+    .rapport-card-text p {
+      font-size: 0.82rem;
+      color: var(--texte-light);
+      line-height: 1.6;
+    }
+
+    .rapport-cta {
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 900px) {
+      .rapport-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 500px) {
+      .rapport-grid {
+        grid-template-columns: 1fr;
+        max-width: 320px;
+      }
+    }
+
+    /* ══════════════════════════════════
        5. COMMENT ÇA MARCHE
     ══════════════════════════════════ */
     .process {
       padding: 6rem 0;
+      background: var(--bordeaux);
+      color: rgba(250, 246, 240, 0.85);
     }
 
     .process-header {
       text-align: center;
       margin-bottom: 4rem;
+    }
+
+    .process-header .section-label {
+      color: var(--or);
+    }
+
+    .process-header h2 {
+      color: var(--fond);
     }
 
     .steps {
@@ -465,7 +570,7 @@
       width: 64px;
       height: 64px;
       border-radius: 50%;
-      background: var(--fond);
+      background: var(--bordeaux);
       border: 2px solid var(--or);
       display: flex;
       align-items: center;
@@ -482,11 +587,12 @@
     .step h3 {
       margin-bottom: 0.75rem;
       font-size: 1.15rem;
+      color: var(--fond);
     }
 
     .step p {
       font-size: 0.9rem;
-      color: var(--texte-light);
+      color: rgba(250, 246, 240, 0.7);
       line-height: 1.75;
       max-width: 280px;
       margin: 0 auto;
@@ -963,6 +1069,96 @@
             <p>Des étapes concrètes pour valoriser votre cave selon vos objectifs.</p>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════ 4b. APERÇU DU RAPPORT ════════════ -->
+  <section class="rapport-apercu">
+    <div class="container">
+      <div class="rapport-header">
+        <p class="section-label">Aperçu</p>
+        <h2>Ce que contient votre rapport</h2>
+        <span class="ornament"></span>
+        <p class="section-subtitle">Un document d'une dizaine de pages, structuré, lisible et directement actionnable.</p>
+      </div>
+      <div class="rapport-grid">
+        <div class="rapport-card">
+          <div class="rapport-img-wrapper">
+            <img src="rapport-garde.jpg" alt="Page de garde du rapport d'estimation de cave" loading="lazy">
+          </div>
+          <div class="rapport-card-text">
+            <h3>Page de garde</h3>
+            <p>Votre rapport personnalisé, avec référence de mission et date de livraison.</p>
+          </div>
+        </div>
+        <div class="rapport-card">
+          <div class="rapport-img-wrapper">
+            <img src="rapport-reco-conserver.jpg" alt="Recommandations détaillées par lot" loading="lazy">
+          </div>
+          <div class="rapport-card-text">
+            <h3>Recommandations par lot</h3>
+            <p>Chaque référence est classée : à vendre, à conserver ou à surveiller — avec une justification claire.</p>
+          </div>
+        </div>
+        <div class="rapport-card">
+          <div class="rapport-img-wrapper">
+            <img src="rapport-plan-action.jpg" alt="Plan d'action personnalisé" loading="lazy">
+          </div>
+          <div class="rapport-card-text">
+            <h3>Plan d'action</h3>
+            <p>Des prochaines étapes concrètes, adaptées à votre situation et vos objectifs.</p>
+          </div>
+        </div>
+        <div class="rapport-card">
+          <div class="rapport-img-wrapper">
+            <img src="rapport-synthese.jpg" alt="Synthèse exécutive de l'estimation" loading="lazy">
+          </div>
+          <div class="rapport-card-text">
+            <h3>Synthèse exécutive</h3>
+            <p>Une vue d'ensemble immédiate : valeur totale, répartition, points d'attention.</p>
+          </div>
+        </div>
+        <div class="rapport-card">
+          <div class="rapport-img-wrapper">
+            <img src="rapport-graphiques.jpg" alt="Graphiques de répartition de la cave" loading="lazy">
+          </div>
+          <div class="rapport-card-text">
+            <h3>Graphiques de répartition</h3>
+            <p>Votre cave en un coup d'œil : par recommandation, par région, par potentiel.</p>
+          </div>
+        </div>
+        <div class="rapport-card">
+          <div class="rapport-img-wrapper">
+            <img src="rapport-inventaire.jpg" alt="Inventaire détaillé de chaque référence" loading="lazy">
+          </div>
+          <div class="rapport-card-text">
+            <h3>Inventaire détaillé</h3>
+            <p>Chaque référence identifiée, avec appellation, millésime, estimation et état observé.</p>
+          </div>
+        </div>
+        <div class="rapport-card">
+          <div class="rapport-img-wrapper">
+            <img src="rapport-estimation.jpg" alt="Estimation globale de la cave" loading="lazy">
+          </div>
+          <div class="rapport-card-text">
+            <h3>Estimation globale</h3>
+            <p>La valeur de marché de votre cave, calculée à partir des transactions réelles.</p>
+          </div>
+        </div>
+        <div class="rapport-card">
+          <div class="rapport-img-wrapper">
+            <img src="rapport-prochaines-etapes.jpg" alt="Prochaines étapes personnalisées" loading="lazy">
+          </div>
+          <div class="rapport-card-text">
+            <h3>Prochaines étapes</h3>
+            <p>Un calendrier d'actions pour valoriser votre cave selon vos priorités.</p>
+          </div>
+        </div>
+      </div>
+      <div class="rapport-cta">
+        <a href="#formulaire" class="btn btn-primary">Demander mon rapport — 99&thinsp;€</a>
       </div>
     </div>
   </section>
