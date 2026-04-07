@@ -203,7 +203,6 @@
     ══════════════════════════════════ */
     .hero {
       padding: 10rem 0 3.5rem;
-      text-align: center;
       position: relative;
       overflow: hidden;
     }
@@ -220,8 +219,31 @@
       pointer-events: none;
     }
 
+    .hero-layout {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+    }
+
+    .hero-text {
+      flex: 1;
+      text-align: center;
+    }
+
+    .hero-visual {
+      flex-shrink: 0;
+      width: 280px;
+      opacity: 0.88;
+    }
+
+    .hero-visual img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
     .hero h1 {
-      max-width: 700px;
+      max-width: 600px;
       margin: 0 auto;
     }
 
@@ -932,6 +954,16 @@
 
       .hero { padding: 8rem 0 4rem; }
 
+      .hero-layout {
+        flex-direction: column;
+        text-align: center;
+        gap: 2.5rem;
+      }
+
+      .hero-subtitle { margin: 1.5rem auto 2.5rem; }
+
+      .hero-visual { width: 200px; order: -1; }
+
       .tarif-card { padding: 2.5rem 1.5rem; }
     }
 
@@ -991,6 +1023,7 @@
       <div class="nav-right">
         <a href="faq.html" class="nav-link">FAQ</a>
         <a href="blog.html" class="nav-link">Blog</a>
+        <a href="apropos.html" class="nav-link">À propos</a>
         <a href="#formulaire" class="btn btn-gold">Demander un audit</a>
       </div>
     </div>
@@ -1000,13 +1033,20 @@
   <!-- ════════════ 2. HERO ════════════ -->
   <section class="hero">
     <div class="container">
-      <p class="section-label">Audit &amp; estimation de cave à vins</p>
-      <h1>Que vaut réellement votre cave à vins&nbsp;?</h1>
-      <p class="hero-subtitle">Recevez un diagnostic clair, complet et structuré pour vous aider à prendre une décision sereinement : pour vendre au bon moment, garder ce qui a de la valeur, et ne rien regretter.</p>
-      <a href="#formulaire" class="btn btn-primary">Demander un audit — 99&thinsp;€ (tarif fondateur)</a>
-      <span class="hero-mention">
-        Livraison sous 5 jours ouvrés <span>·</span> 100% à distance <span>·</span> Strictement confidentiel
-      </span>
+      <div class="hero-layout">
+        <div class="hero-text">
+          <p class="section-label">Audit &amp; estimation de cave à vins</p>
+          <h1>Que vaut réellement votre cave à vins&nbsp;?</h1>
+          <p class="hero-subtitle">Recevez un diagnostic clair, complet et structuré pour vous aider à prendre une décision sereinement : pour vendre au bon moment, garder ce qui a de la valeur, et ne rien regretter.</p>
+          <a href="#formulaire" class="btn btn-primary">Demander un audit — 99&thinsp;€ (tarif fondateur)</a>
+          <span class="hero-mention">
+            Livraison sous 5 jours ouvrés <span>·</span> 100% à distance <span>·</span> Strictement confidentiel
+          </span>
+        </div>
+        <div class="hero-visual">
+          <img src="hero-logo.png" alt="Illustration cave à vins">
+        </div>
+      </div>
     </div>
   </section>
 

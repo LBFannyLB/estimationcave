@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="À propos de Fanny Lonqueu-Brochard — ancienne responsable des ventes aux enchères chez iDealwine, WSET 3 avec distinction, experte en estimation de cave à vins.">
+    <title>À propos — estimationcave.com</title>
+    <meta property="og:title" content="À propos — estimationcave.com">
+    <meta property="og:description" content="Ancienne responsable des ventes aux enchères chez iDealwine, WSET 3 avec distinction. J'accompagne les particuliers dans l'audit et l'estimation de leur cave à vins.">
+    <meta property="og:url" content="https://estimationcave.com/apropos.html">
+    <meta property="og:type" content="profile">
+    <meta property="og:locale" content="fr_FR">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Fanny Lonqueu-Brochard","jobTitle":"Experte en estimation de cave à vins","url":"https://estimationcave.com/apropos.html","worksFor":{"@type":"Organization","name":"estimationcave.com","url":"https://estimationcave.com"},"knowsAbout":["Wine valuation","Wine auctions","Wine cellar estimation","WSET 3"]}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bordeaux: #2D1B2E;
+            --or: #C5A258;
+            --or-light: #D4B76E;
+            --or-pale: rgba(197, 162, 88, 0.10);
+            --fond: #FAF6F0;
+            --texte: #3A3035;
+            --texte-light: #6B5F65;
+            --blanc: #FFFFFF;
+            --border: rgba(45, 27, 46, 0.08);
+            --font-display: 'Cormorant Garamond', Georgia, serif;
+            --font-body: 'Inter', -apple-system, sans-serif;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--fond);
+            color: var(--texte);
+            line-height: 1.7;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* ── NAV ── */
+        .nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: rgba(250, 246, 240, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-inner {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--bordeaux);
+        }
+        .nav-logo span { color: var(--or); }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-back {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--or);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: color 0.25s ease;
+        }
+        .nav-back:hover { color: var(--bordeaux); }
+        .nav-back svg { width: 16px; height: 16px; }
+
+        .btn-gold {
+            display: inline-block;
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 0.85rem;
+            letter-spacing: 0.03em;
+            background: var(--or);
+            color: var(--bordeaux);
+            padding: 0.65rem 1.5rem;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-gold:hover {
+            background: var(--or-light);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 30px rgba(197, 162, 88, 0.3);
+        }
+
+        .btn-primary {
+            display: inline-block;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 0.03em;
+            background: var(--bordeaux);
+            color: var(--fond);
+            padding: 1rem 2.4rem;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background: #3D2940;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 30px rgba(45, 27, 46, 0.2);
+        }
+
+        /* ── HEADER ── */
+        .page-header {
+            padding: 8.5rem 0 2rem;
+            text-align: center;
+        }
+
+        .section-label {
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--or);
+            margin-bottom: 0.75rem;
+        }
+
+        h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 600;
+            color: var(--bordeaux);
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        .ornament {
+            display: block;
+            width: 48px;
+            height: 2px;
+            background: var(--or);
+            margin: 1.5rem auto;
+        }
+
+        /* ── BODY ── */
+        .about-body {
+            padding: 1rem 0 4rem;
+        }
+
+        .about-body p {
+            font-size: 1rem;
+            line-height: 1.85;
+            color: var(--texte);
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .about-body .section-divider {
+            display: block;
+            width: 48px;
+            height: 2px;
+            background: var(--or);
+            margin: 2.5rem auto;
+        }
+
+        /* ── HIGHLIGHT BOX ── */
+        .highlight-box {
+            background: var(--blanc);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--or);
+            border-radius: 0 6px 6px 0;
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+        }
+
+        .highlight-box p {
+            font-size: 0.95rem;
+            color: var(--texte);
+            margin-bottom: 0.5rem;
+            line-height: 1.7;
+        }
+
+        .highlight-box p:last-child { margin-bottom: 0; }
+
+        .highlight-box strong { color: var(--bordeaux); }
+
+        /* ── CTA ── */
+        .about-cta {
+            text-align: center;
+            padding: 2rem 0 0;
+            border-top: 1px solid var(--border);
+            margin-top: 1rem;
+        }
+
+        .about-cta p {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--bordeaux);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        /* ── FOOTER ── */
+        .footer {
+            padding: 2.5rem 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .footer-inner {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.5rem;
+            font-size: 0.82rem;
+            color: var(--texte-light);
+        }
+
+        .footer-logo {
+            font-family: var(--font-display);
+            font-weight: 600;
+            color: var(--bordeaux);
+            font-size: 0.95rem;
+        }
+
+        .footer-sep { color: var(--or); opacity: 0.5; }
+        .footer a:hover { color: var(--or); }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 600px) {
+            .container { padding: 0 1.25rem; }
+            .nav-inner { padding: 0 1.25rem; height: 64px; }
+            .nav-logo { font-size: 1.05rem; }
+            .page-header { padding: 7rem 0 1.5rem; }
+            .highlight-box { padding: 1.25rem 1.25rem; }
+            .footer-inner { flex-direction: column; gap: 0.5rem; }
+            .footer-sep { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">estimation<span>cave</span>.com</a>
+            <div class="nav-right">
+                <a href="index.html" class="nav-back">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    Retour au site
+                </a>
+                <a href="index.html#formulaire" class="btn-gold">Demander un audit</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <p class="section-label">Qui suis-je</p>
+            <h1>À propos</h1>
+            <span class="ornament"></span>
+        </div>
+    </header>
+
+    <main class="about-body">
+        <div class="container">
+
+            <p>Je m'appelle Fanny, et j'accompagne les particuliers dans l'audit, l'estimation et l'arbitrage de leur cave à vins.</p>
+
+            <p>Depuis près de 10 ans, j'évolue dans le monde du vin, avec une spécialisation forte dans le marché secondaire et la valorisation des bouteilles. Pendant plus de 6 ans, j'ai occupé le poste de responsable des ventes aux enchères chez iDealwine, leader mondial dans ce domaine. J'y ai développé une connaissance approfondie des dynamiques de marché, de la liquidité des références et des logiques de valorisation.</p>
+
+            <p>J'ai également exercé pendant 2 ans comme acheteuse vin, une fonction qui a renforcé mon exigence de sélection, ma lecture du marché et ma compréhension fine des vins, de leur positionnement et de leur potentiel. En 2024, j'ai obtenu le WSET 3 avec distinction, une certification qui vient compléter une expérience de terrain construite au quotidien, au contact des bouteilles, du marché et des passionnés.</p>
+
+            <p>Ce double regard — commercial et acheteur — me permet aujourd'hui d'aborder une cave avec précision, recul et discernement.</p>
+
+            <span class="section-divider"></span>
+
+            <p>Ce qui me plaît profondément dans le vin, c'est qu'on n'en fait jamais le tour. Il y a toujours un domaine à découvrir, une région à approfondir, un producteur à suivre, une tendance à observer. C'est un univers vivant, exigeant et passionnant, qui mêle culture, goût, histoire, transmission et émotion. Cette curiosité, associée à mon goût pour la gastronomie et à une veille constante sur l'évolution du secteur, nourrit mon travail au quotidien.</p>
+
+            <p>J'aime tout particulièrement accompagner des profils très différents : les passionnés qui souhaitent mieux piloter leur cave, comme les personnes plus novices qui ont besoin d'un cadre clair, fiable et rassurant. Une cave héritée, une succession, un projet de vente, ou simplement le besoin de faire le point : chaque mission demande une lecture attentive et une réponse sur mesure.</p>
+
+            <span class="section-divider"></span>
+
+            <p>Mon rôle n'est pas seulement d'estimer des bouteilles, mais d'aider à prendre de bonnes décisions : comprendre la valeur d'une cave, identifier les références clés, repérer les points de vigilance, distinguer ce qu'il vaut mieux conserver, vendre ou surveiller, et apporter un cadre clair à un sujet souvent perçu comme complexe.</p>
+
+            <p>J'ai créé ce service avec une conviction simple : une cave à vins mérite d'être regardée avec sérieux, méthode et sensibilité. Parce qu'une cave n'est jamais seulement un ensemble de bouteilles. C'est parfois un patrimoine, parfois une transmission, parfois une passion. Souvent, c'est tout cela à la fois.</p>
+
+            <p>Si vous souhaitez faire le point sur votre cave, je serais ravie de vous accompagner.</p>
+
+            <div class="about-cta">
+                <p>Prêt à estimer votre cave ?</p>
+                <a href="index.html#formulaire" class="btn-primary">Demander un audit — 99&thinsp;€</a>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <span class="footer-logo">estimationcave.com</span>
+            <span class="footer-sep">·</span>
+            <a href="mailto:contact@estimationcave.com">contact@estimationcave.com</a>
+            <span class="footer-sep">·</span>
+            <a href="mentions-legales.html">Mentions légales</a>
+            <span class="footer-sep">·</span>
+            <a href="confidentialite.html">Confidentialité</a>
+            <span class="footer-sep">·</span>
+            <a href="faq.html">FAQ</a>
+            <span class="footer-sep">·</span>
+            <a href="blog.html">Blog</a>
+        </div>
+    </footer>
+
+    <button id="btt" aria-label="Retour en haut" style="position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:#2D1B2E;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease,transform .3s ease;z-index:999;box-shadow:0 4px 16px rgba(45,27,46,.25);" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C5A258" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+    </button>
+    <script>
+        (function(){var b=document.getElementById('btt');window.addEventListener('scroll',function(){if(window.scrollY>300){b.style.opacity='1';b.style.visibility='visible'}else{b.style.opacity='0';b.style.visibility='hidden'}});b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})})})();
+    </script>
+
+</body>
+</html>
