@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comment bien gérer sa cave à vins ? Conservation, inventaire, apogée, organisation : guide complet pour entretenir et valoriser votre collection.">
+    <title>Gérer sa cave à vins : guide complet — estimationcave.com</title>
+    <meta property="og:title" content="Bien gérer sa cave à vins : le guide complet">
+    <meta property="og:description" content="Comment bien gérer sa cave à vins ? Conservation, inventaire, apogée, organisation : guide complet pour entretenir et valoriser votre collection.">
+    <meta property="og:url" content="https://estimationcave.com/gestion.html">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="fr_FR">
+    <link rel="canonical" href="https://estimationcave.com/gestion.html">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Bien gérer sa cave à vins : le guide complet","datePublished":"2026-04-08","dateModified":"2026-04-08","publisher":{"@type":"Organization","name":"estimationcave.com","url":"https://estimationcave.com"},"url":"https://estimationcave.com/gestion.html","description":"Comment bien gérer sa cave à vins ? Conservation, inventaire, apogée, organisation : guide complet pour entretenir et valoriser votre collection."}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Quelle est la température idéale pour conserver du vin ?","acceptedAnswer":{"@type":"Answer","text":"La température idéale de conservation se situe entre 10 et 14 °C, avec un optimum à 12 °C. L'essentiel est la stabilité : les variations brutales de température sont plus néfastes qu'une température légèrement élevée mais constante."}},{"@type":"Question","name":"Faut-il coucher les bouteilles de vin ?","acceptedAnswer":{"@type":"Answer","text":"Oui, pour les bouteilles fermées avec un bouchon en liège. Le vin doit rester en contact avec le bouchon pour éviter qu'il ne se dessèche et laisse entrer l'air. Les bouteilles à capsule à vis peuvent être stockées debout sans risque."}},{"@type":"Question","name":"Comment savoir quand ouvrir une bouteille ?","acceptedAnswer":{"@type":"Answer","text":"Chaque vin a une fenêtre de maturité optimale qui dépend du cépage, de l'appellation, du millésime et des conditions de conservation. Les guides spécialisés donnent des indications, mais un audit professionnel de votre cave vous indique précisément quelles bouteilles boire maintenant et lesquelles conserver."}},{"@type":"Question","name":"Comment faire l'inventaire de sa cave ?","acceptedAnswer":{"@type":"Answer","text":"Vous pouvez utiliser un simple tableur ou une application dédiée (Vivino, CellarTracker, etc.). L'essentiel est de noter pour chaque bouteille : le domaine, l'appellation, le millésime, la couleur, le format, la quantité et l'emplacement dans la cave."}},{"@type":"Question","name":"À quelle fréquence faut-il faire estimer sa cave ?","acceptedAnswer":{"@type":"Answer","text":"Il est recommandé de faire estimer sa cave tous les 3 à 5 ans, ou lors d'un événement particulier : vente envisagée, succession, mise à jour de l'assurance, ou changement significatif du marché sur vos références."}}]}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bordeaux: #2D1B2E;
+            --or: #C5A258;
+            --or-light: #D4B76E;
+            --or-pale: rgba(197, 162, 88, 0.10);
+            --fond: #FAF6F0;
+            --texte: #3A3035;
+            --texte-light: #6B5F65;
+            --blanc: #FFFFFF;
+            --border: rgba(45, 27, 46, 0.08);
+            --font-display: 'Cormorant Garamond', Georgia, serif;
+            --font-body: 'Inter', -apple-system, sans-serif;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body { font-family: var(--font-body); background-color: var(--fond); color: var(--texte); line-height: 1.7; font-weight: 400; -webkit-font-smoothing: antialiased; }
+
+        a { color: var(--or); text-decoration: none; transition: color 0.25s ease; }
+        a:hover { color: var(--bordeaux); }
+
+        .container { max-width: 720px; margin: 0 auto; padding: 0 2rem; }
+
+        /* ── NAV ── */
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(250, 246, 240, 0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+        .nav-inner { max-width: 1120px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 72px; }
+        .nav-logo { font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--bordeaux); text-decoration: none; }
+        .nav-logo span { color: var(--or); }
+        .nav-right { display: flex; align-items: center; gap: 2rem; }
+        .nav-back { font-size: 0.85rem; font-weight: 500; color: var(--or); display: flex; align-items: center; gap: 0.4rem; text-decoration: none; }
+        .nav-back:hover { color: var(--bordeaux); }
+        .nav-back svg { width: 16px; height: 16px; }
+
+        .btn-primary { display: inline-block; font-family: var(--font-body); font-weight: 500; font-size: 0.85rem; letter-spacing: 0.03em; background: var(--bordeaux); color: var(--fond); padding: 0.65rem 1.5rem; border-radius: 4px; text-decoration: none; transition: all 0.3s ease; }
+        .btn-primary:hover { background: #3D2940; color: var(--fond); transform: translateY(-1px); box-shadow: 0 8px 30px rgba(45, 27, 46, 0.2); }
+
+        .breadcrumb { padding: 5.5rem 0 0; font-size: 0.78rem; color: var(--texte-light); }
+        .breadcrumb a { color: var(--or); text-decoration: none; }
+        .breadcrumb a:hover { color: var(--bordeaux); }
+
+        .article-header { padding: 2rem 0 2.5rem; text-align: center; }
+        .article-meta { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--or); margin-bottom: 1rem; }
+        .article-header h1 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 600; color: var(--bordeaux); line-height: 1.25; letter-spacing: -0.02em; max-width: 650px; margin: 0 auto; }
+        .ornament { display: block; width: 48px; height: 2px; background: var(--or); margin: 1.75rem auto; }
+        .article-intro { font-size: 1.1rem; font-weight: 300; color: var(--texte-light); line-height: 1.85; max-width: 600px; margin: 0 auto; }
+
+        .toc { padding: 0 0 1.5rem; }
+        .toc-box { background: var(--blanc); border: 1px solid var(--border); border-radius: 6px; padding: 1.5rem 2rem; }
+        .toc-title { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; color: var(--bordeaux); margin-bottom: 0.75rem; }
+        .toc-box ul { list-style: none; padding: 0; margin: 0; }
+        .toc-box li { margin-bottom: 0.4rem; }
+        .toc-box a { font-size: 0.9rem; color: var(--texte); text-decoration: none; display: flex; align-items: baseline; gap: 0.5rem; line-height: 1.5; }
+        .toc-box a:hover { color: var(--or); }
+        .toc-dot { flex-shrink: 0; width: 5px; height: 5px; border-radius: 50%; background: var(--or); margin-top: 0.35rem; }
+
+        .article-body { padding: 2rem 0 4rem; }
+        .article-body h2 { font-family: var(--font-display); font-size: 1.55rem; font-weight: 600; color: var(--bordeaux); margin: 2.5rem 0 1rem; line-height: 1.3; }
+        .article-body h3 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; color: var(--bordeaux); margin: 1.75rem 0 0.75rem; line-height: 1.35; }
+        .article-body p { font-size: 1rem; line-height: 1.85; color: var(--texte); margin-bottom: 1.25rem; text-align: justify; }
+        .article-body strong { color: var(--bordeaux); font-weight: 600; }
+        .article-body ul { margin: 0 0 1.25rem 1.25rem; padding: 0; }
+        .article-body li { font-size: 1rem; line-height: 1.85; color: var(--texte); margin-bottom: 0.4rem; }
+
+        .section-divider { display: block; width: 48px; height: 2px; background: var(--or); margin: 3rem auto; }
+
+        .key-points { background: var(--fond); border-left: 3px solid var(--or); border-radius: 0 6px 6px 0; padding: 1.75rem 2rem; margin: 1rem 0 1rem; }
+        .key-points-title { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; color: var(--bordeaux); margin-bottom: 1rem; }
+        .key-point { display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 0.65rem; font-size: 0.92rem; color: var(--texte); line-height: 1.65; }
+        .key-point:last-child { margin-bottom: 0; }
+        .key-point-dot { flex-shrink: 0; width: 6px; height: 6px; border-radius: 50%; background: var(--or); margin-top: 0.5rem; }
+
+        .bon-a-savoir { background: var(--or-pale); border-radius: 6px; padding: 1.5rem 1.75rem; margin: 1.5rem 0; }
+        .bon-a-savoir-title { font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--bordeaux); margin-bottom: 0.5rem; }
+        .bon-a-savoir p { font-size: 0.92rem; color: var(--texte); line-height: 1.7; margin-bottom: 0; }
+
+        .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin: 1.5rem 0 1.25rem; }
+        .step-card { background: var(--blanc); border: 1px solid var(--border); border-radius: 6px; padding: 2rem 1.5rem; text-align: center; transition: all 0.3s ease; }
+        .step-card:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(45, 27, 46, 0.06); }
+        .step-number { width: 52px; height: 52px; border-radius: 50%; border: 2px solid var(--or); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; color: var(--or); }
+        .step-card h3 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; color: var(--bordeaux); margin-bottom: 0.75rem; line-height: 1.3; }
+        .step-card p { font-size: 0.88rem; color: var(--texte-light); line-height: 1.7; margin-bottom: 0; }
+
+        .inline-faq { margin: 1rem 0 0; }
+        .inline-faq-title { font-family: var(--font-display); font-size: 1.55rem; font-weight: 600; color: var(--bordeaux); margin-bottom: 1rem; line-height: 1.3; }
+        .inline-faq-item { border-bottom: 1px solid var(--border); }
+        .inline-faq-trigger { width: 100%; background: none; border: none; padding: 1.1rem 2.5rem 1.1rem 0; text-align: left; cursor: pointer; font-family: var(--font-body); font-size: 0.95rem; font-weight: 500; color: var(--bordeaux); line-height: 1.5; position: relative; transition: color 0.2s ease; }
+        .inline-faq-trigger:hover { color: var(--or); }
+        .inline-faq-trigger::after { content: '+'; position: absolute; right: 0; top: 50%; transform: translateY(-50%); font-size: 1.3rem; font-weight: 300; color: var(--or); }
+        .inline-faq-item.open .inline-faq-trigger::after { content: '−'; }
+        .inline-faq-content { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+        .inline-faq-item.open .inline-faq-content { max-height: 300px; }
+        .inline-faq-answer { padding: 0 0 1.25rem; font-size: 0.92rem; color: var(--texte-light); line-height: 1.8; }
+
+        .article-cta { background: var(--blanc); border: 1.5px solid rgba(197, 162, 88, 0.25); border-radius: 8px; padding: 2.5rem 2rem; text-align: center; margin: 3rem 0 0; position: relative; overflow: hidden; }
+        .article-cta::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--or), var(--bordeaux), var(--or)); }
+        .article-cta h2 { font-family: var(--font-display); font-size: 1.5rem; color: var(--bordeaux); margin: 0 0 0.5rem; }
+        .article-cta p { font-size: 0.95rem; color: var(--texte-light); margin-bottom: 1.5rem; }
+        .article-cta .btn-primary { padding: 1rem 2.4rem; font-size: 1rem; font-weight: 600; }
+
+        .btn-gold { display: inline-block; font-family: var(--font-body); font-weight: 500; font-size: 0.85rem; letter-spacing: 0.03em; background: var(--or); color: var(--bordeaux); padding: 0.65rem 1.5rem; border-radius: 4px; border: none; cursor: pointer; text-decoration: none; transition: all 0.3s ease; }
+        .btn-gold:hover { background: var(--or-light); color: var(--bordeaux); transform: translateY(-1px); box-shadow: 0 8px 30px rgba(197, 162, 88, 0.3); }
+
+        .visual-block { margin: 2rem 0; }
+        .visual-title { font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: var(--bordeaux); margin-bottom: 0.75rem; text-align: center; }
+
+        .back-to-blog { text-align: center; padding: 2.5rem 0 4rem; }
+        .back-to-blog a { font-size: 0.88rem; font-weight: 500; color: var(--or); display: inline-flex; align-items: center; gap: 0.4rem; }
+        .back-to-blog a:hover { color: var(--bordeaux); }
+        .back-to-blog svg { width: 14px; height: 14px; }
+
+        .footer { padding: 2.5rem 0; border-top: 1px solid var(--border); text-align: center; }
+        .footer-inner { max-width: 1120px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 0.5rem 1.5rem; font-size: 0.82rem; color: var(--texte-light); }
+        .footer-logo { font-family: var(--font-display); font-weight: 600; color: var(--bordeaux); font-size: 0.95rem; }
+        .footer-sep { color: var(--or); opacity: 0.5; }
+        .footer-inner a { color: var(--texte-light); text-decoration: none; }
+        .footer-inner a:hover { color: var(--or); }
+
+        @media (max-width: 700px) { .steps-grid { grid-template-columns: 1fr; gap: 1rem; } .key-points { padding: 1.5rem 1.25rem; } }
+
+        @media (max-width: 600px) {
+            .nav-inner { padding: 0 1rem; height: 64px; gap: 0.75rem; }
+            .nav-logo { font-size: 0.95rem; flex-shrink: 0; }
+            .nav-right { gap: 0.5rem; }
+            .nav-back { font-size: 0.7rem; white-space: nowrap; }
+            .nav-right > a.nav-back:first-child { display: none; }
+            .nav-back svg { display: none; }
+            .btn-gold, .btn-primary, .btn-cta { padding: 0.45rem 0.6rem; font-size: 0.7rem; text-align: center; white-space: nowrap; }
+            .container { padding: 0 1.25rem; }
+            .nav-inner { padding: 0 1.25rem; height: 64px; }
+            .nav-logo { gap: 0.5rem; font-size: 1.05rem; }
+            .article-header { padding: 2rem 0 1.5rem; }
+            .breadcrumb { padding: 5rem 0 0; }
+            .article-cta { padding: 2rem 1.25rem; }
+            .footer-inner { flex-direction: column; gap: 0.5rem; }
+            .footer-sep { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">estimation<span>cave</span>.com</a>
+            <div class="nav-right">
+                <a href="blog.html" class="nav-back">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    Retour au blog
+                </a>
+                <a href="apropos.html" class="nav-back" style="text-decoration:none;">À propos</a>
+                <a href="index.html#formulaire" class="btn-gold">Demander un audit</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="breadcrumb">
+        <div class="container">
+            <a href="index.html">Accueil</a> &gt;
+            <span>Gérer sa cave</span>
+        </div>
+    </div>
+
+    <header class="article-header">
+        <div class="container">
+            <p class="article-meta">Avril 2026 · Gérer sa cave</p>
+            <h1>Bien gérer sa cave à vins : le guide complet</h1>
+            <span class="ornament"></span>
+            <p class="article-intro">Conservation, inventaire, apogée, organisation : tout ce qu'il faut savoir pour entretenir votre cave, protéger vos bouteilles et tirer le meilleur de votre collection — que vous soyez amateur éclairé ou propriétaire d'une cave héritée.</p>
+        </div>
+    </header>
+
+    <div class="toc">
+        <div class="container">
+            <div class="toc-box">
+                <p class="toc-title">Dans cet article</p>
+                <ul>
+                    <li><a href="#pourquoi"><span class="toc-dot"></span>Pourquoi bien gérer sa cave est essentiel</a></li>
+                    <li><a href="#conservation"><span class="toc-dot"></span>Les conditions de conservation optimales</a></li>
+                    <li><a href="#inventaire"><span class="toc-dot"></span>Tenir un inventaire fiable</a></li>
+                    <li><a href="#apogee"><span class="toc-dot"></span>Comprendre l'apogée et le potentiel de garde</a></li>
+                    <li><a href="#organisation"><span class="toc-dot"></span>Organiser physiquement sa cave</a></li>
+                    <li><a href="#valeur"><span class="toc-dot"></span>Suivre la valeur de sa cave dans le temps</a></li>
+                    <li><a href="#faq"><span class="toc-dot"></span>Questions fréquentes</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <main class="article-body">
+        <div class="container">
+
+            <div class="key-points">
+                <p class="key-points-title">Points clés</p>
+                <div class="key-point"><div class="key-point-dot"></div>La température idéale de conservation se situe entre 10 et 14 °C, avec une hygrométrie de 60 à 80 %</div>
+                <div class="key-point"><div class="key-point-dot"></div>Un inventaire à jour est indispensable pour ne pas laisser passer l'apogée de vos bouteilles</div>
+                <div class="key-point"><div class="key-point-dot"></div>Un vin mal conservé perd sa valeur marchande — les conditions de stockage comptent autant que l'étiquette</div>
+                <div class="key-point"><div class="key-point-dot"></div>Faire estimer sa cave régulièrement permet d'ajuster son assurance et de repérer les opportunités de vente</div>
+            </div>
+
+            <!-- ══ SECTION 1 ══ -->
+            <h2 id="pourquoi">Pourquoi bien gérer sa cave est essentiel</h2>
+
+            <p>Une cave à vins n'est pas un simple espace de rangement. C'est un <strong>patrimoine vivant</strong> dont la valeur évolue chaque jour — à la hausse si les conditions sont réunies, à la baisse si elles ne le sont pas.</p>
+
+            <p>Un vin mal conservé perd ses qualités organoleptiques, mais aussi sa <strong>valeur marchande</strong>. Un grand cru stocké dans un garage à température variable pendant dix ans ne vaudra plus grand-chose, quelle que soit la réputation du domaine. À l'inverse, une cave bien gérée protège votre investissement et peut même le faire fructifier.</p>
+
+            <p>La gestion d'une cave concerne aussi le <strong>plaisir de la dégustation</strong>. Ouvrir une bouteille au bon moment — ni trop tôt, ni trop tard — fait toute la différence. Et pour cela, il faut connaître sa cave, suivre l'évolution de ses bouteilles et anticiper les fenêtres de dégustation optimales.</p>
+
+            <p>Que votre cave contienne 30 bouteilles ou 3 000, les principes sont les mêmes. Pour connaître la valeur actuelle de votre collection, consultez notre <a href="estimation.html">guide complet sur l'estimation de cave à vins</a>.</p>
+
+            <span class="section-divider"></span>
+
+            <!-- ══ SECTION 2 ══ -->
+            <h2 id="conservation">Les conditions de conservation optimales</h2>
+
+            <p>La conservation du vin repose sur cinq facteurs fondamentaux. Si l'un d'entre eux fait défaut, le vin peut s'altérer de manière irréversible.</p>
+
+            <!-- SVG VISUEL 1 — Les 5 facteurs -->
+            <div class="visual-block">
+                <p class="visual-title">Les 5 facteurs de conservation du vin</p>
+                <svg viewBox="0 0 660 320" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+                    <rect width="660" height="320" rx="8" fill="#FFFFFF"/>
+                    <rect x="0" y="0" width="660" height="3" rx="1.5" fill="#C5A258"/>
+                    <!-- Row 1 -->
+                    <rect x="25" y="20" width="290" height="85" rx="6" fill="#FAF6F0" stroke="rgba(45,27,46,0.06)" stroke-width="1"/>
+                    <circle cx="55" cy="62" r="16" fill="rgba(197,162,88,0.1)"/>
+                    <text x="55" y="67" font-family="Inter, sans-serif" font-size="14" fill="#C5A258" text-anchor="middle" font-weight="600">T°</text>
+                    <text x="82" y="50" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#2D1B2E">Température</text>
+                    <text x="82" y="67" font-family="Inter, sans-serif" font-size="10" fill="#6B5F65">10–14 °C constants</text>
+                    <text x="82" y="82" font-family="Inter, sans-serif" font-size="10" fill="#6B5F65">Éviter les variations brutales</text>
+
+                    <rect x="345" y="20" width="290" height="85" rx="6" fill="#FAF6F0" stroke="rgba(45,27,46,0.06)" stroke-width="1"/>
+                    <circle cx="375" cy="62" r="16" fill="rgba(197,162,88,0.1)"/>
+                    <text x="375" y="67" font-family="Inter, sans-serif" font-size="14" fill="#C5A258" text-anchor="middle" font-weight="600">H</text>
+                    <text x="402" y="50" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#2D1B2E">Hygrométrie</text>
+                    <text x="402" y="67" font-family="Inter, sans-serif" font-size="10" fill="#6B5F65">60–80 % d'humidité relative</text>
+                    <text x="402" y="82" font-family="Inter, sans-serif" font-size="10" fill="#6B5F65">Bouchon souple, étiquettes intactes</text>
+
+                    <!-- Row 2 -->
+                    <rect x="25" y="120" width="290" height="85" rx="6" fill="#FAF6F0" stroke="rgba(45,27,46,0.06)" stroke-width="1"/>
+                    <circle cx="55" cy="162" r="16" fill="rgba(197,162,88,0.1)"/>
+                    <text x="55" y="167" font-family="Inter, sans-serif" font-size="12" fill="#C5A258" text-anchor="middle" font-weight="700">L</text>
+                    <text x="82" y="150" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#2D1B2E">Lumière</text>
+                    <text x="82" y="167" font-family="Inter, sans-serif" font-size="10" fill="#6B5F65">Obscurité totale recommandée</text>
+                    <text x="82" y="182" font-family="Inter, sans-serif" font-size="10" fill="#6B5F65">UV accélèrent le vieillissement</text>
+
+                    <rect x="345" y="120" width="290" height="85" rx="6" fill="#FAF6F0" stroke="rgba(45,27,46,0.06)" stroke-width="1"/>
+                    <circle cx="375" cy="162" r="16" fill="rgba(197,162,88,0.1)"/>
+                    <text x="375" y="167" font-family="Inter, sans-serif" font-size="12" fill="#C5A258" text-anchor="middle" font-weight="700">V</text>
+                    <text x="402" y="150" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#2D1B2E">Vibrations</text>
+                    <text x="402" y="167" font-family="Inter, sans-serif" font-size="10" fill="#6B5F65">Repos absolu des bouteilles</text>
+                    <text x="402" y="182" font-family="Inter, sans-serif" font-size="10" fill="#6B5F65">Pas de machine à laver à proximité</text>
+
+                    <!-- Row 3 — centered -->
+                    <rect x="185" y="220" width="290" height="85" rx="6" fill="rgba(197,162,88,0.06)" stroke="#C5A258" stroke-width="1.5"/>
+                    <circle cx="215" cy="262" r="16" fill="#C5A258"/>
+                    <text x="215" y="267" font-family="Inter, sans-serif" font-size="12" fill="#FFFFFF" text-anchor="middle" font-weight="700">O</text>
+                    <text x="242" y="250" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#2D1B2E">Odeurs</text>
+                    <text x="242" y="267" font-family="Inter, sans-serif" font-size="10" fill="#6B5F65">Ventilation légère, pas de produits chimiques</text>
+                    <text x="242" y="282" font-family="Inter, sans-serif" font-size="10" fill="#6B5F65">Le liège absorbe les odeurs environnantes</text>
+                </svg>
+            </div>
+
+            <h3>Température : la stabilité avant tout</h3>
+
+            <p>La température idéale se situe entre <strong>10 et 14 °C</strong>, avec un optimum autour de 12 °C. Mais c'est surtout la stabilité qui compte : un vin conservé à 15 °C constants vieillira mieux qu'un vin soumis à des alternances entre 8 et 20 °C. Les variations brutales provoquent des <strong>chocs thermiques</strong> qui altèrent le vin et peuvent faire couler le bouchon.</p>
+
+            <h3>Hygrométrie : protéger le bouchon et l'étiquette</h3>
+
+            <p>Le taux d'humidité idéal se situe entre <strong>60 et 80 %</strong>. En dessous de 50 %, le bouchon en liège se dessèche, perd son étanchéité et laisse entrer l'air — le vin s'oxyde. Au-dessus de 80 %, les moisissures prolifèrent et détériorent les étiquettes. Un hygromètre simple suffit à surveiller ce paramètre.</p>
+
+            <h3>Lumière, vibrations et odeurs</h3>
+
+            <p>Le vin doit être conservé dans <strong>l'obscurité totale</strong>. Les rayons UV accélèrent le vieillissement et peuvent provoquer des goûts désagréables. Les vibrations perturbent le dépôt naturel et le vieillissement du vin — évitez de stocker vos bouteilles à proximité d'un appareil électroménager. Enfin, le liège étant poreux, il absorbe les odeurs : pas de produits chimiques, de peinture ou de fioul à proximité.</p>
+
+            <div class="bon-a-savoir">
+                <p class="bon-a-savoir-title">Bon à savoir</p>
+                <p>Les bouteilles fermées avec un bouchon en liège doivent être <strong>couchées</strong> pour que le vin reste en contact avec le bouchon. Les bouteilles à capsule à vis peuvent être stockées debout sans risque.</p>
+            </div>
+
+            <span class="section-divider"></span>
+
+            <!-- ══ SECTION 3 ══ -->
+            <h2 id="inventaire">Tenir un inventaire fiable</h2>
+
+            <p>Un inventaire à jour est la colonne vertébrale d'une cave bien gérée. Sans lui, vous risquez de laisser passer l'apogée d'une bouteille, d'oublier ce que vous possédez ou de racheter des références que vous avez déjà.</p>
+
+            <h3>Que noter pour chaque bouteille</h3>
+
+            <p>L'inventaire doit comporter au minimum : le <strong>domaine</strong>, l'<strong>appellation</strong>, le <strong>millésime</strong>, la <strong>couleur</strong> (rouge, blanc, rosé, effervescent), le <strong>format</strong> (bouteille, magnum…), la <strong>quantité</strong> et l'<strong>emplacement</strong> dans la cave. Si vous connaissez le prix d'achat, notez-le aussi — il sera utile pour suivre l'évolution de la valeur.</p>
+
+            <h3>Quel outil utiliser</h3>
+
+            <p>Un simple <strong>tableur</strong> (Excel, Google Sheets) suffit pour une cave de taille modeste. Pour les caves plus importantes, des applications dédiées comme Vivino, CellarTracker ou des solutions françaises permettent de scanner les étiquettes, de suivre les cotes et de recevoir des alertes quand une bouteille approche de son apogée.</p>
+
+            <p>L'essentiel n'est pas l'outil mais la <strong>régularité</strong> : mettez à jour votre inventaire chaque fois que vous ajoutez ou retirez une bouteille. Un inventaire partiel ou obsolète est presque aussi inutile que pas d'inventaire du tout.</p>
+
+            <div class="bon-a-savoir">
+                <p class="bon-a-savoir-title">Bon à savoir</p>
+                <p>Si vous n'avez jamais fait d'inventaire et que votre cave contient plusieurs dizaines de bouteilles, un audit professionnel peut vous fournir un inventaire structuré complet. C'est souvent plus rapide et plus fiable que de tout faire soi-même. Découvrez comment ça fonctionne dans notre article <a href="article-estimation-distance.html">Estimation de cave à distance</a>.</p>
+            </div>
+
+            <span class="section-divider"></span>
+
+            <!-- ══ SECTION 4 ══ -->
+            <h2 id="apogee">Comprendre l'apogée et le potentiel de garde</h2>
+
+            <p>Chaque vin a une <strong>fenêtre de maturité optimale</strong> — une période pendant laquelle il exprime le meilleur de son potentiel. Avant cette fenêtre, le vin est trop jeune et ses arômes ne sont pas encore développés. Après, il décline et perd en complexité, en fruit et en fraîcheur.</p>
+
+            <!-- SVG VISUEL 2 — Potentiel de garde par type -->
+            <div class="visual-block">
+                <p class="visual-title">Potentiel de garde indicatif par type de vin</p>
+                <svg viewBox="0 0 660 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+                    <rect width="660" height="280" rx="8" fill="#FAF6F0"/>
+                    <rect x="0" y="0" width="660" height="3" rx="1.5" fill="#C5A258"/>
+                    <!-- Headers -->
+                    <text x="140" y="36" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#2D1B2E" text-anchor="middle">TYPE DE VIN</text>
+                    <text x="420" y="36" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#2D1B2E" text-anchor="middle">POTENTIEL DE GARDE</text>
+                    <line x1="30" y1="48" x2="630" y2="48" stroke="#2D1B2E" stroke-opacity="0.08" stroke-width="1"/>
+                    <!-- Row 1 -->
+                    <text x="140" y="76" font-family="Inter, sans-serif" font-size="12" font-weight="500" fill="#3A3035" text-anchor="middle">Blancs secs légers, rosés</text>
+                    <rect x="280" y="66" width="320" height="10" rx="5" fill="#2D1B2E" fill-opacity="0.04"/>
+                    <rect x="280" y="66" width="50" height="10" rx="5" fill="#C5A258"/>
+                    <text x="340" y="76" font-family="Inter, sans-serif" font-size="10" fill="#6B5F65">1–3 ans</text>
+                    <line x1="30" y1="92" x2="630" y2="92" stroke="#2D1B2E" stroke-opacity="0.04" stroke-width="1"/>
+                    <!-- Row 2 -->
+                    <text x="140" y="116" font-family="Inter, sans-serif" font-size="12" font-weight="500" fill="#3A3035" text-anchor="middle">Rouges légers (Beaujolais, Loire)</text>
+                    <rect x="280" y="106" width="320" height="10" rx="5" fill="#2D1B2E" fill-opacity="0.04"/>
+                    <rect x="280" y="106" width="80" height="10" rx="5" fill="#C5A258"/>
+                    <text x="370" y="116" font-family="Inter, sans-serif" font-size="10" fill="#6B5F65">2–5 ans</text>
+                    <line x1="30" y1="132" x2="630" y2="132" stroke="#2D1B2E" stroke-opacity="0.04" stroke-width="1"/>
+                    <!-- Row 3 -->
+                    <text x="140" y="156" font-family="Inter, sans-serif" font-size="12" font-weight="500" fill="#3A3035" text-anchor="middle">Champagnes millésimés</text>
+                    <rect x="280" y="146" width="320" height="10" rx="5" fill="#2D1B2E" fill-opacity="0.04"/>
+                    <rect x="280" y="146" width="130" height="10" rx="5" fill="#C5A258"/>
+                    <text x="420" y="156" font-family="Inter, sans-serif" font-size="10" fill="#6B5F65">5–15 ans</text>
+                    <line x1="30" y1="172" x2="630" y2="172" stroke="#2D1B2E" stroke-opacity="0.04" stroke-width="1"/>
+                    <!-- Row 4 -->
+                    <text x="140" y="196" font-family="Inter, sans-serif" font-size="12" font-weight="500" fill="#3A3035" text-anchor="middle">Bordeaux, Rhône, grands blancs</text>
+                    <rect x="280" y="186" width="320" height="10" rx="5" fill="#2D1B2E" fill-opacity="0.04"/>
+                    <rect x="280" y="186" width="200" height="10" rx="5" fill="#C5A258"/>
+                    <text x="490" y="196" font-family="Inter, sans-serif" font-size="10" fill="#6B5F65">10–30 ans</text>
+                    <line x1="30" y1="212" x2="630" y2="212" stroke="#2D1B2E" stroke-opacity="0.04" stroke-width="1"/>
+                    <!-- Row 5 -->
+                    <rect x="20" y="222" width="620" height="34" rx="4" fill="rgba(197,162,88,0.06)"/>
+                    <text x="140" y="244" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#2D1B2E" text-anchor="middle">Grands crus classés, Bourgogne</text>
+                    <rect x="280" y="234" width="320" height="10" rx="5" fill="#2D1B2E" fill-opacity="0.04"/>
+                    <rect x="280" y="234" width="280" height="10" rx="5" fill="#C5A258"/>
+                    <text x="570" y="244" font-family="Inter, sans-serif" font-size="10" fill="#C5A258" font-weight="600">20–50+ ans</text>
+                    <!-- Footer -->
+                    <text x="330" y="274" font-family="Inter, sans-serif" font-size="10" fill="#6B5F65" text-anchor="middle" font-style="italic">Indicatif — dépend du millésime, du producteur et des conditions de conservation</text>
+                </svg>
+            </div>
+
+            <p>Le potentiel de garde dépend de plusieurs facteurs : le <strong>cépage</strong>, l'<strong>appellation</strong>, le <strong>millésime</strong>, le producteur et les conditions de conservation. Un Bordeaux premier cru classé d'un grand millésime peut se bonifier pendant 30 à 50 ans. Un rosé de Provence est fait pour être bu dans l'année.</p>
+
+            <p>La difficulté, c'est que <strong>la majorité des vins ne sont pas faits pour être gardés longtemps</strong>. On estime que 90 % des vins produits dans le monde sont destinés à être consommés dans les deux à trois ans. Garder trop longtemps un vin qui n'est pas conçu pour cela ne le rend pas meilleur — il le dégrade.</p>
+
+            <p>Si vous n'êtes pas sûr du potentiel de garde de vos bouteilles, un audit professionnel vous indique précisément lesquelles boire maintenant, lesquelles conserver et lesquelles sont déjà passées. C'est l'un des éléments les plus utiles du rapport.</p>
+
+            <span class="section-divider"></span>
+
+            <!-- ══ SECTION 5 ══ -->
+            <h2 id="organisation">Organiser physiquement sa cave</h2>
+
+            <p>Une bonne organisation physique vous fait gagner du temps, évite les manipulations inutiles et protège vos bouteilles les plus fragiles.</p>
+
+            <h3>Classement par zone</h3>
+
+            <p>La méthode la plus courante consiste à diviser la cave en <strong>zones thématiques</strong> : par région (Bordeaux, Bourgogne, Rhône…), par couleur (rouge, blanc, effervescent) ou par usage (à boire prochainement, à garder, à vendre). Choisissez le système qui correspond le mieux à la façon dont vous cherchez vos bouteilles.</p>
+
+            <h3>Bouteilles accessibles en premier</h3>
+
+            <p>Placez les vins <strong>à boire prochainement</strong> dans les emplacements les plus accessibles. Les bouteilles à garder longtemps peuvent être rangées plus en profondeur — elles n'ont pas besoin d'être déplacées régulièrement. Cette organisation limite les manipulations et réduit les risques de vibrations.</p>
+
+            <h3>Étiquetage et repérage</h3>
+
+            <p>Si votre cave est grande, utilisez des <strong>étiquettes de rangement</strong> sur les casiers (papier, craie ou étiquettes adhésives). Certains propriétaires numérotent leurs emplacements et reportent les coordonnées dans leur inventaire. L'objectif est de pouvoir retrouver n'importe quelle bouteille sans tout déplacer.</p>
+
+            <span class="section-divider"></span>
+
+            <!-- ══ SECTION 6 ══ -->
+            <h2 id="valeur">Suivre la valeur de sa cave dans le temps</h2>
+
+            <p>Une cave bien gérée n'est pas seulement un plaisir — c'est aussi un patrimoine dont la valeur évolue. Suivre cette valeur présente plusieurs intérêts concrets.</p>
+
+            <p><strong>Ajuster votre contrat d'assurance.</strong> Beaucoup de caves sont sous-assurées parce que leur propriétaire n'a jamais fait le point. En cas de sinistre — dégât des eaux, vol, incendie — l'indemnisation sera calculée sur la base de ce qui a été déclaré, pas sur la valeur réelle.</p>
+
+            <p><strong>Repérer les bonnes occasions de vendre.</strong> Certaines références prennent de la valeur avec le temps. Si une bouteille que vous avez achetée 30 € en vaut désormais 200 €, c'est une information utile — surtout si vous n'aviez pas l'intention de la boire.</p>
+
+            <p><strong>Anticiper les successions.</strong> En cas de transmission, le notaire aura besoin d'une valorisation précise de la cave. Disposer d'une estimation récente simplifie considérablement les démarches. Pour en savoir plus, consultez notre guide <a href="article-heritage-cave.html">J'ai hérité d'une cave à vins : que faire ?</a></p>
+
+            <!-- SVG VISUEL 3 — Quand estimer -->
+            <div class="visual-block">
+                <p class="visual-title">Quand faire estimer sa cave ?</p>
+                <svg viewBox="0 0 660 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+                    <rect width="660" height="180" rx="8" fill="#FFFFFF"/>
+                    <rect x="0" y="0" width="660" height="3" rx="1.5" fill="#C5A258"/>
+                    <!-- Items -->
+                    <rect x="25" y="20" width="185" height="65" rx="6" fill="#FAF6F0" stroke="rgba(45,27,46,0.06)" stroke-width="1"/>
+                    <text x="117" y="47" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#2D1B2E" text-anchor="middle">Tous les 3 à 5 ans</text>
+                    <text x="117" y="66" font-family="Inter, sans-serif" font-size="10" fill="#6B5F65" text-anchor="middle">Suivi régulier de la valeur</text>
+
+                    <rect x="237" y="20" width="185" height="65" rx="6" fill="#FAF6F0" stroke="rgba(45,27,46,0.06)" stroke-width="1"/>
+                    <text x="330" y="47" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#2D1B2E" text-anchor="middle">Avant une vente</text>
+                    <text x="330" y="66" font-family="Inter, sans-serif" font-size="10" fill="#6B5F65" text-anchor="middle">Négocier en connaissance</text>
+
+                    <rect x="449" y="20" width="185" height="65" rx="6" fill="#FAF6F0" stroke="rgba(45,27,46,0.06)" stroke-width="1"/>
+                    <text x="542" y="47" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#2D1B2E" text-anchor="middle">Succession / donation</text>
+                    <text x="542" y="66" font-family="Inter, sans-serif" font-size="10" fill="#6B5F65" text-anchor="middle">Obligation légale</text>
+
+                    <rect x="130" y="100" width="185" height="65" rx="6" fill="rgba(197,162,88,0.06)" stroke="#C5A258" stroke-width="1.5"/>
+                    <text x="222" y="127" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#2D1B2E" text-anchor="middle">Mise à jour assurance</text>
+                    <text x="222" y="146" font-family="Inter, sans-serif" font-size="10" fill="#6B5F65" text-anchor="middle">Couverture adaptée au réel</text>
+
+                    <rect x="345" y="100" width="185" height="65" rx="6" fill="#FAF6F0" stroke="rgba(45,27,46,0.06)" stroke-width="1"/>
+                    <text x="437" y="127" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#2D1B2E" text-anchor="middle">Changement de stockage</text>
+                    <text x="437" y="146" font-family="Inter, sans-serif" font-size="10" fill="#6B5F65" text-anchor="middle">Déménagement, travaux</text>
+                </svg>
+            </div>
+
+            <p>Il est recommandé de faire estimer sa cave <strong>tous les 3 à 5 ans</strong>, ou à l'occasion d'un événement particulier : vente envisagée, succession, mise à jour de l'assurance, ou changement significatif des conditions de stockage.</p>
+
+            <span class="section-divider"></span>
+
+            <!-- ══ FAQ ══ -->
+            <div class="inline-faq" id="faq">
+                <p class="inline-faq-title">Questions fréquentes</p>
+
+                <div class="inline-faq-item">
+                    <button class="inline-faq-trigger">Quelle est la température idéale pour conserver du vin ?</button>
+                    <div class="inline-faq-content"><div class="inline-faq-answer">La température idéale se situe entre 10 et 14 °C, avec un optimum à 12 °C. L'essentiel est la stabilité : les variations brutales de température sont plus néfastes qu'une température légèrement élevée mais constante.</div></div>
+                </div>
+
+                <div class="inline-faq-item">
+                    <button class="inline-faq-trigger">Faut-il coucher les bouteilles de vin ?</button>
+                    <div class="inline-faq-content"><div class="inline-faq-answer">Oui, pour les bouteilles fermées avec un bouchon en liège. Le vin doit rester en contact avec le bouchon pour éviter qu'il ne se dessèche et laisse entrer l'air. Les bouteilles à capsule à vis peuvent être stockées debout sans risque.</div></div>
+                </div>
+
+                <div class="inline-faq-item">
+                    <button class="inline-faq-trigger">Comment savoir quand ouvrir une bouteille ?</button>
+                    <div class="inline-faq-content"><div class="inline-faq-answer">Chaque vin a une fenêtre de maturité optimale qui dépend du cépage, de l'appellation, du millésime et des conditions de conservation. Un audit professionnel de votre cave vous indique précisément quelles bouteilles boire maintenant et lesquelles conserver.</div></div>
+                </div>
+
+                <div class="inline-faq-item">
+                    <button class="inline-faq-trigger">Comment faire l'inventaire de sa cave ?</button>
+                    <div class="inline-faq-content"><div class="inline-faq-answer">Vous pouvez utiliser un tableur ou une application dédiée. L'essentiel est de noter pour chaque bouteille : le domaine, l'appellation, le millésime, la couleur, le format, la quantité et l'emplacement dans la cave.</div></div>
+                </div>
+
+                <div class="inline-faq-item">
+                    <button class="inline-faq-trigger">À quelle fréquence faut-il faire estimer sa cave ?</button>
+                    <div class="inline-faq-content"><div class="inline-faq-answer">Il est recommandé de faire estimer sa cave tous les 3 à 5 ans, ou lors d'un événement particulier : vente envisagée, succession, mise à jour de l'assurance, ou changement significatif du marché sur vos références.</div></div>
+                </div>
+            </div>
+
+            <!-- ══ CTA ══ -->
+            <div class="article-cta">
+                <h2>Vous souhaitez faire le point sur votre cave ?</h2>
+                <p>Obtenez un rapport complet sous 5 jours ouvrés — inventaire, estimations, recommandations et plan d'action.</p>
+                <a href="index.html#formulaire" class="btn-primary">Demander mon rapport</a>
+            </div>
+        </div>
+    </main>
+
+    <div class="back-to-blog">
+        <a href="blog.html">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            Tous les articles
+        </a>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <span class="footer-logo">estimationcave.com</span>
+            <span class="footer-sep">·</span>
+            <a href="mailto:contact@estimationcave.com">contact@estimationcave.com</a>
+            <span class="footer-sep">·</span>
+            <a href="mentions-legales.html">Mentions légales</a>
+            <span class="footer-sep">·</span>
+            <a href="confidentialite.html">Confidentialité</a>
+            <span class="footer-sep">·</span>
+            <a href="faq.html">FAQ</a>
+            <span class="footer-sep">·</span>
+            <a href="blog.html">Blog</a>
+        </div>
+    </footer>
+
+    <button id="btt" aria-label="Retour en haut" style="position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:#2D1B2E;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease,transform .3s ease;z-index:999;box-shadow:0 4px 16px rgba(45,27,46,.25);" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C5A258" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+    </button>
+    <script>
+        (function(){var b=document.getElementById('btt');window.addEventListener('scroll',function(){if(window.scrollY>300){b.style.opacity='1';b.style.visibility='visible'}else{b.style.opacity='0';b.style.visibility='hidden'}});b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})})})();
+        document.querySelectorAll('.inline-faq-trigger').forEach(function(btn){btn.addEventListener('click',function(){var item=this.parentElement;item.classList.toggle('open')})});
+    </script>
+
+</body>
+</html>
