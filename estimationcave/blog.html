@@ -132,30 +132,29 @@
             box-shadow: 0 8px 30px rgba(45, 27, 46, 0.2);
         }
 
-    .btn-gold {
-      display: inline-block;
-      font-family: var(--font-body, 'Inter', sans-serif);
-      font-weight: 500;
-      font-size: 0.85rem;
-      letter-spacing: 0.03em;
-      background: #C5A258;
-      color: #2D1B2E;
-      padding: 0.65rem 1.5rem;
-      border-radius: 4px;
-      border: none;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    .btn-gold:hover {
-      background: #D4B76E;
-      transform: translateY(-1px);
-      box-shadow: 0 8px 30px rgba(197, 162, 88, 0.3);
-    }
-
+        .btn-gold {
+            display: inline-block;
+            font-family: var(--font-body, 'Inter', sans-serif);
+            font-weight: 500;
+            font-size: 0.85rem;
+            letter-spacing: 0.03em;
+            background: #C5A258;
+            color: #2D1B2E;
+            padding: 0.65rem 1.5rem;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-gold:hover {
+            background: #D4B76E;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 30px rgba(197, 162, 88, 0.3);
+        }
 
         /* ── HEADER ── */
         .page-header {
-            padding: 8.5rem 0 3.5rem;
+            padding: 8.5rem 0 2.5rem;
             text-align: center;
         }
 
@@ -166,6 +165,70 @@
             max-width: 560px;
             margin: 1rem auto 0;
             line-height: 1.8;
+        }
+
+        /* ── TABS ── */
+        .tabs {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            padding: 0 2rem 2.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .tab-btn {
+            font-family: var(--font-body);
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--texte-light);
+            background: var(--blanc);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            padding: 0.5rem 1.15rem;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            white-space: nowrap;
+        }
+
+        .tab-btn:hover {
+            color: var(--bordeaux);
+            border-color: var(--or);
+        }
+
+        .tab-btn.active {
+            background: var(--bordeaux);
+            color: var(--fond);
+            border-color: var(--bordeaux);
+        }
+
+        /* ── SILO SECTIONS ── */
+        .silo-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .silo-section.hidden {
+            display: none;
+        }
+
+        .silo-header {
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .silo-header h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .silo-header p {
+            font-size: 0.9rem;
+            color: var(--texte-light);
+            font-weight: 300;
+            line-height: 1.6;
         }
 
         /* ── ARTICLES GRID ── */
@@ -181,6 +244,10 @@
             transition: all 0.3s ease;
             position: relative;
             display: block;
+        }
+
+        .article-card + .article-card {
+            margin-top: 1.5rem;
         }
 
         .article-card::before {
@@ -211,13 +278,17 @@
             margin-bottom: 0.75rem;
         }
 
-        .article-card h2 {
+        .article-card h3 {
+            font-family: var(--font-display);
+            font-weight: 600;
+            color: var(--bordeaux);
             margin-bottom: 0.75rem;
             font-size: 1.4rem;
+            line-height: 1.2;
             transition: color 0.25s ease;
         }
 
-        .article-card:hover h2 { color: var(--or); }
+        .article-card:hover h3 { color: var(--or); }
 
         .article-card p {
             font-size: 0.95rem;
@@ -239,6 +310,22 @@
         .article-card:hover .read-more { gap: 0.7rem; }
 
         .read-more svg { width: 14px; height: 14px; }
+
+        /* ── PILLAR BADGE ── */
+        .badge-pilier {
+            display: inline-block;
+            font-family: var(--font-body);
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--or);
+            background: var(--or-pale);
+            padding: 0.2rem 0.6rem;
+            border-radius: 3px;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+        }
 
         /* ── FOOTER ── */
         .footer {
@@ -281,11 +368,13 @@
 
             .container { padding: 0 1.25rem; }
             .nav-inner { padding: 0 1.25rem; height: 64px; }
-            .nav-logo {
-      gap: 0.5rem; font-size: 1.05rem; }
-            .page-header { padding: 7rem 0 2.5rem; }
+            .nav-logo { gap: 0.5rem; font-size: 1.05rem; }
+            .page-header { padding: 7rem 0 2rem; }
             .footer-inner { flex-direction: column; gap: 0.5rem; }
             .footer-sep { display: none; }
+
+            .tabs { gap: 0.35rem; padding: 0 1.25rem 2rem; }
+            .tab-btn { font-size: 0.72rem; padding: 0.4rem 0.85rem; }
         }
     </style>
 </head>
@@ -310,71 +399,123 @@
             <p class="section-label">Blog</p>
             <h1>Conseils &amp; expertise</h1>
             <span class="ornament"></span>
-            <p class="intro">Tout ce que vous devez savoir sur l'estimation et la vente de cave à vins.</p>
+            <p class="intro">Tout ce que vous devez savoir sur l'estimation, la gestion et la vente de cave à vins.</p>
         </div>
     </header>
 
+    <!-- ONGLETS -->
+    <div class="tabs">
+        <button class="tab-btn active" data-silo="tous">Tous</button>
+        <button class="tab-btn" data-silo="estimer">Estimer sa cave</button>
+        <button class="tab-btn" data-silo="heritage">Héritage &amp; Succession</button>
+        <button class="tab-btn" data-silo="vendre">Vendre ses vins</button>
+        <button class="tab-btn" data-silo="gestion">Gérer sa cave</button>
+        <button class="tab-btn" data-silo="professionnels">Professionnels</button>
+    </div>
+
     <main class="articles">
         <div class="container">
-            <a href="professionnels.html" class="article-card">
-                <p class="article-date">Avril 2026</p>
-                <h2>Professionnels : comment valoriser une cave à vins dans un dossier</h2>
-                <p>Notaires, avocats, CGP, experts-comptables — méthodes, obligations et outils pour intégrer une estimation fiable de cave à vins dans vos dossiers professionnels.</p>
-                <span class="read-more">
-                    Lire l'article
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                </span>
-            </a>
 
-            <a href="estimation.html" class="article-card" style="margin-top:1.5rem;">
-                <p class="article-date">Avril 2026</p>
-                <h2>Comment faire estimer sa cave à vins : le guide complet</h2>
-                <p>Méthodes, critères de valorisation, erreurs à éviter — tout ce qu'il faut savoir pour obtenir une estimation fiable de votre cave.</p>
-                <span class="read-more">
-                    Lire l'article
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                </span>
-            </a>
+            <!-- ══ SILO : ESTIMER SA CAVE ══ -->
+            <div class="silo-section" data-silo="estimer">
+                <div class="silo-header">
+                    <h2>Estimer sa cave</h2>
+                    <p>Méthodes, outils et critères pour connaître la valeur réelle de votre cave à vins.</p>
+                </div>
 
-            <a href="article-estimation-distance.html" class="article-card" style="margin-top:1.5rem;">
-                <p class="article-date">Avril 2026</p>
-                <h2>Estimation de cave à vins à distance : comment ça fonctionne ?</h2>
-                <p>Faire estimer sa cave sans déplacer une seule bouteille, c'est possible. Découvrez comment fonctionne un audit à distance, ce que contient le rapport et pour qui ce service est adapté.</p>
-                <span class="read-more">
-                    Lire l'article
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                </span>
-            </a>
+                <a href="estimation.html" class="article-card">
+                    <p class="article-date">Avril 2026</p>
+                    <h3>Comment faire estimer sa cave à vins : le guide complet <span class="badge-pilier">Guide</span></h3>
+                    <p>Méthodes, critères de valorisation, erreurs à éviter — tout ce qu'il faut savoir pour obtenir une estimation fiable de votre cave.</p>
+                    <span class="read-more">
+                        Lire l'article
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </span>
+                </a>
 
-            <a href="article-heritage-cave.html" class="article-card" style="margin-top:1.5rem;">
-                <p class="article-date">Avril 2026</p>
-                <h2>J'ai hérité d'une cave à vins : que faire ?</h2>
-                <p>Démarches, estimation, fiscalité, vente ou partage entre héritiers — guide complet pour gérer une cave de succession.</p>
-                <span class="read-more">
-                    Lire l'article
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                </span>
-            </a>
+                <a href="article-estimation-distance.html" class="article-card">
+                    <p class="article-date">Avril 2026</p>
+                    <h3>Estimation de cave à vins à distance : comment ça fonctionne ?</h3>
+                    <p>Faire estimer sa cave sans déplacer une seule bouteille, c'est possible. Découvrez comment fonctionne un audit à distance, ce que contient le rapport et pour qui ce service est adapté.</p>
+                    <span class="read-more">
+                        Lire l'article
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </span>
+                </a>
+            </div>
 
-            <a href="gestion.html" class="article-card" style="margin-top:1.5rem;">
-                <p class="article-date">Avril 2026</p>
-                <h2>Bien gérer sa cave à vins : le guide complet</h2>
-                <p>Conservation, inventaire, apogée, organisation — tout ce qu'il faut savoir pour entretenir et valoriser votre collection.</p>
-                <span class="read-more">
-                    Lire l'article
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                </span>
-            </a>
+            <!-- ══ SILO : HERITAGE & SUCCESSION ══ -->
+            <div class="silo-section" data-silo="heritage">
+                <div class="silo-header">
+                    <h2>Héritage &amp; Succession</h2>
+                    <p>Démarches, fiscalité et conseils pour gérer une cave reçue en héritage.</p>
+                </div>
 
-            <a href="vendre.html" class="article-card" style="margin-top:1.5rem;">
-                <p class="article-date">Avril 2026</p>
-                <h2>Comment vendre ses bouteilles de vin : le guide complet</h2>
-                <p>Enchères, négociant, caviste, entre particuliers — canaux, frais, préparation et erreurs à éviter pour vendre vos vins au meilleur prix.</p>
-                <span class="read-more">
-                    Lire l'article
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                </span>
-            </a>
+                <a href="article-heritage-cave.html" class="article-card">
+                    <p class="article-date">Avril 2026</p>
+                    <h3>J'ai hérité d'une cave à vins : que faire ?</h3>
+                    <p>Démarches, estimation, fiscalité, vente ou partage entre héritiers — guide complet pour gérer une cave de succession.</p>
+                    <span class="read-more">
+                        Lire l'article
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </span>
+                </a>
+            </div>
+
+            <!-- ══ SILO : VENDRE SES VINS ══ -->
+            <div class="silo-section" data-silo="vendre">
+                <div class="silo-header">
+                    <h2>Vendre ses vins</h2>
+                    <p>Canaux de vente, préparation et stratégies pour vendre vos bouteilles au meilleur prix.</p>
+                </div>
+
+                <a href="vendre.html" class="article-card">
+                    <p class="article-date">Avril 2026</p>
+                    <h3>Comment vendre ses bouteilles de vin : le guide complet <span class="badge-pilier">Guide</span></h3>
+                    <p>Enchères, négociant, caviste, entre particuliers — canaux, frais, préparation et erreurs à éviter pour vendre vos vins au meilleur prix.</p>
+                    <span class="read-more">
+                        Lire l'article
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </span>
+                </a>
+            </div>
+
+            <!-- ══ SILO : GERER SA CAVE ══ -->
+            <div class="silo-section" data-silo="gestion">
+                <div class="silo-header">
+                    <h2>Gérer sa cave</h2>
+                    <p>Conservation, inventaire, organisation — tout pour entretenir et valoriser votre collection.</p>
+                </div>
+
+                <a href="gestion.html" class="article-card">
+                    <p class="article-date">Avril 2026</p>
+                    <h3>Bien gérer sa cave à vins : le guide complet <span class="badge-pilier">Guide</span></h3>
+                    <p>Conservation, inventaire, apogée, organisation — tout ce qu'il faut savoir pour entretenir et valoriser votre collection.</p>
+                    <span class="read-more">
+                        Lire l'article
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </span>
+                </a>
+            </div>
+
+            <!-- ══ SILO : PROFESSIONNELS ══ -->
+            <div class="silo-section" data-silo="professionnels">
+                <div class="silo-header">
+                    <h2>Professionnels</h2>
+                    <p>Ressources pour notaires, avocats, CGP et experts-comptables confrontés à la valorisation d'une cave.</p>
+                </div>
+
+                <a href="professionnels.html" class="article-card">
+                    <p class="article-date">Avril 2026</p>
+                    <h3>Professionnels : comment valoriser une cave à vins dans un dossier <span class="badge-pilier">Guide</span></h3>
+                    <p>Notaires, avocats, CGP, experts-comptables — méthodes, obligations et outils pour intégrer une estimation fiable de cave à vins dans vos dossiers professionnels.</p>
+                    <span class="read-more">
+                        Lire l'article
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </span>
+                </a>
+            </div>
+
         </div>
     </main>
 
@@ -397,8 +538,32 @@
     <button id="btt" aria-label="Retour en haut" style="position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:#2D1B2E;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease,transform .3s ease;z-index:999;box-shadow:0 4px 16px rgba(45,27,46,.25);" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C5A258" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
     </button>
+
     <script>
-        (function(){var b=document.getElementById('btt');window.addEventListener('scroll',function(){if(window.scrollY>300){b.style.opacity='1';b.style.visibility='visible'}else{b.style.opacity='0';b.style.visibility='hidden'}});b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})})})();
+    // Back to top
+    (function(){var b=document.getElementById('btt');window.addEventListener('scroll',function(){if(window.scrollY>300){b.style.opacity='1';b.style.visibility='visible'}else{b.style.opacity='0';b.style.visibility='hidden'}});b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})})})();
+
+    // Tabs filtering
+    document.querySelectorAll('.tab-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var silo = this.getAttribute('data-silo');
+
+            document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+            this.classList.add('active');
+
+            document.querySelectorAll('.silo-section').forEach(function(section) {
+                if (silo === 'tous') {
+                    section.classList.remove('hidden');
+                } else {
+                    if (section.getAttribute('data-silo') === silo) {
+                        section.classList.remove('hidden');
+                    } else {
+                        section.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    });
     </script>
 
 </body>
