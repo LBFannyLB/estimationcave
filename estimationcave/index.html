@@ -433,25 +433,40 @@
       margin-bottom: 4rem;
     }
 
-    .rapport-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.25rem;
+    /* ── CAROUSEL RAPPORT ── */
+    .carousel-wrapper {
+      position: relative;
       max-width: 1060px;
       margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 1.25rem;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: grab;
+      user-select: none;
+    }
+    .carousel-track.dragging {
+      transition: none;
+      cursor: grabbing;
     }
 
     .rapport-card {
+      flex: 0 0 calc(25% - 0.94rem);
       background: var(--blanc);
       border: 1px solid var(--border);
       border-radius: 8px;
       overflow: hidden;
-      transition: all 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .rapport-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 40px rgba(45, 27, 46, 0.08);
+    @media (hover: hover) {
+      .rapport-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 40px rgba(45, 27, 46, 0.08);
+      }
     }
 
     .rapport-img-wrapper {
@@ -467,6 +482,11 @@
       object-fit: cover;
       object-position: top;
       display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .rapport-card:hover .rapport-img-wrapper img {
+      transform: scale(1.04);
     }
 
     .rapport-img-wrapper::after {
@@ -498,21 +518,80 @@
       line-height: 1.6;
     }
 
+    .carousel-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .carousel-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1.5px solid var(--or);
+      background: transparent;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.25s ease;
+      flex-shrink: 0;
+    }
+    .carousel-btn:hover {
+      background: var(--or);
+    }
+    .carousel-btn:hover svg { stroke: var(--bordeaux); }
+    .carousel-btn:disabled {
+      opacity: 0.3;
+      cursor: default;
+    }
+    .carousel-btn:disabled:hover { background: transparent; }
+    .carousel-btn:disabled:hover svg { stroke: var(--or); }
+    .carousel-btn svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--or);
+      stroke-width: 2;
+      fill: none;
+    }
+
+    .carousel-dots {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: none;
+      background: var(--border);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      padding: 0;
+    }
+    .carousel-dot.active {
+      background: var(--or);
+      transform: scale(1.2);
+    }
+
     .rapport-cta {
       text-align: center;
       margin-top: 3rem;
     }
 
     @media (max-width: 900px) {
-      .rapport-grid {
-        grid-template-columns: repeat(2, 1fr);
+      .rapport-card {
+        flex: 0 0 calc(50% - 0.63rem);
       }
     }
 
     @media (max-width: 500px) {
-      .rapport-grid {
-        grid-template-columns: 1fr;
-        max-width: 320px;
+      .rapport-card {
+        flex: 0 0 85%;
       }
     }
 
@@ -1158,78 +1237,89 @@
         <span class="ornament"></span>
         <p class="section-subtitle">Un document d'une dizaine de pages, structuré, lisible et directement actionnable.</p>
       </div>
-      <div class="rapport-grid">
-        <div class="rapport-card">
-          <div class="rapport-img-wrapper">
-            <img src="rapport-garde.jpg" alt="Page de garde du rapport d'estimation de cave" loading="lazy">
+      <div class="carousel-wrapper" id="rapport-carousel">
+        <div class="carousel-track">
+          <div class="rapport-card">
+            <div class="rapport-img-wrapper">
+              <img src="rapport-garde.jpg" alt="Page de garde du rapport d'estimation de cave" loading="lazy">
+            </div>
+            <div class="rapport-card-text">
+              <h3>Page de garde</h3>
+              <p>Votre rapport personnalisé, avec référence de mission et date de livraison.</p>
+            </div>
           </div>
-          <div class="rapport-card-text">
-            <h3>Page de garde</h3>
-            <p>Votre rapport personnalisé, avec référence de mission et date de livraison.</p>
+          <div class="rapport-card">
+            <div class="rapport-img-wrapper">
+              <img src="rapport-synthese.jpg" alt="Synthèse exécutive de l'estimation" loading="lazy">
+            </div>
+            <div class="rapport-card-text">
+              <h3>Synthèse exécutive</h3>
+              <p>Une vue d'ensemble immédiate : valeur totale, répartition, points d'attention.</p>
+            </div>
+          </div>
+          <div class="rapport-card">
+            <div class="rapport-img-wrapper">
+              <img src="rapport-inventaire.jpg" alt="Inventaire détaillé de chaque référence" loading="lazy">
+            </div>
+            <div class="rapport-card-text">
+              <h3>Inventaire détaillé</h3>
+              <p>Chaque référence identifiée, avec appellation, millésime, estimation et état observé.</p>
+            </div>
+          </div>
+          <div class="rapport-card">
+            <div class="rapport-img-wrapper">
+              <img src="rapport-estimation.jpg" alt="Estimation globale de la cave" loading="lazy">
+            </div>
+            <div class="rapport-card-text">
+              <h3>Estimation globale</h3>
+              <p>La valeur de marché de votre cave, calculée à partir des transactions réelles.</p>
+            </div>
+          </div>
+          <div class="rapport-card">
+            <div class="rapport-img-wrapper">
+              <img src="rapport-graphiques.jpg" alt="Graphiques de répartition de la cave" loading="lazy">
+            </div>
+            <div class="rapport-card-text">
+              <h3>Graphiques de répartition</h3>
+              <p>Votre cave en un coup d'œil : par recommandation, par région, par potentiel.</p>
+            </div>
+          </div>
+          <div class="rapport-card">
+            <div class="rapport-img-wrapper">
+              <img src="rapport-reco-conserver.jpg" alt="Recommandations détaillées par lot" loading="lazy">
+            </div>
+            <div class="rapport-card-text">
+              <h3>Recommandations par lot</h3>
+              <p>Chaque référence est classée : à vendre, à conserver ou à surveiller — avec une justification claire.</p>
+            </div>
+          </div>
+          <div class="rapport-card">
+            <div class="rapport-img-wrapper">
+              <img src="rapport-plan-action.jpg" alt="Plan d'action personnalisé" loading="lazy">
+            </div>
+            <div class="rapport-card-text">
+              <h3>Plan d'action</h3>
+              <p>Des prochaines étapes concrètes, adaptées à votre situation et vos objectifs.</p>
+            </div>
+          </div>
+          <div class="rapport-card">
+            <div class="rapport-img-wrapper">
+              <img src="rapport-prochaines-etapes.jpg" alt="Prochaines étapes personnalisées" loading="lazy">
+            </div>
+            <div class="rapport-card-text">
+              <h3>Prochaines étapes</h3>
+              <p>Un calendrier d'actions pour valoriser votre cave selon vos priorités.</p>
+            </div>
           </div>
         </div>
-        <div class="rapport-card">
-          <div class="rapport-img-wrapper">
-            <img src="rapport-synthese.jpg" alt="Synthèse exécutive de l'estimation" loading="lazy">
-          </div>
-          <div class="rapport-card-text">
-            <h3>Synthèse exécutive</h3>
-            <p>Une vue d'ensemble immédiate : valeur totale, répartition, points d'attention.</p>
-          </div>
-        </div>
-        <div class="rapport-card">
-          <div class="rapport-img-wrapper">
-            <img src="rapport-inventaire.jpg" alt="Inventaire détaillé de chaque référence" loading="lazy">
-          </div>
-          <div class="rapport-card-text">
-            <h3>Inventaire détaillé</h3>
-            <p>Chaque référence identifiée, avec appellation, millésime, estimation et état observé.</p>
-          </div>
-        </div>
-        <div class="rapport-card">
-          <div class="rapport-img-wrapper">
-            <img src="rapport-estimation.jpg" alt="Estimation globale de la cave" loading="lazy">
-          </div>
-          <div class="rapport-card-text">
-            <h3>Estimation globale</h3>
-            <p>La valeur de marché de votre cave, calculée à partir des transactions réelles.</p>
-          </div>
-        </div>
-        <div class="rapport-card">
-          <div class="rapport-img-wrapper">
-            <img src="rapport-graphiques.jpg" alt="Graphiques de répartition de la cave" loading="lazy">
-          </div>
-          <div class="rapport-card-text">
-            <h3>Graphiques de répartition</h3>
-            <p>Votre cave en un coup d'œil : par recommandation, par région, par potentiel.</p>
-          </div>
-        </div>
-        <div class="rapport-card">
-          <div class="rapport-img-wrapper">
-            <img src="rapport-reco-conserver.jpg" alt="Recommandations détaillées par lot" loading="lazy">
-          </div>
-          <div class="rapport-card-text">
-            <h3>Recommandations par lot</h3>
-            <p>Chaque référence est classée : à vendre, à conserver ou à surveiller — avec une justification claire.</p>
-          </div>
-        </div>
-        <div class="rapport-card">
-          <div class="rapport-img-wrapper">
-            <img src="rapport-plan-action.jpg" alt="Plan d'action personnalisé" loading="lazy">
-          </div>
-          <div class="rapport-card-text">
-            <h3>Plan d'action</h3>
-            <p>Des prochaines étapes concrètes, adaptées à votre situation et vos objectifs.</p>
-          </div>
-        </div>
-        <div class="rapport-card">
-          <div class="rapport-img-wrapper">
-            <img src="rapport-prochaines-etapes.jpg" alt="Prochaines étapes personnalisées" loading="lazy">
-          </div>
-          <div class="rapport-card-text">
-            <h3>Prochaines étapes</h3>
-            <p>Un calendrier d'actions pour valoriser votre cave selon vos priorités.</p>
-          </div>
+        <div class="carousel-controls">
+          <button class="carousel-btn" id="carousel-prev" aria-label="Diapositive précédente">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <div class="carousel-dots" id="carousel-dots"></div>
+          <button class="carousel-btn" id="carousel-next" aria-label="Diapositive suivante">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
         </div>
       </div>
       <div class="rapport-cta">
@@ -1506,6 +1596,106 @@
         navRight.querySelectorAll('a').forEach(function(link) {
             link.addEventListener('click', closeMenu);
         });
+    })();
+    </script>
+
+    <script>
+    (function(){
+      var wrapper = document.getElementById('rapport-carousel');
+      if (!wrapper) return;
+      var track = wrapper.querySelector('.carousel-track');
+      var cards = wrapper.querySelectorAll('.rapport-card');
+      var prevBtn = document.getElementById('carousel-prev');
+      var nextBtn = document.getElementById('carousel-next');
+      var dotsContainer = document.getElementById('carousel-dots');
+      var currentIndex = 0;
+      var cardsPerView = 4;
+      var gap = 20;
+
+      function getCardsPerView() {
+        if (window.innerWidth <= 500) return 1;
+        if (window.innerWidth <= 900) return 2;
+        return 4;
+      }
+
+      function getTotalPages() {
+        return Math.ceil(cards.length / cardsPerView);
+      }
+
+      function buildDots() {
+        dotsContainer.innerHTML = '';
+        var total = getTotalPages();
+        for (var i = 0; i < total; i++) {
+          var dot = document.createElement('button');
+          dot.className = 'carousel-dot' + (i === currentIndex ? ' active' : '');
+          dot.setAttribute('aria-label', 'Page ' + (i + 1));
+          dot.addEventListener('click', (function(idx){ return function(){ goTo(idx); }; })(i));
+          dotsContainer.appendChild(dot);
+        }
+      }
+
+      function updateButtons() {
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex >= getTotalPages() - 1;
+        var dots = dotsContainer.querySelectorAll('.carousel-dot');
+        dots.forEach(function(d, i){ d.className = 'carousel-dot' + (i === currentIndex ? ' active' : ''); });
+      }
+
+      function goTo(index) {
+        var maxIndex = getTotalPages() - 1;
+        currentIndex = Math.max(0, Math.min(index, maxIndex));
+        var card = cards[0];
+        var cardWidth = card.offsetWidth + gap;
+        var offset = currentIndex * cardsPerView * cardWidth;
+        var maxOffset = track.scrollWidth - wrapper.offsetWidth;
+        offset = Math.min(offset, maxOffset);
+        track.style.transform = 'translateX(-' + offset + 'px)';
+        updateButtons();
+      }
+
+      prevBtn.addEventListener('click', function(){ goTo(currentIndex - 1); });
+      nextBtn.addEventListener('click', function(){ goTo(currentIndex + 1); });
+
+      // Drag/swipe
+      var startX = 0, currentX = 0, isDragging = false, startTranslate = 0;
+      function getTranslate() {
+        var st = window.getComputedStyle(track);
+        var matrix = new DOMMatrixReadOnly(st.transform);
+        return matrix.m41;
+      }
+      track.addEventListener('mousedown', function(e){ isDragging = true; startX = e.clientX; startTranslate = getTranslate(); track.classList.add('dragging'); });
+      track.addEventListener('touchstart', function(e){ isDragging = true; startX = e.touches[0].clientX; startTranslate = getTranslate(); track.classList.add('dragging'); }, {passive:true});
+      window.addEventListener('mousemove', function(e){ if(!isDragging) return; currentX = e.clientX; track.style.transform = 'translateX(' + (startTranslate + currentX - startX) + 'px)'; });
+      window.addEventListener('touchmove', function(e){ if(!isDragging) return; currentX = e.touches[0].clientX; track.style.transform = 'translateX(' + (startTranslate + currentX - startX) + 'px)'; }, {passive:true});
+      function endDrag() {
+        if (!isDragging) return;
+        isDragging = false;
+        track.classList.remove('dragging');
+        var diff = currentX - startX;
+        if (Math.abs(diff) > 60) {
+          if (diff < 0) goTo(currentIndex + 1);
+          else goTo(currentIndex - 1);
+        } else { goTo(currentIndex); }
+      }
+      window.addEventListener('mouseup', endDrag);
+      window.addEventListener('touchend', endDrag);
+
+      // Resize
+      var resizeTimer;
+      window.addEventListener('resize', function(){
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function(){
+          cardsPerView = getCardsPerView();
+          currentIndex = Math.min(currentIndex, getTotalPages() - 1);
+          buildDots();
+          goTo(currentIndex);
+        }, 150);
+      });
+
+      // Init
+      cardsPerView = getCardsPerView();
+      buildDots();
+      updateButtons();
     })();
     </script>
 
