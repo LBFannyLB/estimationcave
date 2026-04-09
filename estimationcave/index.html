@@ -298,8 +298,9 @@
 
     .situations {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
+      grid-template-columns: 1.2fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 1.5rem;
     }
 
     .situation-card {
@@ -309,6 +310,13 @@
       padding: 2.5rem 2rem;
       transition: all 0.3s ease;
       position: relative;
+    }
+
+    .situation-card:first-child {
+      grid-row: 1 / 3;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .situation-card::before {
@@ -323,22 +331,26 @@
       transition: opacity 0.3s ease;
     }
 
-    .situation-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 40px rgba(45, 27, 46, 0.06);
+    @media (hover: hover) {
+      .situation-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 40px rgba(45, 27, 46, 0.06);
+      }
+      .situation-card:hover::before { opacity: 1; }
     }
-    .situation-card:hover::before { opacity: 1; }
 
     .situation-icon {
       width: 44px;
       height: 44px;
-      background: var(--or-pale);
-      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       margin-bottom: 1.5rem;
-      font-size: 1.2rem;
+    }
+
+    .situation-icon svg {
+      width: 36px;
+      height: 36px;
     }
 
     .situation-card h3 {
@@ -915,6 +927,9 @@
         grid-template-columns: 1fr;
         gap: 1.5rem;
       }
+      .situation-card:first-child {
+        grid-row: auto;
+      }
 
       .steps::before { display: none; }
 
@@ -1048,17 +1063,36 @@
       </div>
       <div class="situations">
         <div class="situation-card">
-          <div class="situation-icon">&#127942;</div>
+          <div class="situation-icon">
+            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 30V12l12-8 12 8v18H6z" stroke="#C5A258" stroke-width="1.2" stroke-linejoin="round"/>
+              <rect x="14" y="20" width="8" height="10" stroke="#C5A258" stroke-width="1.2"/>
+              <path d="M18 4v4" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round"/>
+              <circle cx="18" cy="16" r="2" stroke="#C5A258" stroke-width="1.2"/>
+            </svg>
+          </div>
           <h3>Succession ou héritage</h3>
           <p>Vous avez hérité d'une cave et vous ne savez pas précisément ce qu'elle contient, ni quelle valeur elle représente.</p>
         </div>
         <div class="situation-card">
-          <div class="situation-icon">&#128200;</div>
+          <div class="situation-icon">
+            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="4" y="8" width="28" height="22" rx="2" stroke="#C5A258" stroke-width="1.2"/>
+              <path d="M10 24l6-8 5 5 5-7" stroke="#C5A258" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="26" cy="14" r="2" stroke="#C5A258" stroke-width="1.2"/>
+            </svg>
+          </div>
           <h3>Vente partielle ou totale</h3>
           <p>Vous voulez vendre au bon prix, au bon moment, sans sous-estimer vos bouteilles ni passer à côté d'une opportunité.</p>
         </div>
         <div class="situation-card">
-          <div class="situation-icon">&#128218;</div>
+          <div class="situation-icon">
+            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 6h20v28H8z" stroke="#C5A258" stroke-width="1.2" stroke-linejoin="round"/>
+              <path d="M12 12h12M12 17h12M12 22h8" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round"/>
+              <path d="M14 6V4h8v2" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
           <h3>Inventaire personnel</h3>
           <p>Vous possédez une cave constituée au fil des années et vous souhaitez faire un point sérieux sur sa valeur, son état général et les meilleures décisions à prendre.</p>
         </div>
