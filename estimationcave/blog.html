@@ -128,7 +128,7 @@
             border: 1px solid var(--border);
             border-radius: 6px;
             padding: 2.5rem 2rem;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.33, 1, 0.68, 1);
             position: relative;
             display: block;
         }
@@ -146,12 +146,14 @@
             height: 2px;
             background: var(--or);
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.3s cubic-bezier(0.33, 1, 0.68, 1);
         }
 
+        @media (hover: hover) {
         .article-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(45, 27, 46, 0.06);
+            border-color: rgba(197, 162, 88, 0.3);
+            box-shadow: inset 0 0 0 1px rgba(197, 162, 88, 0.1), 0 8px 24px rgba(45, 27, 46, 0.05);
+        }
         }
 
         .article-card:hover::before { opacity: 1; }
