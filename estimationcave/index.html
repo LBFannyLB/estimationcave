@@ -428,37 +428,6 @@
       line-height: 1.6;
     }
 
-    /* ── PULL-QUOTE ── */
-    .pull-quote {
-      padding: 3rem 0;
-      text-align: center;
-    }
-
-    .pull-quote blockquote {
-      font-family: var(--font-display);
-      font-style: italic;
-      font-weight: 400;
-      font-size: clamp(1.3rem, 2.5vw, 1.7rem);
-      color: var(--bordeaux);
-      line-height: 1.5;
-      max-width: 640px;
-      margin: 0 auto;
-      position: relative;
-      padding: 0 2rem;
-    }
-
-    .pull-quote blockquote::before {
-      content: '\201C';
-      font-family: var(--font-display);
-      font-size: 4rem;
-      color: var(--or);
-      opacity: 0.4;
-      position: absolute;
-      top: -1.5rem;
-      left: -0.5rem;
-      line-height: 1;
-    }
-
     /* ══════════════════════════════════
        4b. APERÇU RAPPORT
     ══════════════════════════════════ */
@@ -1282,13 +1251,6 @@
   </section>
 
 
-  <!-- ════════════ PULL-QUOTE 1 ════════════ -->
-  <div class="pull-quote">
-    <div class="container">
-      <blockquote>Une cave n'est jamais seulement un ensemble de bouteilles. C'est parfois un patrimoine, parfois une transmission, parfois une passion.</blockquote>
-    </div>
-  </div>
-
   <!-- ════════════ 4b. APERÇU DU RAPPORT ════════════ -->
   <section class="rapport-apercu">
     <div class="container">
@@ -1418,13 +1380,6 @@
     </div>
   </section>
 
-
-  <!-- ════════════ PULL-QUOTE 2 ════════════ -->
-  <div class="pull-quote">
-    <div class="container">
-      <blockquote>Mon rôle est de vous aider à y voir clair, pour que vous puissiez prendre une décision sereine et adaptée à votre situation.</blockquote>
-    </div>
-  </div>
 
   <!-- ════════════ 6. TARIF ════════════ -->
   <section class="tarif">
@@ -1786,9 +1741,6 @@
 
         // Right reveals
         document.querySelectorAll('.rapport-header').forEach(function(el){ el.classList.add('reveal-right'); });
-
-        // Scale reveals (pull-quotes)
-        document.querySelectorAll('.pull-quote blockquote').forEach(function(el){ el.classList.add('reveal-scale'); });
 
         // Ornament reveals
         document.querySelectorAll('.ornament').forEach(function(el){ el.classList.add('ornament-reveal'); });
