@@ -180,31 +180,16 @@ a:hover { color: var(--bordeaux); }
     box-shadow: none;
 }
 
-/* ── SHIMMER CTA ── */
+/* ── PULSE BORDER CTA ── */
 .btn-gold,
 .btn-primary {
-    position: relative;
-    overflow: hidden;
+    animation: pulse-border 7s cubic-bezier(0.33, 1, 0.68, 1) infinite;
 }
-.btn-gold::after,
-.btn-primary::after {
-    content: '';
-    position: absolute;
-    top: 0; left: -100%;
-    width: 60%;
-    height: 100%;
-    background: linear-gradient(
-        105deg,
-        transparent 30%,
-        rgba(255, 255, 255, 0.2) 50%,
-        transparent 70%
-    );
-    animation: shimmer 8s ease-in-out infinite;
-    pointer-events: none;
-}
-@keyframes shimmer {
-    0%, 100% { left: -100%; }
-    40%, 60% { left: 150%; }
+.btn-gold { --pulse-color: rgba(197, 162, 88, 0.35); }
+.btn-primary { --pulse-color: rgba(45, 27, 46, 0.25); }
+@keyframes pulse-border {
+    0%, 85%, 100% { box-shadow: 0 0 0 0 var(--pulse-color); }
+    92% { box-shadow: 0 0 0 6px transparent; }
 }
 
 /* ── ORNAMENT ── */
