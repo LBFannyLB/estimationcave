@@ -180,6 +180,33 @@ a:hover { color: var(--bordeaux); }
     box-shadow: none;
 }
 
+/* ── SHIMMER CTA ── */
+.btn-gold,
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+.btn-gold::after,
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+        105deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.2) 50%,
+        transparent 70%
+    );
+    animation: shimmer 4s ease-in-out infinite;
+    pointer-events: none;
+}
+@keyframes shimmer {
+    0%, 100% { left: -100%; }
+    40%, 60% { left: 150%; }
+}
+
 /* ── ORNAMENT ── */
 .ornament {
     display: block;
@@ -245,6 +272,11 @@ a:hover { color: var(--bordeaux); }
 }
 .nav-overlay.active {
     opacity: 1;
+}
+
+/* ── DOUBLE-BEZEL ── */
+.article-cta {
+    box-shadow: inset 0 0 0 1px rgba(197, 162, 88, 0.1), 0 12px 40px rgba(45, 27, 46, 0.05);
 }
 
 /* ── SCROLL REVEAL ── */
