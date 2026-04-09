@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Background circle -->
+  <circle cx="32" cy="32" r="32" fill="#2D1B2E"/>
+  <!-- Barrel body -->
+  <path d="M20 18 C20 18 18 30 18 34 C18 38 20 50 20 50 L44 50 C44 50 46 38 46 34 C46 30 44 18 44 18 Z" fill="none" stroke="#C5A258" stroke-width="1.8" stroke-linejoin="round"/>
+  <!-- Barrel staves (vertical lines) -->
+  <line x1="25" y1="18.8" x2="23.5" y2="49.5" stroke="#C5A258" stroke-width="1" opacity="0.6"/>
+  <line x1="32" y1="17.5" x2="32" y2="50" stroke="#C5A258" stroke-width="1" opacity="0.6"/>
+  <line x1="39" y1="18.8" x2="40.5" y2="49.5" stroke="#C5A258" stroke-width="1" opacity="0.6"/>
+  <!-- Barrel hoops (horizontal bands) -->
+  <ellipse cx="32" cy="21" rx="13" ry="2.2" fill="none" stroke="#C5A258" stroke-width="2.2"/>
+  <ellipse cx="32" cy="34" rx="14.5" ry="2.5" fill="none" stroke="#C5A258" stroke-width="2.2"/>
+  <ellipse cx="32" cy="47" rx="13" ry="2.2" fill="none" stroke="#C5A258" stroke-width="2.2"/>
+  <!-- Top ellipse -->
+  <ellipse cx="32" cy="17.5" rx="12" ry="3.5" fill="#2D1B2E" stroke="#C5A258" stroke-width="1.5"/>
+  <line x1="24" y1="16" x2="40" y2="19" stroke="#C5A258" stroke-width="0.8" opacity="0.4"/>
+  <line x1="26" y1="19.5" x2="38" y2="15.5" stroke="#C5A258" stroke-width="0.8" opacity="0.4"/>
+</svg>

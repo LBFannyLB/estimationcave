@@ -1,0 +1,21 @@
+{
+  "name": "estimationcave.com",
+  "short_name": "EstimationCave",
+  "description": "Audit et estimation de cave à vins à distance",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAF6F0",
+  "theme_color": "#2D1B2E",
+  "icons": [
+    {
+      "src": "favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
