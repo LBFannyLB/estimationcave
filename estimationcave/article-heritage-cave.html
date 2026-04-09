@@ -74,8 +74,8 @@
 
         /* ── STEPS GRID ── */
         .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin: 1.5rem 0 1.25rem; }
-        .step-card { background: var(--blanc); border: 1px solid var(--border); border-radius: 6px; padding: 2rem 1.5rem; text-align: center; transition: all 0.3s ease; }
-        .step-card:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(45, 27, 46, 0.06); }
+        .step-card { background: var(--blanc); border: 1px solid var(--border); border-radius: 6px; padding: 2rem 1.5rem; text-align: center; transition: all 0.3s cubic-bezier(0.33, 1, 0.68, 1); }
+        @media (hover: hover) { .step-card:hover { border-color: rgba(197, 162, 88, 0.4); box-shadow: inset 0 0 0 1px rgba(197, 162, 88, 0.15), 0 8px 24px rgba(45, 27, 46, 0.05); } }
         .step-number { width: 52px; height: 52px; border-radius: 50%; border: 2px solid var(--or); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; color: var(--or); }
         .step-card h3 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; color: var(--bordeaux); margin-bottom: 0.75rem; line-height: 1.3; }
         .step-card p { font-size: 0.92rem; color: var(--texte-light); line-height: 1.7; margin-bottom: 0; }
@@ -84,11 +84,11 @@
         .inline-faq { margin: 1rem 0 0; }
         .inline-faq-title { font-family: var(--font-display); font-size: 1.55rem; font-weight: 600; color: var(--bordeaux); margin-bottom: 1rem; line-height: 1.3; }
         .inline-faq-item { border-bottom: 1px solid var(--border); }
-        .inline-faq-trigger { width: 100%; background: none; border: none; padding: 1.1rem 2.5rem 1.1rem 0; text-align: left; cursor: pointer; font-family: var(--font-body); font-size: 0.95rem; font-weight: 500; color: var(--bordeaux); line-height: 1.5; position: relative; transition: color 0.2s ease; }
+        .inline-faq-trigger { width: 100%; background: none; border: none; padding: 1.1rem 2.5rem 1.1rem 0; text-align: left; cursor: pointer; font-family: var(--font-body); font-size: 0.95rem; font-weight: 500; color: var(--bordeaux); line-height: 1.5; position: relative; transition: color 0.2s cubic-bezier(0.33, 1, 0.68, 1); }
         .inline-faq-trigger:hover { color: var(--or); }
         .inline-faq-trigger::after { content: '+'; position: absolute; right: 0; top: 50%; transform: translateY(-50%); font-size: 1.3rem; font-weight: 300; color: var(--or); }
         .inline-faq-item.open .inline-faq-trigger::after { content: '−'; }
-        .inline-faq-content { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+        .inline-faq-content { max-height: 0; overflow: hidden; transition: max-height 0.35s cubic-bezier(0.33, 1, 0.68, 1); }
         .inline-faq-item.open .inline-faq-content { max-height: var(--faq-height, 500px); }
         .inline-faq-answer { padding: 0 0 1.25rem; font-size: 0.92rem; color: var(--texte-light); line-height: 1.8; }
 
@@ -153,7 +153,7 @@
         <div class="container">
             <p class="article-meta">Avril 2026 · Héritage &amp; Succession</p>
             <h1>J'ai hérité d'une cave à vins : que faire ?</h1>
-            <span class="ornament"></span>
+            <span class="ornament-long"></span>
             <p class="article-intro">Vous venez d'hériter d'une cave à vins et vous ne savez pas par où commencer. Démarches auprès du notaire, estimation de la valeur, fiscalité, vente ou partage entre héritiers : ce guide couvre tout ce qu'il faut savoir pour gérer une cave de succession sans se tromper.</p>
         </div>
     </header>
@@ -195,7 +195,7 @@
 
             <p>Et c'est parfaitement normal. <strong>La majorité des héritiers ne connaissent pas le vin</strong>, ou pas suffisamment pour évaluer seuls ce qu'ils ont entre les mains. Ce n'est pas un défaut — c'est simplement une situation qui demande un regard extérieur. Pour comprendre les critères qui déterminent la valeur d'une bouteille, consultez notre <a href="estimation.html">guide complet sur l'estimation de cave à vins</a>.</p>
 
-            <span class="section-divider"></span>
+            <span class="ornament-diamond"></span>
 
             <!-- ══ SECTION 2 ══ -->
             <h2 id="demarches">Les premières démarches à entreprendre</h2>
@@ -222,7 +222,7 @@
 
             <p><strong>Êtes-vous seul décisionnaire ?</strong> Dans le cadre d'une succession avec plusieurs héritiers, toute décision de vente ou de partage nécessite un accord commun. Tant que le partage n'est pas acté, les biens appartiennent à l'indivision. Un rapport d'estimation devient alors un <strong>outil concret pour faciliter la discussion</strong> et poser des bases objectives entre cohéritiers.</p>
 
-            <span class="section-divider"></span>
+            <div class="ornament-dots"><span></span></div>
 
             <!-- ══ SECTION 3 ══ -->
             <h2 id="fiscalite">Cave à vins et succession : ce que dit la loi</h2>
@@ -276,7 +276,7 @@
                 <p>Si la cave ne contient que des vins courants (vins de table, bouteilles de consommation quotidienne), leur valeur fiscale est considérée comme quasi nulle. En revanche, dès qu'elle contient des <strong>grands crus, des millésimes anciens ou des domaines réputés</strong>, une estimation professionnelle devient indispensable pour établir une valeur juste et défendable.</p>
             </div>
 
-            <span class="section-divider"></span>
+            <span class="ornament-diamond"></span>
 
             <!-- ══ SECTION 4 ══ -->
             <h2 id="estimation">Comment faire estimer une cave héritée</h2>
@@ -289,7 +289,7 @@
 
             <p>Le rapport est un document que vous pouvez présenter au notaire, à l'administration fiscale, à un assureur ou à un acheteur potentiel. C'est à la fois un outil de décision et une preuve de la valeur de votre cave à un instant donné.</p>
 
-            <span class="section-divider"></span>
+            <div class="ornament-dots"><span></span></div>
 
             <!-- ══ SECTION 5 ══ -->
             <h2 id="options">Vendre, garder ou partager : les options possibles</h2>
@@ -352,7 +352,7 @@
 
             <p>Le rapport permet de constituer des <strong>lots de valeur équivalente</strong> pour que chaque héritier reçoive sa part sans désaccord. Si un partage physique n'est pas souhaité, la cave peut être vendue et le produit réparti. Dans les deux cas, le rapport sert de référence commune — un document que tous les héritiers peuvent consulter et qui élimine les approximations.</p>
 
-            <span class="section-divider"></span>
+            <span class="ornament-diamond"></span>
 
             <!-- ══ SECTION 6 ══ -->
             <h2 id="erreurs">Les erreurs à éviter lors d'une succession avec cave à vins</h2>
@@ -374,7 +374,7 @@
                 <p>Prendre quelques semaines pour faire les choses correctement ne coûte rien. Vendre trop vite peut en revanche coûter cher — en opportunités manquées et en erreurs fiscales.</p>
             </div>
 
-            <span class="section-divider"></span>
+            <div class="ornament-dots"><span></span></div>
 
             <!-- ══ FAQ ══ -->
             <div class="inline-faq" id="faq">
@@ -454,7 +454,7 @@
         </div>
     </footer>
 
-    <button id="btt" aria-label="Retour en haut" style="position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:#2D1B2E;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease,transform .3s ease;z-index:999;box-shadow:0 4px 16px rgba(45,27,46,.25);">
+    <button id="btt" aria-label="Retour en haut" style="position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:#2D1B2E;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s cubic-bezier(.33,1,.68,1),visibility .3s cubic-bezier(.33,1,.68,1),transform .3s cubic-bezier(.33,1,.68,1);z-index:999;box-shadow:0 4px 16px rgba(45,27,46,.25);">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C5A258" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
     </button>
     <script>
@@ -492,8 +492,21 @@
 
     <script>
     (function(){
-        var targets = document.querySelectorAll('section > .container, .article-header, .toc, .key-points, .article-cta, .inline-faq, .silo-section, .garantie-item, .page-header');
+        // Standard reveals (up)
+        var targets = document.querySelectorAll('section > .container, .article-header, .toc, .key-points, .article-cta, .inline-faq, .silo-section, .garantie-item, .page-header, .bon-a-savoir, .highlight-box, .about-cta, .faq-cta');
         targets.forEach(function(el){ el.classList.add('reveal'); });
+
+        // Left reveals
+        document.querySelectorAll('.steps-grid, .visual-block:nth-child(odd)').forEach(function(el){ el.classList.add('reveal-left'); });
+
+        // Right reveals
+        document.querySelectorAll('.visual-block:nth-child(even)').forEach(function(el){ el.classList.add('reveal-right'); });
+
+        // Ornament reveals
+        document.querySelectorAll('.ornament, .ornament-double, .ornament-dots, .ornament-diamond, .ornament-long, .section-divider').forEach(function(el){ el.classList.add('ornament-reveal'); });
+
+        // Single observer for all
+        var allReveal = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .ornament-reveal');
         var observer = new IntersectionObserver(function(entries){
             entries.forEach(function(entry){
                 if(entry.isIntersecting){
@@ -502,7 +515,7 @@
                 }
             });
         }, {threshold: 0.1, rootMargin: '0px 0px -40px 0px'});
-        targets.forEach(function(el){ observer.observe(el); });
+        allReveal.forEach(function(el){ observer.observe(el); });
     })();
     </script>
 </body>

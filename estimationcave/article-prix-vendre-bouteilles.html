@@ -68,11 +68,11 @@
         .inline-faq { margin: 1rem 0 0; }
         .inline-faq-title { font-family: var(--font-display); font-size: 1.55rem; font-weight: 600; color: var(--bordeaux); margin-bottom: 1rem; line-height: 1.3; }
         .inline-faq-item { border-bottom: 1px solid var(--border); }
-        .inline-faq-trigger { width: 100%; background: none; border: none; padding: 1.1rem 2.5rem 1.1rem 0; text-align: left; cursor: pointer; font-family: var(--font-body); font-size: 0.95rem; font-weight: 500; color: var(--bordeaux); line-height: 1.5; position: relative; transition: color 0.2s ease; }
+        .inline-faq-trigger { width: 100%; background: none; border: none; padding: 1.1rem 2.5rem 1.1rem 0; text-align: left; cursor: pointer; font-family: var(--font-body); font-size: 0.95rem; font-weight: 500; color: var(--bordeaux); line-height: 1.5; position: relative; transition: color 0.2s cubic-bezier(0.33, 1, 0.68, 1); }
         .inline-faq-trigger:hover { color: var(--or); }
         .inline-faq-trigger::after { content: '+'; position: absolute; right: 0; top: 50%; transform: translateY(-50%); font-size: 1.3rem; font-weight: 300; color: var(--or); }
         .inline-faq-item.open .inline-faq-trigger::after { content: '−'; }
-        .inline-faq-content { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+        .inline-faq-content { max-height: 0; overflow: hidden; transition: max-height 0.35s cubic-bezier(0.33, 1, 0.68, 1); }
         .inline-faq-item.open .inline-faq-content { max-height: var(--faq-height, 500px); }
         .inline-faq-answer { padding: 0 0 1.25rem; font-size: 0.92rem; color: var(--texte-light); line-height: 1.8; }
 
@@ -130,7 +130,7 @@
         <div class="container">
             <p class="article-meta">Avril 2026 · Vendre ses vins</p>
             <h1>À quel prix vendre mes bouteilles de vin ?</h1>
-            <span class="ornament"></span>
+            <span class="ornament-long"></span>
             <p class="article-intro">Vous avez des bouteilles à vendre, mais vous ne savez pas combien en demander. Trop cher, personne n'achète. Pas assez, vous perdez de l'argent. Ce guide vous explique comment déterminer le juste prix — et ce qu'il vous reste réellement en poche selon le canal de vente choisi.</p>
         </div>
     </header>
@@ -180,7 +180,7 @@
                 <p>La cote affichée en ligne est un <strong>prix de référence</strong>, pas le prix que vous toucherez. Selon le canal de vente, les frais peuvent réduire significativement le montant net perçu. Nous détaillons cela plus bas.</p>
             </div>
 
-            <span class="section-divider"></span>
+            <span class="ornament-diamond"></span>
 
             <!-- ══ SECTION 2 ══ -->
             <h2 id="criteres">Ce qui fait monter ou baisser le prix</h2>
@@ -206,7 +206,7 @@
                 <li><strong>Millésime faible</strong> : les années médiocres ont peu de demande sur le marché secondaire</li>
             </ul>
 
-            <span class="section-divider"></span>
+            <div class="ornament-dots"><span></span></div>
 
             <!-- ══ SECTION 3 ══ -->
             <h2 id="frais">Ce que vous touchez vraiment selon le canal de vente</h2>
@@ -268,7 +268,7 @@
 
             <p>Aucun frais d'intermédiaire : vous touchez l'intégralité du prix convenu. En revanche, vous devez trouver l'acheteur vous-même, gérer la négociation et assurer l'envoi. Ce canal est adapté aux <strong>bouteilles de valeur modérée</strong> ou aux ventes à des connaissances.</p>
 
-            <span class="section-divider"></span>
+            <span class="ornament-diamond"></span>
 
             <!-- ══ SECTION 4 ══ -->
             <h2 id="fixer-prix">Comment fixer le bon prix de vente</h2>
@@ -286,7 +286,7 @@
                 <p>Pour les caves importantes (plus de 50 bouteilles), un rapport d'estimation professionnel vous fait gagner du temps et de l'argent. Il liste chaque bouteille avec sa valeur de marché et vous oriente vers le canal de vente le plus adapté à chaque lot. Découvrez comment fonctionne <a href="article-estimation-distance.html">l'estimation à distance</a>.</p>
             </div>
 
-            <span class="section-divider"></span>
+            <div class="ornament-dots"><span></span></div>
 
             <!-- ══ SECTION 5 ══ -->
             <h2 id="erreurs">Les erreurs qui font perdre de l'argent</h2>
@@ -301,7 +301,7 @@
 
             <p><strong>Être pressé.</strong> Accepter la première offre par impatience fait souvent perdre 15 à 30 % de la valeur. Si vous n'avez pas d'urgence, prenez le temps de comparer les canaux et d'attendre le bon moment.</p>
 
-            <span class="section-divider"></span>
+            <span class="ornament-diamond"></span>
 
             <!-- ══ FAQ ══ -->
             <div class="inline-faq" id="faq">
@@ -418,8 +418,21 @@
 
     <script>
     (function(){
-        var targets = document.querySelectorAll('section > .container, .article-header, .toc, .key-points, .article-cta, .inline-faq, .silo-section, .garantie-item, .page-header');
+        // Standard reveals (up)
+        var targets = document.querySelectorAll('section > .container, .article-header, .toc, .key-points, .article-cta, .inline-faq, .silo-section, .garantie-item, .page-header, .bon-a-savoir, .highlight-box, .about-cta, .faq-cta');
         targets.forEach(function(el){ el.classList.add('reveal'); });
+
+        // Left reveals
+        document.querySelectorAll('.steps-grid, .visual-block:nth-child(odd)').forEach(function(el){ el.classList.add('reveal-left'); });
+
+        // Right reveals
+        document.querySelectorAll('.visual-block:nth-child(even)').forEach(function(el){ el.classList.add('reveal-right'); });
+
+        // Ornament reveals
+        document.querySelectorAll('.ornament, .ornament-double, .ornament-dots, .ornament-diamond, .ornament-long, .section-divider').forEach(function(el){ el.classList.add('ornament-reveal'); });
+
+        // Single observer for all
+        var allReveal = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .ornament-reveal');
         var observer = new IntersectionObserver(function(entries){
             entries.forEach(function(entry){
                 if(entry.isIntersecting){
@@ -428,7 +441,7 @@
                 }
             });
         }, {threshold: 0.1, rootMargin: '0px 0px -40px 0px'});
-        targets.forEach(function(el){ observer.observe(el); });
+        allReveal.forEach(function(el){ observer.observe(el); });
     })();
     </script>
 </body>

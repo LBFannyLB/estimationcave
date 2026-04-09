@@ -236,7 +236,7 @@
             color: var(--bordeaux);
             line-height: 1.5;
             position: relative;
-            transition: color 0.2s ease;
+            transition: color 0.2s cubic-bezier(0.33, 1, 0.68, 1);
         }
         .inline-faq-trigger:hover { color: var(--or); }
         .inline-faq-trigger::after {
@@ -253,7 +253,7 @@
         .inline-faq-content {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.35s ease;
+            transition: max-height 0.35s cubic-bezier(0.33, 1, 0.68, 1);
         }
         .inline-faq-item.open .inline-faq-content { max-height: var(--faq-height, 500px); }
         .inline-faq-answer {
@@ -361,7 +361,7 @@
         <div class="container">
             <p class="article-meta">Avril 2026 · Gérer sa cave</p>
             <h1>Comment faire l'inventaire de sa cave à vins</h1>
-            <span class="ornament"></span>
+            <span class="ornament-long"></span>
             <p class="article-intro">Vous savez que vous avez des bouteilles, mais combien exactement ? Lesquelles ? Dans quel état ? L'inventaire est la première étape pour reprendre le contrôle de votre cave — et la condition préalable à toute estimation sérieuse.</p>
         </div>
     </header>
@@ -402,7 +402,7 @@
 
             <p>Surtout, l'inventaire est la <strong>base de toute démarche professionnelle</strong> : estimation de la valeur de votre cave, préparation d'une vente, déclaration de succession, ou souscription d'une assurance. Sans inventaire, aucune de ces opérations ne peut être réalisée correctement. Pour en savoir plus sur l'ensemble des bonnes pratiques de gestion, consultez notre <a href="gestion.html">guide complet pour bien gérer sa cave à vins</a>.</p>
 
-            <span class="section-divider"></span>
+            <span class="ornament-diamond"></span>
 
             <!-- ══ SECTION 2 ══ -->
             <h2 id="methode">La méthode en 4 étapes</h2>
@@ -459,7 +459,7 @@
                 </svg>
             </div>
 
-            <span class="section-divider"></span>
+            <div class="ornament-dots"><span></span></div>
 
             <!-- ══ SECTION 3 ══ -->
             <h2 id="informations">Quelles informations relever pour chaque bouteille</h2>
@@ -525,7 +525,7 @@
                 <p>Si vous envisagez de faire estimer votre cave, ces informations — complétées par des photos — sont exactement ce dont un expert a besoin pour réaliser un rapport d'estimation. Un inventaire bien tenu fait gagner du temps et améliore la précision de l'estimation. Découvrez comment fonctionne <a href="article-estimation-distance.html">l'estimation de cave à distance</a>.</p>
             </div>
 
-            <span class="section-divider"></span>
+            <span class="ornament-diamond"></span>
 
             <!-- ══ SECTION 4 ══ -->
             <h2 id="outils">Quel outil choisir : tableur, appli ou carnet</h2>
@@ -547,7 +547,7 @@
                 <p>Le meilleur outil est celui que vous utiliserez réellement. Un tableur tenu à jour vaut mieux qu'une application sophistiquée abandonnée après deux semaines.</p>
             </div>
 
-            <span class="section-divider"></span>
+            <div class="ornament-dots"><span></span></div>
 
             <!-- ══ SECTION 5 ══ -->
             <h2 id="erreurs">Les erreurs fréquentes à éviter</h2>
@@ -562,7 +562,7 @@
 
             <p><strong>Ne pas localiser les bouteilles.</strong> Un inventaire sans emplacement vous oblige à fouiller toute la cave pour retrouver une bouteille précise. Le système de coordonnées (casier + rangée) vous fait gagner un temps considérable.</p>
 
-            <span class="section-divider"></span>
+            <span class="ornament-diamond"></span>
 
             <!-- ══ FAQ ══ -->
             <div class="inline-faq" id="faq">
@@ -679,8 +679,21 @@
 
     <script>
     (function(){
-        var targets = document.querySelectorAll('section > .container, .article-header, .toc, .key-points, .article-cta, .inline-faq, .silo-section, .garantie-item, .page-header');
+        // Standard reveals (up)
+        var targets = document.querySelectorAll('section > .container, .article-header, .toc, .key-points, .article-cta, .inline-faq, .silo-section, .garantie-item, .page-header, .bon-a-savoir, .highlight-box, .about-cta, .faq-cta');
         targets.forEach(function(el){ el.classList.add('reveal'); });
+
+        // Left reveals
+        document.querySelectorAll('.steps-grid, .visual-block:nth-child(odd)').forEach(function(el){ el.classList.add('reveal-left'); });
+
+        // Right reveals
+        document.querySelectorAll('.visual-block:nth-child(even)').forEach(function(el){ el.classList.add('reveal-right'); });
+
+        // Ornament reveals
+        document.querySelectorAll('.ornament, .ornament-double, .ornament-dots, .ornament-diamond, .ornament-long, .section-divider').forEach(function(el){ el.classList.add('ornament-reveal'); });
+
+        // Single observer for all
+        var allReveal = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .ornament-reveal');
         var observer = new IntersectionObserver(function(entries){
             entries.forEach(function(entry){
                 if(entry.isIntersecting){
@@ -689,7 +702,7 @@
                 }
             });
         }, {threshold: 0.1, rootMargin: '0px 0px -40px 0px'});
-        targets.forEach(function(el){ observer.observe(el); });
+        allReveal.forEach(function(el){ observer.observe(el); });
     })();
     </script>
 </body>

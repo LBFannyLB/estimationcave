@@ -253,12 +253,14 @@
             border-radius: 6px;
             padding: 2rem 1.5rem;
             text-align: center;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.33, 1, 0.68, 1);
         }
 
-        .step-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(45, 27, 46, 0.06);
+        @media (hover: hover) {
+            .step-card:hover {
+                border-color: rgba(197, 162, 88, 0.4);
+                box-shadow: inset 0 0 0 1px rgba(197, 162, 88, 0.15), 0 8px 24px rgba(45, 27, 46, 0.05);
+            }
         }
 
         .step-number {
@@ -323,7 +325,7 @@
             color: var(--bordeaux);
             line-height: 1.5;
             position: relative;
-            transition: color 0.2s ease;
+            transition: color 0.2s cubic-bezier(0.33, 1, 0.68, 1);
         }
 
         .inline-faq-trigger:hover { color: var(--or); }
@@ -346,7 +348,7 @@
         .inline-faq-content {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.35s ease;
+            transition: max-height 0.35s cubic-bezier(0.33, 1, 0.68, 1);
         }
 
         .inline-faq-item.open .inline-faq-content {
@@ -476,7 +478,7 @@
         <div class="container">
             <p class="article-meta">Avril 2026 · Estimer sa cave</p>
             <h1>Comment faire estimer sa cave à vins : le guide complet</h1>
-            <span class="ornament"></span>
+            <span class="ornament-long"></span>
             <p class="article-intro">Vous possédez des bouteilles accumulées au fil des années, héritées ou simplement oubliées dans votre cave. Avant de vendre, partager ou assurer, encore faut-il connaître leur valeur réelle. Ce guide vous explique tout ce qu'il faut savoir pour obtenir une estimation fiable.</p>
         </div>
     </header>
@@ -520,7 +522,7 @@
 
             <p>Enfin, certains propriétaires veulent simplement <strong>y voir clair</strong> : savoir ce qui a pris de la valeur, ce qui devrait être bu rapidement, et ce qui mérite encore de vieillir. Si vous avez hérité d'une cave et ne savez pas par où commencer, consultez notre guide : <a href="article-heritage-cave.html">J'ai hérité d'une cave à vins : par où commencer ?</a></p>
 
-            <span class="section-divider"></span>
+            <span class="ornament-diamond"></span>
 
             <!-- ══ SECTION 2 ══ -->
             <h2 id="criteres">Les critères qui déterminent la valeur d'une cave</h2>
@@ -603,7 +605,7 @@
 
             <p>Les magnums et les grands formats se vendent généralement mieux que les bouteilles standard, à qualité égale. La rareté joue aussi : un vin produit en quantité limitée, un vieux millésime peu disponible sur le marché ou une cuvée confidentielle peuvent atteindre des prix très supérieurs à la moyenne.</p>
 
-            <span class="section-divider"></span>
+            <div class="ornament-dots"><span></span></div>
 
             <!-- ══ SECTION 3 ══ -->
             <h2 id="methodes">Les différentes méthodes pour estimer sa cave</h2>
@@ -667,7 +669,7 @@
                 </svg>
             </div>
 
-            <span class="section-divider"></span>
+            <span class="ornament-diamond"></span>
 
             <!-- ══ SECTION 4 ══ -->
             <h2 id="preparer">Comment préparer son estimation</h2>
@@ -697,7 +699,7 @@
                 <p>Vous n'avez pas besoin d'être un connaisseur pour préparer votre estimation. Un inventaire même partiel et des photos de bonne qualité suffisent à un professionnel pour démarrer l'analyse. Le plus important est de <strong>ne pas manipuler inutilement les bouteilles</strong> — les vibrations et les changements de position peuvent altérer les vins les plus fragiles.</p>
             </div>
 
-            <span class="section-divider"></span>
+            <div class="ornament-dots"><span></span></div>
 
             <!-- ══ SECTION 5 ══ -->
             <h2 id="erreurs">Les erreurs courantes à éviter</h2>
@@ -744,7 +746,7 @@
                 </svg>
             </div>
 
-            <span class="section-divider"></span>
+            <span class="ornament-diamond"></span>
 
             <!-- ══ SECTION 6 ══ -->
             <h2 id="cout">Combien coûte une estimation de cave à vins</h2>
@@ -762,7 +764,7 @@
                 <p>Le rapport d'estimation est un document que vous pouvez présenter à un notaire, un assureur, une maison de ventes ou un acheteur potentiel. C'est un outil de négociation concret qui vous place en position de force.</p>
             </div>
 
-            <span class="section-divider"></span>
+            <div class="ornament-dots"><span></span></div>
 
             <!-- ══ FAQ ══ -->
             <div class="inline-faq" id="faq">
@@ -837,7 +839,7 @@
         </div>
     </footer>
 
-    <button id="btt" aria-label="Retour en haut" style="position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:#2D1B2E;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease,transform .3s ease;z-index:999;box-shadow:0 4px 16px rgba(45,27,46,.25);">
+    <button id="btt" aria-label="Retour en haut" style="position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:#2D1B2E;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s cubic-bezier(.33,1,.68,1),visibility .3s cubic-bezier(.33,1,.68,1),transform .3s cubic-bezier(.33,1,.68,1);z-index:999;box-shadow:0 4px 16px rgba(45,27,46,.25);">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C5A258" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
     </button>
     <script>
@@ -875,8 +877,21 @@
 
     <script>
     (function(){
-        var targets = document.querySelectorAll('section > .container, .article-header, .toc, .key-points, .article-cta, .inline-faq, .silo-section, .garantie-item, .page-header');
+        // Standard reveals (up)
+        var targets = document.querySelectorAll('section > .container, .article-header, .toc, .key-points, .article-cta, .inline-faq, .silo-section, .garantie-item, .page-header, .bon-a-savoir, .highlight-box, .about-cta, .faq-cta');
         targets.forEach(function(el){ el.classList.add('reveal'); });
+
+        // Left reveals
+        document.querySelectorAll('.steps-grid, .visual-block:nth-child(odd)').forEach(function(el){ el.classList.add('reveal-left'); });
+
+        // Right reveals
+        document.querySelectorAll('.visual-block:nth-child(even)').forEach(function(el){ el.classList.add('reveal-right'); });
+
+        // Ornament reveals
+        document.querySelectorAll('.ornament, .ornament-double, .ornament-dots, .ornament-diamond, .ornament-long, .section-divider').forEach(function(el){ el.classList.add('ornament-reveal'); });
+
+        // Single observer for all
+        var allReveal = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .ornament-reveal');
         var observer = new IntersectionObserver(function(entries){
             entries.forEach(function(entry){
                 if(entry.isIntersecting){
@@ -885,7 +900,7 @@
                 }
             });
         }, {threshold: 0.1, rootMargin: '0px 0px -40px 0px'});
-        targets.forEach(function(el){ observer.observe(el); });
+        allReveal.forEach(function(el){ observer.observe(el); });
     })();
     </script>
 </body>

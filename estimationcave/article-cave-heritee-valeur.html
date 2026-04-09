@@ -76,11 +76,11 @@
         .inline-faq { margin: 1rem 0 0; }
         .inline-faq-title { font-family: var(--font-display); font-size: 1.55rem; font-weight: 600; color: var(--bordeaux); margin-bottom: 1rem; line-height: 1.3; }
         .inline-faq-item { border-bottom: 1px solid var(--border); }
-        .inline-faq-trigger { width: 100%; background: none; border: none; padding: 1.1rem 2.5rem 1.1rem 0; text-align: left; cursor: pointer; font-family: var(--font-body); font-size: 0.95rem; font-weight: 500; color: var(--bordeaux); line-height: 1.5; position: relative; transition: color 0.2s ease; }
+        .inline-faq-trigger { width: 100%; background: none; border: none; padding: 1.1rem 2.5rem 1.1rem 0; text-align: left; cursor: pointer; font-family: var(--font-body); font-size: 0.95rem; font-weight: 500; color: var(--bordeaux); line-height: 1.5; position: relative; transition: color 0.2s cubic-bezier(0.33, 1, 0.68, 1); }
         .inline-faq-trigger:hover { color: var(--or); }
         .inline-faq-trigger::after { content: '+'; position: absolute; right: 0; top: 50%; transform: translateY(-50%); font-size: 1.3rem; font-weight: 300; color: var(--or); }
         .inline-faq-item.open .inline-faq-trigger::after { content: '−'; }
-        .inline-faq-content { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+        .inline-faq-content { max-height: 0; overflow: hidden; transition: max-height 0.35s cubic-bezier(0.33, 1, 0.68, 1); }
         .inline-faq-item.open .inline-faq-content { max-height: var(--faq-height, 500px); }
         .inline-faq-answer { padding: 0 0 1.25rem; font-size: 0.92rem; color: var(--texte-light); line-height: 1.8; }
 
@@ -141,7 +141,7 @@
         <div class="container">
             <p class="article-meta">Avril 2026 · Héritage &amp; Succession</p>
             <h1>Cave héritée : comment savoir ce qu'elle vaut vraiment</h1>
-            <span class="ornament"></span>
+            <span class="ornament-long"></span>
             <p class="article-intro">Vous venez d'hériter d'une cave à vins et vous n'avez aucune idée de sa valeur. Quelques bouteilles poussiéreuses ou un véritable trésor ? Ce guide vous explique comment distinguer les deux — et obtenir une estimation fiable pour votre déclaration de succession.</p>
         </div>
     </header>
@@ -181,7 +181,7 @@
 
             <p>Pour un panorama complet des démarches à entreprendre lorsque vous héritez d'une cave, consultez notre guide : <a href="article-heritage-cave.html">J'ai hérité d'une cave à vins : que faire ?</a></p>
 
-            <span class="section-divider"></span>
+            <span class="ornament-diamond"></span>
 
             <!-- ══ SECTION 2 ══ -->
             <h2 id="criteres">Ce qui détermine la valeur d'une cave</h2>
@@ -236,7 +236,7 @@
                 </svg>
             </div>
 
-            <span class="section-divider"></span>
+            <div class="ornament-dots"><span></span></div>
 
             <!-- ══ SECTION 3 ══ -->
             <h2 id="methodes">Les trois façons d'estimer une cave héritée</h2>
@@ -288,7 +288,7 @@
                 </svg>
             </div>
 
-            <span class="section-divider"></span>
+            <span class="ornament-diamond"></span>
 
             <!-- ══ SECTION 4 ══ -->
             <h2 id="obligations">Ce que le notaire et le fisc attendent de vous</h2>
@@ -306,7 +306,7 @@
 
             <p>Pour les professionnels accompagnant des héritiers dans cette démarche, notre guide dédié détaille les obligations et les outils disponibles : <a href="professionnels.html">Professionnels : comment valoriser une cave à vins dans un dossier</a>.</p>
 
-            <span class="section-divider"></span>
+            <div class="ornament-dots"><span></span></div>
 
             <!-- ══ SECTION 5 ══ -->
             <h2 id="pieges">Les pièges à éviter avec une cave de succession</h2>
@@ -321,7 +321,7 @@
 
             <p><strong>Accepter une estimation orale.</strong> Un avis donné « au doigt mouillé » par un ami connaisseur n'a aucune valeur face au notaire ni au fisc. Exigez un <strong>rapport écrit, daté et documenté</strong>.</p>
 
-            <span class="section-divider"></span>
+            <span class="ornament-diamond"></span>
 
             <!-- ══ FAQ ══ -->
             <div class="inline-faq" id="faq">
@@ -438,8 +438,21 @@
 
     <script>
     (function(){
-        var targets = document.querySelectorAll('section > .container, .article-header, .toc, .key-points, .article-cta, .inline-faq, .silo-section, .garantie-item, .page-header');
+        // Standard reveals (up)
+        var targets = document.querySelectorAll('section > .container, .article-header, .toc, .key-points, .article-cta, .inline-faq, .silo-section, .garantie-item, .page-header, .bon-a-savoir, .highlight-box, .about-cta, .faq-cta');
         targets.forEach(function(el){ el.classList.add('reveal'); });
+
+        // Left reveals
+        document.querySelectorAll('.steps-grid, .visual-block:nth-child(odd)').forEach(function(el){ el.classList.add('reveal-left'); });
+
+        // Right reveals
+        document.querySelectorAll('.visual-block:nth-child(even)').forEach(function(el){ el.classList.add('reveal-right'); });
+
+        // Ornament reveals
+        document.querySelectorAll('.ornament, .ornament-double, .ornament-dots, .ornament-diamond, .ornament-long, .section-divider').forEach(function(el){ el.classList.add('ornament-reveal'); });
+
+        // Single observer for all
+        var allReveal = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .ornament-reveal');
         var observer = new IntersectionObserver(function(entries){
             entries.forEach(function(entry){
                 if(entry.isIntersecting){
@@ -448,7 +461,7 @@
                 }
             });
         }, {threshold: 0.1, rootMargin: '0px 0px -40px 0px'});
-        targets.forEach(function(el){ observer.observe(el); });
+        allReveal.forEach(function(el){ observer.observe(el); });
     })();
     </script>
 </body>

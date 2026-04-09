@@ -253,12 +253,14 @@
             border-radius: 6px;
             padding: 2rem 1.5rem;
             text-align: center;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.33, 1, 0.68, 1);
         }
 
-        .step-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(45, 27, 46, 0.06);
+        @media (hover: hover) {
+            .step-card:hover {
+                border-color: rgba(197, 162, 88, 0.4);
+                box-shadow: inset 0 0 0 1px rgba(197, 162, 88, 0.15), 0 8px 24px rgba(45, 27, 46, 0.05);
+            }
         }
 
         .step-number {
@@ -323,7 +325,7 @@
             color: var(--bordeaux);
             line-height: 1.5;
             position: relative;
-            transition: color 0.2s ease;
+            transition: color 0.2s cubic-bezier(0.33, 1, 0.68, 1);
         }
 
         .inline-faq-trigger:hover { color: var(--or); }
@@ -346,7 +348,7 @@
         .inline-faq-content {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.35s ease;
+            transition: max-height 0.35s cubic-bezier(0.33, 1, 0.68, 1);
         }
 
         .inline-faq-item.open .inline-faq-content {
@@ -476,7 +478,7 @@
         <div class="container">
             <p class="article-meta">Avril 2026 · Professionnels</p>
             <h1>Professionnels : comment valoriser une cave à vins dans un dossier</h1>
-            <span class="ornament"></span>
+            <span class="ornament-long"></span>
             <p class="article-intro">Succession, divorce, bilan patrimonial, cession d'entreprise : quand une cave à vins entre dans un dossier professionnel, sa valorisation devient un enjeu juridique et fiscal. Ce guide détaille les méthodes, les obligations et les outils à disposition des professionnels du droit et du patrimoine.</p>
         </div>
     </header>
@@ -524,7 +526,7 @@
                 <p>Le rapport d'estimation fourni par estimationcave.com est une <strong>expertise de marché</strong> : il s'appuie sur une connaissance approfondie des cotes, des résultats de ventes et des tendances du marché des vins fins. Il ne constitue pas une expertise judiciaire au sens de l'article 232 du Code de procédure civile. Dans la très grande majorité des cas — successions amiables, bilans patrimoniaux, cessions, inventaires fiscaux — une expertise de marché est le document approprié et suffisant. Si une procédure contentieuse nécessite la désignation d'un expert judiciaire par le tribunal, notre rapport peut néanmoins servir de base de travail à l'expert désigné.</p>
             </div>
 
-            <span class="section-divider"></span>
+            <span class="ornament-diamond"></span>
 
             <!-- ══ SECTION 2 ══ -->
             <h2 id="contextes">Les contextes où l'estimation devient obligatoire</h2>
@@ -585,7 +587,7 @@
                 </svg>
             </div>
 
-            <span class="section-divider"></span>
+            <div class="ornament-dots"><span></span></div>
 
             <!-- ══ SECTION 3 ══ -->
             <h2 id="methodes">Les méthodes de valorisation reconnues</h2>
@@ -648,7 +650,7 @@
                 </svg>
             </div>
 
-            <span class="section-divider"></span>
+            <span class="ornament-diamond"></span>
 
             <!-- ══ SECTION 4 ══ -->
             <h2 id="rapport">Ce que doit contenir un rapport exploitable</h2>
@@ -671,7 +673,7 @@
                 <p>Un rapport daté et méthodologiquement documenté constitue un document probant face à l'administration fiscale. Il protège à la fois le client et le professionnel qui l'intègre dans son dossier.</p>
             </div>
 
-            <span class="section-divider"></span>
+            <div class="ornament-dots"><span></span></div>
 
             <!-- ══ SECTION 5 ══ -->
             <h2 id="profils">Guide par profil professionnel</h2>
@@ -730,7 +732,7 @@
                 </svg>
             </div>
 
-            <span class="section-divider"></span>
+            <span class="ornament-diamond"></span>
 
             <!-- ══ SECTION 6 ══ -->
             <h2 id="erreurs">Les erreurs qui exposent vos clients (et vous)</h2>
@@ -753,7 +755,7 @@
 
             <p>Deux bouteilles identiques n'ont pas la même valeur si l'une a été conservée dans une cave climatisée et l'autre dans un garage. Ignorer ce facteur dans l'estimation conduit à une <strong>surévaluation</strong> qui peut être contestée, ou à une sous-évaluation qui pénalise le client.</p>
 
-            <span class="section-divider"></span>
+            <div class="ornament-dots"><span></span></div>
 
             <!-- ══ SECTION 7 ══ -->
             <h2 id="distance">L'estimation à distance : un outil adapté aux professionnels</h2>
@@ -774,7 +776,7 @@
 
             <p>Pour en savoir plus sur le fonctionnement du processus d'estimation à distance, consultez notre article dédié : <a href="article-estimation-distance.html">Estimation de cave à vins à distance : comment ça fonctionne ?</a></p>
 
-            <span class="section-divider"></span>
+            <span class="ornament-diamond"></span>
 
             <!-- ══ FAQ ══ -->
             <div class="inline-faq" id="faq">
@@ -905,8 +907,21 @@
 
     <script>
     (function(){
-        var targets = document.querySelectorAll('section > .container, .article-header, .toc, .key-points, .article-cta, .inline-faq, .silo-section, .garantie-item, .page-header');
+        // Standard reveals (up)
+        var targets = document.querySelectorAll('section > .container, .article-header, .toc, .key-points, .article-cta, .inline-faq, .silo-section, .garantie-item, .page-header, .bon-a-savoir, .highlight-box, .about-cta, .faq-cta');
         targets.forEach(function(el){ el.classList.add('reveal'); });
+
+        // Left reveals
+        document.querySelectorAll('.steps-grid, .visual-block:nth-child(odd)').forEach(function(el){ el.classList.add('reveal-left'); });
+
+        // Right reveals
+        document.querySelectorAll('.visual-block:nth-child(even)').forEach(function(el){ el.classList.add('reveal-right'); });
+
+        // Ornament reveals
+        document.querySelectorAll('.ornament, .ornament-double, .ornament-dots, .ornament-diamond, .ornament-long, .section-divider').forEach(function(el){ el.classList.add('ornament-reveal'); });
+
+        // Single observer for all
+        var allReveal = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .ornament-reveal');
         var observer = new IntersectionObserver(function(entries){
             entries.forEach(function(entry){
                 if(entry.isIntersecting){
@@ -915,7 +930,7 @@
                 }
             });
         }, {threshold: 0.1, rootMargin: '0px 0px -40px 0px'});
-        targets.forEach(function(el){ observer.observe(el); });
+        allReveal.forEach(function(el){ observer.observe(el); });
     })();
     </script>
 </body>

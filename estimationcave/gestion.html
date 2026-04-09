@@ -66,8 +66,8 @@
         .bon-a-savoir p { font-size: 0.92rem; color: var(--texte); line-height: 1.7; margin-bottom: 0; }
 
         .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin: 1.5rem 0 1.25rem; }
-        .step-card { background: var(--blanc); border: 1px solid var(--border); border-radius: 6px; padding: 2rem 1.5rem; text-align: center; transition: all 0.3s ease; }
-        .step-card:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(45, 27, 46, 0.06); }
+        .step-card { background: var(--blanc); border: 1px solid var(--border); border-radius: 6px; padding: 2rem 1.5rem; text-align: center; transition: all 0.3s cubic-bezier(0.33, 1, 0.68, 1); }
+        @media (hover: hover) { .step-card:hover { border-color: rgba(197, 162, 88, 0.4); box-shadow: inset 0 0 0 1px rgba(197, 162, 88, 0.15), 0 8px 24px rgba(45, 27, 46, 0.05); } }
         .step-number { width: 52px; height: 52px; border-radius: 50%; border: 2px solid var(--or); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; color: var(--or); }
         .step-card h3 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; color: var(--bordeaux); margin-bottom: 0.75rem; line-height: 1.3; }
         .step-card p { font-size: 0.92rem; color: var(--texte-light); line-height: 1.7; margin-bottom: 0; }
@@ -75,11 +75,11 @@
         .inline-faq { margin: 1rem 0 0; }
         .inline-faq-title { font-family: var(--font-display); font-size: 1.55rem; font-weight: 600; color: var(--bordeaux); margin-bottom: 1rem; line-height: 1.3; }
         .inline-faq-item { border-bottom: 1px solid var(--border); }
-        .inline-faq-trigger { width: 100%; background: none; border: none; padding: 1.1rem 2.5rem 1.1rem 0; text-align: left; cursor: pointer; font-family: var(--font-body); font-size: 0.95rem; font-weight: 500; color: var(--bordeaux); line-height: 1.5; position: relative; transition: color 0.2s ease; }
+        .inline-faq-trigger { width: 100%; background: none; border: none; padding: 1.1rem 2.5rem 1.1rem 0; text-align: left; cursor: pointer; font-family: var(--font-body); font-size: 0.95rem; font-weight: 500; color: var(--bordeaux); line-height: 1.5; position: relative; transition: color 0.2s cubic-bezier(0.33, 1, 0.68, 1); }
         .inline-faq-trigger:hover { color: var(--or); }
         .inline-faq-trigger::after { content: '+'; position: absolute; right: 0; top: 50%; transform: translateY(-50%); font-size: 1.3rem; font-weight: 300; color: var(--or); }
         .inline-faq-item.open .inline-faq-trigger::after { content: '−'; }
-        .inline-faq-content { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+        .inline-faq-content { max-height: 0; overflow: hidden; transition: max-height 0.35s cubic-bezier(0.33, 1, 0.68, 1); }
         .inline-faq-item.open .inline-faq-content { max-height: var(--faq-height, 500px); }
         .inline-faq-answer { padding: 0 0 1.25rem; font-size: 0.92rem; color: var(--texte-light); line-height: 1.8; }
 
@@ -140,7 +140,7 @@
         <div class="container">
             <p class="article-meta">Avril 2026 · Gérer sa cave</p>
             <h1>Bien gérer sa cave à vins : le guide complet</h1>
-            <span class="ornament"></span>
+            <span class="ornament-long"></span>
             <p class="article-intro">Conservation, inventaire, apogée, organisation : tout ce qu'il faut savoir pour entretenir votre cave, protéger vos bouteilles et tirer le meilleur de votre collection — que vous soyez amateur éclairé ou propriétaire d'une cave héritée.</p>
         </div>
     </header>
@@ -184,7 +184,7 @@
 
             <p>Que votre cave contienne 30 bouteilles ou 3 000, les principes sont les mêmes. Pour connaître la valeur actuelle de votre collection, consultez notre <a href="estimation.html">guide complet sur l'estimation de cave à vins</a>.</p>
 
-            <span class="section-divider"></span>
+            <span class="ornament-diamond"></span>
 
             <!-- ══ SECTION 2 ══ -->
             <h2 id="conservation">Les conditions de conservation optimales</h2>
@@ -254,7 +254,7 @@
                 <p>Les bouteilles fermées avec un bouchon en liège doivent être <strong>couchées</strong> pour que le vin reste en contact avec le bouchon. Les bouteilles à capsule à vis peuvent être stockées debout sans risque.</p>
             </div>
 
-            <span class="section-divider"></span>
+            <div class="ornament-dots"><span></span></div>
 
             <!-- ══ SECTION 3 ══ -->
             <h2 id="inventaire">Tenir un inventaire fiable</h2>
@@ -276,7 +276,7 @@
                 <p>Si vous n'avez jamais fait d'inventaire et que votre cave contient plusieurs dizaines de bouteilles, un audit professionnel peut vous fournir un inventaire structuré complet. C'est souvent plus rapide et plus fiable que de tout faire soi-même. Découvrez comment ça fonctionne dans notre article <a href="article-estimation-distance.html">Estimation de cave à distance</a>.</p>
             </div>
 
-            <span class="section-divider"></span>
+            <span class="ornament-diamond"></span>
 
             <!-- ══ SECTION 4 ══ -->
             <h2 id="apogee">Comprendre l'apogée et le potentiel de garde</h2>
@@ -334,7 +334,7 @@
 
             <p>Si vous n'êtes pas sûr du potentiel de garde de vos bouteilles, un audit professionnel vous indique précisément lesquelles boire maintenant, lesquelles conserver et lesquelles sont déjà passées. C'est l'un des éléments les plus utiles du rapport.</p>
 
-            <span class="section-divider"></span>
+            <div class="ornament-dots"><span></span></div>
 
             <!-- ══ SECTION 5 ══ -->
             <h2 id="organisation">Organiser physiquement sa cave</h2>
@@ -353,7 +353,7 @@
 
             <p>Si votre cave est grande, utilisez des <strong>étiquettes de rangement</strong> sur les casiers (papier, craie ou étiquettes adhésives). Certains propriétaires numérotent leurs emplacements et reportent les coordonnées dans leur inventaire. L'objectif est de pouvoir retrouver n'importe quelle bouteille sans tout déplacer.</p>
 
-            <span class="section-divider"></span>
+            <span class="ornament-diamond"></span>
 
             <!-- ══ SECTION 6 ══ -->
             <h2 id="valeur">Suivre la valeur de sa cave dans le temps</h2>
@@ -397,7 +397,7 @@
 
             <p>Il est recommandé de faire estimer sa cave <strong>tous les 3 à 5 ans</strong>, ou à l'occasion d'un événement particulier : vente envisagée, succession, mise à jour de l'assurance, ou changement significatif des conditions de stockage.</p>
 
-            <span class="section-divider"></span>
+            <div class="ornament-dots"><span></span></div>
 
             <!-- ══ FAQ ══ -->
             <div class="inline-faq" id="faq">
@@ -472,7 +472,7 @@
         </div>
     </footer>
 
-    <button id="btt" aria-label="Retour en haut" style="position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:#2D1B2E;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease,transform .3s ease;z-index:999;box-shadow:0 4px 16px rgba(45,27,46,.25);">
+    <button id="btt" aria-label="Retour en haut" style="position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:#2D1B2E;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s cubic-bezier(.33,1,.68,1),visibility .3s cubic-bezier(.33,1,.68,1),transform .3s cubic-bezier(.33,1,.68,1);z-index:999;box-shadow:0 4px 16px rgba(45,27,46,.25);">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C5A258" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
     </button>
     <script>
@@ -510,8 +510,21 @@
 
     <script>
     (function(){
-        var targets = document.querySelectorAll('section > .container, .article-header, .toc, .key-points, .article-cta, .inline-faq, .silo-section, .garantie-item, .page-header');
+        // Standard reveals (up)
+        var targets = document.querySelectorAll('section > .container, .article-header, .toc, .key-points, .article-cta, .inline-faq, .silo-section, .garantie-item, .page-header, .bon-a-savoir, .highlight-box, .about-cta, .faq-cta');
         targets.forEach(function(el){ el.classList.add('reveal'); });
+
+        // Left reveals
+        document.querySelectorAll('.steps-grid, .visual-block:nth-child(odd)').forEach(function(el){ el.classList.add('reveal-left'); });
+
+        // Right reveals
+        document.querySelectorAll('.visual-block:nth-child(even)').forEach(function(el){ el.classList.add('reveal-right'); });
+
+        // Ornament reveals
+        document.querySelectorAll('.ornament, .ornament-double, .ornament-dots, .ornament-diamond, .ornament-long, .section-divider').forEach(function(el){ el.classList.add('ornament-reveal'); });
+
+        // Single observer for all
+        var allReveal = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .ornament-reveal');
         var observer = new IntersectionObserver(function(entries){
             entries.forEach(function(entry){
                 if(entry.isIntersecting){
@@ -520,7 +533,7 @@
                 }
             });
         }, {threshold: 0.1, rootMargin: '0px 0px -40px 0px'});
-        targets.forEach(function(el){ observer.observe(el); });
+        allReveal.forEach(function(el){ observer.observe(el); });
     })();
     </script>
 </body>
