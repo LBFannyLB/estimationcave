@@ -56,9 +56,33 @@
             letter-spacing: -0.02em;
         }
 
+        /* ── PHOTO PLACEHOLDER ── */
+        .photo-placeholder {
+            display: none;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 2px solid var(--or);
+            margin: 0 auto 2rem;
+            overflow: hidden;
+        }
+        .photo-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         /* ── BODY ── */
         .about-body {
             padding: 1rem 0 4rem;
+        }
+
+        .about-body h2 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--bordeaux);
+            margin: 0 0 1.25rem;
         }
 
         .about-body p {
@@ -156,15 +180,26 @@
     <main id="main" class="about-body">
         <div class="container">
 
+            <!-- Photo placeholder — activer quand disponible -->
+            <div class="photo-placeholder">
+                <!-- <img src="photo-fanny.jpg" alt="Fanny Lonqueu-Brochard"> -->
+            </div>
+
             <p>Je m'appelle Fanny, et j'accompagne les particuliers dans l'audit, l'estimation et l'arbitrage de leur cave à vins.</p>
+
+            <h2>Parcours</h2>
 
             <p>Depuis près de 10 ans, j'évolue dans le monde du vin, avec une spécialisation forte dans le marché secondaire et la valorisation des bouteilles. Pendant plus de 6 ans, j'ai occupé le poste de responsable des ventes aux enchères chez iDealwine, leader mondial dans ce domaine. J'y ai développé une connaissance approfondie des dynamiques de marché, de la liquidité des références et des logiques de valorisation.</p>
 
             <p>J'ai également exercé pendant 2 ans comme acheteuse vin, une fonction qui a renforcé mon exigence de sélection, ma lecture du marché et ma compréhension fine des vins, de leur positionnement et de leur potentiel. En 2024, j'ai obtenu le WSET 3 avec distinction, une certification qui vient compléter une expérience de terrain construite au quotidien, au contact des bouteilles, du marché et des passionnés.</p>
 
-            <p>Ce double regard — commercial et acheteur — me permet aujourd'hui d'aborder une cave avec précision, recul et discernement.</p>
+            <div class="highlight-box">
+                <p>Ce double regard — <strong>commercial et acheteur</strong> — me permet aujourd'hui d'aborder une cave avec précision, recul et discernement.</p>
+            </div>
 
             <span class="section-divider"></span>
+
+            <h2>Approche</h2>
 
             <p>Ce qui me plaît profondément dans le vin, c'est qu'on n'en fait jamais le tour. Il y a toujours un domaine à découvrir, une région à approfondir, un producteur à suivre, une tendance à observer. C'est un univers vivant, exigeant et passionnant, qui mêle culture, goût, histoire, transmission et émotion. Cette curiosité, associée à mon goût pour la gastronomie et à une veille constante sur l'évolution du secteur, nourrit mon travail au quotidien.</p>
 
@@ -172,9 +207,13 @@
 
             <span class="section-divider"></span>
 
+            <h2>Conviction</h2>
+
             <p>Mon rôle n'est pas seulement d'estimer des bouteilles, mais d'aider à prendre de bonnes décisions : comprendre la valeur d'une cave, identifier les références clés, repérer les points de vigilance, distinguer ce qu'il vaut mieux conserver, vendre ou surveiller, et apporter un cadre clair à un sujet souvent perçu comme complexe.</p>
 
-            <p>J'ai créé ce service avec une conviction simple : une cave à vins mérite d'être regardée avec sérieux, méthode et sensibilité. Parce qu'une cave n'est jamais seulement un ensemble de bouteilles. C'est parfois un patrimoine, parfois une transmission, parfois une passion. Souvent, c'est tout cela à la fois.</p>
+            <div class="highlight-box">
+                <p>J'ai créé ce service avec une conviction simple : une cave à vins mérite d'être regardée avec <strong>sérieux, méthode et sensibilité</strong>. Parce qu'une cave n'est jamais seulement un ensemble de bouteilles. C'est parfois un patrimoine, parfois une transmission, parfois une passion. Souvent, c'est tout cela à la fois.</p>
+            </div>
 
             <p>Si vous souhaitez faire le point sur votre cave, je serais ravie de vous accompagner.</p>
 
