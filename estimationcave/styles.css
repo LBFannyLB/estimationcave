@@ -199,7 +199,7 @@ a:hover { color: var(--bordeaux); }
         rgba(255, 255, 255, 0.2) 50%,
         transparent 70%
     );
-    animation: shimmer 4s ease-in-out infinite;
+    animation: shimmer 8s ease-in-out infinite;
     pointer-events: none;
 }
 @keyframes shimmer {
