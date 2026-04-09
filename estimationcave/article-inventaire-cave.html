@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comment faire l'inventaire de sa cave à vins : méthode pas à pas, outils, informations à relever et erreurs à éviter pour un suivi fiable.">
+    <title>Inventaire cave à vins : méthode complète — estimationcave.com</title>
+    <meta property="og:title" content="Comment faire l'inventaire de sa cave à vins">
+    <meta property="og:description" content="Comment faire l'inventaire de sa cave à vins : méthode pas à pas, outils, informations à relever et erreurs à éviter pour un suivi fiable.">
+    <meta property="og:url" content="https://estimationcave.com/article-inventaire-cave.html">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="fr_FR">
+    <link rel="canonical" href="https://estimationcave.com/article-inventaire-cave.html">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Comment faire l'inventaire de sa cave à vins","datePublished":"2026-04-09","dateModified":"2026-04-09","publisher":{"@type":"Organization","name":"estimationcave.com","url":"https://estimationcave.com"},"url":"https://estimationcave.com/article-inventaire-cave.html","description":"Comment faire l'inventaire de sa cave à vins : méthode pas à pas, outils, informations à relever et erreurs à éviter pour un suivi fiable."}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"À quelle fréquence faut-il mettre à jour l'inventaire de sa cave ?","acceptedAnswer":{"@type":"Answer","text":"Idéalement, mettez à jour votre inventaire à chaque entrée ou sortie de bouteille. Si ce n'est pas possible, un inventaire complet une à deux fois par an suffit pour garder un suivi fiable. L'essentiel est la régularité : un inventaire obsolète perd toute utilité."}},{"@type":"Question","name":"Quelle application utiliser pour gérer l'inventaire de sa cave ?","acceptedAnswer":{"@type":"Answer","text":"Plusieurs solutions existent selon vos besoins : un tableur Excel ou Google Sheets pour un suivi simple et gratuit, ou des applications spécialisées comme CellarTracker, Vivino ou Vinocell pour un suivi plus avancé avec scan d'étiquettes et cotations intégrées. Le meilleur outil est celui que vous utiliserez réellement."}},{"@type":"Question","name":"L'inventaire suffit-il pour connaître la valeur de sa cave ?","acceptedAnswer":{"@type":"Answer","text":"L'inventaire est la base indispensable, mais il ne donne pas la valeur de marché de vos bouteilles. Pour obtenir une estimation fiable, il faut croiser votre inventaire avec les cotations actuelles, l'état de conservation et les conditions de stockage. Un service d'estimation professionnel réalise ce travail à partir de votre inventaire et de photos."}}]}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bordeaux: #2D1B2E;
+            --or: #C5A258;
+            --or-light: #D4B76E;
+            --or-pale: rgba(197, 162, 88, 0.10);
+            --fond: #FAF6F0;
+            --texte: #3A3035;
+            --texte-light: #6B5F65;
+            --blanc: #FFFFFF;
+            --border: rgba(45, 27, 46, 0.08);
+            --font-display: 'Cormorant Garamond', Georgia, serif;
+            --font-body: 'Inter', -apple-system, sans-serif;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--fond);
+            color: var(--texte);
+            line-height: 1.7;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { color: var(--or); text-decoration: none; transition: color 0.25s ease; }
+        a:hover { color: var(--bordeaux); }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* ── NAV ── */
+        .nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: rgba(250, 246, 240, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--bordeaux);
+            text-decoration: none;
+        }
+        .nav-logo span { color: var(--or); }
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        .nav-back {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--or);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            text-decoration: none;
+        }
+        .nav-back:hover { color: var(--bordeaux); }
+        .nav-back svg { width: 16px; height: 16px; }
+
+        .btn-gold {
+            display: inline-block;
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 0.85rem;
+            letter-spacing: 0.03em;
+            background: var(--or);
+            color: var(--bordeaux);
+            padding: 0.65rem 1.5rem;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .btn-gold:hover {
+            background: var(--or-light);
+            color: var(--bordeaux);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 30px rgba(197, 162, 88, 0.3);
+        }
+
+        /* ── BREADCRUMB ── */
+        .breadcrumb {
+            padding: 5.5rem 0 0;
+            font-size: 0.78rem;
+            color: var(--texte-light);
+        }
+        .breadcrumb a { color: var(--or); text-decoration: none; }
+        .breadcrumb a:hover { color: var(--bordeaux); }
+
+        /* ── ARTICLE HEADER ── */
+        .article-header {
+            padding: 2rem 0 2.5rem;
+            text-align: center;
+        }
+        .article-meta {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--or);
+            margin-bottom: 1rem;
+        }
+        .article-header h1 {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            font-weight: 600;
+            color: var(--bordeaux);
+            line-height: 1.25;
+            letter-spacing: -0.02em;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+        .ornament {
+            display: block;
+            width: 48px;
+            height: 2px;
+            background: var(--or);
+            margin: 1.75rem auto;
+        }
+        .article-intro {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: var(--texte-light);
+            line-height: 1.85;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ── TOC ── */
+        .toc { padding: 0 0 1.5rem; }
+        .toc-box {
+            background: var(--blanc);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 1.5rem 2rem;
+        }
+        .toc-title {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--bordeaux);
+            margin-bottom: 0.75rem;
+        }
+        .toc-box ul { list-style: none; padding: 0; margin: 0; }
+        .toc-box li { margin-bottom: 0.4rem; }
+        .toc-box a {
+            font-size: 0.9rem;
+            color: var(--texte);
+            text-decoration: none;
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            line-height: 1.5;
+        }
+        .toc-box a:hover { color: var(--or); }
+        .toc-dot {
+            flex-shrink: 0;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--or);
+            margin-top: 0.35rem;
+        }
+
+        /* ── ARTICLE BODY ── */
+        .article-body { padding: 2rem 0 4rem; }
+        .article-body h2 {
+            font-family: var(--font-display);
+            font-size: 1.55rem;
+            font-weight: 600;
+            color: var(--bordeaux);
+            margin: 2.5rem 0 1rem;
+            line-height: 1.3;
+        }
+        .article-body h3 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--bordeaux);
+            margin: 1.75rem 0 0.75rem;
+            line-height: 1.35;
+        }
+        .article-body p {
+            font-size: 1rem;
+            line-height: 1.85;
+            color: var(--texte);
+            margin-bottom: 1.25rem;
+            text-align: justify;
+        }
+        .article-body strong { color: var(--bordeaux); font-weight: 600; }
+        .article-body ul { margin: 0 0 1.25rem 1.25rem; padding: 0; }
+        .article-body li {
+            font-size: 1rem;
+            line-height: 1.85;
+            color: var(--texte);
+            margin-bottom: 0.4rem;
+        }
+
+        /* ── SECTION DIVIDERS ── */
+        .section-divider {
+            display: block;
+            width: 48px;
+            height: 2px;
+            background: var(--or);
+            margin: 3rem auto;
+        }
+
+        /* ── KEY POINTS BOX ── */
+        .key-points {
+            background: var(--fond);
+            border-left: 3px solid var(--or);
+            border-radius: 0 6px 6px 0;
+            padding: 1.75rem 2rem;
+            margin: 1rem 0 1rem;
+        }
+        .key-points-title {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--bordeaux);
+            margin-bottom: 1rem;
+        }
+        .key-point {
+            display: flex;
+            align-items: baseline;
+            gap: 0.75rem;
+            margin-bottom: 0.65rem;
+            font-size: 0.92rem;
+            color: var(--texte);
+            line-height: 1.65;
+        }
+        .key-point:last-child { margin-bottom: 0; }
+        .key-point-dot {
+            flex-shrink: 0;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--or);
+            margin-top: 0.5rem;
+        }
+
+        /* ── BON A SAVOIR ── */
+        .bon-a-savoir {
+            background: var(--or-pale);
+            border-radius: 6px;
+            padding: 1.5rem 1.75rem;
+            margin: 1.5rem 0;
+        }
+        .bon-a-savoir-title {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--bordeaux);
+            margin-bottom: 0.5rem;
+        }
+        .bon-a-savoir p {
+            font-size: 0.92rem;
+            color: var(--texte);
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        /* ── INLINE FAQ ── */
+        .inline-faq { margin: 1rem 0 0; }
+        .inline-faq-title {
+            font-family: var(--font-display);
+            font-size: 1.55rem;
+            font-weight: 600;
+            color: var(--bordeaux);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+        .inline-faq-item { border-bottom: 1px solid var(--border); }
+        .inline-faq-trigger {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 1.1rem 2.5rem 1.1rem 0;
+            text-align: left;
+            cursor: pointer;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--bordeaux);
+            line-height: 1.5;
+            position: relative;
+            transition: color 0.2s ease;
+        }
+        .inline-faq-trigger:hover { color: var(--or); }
+        .inline-faq-trigger::after {
+            content: '+';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.3rem;
+            font-weight: 300;
+            color: var(--or);
+        }
+        .inline-faq-item.open .inline-faq-trigger::after { content: '−'; }
+        .inline-faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease;
+        }
+        .inline-faq-item.open .inline-faq-content { max-height: 300px; }
+        .inline-faq-answer {
+            padding: 0 0 1.25rem;
+            font-size: 0.92rem;
+            color: var(--texte-light);
+            line-height: 1.8;
+        }
+
+        /* ── CTA ── */
+        .article-cta {
+            background: var(--blanc);
+            border: 1.5px solid rgba(197, 162, 88, 0.25);
+            border-radius: 8px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            margin: 3rem 0 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .article-cta::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--or), var(--bordeaux), var(--or));
+        }
+        .article-cta h2 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--bordeaux);
+            margin: 0 0 0.5rem;
+        }
+        .article-cta p {
+            font-size: 0.95rem;
+            color: var(--texte-light);
+            margin-bottom: 1.5rem;
+        }
+
+        /* ── SVG VISUALS ── */
+        .visual-block { margin: 2rem 0; }
+        .visual-title {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--bordeaux);
+            margin-bottom: 0.75rem;
+            text-align: center;
+        }
+
+        /* ── BACK LINK ── */
+        .back-to-blog {
+            text-align: center;
+            padding: 2.5rem 0 4rem;
+        }
+        .back-to-blog a {
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: var(--or);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .back-to-blog a:hover { color: var(--bordeaux); }
+
+        /* ── FOOTER ── */
+        .footer {
+            padding: 2.5rem 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+        .footer-inner {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.5rem;
+            font-size: 0.82rem;
+            color: var(--texte-light);
+        }
+        .footer-sep { color: var(--or); opacity: 0.5; }
+        .footer-inner a { color: var(--texte-light); text-decoration: none; }
+        .footer-inner a:hover { color: var(--or); }
+
+        @media (max-width: 600px) {
+            .nav-inner { padding: 0 1rem; height: 64px; gap: 0.75rem; }
+            .nav-logo { font-size: 0.95rem; flex-shrink: 0; }
+            .nav-right { gap: 0.5rem; }
+            .nav-back { font-size: 0.7rem; white-space: nowrap; }
+            .nav-right > a.nav-back:first-child { display: none; }
+            .nav-back svg { display: none; }
+            .btn-gold { padding: 0.45rem 0.6rem; font-size: 0.7rem; text-align: center; white-space: nowrap; }
+            .container { padding: 0 1.25rem; }
+            .nav-inner { padding: 0 1.25rem; height: 64px; }
+            .nav-logo { gap: 0.5rem; font-size: 1.05rem; }
+            .article-header { padding: 2rem 0 1.5rem; }
+            .breadcrumb { padding: 5rem 0 0; }
+            .article-cta { padding: 2rem 1.25rem; }
+            .footer-inner { flex-direction: column; gap: 0.5rem; }
+            .footer-sep { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">estimation<span>cave</span>.com</a>
+            <div class="nav-right">
+                <a href="blog.html" class="nav-back">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    Retour au blog
+                </a>
+                <a href="apropos.html" class="nav-back" style="text-decoration:none;">À propos</a>
+                <a href="index.html#formulaire" class="btn-gold">Demander un audit</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="breadcrumb">
+        <div class="container">
+            <a href="index.html">Accueil</a> &gt;
+            <a href="gestion.html">Gérer sa cave</a> &gt;
+            <span>Inventaire</span>
+        </div>
+    </div>
+
+    <header class="article-header">
+        <div class="container">
+            <p class="article-meta">Avril 2026 · Gérer sa cave</p>
+            <h1>Comment faire l'inventaire de sa cave à vins</h1>
+            <span class="ornament"></span>
+            <p class="article-intro">Vous savez que vous avez des bouteilles, mais combien exactement ? Lesquelles ? Dans quel état ? L'inventaire est la première étape pour reprendre le contrôle de votre cave — et la condition préalable à toute estimation sérieuse.</p>
+        </div>
+    </header>
+
+    <div class="toc">
+        <div class="container">
+            <div class="toc-box">
+                <p class="toc-title">Dans cet article</p>
+                <ul>
+                    <li><a href="#pourquoi"><span class="toc-dot"></span>Pourquoi faire l'inventaire de sa cave</a></li>
+                    <li><a href="#methode"><span class="toc-dot"></span>La méthode en 4 étapes</a></li>
+                    <li><a href="#informations"><span class="toc-dot"></span>Quelles informations relever pour chaque bouteille</a></li>
+                    <li><a href="#outils"><span class="toc-dot"></span>Quel outil choisir : tableur, appli ou carnet</a></li>
+                    <li><a href="#erreurs"><span class="toc-dot"></span>Les erreurs fréquentes à éviter</a></li>
+                    <li><a href="#faq"><span class="toc-dot"></span>Questions fréquentes</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <main class="article-body">
+        <div class="container">
+
+            <div class="key-points">
+                <p class="key-points-title">Points clés</p>
+                <div class="key-point"><div class="key-point-dot"></div>Un inventaire complet est indispensable avant toute estimation, vente ou déclaration de succession</div>
+                <div class="key-point"><div class="key-point-dot"></div>Pour chaque bouteille : nom, appellation, millésime, format, niveau et emplacement dans la cave</div>
+                <div class="key-point"><div class="key-point-dot"></div>Un tableur gratuit suffit pour la plupart des caves — les applications spécialisées apportent un confort supplémentaire</div>
+                <div class="key-point"><div class="key-point-dot"></div>Mettez à jour l'inventaire à chaque entrée et sortie de bouteille pour qu'il reste fiable</div>
+            </div>
+
+            <!-- ══ SECTION 1 ══ -->
+            <h2 id="pourquoi">Pourquoi faire l'inventaire de sa cave</h2>
+
+            <p>Beaucoup de collectionneurs connaissent leurs « grandes bouteilles » par cœur, mais ignorent le contenu réel de leur cave. Avec le temps, les achats s'accumulent, les bouteilles se mélangent, et la vision d'ensemble se perd. L'inventaire permet de <strong>remettre de l'ordre</strong> et de savoir précisément ce que vous possédez.</p>
+
+            <p>Mais l'inventaire n'est pas qu'un exercice d'organisation. C'est aussi un <strong>outil de décision</strong>. Il vous permet de repérer les bouteilles à boire en priorité (celles qui approchent ou dépassent leur apogée), d'identifier les doublons inutiles, et de détecter d'éventuelles lacunes dans votre collection.</p>
+
+            <p>Surtout, l'inventaire est la <strong>base de toute démarche professionnelle</strong> : estimation de la valeur de votre cave, préparation d'une vente, déclaration de succession, ou souscription d'une assurance. Sans inventaire, aucune de ces opérations ne peut être réalisée correctement. Pour en savoir plus sur l'ensemble des bonnes pratiques de gestion, consultez notre <a href="gestion.html">guide complet pour bien gérer sa cave à vins</a>.</p>
+
+            <span class="section-divider"></span>
+
+            <!-- ══ SECTION 2 ══ -->
+            <h2 id="methode">La méthode en 4 étapes</h2>
+
+            <p>Pas besoin de tout faire en une journée. Procédez méthodiquement, zone par zone, pour éviter les oublis et les erreurs.</p>
+
+            <h3>1. Préparez votre support</h3>
+
+            <p>Avant d'ouvrir la première caisse, choisissez le support sur lequel vous allez enregistrer vos données. Un tableur (Excel, Google Sheets) est le plus simple pour débuter. Créez les colonnes essentielles : nom du vin, appellation, millésime, couleur, format, quantité, emplacement. Vous pourrez toujours migrer vers une application plus tard.</p>
+
+            <h3>2. Organisez votre cave en zones</h3>
+
+            <p>Divisez votre cave en <strong>zones identifiables</strong> : casiers numérotés, étagères par lettre, caisses étiquetées. Par exemple, « C3 » pour le casier 3, « E-B » pour l'étagère B. Ce système de coordonnées vous permettra de retrouver n'importe quelle bouteille en quelques secondes.</p>
+
+            <h3>3. Relevez bouteille par bouteille</h3>
+
+            <p>Parcourez chaque zone dans l'ordre. Pour chaque bouteille, notez les informations de l'étiquette et observez l'état visuel (niveau du vin, état de la capsule, lisibilité de l'étiquette). Si vous avez un smartphone, <strong>photographiez les étiquettes</strong> au fur et à mesure — c'est plus rapide que de tout noter à la main et cela crée une archive visuelle.</p>
+
+            <h3>4. Vérifiez et complétez</h3>
+
+            <p>Une fois l'inventaire physique terminé, relisez vos données à tête reposée. Corrigez les éventuelles erreurs de saisie, complétez les informations manquantes et vérifiez les totaux. C'est aussi le moment de noter les bouteilles que vous n'avez pas pu identifier — elles pourront être analysées ultérieurement par un professionnel.</p>
+
+            <!-- VISUEL SVG 1 : Les 4 étapes -->
+            <div class="visual-block">
+                <p class="visual-title">Les 4 étapes de l'inventaire</p>
+                <svg viewBox="0 0 660 120" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+                    <rect width="660" height="120" rx="8" fill="#FAF6F0"/>
+                    <!-- Step 1 -->
+                    <rect x="12" y="20" width="145" height="80" rx="6" fill="#2D1B2E"/>
+                    <text x="84" y="52" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#C5A258">1. Préparer</text>
+                    <text x="84" y="70" text-anchor="middle" font-family="Inter, sans-serif" font-size="9.5" fill="#FAF6F0">Choisir son support</text>
+                    <text x="84" y="84" text-anchor="middle" font-family="Inter, sans-serif" font-size="9.5" fill="#FAF6F0">et créer les colonnes</text>
+                    <!-- Arrow -->
+                    <polygon points="168,60 156,52 156,68" fill="#C5A258"/>
+                    <!-- Step 2 -->
+                    <rect x="175" y="20" width="145" height="80" rx="6" fill="#FFFFFF" stroke="#C5A258" stroke-width="1.5"/>
+                    <text x="247" y="52" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#2D1B2E">2. Zoner</text>
+                    <text x="247" y="70" text-anchor="middle" font-family="Inter, sans-serif" font-size="9.5" fill="#6B5F65">Diviser la cave</text>
+                    <text x="247" y="84" text-anchor="middle" font-family="Inter, sans-serif" font-size="9.5" fill="#6B5F65">en zones identifiées</text>
+                    <!-- Arrow -->
+                    <polygon points="331,60 319,52 319,68" fill="#C5A258"/>
+                    <!-- Step 3 -->
+                    <rect x="338" y="20" width="145" height="80" rx="6" fill="#FFFFFF" stroke="#C5A258" stroke-width="1.5"/>
+                    <text x="410" y="52" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#2D1B2E">3. Relever</text>
+                    <text x="410" y="70" text-anchor="middle" font-family="Inter, sans-serif" font-size="9.5" fill="#6B5F65">Noter chaque bouteille</text>
+                    <text x="410" y="84" text-anchor="middle" font-family="Inter, sans-serif" font-size="9.5" fill="#6B5F65">+ photos étiquettes</text>
+                    <!-- Arrow -->
+                    <polygon points="494,60 482,52 482,68" fill="#C5A258"/>
+                    <!-- Step 4 -->
+                    <rect x="501" y="20" width="145" height="80" rx="6" fill="#2D1B2E"/>
+                    <text x="573" y="52" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#C5A258">4. Vérifier</text>
+                    <text x="573" y="70" text-anchor="middle" font-family="Inter, sans-serif" font-size="9.5" fill="#FAF6F0">Corriger, compléter</text>
+                    <text x="573" y="84" text-anchor="middle" font-family="Inter, sans-serif" font-size="9.5" fill="#FAF6F0">et valider les totaux</text>
+                </svg>
+            </div>
+
+            <span class="section-divider"></span>
+
+            <!-- ══ SECTION 3 ══ -->
+            <h2 id="informations">Quelles informations relever pour chaque bouteille</h2>
+
+            <p>Plus votre inventaire est détaillé, plus il sera utile — pour vous comme pour un éventuel expert. Voici les informations à relever systématiquement :</p>
+
+            <ul>
+                <li><strong>Nom du vin / domaine</strong> : tel qu'il apparaît sur l'étiquette principale</li>
+                <li><strong>Appellation</strong> : Pauillac, Gevrey-Chambertin, Châteauneuf-du-Pape…</li>
+                <li><strong>Millésime</strong> : l'année de récolte (ou « NM » pour les champagnes non millésimés)</li>
+                <li><strong>Couleur</strong> : rouge, blanc, rosé, effervescent</li>
+                <li><strong>Format</strong> : demi-bouteille (37,5 cl), bouteille (75 cl), magnum (1,5 L), etc.</li>
+                <li><strong>Quantité</strong> : nombre de bouteilles identiques</li>
+                <li><strong>Emplacement</strong> : coordonnées dans la cave (casier, étagère, rangée)</li>
+                <li><strong>État visuel</strong> : niveau du vin (haute épaule, mi-épaule…), état de l'étiquette et de la capsule</li>
+            </ul>
+
+            <!-- VISUEL SVG 2 : Fiche bouteille -->
+            <div class="visual-block">
+                <p class="visual-title">Les informations essentielles à relever</p>
+                <svg viewBox="0 0 660 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+                    <rect width="660" height="300" rx="8" fill="#FAF6F0"/>
+                    <!-- Header -->
+                    <rect x="20" y="16" width="620" height="40" rx="6" fill="#2D1B2E"/>
+                    <text x="330" y="42" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#C5A258">Fiche inventaire — informations par bouteille</text>
+                    <!-- Col 1 -->
+                    <rect x="20" y="64" width="200" height="52" rx="4" fill="#FFFFFF" stroke="#C5A258" stroke-width="1"/>
+                    <text x="120" y="86" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#2D1B2E">Domaine / Nom</text>
+                    <text x="120" y="102" text-anchor="middle" font-family="Inter, sans-serif" font-size="9.5" fill="#6B5F65">Ex : Château Margaux</text>
+                    <!-- Col 2 -->
+                    <rect x="230" y="64" width="200" height="52" rx="4" fill="#FFFFFF" stroke="#C5A258" stroke-width="1"/>
+                    <text x="330" y="86" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#2D1B2E">Appellation</text>
+                    <text x="330" y="102" text-anchor="middle" font-family="Inter, sans-serif" font-size="9.5" fill="#6B5F65">Ex : Margaux 1er Grand Cru</text>
+                    <!-- Col 3 -->
+                    <rect x="440" y="64" width="200" height="52" rx="4" fill="#FFFFFF" stroke="#C5A258" stroke-width="1"/>
+                    <text x="540" y="86" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#2D1B2E">Millésime</text>
+                    <text x="540" y="102" text-anchor="middle" font-family="Inter, sans-serif" font-size="9.5" fill="#6B5F65">Ex : 2015</text>
+                    <!-- Row 2 -->
+                    <rect x="20" y="126" width="200" height="52" rx="4" fill="#FFFFFF" stroke="#C5A258" stroke-width="1"/>
+                    <text x="120" y="148" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#2D1B2E">Couleur</text>
+                    <text x="120" y="164" text-anchor="middle" font-family="Inter, sans-serif" font-size="9.5" fill="#6B5F65">Rouge / Blanc / Rosé</text>
+                    <rect x="230" y="126" width="200" height="52" rx="4" fill="#FFFFFF" stroke="#C5A258" stroke-width="1"/>
+                    <text x="330" y="148" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#2D1B2E">Format</text>
+                    <text x="330" y="164" text-anchor="middle" font-family="Inter, sans-serif" font-size="9.5" fill="#6B5F65">75 cl / Magnum / Jéroboam</text>
+                    <rect x="440" y="126" width="200" height="52" rx="4" fill="#FFFFFF" stroke="#C5A258" stroke-width="1"/>
+                    <text x="540" y="148" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#2D1B2E">Quantité</text>
+                    <text x="540" y="164" text-anchor="middle" font-family="Inter, sans-serif" font-size="9.5" fill="#6B5F65">Nombre de bouteilles</text>
+                    <!-- Row 3 -->
+                    <rect x="20" y="188" width="305" height="52" rx="4" fill="#FFFFFF" stroke="#C5A258" stroke-width="1"/>
+                    <text x="172" y="210" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#2D1B2E">Emplacement dans la cave</text>
+                    <text x="172" y="226" text-anchor="middle" font-family="Inter, sans-serif" font-size="9.5" fill="#6B5F65">Ex : Casier 3, rangée B, position 5</text>
+                    <rect x="335" y="188" width="305" height="52" rx="4" fill="#FFFFFF" stroke="#C5A258" stroke-width="1"/>
+                    <text x="487" y="210" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#2D1B2E">État visuel</text>
+                    <text x="487" y="226" text-anchor="middle" font-family="Inter, sans-serif" font-size="9.5" fill="#6B5F65">Niveau, étiquette, capsule</text>
+                    <!-- Footer note -->
+                    <rect x="20" y="252" width="620" height="34" rx="4" fill="rgba(197,162,88,0.10)"/>
+                    <text x="330" y="274" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#6B5F65">Photographiez chaque étiquette avec votre smartphone pour créer une archive visuelle</text>
+                </svg>
+            </div>
+
+            <div class="bon-a-savoir">
+                <p class="bon-a-savoir-title">Bon à savoir</p>
+                <p>Si vous envisagez de faire estimer votre cave, ces informations — complétées par des photos — sont exactement ce dont un expert a besoin pour réaliser un rapport d'estimation. Un inventaire bien tenu fait gagner du temps et améliore la précision de l'estimation. Découvrez comment fonctionne <a href="article-estimation-distance.html">l'estimation de cave à distance</a>.</p>
+            </div>
+
+            <span class="section-divider"></span>
+
+            <!-- ══ SECTION 4 ══ -->
+            <h2 id="outils">Quel outil choisir : tableur, appli ou carnet</h2>
+
+            <h3>Le tableur (Excel / Google Sheets)</h3>
+
+            <p>C'est la solution la plus accessible. Un tableur gratuit vous permet de créer un inventaire structuré, de trier vos bouteilles par appellation, millésime ou couleur, et d'ajouter des filtres pour retrouver rapidement une référence. <strong>Pour une cave de moins de 300 bouteilles</strong>, c'est amplement suffisant.</p>
+
+            <h3>Les applications spécialisées</h3>
+
+            <p>Des outils comme CellarTracker, Vivino ou Vinocell offrent des fonctionnalités avancées : <strong>scan d'étiquette</strong> par photo, cotations intégrées, alertes d'apogée, et notes de dégustation. Ils sont particulièrement utiles pour les caves importantes ou les collectionneurs actifs qui achètent et consomment régulièrement.</p>
+
+            <h3>Le carnet papier</h3>
+
+            <p>Un livre de cave physique reste un outil valable pour les caves de taille modeste. Il a l'avantage de ne nécessiter aucune compétence technique. En revanche, il ne permet ni le tri automatique ni la recherche rapide, et il est <strong>difficile à mettre à jour</strong> sans ratures.</p>
+
+            <div class="bon-a-savoir">
+                <p class="bon-a-savoir-title">Bon à savoir</p>
+                <p>Le meilleur outil est celui que vous utiliserez réellement. Un tableur tenu à jour vaut mieux qu'une application sophistiquée abandonnée après deux semaines.</p>
+            </div>
+
+            <span class="section-divider"></span>
+
+            <!-- ══ SECTION 5 ══ -->
+            <h2 id="erreurs">Les erreurs fréquentes à éviter</h2>
+
+            <p><strong>Reporter l'inventaire indéfiniment.</strong> Plus vous attendez, plus la tâche paraît insurmontable. Commencez par une zone, même petite. Vous pouvez étaler l'inventaire sur plusieurs jours.</p>
+
+            <p><strong>Ne noter que le nom du vin.</strong> Sans le millésime, un « Château Latour » peut valoir de 80 à 2 000 euros. Le millésime est l'information la plus déterminante pour la valeur.</p>
+
+            <p><strong>Oublier de mettre à jour.</strong> Un inventaire figé perd sa valeur en quelques mois. Prenez l'habitude de noter chaque entrée et sortie de bouteille — même si c'est juste une ligne dans votre tableur.</p>
+
+            <p><strong>Ignorer l'état de conservation.</strong> Le niveau du vin dans la bouteille, l'état de l'étiquette et de la capsule sont des indicateurs importants. Ils influencent directement la valeur et la buvabilité de la bouteille.</p>
+
+            <p><strong>Ne pas localiser les bouteilles.</strong> Un inventaire sans emplacement vous oblige à fouiller toute la cave pour retrouver une bouteille précise. Le système de coordonnées (casier + rangée) vous fait gagner un temps considérable.</p>
+
+            <span class="section-divider"></span>
+
+            <!-- ══ FAQ ══ -->
+            <div class="inline-faq" id="faq">
+                <p class="inline-faq-title">Questions fréquentes</p>
+
+                <div class="inline-faq-item">
+                    <button class="inline-faq-trigger">À quelle fréquence faut-il mettre à jour l'inventaire de sa cave ?</button>
+                    <div class="inline-faq-content">
+                        <p class="inline-faq-answer">Idéalement, mettez à jour votre inventaire à chaque entrée ou sortie de bouteille. Si ce n'est pas possible, un inventaire complet une à deux fois par an suffit pour garder un suivi fiable. L'essentiel est la régularité : un inventaire obsolète perd toute utilité.</p>
+                    </div>
+                </div>
+
+                <div class="inline-faq-item">
+                    <button class="inline-faq-trigger">Quelle application utiliser pour gérer l'inventaire de sa cave ?</button>
+                    <div class="inline-faq-content">
+                        <p class="inline-faq-answer">Plusieurs solutions existent selon vos besoins : un tableur Excel ou Google Sheets pour un suivi simple et gratuit, ou des applications spécialisées comme CellarTracker, Vivino ou Vinocell pour un suivi plus avancé avec scan d'étiquettes et cotations intégrées. Le meilleur outil est celui que vous utiliserez réellement.</p>
+                    </div>
+                </div>
+
+                <div class="inline-faq-item">
+                    <button class="inline-faq-trigger">L'inventaire suffit-il pour connaître la valeur de sa cave ?</button>
+                    <div class="inline-faq-content">
+                        <p class="inline-faq-answer">L'inventaire est la base indispensable, mais il ne donne pas la valeur de marché de vos bouteilles. Pour obtenir une estimation fiable, il faut croiser votre inventaire avec les cotations actuelles, l'état de conservation et les conditions de stockage. Un service d'estimation professionnel réalise ce travail à partir de votre inventaire et de photos.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA FINAL -->
+            <div class="article-cta">
+                <h2>Votre inventaire est prêt ?</h2>
+                <p>Transformez-le en estimation chiffrée. Envoyez votre liste et vos photos — vous recevez un rapport complet sous 5 jours ouvrés.</p>
+                <a href="index.html#formulaire" class="btn-gold">Demander mon rapport — 149€</a>
+            </div>
+
+        </div>
+    </main>
+
+    <div class="back-to-blog">
+        <a href="blog.html">← Retour au blog</a>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <a href="mentions-legales.html">Mentions légales</a>
+            <span class="footer-sep">·</span>
+            <a href="confidentialite.html">Politique de confidentialité</a>
+            <span class="footer-sep">·</span>
+            <a href="mailto:contact@estimationcave.com">contact@estimationcave.com</a>
+        </div>
+    </footer>
+
+    <script>
+    document.querySelectorAll('.inline-faq-trigger').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const item = btn.closest('.inline-faq-item');
+            item.classList.toggle('open');
+        });
+    });
+    </script>
+
+</body>
+</html>
