@@ -296,7 +296,7 @@
       max-width: 600px;
     }
 
-    .probleme-header .ornament {
+    .probleme-header .ornament-double {
       margin: 1.5rem 0;
     }
 
@@ -440,7 +440,7 @@
       margin-bottom: 4rem;
     }
 
-    .rapport-header .ornament {
+    .rapport-header .ornament-double {
       margin: 1.5rem 0;
     }
 
@@ -953,7 +953,7 @@
       margin-bottom: 3.5rem;
     }
 
-    .missions-header .ornament {
+    .missions-header .ornament-double {
       margin: 1.5rem 0;
     }
 
@@ -963,7 +963,6 @@
 
     .missions-list {
       max-width: 760px;
-      margin: 0 auto;
     }
 
     .mission-item {
@@ -1152,7 +1151,7 @@
       <div class="probleme-header">
         <p class="section-label">Le problème</p>
         <h2>Vous avez une cave. Mais savez-vous vraiment ce qu'elle vaut&nbsp;?</h2>
-        <span class="ornament"></span>
+        <span class="ornament-double"></span>
       </div>
       <div class="situations">
         <div class="situation-card">
@@ -1200,7 +1199,7 @@
       <div class="livrables-header">
         <p class="section-label">Ce que vous recevez</p>
         <h2>Un rapport professionnel de A à Z</h2>
-        <span class="ornament"></span>
+        <div class="ornament-dots"><span></span></div>
         <p class="section-subtitle">Un document structuré, lisible et directement actionnable — que vous soyez novice ou connaisseur.</p>
       </div>
       <div class="livrables-grid">
@@ -1257,7 +1256,7 @@
       <div class="rapport-header">
         <p class="section-label">Aperçu</p>
         <h2>Ce que contient votre rapport</h2>
-        <span class="ornament"></span>
+        <span class="ornament-double"></span>
         <p class="section-subtitle">Un document d'une dizaine de pages, structuré, lisible et directement actionnable.</p>
       </div>
       <div class="carousel-wrapper" id="rapport-carousel">
@@ -1358,7 +1357,7 @@
       <div class="process-header">
         <p class="section-label">Comment ça marche</p>
         <h2>Simple. Rapide. À distance.</h2>
-        <span class="ornament"></span>
+        <span class="ornament-diamond"></span>
       </div>
       <div class="steps">
         <div class="step">
@@ -1387,7 +1386,7 @@
       <div class="tarif-header">
         <p class="section-label">Tarif</p>
         <h2>Une offre unique. Claire et sans surprise.</h2>
-        <span class="ornament"></span>
+        <span class="ornament-long"></span>
         
       </div>
       <div class="tarif-card">
@@ -1417,7 +1416,7 @@
         <div class="confidentialite-icon"><svg width="32" height="32" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 4L6 10v8c0 7.2 5.1 13.9 12 16 6.9-2.1 12-8.8 12-16v-8L18 4z" stroke="#C5A258" stroke-width="1.5" stroke-linejoin="round"/><path d="M13 18l3.5 3.5L23 15" stroke="#C5A258" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <p class="section-label" style="color: var(--or);">Engagement</p>
         <h2>Votre cave reste votre secret</h2>
-        <span class="ornament"></span>
+        <span class="ornament-diamond"></span>
         <p>Toutes les informations transmises sont traitées avec une confidentialité absolue. Vos données ne sont jamais partagées, revendues ou utilisées à d'autres fins que votre mission d'estimation. Confidentialité réciproque garantie par contrat.</p>
       </div>
     </div>
@@ -1430,7 +1429,7 @@
       <div class="formulaire-header">
         <p class="section-label">Commencer</p>
         <h2>Prêt à connaître la valeur de votre cave&nbsp;?</h2>
-        <span class="ornament"></span>
+        <div class="ornament-dots"><span></span></div>
         <p class="section-subtitle">Avant de procéder au paiement, voici ce que vous aurez à préparer&nbsp;:</p>
       </div>
       <div class="tally-embed-zone" style="text-align:left;">
@@ -1491,7 +1490,7 @@
       <div class="missions-header">
         <p class="section-label">Aller plus loin</p>
         <h2>Missions complémentaires</h2>
-        <span class="ornament"></span>
+        <span class="ornament-double"></span>
         <p class="section-subtitle">Ce rapport peut être complété par des missions d'accompagnement sur mesure, selon vos besoins et l'évolution de votre projet, sur devis personnalisé.</p>
       </div>
       <div class="missions-list">
@@ -1743,7 +1742,7 @@
         document.querySelectorAll('.rapport-header').forEach(function(el){ el.classList.add('reveal-right'); });
 
         // Ornament reveals
-        document.querySelectorAll('.ornament').forEach(function(el){ el.classList.add('ornament-reveal'); });
+        document.querySelectorAll('.ornament, .ornament-double, .ornament-dots, .ornament-diamond, .ornament-long').forEach(function(el){ el.classList.add('ornament-reveal'); });
 
         // Single observer for all
         var allReveal = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .ornament-reveal');

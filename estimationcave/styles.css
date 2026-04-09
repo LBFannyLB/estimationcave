@@ -192,11 +192,68 @@ a:hover { color: var(--bordeaux); }
     92% { box-shadow: 0 0 0 6px transparent; }
 }
 
-/* ── ORNAMENT ── */
+/* ── ORNAMENTS ── */
 .ornament {
     display: block;
     width: 48px;
     height: 2px;
+    background: var(--or);
+    margin: 1.5rem auto;
+}
+
+/* Losange doré */
+.ornament-diamond {
+    display: block;
+    width: 8px;
+    height: 8px;
+    background: var(--or);
+    margin: 1.5rem auto;
+    transform: rotate(45deg);
+}
+
+/* Double trait fin */
+.ornament-double {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 24px;
+    margin: 1.5rem auto;
+}
+.ornament-double::before,
+.ornament-double::after {
+    content: '';
+    display: block;
+    height: 1px;
+    background: var(--or);
+}
+
+/* Trois points */
+.ornament-dots {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin: 1.5rem auto;
+}
+.ornament-dots::before,
+.ornament-dots::after {
+    content: '';
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--or);
+}
+.ornament-dots span {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--or);
+}
+
+/* Trait long fin */
+.ornament-long {
+    display: block;
+    width: 120px;
+    height: 1px;
     background: var(--or);
     margin: 1.5rem auto;
 }
@@ -335,12 +392,42 @@ a:hover { color: var(--bordeaux); }
 }
 
 /* ── ORNAMENT REVEAL ── */
-.ornament-reveal {
+.ornament.ornament-reveal {
     width: 0;
     transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.ornament-reveal.visible {
+.ornament.ornament-reveal.visible {
     width: 48px;
+}
+.ornament-long.ornament-reveal {
+    width: 0;
+    transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.ornament-long.ornament-reveal.visible {
+    width: 120px;
+}
+.ornament-double.ornament-reveal {
+    width: 0;
+    transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.ornament-double.ornament-reveal.visible {
+    width: 24px;
+}
+.ornament-diamond.ornament-reveal {
+    opacity: 0;
+    transform: scale(0) rotate(45deg);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.ornament-diamond.ornament-reveal.visible {
+    opacity: 1;
+    transform: scale(1) rotate(45deg);
+}
+.ornament-dots.ornament-reveal {
+    opacity: 0;
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.ornament-dots.ornament-reveal.visible {
+    opacity: 1;
 }
 
 /* ── BTT HOVER ── */
