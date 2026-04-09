@@ -560,6 +560,24 @@
       padding: 6rem 0;
       background: var(--bordeaux);
       color: rgba(250, 246, 240, 0.85);
+      position: relative;
+    }
+    .process::before {
+      content: '';
+      position: absolute;
+      top: -60px; left: 0; right: 0;
+      height: 60px;
+      background: linear-gradient(to bottom, transparent, var(--bordeaux));
+      pointer-events: none;
+    }
+    .process::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: 0; right: 0;
+      height: 60px;
+      background: linear-gradient(to bottom, var(--bordeaux), transparent);
+      pointer-events: none;
+      z-index: 1;
     }
 
     .process-header {
@@ -711,6 +729,24 @@
       padding: 5rem 0;
       background: var(--bordeaux);
       color: rgba(250, 246, 240, 0.85);
+      position: relative;
+    }
+    .confidentialite::before {
+      content: '';
+      position: absolute;
+      top: -60px; left: 0; right: 0;
+      height: 60px;
+      background: linear-gradient(to bottom, transparent, var(--bordeaux));
+      pointer-events: none;
+    }
+    .confidentialite::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: 0; right: 0;
+      height: 60px;
+      background: linear-gradient(to bottom, var(--bordeaux), transparent);
+      pointer-events: none;
+      z-index: 1;
     }
 
     .confidentialite-inner {
