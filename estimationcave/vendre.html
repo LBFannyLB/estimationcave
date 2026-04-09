@@ -67,7 +67,7 @@
         .inline-faq-trigger::after { content: '+'; position: absolute; right: 0; top: 50%; transform: translateY(-50%); font-size: 1.3rem; font-weight: 300; color: var(--or); }
         .inline-faq-item.open .inline-faq-trigger::after { content: '−'; }
         .inline-faq-content { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
-        .inline-faq-item.open .inline-faq-content { max-height: 300px; }
+        .inline-faq-item.open .inline-faq-content { max-height: var(--faq-height, 500px); }
         .inline-faq-answer { padding: 0 0 1.25rem; font-size: 0.92rem; color: var(--texte-light); line-height: 1.8; }
         .article-cta { background: var(--blanc); border: 1.5px solid rgba(197, 162, 88, 0.25); border-radius: 8px; padding: 2.5rem 2rem; text-align: center; margin: 3rem 0 0; position: relative; overflow: hidden; }
         .article-cta::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--or), var(--bordeaux), var(--or)); }
@@ -392,7 +392,7 @@
     </button>
     <script>
         (function(){var b=document.getElementById('btt');window.addEventListener('scroll',function(){if(window.scrollY>300){b.style.opacity='1';b.style.visibility='visible'}else{b.style.opacity='0';b.style.visibility='hidden'}});b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})})})();
-        document.querySelectorAll('.inline-faq-trigger').forEach(function(btn){btn.addEventListener('click',function(){var item=this.parentElement;item.classList.toggle('open')})});
+        document.querySelectorAll('.inline-faq-trigger').forEach(function(btn){btn.addEventListener('click',function(){var item=this.parentElement;var content=item.querySelector('.inline-faq-content');if(item.classList.contains('open')){content.style.maxHeight=null;item.classList.remove('open')}else{item.classList.add('open');content.style.maxHeight=content.scrollHeight+'px'}})});
     </script>
 
 </body>

@@ -132,7 +132,7 @@
     }
 
     .accordion-item.open .accordion-content {
-      max-height: 500px;
+      max-height: var(--faq-height, 500px);
     }
 
     .accordion-answer {
@@ -370,8 +370,15 @@
     document.querySelectorAll('.accordion-trigger').forEach(function(btn) {
       btn.addEventListener('click', function() {
         var item = this.parentElement;
+        var content = item.querySelector('.accordion-content');
         var isOpen = item.classList.contains('open');
-        item.classList.toggle('open');
+        if (isOpen) {
+          content.style.maxHeight = null;
+          item.classList.remove('open');
+        } else {
+          item.classList.add('open');
+          content.style.maxHeight = content.scrollHeight + 'px';
+        }
         this.setAttribute('aria-expanded', !isOpen);
       });
     });

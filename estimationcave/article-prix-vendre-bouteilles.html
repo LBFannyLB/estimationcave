@@ -69,7 +69,7 @@
         .inline-faq-trigger::after { content: '+'; position: absolute; right: 0; top: 50%; transform: translateY(-50%); font-size: 1.3rem; font-weight: 300; color: var(--or); }
         .inline-faq-item.open .inline-faq-trigger::after { content: '−'; }
         .inline-faq-content { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
-        .inline-faq-item.open .inline-faq-content { max-height: 300px; }
+        .inline-faq-item.open .inline-faq-content { max-height: var(--faq-height, 500px); }
         .inline-faq-answer { padding: 0 0 1.25rem; font-size: 0.92rem; color: var(--texte-light); line-height: 1.8; }
 
         .article-cta { background: var(--blanc); border: 1.5px solid rgba(197, 162, 88, 0.25); border-radius: 8px; padding: 2.5rem 2rem; text-align: center; margin: 3rem 0 0; position: relative; overflow: hidden; }
@@ -347,7 +347,14 @@
     document.querySelectorAll('.inline-faq-trigger').forEach(btn => {
         btn.addEventListener('click', () => {
             const item = btn.closest('.inline-faq-item');
-            item.classList.toggle('open');
+            const content = item.querySelector('.inline-faq-content');
+            if (item.classList.contains('open')) {
+                content.style.maxHeight = null;
+                item.classList.remove('open');
+            } else {
+                item.classList.add('open');
+                content.style.maxHeight = content.scrollHeight + 'px';
+            }
         });
     });
     </script>
