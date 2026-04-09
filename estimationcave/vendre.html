@@ -21,8 +21,16 @@
         :root { --bordeaux: #2D1B2E; --or: #C5A258; --or-light: #D4B76E; --or-pale: rgba(197, 162, 88, 0.10); --fond: #FAF6F0; --texte: #3A3035; --texte-light: #6B5F65; --blanc: #FFFFFF; --border: rgba(45, 27, 46, 0.08); --font-display: 'Cormorant Garamond', Georgia, serif; --font-body: 'Inter', -apple-system, sans-serif; }
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: var(--font-body); background-color: var(--fond); color: var(--texte); line-height: 1.7; font-weight: 400; -webkit-font-smoothing: antialiased; }
+        /* ── FOCUS VISIBLE ── */
+        *:focus-visible { outline: 2px solid var(--or); outline-offset: 2px; border-radius: 2px; }
+        *:focus:not(:focus-visible) { outline: none; }
+
         a { color: var(--or); text-decoration: none; transition: color 0.25s ease; }
         a:hover { color: var(--bordeaux); }
+
+        /* ── LIENS TEXTE CORPS ── */
+        .article-body a, .about-body a, .legal-section a, .legal-content a { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--or); }
+
         .container { max-width: 720px; margin: 0 auto; padding: 0 2rem; }
 
         .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(250, 246, 240, 0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }

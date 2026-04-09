@@ -224,6 +224,10 @@
             line-height: 1.5;
         }
 
+        /* ── FOCUS VISIBLE ── */
+        *:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; border-radius: 2px; }
+        *:focus:not(:focus-visible) { outline: none; }
+
         a {
             color: var(--gold);
             text-decoration: none;
@@ -234,6 +238,9 @@
         a:hover {
             border-bottom-color: var(--gold);
         }
+
+        /* ── LIENS TEXTE CORPS ── */
+        .article-body a, .about-body a, .legal-section a, .legal-content a { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--gold); }
 
         .update-date {
             font-size: 0.85rem;

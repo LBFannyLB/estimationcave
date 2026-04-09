@@ -187,6 +187,10 @@
             margin-bottom: 0;
         }
 
+        /* ── FOCUS VISIBLE ── */
+        *:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; border-radius: 2px; }
+        *:focus:not(:focus-visible) { outline: none; }
+
         a {
             color: var(--gold);
             text-decoration: none;
@@ -197,6 +201,9 @@
         a:hover {
             border-bottom-color: var(--gold);
         }
+
+        /* ── LIENS TEXTE CORPS ── */
+        .article-body a, .about-body a, .legal-section a, .legal-content a { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--gold); }
 
         .update-date {
             font-size: 0.85rem;
@@ -297,8 +304,8 @@
             <h2>Éditeur du site</h2>
             <div class="info-block">
                 <p><strong>Nom :</strong> Fanny Lonqueu-Brochard</p>
-                <p><strong>Statut :</strong> [À compléter — auto-entrepreneur ou autre forme juridique]</p>
-                <p><strong>Numéro SIRET :</strong> [À compléter]</p>
+                <p><strong>Statut :</strong> En cours d'immatriculation</p>
+                <p><strong>Numéro SIRET :</strong> En cours d'immatriculation</p>
                 <p><strong>Adresse :</strong> France</p>
                 <p><strong>Email :</strong> <a href="mailto:contact@estimationcave.com">contact@estimationcave.com</a></p>
                 <p><strong>Directrice de la publication :</strong> Fanny Lonqueu-Brochard</p>
