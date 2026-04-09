@@ -82,7 +82,7 @@
       letter-spacing: 0.03em;
       border: none;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.33, 1, 0.68, 1);
     }
 
     .btn-primary {
@@ -152,7 +152,7 @@
       font-size: 0.88rem;
       font-weight: 500;
       color: var(--bordeaux);
-      transition: color 0.25s ease;
+      transition: color 0.25s cubic-bezier(0.33, 1, 0.68, 1);
     }
     .nav-link:hover { color: var(--or); }
 
@@ -308,7 +308,7 @@
       border: 1px solid var(--border);
       border-radius: 6px;
       padding: 2.5rem 2rem;
-      transition: all 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.33, 1, 0.68, 1);
       position: relative;
     }
 
@@ -321,7 +321,7 @@
       height: 2px;
       background: var(--or);
       opacity: 0;
-      transition: opacity 0.3s ease;
+      transition: opacity 0.3s cubic-bezier(0.33, 1, 0.68, 1);
     }
 
     @media (hover: hover) {
@@ -386,7 +386,7 @@
       border-radius: 6px;
       background: var(--fond);
       border: 1px solid var(--border);
-      transition: all 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.33, 1, 0.68, 1);
     }
 
     .livrable-item:hover {
@@ -460,7 +460,7 @@
       border: 1px solid var(--border);
       border-radius: 8px;
       overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.3s cubic-bezier(0.33, 1, 0.68, 1), box-shadow 0.3s cubic-bezier(0.33, 1, 0.68, 1);
     }
 
     @media (hover: hover) {
@@ -483,7 +483,7 @@
       object-fit: cover;
       object-position: top;
       display: block;
-      transition: transform 0.4s ease;
+      transition: transform 0.4s cubic-bezier(0.33, 1, 0.68, 1);
     }
 
     .rapport-card:hover .rapport-img-wrapper img {
@@ -537,7 +537,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: all 0.25s ease;
+      transition: all 0.25s cubic-bezier(0.33, 1, 0.68, 1);
       flex-shrink: 0;
     }
     .carousel-btn:hover {
@@ -571,7 +571,7 @@
       border: none;
       background: var(--border);
       cursor: pointer;
-      transition: all 0.25s ease;
+      transition: all 0.25s cubic-bezier(0.33, 1, 0.68, 1);
       padding: 0;
     }
     .carousel-dot.active {
@@ -1391,7 +1391,7 @@
   <section class="confidentialite">
     <div class="container">
       <div class="confidentialite-inner">
-        <div class="confidentialite-icon">&#128274;</div>
+        <div class="confidentialite-icon"><svg width="32" height="32" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 4L6 10v8c0 7.2 5.1 13.9 12 16 6.9-2.1 12-8.8 12-16v-8L18 4z" stroke="#C5A258" stroke-width="1.5" stroke-linejoin="round"/><path d="M13 18l3.5 3.5L23 15" stroke="#C5A258" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <p class="section-label" style="color: var(--or);">Engagement</p>
         <h2>Votre cave reste votre secret</h2>
         <span class="ornament"></span>
@@ -1411,7 +1411,7 @@
         <p class="section-subtitle">Avant de procéder au paiement, voici ce que vous aurez à préparer&nbsp;:</p>
       </div>
       <div class="tally-embed-zone" style="text-align:left;">
-        <p style="font-size:1rem;font-weight:500;color:var(--bordeaux);margin-bottom:1.25rem;">📋 Le formulaire vous prendra moins de 10 minutes et vous demandera&nbsp;:</p>
+        <p style="font-size:1rem;font-weight:500;color:var(--bordeaux);margin-bottom:1.25rem;">Le formulaire vous prendra moins de 10 minutes et vous demandera&nbsp;:</p>
         <div style="margin-bottom:1.5rem;">
           <div class="tarif-feature"><div class="dot"></div>Votre objectif (succession, vente, inventaire...)</div>
           <div class="tarif-feature"><div class="dot"></div>Le nombre approximatif de bouteilles</div>
@@ -1527,7 +1527,7 @@
     </div>
   </footer>
 
-  <button id="btt" aria-label="Retour en haut" style="position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:#2D1B2E;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease,transform .3s ease;z-index:999;box-shadow:0 4px 16px rgba(45,27,46,.25);">
+  <button id="btt" aria-label="Retour en haut" style="position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:#2D1B2E;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s cubic-bezier(.33,1,.68,1),visibility .3s cubic-bezier(.33,1,.68,1),transform .3s cubic-bezier(.33,1,.68,1);z-index:999;box-shadow:0 4px 16px rgba(45,27,46,.25);">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C5A258" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
   </button>
   <script>
