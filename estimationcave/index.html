@@ -744,6 +744,53 @@
     }
 
     /* ══════════════════════════════════
+       8b. GARANTIES
+    ══════════════════════════════════ */
+    .garanties {
+      padding: 4rem 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .garanties-grid {
+      display: flex;
+      justify-content: center;
+      gap: 4rem;
+    }
+
+    .garantie-item {
+      text-align: center;
+      max-width: 200px;
+    }
+
+    .garantie-item svg {
+      margin: 0 auto 1rem;
+      display: block;
+    }
+
+    .garantie-titre {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--bordeaux);
+      margin-bottom: 0.35rem;
+    }
+
+    .garantie-desc {
+      font-size: 0.82rem;
+      color: var(--texte-light);
+      line-height: 1.55;
+    }
+
+    @media (max-width: 600px) {
+      .garanties-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 2.5rem;
+      }
+    }
+
+    /* ══════════════════════════════════
        9. FORMULAIRE
     ══════════════════════════════════ */
     .formulaire {
@@ -1239,6 +1286,40 @@
   </section>
 
 
+  <!-- ════════════ 8b. GARANTIES ════════════ -->
+  <section class="garanties">
+    <div class="container">
+      <div class="garanties-grid">
+        <div class="garantie-item">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="18" cy="18" r="17" stroke="#C5A258" stroke-width="1.2"/>
+            <path d="M18 8v10l6 4" stroke="#C5A258" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <p class="garantie-titre">Livraison sous 5 jours</p>
+          <p class="garantie-desc">Rapport garanti sous 5 jours ouvrés ou remboursement intégral</p>
+        </div>
+        <div class="garantie-item">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="14" width="24" height="16" rx="2" stroke="#C5A258" stroke-width="1.2"/>
+            <path d="M6 20h24" stroke="#C5A258" stroke-width="1.2"/>
+            <circle cx="12" cy="26" r="1.5" fill="#C5A258"/>
+            <path d="M10 14V10a8 8 0 0 1 16 0v4" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+          <p class="garantie-titre">Paiement 100% sécurisé</p>
+          <p class="garantie-desc">Transaction chiffrée via Stripe — aucune donnée bancaire stockée</p>
+        </div>
+        <div class="garantie-item">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 4L6 10v8c0 7.2 5.1 13.9 12 16 6.9-2.1 12-8.8 12-16v-8L18 4z" stroke="#C5A258" stroke-width="1.2" stroke-linejoin="round"/>
+            <path d="M13 18l3.5 3.5L23 15" stroke="#C5A258" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <p class="garantie-titre">Confidentialité totale</p>
+          <p class="garantie-desc">Vos données et photos sont supprimées après livraison du rapport</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ════════════ 9. FORMULAIRE ════════════ -->
   <section class="formulaire" id="formulaire">
     <div class="container">
@@ -1403,6 +1484,22 @@
         navRight.querySelectorAll('a').forEach(function(link) {
             link.addEventListener('click', closeMenu);
         });
+    })();
+    </script>
+
+    <script>
+    (function(){
+        var targets = document.querySelectorAll('section > .container, .article-header, .toc, .key-points, .article-cta, .inline-faq, .silo-section, .garantie-item, .page-header');
+        targets.forEach(function(el){ el.classList.add('reveal'); });
+        var observer = new IntersectionObserver(function(entries){
+            entries.forEach(function(entry){
+                if(entry.isIntersecting){
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {threshold: 0.1, rootMargin: '0px 0px -40px 0px'});
+        targets.forEach(function(el){ observer.observe(el); });
     })();
     </script>
 </body>
