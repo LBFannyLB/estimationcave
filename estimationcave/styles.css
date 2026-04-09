@@ -218,34 +218,75 @@ a:hover { color: var(--bordeaux); }
 
 /* ── FOOTER ── */
 .footer {
-    padding: 2.5rem 0;
+    padding: 3.5rem 0 2.5rem;
     border-top: 1px solid var(--border);
-    text-align: center;
 }
 
-.footer-inner {
+.footer-grid {
     max-width: 1120px;
     margin: 0 auto;
     padding: 0 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 0.5rem 1.5rem;
-    font-size: 0.82rem;
-    color: var(--texte-light);
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 2rem;
 }
+
+.footer-col { font-size: 0.82rem; color: var(--texte-light); }
 
 .footer-logo {
     font-family: var(--font-display);
     font-weight: 600;
     color: var(--bordeaux);
-    font-size: 0.95rem;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+.footer-logo span { color: var(--or); }
+
+.footer-tagline {
+    font-size: 0.82rem;
+    color: var(--texte-light);
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
 }
 
-.footer-sep { color: var(--or); opacity: 0.5; }
-.footer-inner a { color: var(--texte-light); text-decoration: none; }
-.footer-inner a:hover { color: var(--or); }
+.footer-email {
+    font-size: 0.82rem;
+    color: var(--or);
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+.footer-email:hover { color: var(--bordeaux); }
+
+.footer-heading {
+    font-family: var(--font-display);
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--bordeaux);
+    margin-bottom: 0.75rem;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li { margin-bottom: 0.4rem; }
+
+.footer-links a {
+    font-size: 0.82rem;
+    color: var(--texte-light);
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+.footer-links a:hover { color: var(--or); }
+
+.footer-copy {
+    font-size: 0.75rem;
+    color: var(--texte-light);
+    opacity: 0.7;
+    margin-top: 1rem;
+}
 
 /* ── HAMBURGER MOBILE ── */
 .hamburger {
@@ -343,6 +384,9 @@ a:hover { color: var(--bordeaux); }
 
     .nav-overlay.active { display: block; }
 
-    .footer-inner { flex-direction: column; gap: 0.5rem; }
-    .footer-sep { display: none; }
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
 }
