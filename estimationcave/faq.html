@@ -115,19 +115,21 @@
     .accordion-trigger:hover { color: var(--or); }
 
     .accordion-trigger::after {
-      content: '+';
+      content: '';
       position: absolute;
       right: 0;
       top: 50%;
-      transform: translateY(-50%);
-      font-size: 1.3rem;
-      font-weight: 300;
-      color: var(--or);
+      width: 16px;
+      height: 16px;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' stroke='%23C5A258' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+      background-size: contain;
+      background-repeat: no-repeat;
+      transform: translateY(-50%) rotate(0deg);
       transition: transform 0.3s cubic-bezier(0.33, 1, 0.68, 1);
     }
 
     .accordion-item.open .accordion-trigger::after {
-      content: '−';
+      transform: translateY(-50%) rotate(180deg);
     }
 
     .accordion-content {
@@ -257,6 +259,13 @@
             <p>Le rapport est conçu pour être lu et compris par tout le monde, même sans aucune connaissance en vin. Chaque recommandation est formulée clairement, sans jargon inutile. Mon objectif est que vous puissiez prendre une décision éclairée, pas que vous deveniez sommelier. N'hésitez pas à le préciser dans le formulaire, je pourrais ainsi adapter davantage mes réponses à votre niveau.</p>
           </div></div>
         </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" id="faq-trigger-18" aria-expanded="false" aria-controls="faq-18">Estimez-vous aussi les spiritueux (whisky, cognac, armagnac) ?</button>
+          <div class="accordion-content" id="faq-18" role="region" aria-labelledby="faq-trigger-18"><div class="accordion-answer">
+            <p>Le service est principalement conçu pour les vins. Si votre cave contient des spiritueux, mentionnez-le dans le formulaire : selon les références, ils pourront être inclus dans l'analyse ou faire l'objet d'un traitement complémentaire.</p>
+          </div></div>
+        </div>
       </div>
 
       <!-- CATÉGORIE 2 — LES PHOTOS -->
@@ -309,6 +318,13 @@
             <p>Oui. Le rapport identifie les références les plus adaptées à une vente aux enchères et vous donne les éléments nécessaires pour contacter une maison de ventes en connaissance de cause. Vous saurez quelles bouteilles ont un réel potentiel sur le marché secondaire et lesquelles seraient mieux valorisées autrement.</p>
           </div></div>
         </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" id="faq-trigger-19" aria-expanded="false" aria-controls="faq-19">Quelle est la durée de validité de l'estimation ?</button>
+          <div class="accordion-content" id="faq-19" role="region" aria-labelledby="faq-trigger-19"><div class="accordion-answer">
+            <p>Les cotes des vins évoluent en fonction du marché. Une estimation reflète la valeur au moment de sa réalisation. Pour une cave de qualité, les grandes tendances restent stables sur 6 à 12 mois. Au-delà, une réévaluation peut être pertinente, notamment si vous envisagez une vente.</p>
+          </div></div>
+        </div>
       </div>
 
       <!-- CATÉGORIE 4 — PAIEMENT ET CONFIANCE -->
@@ -347,6 +363,20 @@
           <button class="accordion-trigger" id="faq-trigger-17" aria-expanded="false" aria-controls="faq-17">Qui aura accès à mon inventaire ?</button>
           <div class="accordion-content" id="faq-17" role="region" aria-labelledby="faq-trigger-17"><div class="accordion-answer">
             <p>Moi uniquement. Votre inventaire et vos photos ne sont transmis à aucun tiers — ni maison de ventes, ni partenaire, ni plateforme. Ce que vous partagez reste entre vous et moi, point final.</p>
+          </div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" id="faq-trigger-20" aria-expanded="false" aria-controls="faq-20">Que se passe-t-il si je ne suis pas satisfait du rapport ?</button>
+          <div class="accordion-content" id="faq-20" role="region" aria-labelledby="faq-trigger-20"><div class="accordion-answer">
+            <p>Le rapport est réalisé avec rigueur et professionnalisme. Si certains points méritent des précisions ou si vous avez des questions après réception, je suis disponible par e-mail pour y répondre. La satisfaction repose sur la transparence et le dialogue.</p>
+          </div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" id="faq-trigger-21" aria-expanded="false" aria-controls="faq-21">Proposez-vous un service pour les professionnels (notaires, avocats, CGP) ?</button>
+          <div class="accordion-content" id="faq-21" role="region" aria-labelledby="faq-trigger-21"><div class="accordion-answer">
+            <p>Oui. Le rapport est conçu pour être directement exploitable dans un dossier professionnel : succession, divorce, bilan patrimonial, cession d'entreprise. Pour les besoins spécifiques des professionnels, contactez-nous directement à contact@estimationcave.com.</p>
           </div></div>
         </div>
       </div>
