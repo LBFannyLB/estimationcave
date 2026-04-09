@@ -440,6 +440,7 @@
     </style>
 </head>
 <body>
+    <a href="#main" class="skip-link">Aller au contenu</a>
 
     <nav class="nav">
         <div class="nav-inner">
@@ -488,7 +489,7 @@
         </div>
     </div>
 
-    <main class="article-body">
+    <main id="main" class="article-body">
         <div class="container">
 
             <div class="key-points">
@@ -759,28 +760,28 @@
                 <p class="inline-faq-title">Questions fréquentes</p>
 
                 <div class="inline-faq-item">
-                    <button class="inline-faq-trigger">Combien coûte une estimation de cave à vins ?</button>
-                    <div class="inline-faq-content"><div class="inline-faq-answer">Les tarifs varient selon la méthode. Les outils en ligne gratuits donnent des résultats approximatifs. Une estimation professionnelle complète avec rapport détaillé coûte généralement entre 100 et 500 € selon le nombre de bouteilles. Le service estimationcave.com est proposé à 149 € tout compris.</div></div>
+                    <button class="inline-faq-trigger" id="faq-trigger-1" aria-expanded="false" aria-controls="faq-1">Combien coûte une estimation de cave à vins ?</button>
+                    <div class="inline-faq-content" id="faq-1" role="region" aria-labelledby="faq-trigger-1"><div class="inline-faq-answer">Les tarifs varient selon la méthode. Les outils en ligne gratuits donnent des résultats approximatifs. Une estimation professionnelle complète avec rapport détaillé coûte généralement entre 100 et 500 € selon le nombre de bouteilles. Le service estimationcave.com est proposé à 149 € tout compris.</div></div>
                 </div>
 
                 <div class="inline-faq-item">
-                    <button class="inline-faq-trigger">Peut-on estimer sa cave à vins soi-même ?</button>
-                    <div class="inline-faq-content"><div class="inline-faq-answer">Vous pouvez obtenir une première idée en consultant les sites de cotation. Mais ces prix ne tiennent pas compte de l'état réel de vos bouteilles ni des conditions du marché. Pour une estimation fiable, un regard professionnel reste indispensable.</div></div>
+                    <button class="inline-faq-trigger" id="faq-trigger-2" aria-expanded="false" aria-controls="faq-2">Peut-on estimer sa cave à vins soi-même ?</button>
+                    <div class="inline-faq-content" id="faq-2" role="region" aria-labelledby="faq-trigger-2"><div class="inline-faq-answer">Vous pouvez obtenir une première idée en consultant les sites de cotation. Mais ces prix ne tiennent pas compte de l'état réel de vos bouteilles ni des conditions du marché. Pour une estimation fiable, un regard professionnel reste indispensable.</div></div>
                 </div>
 
                 <div class="inline-faq-item">
-                    <button class="inline-faq-trigger">Quels documents fournir pour une estimation ?</button>
-                    <div class="inline-faq-content"><div class="inline-faq-answer">L'idéal est de fournir un inventaire (même partiel), des photos des étiquettes et des niveaux de chaque bouteille, ainsi que des informations sur les conditions de stockage. Si vous n'avez pas d'inventaire, des photos claires suffisent pour démarrer.</div></div>
+                    <button class="inline-faq-trigger" id="faq-trigger-3" aria-expanded="false" aria-controls="faq-3">Quels documents fournir pour une estimation ?</button>
+                    <div class="inline-faq-content" id="faq-3" role="region" aria-labelledby="faq-trigger-3"><div class="inline-faq-answer">L'idéal est de fournir un inventaire (même partiel), des photos des étiquettes et des niveaux de chaque bouteille, ainsi que des informations sur les conditions de stockage. Si vous n'avez pas d'inventaire, des photos claires suffisent pour démarrer.</div></div>
                 </div>
 
                 <div class="inline-faq-item">
-                    <button class="inline-faq-trigger">En combien de temps obtient-on une estimation ?</button>
-                    <div class="inline-faq-content"><div class="inline-faq-answer">Cela dépend de la méthode. Une estimation en ligne prend quelques minutes mais reste superficielle. Un audit professionnel complet est généralement livré sous 5 à 10 jours ouvrés selon la taille de la cave.</div></div>
+                    <button class="inline-faq-trigger" id="faq-trigger-4" aria-expanded="false" aria-controls="faq-4">En combien de temps obtient-on une estimation ?</button>
+                    <div class="inline-faq-content" id="faq-4" role="region" aria-labelledby="faq-trigger-4"><div class="inline-faq-answer">Cela dépend de la méthode. Une estimation en ligne prend quelques minutes mais reste superficielle. Un audit professionnel complet est généralement livré sous 5 à 10 jours ouvrés selon la taille de la cave.</div></div>
                 </div>
 
                 <div class="inline-faq-item">
-                    <button class="inline-faq-trigger">Une estimation engage-t-elle à vendre ?</button>
-                    <div class="inline-faq-content"><div class="inline-faq-answer">Non, absolument pas. Une estimation est un outil d'information. Elle vous donne la valeur de votre cave à un instant donné. Vous êtes libre d'en faire ce que vous souhaitez : vendre, conserver, assurer ou simplement savoir.</div></div>
+                    <button class="inline-faq-trigger" id="faq-trigger-5" aria-expanded="false" aria-controls="faq-5">Une estimation engage-t-elle à vendre ?</button>
+                    <div class="inline-faq-content" id="faq-5" role="region" aria-labelledby="faq-trigger-5"><div class="inline-faq-answer">Non, absolument pas. Une estimation est un outil d'information. Elle vous donne la valeur de votre cave à un instant donné. Vous êtes libre d'en faire ce que vous souhaitez : vendre, conserver, assurer ou simplement savoir.</div></div>
                 </div>
             </div>
 
@@ -821,7 +822,7 @@
     </button>
     <script>
         (function(){var b=document.getElementById('btt');window.addEventListener('scroll',function(){if(window.scrollY>300){b.style.opacity='1';b.style.visibility='visible'}else{b.style.opacity='0';b.style.visibility='hidden'}});b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})})})();
-        document.querySelectorAll('.inline-faq-trigger').forEach(function(btn){btn.addEventListener('click',function(){var item=this.parentElement;var content=item.querySelector('.inline-faq-content');if(item.classList.contains('open')){content.style.maxHeight=null;item.classList.remove('open')}else{item.classList.add('open');content.style.maxHeight=content.scrollHeight+'px'}})});
+        document.querySelectorAll('.inline-faq-trigger').forEach(function(btn){btn.addEventListener('click',function(){var item=this.parentElement;var content=item.querySelector('.inline-faq-content');if(item.classList.contains('open')){content.style.maxHeight=null;item.classList.remove('open');this.setAttribute('aria-expanded','false')}else{item.classList.add('open');this.setAttribute('aria-expanded','true');content.style.maxHeight=content.scrollHeight+'px'}})});
     </script>
 
 </body>

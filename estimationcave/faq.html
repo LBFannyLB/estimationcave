@@ -171,6 +171,7 @@
   </style>
 </head>
 <body>
+  <a href="#main" class="skip-link">Aller au contenu</a>
 
   <!-- ── NAV ── -->
   <nav class="nav">
@@ -198,7 +199,7 @@
   </header>
 
   <!-- ── FAQ ── -->
-  <main>
+  <main id="main">
     <div class="container">
 
       <!-- CATÉGORIE 1 — LE SERVICE -->
@@ -206,43 +207,43 @@
         <div class="faq-category"><h2>Le service</h2></div>
 
         <div class="accordion-item">
-          <button class="accordion-trigger" aria-expanded="false">Comment se passe l'estimation à distance ?</button>
-          <div class="accordion-content"><div class="accordion-answer">
+          <button class="accordion-trigger" id="faq-trigger-1" aria-expanded="false" aria-controls="faq-1">Comment se passe l'estimation à distance ?</button>
+          <div class="accordion-content" id="faq-1" role="region" aria-labelledby="faq-trigger-1"><div class="accordion-answer">
             <p>Tout se fait en ligne. Vous remplissez un formulaire pour décrire votre cave et vos objectifs, vous joignez vos photos et/ou un fichier avec la liste de vos vins, et vous recevez votre rapport PDF complet par e-mail sous 5 jours ouvrés. Aucun déplacement, aucun rendez-vous, aucun appel téléphonique nécessaire.</p>
           </div></div>
         </div>
 
         <div class="accordion-item">
-          <button class="accordion-trigger" aria-expanded="false">Avez-vous besoin de voir les bouteilles en vrai ?</button>
-          <div class="accordion-content"><div class="accordion-answer">
+          <button class="accordion-trigger" id="faq-trigger-2" aria-expanded="false" aria-controls="faq-2">Avez-vous besoin de voir les bouteilles en vrai ?</button>
+          <div class="accordion-content" id="faq-2" role="region" aria-labelledby="faq-trigger-2"><div class="accordion-answer">
             <p>Non. L'estimation se fait intégralement sur la base de vos photos. Des clichés nets de l'étiquette, du niveau de vin dans la bouteille et de la capsule suffisent pour réaliser une analyse fiable. Si vous n'avez pas toutes les photos dès le départ, cela ne bloque pas l'audit, il pourra être affiné si besoin dans un second temps.</p>
           </div></div>
         </div>
 
         <div class="accordion-item">
-          <button class="accordion-trigger" aria-expanded="false">Quels types de vins estimez-vous ?</button>
-          <div class="accordion-content"><div class="accordion-answer">
+          <button class="accordion-trigger" id="faq-trigger-3" aria-expanded="false" aria-controls="faq-3">Quels types de vins estimez-vous ?</button>
+          <div class="accordion-content" id="faq-3" role="region" aria-labelledby="faq-trigger-3"><div class="accordion-answer">
             <p>J'estime tous les types de vins : rouges, blancs, rosés, liquoreux, effervescents. L'estimation couvre à la fois les appellations françaises et les principales appellations internationales. Si votre cave contient des spiritueux, n'hésitez pas à les mentionner dans le formulaire, ils feront l'objet d'un traitement à part.</p>
           </div></div>
         </div>
 
         <div class="accordion-item">
-          <button class="accordion-trigger" aria-expanded="false">Combien de temps prend l'estimation ?</button>
-          <div class="accordion-content"><div class="accordion-answer">
+          <button class="accordion-trigger" id="faq-trigger-4" aria-expanded="false" aria-controls="faq-4">Combien de temps prend l'estimation ?</button>
+          <div class="accordion-content" id="faq-4" role="region" aria-labelledby="faq-trigger-4"><div class="accordion-answer">
             <p>Le rapport vous est livré sous 5 jours ouvrés après réception de vos photos et de votre formulaire complété. La plupart des rapports sont livrés en 3 à 4 jours.</p>
           </div></div>
         </div>
 
         <div class="accordion-item">
-          <button class="accordion-trigger" aria-expanded="false">J'ai une petite cave — est-ce vraiment adapté pour moi ?</button>
-          <div class="accordion-content"><div class="accordion-answer">
+          <button class="accordion-trigger" id="faq-trigger-5" aria-expanded="false" aria-controls="faq-5">J'ai une petite cave — est-ce vraiment adapté pour moi ?</button>
+          <div class="accordion-content" id="faq-5" role="region" aria-labelledby="faq-trigger-5"><div class="accordion-answer">
             <p>Absolument. Qu'il s'agisse de 10 ou de 200 bouteilles, l'audit s'adapte à votre situation. Une petite cave peut contenir des références très intéressantes sans que vous le sachiez. C'est justement l'intérêt de faire le point avec un regard professionnel.</p>
           </div></div>
         </div>
 
         <div class="accordion-item">
-          <button class="accordion-trigger" aria-expanded="false">Je suis totalement novice en vin — cet audit me sera-t-il accessible ?</button>
-          <div class="accordion-content"><div class="accordion-answer">
+          <button class="accordion-trigger" id="faq-trigger-6" aria-expanded="false" aria-controls="faq-6">Je suis totalement novice en vin — cet audit me sera-t-il accessible ?</button>
+          <div class="accordion-content" id="faq-6" role="region" aria-labelledby="faq-trigger-6"><div class="accordion-answer">
             <p>Le rapport est conçu pour être lu et compris par tout le monde, même sans aucune connaissance en vin. Chaque recommandation est formulée clairement, sans jargon inutile. Mon objectif est que vous puissiez prendre une décision éclairée, pas que vous deveniez sommelier. N'hésitez pas à le préciser dans le formulaire, je pourrais ainsi adapter davantage mes réponses à votre niveau.</p>
           </div></div>
         </div>
@@ -253,22 +254,22 @@
         <div class="faq-category"><h2>Les photos</h2></div>
 
         <div class="accordion-item">
-          <button class="accordion-trigger" aria-expanded="false">Comment photographier mes bouteilles ?</button>
-          <div class="accordion-content"><div class="accordion-answer">
+          <button class="accordion-trigger" id="faq-trigger-7" aria-expanded="false" aria-controls="faq-7">Comment photographier mes bouteilles ?</button>
+          <div class="accordion-content" id="faq-7" role="region" aria-labelledby="faq-trigger-7"><div class="accordion-answer">
             <p>Trois éléments importants pour chaque bouteille : l'étiquette (face avant, bien lisible), le niveau de vin (visible à travers la bouteille) et la capsule (état général). Un smartphone suffit largement — prenez les photos à la lumière naturelle si possible et veillez à ce que le texte de l'étiquette soit net. Il faut que les bouteilles soient en position debout et non couchées.</p>
           </div></div>
         </div>
 
         <div class="accordion-item">
-          <button class="accordion-trigger" aria-expanded="false">Combien de photos faut-il fournir ?</button>
-          <div class="accordion-content"><div class="accordion-answer">
+          <button class="accordion-trigger" id="faq-trigger-8" aria-expanded="false" aria-controls="faq-8">Combien de photos faut-il fournir ?</button>
+          <div class="accordion-content" id="faq-8" role="region" aria-labelledby="faq-trigger-8"><div class="accordion-answer">
             <p>Comptez 1 à 3 photos par bouteille (étiquette + niveau + capsule). Si vous avez plusieurs bouteilles identiques, une seule série de photos suffit pour le lot. Pas besoin de photographier les contre-étiquettes sauf si l'étiquette principale est illisible.</p>
           </div></div>
         </div>
 
         <div class="accordion-item">
-          <button class="accordion-trigger" aria-expanded="false">Je n'ai pas toutes les bouteilles accessibles — que faire ?</button>
-          <div class="accordion-content"><div class="accordion-answer">
+          <button class="accordion-trigger" id="faq-trigger-9" aria-expanded="false" aria-controls="faq-9">Je n'ai pas toutes les bouteilles accessibles — que faire ?</button>
+          <div class="accordion-content" id="faq-9" role="region" aria-labelledby="faq-trigger-9"><div class="accordion-answer">
             <p>Pas de problème. Envoyez les photos de ce que vous pouvez atteindre et décrivez le reste dans le formulaire (appellations, millésimes, quantités approximatives si vous les connaissez). Je ferai l'estimation sur ce qui est documenté et vous indiquerai comment compléter si nécessaire.</p>
           </div></div>
         </div>
@@ -279,22 +280,22 @@
         <div class="faq-category"><h2>Le rapport</h2></div>
 
         <div class="accordion-item">
-          <button class="accordion-trigger" aria-expanded="false">Que contient exactement le rapport ?</button>
-          <div class="accordion-content"><div class="accordion-answer">
+          <button class="accordion-trigger" id="faq-trigger-10" aria-expanded="false" aria-controls="faq-10">Que contient exactement le rapport ?</button>
+          <div class="accordion-content" id="faq-10" role="region" aria-labelledby="faq-trigger-10"><div class="accordion-answer">
             <p>Le rapport comprend un inventaire structuré de chaque référence, une estimation de la valeur de marché, des recommandations par lot (à vendre, à conserver, à surveiller), des graphiques de répartition (région, couleur, potentiel de garde), un contexte marché personnalisé et un plan d'action concret adapté à votre situation. Il contient une dizaine de pages.</p>
           </div></div>
         </div>
 
         <div class="accordion-item">
-          <button class="accordion-trigger" aria-expanded="false">Le rapport est-il utilisable pour une succession ou une assurance ?</button>
-          <div class="accordion-content"><div class="accordion-answer">
+          <button class="accordion-trigger" id="faq-trigger-11" aria-expanded="false" aria-controls="faq-11">Le rapport est-il utilisable pour une succession ou une assurance ?</button>
+          <div class="accordion-content" id="faq-11" role="region" aria-labelledby="faq-trigger-11"><div class="accordion-answer">
             <p>Le rapport fournit une estimation argumentée de la valeur de marché de votre cave, ce qui peut constituer une base solide pour une discussion avec un notaire ou un assureur. Il ne remplace pas une expertise judiciaire assermentée, mais il apporte un éclairage professionnel clair et documenté sur la valeur réelle de vos bouteilles.</p>
           </div></div>
         </div>
 
         <div class="accordion-item">
-          <button class="accordion-trigger" aria-expanded="false">Puis-je utiliser le rapport pour vendre aux enchères ?</button>
-          <div class="accordion-content"><div class="accordion-answer">
+          <button class="accordion-trigger" id="faq-trigger-12" aria-expanded="false" aria-controls="faq-12">Puis-je utiliser le rapport pour vendre aux enchères ?</button>
+          <div class="accordion-content" id="faq-12" role="region" aria-labelledby="faq-trigger-12"><div class="accordion-answer">
             <p>Oui. Le rapport identifie les références les plus adaptées à une vente aux enchères et vous donne les éléments nécessaires pour contacter une maison de ventes en connaissance de cause. Vous saurez quelles bouteilles ont un réel potentiel sur le marché secondaire et lesquelles seraient mieux valorisées autrement.</p>
           </div></div>
         </div>
@@ -305,36 +306,36 @@
         <div class="faq-category"><h2>Paiement et confiance</h2></div>
 
         <div class="accordion-item">
-          <button class="accordion-trigger" aria-expanded="false">Quand dois-je payer ?</button>
-          <div class="accordion-content"><div class="accordion-answer">
+          <button class="accordion-trigger" id="faq-trigger-13" aria-expanded="false" aria-controls="faq-13">Quand dois-je payer ?</button>
+          <div class="accordion-content" id="faq-13" role="region" aria-labelledby="faq-trigger-13"><div class="accordion-answer">
             <p>Le paiement s'effectue au moment de la commande, directement via le formulaire sécurisé. Cela me permet de démarrer l'analyse dès réception de vos photos.</p>
           </div></div>
         </div>
 
         <div class="accordion-item">
-          <button class="accordion-trigger" aria-expanded="false">Comment garantir que je recevrai bien mon rapport après le paiement ?</button>
-          <div class="accordion-content"><div class="accordion-answer">
+          <button class="accordion-trigger" id="faq-trigger-14" aria-expanded="false" aria-controls="faq-14">Comment garantir que je recevrai bien mon rapport après le paiement ?</button>
+          <div class="accordion-content" id="faq-14" role="region" aria-labelledby="faq-trigger-14"><div class="accordion-answer">
             <p>Dès votre commande validée, vous recevez un e-mail de confirmation qui fait office de preuve de commande. Le rapport est livré par e-mail sous 5 jours ouvrés. En cas de non-livraison dans ce délai — quelle qu'en soit la raison — vous êtes remboursé intégralement. C'est un engagement simple et sans ambiguïté.</p>
           </div></div>
         </div>
 
         <div class="accordion-item">
-          <button class="accordion-trigger" aria-expanded="false">Y a-t-il des frais cachés ?</button>
-          <div class="accordion-content"><div class="accordion-answer">
+          <button class="accordion-trigger" id="faq-trigger-15" aria-expanded="false" aria-controls="faq-15">Y a-t-il des frais cachés ?</button>
+          <div class="accordion-content" id="faq-15" role="region" aria-labelledby="faq-trigger-15"><div class="accordion-answer">
             <p>Aucun. Le prix affiché est le prix final : 149 € pour le rapport complet. Il n'y a pas de supplément, pas d'abonnement, pas de frais de dossier. Ce que vous voyez est ce que vous payez.</p>
           </div></div>
         </div>
 
         <div class="accordion-item">
-          <button class="accordion-trigger" aria-expanded="false">Mes informations sont-elles protégées ?</button>
-          <div class="accordion-content"><div class="accordion-answer">
+          <button class="accordion-trigger" id="faq-trigger-16" aria-expanded="false" aria-controls="faq-16">Mes informations sont-elles protégées ?</button>
+          <div class="accordion-content" id="faq-16" role="region" aria-labelledby="faq-trigger-16"><div class="accordion-answer">
             <p>Oui. Toutes les informations que vous transmettez — photos, inventaire, coordonnées — sont traitées de manière strictement confidentielle. Elles ne sont jamais partagées, revendues ou utilisées à d'autres fins que votre estimation. La confidentialité est réciproque et garantie.</p>
           </div></div>
         </div>
 
         <div class="accordion-item">
-          <button class="accordion-trigger" aria-expanded="false">Qui aura accès à mon inventaire ?</button>
-          <div class="accordion-content"><div class="accordion-answer">
+          <button class="accordion-trigger" id="faq-trigger-17" aria-expanded="false" aria-controls="faq-17">Qui aura accès à mon inventaire ?</button>
+          <div class="accordion-content" id="faq-17" role="region" aria-labelledby="faq-trigger-17"><div class="accordion-answer">
             <p>Moi uniquement. Votre inventaire et vos photos ne sont transmis à aucun tiers — ni maison de ventes, ni partenaire, ni plateforme. Ce que vous partagez reste entre vous et moi, point final.</p>
           </div></div>
         </div>
@@ -379,7 +380,7 @@
           item.classList.add('open');
           content.style.maxHeight = content.scrollHeight + 'px';
         }
-        this.setAttribute('aria-expanded', !isOpen);
+        this.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
       });
     });
   </script>

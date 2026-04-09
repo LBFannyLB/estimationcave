@@ -93,6 +93,7 @@
     </style>
 </head>
 <body>
+    <a href="#main" class="skip-link">Aller au contenu</a>
 
     <nav class="nav">
         <div class="nav-inner">
@@ -141,7 +142,7 @@
         </div>
     </div>
 
-    <main class="article-body">
+    <main id="main" class="article-body">
         <div class="container">
 
             <div class="key-points">
@@ -298,22 +299,22 @@
                 <p class="inline-faq-title">Questions fréquentes</p>
 
                 <div class="inline-faq-item">
-                    <button class="inline-faq-trigger">Où trouver la cote d'une bouteille de vin ?</button>
-                    <div class="inline-faq-content">
+                    <button class="inline-faq-trigger" id="faq-trigger-1" aria-expanded="false" aria-controls="faq-1">Où trouver la cote d'une bouteille de vin ?</button>
+                    <div class="inline-faq-content" id="faq-1" role="region" aria-labelledby="faq-trigger-1">
                         <p class="inline-faq-answer">Plusieurs plateformes permettent de consulter les cotes : iDealwine (référence en France, basée sur les résultats d'enchères réels), Wine-Searcher (comparateur international de prix marchands) et Wine-Market (enchères en ligne). Ces cotes donnent une indication du prix de marché, mais la valeur réelle de votre bouteille dépend aussi de son état de conservation.</p>
                     </div>
                 </div>
 
                 <div class="inline-faq-item">
-                    <button class="inline-faq-trigger">Combien de frais prélèvent les maisons de vente aux enchères ?</button>
-                    <div class="inline-faq-content">
+                    <button class="inline-faq-trigger" id="faq-trigger-2" aria-expanded="false" aria-controls="faq-2">Combien de frais prélèvent les maisons de vente aux enchères ?</button>
+                    <div class="inline-faq-content" id="faq-2" role="region" aria-labelledby="faq-trigger-2">
                         <p class="inline-faq-answer">Les maisons de vente aux enchères prélèvent des frais côté vendeur (10 à 20 % selon le volume) et côté acheteur (environ 25 %). En cumulé, le vendeur ne récupère souvent qu'environ 55 à 65 % du prix effectivement payé par l'acheteur. Ce canal reste pertinent pour les bouteilles de prestige dont la mise en concurrence fait monter les prix.</p>
                     </div>
                 </div>
 
                 <div class="inline-faq-item">
-                    <button class="inline-faq-trigger">Faut-il faire estimer sa cave avant de vendre ?</button>
-                    <div class="inline-faq-content">
+                    <button class="inline-faq-trigger" id="faq-trigger-3" aria-expanded="false" aria-controls="faq-3">Faut-il faire estimer sa cave avant de vendre ?</button>
+                    <div class="inline-faq-content" id="faq-3" role="region" aria-labelledby="faq-trigger-3">
                         <p class="inline-faq-answer">Oui. Vendre sans connaître la valeur de marché de vos bouteilles vous expose à deux risques : brader des bouteilles cotées ou surévaluer des vins sans demande. Un rapport d'estimation vous donne le prix de marché bouteille par bouteille et vous permet de choisir le canal de vente le plus adapté à chaque lot.</p>
                     </div>
                 </div>
@@ -351,8 +352,10 @@
             if (item.classList.contains('open')) {
                 content.style.maxHeight = null;
                 item.classList.remove('open');
+                btn.setAttribute('aria-expanded', 'false');
             } else {
                 item.classList.add('open');
+                btn.setAttribute('aria-expanded', 'true');
                 content.style.maxHeight = content.scrollHeight + 'px';
             }
         });

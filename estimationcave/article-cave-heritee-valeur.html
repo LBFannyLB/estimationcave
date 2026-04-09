@@ -104,6 +104,7 @@
     </style>
 </head>
 <body>
+    <a href="#main" class="skip-link">Aller au contenu</a>
 
     <nav class="nav">
         <div class="nav-inner">
@@ -152,7 +153,7 @@
         </div>
     </div>
 
-    <main class="article-body">
+    <main id="main" class="article-body">
         <div class="container">
 
             <div class="key-points">
@@ -318,22 +319,22 @@
                 <p class="inline-faq-title">Questions fréquentes</p>
 
                 <div class="inline-faq-item">
-                    <button class="inline-faq-trigger">Peut-on estimer soi-même la valeur d'une cave héritée ?</button>
-                    <div class="inline-faq-content">
+                    <button class="inline-faq-trigger" id="faq-trigger-1" aria-expanded="false" aria-controls="faq-1">Peut-on estimer soi-même la valeur d'une cave héritée ?</button>
+                    <div class="inline-faq-content" id="faq-1" role="region" aria-labelledby="faq-trigger-1">
                         <p class="inline-faq-answer">Vous pouvez obtenir une première idée en recherchant les cotes de vos bouteilles sur des plateformes comme Wine-Searcher ou iDealwine. Mais pour une valorisation opposable au notaire et à l'administration fiscale, un rapport professionnel est indispensable. Il prend en compte l'état réel des bouteilles, les conditions de conservation et les tendances récentes du marché.</p>
                     </div>
                 </div>
 
                 <div class="inline-faq-item">
-                    <button class="inline-faq-trigger">La cave héritée doit-elle obligatoirement figurer dans la déclaration de succession ?</button>
-                    <div class="inline-faq-content">
+                    <button class="inline-faq-trigger" id="faq-trigger-2" aria-expanded="false" aria-controls="faq-2">La cave héritée doit-elle obligatoirement figurer dans la déclaration de succession ?</button>
+                    <div class="inline-faq-content" id="faq-2" role="region" aria-labelledby="faq-trigger-2">
                         <p class="inline-faq-answer">Oui. Les bouteilles de vin sont classées comme « meubles non meublants » et doivent être déclarées à leur valeur vénale au jour du décès. Le forfait mobilier de 5 % ne les couvre pas. En cas d'omission, l'administration fiscale dispose de six ans pour procéder à un redressement.</p>
                     </div>
                 </div>
 
                 <div class="inline-faq-item">
-                    <button class="inline-faq-trigger">Combien coûte l'estimation d'une cave héritée ?</button>
-                    <div class="inline-faq-content">
+                    <button class="inline-faq-trigger" id="faq-trigger-3" aria-expanded="false" aria-controls="faq-3">Combien coûte l'estimation d'une cave héritée ?</button>
+                    <div class="inline-faq-content" id="faq-3" role="region" aria-labelledby="faq-trigger-3">
                         <p class="inline-faq-answer">Le service estimationcave.com propose un rapport complet à 149 € tout compris : inventaire détaillé, estimation de la valeur de marché bouteille par bouteille, recommandations et plan d'action. Le rapport est livré sous 5 jours ouvrés et peut être transmis directement au notaire.</p>
                     </div>
                 </div>
@@ -371,8 +372,10 @@
             if (item.classList.contains('open')) {
                 content.style.maxHeight = null;
                 item.classList.remove('open');
+                btn.setAttribute('aria-expanded', 'false');
             } else {
                 item.classList.add('open');
+                btn.setAttribute('aria-expanded', 'true');
                 content.style.maxHeight = content.scrollHeight + 'px';
             }
         });

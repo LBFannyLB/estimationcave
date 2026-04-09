@@ -89,6 +89,7 @@
     </style>
 </head>
 <body>
+    <a href="#main" class="skip-link">Aller au contenu</a>
 
     <nav class="nav">
         <div class="nav-inner">
@@ -129,7 +130,7 @@
         </div>
     </div>
 
-    <main class="article-body">
+    <main id="main" class="article-body">
         <div class="container">
 
             <div class="key-points">
@@ -333,28 +334,28 @@
                 <p class="inline-faq-title">Questions fréquentes</p>
 
                 <div class="inline-faq-item">
-                    <button class="inline-faq-trigger">Quel est le meilleur canal pour vendre ses bouteilles de vin ?</button>
-                    <div class="inline-faq-content"><div class="inline-faq-answer">Cela dépend des bouteilles. Les grands crus et millésimes recherchés obtiennent les meilleurs prix en vente aux enchères. Les vins de gamme intermédiaire se vendent mieux via un négociant. Les vins courants ont peu de valeur sur le marché secondaire.</div></div>
+                    <button class="inline-faq-trigger" id="faq-trigger-1" aria-expanded="false" aria-controls="faq-1">Quel est le meilleur canal pour vendre ses bouteilles de vin ?</button>
+                    <div class="inline-faq-content" id="faq-1" role="region" aria-labelledby="faq-trigger-1"><div class="inline-faq-answer">Cela dépend des bouteilles. Les grands crus et millésimes recherchés obtiennent les meilleurs prix en vente aux enchères. Les vins de gamme intermédiaire se vendent mieux via un négociant. Les vins courants ont peu de valeur sur le marché secondaire.</div></div>
                 </div>
 
                 <div class="inline-faq-item">
-                    <button class="inline-faq-trigger">Quels sont les frais lors d'une vente aux enchères de vin ?</button>
-                    <div class="inline-faq-content"><div class="inline-faq-answer">Les frais vendeur représentent en moyenne 10 à 20 % du prix d'adjudication. S'ajoutent les frais acheteur (20 à 30 %). Au total, la maison de ventes prélève environ 35 à 45 % du prix final payé par l'acheteur.</div></div>
+                    <button class="inline-faq-trigger" id="faq-trigger-2" aria-expanded="false" aria-controls="faq-2">Quels sont les frais lors d'une vente aux enchères de vin ?</button>
+                    <div class="inline-faq-content" id="faq-2" role="region" aria-labelledby="faq-trigger-2"><div class="inline-faq-answer">Les frais vendeur représentent en moyenne 10 à 20 % du prix d'adjudication. S'ajoutent les frais acheteur (20 à 30 %). Au total, la maison de ventes prélève environ 35 à 45 % du prix final payé par l'acheteur.</div></div>
                 </div>
 
                 <div class="inline-faq-item">
-                    <button class="inline-faq-trigger">Faut-il faire estimer sa cave avant de vendre ?</button>
-                    <div class="inline-faq-content"><div class="inline-faq-answer">Oui, c'est fortement recommandé. Sans estimation indépendante, vous risquez d'accepter un prix trop bas. L'estimation vous donne un point de référence objectif pour négocier avec n'importe quel acheteur.</div></div>
+                    <button class="inline-faq-trigger" id="faq-trigger-3" aria-expanded="false" aria-controls="faq-3">Faut-il faire estimer sa cave avant de vendre ?</button>
+                    <div class="inline-faq-content" id="faq-3" role="region" aria-labelledby="faq-trigger-3"><div class="inline-faq-answer">Oui, c'est fortement recommandé. Sans estimation indépendante, vous risquez d'accepter un prix trop bas. L'estimation vous donne un point de référence objectif pour négocier avec n'importe quel acheteur.</div></div>
                 </div>
 
                 <div class="inline-faq-item">
-                    <button class="inline-faq-trigger">Un particulier peut-il vendre du vin légalement ?</button>
-                    <div class="inline-faq-content"><div class="inline-faq-answer">Oui. Un particulier peut vendre les bouteilles de sa cave personnelle de manière occasionnelle. En revanche, une activité régulière de revente nécessite un statut professionnel et le respect de la réglementation sur la vente d'alcool.</div></div>
+                    <button class="inline-faq-trigger" id="faq-trigger-4" aria-expanded="false" aria-controls="faq-4">Un particulier peut-il vendre du vin légalement ?</button>
+                    <div class="inline-faq-content" id="faq-4" role="region" aria-labelledby="faq-trigger-4"><div class="inline-faq-answer">Oui. Un particulier peut vendre les bouteilles de sa cave personnelle de manière occasionnelle. En revanche, une activité régulière de revente nécessite un statut professionnel et le respect de la réglementation sur la vente d'alcool.</div></div>
                 </div>
 
                 <div class="inline-faq-item">
-                    <button class="inline-faq-trigger">Combien de temps faut-il pour vendre sa cave ?</button>
-                    <div class="inline-faq-content"><div class="inline-faq-answer">Un rachat par un négociant peut se conclure en quelques jours. Une vente aux enchères prend généralement 4 à 8 semaines entre le dépôt et le règlement. Une vente entre particuliers peut prendre plusieurs semaines à plusieurs mois.</div></div>
+                    <button class="inline-faq-trigger" id="faq-trigger-5" aria-expanded="false" aria-controls="faq-5">Combien de temps faut-il pour vendre sa cave ?</button>
+                    <div class="inline-faq-content" id="faq-5" role="region" aria-labelledby="faq-trigger-5"><div class="inline-faq-answer">Un rachat par un négociant peut se conclure en quelques jours. Une vente aux enchères prend généralement 4 à 8 semaines entre le dépôt et le règlement. Une vente entre particuliers peut prendre plusieurs semaines à plusieurs mois.</div></div>
                 </div>
             </div>
 
@@ -392,7 +393,7 @@
     </button>
     <script>
         (function(){var b=document.getElementById('btt');window.addEventListener('scroll',function(){if(window.scrollY>300){b.style.opacity='1';b.style.visibility='visible'}else{b.style.opacity='0';b.style.visibility='hidden'}});b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})})})();
-        document.querySelectorAll('.inline-faq-trigger').forEach(function(btn){btn.addEventListener('click',function(){var item=this.parentElement;var content=item.querySelector('.inline-faq-content');if(item.classList.contains('open')){content.style.maxHeight=null;item.classList.remove('open')}else{item.classList.add('open');content.style.maxHeight=content.scrollHeight+'px'}})});
+        document.querySelectorAll('.inline-faq-trigger').forEach(function(btn){btn.addEventListener('click',function(){var item=this.parentElement;var content=item.querySelector('.inline-faq-content');if(item.classList.contains('open')){content.style.maxHeight=null;item.classList.remove('open');this.setAttribute('aria-expanded','false')}else{item.classList.add('open');this.setAttribute('aria-expanded','true');content.style.maxHeight=content.scrollHeight+'px'}})});
     </script>
 
 </body>

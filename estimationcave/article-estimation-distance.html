@@ -440,6 +440,7 @@
     </style>
 </head>
 <body>
+    <a href="#main" class="skip-link">Aller au contenu</a>
 
     <nav class="nav">
         <div class="nav-inner">
@@ -488,7 +489,7 @@
         </div>
     </div>
 
-    <main class="article-body">
+    <main id="main" class="article-body">
         <div class="container">
 
             <div class="key-points">
@@ -679,28 +680,28 @@
                 <p class="inline-faq-title">Questions fréquentes</p>
 
                 <div class="inline-faq-item">
-                    <button class="inline-faq-trigger">Combien coûte une estimation de cave à vins à distance ?</button>
-                    <div class="inline-faq-content"><div class="inline-faq-answer">Le service est proposé à 149 €, tout compris. Ce tarif couvre l'inventaire complet, l'estimation de la valeur de marché, les recommandations par lot, les graphiques de répartition et le plan d'action personnalisé.</div></div>
+                    <button class="inline-faq-trigger" id="faq-trigger-1" aria-expanded="false" aria-controls="faq-1">Combien coûte une estimation de cave à vins à distance ?</button>
+                    <div class="inline-faq-content" id="faq-1" role="region" aria-labelledby="faq-trigger-1"><div class="inline-faq-answer">Le service est proposé à 149 €, tout compris. Ce tarif couvre l'inventaire complet, l'estimation de la valeur de marché, les recommandations par lot, les graphiques de répartition et le plan d'action personnalisé.</div></div>
                 </div>
 
                 <div class="inline-faq-item">
-                    <button class="inline-faq-trigger">En combien de temps reçoit-on le rapport ?</button>
-                    <div class="inline-faq-content"><div class="inline-faq-answer">Le rapport est livré sous 5 jours ouvrés après réception de vos photos et de votre formulaire complété. La plupart des rapports sont livrés en 3 à 4 jours.</div></div>
+                    <button class="inline-faq-trigger" id="faq-trigger-2" aria-expanded="false" aria-controls="faq-2">En combien de temps reçoit-on le rapport ?</button>
+                    <div class="inline-faq-content" id="faq-2" role="region" aria-labelledby="faq-trigger-2"><div class="inline-faq-answer">Le rapport est livré sous 5 jours ouvrés après réception de vos photos et de votre formulaire complété. La plupart des rapports sont livrés en 3 à 4 jours.</div></div>
                 </div>
 
                 <div class="inline-faq-item">
-                    <button class="inline-faq-trigger">Faut-il connaître le vin pour utiliser ce service ?</button>
-                    <div class="inline-faq-content"><div class="inline-faq-answer">Non. Le service est conçu pour les particuliers, y compris ceux qui n'ont aucune connaissance en vin. Vous n'avez besoin que de votre smartphone pour les photos et de quelques minutes pour remplir le formulaire.</div></div>
+                    <button class="inline-faq-trigger" id="faq-trigger-3" aria-expanded="false" aria-controls="faq-3">Faut-il connaître le vin pour utiliser ce service ?</button>
+                    <div class="inline-faq-content" id="faq-3" role="region" aria-labelledby="faq-trigger-3"><div class="inline-faq-answer">Non. Le service est conçu pour les particuliers, y compris ceux qui n'ont aucune connaissance en vin. Vous n'avez besoin que de votre smartphone pour les photos et de quelques minutes pour remplir le formulaire.</div></div>
                 </div>
 
                 <div class="inline-faq-item">
-                    <button class="inline-faq-trigger">Une estimation à distance est-elle aussi fiable qu'une estimation physique ?</button>
-                    <div class="inline-faq-content"><div class="inline-faq-answer">Oui, dans la très grande majorité des cas. Les informations visuelles d'une bouteille — étiquette, niveau, capsule — suffisent à réaliser une analyse fiable. Les rares exceptions concernent des bouteilles très anciennes dont l'étiquette est totalement illisible.</div></div>
+                    <button class="inline-faq-trigger" id="faq-trigger-4" aria-expanded="false" aria-controls="faq-4">Une estimation à distance est-elle aussi fiable qu'une estimation physique ?</button>
+                    <div class="inline-faq-content" id="faq-4" role="region" aria-labelledby="faq-trigger-4"><div class="inline-faq-answer">Oui, dans la très grande majorité des cas. Les informations visuelles d'une bouteille — étiquette, niveau, capsule — suffisent à réaliser une analyse fiable. Les rares exceptions concernent des bouteilles très anciennes dont l'étiquette est totalement illisible.</div></div>
                 </div>
 
                 <div class="inline-faq-item">
-                    <button class="inline-faq-trigger">Que faire si certaines bouteilles sont illisibles ou non identifiables ?</button>
-                    <div class="inline-faq-content"><div class="inline-faq-answer">Ce n'est pas un problème. L'expert identifie ce qui est possible à partir des photos fournies. Les bouteilles non identifiables sont signalées dans le rapport avec des recommandations spécifiques pour tenter une identification ultérieure.</div></div>
+                    <button class="inline-faq-trigger" id="faq-trigger-5" aria-expanded="false" aria-controls="faq-5">Que faire si certaines bouteilles sont illisibles ou non identifiables ?</button>
+                    <div class="inline-faq-content" id="faq-5" role="region" aria-labelledby="faq-trigger-5"><div class="inline-faq-answer">Ce n'est pas un problème. L'expert identifie ce qui est possible à partir des photos fournies. Les bouteilles non identifiables sont signalées dans le rapport avec des recommandations spécifiques pour tenter une identification ultérieure.</div></div>
                 </div>
             </div>
 
@@ -741,7 +742,7 @@
     </button>
     <script>
         (function(){var b=document.getElementById('btt');window.addEventListener('scroll',function(){if(window.scrollY>300){b.style.opacity='1';b.style.visibility='visible'}else{b.style.opacity='0';b.style.visibility='hidden'}});b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})})})();
-        document.querySelectorAll('.inline-faq-trigger').forEach(function(btn){btn.addEventListener('click',function(){var item=this.parentElement;var content=item.querySelector('.inline-faq-content');if(item.classList.contains('open')){content.style.maxHeight=null;item.classList.remove('open')}else{item.classList.add('open');content.style.maxHeight=content.scrollHeight+'px'}})});
+        document.querySelectorAll('.inline-faq-trigger').forEach(function(btn){btn.addEventListener('click',function(){var item=this.parentElement;var content=item.querySelector('.inline-faq-content');if(item.classList.contains('open')){content.style.maxHeight=null;item.classList.remove('open');this.setAttribute('aria-expanded','false')}else{item.classList.add('open');this.setAttribute('aria-expanded','true');content.style.maxHeight=content.scrollHeight+'px'}})});
     </script>
 
 </body>

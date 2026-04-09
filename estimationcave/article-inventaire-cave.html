@@ -324,6 +324,7 @@
     </style>
 </head>
 <body>
+    <a href="#main" class="skip-link">Aller au contenu</a>
 
     <nav class="nav">
         <div class="nav-inner">
@@ -372,7 +373,7 @@
         </div>
     </div>
 
-    <main class="article-body">
+    <main id="main" class="article-body">
         <div class="container">
 
             <div class="key-points">
@@ -559,22 +560,22 @@
                 <p class="inline-faq-title">Questions fréquentes</p>
 
                 <div class="inline-faq-item">
-                    <button class="inline-faq-trigger">À quelle fréquence faut-il mettre à jour l'inventaire de sa cave ?</button>
-                    <div class="inline-faq-content">
+                    <button class="inline-faq-trigger" id="faq-trigger-1" aria-expanded="false" aria-controls="faq-1">À quelle fréquence faut-il mettre à jour l'inventaire de sa cave ?</button>
+                    <div class="inline-faq-content" id="faq-1" role="region" aria-labelledby="faq-trigger-1">
                         <p class="inline-faq-answer">Idéalement, mettez à jour votre inventaire à chaque entrée ou sortie de bouteille. Si ce n'est pas possible, un inventaire complet une à deux fois par an suffit pour garder un suivi fiable. L'essentiel est la régularité : un inventaire obsolète perd toute utilité.</p>
                     </div>
                 </div>
 
                 <div class="inline-faq-item">
-                    <button class="inline-faq-trigger">Quelle application utiliser pour gérer l'inventaire de sa cave ?</button>
-                    <div class="inline-faq-content">
+                    <button class="inline-faq-trigger" id="faq-trigger-2" aria-expanded="false" aria-controls="faq-2">Quelle application utiliser pour gérer l'inventaire de sa cave ?</button>
+                    <div class="inline-faq-content" id="faq-2" role="region" aria-labelledby="faq-trigger-2">
                         <p class="inline-faq-answer">Plusieurs solutions existent selon vos besoins : un tableur Excel ou Google Sheets pour un suivi simple et gratuit, ou des applications spécialisées comme CellarTracker, Vivino ou Vinocell pour un suivi plus avancé avec scan d'étiquettes et cotations intégrées. Le meilleur outil est celui que vous utiliserez réellement.</p>
                     </div>
                 </div>
 
                 <div class="inline-faq-item">
-                    <button class="inline-faq-trigger">L'inventaire suffit-il pour connaître la valeur de sa cave ?</button>
-                    <div class="inline-faq-content">
+                    <button class="inline-faq-trigger" id="faq-trigger-3" aria-expanded="false" aria-controls="faq-3">L'inventaire suffit-il pour connaître la valeur de sa cave ?</button>
+                    <div class="inline-faq-content" id="faq-3" role="region" aria-labelledby="faq-trigger-3">
                         <p class="inline-faq-answer">L'inventaire est la base indispensable, mais il ne donne pas la valeur de marché de vos bouteilles. Pour obtenir une estimation fiable, il faut croiser votre inventaire avec les cotations actuelles, l'état de conservation et les conditions de stockage. Un service d'estimation professionnel réalise ce travail à partir de votre inventaire et de photos.</p>
                     </div>
                 </div>
@@ -612,8 +613,10 @@
             if (item.classList.contains('open')) {
                 content.style.maxHeight = null;
                 item.classList.remove('open');
+                btn.setAttribute('aria-expanded', 'false');
             } else {
                 item.classList.add('open');
+                btn.setAttribute('aria-expanded', 'true');
                 content.style.maxHeight = content.scrollHeight + 'px';
             }
         });

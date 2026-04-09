@@ -440,6 +440,7 @@
     </style>
 </head>
 <body>
+    <a href="#main" class="skip-link">Aller au contenu</a>
 
     <nav class="nav">
         <div class="nav-inner">
@@ -489,7 +490,7 @@
         </div>
     </div>
 
-    <main class="article-body">
+    <main id="main" class="article-body">
         <div class="container">
 
             <div class="key-points">
@@ -771,36 +772,36 @@
                 <p class="inline-faq-title">Questions fréquentes</p>
 
                 <div class="inline-faq-item">
-                    <button class="inline-faq-trigger">Quel document fournir au notaire pour valoriser une cave dans une succession ?</button>
-                    <div class="inline-faq-content">
+                    <button class="inline-faq-trigger" id="faq-trigger-1" aria-expanded="false" aria-controls="faq-1">Quel document fournir au notaire pour valoriser une cave dans une succession ?</button>
+                    <div class="inline-faq-content" id="faq-1" role="region" aria-labelledby="faq-trigger-1">
                         <p class="inline-faq-answer">Un rapport d'estimation détaillé comprenant l'inventaire bouteille par bouteille, la valeur de marché unitaire et globale, la méthodologie utilisée et la date d'évaluation. Ce document doit être réalisé par un professionnel du marché des vins fins pour être opposable à l'administration fiscale.</p>
                     </div>
                 </div>
 
                 <div class="inline-faq-item">
-                    <button class="inline-faq-trigger">L'estimation forfaitaire des meubles à 5 % couvre-t-elle la cave à vins ?</button>
-                    <div class="inline-faq-content">
+                    <button class="inline-faq-trigger" id="faq-trigger-2" aria-expanded="false" aria-controls="faq-2">L'estimation forfaitaire des meubles à 5 % couvre-t-elle la cave à vins ?</button>
+                    <div class="inline-faq-content" id="faq-2" role="region" aria-labelledby="faq-trigger-2">
                         <p class="inline-faq-answer">Les bouteilles de vin sont classées comme « meubles non meublants » par l'administration fiscale. Elles ne sont donc pas couvertes par le forfait mobilier de 5 %. Un inventaire séparé avec estimation individuelle est nécessaire pour les déclarer correctement dans la succession.</p>
                     </div>
                 </div>
 
                 <div class="inline-faq-item">
-                    <button class="inline-faq-trigger">Comment un CGP peut-il intégrer une cave à vins dans un bilan patrimonial ?</button>
-                    <div class="inline-faq-content">
+                    <button class="inline-faq-trigger" id="faq-trigger-3" aria-expanded="false" aria-controls="faq-3">Comment un CGP peut-il intégrer une cave à vins dans un bilan patrimonial ?</button>
+                    <div class="inline-faq-content" id="faq-3" role="region" aria-labelledby="faq-trigger-3">
                         <p class="inline-faq-answer">Le CGP inscrit la cave comme un actif tangible non financier dans le bilan patrimonial du client. Un rapport d'estimation professionnel fournit la valeur de marché actualisée. Cette valorisation permet d'ajuster la stratégie d'allocation d'actifs et d'anticiper les implications fiscales (transmission, plus-values, IFI).</p>
                     </div>
                 </div>
 
                 <div class="inline-faq-item">
-                    <button class="inline-faq-trigger">Est-il possible de faire estimer une cave à distance pour un dossier professionnel ?</button>
-                    <div class="inline-faq-content">
+                    <button class="inline-faq-trigger" id="faq-trigger-4" aria-expanded="false" aria-controls="faq-4">Est-il possible de faire estimer une cave à distance pour un dossier professionnel ?</button>
+                    <div class="inline-faq-content" id="faq-4" role="region" aria-labelledby="faq-trigger-4">
                         <p class="inline-faq-answer">Oui. L'estimation à distance, basée sur des photos et un inventaire transmis en ligne, produit un rapport aussi fiable qu'une expertise sur site dans la très grande majorité des cas. Le rapport PDF obtenu est directement exploitable dans un dossier notarial, patrimonial ou comptable.</p>
                     </div>
                 </div>
 
                 <div class="inline-faq-item">
-                    <button class="inline-faq-trigger">Quelle est la valeur juridique d'un rapport d'estimation de cave ?</button>
-                    <div class="inline-faq-content">
+                    <button class="inline-faq-trigger" id="faq-trigger-5" aria-expanded="false" aria-controls="faq-5">Quelle est la valeur juridique d'un rapport d'estimation de cave ?</button>
+                    <div class="inline-faq-content" id="faq-5" role="region" aria-labelledby="faq-trigger-5">
                         <p class="inline-faq-answer">Un rapport réalisé par un expert du marché des vins constitue un document probant face à l'administration fiscale. Il protège le professionnel et son client en cas de contrôle, de contestation entre héritiers ou de litige sur la valorisation d'un actif.</p>
                     </div>
                 </div>
@@ -838,8 +839,10 @@
             if (item.classList.contains('open')) {
                 content.style.maxHeight = null;
                 item.classList.remove('open');
+                btn.setAttribute('aria-expanded', 'false');
             } else {
                 item.classList.add('open');
+                btn.setAttribute('aria-expanded', 'true');
                 content.style.maxHeight = content.scrollHeight + 'px';
             }
         });
