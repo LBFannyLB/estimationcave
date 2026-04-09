@@ -311,9 +311,36 @@ a:hover { color: var(--bordeaux); }
     transform: translateY(24px);
     transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.reveal.visible {
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-32px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-right {
+    opacity: 0;
+    transform: translateX(32px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-scale {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible,
+.reveal-left.visible,
+.reveal-right.visible,
+.reveal-scale.visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) translateX(0) scale(1);
+}
+
+/* ── ORNAMENT REVEAL ── */
+.ornament-reveal {
+    width: 0;
+    transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.ornament-reveal.visible {
+    width: 48px;
 }
 
 /* ── BTT HOVER ── */
