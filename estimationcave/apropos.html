@@ -56,49 +56,9 @@
             letter-spacing: -0.02em;
         }
 
-        .about-intro {
-            font-family: var(--font-display);
-            font-size: 1.2rem;
-            font-style: italic;
-            color: var(--texte-light);
-            line-height: 1.7;
-            max-width: 560px;
-            margin: 1rem auto 0;
-            text-align: center;
-        }
-
-        /* ── BADGES CHIFFRES CLES ── */
-        .badges {
-            display: flex;
-            justify-content: center;
-            gap: 2.5rem;
-            padding: 2.5rem 0;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 2.5rem;
-        }
-
-        .badge {
-            text-align: center;
-        }
-
-        .badge-number {
-            font-family: var(--font-display);
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--or);
-            line-height: 1;
-            margin-bottom: 0.35rem;
-        }
-
-        .badge-label {
-            font-size: 0.78rem;
-            color: var(--texte-light);
-            line-height: 1.4;
-        }
-
         /* ── BODY ── */
         .about-body {
-            padding: 0 0 4rem;
+            padding: 1rem 0 4rem;
         }
 
         .about-body p {
@@ -109,82 +69,12 @@
             text-align: justify;
         }
 
-        .about-body h2 {
-            font-family: var(--font-display);
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--bordeaux);
-            margin: 2.5rem 0 1.25rem;
-        }
-
         .about-body .section-divider {
             display: block;
             width: 48px;
             height: 2px;
             background: var(--or);
             margin: 2.5rem auto;
-        }
-
-        /* ── TIMELINE ── */
-        .timeline {
-            position: relative;
-            padding-left: 2rem;
-            margin: 1.5rem 0 2.5rem;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 3px;
-            top: 8px;
-            bottom: 8px;
-            width: 2px;
-            background: linear-gradient(to bottom, var(--or), var(--border));
-        }
-
-        .timeline-item {
-            position: relative;
-            padding-bottom: 1.75rem;
-        }
-
-        .timeline-item:last-child {
-            padding-bottom: 0;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -2rem;
-            top: 6px;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--or);
-            border: 2px solid var(--fond);
-            box-shadow: 0 0 0 2px var(--or);
-        }
-
-        .timeline-date {
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--or);
-            margin-bottom: 0.25rem;
-        }
-
-        .timeline-title {
-            font-family: var(--font-display);
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--bordeaux);
-            margin-bottom: 0.25rem;
-        }
-
-        .timeline-desc {
-            font-size: 0.88rem;
-            color: var(--texte-light);
-            line-height: 1.65;
         }
 
         /* ── HIGHLIGHT BOX ── */
@@ -208,22 +98,6 @@
 
         .highlight-box strong { color: var(--bordeaux); }
 
-        /* ── PHOTO PLACEHOLDER ── */
-        .photo-placeholder {
-            display: none; /* Activer quand la photo sera disponible */
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            border: 2px solid var(--or);
-            margin: 0 auto 2rem;
-            overflow: hidden;
-        }
-        .photo-placeholder img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
         /* ── CTA ── */
         .about-cta {
             text-align: center;
@@ -242,14 +116,11 @@
         }
 
         /* ── RESPONSIVE ── */
+        
         @media (max-width: 600px) {
             .container { padding: 0 1.25rem; }
             .page-header { padding: 7rem 0 1.5rem; }
             .highlight-box { padding: 1.25rem 1.25rem; }
-            .badges { gap: 1.5rem; flex-wrap: wrap; }
-            .badge-number { font-size: 1.8rem; }
-            .timeline { padding-left: 1.5rem; }
-            .timeline-item::before { left: -1.5rem; }
         }
     </style>
 </head>
@@ -279,78 +150,31 @@
             <p class="section-label">Qui suis-je</p>
             <h1>À propos</h1>
             <span class="ornament"></span>
-            <p class="about-intro">J'accompagne les particuliers dans l'audit, l'estimation et l'arbitrage de leur cave à vins.</p>
         </div>
     </header>
 
     <main id="main" class="about-body">
         <div class="container">
 
-            <!-- Photo placeholder — activer quand disponible -->
-            <div class="photo-placeholder">
-                <!-- <img src="photo-fanny.jpg" alt="Fanny Lonqueu-Brochard"> -->
-            </div>
+            <p>Je m'appelle Fanny, et j'accompagne les particuliers dans l'audit, l'estimation et l'arbitrage de leur cave à vins.</p>
 
-            <!-- Badges chiffres clés -->
-            <div class="badges">
-                <div class="badge">
-                    <div class="badge-number">10+</div>
-                    <div class="badge-label">ans dans le<br>marché des vins</div>
-                </div>
-                <div class="badge">
-                    <div class="badge-number">6</div>
-                    <div class="badge-label">ans chez le leader<br>mondial des enchères vin</div>
-                </div>
-                <div class="badge">
-                    <div class="badge-number">WSET 3</div>
-                    <div class="badge-label">obtenu avec<br>distinction</div>
-                </div>
-            </div>
+            <p>Depuis près de 10 ans, j'évolue dans le monde du vin, avec une spécialisation forte dans le marché secondaire et la valorisation des bouteilles. Pendant plus de 6 ans, j'ai occupé le poste de responsable des ventes aux enchères chez iDealwine, leader mondial dans ce domaine. J'y ai développé une connaissance approfondie des dynamiques de marché, de la liquidité des références et des logiques de valorisation.</p>
 
-            <!-- Parcours -->
-            <h2>Parcours</h2>
+            <p>J'ai également exercé pendant 2 ans comme acheteuse vin, une fonction qui a renforcé mon exigence de sélection, ma lecture du marché et ma compréhension fine des vins, de leur positionnement et de leur potentiel. En 2024, j'ai obtenu le WSET 3 avec distinction, une certification qui vient compléter une expérience de terrain construite au quotidien, au contact des bouteilles, du marché et des passionnés.</p>
 
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">2024</div>
-                    <div class="timeline-title">WSET 3 — distinction</div>
-                    <div class="timeline-desc">Certification internationale en dégustation et connaissance approfondie des vins, obtenue avec la plus haute mention.</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">2022 — 2024</div>
-                    <div class="timeline-title">Acheteuse vin</div>
-                    <div class="timeline-desc">Sélection, sourcing et évaluation de vins. Une fonction qui a renforcé l'exigence de lecture du marché et la compréhension fine du positionnement et du potentiel des vins.</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">2016 — 2022</div>
-                    <div class="timeline-title">Responsable des ventes aux enchères — iDealwine</div>
-                    <div class="timeline-desc">Leader mondial de la vente de vins aux enchères en ligne. Connaissance approfondie des dynamiques de marché, de la liquidité des références et des logiques de valorisation.</div>
-                </div>
-            </div>
-
-            <div class="highlight-box">
-                <p>Ce double regard — <strong>commercial et acheteur</strong> — me permet aujourd'hui d'aborder une cave avec précision, recul et discernement.</p>
-            </div>
+            <p>Ce double regard — commercial et acheteur — me permet aujourd'hui d'aborder une cave avec précision, recul et discernement.</p>
 
             <span class="section-divider"></span>
 
-            <!-- Approche -->
-            <h2>Approche</h2>
+            <p>Ce qui me plaît profondément dans le vin, c'est qu'on n'en fait jamais le tour. Il y a toujours un domaine à découvrir, une région à approfondir, un producteur à suivre, une tendance à observer. C'est un univers vivant, exigeant et passionnant, qui mêle culture, goût, histoire, transmission et émotion. Cette curiosité, associée à mon goût pour la gastronomie et à une veille constante sur l'évolution du secteur, nourrit mon travail au quotidien.</p>
 
-            <p>Ce qui me plaît profondément dans le vin, c'est qu'on n'en fait jamais le tour. Il y a toujours un domaine à découvrir, une région à approfondir, un producteur à suivre. C'est un univers vivant, exigeant et passionnant, qui mêle culture, goût, histoire et transmission.</p>
-
-            <p>J'accompagne des profils très différents : les passionnés qui souhaitent mieux piloter leur cave, comme les personnes plus novices qui ont besoin d'un cadre clair, fiable et rassurant. Succession, vente, inventaire ou simple mise au point — chaque mission demande une lecture attentive et une réponse sur mesure.</p>
+            <p>J'aime tout particulièrement accompagner des profils très différents : les passionnés qui souhaitent mieux piloter leur cave, comme les personnes plus novices qui ont besoin d'un cadre clair, fiable et rassurant. Une cave héritée, une succession, un projet de vente, ou simplement le besoin de faire le point : chaque mission demande une lecture attentive et une réponse sur mesure.</p>
 
             <span class="section-divider"></span>
 
-            <!-- Conviction -->
-            <h2>Conviction</h2>
+            <p>Mon rôle n'est pas seulement d'estimer des bouteilles, mais d'aider à prendre de bonnes décisions : comprendre la valeur d'une cave, identifier les références clés, repérer les points de vigilance, distinguer ce qu'il vaut mieux conserver, vendre ou surveiller, et apporter un cadre clair à un sujet souvent perçu comme complexe.</p>
 
-            <p>Mon rôle n'est pas seulement d'estimer des bouteilles, mais d'aider à prendre de bonnes décisions : comprendre la valeur d'une cave, identifier les références clés, repérer les points de vigilance, et apporter un cadre clair à un sujet souvent perçu comme complexe.</p>
-
-            <div class="highlight-box">
-                <p>Une cave à vins mérite d'être regardée avec <strong>sérieux, méthode et sensibilité</strong>. Parce qu'une cave n'est jamais seulement un ensemble de bouteilles. C'est parfois un patrimoine, parfois une transmission, parfois une passion. Souvent, c'est tout cela à la fois.</p>
-            </div>
+            <p>J'ai créé ce service avec une conviction simple : une cave à vins mérite d'être regardée avec sérieux, méthode et sensibilité. Parce qu'une cave n'est jamais seulement un ensemble de bouteilles. C'est parfois un patrimoine, parfois une transmission, parfois une passion. Souvent, c'est tout cela à la fois.</p>
 
             <p>Si vous souhaitez faire le point sur votre cave, je serais ravie de vous accompagner.</p>
 
