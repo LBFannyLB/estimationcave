@@ -163,8 +163,13 @@
                 <a href="apropos.html" class="nav-back" style="text-decoration:none;">À propos</a>
                 <a href="index.html#formulaire" class="btn-gold">Demander un audit</a>
             </div>
+            <button class="hamburger" aria-label="Menu" aria-expanded="false">
+                <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
         </div>
     </nav>
+    <div class="nav-overlay"></div>
 
     <!-- Content -->
     <main id="main">
@@ -299,5 +304,32 @@
     (function(){var b=document.getElementById('btt');window.addEventListener('scroll',function(){if(window.scrollY>300){b.style.opacity='1';b.style.visibility='visible'}else{b.style.opacity='0';b.style.visibility='hidden'}});b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})})})();
   </script>
 
+    <script>
+    (function(){
+        var hamburger = document.querySelector('.hamburger');
+        var navRight = document.querySelector('.nav-right');
+        var overlay = document.querySelector('.nav-overlay');
+        if (!hamburger) return;
+        function toggleMenu() {
+            var isOpen = navRight.classList.toggle('open');
+            hamburger.classList.toggle('active');
+            overlay.classList.toggle('active');
+            hamburger.setAttribute('aria-expanded', isOpen);
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+        }
+        function closeMenu() {
+            navRight.classList.remove('open');
+            hamburger.classList.remove('active');
+            overlay.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        }
+        hamburger.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', closeMenu);
+        navRight.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', closeMenu);
+        });
+    })();
+    </script>
 </body>
 </html>
