@@ -941,6 +941,114 @@
     }
 
     /* ══════════════════════════════════
+       9b-bis. GUIDES & RESSOURCES
+    ══════════════════════════════════ */
+    .guides {
+      padding: 5rem 0;
+      background: var(--fond);
+    }
+
+    .guides-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .guides-header .ornament-dots {
+      margin: 1.5rem auto;
+    }
+
+    .guides-header .section-subtitle {
+      margin: 1rem auto 0;
+    }
+
+    /* Carrousel — réutilise .carousel-wrapper / .carousel-track / .carousel-controls */
+    .guides .carousel-wrapper {
+      padding: 4px 0; /* évite le clipping du liseré et du box-shadow au hover */
+    }
+
+    .guide-card {
+      flex: 0 0 calc(33.333% - 0.84rem);
+      background: var(--blanc);
+      border: 1px solid rgba(197, 162, 88, 0.2);
+      border-radius: 6px;
+      padding: 2.25rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: border-color 0.3s cubic-bezier(0.33, 1, 0.68, 1), box-shadow 0.3s cubic-bezier(0.33, 1, 0.68, 1);
+    }
+
+    .guide-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 1.75rem;
+      right: 1.75rem;
+      height: 2px;
+      background: var(--or);
+      opacity: 0;
+      transition: opacity 0.3s cubic-bezier(0.33, 1, 0.68, 1);
+    }
+
+    @media (hover: hover) {
+      .guide-card:hover {
+        border-color: rgba(197, 162, 88, 0.5);
+        box-shadow: inset 0 0 0 1px rgba(197, 162, 88, 0.15), 0 12px 32px rgba(45, 27, 46, 0.07);
+      }
+      .guide-card:hover::before { opacity: 1; }
+      .guide-card:hover h3 { color: var(--or); }
+      .guide-card:hover .guide-read { gap: 0.7rem; }
+    }
+
+    .guide-label {
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--or);
+      margin-bottom: 0.85rem;
+    }
+
+    .guide-card h3 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      color: var(--bordeaux);
+      font-size: 1.35rem;
+      line-height: 1.25;
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+      transition: color 0.25s cubic-bezier(0.33, 1, 0.68, 1);
+    }
+
+    .guide-read {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--or);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: auto;
+      transition: gap 0.25s cubic-bezier(0.33, 1, 0.68, 1);
+    }
+
+    .guide-read svg { width: 14px; height: 14px; }
+
+    @media (max-width: 900px) {
+      .guide-card { flex: 0 0 calc(50% - 0.625rem); }
+    }
+
+    @media (max-width: 600px) {
+      .guides { padding: 4rem 0; }
+      .guide-card {
+        flex: 0 0 85%;
+        padding: 2rem 1.5rem;
+      }
+      .guide-card h3 { font-size: 1.2rem; }
+    }
+
+    /* ══════════════════════════════════
        9b. MISSIONS COMPLÉMENTAIRES
     ══════════════════════════════════ */
     .missions {
@@ -1485,6 +1593,71 @@
     </div>
   </section>
 
+  <!-- ════════════ 9b-bis. GUIDES & RESSOURCES ════════════ -->
+  <section class="guides">
+    <div class="container">
+      <div class="guides-header">
+        <p class="section-label">Nos guides</p>
+        <h2>Guides &amp; ressources</h2>
+        <div class="ornament-dots"><span></span></div>
+        <p class="section-subtitle">Nos guides pratiques pour comprendre, estimer et valoriser votre cave.</p>
+      </div>
+      <div class="carousel-wrapper" id="guides-carousel">
+        <div class="carousel-track">
+          <a href="/estimation.html" class="guide-card">
+            <p class="guide-label">Estimer sa cave</p>
+            <h3>Comment faire estimer sa cave à vins : le guide complet</h3>
+            <span class="guide-read">
+              Lire le guide
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </span>
+          </a>
+          <a href="/article-heritage-cave.html" class="guide-card">
+            <p class="guide-label">Héritage</p>
+            <h3>J'ai hérité d'une cave à vins : que faire&nbsp;?</h3>
+            <span class="guide-read">
+              Lire le guide
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </span>
+          </a>
+          <a href="/vendre.html" class="guide-card">
+            <p class="guide-label">Vendre ses vins</p>
+            <h3>Comment vendre ses bouteilles de vin : le guide complet</h3>
+            <span class="guide-read">
+              Lire le guide
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </span>
+          </a>
+          <a href="/gestion.html" class="guide-card">
+            <p class="guide-label">Gérer sa cave</p>
+            <h3>Bien gérer sa cave à vins : le guide complet</h3>
+            <span class="guide-read">
+              Lire le guide
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </span>
+          </a>
+          <a href="/professionnels.html" class="guide-card">
+            <p class="guide-label">Professionnels</p>
+            <h3>Professionnels : comment valoriser une cave à vins dans un dossier</h3>
+            <span class="guide-read">
+              Lire le guide
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </span>
+          </a>
+        </div>
+        <div class="carousel-controls">
+          <button class="carousel-btn" id="guides-prev" aria-label="Guides précédents">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <div class="carousel-dots" id="guides-dots"></div>
+          <button class="carousel-btn" id="guides-next" aria-label="Guides suivants">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ════════════ 9c. MISSIONS COMPLÉMENTAIRES ════════════ -->
   <section class="missions">
     <div class="container">
@@ -1720,6 +1893,118 @@
       }
       window.addEventListener('mouseup', endDrag);
       window.addEventListener('touchend', endDrag);
+
+      // Resize
+      var resizeTimer;
+      window.addEventListener('resize', function(){
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function(){
+          cardsPerView = getCardsPerView();
+          currentIndex = Math.min(currentIndex, getTotalPages() - 1);
+          buildDots();
+          goTo(currentIndex);
+        }, 150);
+      });
+
+      // Init
+      cardsPerView = getCardsPerView();
+      buildDots();
+      updateButtons();
+    })();
+    </script>
+
+    <script>
+    (function(){
+      var wrapper = document.getElementById('guides-carousel');
+      if (!wrapper) return;
+      var track = wrapper.querySelector('.carousel-track');
+      var cards = wrapper.querySelectorAll('.guide-card');
+      var prevBtn = document.getElementById('guides-prev');
+      var nextBtn = document.getElementById('guides-next');
+      var dotsContainer = document.getElementById('guides-dots');
+      var currentIndex = 0;
+      var cardsPerView = 3;
+      var gap = 20;
+      var wasDragging = false;
+
+      function getCardsPerView() {
+        if (window.innerWidth <= 600) return 1;
+        if (window.innerWidth <= 900) return 2;
+        return 3;
+      }
+
+      function getTotalPages() {
+        return Math.ceil(cards.length / cardsPerView);
+      }
+
+      function buildDots() {
+        dotsContainer.innerHTML = '';
+        var total = getTotalPages();
+        for (var i = 0; i < total; i++) {
+          var dot = document.createElement('button');
+          dot.className = 'carousel-dot' + (i === currentIndex ? ' active' : '');
+          dot.setAttribute('aria-label', 'Page ' + (i + 1));
+          dot.addEventListener('click', (function(idx){ return function(){ goTo(idx); }; })(i));
+          dotsContainer.appendChild(dot);
+        }
+      }
+
+      function updateButtons() {
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex >= getTotalPages() - 1;
+        var dots = dotsContainer.querySelectorAll('.carousel-dot');
+        dots.forEach(function(d, i){ d.className = 'carousel-dot' + (i === currentIndex ? ' active' : ''); });
+      }
+
+      function goTo(index) {
+        var maxIndex = getTotalPages() - 1;
+        currentIndex = Math.max(0, Math.min(index, maxIndex));
+        var card = cards[0];
+        var cardWidth = card.offsetWidth + gap;
+        var offset = currentIndex * cardsPerView * cardWidth;
+        var maxOffset = Math.max(0, track.scrollWidth - wrapper.offsetWidth);
+        offset = Math.min(offset, maxOffset);
+        track.style.transform = 'translateX(-' + offset + 'px)';
+        updateButtons();
+      }
+
+      prevBtn.addEventListener('click', function(){ goTo(currentIndex - 1); });
+      nextBtn.addEventListener('click', function(){ goTo(currentIndex + 1); });
+
+      // Drag/swipe
+      var startX = 0, currentX = 0, isDragging = false, startTranslate = 0;
+      function getTranslate() {
+        var st = window.getComputedStyle(track);
+        var matrix = new DOMMatrixReadOnly(st.transform);
+        return matrix.m41;
+      }
+      track.addEventListener('mousedown', function(e){ isDragging = true; startX = e.clientX; currentX = e.clientX; startTranslate = getTranslate(); track.classList.add('dragging'); });
+      track.addEventListener('touchstart', function(e){ isDragging = true; startX = e.touches[0].clientX; currentX = startX; startTranslate = getTranslate(); track.classList.add('dragging'); }, {passive:true});
+      window.addEventListener('mousemove', function(e){ if(!isDragging) return; currentX = e.clientX; track.style.transform = 'translateX(' + (startTranslate + currentX - startX) + 'px)'; });
+      window.addEventListener('touchmove', function(e){ if(!isDragging) return; currentX = e.touches[0].clientX; track.style.transform = 'translateX(' + (startTranslate + currentX - startX) + 'px)'; }, {passive:true});
+      function endDrag() {
+        if (!isDragging) return;
+        isDragging = false;
+        track.classList.remove('dragging');
+        var diff = currentX - startX;
+        if (Math.abs(diff) > 5) wasDragging = true;
+        if (Math.abs(diff) > 60) {
+          if (diff < 0) goTo(currentIndex + 1);
+          else goTo(currentIndex - 1);
+        } else { goTo(currentIndex); }
+      }
+      window.addEventListener('mouseup', endDrag);
+      window.addEventListener('touchend', endDrag);
+
+      // Empêche la navigation du lien <a> à la fin d'un vrai drag
+      cards.forEach(function(card){
+        card.addEventListener('click', function(e){
+          if (wasDragging) {
+            e.preventDefault();
+            wasDragging = false;
+          }
+        });
+      });
 
       // Resize
       var resizeTimer;
