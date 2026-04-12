@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Notaires : comment évaluer une cave à vins dans une succession. Statut fiscal, forfait mobilier, rapport d'estimation opposable et risques de redressement.">
+    <title>Évaluer une cave à vins en succession (notaires) — estimationcave.com</title>
+    <meta property="og:title" content="Notaires : comment évaluer une cave à vins dans une succession">
+    <meta property="og:description" content="Notaires : comment évaluer une cave à vins dans une succession. Statut fiscal, forfait mobilier, rapport d'estimation opposable et risques de redressement.">
+    <meta property="og:url" content="https://estimationcave.com/article-notaires-evaluer-cave-succession.html">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:image" content="https://estimationcave.com/og-image.png">
+    <link rel="canonical" href="https://estimationcave.com/article-notaires-evaluer-cave-succession.html">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Notaires : comment évaluer une cave à vins dans une succession","datePublished":"2026-04-11","dateModified":"2026-04-11","publisher":{"@type":"Organization","name":"estimationcave.com","url":"https://estimationcave.com"},"url":"https://estimationcave.com/article-notaires-evaluer-cave-succession.html","description":"Notaires : comment évaluer une cave à vins dans une succession. Statut fiscal, forfait mobilier, rapport d'estimation opposable et risques de redressement."}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Le forfait mobilier de 5 % couvre-t-il la cave à vins du défunt ?","acceptedAnswer":{"@type":"Answer","text":"Non. Les bouteilles de vin sont classées comme « meubles non meublants » par l'administration fiscale, au même titre que les bijoux, les véhicules ou les œuvres d'art. Elles ne sont pas couvertes par le forfait mobilier de 5 % applicable aux meubles meublants. Un inventaire séparé avec estimation individuelle est nécessaire pour les déclarer correctement dans la succession."}},{"@type":"Question","name":"Quel document fournir à l'administration fiscale pour justifier la valeur d'une cave ?","acceptedAnswer":{"@type":"Answer","text":"Un rapport d'estimation établi par un professionnel du marché des vins fins, comprenant l'inventaire bouteille par bouteille, la valeur de marché unitaire et globale, la méthodologie utilisée, les sources de cotation et la date d'évaluation. Ce document constitue une pièce probante en cas de contrôle fiscal et protège le notaire comme les héritiers."}},{"@type":"Question","name":"Quel est le délai pour déclarer la valeur d'une cave dans une succession ?","acceptedAnswer":{"@type":"Answer","text":"Les héritiers disposent de six mois à compter du décès pour déposer la déclaration de succession auprès de l'administration fiscale (douze mois si le décès a eu lieu à l'étranger). La valeur de la cave doit figurer dans cette déclaration au même titre que les autres actifs mobiliers. En cas de non-déclaration, l'administration dispose d'un délai de six ans pour effectuer un redressement."}}]}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* ── BREADCRUMB ── */
+        .breadcrumb {
+            padding: 5.5rem 0 0;
+            font-size: 0.82rem;
+            color: var(--texte-light);
+        }
+        .breadcrumb a { color: var(--or); text-decoration: none; }
+        .breadcrumb a:hover { color: var(--bordeaux); }
+
+        /* ── ARTICLE HEADER ── */
+        .article-header {
+            padding: 2rem 0 2.5rem;
+            text-align: center;
+        }
+        .article-meta {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--or);
+            margin-bottom: 1rem;
+        }
+        .article-header h1 {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            font-weight: 600;
+            color: var(--bordeaux);
+            line-height: 1.25;
+            letter-spacing: -0.02em;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+        .ornament {
+            display: block;
+            width: 48px;
+            height: 2px;
+            background: var(--or);
+            margin: 1.75rem auto;
+        }
+        .article-intro {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: var(--texte-light);
+            line-height: 1.85;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ── TOC ── */
+        .toc { padding: 0 0 1.5rem; }
+        .toc-box {
+            background: var(--blanc);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 1.5rem 2rem;
+        }
+        .toc-title {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--bordeaux);
+            margin-bottom: 0.75rem;
+        }
+        .toc-box ul { list-style: none; padding: 0; margin: 0; }
+        .toc-box li { margin-bottom: 0.4rem; }
+        .toc-box a {
+            font-size: 0.9rem;
+            color: var(--texte);
+            text-decoration: none;
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            line-height: 1.5;
+        }
+        .toc-box a:hover { color: var(--or); }
+        .toc-dot {
+            flex-shrink: 0;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--or);
+            margin-top: 0.35rem;
+        }
+
+        /* ── ARTICLE BODY ── */
+        .article-body { padding: 2rem 0 4rem; }
+        .article-body h2 {
+            font-family: var(--font-display);
+            font-size: 1.55rem;
+            font-weight: 600;
+            color: var(--bordeaux);
+            margin: 2.5rem 0 1rem;
+            line-height: 1.3;
+        }
+        .article-body h3 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--bordeaux);
+            margin: 2rem 0 0.75rem;
+            line-height: 1.35;
+        }
+        .article-body p {
+            font-size: 1rem;
+            line-height: 1.85;
+            color: var(--texte);
+            margin-bottom: 1.25rem;
+            text-align: justify;
+        }
+        .article-body strong { color: var(--bordeaux); font-weight: 600; }
+        .article-body ul { margin: 0 0 1.25rem 1.25rem; padding: 0; }
+        .article-body li {
+            font-size: 1rem;
+            line-height: 1.85;
+            color: var(--texte);
+            margin-bottom: 0.4rem;
+        }
+
+        /* ── SECTION DIVIDERS ── */
+        .section-divider {
+            display: block;
+            width: 48px;
+            height: 2px;
+            background: var(--or);
+            margin: 3rem auto;
+        }
+
+        /* ── KEY POINTS BOX ── */
+        .key-points {
+            background: var(--fond);
+            border-left: 3px solid var(--or);
+            border-radius: 0 6px 6px 0;
+            padding: 1.75rem 2rem;
+            margin: 1rem 0 1rem;
+        }
+        .key-points-title {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--bordeaux);
+            margin-bottom: 1rem;
+        }
+        .key-point {
+            display: flex;
+            align-items: baseline;
+            gap: 0.75rem;
+            margin-bottom: 0.65rem;
+            font-size: 0.92rem;
+            color: var(--texte);
+            line-height: 1.65;
+        }
+        .key-point:last-child { margin-bottom: 0; }
+        .key-point-dot {
+            flex-shrink: 0;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--or);
+            margin-top: 0.5rem;
+        }
+
+        /* ── BON A SAVOIR ── */
+        .bon-a-savoir {
+            background: var(--or-pale);
+            border-radius: 6px;
+            padding: 1.5rem 1.75rem;
+            margin: 1.5rem 0;
+        }
+        .bon-a-savoir-title {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--bordeaux);
+            margin-bottom: 0.5rem;
+        }
+        .bon-a-savoir p {
+            font-size: 0.92rem;
+            color: var(--texte);
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        /* ── INLINE FAQ ── */
+        .inline-faq { margin: 1rem 0 0; }
+        .inline-faq-title {
+            font-family: var(--font-display);
+            font-size: 1.55rem;
+            font-weight: 600;
+            color: var(--bordeaux);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+        .inline-faq-item { border-bottom: 1px solid var(--border); }
+        .inline-faq-trigger {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 1.1rem 2.5rem 1.1rem 0;
+            text-align: left;
+            cursor: pointer;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--bordeaux);
+            line-height: 1.5;
+            position: relative;
+            transition: color 0.2s cubic-bezier(0.33, 1, 0.68, 1);
+        }
+        .inline-faq-trigger:hover { color: var(--or); }
+        .inline-faq-trigger::after {
+            content: '+';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.3rem;
+            font-weight: 300;
+            color: var(--or);
+        }
+        .inline-faq-item.open .inline-faq-trigger::after { content: '−'; }
+        .inline-faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s cubic-bezier(0.33, 1, 0.68, 1);
+        }
+        .inline-faq-item.open .inline-faq-content { max-height: var(--faq-height, 500px); }
+        .inline-faq-answer {
+            padding: 0 0 1.25rem;
+            font-size: 0.92rem;
+            color: var(--texte-light);
+            line-height: 1.8;
+        }
+
+        /* ── CTA ── */
+        .article-cta {
+            background: var(--blanc);
+            border: 1.5px solid rgba(45, 27, 46, 0.15);
+            border-radius: 8px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            margin: 3rem 0 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .article-cta::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--bordeaux);
+        }
+        .article-cta h2 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--bordeaux);
+            margin: 0 0 0.5rem;
+        }
+        .article-cta p {
+            font-size: 0.95rem;
+            color: var(--texte-light);
+            margin-bottom: 1.5rem;
+        }
+        .btn-primary {
+            display: inline-block;
+            background: var(--bordeaux);
+            color: var(--blanc);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 600;
+            padding: 0.9rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            letter-spacing: 0.02em;
+            transition: all 0.3s cubic-bezier(0.33, 1, 0.68, 1);
+        }
+        .btn-primary:hover {
+            background: #3D2B3E;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(45, 27, 46, 0.2);
+        }
+
+        /* ── SVG VISUALS ── */
+        .visual-block { margin: 2rem 0; }
+        .visual-title {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--bordeaux);
+            margin-bottom: 0.75rem;
+            text-align: center;
+        }
+
+        /* ── BACK LINK ── */
+        .back-to-blog {
+            text-align: center;
+            padding: 2.5rem 0 4rem;
+        }
+        .back-to-blog a {
+            font-size: 0.92rem;
+            font-weight: 500;
+            color: var(--or);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .back-to-blog a:hover { color: var(--bordeaux); }
+
+        @media (max-width: 600px) {
+            .container { padding: 0 1.25rem; }
+            .article-header { padding: 2rem 0 1.5rem; }
+            .breadcrumb { padding: 5rem 0 0; }
+            .article-cta { padding: 2rem 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main" class="skip-link">Aller au contenu</a>
+
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">estimation<span>cave</span>.com</a>
+            <div class="nav-right">
+                <a href="blog.html" class="nav-back">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    Retour au blog
+                </a>
+                <a href="apropos.html" class="nav-back" style="text-decoration:none;">À propos</a>
+                <a href="index.html#formulaire" class="btn-gold">Estimer ma cave</a>
+            </div>
+            <button class="hamburger" aria-label="Menu" aria-expanded="false">
+                <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+        </div>
+    </nav>
+    <div class="nav-overlay"></div>
+
+    <div class="breadcrumb">
+        <div class="container">
+            <a href="index.html">Accueil</a> &gt;
+            <a href="professionnels.html">Professionnels</a> &gt;
+            <span>Notaires &amp; succession</span>
+        </div>
+    </div>
+
+    <header class="article-header">
+        <div class="container">
+            <p class="article-meta">Avril 2026 · Professionnels</p>
+            <h1>Notaires : comment évaluer une cave à vins dans une succession</h1>
+            <span class="ornament-long"></span>
+            <p class="article-intro">Une cave à vins peut représenter un actif mobilier de plusieurs milliers — voire dizaines de milliers — d'euros. Pourtant, sa valorisation dans les dossiers de succession reste un point aveugle pour beaucoup d'études notariales. Voici comment l'évaluer correctement, quelles obligations fiscales s'appliquent, et comment obtenir un rapport opposable à l'administration.</p>
+        </div>
+    </header>
+
+    <div class="toc">
+        <div class="container">
+            <div class="toc-box">
+                <p class="toc-title">Dans cet article</p>
+                <ul>
+                    <li><a href="#probleme"><span class="toc-dot"></span>Pourquoi la cave à vins pose un problème en succession</a></li>
+                    <li><a href="#statut-fiscal"><span class="toc-dot"></span>Le statut fiscal : meuble non meublant</a></li>
+                    <li><a href="#forfait"><span class="toc-dot"></span>Forfait mobilier de 5 % : un piège fréquent</a></li>
+                    <li><a href="#estimation"><span class="toc-dot"></span>Comment obtenir une estimation fiable et opposable</a></li>
+                    <li><a href="#rapport"><span class="toc-dot"></span>Ce que contient un rapport d'estimation exploitable</a></li>
+                    <li><a href="#risques"><span class="toc-dot"></span>Risques en cas de sous-estimation ou de non-déclaration</a></li>
+                    <li><a href="#faq"><span class="toc-dot"></span>Questions fréquentes</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <main id="main" class="article-body">
+        <div class="container">
+
+            <div class="key-points">
+                <p class="key-points-title">Points clés</p>
+                <div class="key-point"><div class="key-point-dot"></div>Les bouteilles de vin sont des « meubles non meublants » — elles ne sont pas couvertes par le forfait mobilier de 5 %</div>
+                <div class="key-point"><div class="key-point-dot"></div>La valeur doit être déclarée individuellement dans les six mois suivant le décès, sous peine de redressement</div>
+                <div class="key-point"><div class="key-point-dot"></div>Seul un professionnel du marché des vins fins peut établir une estimation à valeur probante</div>
+                <div class="key-point"><div class="key-point-dot"></div>Un rapport d'estimation à distance, basé sur inventaire et photos, est opposable à l'administration fiscale</div>
+            </div>
+
+            <!-- ══ SECTION 1 ══ -->
+            <h2 id="probleme">Pourquoi la cave à vins pose un problème en succession</h2>
+
+            <p>Quand un actif immobilier, un portefeuille boursier ou un véhicule apparaît dans une succession, le notaire dispose d'outils de valorisation éprouvés : comparatifs de marché, relevés bancaires, cotes Argus. Pour une cave à vins, la situation est très différente.</p>
+
+            <p>La valeur d'une bouteille dépend d'un ensemble de critères très spécifiques : <strong>appellation, domaine, millésime, format, état de conservation, conditions de stockage</strong>. Deux bouteilles du même vin peuvent valoir des montants très différents selon leur millésime — un écart de 1 à 10 n'a rien d'exceptionnel sur les grands crus. Et cette valeur fluctue au gré du marché, parfois de manière significative d'une année sur l'autre.</p>
+
+            <p>Résultat : sans expertise spécialisée, le risque est double. Sous-estimer la cave expose à un redressement fiscal. La surestimer alourdit inutilement les droits de succession. Dans les deux cas, les héritiers et le notaire sont pénalisés. Pour une vue d'ensemble des enjeux de valorisation dans un cadre professionnel, consultez notre <a href="professionnels.html">guide dédié aux professionnels du droit et du patrimoine</a>.</p>
+
+            <span class="ornament-diamond"></span>
+
+            <!-- ══ SECTION 2 ══ -->
+            <h2 id="statut-fiscal">Le statut fiscal des bouteilles de vin : meuble non meublant</h2>
+
+            <p>L'administration fiscale classe les bouteilles de vin dans la catégorie des <strong>« meubles non meublants »</strong>, au même titre que les bijoux, les véhicules, les œuvres d'art ou les collections. Cette classification a des conséquences directes sur leur traitement dans la déclaration de succession.</p>
+
+            <p>Concrètement, les bouteilles ne font pas partie du mobilier courant du foyer. Elles doivent être <strong>inventoriées et valorisées séparément</strong>, avec une estimation de leur valeur vénale au jour du décès — c'est-à-dire le prix qu'elles pourraient atteindre en cas de vente dans des conditions normales de marché.</p>
+
+            <p>Cette obligation s'applique dès lors que la cave contient des vins de valeur. En pratique, une cave composée exclusivement de vins de consommation courante (valeur unitaire inférieure à quelques euros) peut être considérée comme négligeable. Mais dès que des appellations prestigieuses, des millésimes anciens ou des formats rares sont présents, l'inventaire et l'estimation individuelle deviennent indispensables.</p>
+
+            <div class="bon-a-savoir">
+                <p class="bon-a-savoir-title">Bon à savoir</p>
+                <p>La qualification de « meuble non meublant » ne dépend pas du nombre de bouteilles, mais de leur nature et de leur valeur. Une cave de 50 bouteilles de grands crus classés peut valoir davantage qu'une cave de 500 bouteilles courantes — et exige une attention bien plus rigoureuse dans la déclaration.</p>
+            </div>
+
+            <div class="ornament-dots"><span></span></div>
+
+            <!-- ══ SECTION 3 ══ -->
+            <h2 id="forfait">Forfait mobilier de 5 % : un piège fréquent</h2>
+
+            <p>En matière de succession, le notaire peut opter pour le <strong>forfait mobilier de 5 %</strong> de la valeur brute de l'actif successoral pour évaluer l'ensemble des meubles meublants du défunt. Cette option simplifie la déclaration quand le mobilier est modeste et qu'aucun inventaire n'a été réalisé.</p>
+
+            <p>Cependant, ce forfait ne couvre que les <strong>meubles meublants</strong> — c'est-à-dire le mobilier garnissant les logements (tables, chaises, literie, électroménager…). Les meubles non meublants en sont explicitement exclus. Les bouteilles de vin, les bijoux, les véhicules et les œuvres d'art doivent faire l'objet d'une <strong>évaluation séparée</strong>, même quand le forfait de 5 % est appliqué au reste du mobilier.</p>
+
+            <p>En pratique, la confusion est fréquente. Certaines déclarations intègrent la cave dans le forfait mobilier par méconnaissance ou par simplification. Cette erreur constitue une <strong>omission déclarative</strong> qui peut être relevée lors d'un contrôle fiscal, avec rappel de droits, intérêts de retard et éventuelles pénalités.</p>
+
+            <!-- VISUEL SVG 1 : Forfait mobilier vs meubles non meublants -->
+            <div class="visual-block">
+                <p class="visual-title">Forfait mobilier de 5 % : ce qu'il couvre et ce qu'il exclut</p>
+                <svg viewBox="0 0 660 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+                    <rect width="660" height="280" rx="8" fill="#FAF6F0"/>
+                    <!-- Colonne gauche -->
+                    <rect x="20" y="16" width="300" height="36" rx="6" fill="#2D1B2E"/>
+                    <text x="170" y="40" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#C5A258">Couvert par le forfait de 5 %</text>
+                    <text x="170" y="22" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="#FAF6F0">MEUBLES MEUBLANTS</text>
+                    <rect x="20" y="60" width="300" height="36" rx="4" fill="#FFFFFF" stroke="#C5A258" stroke-width="0.8"/>
+                    <text x="170" y="83" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" fill="#3A3035">Mobilier courant (tables, chaises…)</text>
+                    <rect x="20" y="102" width="300" height="36" rx="4" fill="#FFFFFF" stroke="#C5A258" stroke-width="0.8"/>
+                    <text x="170" y="125" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" fill="#3A3035">Literie et linge de maison</text>
+                    <rect x="20" y="144" width="300" height="36" rx="4" fill="#FFFFFF" stroke="#C5A258" stroke-width="0.8"/>
+                    <text x="170" y="167" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" fill="#3A3035">Électroménager</text>
+                    <rect x="20" y="186" width="300" height="36" rx="4" fill="#FFFFFF" stroke="#C5A258" stroke-width="0.8"/>
+                    <text x="170" y="209" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" fill="#3A3035">Vaisselle, ustensiles</text>
+                    <!-- Colonne droite -->
+                    <rect x="340" y="16" width="300" height="36" rx="6" fill="#C5A258"/>
+                    <text x="490" y="40" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#2D1B2E">Exclu — estimation séparée</text>
+                    <text x="490" y="22" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="#2D1B2E">MEUBLES NON MEUBLANTS</text>
+                    <rect x="340" y="60" width="300" height="36" rx="4" fill="#FFFFFF" stroke="#C5A258" stroke-width="1.5"/>
+                    <text x="490" y="83" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#2D1B2E">Cave à vins</text>
+                    <rect x="340" y="102" width="300" height="36" rx="4" fill="#FFFFFF" stroke="#C5A258" stroke-width="0.8"/>
+                    <text x="490" y="125" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" fill="#3A3035">Bijoux et montres</text>
+                    <rect x="340" y="144" width="300" height="36" rx="4" fill="#FFFFFF" stroke="#C5A258" stroke-width="0.8"/>
+                    <text x="490" y="167" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" fill="#3A3035">Véhicules</text>
+                    <rect x="340" y="186" width="300" height="36" rx="4" fill="#FFFFFF" stroke="#C5A258" stroke-width="0.8"/>
+                    <text x="490" y="209" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" fill="#3A3035">Œuvres d'art et collections</text>
+                    <!-- Footer -->
+                    <rect x="20" y="236" width="620" height="30" rx="4" fill="rgba(197,162,88,0.15)"/>
+                    <text x="330" y="256" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" font-weight="500" fill="#2D1B2E">La cave à vins doit toujours faire l'objet d'un inventaire et d'une estimation individuelle</text>
+                </svg>
+            </div>
+
+            <span class="ornament-diamond"></span>
+
+            <!-- ══ SECTION 4 ══ -->
+            <h2 id="estimation">Comment obtenir une estimation fiable et opposable</h2>
+
+            <p>L'évaluation d'une cave à vins ne relève pas de la compétence habituelle du notaire — et c'est normal. La valorisation des vins fins est un domaine technique qui nécessite une <strong>connaissance approfondie du marché</strong> : cotations actuelles, cotes des millésimes, notoriété des domaines, état de conservation, critères de décote.</p>
+
+            <p>Pour obtenir une estimation fiable, il est nécessaire de faire appel à un <strong>professionnel du marché des vins</strong> — et non à un simple commissaire-priseur ou à un assureur, dont les grilles ne reflètent pas toujours la réalité des prix pratiqués sur le marché secondaire.</p>
+
+            <h3>L'estimation à distance : une solution adaptée aux études notariales</h3>
+
+            <p>L'estimation à distance permet d'obtenir un rapport complet <strong>sans déplacer les bouteilles</strong>. Le notaire ou les héritiers transmettent un inventaire et des photos de la cave via un formulaire en ligne. L'expert analyse chaque lot, croise les cotations de marché et établit un rapport détaillé sous cinq jours ouvrés.</p>
+
+            <p>Cette approche présente plusieurs avantages pour les études notariales :</p>
+
+            <ul>
+                <li><strong>Rapidité</strong> : pas de prise de rendez-vous sur site, pas de déplacement à coordonner</li>
+                <li><strong>Fiabilité</strong> : les cotations utilisées sont celles du marché réel (enchères, négoce), actualisées au jour de l'estimation</li>
+                <li><strong>Documentabilité</strong> : le rapport PDF est directement intégrable dans le dossier de succession</li>
+                <li><strong>Accessibilité</strong> : fonctionne quelle que soit la localisation de la cave (province, DOM-TOM, étranger)</li>
+            </ul>
+
+            <p>Pour en savoir plus sur le fonctionnement concret de l'audit à distance, consultez notre article dédié sur <a href="article-estimation-distance.html">l'estimation de cave à distance</a>.</p>
+
+            <div class="ornament-dots"><span></span></div>
+
+            <!-- ══ SECTION 5 ══ -->
+            <h2 id="rapport">Ce que contient un rapport d'estimation exploitable</h2>
+
+            <p>Pour être recevable par l'administration fiscale et exploitable dans un dossier de succession, un rapport d'estimation doit contenir un certain nombre d'éléments précis. Un simple listing de prix ne suffit pas — le rapport doit démontrer la <strong>méthodologie</strong> utilisée et la <strong>traçabilité</strong> des valorisations.</p>
+
+            <!-- VISUEL SVG 2 : Contenu du rapport -->
+            <div class="visual-block">
+                <p class="visual-title">Contenu d'un rapport d'estimation recevable</p>
+                <svg viewBox="0 0 660 420" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+                    <rect width="660" height="420" rx="8" fill="#FAF6F0"/>
+                    <!-- Header -->
+                    <rect x="20" y="16" width="620" height="40" rx="6" fill="#2D1B2E"/>
+                    <text x="330" y="42" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="12" font-weight="600" fill="#C5A258">Rapport d'estimation — éléments obligatoires</text>
+                    <!-- Ligne 1 -->
+                    <rect x="20" y="72" width="620" height="40" rx="4" fill="#FFFFFF" stroke="#C5A258" stroke-width="0.8"/>
+                    <circle cx="46" cy="92" r="10" fill="#2D1B2E"/>
+                    <text x="46" y="96" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" font-weight="600" fill="#C5A258">1</text>
+                    <text x="70" y="96" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#2D1B2E">Inventaire complet bouteille par bouteille</text>
+                    <text x="400" y="96" font-family="DM Sans, sans-serif" font-size="10" fill="#6B5F65">Nom, appellation, millésime, format, quantité</text>
+                    <!-- Ligne 2 -->
+                    <rect x="20" y="118" width="620" height="40" rx="4" fill="#FFFFFF" stroke="#C5A258" stroke-width="0.8"/>
+                    <circle cx="46" cy="138" r="10" fill="#2D1B2E"/>
+                    <text x="46" y="142" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" font-weight="600" fill="#C5A258">2</text>
+                    <text x="70" y="142" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#2D1B2E">Valeur unitaire de chaque lot</text>
+                    <text x="400" y="142" font-family="DM Sans, sans-serif" font-size="10" fill="#6B5F65">Prix de marché au jour de l'estimation</text>
+                    <!-- Ligne 3 -->
+                    <rect x="20" y="164" width="620" height="40" rx="4" fill="#FFFFFF" stroke="#C5A258" stroke-width="0.8"/>
+                    <circle cx="46" cy="184" r="10" fill="#2D1B2E"/>
+                    <text x="46" y="188" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" font-weight="600" fill="#C5A258">3</text>
+                    <text x="70" y="188" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#2D1B2E">Valeur globale de la cave</text>
+                    <text x="400" y="188" font-family="DM Sans, sans-serif" font-size="10" fill="#6B5F65">Total chiffré, directement exploitable</text>
+                    <!-- Ligne 4 -->
+                    <rect x="20" y="210" width="620" height="40" rx="4" fill="#FFFFFF" stroke="#C5A258" stroke-width="0.8"/>
+                    <circle cx="46" cy="230" r="10" fill="#2D1B2E"/>
+                    <text x="46" y="234" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" font-weight="600" fill="#C5A258">4</text>
+                    <text x="70" y="234" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#2D1B2E">Méthodologie et sources de cotation</text>
+                    <text x="400" y="234" font-family="DM Sans, sans-serif" font-size="10" fill="#6B5F65">Enchères, négoce, bases de données</text>
+                    <!-- Ligne 5 -->
+                    <rect x="20" y="256" width="620" height="40" rx="4" fill="#FFFFFF" stroke="#C5A258" stroke-width="0.8"/>
+                    <circle cx="46" cy="276" r="10" fill="#2D1B2E"/>
+                    <text x="46" y="280" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" font-weight="600" fill="#C5A258">5</text>
+                    <text x="70" y="280" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#2D1B2E">Évaluation de l'état de conservation</text>
+                    <text x="400" y="280" font-family="DM Sans, sans-serif" font-size="10" fill="#6B5F65">Niveaux, étiquettes, capsules, stockage</text>
+                    <!-- Ligne 6 -->
+                    <rect x="20" y="302" width="620" height="40" rx="4" fill="#FFFFFF" stroke="#C5A258" stroke-width="0.8"/>
+                    <circle cx="46" cy="322" r="10" fill="#2D1B2E"/>
+                    <text x="46" y="326" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" font-weight="600" fill="#C5A258">6</text>
+                    <text x="70" y="326" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#2D1B2E">Date d'évaluation et identité de l'expert</text>
+                    <text x="400" y="326" font-family="DM Sans, sans-serif" font-size="10" fill="#6B5F65">Opposabilité en cas de contrôle</text>
+                    <!-- Ligne 7 -->
+                    <rect x="20" y="348" width="620" height="40" rx="4" fill="#FFFFFF" stroke="#C5A258" stroke-width="0.8"/>
+                    <circle cx="46" cy="368" r="10" fill="#C5A258"/>
+                    <text x="46" y="372" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" font-weight="600" fill="#2D1B2E">7</text>
+                    <text x="70" y="372" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#2D1B2E">Recommandations (conserver, vendre, boire)</text>
+                    <text x="400" y="372" font-family="DM Sans, sans-serif" font-size="10" fill="#6B5F65">Aide à la décision pour les héritiers</text>
+                    <!-- Footer -->
+                    <rect x="20" y="400" width="620" height="10" rx="4" fill="#2D1B2E"/>
+                </svg>
+            </div>
+
+            <p>Le rapport sert deux objectifs complémentaires. D'abord, il fournit au notaire une <strong>valeur chiffrée fiable</strong> à porter dans la déclaration de succession. Ensuite, il offre aux héritiers une base concrète pour décider de la suite : conserver la cave, la vendre en tout ou partie, ou la partager équitablement. Pour approfondir les enjeux spécifiques à la gestion d'une cave héritée, notre article <a href="article-heritage-cave.html">J'ai hérité d'une cave à vins : que faire ?</a> détaille les démarches du côté des héritiers.</p>
+
+            <span class="ornament-diamond"></span>
+
+            <!-- ══ SECTION 6 ══ -->
+            <h2 id="risques">Risques en cas de sous-estimation ou de non-déclaration</h2>
+
+            <p>L'administration fiscale dispose d'un <strong>délai de six ans</strong> à compter du dépôt de la déclaration de succession pour la contrôler et la rectifier. Ce délai est suffisamment long pour que des caves non déclarées ou mal évaluées finissent par être identifiées, notamment lors de reventes ultérieures ou de contrôles croisés.</p>
+
+            <h3>Les trois scénarios de risque</h3>
+
+            <p><strong>Non-déclaration de la cave.</strong> Omettre la cave dans la déclaration de succession constitue une omission d'actif. L'administration peut réintégrer la valeur de la cave dans l'assiette taxable, appliquer un rappel de droits majoré et assortir le tout d'intérêts de retard. Le montant du redressement dépend de la valeur de la cave au jour du décès.</p>
+
+            <p><strong>Sous-estimation volontaire ou par négligence.</strong> Déclarer la cave à une valeur manifestement inférieure à sa valeur vénale réelle expose au même risque de redressement. L'administration utilise ses propres bases de données et les résultats d'adjudication publics pour contester les valorisations insuffisantes.</p>
+
+            <p><strong>Surestimation involontaire.</strong> À l'inverse, surestimer la cave — en utilisant par exemple des cotes de vente au détail plutôt que des prix de marché secondaire — conduit à un paiement excessif de droits de succession. Les héritiers paient des droits sur une valeur fictive, sans possibilité de récupérer le trop-perçu facilement.</p>
+
+            <div class="bon-a-savoir">
+                <p class="bon-a-savoir-title">Bon à savoir</p>
+                <p>Un rapport d'estimation réalisé par un professionnel du marché des vins protège à la fois le notaire et les héritiers. En cas de contrôle, il constitue une <strong>pièce probante</strong> qui justifie la valorisation retenue — et démontre la diligence du professionnel dans le traitement du dossier.</p>
+            </div>
+
+            <span class="ornament-diamond"></span>
+
+            <!-- ══ FAQ ══ -->
+            <div class="inline-faq" id="faq">
+                <p class="inline-faq-title">Questions fréquentes</p>
+
+                <div class="inline-faq-item">
+                    <button class="inline-faq-trigger" id="faq-trigger-1" aria-expanded="false" aria-controls="faq-1">Le forfait mobilier de 5 % couvre-t-il la cave à vins du défunt ?</button>
+                    <div class="inline-faq-content" id="faq-1" role="region" aria-labelledby="faq-trigger-1">
+                        <p class="inline-faq-answer">Non. Les bouteilles de vin sont classées comme « meubles non meublants » par l'administration fiscale, au même titre que les bijoux, les véhicules ou les œuvres d'art. Elles ne sont pas couvertes par le forfait mobilier de 5 % applicable aux meubles meublants. Un inventaire séparé avec estimation individuelle est nécessaire pour les déclarer correctement dans la succession.</p>
+                    </div>
+                </div>
+
+                <div class="inline-faq-item">
+                    <button class="inline-faq-trigger" id="faq-trigger-2" aria-expanded="false" aria-controls="faq-2">Quel document fournir à l'administration fiscale pour justifier la valeur d'une cave ?</button>
+                    <div class="inline-faq-content" id="faq-2" role="region" aria-labelledby="faq-trigger-2">
+                        <p class="inline-faq-answer">Un rapport d'estimation établi par un professionnel du marché des vins fins, comprenant l'inventaire bouteille par bouteille, la valeur de marché unitaire et globale, la méthodologie utilisée, les sources de cotation et la date d'évaluation. Ce document constitue une pièce probante en cas de contrôle fiscal et protège le notaire comme les héritiers.</p>
+                    </div>
+                </div>
+
+                <div class="inline-faq-item">
+                    <button class="inline-faq-trigger" id="faq-trigger-3" aria-expanded="false" aria-controls="faq-3">Quel est le délai pour déclarer la valeur d'une cave dans une succession ?</button>
+                    <div class="inline-faq-content" id="faq-3" role="region" aria-labelledby="faq-trigger-3">
+                        <p class="inline-faq-answer">Les héritiers disposent de six mois à compter du décès pour déposer la déclaration de succession auprès de l'administration fiscale (douze mois si le décès a eu lieu à l'étranger). La valeur de la cave doit figurer dans cette déclaration au même titre que les autres actifs mobiliers. En cas de non-déclaration, l'administration dispose d'un délai de six ans pour effectuer un redressement.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA FINAL — prescripteurs : mailto -->
+            <div class="article-cta">
+                <h2>Besoin d'un rapport d'estimation pour un dossier de succession ?</h2>
+                <p>Rapport complet sous 5 jours ouvrés — inventaire, valorisations individuelles, méthodologie détaillée. Document directement exploitable dans votre dossier notarial.</p>
+                <a href="mailto:contact@estimationcave.com" class="btn-primary">Contacter l'équipe — contact@estimationcave.com</a>
+            </div>
+
+        </div>
+    </main>
+
+    <div class="back-to-blog">
+        <a href="blog.html">← Retour au blog</a>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="footer-logo">estimation<span>cave</span>.com</div>
+                <p class="footer-tagline">Audit et estimation de cave à vins à distance.</p>
+                <a href="mailto:contact@estimationcave.com" class="footer-email">contact@estimationcave.com</a>
+            </div>
+            <div class="footer-col">
+                <div class="footer-heading">Navigation</div>
+                <ul class="footer-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="apropos.html">À propos</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <div class="footer-heading">Guides</div>
+                <ul class="footer-links">
+                    <li><a href="estimation.html">Estimer sa cave</a></li>
+                    <li><a href="article-heritage-cave.html">Héritage &amp; Succession</a></li>
+                    <li><a href="vendre.html">Vendre ses vins</a></li>
+                    <li><a href="gestion.html">Gérer sa cave</a></li>
+                    <li><a href="professionnels.html">Professionnels</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <div class="footer-heading">Informations</div>
+                <ul class="footer-links">
+                    <li><a href="mentions-legales.html">Mentions légales</a></li>
+                    <li><a href="confidentialite.html">Confidentialité</a></li>
+                </ul>
+                <p class="footer-copy">© 2026 estimationcave.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    document.querySelectorAll('.inline-faq-trigger').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const item = btn.closest('.inline-faq-item');
+            const content = item.querySelector('.inline-faq-content');
+            if (item.classList.contains('open')) {
+                content.style.maxHeight = null;
+                item.classList.remove('open');
+                btn.setAttribute('aria-expanded', 'false');
+            } else {
+                item.classList.add('open');
+                btn.setAttribute('aria-expanded', 'true');
+                content.style.maxHeight = content.scrollHeight + 'px';
+            }
+        });
+    });
+    </script>
+
+    <script>
+    (function(){
+        var hamburger = document.querySelector('.hamburger');
+        var navRight = document.querySelector('.nav-right');
+        var overlay = document.querySelector('.nav-overlay');
+        if (!hamburger) return;
+        function toggleMenu() {
+            var isOpen = navRight.classList.toggle('open');
+            hamburger.classList.toggle('active');
+            overlay.classList.toggle('active');
+            hamburger.setAttribute('aria-expanded', isOpen);
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+        }
+        function closeMenu() {
+            navRight.classList.remove('open');
+            hamburger.classList.remove('active');
+            overlay.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        }
+        hamburger.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', closeMenu);
+        navRight.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', closeMenu);
+        });
+    })();
+    </script>
+
+    <script>
+    (function(){
+        var targets = document.querySelectorAll('section > .container, .article-header, .toc, .key-points, .article-cta, .inline-faq, .silo-section, .garantie-item, .page-header, .bon-a-savoir, .highlight-box, .about-cta, .faq-cta');
+        targets.forEach(function(el){ el.classList.add('reveal'); });
+
+        document.querySelectorAll('.steps-grid, .visual-block:nth-child(odd)').forEach(function(el){ el.classList.add('reveal-left'); });
+        document.querySelectorAll('.visual-block:nth-child(even)').forEach(function(el){ el.classList.add('reveal-right'); });
+        document.querySelectorAll('.ornament, .ornament-double, .ornament-dots, .ornament-diamond, .ornament-long, .section-divider').forEach(function(el){ el.classList.add('ornament-reveal'); });
+
+        var allReveal = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .ornament-reveal');
+        var observer = new IntersectionObserver(function(entries){
+            entries.forEach(function(entry){
+                if(entry.isIntersecting){
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {threshold: 0.1, rootMargin: '0px 0px -40px 0px'});
+        allReveal.forEach(function(el){ observer.observe(el); });
+    })();
+    </script>
+</body>
+</html>
