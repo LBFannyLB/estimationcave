@@ -1,0 +1,20 @@
+{
+  "redirects": [
+    {
+      "source": "/:path(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.estimationcave.com"
+        }
+      ],
+      "destination": "https://estimationcave.com/:path",
+      "permanent": true
+    },
+    {
+      "source": "/index_1.html",
+      "destination": "/",
+      "permanent": true
+    }
+  ]
+}
