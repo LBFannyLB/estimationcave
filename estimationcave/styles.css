@@ -500,13 +500,8 @@ a:hover { color: var(--bordeaux); }
     border-top: 2px solid var(--or) !important;
     font-family: var(--font-body) !important;
     box-shadow: 0 -4px 24px rgba(45, 27, 46, 0.3) !important;
-    padding: 0.8rem 1.2rem !important;
-    max-width: 480px !important;
-    right: 1.5rem !important;
-    left: auto !important;
-    bottom: 1.5rem !important;
-    border-radius: 8px !important;
-    border: 1px solid var(--or) !important;
+    padding: 0.6rem 2rem !important;
+    border-top: 1px solid var(--or) !important;
 }
 
 #tarteaucitronRoot #tarteaucitronAlertBig #tarteaucitronDisclaimerAlert,
