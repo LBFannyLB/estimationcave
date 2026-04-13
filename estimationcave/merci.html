@@ -14,19 +14,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Cette page n'existe pas ou a été déplacée. Retournez à l'accueil d'estimationcave.com pour découvrir nos services d'estimation de cave à vins.">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Merci pour votre commande — votre rapport d'estimation de cave sera livré sous 5 jours ouvrés.">
     <meta property="og:image" content="https://estimationcave.com/og-image.png">
-    <meta property="og:title" content="Page introuvable — estimationcave.com">
-    <meta property="og:description" content="Cette page n'existe pas ou a été déplacée. Retournez à l'accueil d'estimationcave.com.">
-    <meta property="og:url" content="https://estimationcave.com/404.html">
+    <meta property="og:title" content="Merci — estimationcave.com">
+    <meta property="og:description" content="Votre demande a bien été enregistrée.">
+    <meta property="og:url" content="https://estimationcave.com/merci.html">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="fr_FR">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Page introuvable — estimationcave.com">
-    <meta name="twitter:description" content="Cette page n'existe pas ou a été déplacée. Retournez à l'accueil d'estimationcave.com.">
+    <meta name="twitter:title" content="Merci — estimationcave.com">
+    <meta name="twitter:description" content="Votre demande a bien été enregistrée.">
     <meta name="twitter:image" content="https://estimationcave.com/og-image.png">
-    <title>Page introuvable — estimationcave.com</title>
-    <link rel="canonical" href="https://estimationcave.com/404.html">
+    <title>Merci — estimationcave.com</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -40,12 +40,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         a { text-decoration: none; color: inherit; }
 
-        .error-content .btn-primary {
-            padding: 1rem 2.4rem;
-            font-size: 1rem;
-            font-weight: 600;
-        }
-
         main {
             flex: 1;
             display: flex;
@@ -55,30 +49,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             padding: 8rem 2rem 4rem;
         }
 
-        .error-code {
-            font-family: var(--font-display);
-            font-size: clamp(5rem, 12vw, 8rem);
-            font-weight: 700;
-            color: var(--bordeaux);
-            line-height: 1;
-            opacity: 0;
-            animation: fadeInCode 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
-            margin-bottom: -1.5rem;
-            position: relative;
-            z-index: 0;
+        .merci-content {
+            max-width: 560px;
         }
 
-        @keyframes fadeInCode {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 0.12; transform: scale(1); }
-        }
-
-        .error-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .error-content h1 {
+        .merci-content h1 {
             font-family: var(--font-display);
             font-size: clamp(1.8rem, 4vw, 2.6rem);
             font-weight: 600;
@@ -86,22 +61,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             margin-bottom: 0.75rem;
         }
 
-        .ornament {
-            display: block;
-            width: 48px;
-            height: 2px;
-            background: var(--or);
-            margin: 1.25rem auto;
-        }
-
-        .error-content p {
+        .merci-content p {
             font-size: 1.05rem;
             font-weight: 300;
             color: var(--texte-light);
-            margin-bottom: 2.5rem;
+            margin-bottom: 1.5rem;
             line-height: 1.8;
         }
 
+        .merci-content .contact-link {
+            color: var(--bordeaux);
+            font-weight: 500;
+            border-bottom: 1px solid var(--or);
+        }
+
+        .merci-content .btn-primary {
+            padding: 1rem 2.4rem;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
     </style>
 </head>
 <body>
@@ -127,14 +106,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="nav-overlay"></div>
 
     <main id="main">
-        <div>
-            <div class="error-code">404</div>
-            <div class="error-content">
-                <h1>Page introuvable</h1>
-                <span class="ornament-diamond"></span>
-                <p>Cette page n'existe pas ou a été déplacée.</p>
-                <a href="index.html" class="btn-primary">Retourner à l'accueil</a>
-            </div>
+        <div class="merci-content">
+            <h1>Merci pour votre confiance</h1>
+            <span class="ornament-diamond"></span>
+            <p>Votre demande a bien été enregistrée. Vous recevrez votre rapport sous 5 jours ouvrés à l'adresse e-mail indiquée dans le formulaire.</p>
+            <p>Pour toute question : <a href="mailto:contact@estimationcave.com" class="contact-link">contact@estimationcave.com</a></p>
+            <a href="index.html" class="btn-primary">Retourner à l'accueil</a>
         </div>
     </main>
 
@@ -170,7 +147,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <li><a href="mentions-legales.html">Mentions légales</a></li>
                     <li><a href="confidentialite.html">Confidentialité</a></li>
                 </ul>
-                <p class="footer-copy">© 2026 estimationcave.com</p>
+                <p class="footer-copy">&copy; 2026 estimationcave.com</p>
             </div>
         </div>
     </footer>
@@ -205,20 +182,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <script>
     (function(){
-        // Standard reveals (up)
         var targets = document.querySelectorAll('section > .container, .article-header, .toc, .key-points, .article-cta, .inline-faq, .silo-section, .garantie-item, .page-header, .bon-a-savoir, .highlight-box, .about-cta, .faq-cta');
         targets.forEach(function(el){ el.classList.add('reveal'); });
-
-        // Left reveals
-        document.querySelectorAll('.steps-grid, .visual-block:nth-child(odd)').forEach(function(el){ el.classList.add('reveal-left'); });
-
-        // Right reveals
-        document.querySelectorAll('.visual-block:nth-child(even)').forEach(function(el){ el.classList.add('reveal-right'); });
-
-        // Ornament reveals
         document.querySelectorAll('.ornament, .ornament-double, .ornament-dots, .ornament-diamond, .ornament-long, .section-divider').forEach(function(el){ el.classList.add('ornament-reveal'); });
-
-        // Single observer for all
         var allReveal = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .ornament-reveal');
         var observer = new IntersectionObserver(function(entries){
             entries.forEach(function(entry){
