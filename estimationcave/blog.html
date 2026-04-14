@@ -64,7 +64,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
         a { text-decoration: none; color: inherit; }
 
         .container {
-            max-width: 800px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 2rem;
         }
@@ -193,7 +193,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
         }
 
         .article-card + .article-card {
-            margin-top: 1.5rem;
+            margin-top: 0;
         }
 
         .article-card::before {
@@ -284,6 +284,117 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
         }
         }
 
+        /* ── CAROUSEL ── */
+        .carousel {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 1.25rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            padding: 0.25rem 0;
+        }
+
+        .carousel-track::-webkit-scrollbar { display: none; }
+        .carousel-track { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .carousel-track .article-card {
+            flex: 0 0 calc((100% - 2.5rem) / 3);
+            scroll-snap-align: start;
+            min-width: 0;
+        }
+
+        .carousel-track .article-card h3 {
+            font-size: 1.15rem;
+        }
+
+        .carousel-track .article-card p {
+            font-size: 0.88rem;
+            line-height: 1.65;
+        }
+
+        .carousel-track .article-card.guide {
+            padding: 2rem 1.75rem;
+        }
+
+        .carousel-arrow {
+            flex-shrink: 0;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1.5px solid var(--or);
+            background: var(--blanc);
+            color: var(--or);
+            font-size: 1.3rem;
+            font-weight: 300;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.25s cubic-bezier(0.33, 1, 0.68, 1);
+            z-index: 2;
+        }
+
+        .carousel-prev { margin-right: 0.75rem; }
+        .carousel-next { margin-left: 0.75rem; }
+
+        .carousel-arrow:hover {
+            background: var(--bordeaux);
+            border-color: var(--bordeaux);
+            color: var(--or);
+        }
+
+        .carousel-arrow:disabled {
+            opacity: 0.25;
+            cursor: default;
+            pointer-events: none;
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem 0 0;
+        }
+
+        .carousel-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--border);
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.33, 1, 0.68, 1);
+        }
+
+        .carousel-dot.active {
+            background: var(--or);
+            transform: scale(1.25);
+        }
+
+        @media (max-width: 1024px) {
+            .carousel-track .article-card {
+                flex: 0 0 calc((100% - 1.25rem) / 2);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .carousel-track .article-card {
+                flex: 0 0 85%;
+            }
+            .carousel-arrow { display: none; }
+            .carousel-prev { margin-right: 0; }
+            .carousel-next { margin-left: 0; }
+        }
+
         @media (max-width: 600px) {
             .container { padding: 0 1.25rem; }
             .page-header { padding: 7rem 0 2rem; }
@@ -345,65 +456,49 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
                     <p>Méthodes, outils et critères pour connaître la valeur réelle de votre cave à vins.</p></div>
                 </div>
 
-                <a href="estimation.html" class="article-card guide">
-                    <p class="article-date">Avril 2026</p>
-                    <h3>Comment faire estimer sa cave à vins : le guide complet <span class="badge-pilier">Guide</span></h3>
-                    <p>Méthodes, critères de valorisation, erreurs à éviter — tout ce qu'il faut savoir pour obtenir une estimation fiable de votre cave.</p>
-                    <span class="read-more">
-                        Lire l'article
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </span>
-                </a>
-
-                <a href="article-quand-cave-merite-audit.html" class="article-card">
-                    <p class="article-date">Avril 2026</p>
-                    <h3>Quand une cave à vins mérite un audit complet</h3>
-                    <p>Succession, vente, assurance, doute sur la valeur : les situations concrètes où un audit professionnel de votre cave s'impose.</p>
-                    <span class="read-more">
-                        Lire l'article
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </span>
-                </a>
-
-                <a href="article-preparer-audit-cave.html" class="article-card">
-                    <p class="article-date">Avril 2026</p>
-                    <h3>Comment préparer l'audit de sa cave à vins</h3>
-                    <p>Documents, photos, informations à rassembler — la checklist complète pour un audit rapide et précis, sans allers-retours inutiles.</p>
-                    <span class="read-more">
-                        Lire l'article
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </span>
-                </a>
-
-                <a href="article-estimation-distance.html" class="article-card">
-                    <p class="article-date">Avril 2026</p>
-                    <h3>Estimation de cave à vins à distance : comment ça fonctionne ?</h3>
-                    <p>Faire estimer sa cave sans déplacer une seule bouteille, c'est possible. Découvrez comment fonctionne un audit à distance, ce que contient le rapport et pour qui ce service est adapté.</p>
-                    <span class="read-more">
-                        Lire l'article
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </span>
-                </a>
-
-                <a href="article-criteres-prix-bouteille.html" class="article-card">
-                    <p class="article-date">Avril 2026</p>
-                    <h3>Combien vaut une bouteille de vin : les critères qui font le prix</h3>
-                    <p>Appellation, millésime, domaine, état, conservation — les critères qui déterminent la valeur d'une bouteille sur le marché.</p>
-                    <span class="read-more">
-                        Lire l'article
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </span>
-                </a>
-
-                <a href="article-estimer-vins-bordeaux.html" class="article-card">
-                    <p class="article-date">Avril 2026</p>
-                    <h3>Faire estimer ses vins de Bordeaux : guide complet</h3>
-                    <p>Critères de valorisation, classification, millésimes clés et appellations à repérer pour obtenir une estimation fiable d'une cave de Bordeaux.</p>
-                    <span class="read-more">
-                        Lire l'article
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </span>
-                </a>
+                <div class="carousel">
+                    <button class="carousel-arrow carousel-prev" aria-label="Précédent">&#8249;</button>
+                    <div class="carousel-track">
+                        <a href="estimation.html" class="article-card guide">
+                            <p class="article-date">Avril 2026</p>
+                            <h3>Comment faire estimer sa cave à vins : le guide complet <span class="badge-pilier">Guide</span></h3>
+                            <p>Méthodes, critères de valorisation, erreurs à éviter — tout ce qu'il faut savoir pour obtenir une estimation fiable de votre cave.</p>
+                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+                        </a>
+                        <a href="article-quand-cave-merite-audit.html" class="article-card">
+                            <p class="article-date">Avril 2026</p>
+                            <h3>Quand une cave à vins mérite un audit complet</h3>
+                            <p>Succession, vente, assurance, doute sur la valeur : les situations concrètes où un audit professionnel de votre cave s'impose.</p>
+                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+                        </a>
+                        <a href="article-preparer-audit-cave.html" class="article-card">
+                            <p class="article-date">Avril 2026</p>
+                            <h3>Comment préparer l'audit de sa cave à vins</h3>
+                            <p>Documents, photos, informations à rassembler — la checklist complète pour un audit rapide et précis, sans allers-retours inutiles.</p>
+                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+                        </a>
+                        <a href="article-estimation-distance.html" class="article-card">
+                            <p class="article-date">Avril 2026</p>
+                            <h3>Estimation de cave à vins à distance : comment ça fonctionne ?</h3>
+                            <p>Faire estimer sa cave sans déplacer une seule bouteille, c'est possible. Découvrez comment fonctionne un audit à distance.</p>
+                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+                        </a>
+                        <a href="article-criteres-prix-bouteille.html" class="article-card">
+                            <p class="article-date">Avril 2026</p>
+                            <h3>Combien vaut une bouteille de vin : les critères qui font le prix</h3>
+                            <p>Appellation, millésime, domaine, état, conservation — les critères qui déterminent la valeur d'une bouteille sur le marché.</p>
+                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+                        </a>
+                        <a href="article-estimer-vins-bordeaux.html" class="article-card">
+                            <p class="article-date">Avril 2026</p>
+                            <h3>Faire estimer ses vins de Bordeaux : guide complet</h3>
+                            <p>Critères de valorisation, classification, millésimes clés et appellations à repérer pour obtenir une estimation fiable d'une cave de Bordeaux.</p>
+                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+                        </a>
+                    </div>
+                    <button class="carousel-arrow carousel-next" aria-label="Suivant">&#8250;</button>
+                </div>
+                <div class="carousel-dots"></div>
             </div>
 
             <!-- ══ SILO : HERITAGE & SUCCESSION ══ -->
@@ -414,45 +509,37 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
                     <p>Démarches, fiscalité et conseils pour gérer une cave reçue en héritage.</p></div>
                 </div>
 
-                <a href="article-heritage-cave.html" class="article-card guide">
-                    <p class="article-date">Avril 2026</p>
-                    <h3>J'ai hérité d'une cave à vins : que faire ? <span class="badge-pilier">Guide</span></h3>
-                    <p>Démarches, estimation, fiscalité, vente ou partage entre héritiers — guide complet pour gérer une cave de succession.</p>
-                    <span class="read-more">
-                        Lire l'article
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </span>
-                </a>
-
-                <a href="article-cave-heritee-valeur.html" class="article-card">
-                    <p class="article-date">Avril 2026</p>
-                    <h3>Cave héritée : comment savoir ce qu'elle vaut vraiment</h3>
-                    <p>Critères de valorisation, méthodes d'estimation, obligations fiscales et pièges à éviter pour évaluer une cave reçue en héritage.</p>
-                    <span class="read-more">
-                        Lire l'article
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </span>
-                </a>
-
-                <a href="article-vins-parents-valeur-guide.html" class="article-card">
-                    <p class="article-date">Avril 2026</p>
-                    <h3>Les vins de mon père valent-ils quelque chose ? Guide pour non-connaisseurs</h3>
-                    <p>Guide pour non-connaisseurs : comment repérer une cave de valeur, que regarder sur une bouteille, quelles appellations reconnaître.</p>
-                    <span class="read-more">
-                        Lire l'article
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </span>
-                </a>
-
-                <a href="article-vendre-cave-heritee-erreurs.html" class="article-card">
-                    <p class="article-date">Avril 2026</p>
-                    <h3>Vendre une cave héritée : les erreurs à éviter</h3>
-                    <p>Les 7 erreurs les plus fréquentes quand on vend une cave héritée — et comment les éviter pour ne pas brader votre héritage.</p>
-                    <span class="read-more">
-                        Lire l'article
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </span>
-                </a>
+                <div class="carousel">
+                    <button class="carousel-arrow carousel-prev" aria-label="Précédent">&#8249;</button>
+                    <div class="carousel-track">
+                        <a href="article-heritage-cave.html" class="article-card guide">
+                            <p class="article-date">Avril 2026</p>
+                            <h3>J'ai hérité d'une cave à vins : que faire ? <span class="badge-pilier">Guide</span></h3>
+                            <p>Démarches, estimation, fiscalité, vente ou partage entre héritiers — guide complet pour gérer une cave de succession.</p>
+                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+                        </a>
+                        <a href="article-cave-heritee-valeur.html" class="article-card">
+                            <p class="article-date">Avril 2026</p>
+                            <h3>Cave héritée : comment savoir ce qu'elle vaut vraiment</h3>
+                            <p>Critères de valorisation, méthodes d'estimation, obligations fiscales et pièges à éviter pour évaluer une cave reçue en héritage.</p>
+                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+                        </a>
+                        <a href="article-vins-parents-valeur-guide.html" class="article-card">
+                            <p class="article-date">Avril 2026</p>
+                            <h3>Les vins de mon père valent-ils quelque chose ? Guide pour non-connaisseurs</h3>
+                            <p>Guide pour non-connaisseurs : comment repérer une cave de valeur, que regarder sur une bouteille, quelles appellations reconnaître.</p>
+                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+                        </a>
+                        <a href="article-vendre-cave-heritee-erreurs.html" class="article-card">
+                            <p class="article-date">Avril 2026</p>
+                            <h3>Vendre une cave héritée : les erreurs à éviter</h3>
+                            <p>Les 7 erreurs les plus fréquentes quand on vend une cave héritée — et comment les éviter pour ne pas brader votre héritage.</p>
+                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+                        </a>
+                    </div>
+                    <button class="carousel-arrow carousel-next" aria-label="Suivant">&#8250;</button>
+                </div>
+                <div class="carousel-dots"></div>
             </div>
 
             <!-- ══ SILO : VENDRE SES VINS ══ -->
@@ -463,65 +550,49 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
                     <p>Canaux de vente, préparation et stratégies pour vendre vos bouteilles au meilleur prix.</p></div>
                 </div>
 
-                <a href="vendre.html" class="article-card guide">
-                    <p class="article-date">Avril 2026</p>
-                    <h3>Comment vendre ses bouteilles de vin : le guide complet <span class="badge-pilier">Guide</span></h3>
-                    <p>Enchères, négociant, caviste, entre particuliers — canaux, frais, préparation et erreurs à éviter pour vendre vos vins au meilleur prix.</p>
-                    <span class="read-more">
-                        Lire l'article
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </span>
-                </a>
-
-                <a href="article-prix-vendre-bouteilles.html" class="article-card">
-                    <p class="article-date">Avril 2026</p>
-                    <h3>À quel prix vendre mes bouteilles de vin ?</h3>
-                    <p>Cotes, frais par canal de vente, décotes à prévoir et conseils pour fixer le juste prix de vos bouteilles.</p>
-                    <span class="read-more">
-                        Lire l'article
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </span>
-                </a>
-
-                <a href="article-vins-revente-france.html" class="article-card">
-                    <p class="article-date">Avril 2026</p>
-                    <h3>Quels vins se revendent le mieux en France ?</h3>
-                    <p>Bordeaux, Bourgogne, Rhône, champagne — régions, appellations et critères du marché secondaire de la revente.</p>
-                    <span class="read-more">
-                        Lire l'article
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </span>
-                </a>
-
-                <a href="article-vendre-vin-encheres.html" class="article-card">
-                    <p class="article-date">Avril 2026</p>
-                    <h3>Vendre ses vins aux enchères : comment ça marche ?</h3>
-                    <p>Étapes, frais, délais, bouteilles adaptées et erreurs à éviter — guide complet pour valoriser vos bouteilles en vente aux enchères.</p>
-                    <span class="read-more">
-                        Lire l'article
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </span>
-                </a>
-
-                <a href="article-vendre-vin-entre-particuliers.html" class="article-card">
-                    <p class="article-date">Avril 2026</p>
-                    <h3>Vendre du vin entre particuliers : plateformes et précautions</h3>
-                    <p>Cadre légal, plateformes disponibles, risques et précautions — tout ce qu'il faut savoir pour vendre ses bouteilles entre particuliers.</p>
-                    <span class="read-more">
-                        Lire l'article
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </span>
-                </a>
-
-                <a href="article-vendre-cave-caviste-negociant.html" class="article-card">
-                    <p class="article-date">Avril 2026</p>
-                    <h3>Vendre sa cave à un caviste ou négociant : avantages et limites</h3>
-                    <p>Fonctionnement, prix de rachat, marges pratiquées — ce que rapporte réellement la vente à un professionnel et quand c'est la meilleure option.</p>
-                    <span class="read-more">
-                        Lire l'article
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </span>
-                </a>
+                <div class="carousel">
+                    <button class="carousel-arrow carousel-prev" aria-label="Précédent">&#8249;</button>
+                    <div class="carousel-track">
+                        <a href="vendre.html" class="article-card guide">
+                            <p class="article-date">Avril 2026</p>
+                            <h3>Comment vendre ses bouteilles de vin : le guide complet <span class="badge-pilier">Guide</span></h3>
+                            <p>Enchères, négociant, caviste, entre particuliers — canaux, frais, préparation et erreurs à éviter pour vendre vos vins au meilleur prix.</p>
+                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+                        </a>
+                        <a href="article-prix-vendre-bouteilles.html" class="article-card">
+                            <p class="article-date">Avril 2026</p>
+                            <h3>À quel prix vendre mes bouteilles de vin ?</h3>
+                            <p>Cotes, frais par canal de vente, décotes à prévoir et conseils pour fixer le juste prix de vos bouteilles.</p>
+                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+                        </a>
+                        <a href="article-vins-revente-france.html" class="article-card">
+                            <p class="article-date">Avril 2026</p>
+                            <h3>Quels vins se revendent le mieux en France ?</h3>
+                            <p>Bordeaux, Bourgogne, Rhône, champagne — régions, appellations et critères du marché secondaire de la revente.</p>
+                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+                        </a>
+                        <a href="article-vendre-vin-encheres.html" class="article-card">
+                            <p class="article-date">Avril 2026</p>
+                            <h3>Vendre ses vins aux enchères : comment ça marche ?</h3>
+                            <p>Étapes, frais, délais, bouteilles adaptées et erreurs à éviter — guide complet pour valoriser vos bouteilles en vente aux enchères.</p>
+                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+                        </a>
+                        <a href="article-vendre-vin-entre-particuliers.html" class="article-card">
+                            <p class="article-date">Avril 2026</p>
+                            <h3>Vendre du vin entre particuliers : plateformes et précautions</h3>
+                            <p>Cadre légal, plateformes disponibles, risques et précautions — tout ce qu'il faut savoir pour vendre ses bouteilles entre particuliers.</p>
+                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+                        </a>
+                        <a href="article-vendre-cave-caviste-negociant.html" class="article-card">
+                            <p class="article-date">Avril 2026</p>
+                            <h3>Vendre sa cave à un caviste ou négociant : avantages et limites</h3>
+                            <p>Fonctionnement, prix de rachat, marges pratiquées — ce que rapporte réellement la vente à un professionnel et quand c'est la meilleure option.</p>
+                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+                        </a>
+                    </div>
+                    <button class="carousel-arrow carousel-next" aria-label="Suivant">&#8250;</button>
+                </div>
+                <div class="carousel-dots"></div>
             </div>
 
             <!-- ══ SILO : GERER SA CAVE ══ -->
@@ -532,35 +603,31 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
                     <p>Conservation, inventaire, organisation — tout pour entretenir et valoriser votre collection.</p></div>
                 </div>
 
-                <a href="gestion.html" class="article-card guide">
-                    <p class="article-date">Avril 2026</p>
-                    <h3>Bien gérer sa cave à vins : le guide complet <span class="badge-pilier">Guide</span></h3>
-                    <p>Conservation, inventaire, apogée, organisation — tout ce qu'il faut savoir pour entretenir et valoriser votre collection.</p>
-                    <span class="read-more">
-                        Lire l'article
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </span>
-                </a>
-
-                <a href="article-inventaire-cave.html" class="article-card">
-                    <p class="article-date">Avril 2026</p>
-                    <h3>Comment faire l'inventaire de sa cave à vins</h3>
-                    <p>Méthode pas à pas, outils, informations à relever et erreurs à éviter pour un inventaire fiable de votre cave.</p>
-                    <span class="read-more">
-                        Lire l'article
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </span>
-                </a>
-
-                <a href="article-apogee-vin.html" class="article-card">
-                    <p class="article-date">Avril 2026</p>
-                    <h3>Quand boire ses bouteilles : comprendre l'apogée d'un vin</h3>
-                    <p>Durées de garde par région, signes de maturité et conseils pour décider quand boire, garder ou vendre vos bouteilles.</p>
-                    <span class="read-more">
-                        Lire l'article
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </span>
-                </a>
+                <div class="carousel">
+                    <button class="carousel-arrow carousel-prev" aria-label="Précédent">&#8249;</button>
+                    <div class="carousel-track">
+                        <a href="gestion.html" class="article-card guide">
+                            <p class="article-date">Avril 2026</p>
+                            <h3>Bien gérer sa cave à vins : le guide complet <span class="badge-pilier">Guide</span></h3>
+                            <p>Conservation, inventaire, apogée, organisation — tout ce qu'il faut savoir pour entretenir et valoriser votre collection.</p>
+                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+                        </a>
+                        <a href="article-inventaire-cave.html" class="article-card">
+                            <p class="article-date">Avril 2026</p>
+                            <h3>Comment faire l'inventaire de sa cave à vins</h3>
+                            <p>Méthode pas à pas, outils, informations à relever et erreurs à éviter pour un inventaire fiable de votre cave.</p>
+                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+                        </a>
+                        <a href="article-apogee-vin.html" class="article-card">
+                            <p class="article-date">Avril 2026</p>
+                            <h3>Quand boire ses bouteilles : comprendre l'apogée d'un vin</h3>
+                            <p>Durées de garde par région, signes de maturité et conseils pour décider quand boire, garder ou vendre vos bouteilles.</p>
+                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+                        </a>
+                    </div>
+                    <button class="carousel-arrow carousel-next" aria-label="Suivant">&#8250;</button>
+                </div>
+                <div class="carousel-dots"></div>
             </div>
 
             <!-- ══ SILO : PROFESSIONNELS ══ -->
@@ -571,25 +638,25 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
                     <p>Ressources pour notaires, avocats, CGP et experts-comptables confrontés à la valorisation d'une cave.</p></div>
                 </div>
 
-                <a href="professionnels.html" class="article-card guide">
-                    <p class="article-date">Avril 2026</p>
-                    <h3>Professionnels : comment valoriser une cave à vins dans un dossier <span class="badge-pilier">Guide</span></h3>
-                    <p>Notaires, avocats, CGP, experts-comptables — méthodes, obligations et outils pour intégrer une estimation fiable de cave à vins dans vos dossiers professionnels.</p>
-                    <span class="read-more">
-                        Lire l'article
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </span>
-                </a>
-
-                <a href="article-notaires-evaluer-cave-succession.html" class="article-card">
-                    <p class="article-date">Avril 2026</p>
-                    <h3>Notaires : comment évaluer une cave à vins dans une succession</h3>
-                    <p>Statut fiscal des bouteilles, forfait mobilier, rapport d'estimation opposable — tout ce qu'un notaire doit savoir pour valoriser une cave en succession.</p>
-                    <span class="read-more">
-                        Lire l'article
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </span>
-                </a>
+                <div class="carousel">
+                    <button class="carousel-arrow carousel-prev" aria-label="Précédent">&#8249;</button>
+                    <div class="carousel-track">
+                        <a href="professionnels.html" class="article-card guide">
+                            <p class="article-date">Avril 2026</p>
+                            <h3>Professionnels : comment valoriser une cave à vins dans un dossier <span class="badge-pilier">Guide</span></h3>
+                            <p>Notaires, avocats, CGP, experts-comptables — méthodes, obligations et outils pour intégrer une estimation fiable de cave à vins dans vos dossiers professionnels.</p>
+                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+                        </a>
+                        <a href="article-notaires-evaluer-cave-succession.html" class="article-card">
+                            <p class="article-date">Avril 2026</p>
+                            <h3>Notaires : comment évaluer une cave à vins dans une succession</h3>
+                            <p>Statut fiscal des bouteilles, forfait mobilier, rapport d'estimation opposable — tout ce qu'un notaire doit savoir pour valoriser une cave en succession.</p>
+                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+                        </a>
+                    </div>
+                    <button class="carousel-arrow carousel-next" aria-label="Suivant">&#8250;</button>
+                </div>
+                <div class="carousel-dots"></div>
             </div>
 
         </div>
@@ -639,6 +706,85 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
     <script>
     // Back to top
     (function(){var b=document.getElementById('btt');window.addEventListener('scroll',function(){if(window.scrollY>300){b.style.opacity='1';b.style.visibility='visible'}else{b.style.opacity='0';b.style.visibility='hidden'}});b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})})})();
+
+    // Carousel logic
+    document.querySelectorAll('.carousel').forEach(function(carousel) {
+        var track = carousel.querySelector('.carousel-track');
+        var prevBtn = carousel.querySelector('.carousel-prev');
+        var nextBtn = carousel.querySelector('.carousel-next');
+        var dotsContainer = carousel.nextElementSibling;
+        var cards = track.querySelectorAll('.article-card');
+        var cardCount = cards.length;
+
+        // Generate dots
+        if (dotsContainer && dotsContainer.classList.contains('carousel-dots')) {
+            dotsContainer.innerHTML = '';
+            for (var i = 0; i < cardCount; i++) {
+                var dot = document.createElement('button');
+                dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+                dot.setAttribute('aria-label', 'Aller à l\'article ' + (i + 1));
+                dot.setAttribute('data-index', i);
+                dotsContainer.appendChild(dot);
+            }
+
+            // Dot click
+            dotsContainer.addEventListener('click', function(e) {
+                var dot = e.target.closest('.carousel-dot');
+                if (!dot) return;
+                var idx = parseInt(dot.getAttribute('data-index'));
+                var card = cards[idx];
+                if (card) {
+                    track.scrollTo({ left: card.offsetLeft - track.offsetLeft, behavior: 'smooth' });
+                }
+            });
+        }
+
+        // Arrow clicks
+        function getScrollAmount() {
+            if (!cards[0]) return 300;
+            var style = getComputedStyle(track);
+            var gap = parseFloat(style.gap) || 20;
+            return cards[0].offsetWidth + gap;
+        }
+
+        prevBtn.addEventListener('click', function() {
+            track.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+        });
+
+        nextBtn.addEventListener('click', function() {
+            track.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+        });
+
+        // Update arrows & dots on scroll
+        function updateState() {
+            var scrollLeft = track.scrollLeft;
+            var maxScroll = track.scrollWidth - track.clientWidth;
+
+            prevBtn.disabled = scrollLeft <= 2;
+            nextBtn.disabled = scrollLeft >= maxScroll - 2;
+
+            // Find active card
+            if (!dotsContainer) return;
+            var dots = dotsContainer.querySelectorAll('.carousel-dot');
+            var trackLeft = track.getBoundingClientRect().left;
+            var activeIdx = 0;
+            for (var i = 0; i < cards.length; i++) {
+                var cardLeft = cards[i].getBoundingClientRect().left - trackLeft;
+                if (cardLeft >= -10) { activeIdx = i; break; }
+            }
+            dots.forEach(function(d, j) {
+                d.classList.toggle('active', j === activeIdx);
+            });
+        }
+
+        track.addEventListener('scroll', updateState);
+        updateState();
+
+        // Recalculate on resize
+        window.addEventListener('resize', function() {
+            updateState();
+        });
+    });
 
     // Tabs filtering
     document.querySelectorAll('.tab-btn').forEach(function(btn) {
