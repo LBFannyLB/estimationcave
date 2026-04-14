@@ -521,8 +521,8 @@ a:hover { color: var(--bordeaux); }
     border-radius: 4px !important;
     font-family: var(--font-body) !important;
     font-weight: 600 !important;
-    font-size: 0.78rem !important;
-    padding: 0.45rem 1rem !important;
+    font-size: 0.72rem !important;
+    padding: 0.3rem 0.8rem !important;
     cursor: pointer !important;
     transition: background 0.25s ease !important;
 }
@@ -541,8 +541,8 @@ a:hover { color: var(--bordeaux); }
     border-radius: 4px !important;
     font-family: var(--font-body) !important;
     font-weight: 500 !important;
-    font-size: 0.78rem !important;
-    padding: 0.45rem 1rem !important;
+    font-size: 0.72rem !important;
+    padding: 0.3rem 0.8rem !important;
     cursor: pointer !important;
     transition: border-color 0.25s ease, color 0.25s ease !important;
 }
