@@ -534,17 +534,18 @@ a:hover { color: var(--bordeaux); }
 
 /* Bouton Refuser */
 #tarteaucitronRoot #tarteaucitronAllDenied,
+#tarteaucitronRoot #tarteaucitronAllDenied2,
 #tarteaucitronRoot #tarteaucitronCloseAlert {
-    background: transparent !important;
-    color: var(--fond) !important;
-    border: 1px solid rgba(250, 246, 240, 0.3) !important;
+    background: rgba(250, 246, 240, 0.15) !important;
+    color: #FFFFFF !important;
+    border: 1px solid rgba(250, 246, 240, 0.5) !important;
     border-radius: 4px !important;
     font-family: var(--font-body) !important;
-    font-weight: 500 !important;
+    font-weight: 600 !important;
     font-size: 0.72rem !important;
     padding: 0.3rem 0.8rem !important;
     cursor: pointer !important;
-    transition: border-color 0.25s ease, color 0.25s ease !important;
+    transition: border-color 0.25s ease, background 0.25s ease !important;
 }
 
 #tarteaucitronRoot #tarteaucitronAllDenied:hover,
