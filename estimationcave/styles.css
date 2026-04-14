@@ -598,11 +598,14 @@ a:hover { color: var(--bordeaux); }
         margin-bottom: 0.4rem !important;
     }
 
-    #tarteaucitronRoot #tarteaucitronPrivacyUrl,
-    #tarteaucitronRoot #tarteaucitronPrivacyUrlDialog {
-        display: inline !important;
+    #tarteaucitronRoot #tarteaucitronAlertBig #tarteaucitronCloseAlert,
+    #tarteaucitronRoot #tarteaucitronAlertBig #tarteaucitronPrivacyUrl,
+    #tarteaucitronRoot #tarteaucitronAlertBig #tarteaucitronPrivacyUrlDialog {
+        display: inline-block !important;
         font-size: 0.62rem !important;
-        margin: 0 0.3rem !important;
+        margin: 0.15rem 0.25rem !important;
+        padding: 0.2rem 0.5rem !important;
+        width: auto !important;
     }
 }
 
