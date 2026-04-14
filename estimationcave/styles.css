@@ -562,17 +562,9 @@ a:hover { color: var(--bordeaux); }
     font-size: 0.8rem !important;
 }
 
-/* Icône flottante en bas à droite */
+/* Icône flottante masquée */
 #tarteaucitronRoot #tarteaucitronIcon {
-    background: var(--bordeaux) !important;
-    border: 1px solid var(--or) !important;
-    border-radius: 50% !important;
-    box-shadow: 0 2px 12px rgba(45, 27, 46, 0.25) !important;
-}
-
-#tarteaucitronRoot #tarteaucitronIcon #tarteaucitronManager {
-    color: var(--or) !important;
-    font-family: var(--font-body) !important;
+    display: none !important;
 }
 
 /* Panel détaillé (liste des services) */
