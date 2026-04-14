@@ -1109,6 +1109,19 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
     .missions-header {
       text-align: left;
       margin-bottom: 3.5rem;
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .missions-header-text {
+      flex: 1;
+    }
+
+    .missions-header-illustration img {
+      height: 240px;
+      width: auto;
+      flex-shrink: 0;
     }
 
     .missions-header .ornament-dots {
@@ -1118,6 +1131,19 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
 
     .missions-header .section-subtitle {
       margin: 1rem 0 0;
+    }
+
+    @media (max-width: 600px) {
+      .missions-header {
+        flex-direction: column;
+        text-align: center;
+      }
+      .missions-header .ornament-dots {
+        justify-content: center;
+      }
+      .missions-header-illustration img {
+        height: 180px;
+      }
     }
 
     .missions-list {
@@ -1713,10 +1739,13 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
   <section class="missions">
     <div class="container">
       <div class="missions-header">
-        <p class="section-label">Aller plus loin</p>
-        <h2>Missions complémentaires</h2>
-        <div class="ornament-dots"><span></span></div>
-        <p class="section-subtitle">Ce rapport peut être complété par des missions d'accompagnement sur mesure, selon vos besoins et l'évolution de votre projet, sur devis personnalisé.</p>
+        <div class="missions-header-text">
+          <p class="section-label">Aller plus loin</p>
+          <h2>Missions complémentaires</h2>
+          <div class="ornament-dots"><span></span></div>
+          <p class="section-subtitle">Ce rapport peut être complété par des missions d'accompagnement sur mesure, selon vos besoins et l'évolution de votre projet, sur devis personnalisé.</p>
+        </div>
+        <div class="missions-header-illustration"><img src="cavevin.png" alt="Illustration cave à vins" loading="lazy"></div>
       </div>
       <div class="missions-list">
         <div class="mission-item">
