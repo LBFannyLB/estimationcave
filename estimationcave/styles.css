@@ -565,7 +565,7 @@ a:hover { color: var(--bordeaux); }
 /* Bandeau mobile */
 @media (max-width: 600px) {
     #tarteaucitronRoot #tarteaucitronAlertBig {
-        padding: 0.8rem 1rem !important;
+        padding: 0.6rem 0.75rem !important;
         box-sizing: border-box !important;
         max-width: 100% !important;
         left: 0 !important;
@@ -573,39 +573,38 @@ a:hover { color: var(--bordeaux); }
         width: 100% !important;
         margin: 0 !important;
         text-align: center !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
     }
 
     #tarteaucitronRoot #tarteaucitronAlertBig #tarteaucitronDisclaimerAlert,
     #tarteaucitronRoot #tarteaucitronAlertBig #tarteaucitronDisclaimerAlert strong {
-        font-size: 0.72rem !important;
+        font-size: 0.68rem !important;
         text-align: center !important;
+        display: block !important;
+        margin-bottom: 0.3rem !important;
     }
 
     #tarteaucitronRoot #tarteaucitronPersonalize,
     #tarteaucitronRoot #tarteaucitronAllAllowed,
+    #tarteaucitronRoot #tarteaucitronPersonalize2,
     #tarteaucitronRoot #tarteaucitronAllDenied,
-    #tarteaucitronRoot #tarteaucitronCloseAlert {
+    #tarteaucitronRoot #tarteaucitronAllDenied2 {
         font-size: 0.65rem !important;
-        padding: 0.3rem 0.8rem !important;
-        margin: 0.2rem !important;
-    }
-
-    #tarteaucitronRoot #tarteaucitronAlertBig #tarteaucitronDisclaimerAlert {
-        width: 100% !important;
-        margin-bottom: 0.4rem !important;
+        padding: 0.25rem 0.7rem !important;
+        margin: 0.15rem 0.2rem !important;
+        display: inline-block !important;
+        width: auto !important;
     }
 
     #tarteaucitronRoot #tarteaucitronAlertBig #tarteaucitronCloseAlert,
     #tarteaucitronRoot #tarteaucitronAlertBig #tarteaucitronPrivacyUrl,
-    #tarteaucitronRoot #tarteaucitronAlertBig #tarteaucitronPrivacyUrlDialog {
-        display: inline-block !important;
-        font-size: 0.62rem !important;
-        margin: 0.15rem 0.25rem !important;
-        padding: 0.2rem 0.5rem !important;
+    #tarteaucitronRoot #tarteaucitronAlertBig #tarteaucitronPrivacyUrlDialog,
+    #tarteaucitronRoot #tarteaucitronAlertBig a#tarteaucitronPrivacyUrl {
+        display: inline !important;
+        font-size: 0.6rem !important;
+        margin: 0 0.2rem !important;
+        padding: 0.2rem 0.4rem !important;
         width: auto !important;
+        white-space: nowrap !important;
     }
 }
 
