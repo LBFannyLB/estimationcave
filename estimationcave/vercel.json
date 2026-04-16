@@ -9,6 +9,11 @@
       "source": "/index_1.html",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/article-:slug([^.]+)",
+      "destination": "/article-:slug.html",
+      "permanent": true
     }
   ]
 }
