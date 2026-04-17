@@ -1,0 +1,14 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Editors / tooling
+.claude/
+
+# Données clients — ne pas publier
+estimationcave/rapports/
+estimationcave/skills/
+
+# Fichiers locaux
+estimationcave/cover_logo.png
+estimationcave/Audit et estimation de cave - EXEMPLE - EST-EXEMPLE - Avril 2026.pdf

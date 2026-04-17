@@ -345,6 +345,16 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       gap: 2rem;
     }
 
+    .situations-4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @media (max-width: 1100px) {
+      .situations-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
     .situation-card {
       background: var(--blanc);
       border: 1px solid var(--border);
@@ -881,6 +891,52 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       font-size: 1.4rem;
     }
 
+    .engagements-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+      max-width: 1000px;
+      margin: 2.5rem auto 0;
+    }
+
+    .engagement-block {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      border: 1px solid rgba(197, 162, 88, 0.25);
+      border-radius: 6px;
+      background: rgba(250, 246, 240, 0.03);
+    }
+
+    .engagement-block h3 {
+      color: var(--fond);
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .engagement-block p {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    .engagement-icon {
+      width: 48px;
+      height: 48px;
+      border: 1.5px solid rgba(197, 162, 88, 0.4);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.25rem;
+    }
+
+    @media (max-width: 800px) {
+      .engagements-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+    }
+
     /* ══════════════════════════════════
        8b. GARANTIES
     ══════════════════════════════════ */
@@ -1355,7 +1411,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
         <div class="hero-text">
           <p class="section-label">Audit &amp; estimation de cave à vins</p>
           <h1>Que vaut réellement votre cave à vins&nbsp;?</h1>
-          <p class="hero-subtitle">Recevez un diagnostic clair, complet et structuré pour vous aider à prendre une décision sereinement : pour vendre au bon moment, garder ce qui a de la valeur, et ne rien regretter.</p>
+          <p class="hero-subtitle">Recevez un audit indépendant de votre cave : valeur réelle de chaque bouteille, recommandations garder ou vendre, et plan d'action concret — pour vendre au bon moment, garder ce qui a de la valeur, et ne rien regretter.</p>
           <a href="#formulaire" class="btn btn-primary">Demander un audit — 149&thinsp;€</a>
           <span class="hero-mention">
             Livraison sous 5 jours ouvrés <span>·</span> 100% à distance <span>·</span> Strictement confidentiel
@@ -1423,6 +1479,64 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
           </div>
           <h3>Inventaire personnel</h3>
           <p>Vous possédez une cave constituée au fil des années et vous souhaitez faire un point sérieux sur sa valeur, son état général et les meilleures décisions à prendre.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════ 3b. POURQUOI NOUS FAIRE CONFIANCE ════════════ -->
+  <section class="probleme">
+    <div class="container">
+      <div class="probleme-header">
+        <p class="section-label">Pourquoi nous faire confiance</p>
+        <h2>Une estimation neutre, dans votre seul intérêt</h2>
+        <span class="ornament-long"></span>
+      </div>
+      <div class="situations situations-4">
+        <div class="situation-card">
+          <div class="situation-icon">
+            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 5v26" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round"/>
+              <path d="M8 10h20" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round"/>
+              <path d="M8 10l-3 10h6l-3-10zM28 10l-3 10h6l-3-10z" stroke="#C5A258" stroke-width="1.2" stroke-linejoin="round"/>
+              <path d="M13 31h10" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Indépendance totale</h3>
+          <p>Nous ne rachetons pas vos bouteilles et ne travaillons pour aucune maison de ventes. Notre estimation est neutre — nous n'avons aucun intérêt financier dans vos décisions.</p>
+        </div>
+        <div class="situation-card">
+          <div class="situation-icon">
+            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 5h16v10a8 8 0 01-16 0V5z" stroke="#C5A258" stroke-width="1.2" stroke-linejoin="round"/>
+              <path d="M10 8H6v3a4 4 0 004 4M26 8h4v3a4 4 0 01-4 4" stroke="#C5A258" stroke-width="1.2" stroke-linejoin="round"/>
+              <path d="M18 23v5M13 31h10" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Expertise enchères</h3>
+          <p>Plus de 6 ans d'expérience chez iDealwine, première maison de ventes aux enchères de vin en Europe. Certification WSET 3 avec distinction.</p>
+        </div>
+        <div class="situation-card">
+          <div class="situation-icon">
+            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="18" cy="18" r="13" stroke="#C5A258" stroke-width="1.2"/>
+              <path d="M18 10v16M22 13h-6a2.5 2.5 0 000 5h4a2.5 2.5 0 010 5h-6" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Prix fixe et transparent</h3>
+          <p>149€ pour un rapport complet. Pas de devis opaque, pas de frais cachés, pas de commission sur vos ventes futures.</p>
+        </div>
+        <div class="situation-card">
+          <div class="situation-icon">
+            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="10" y="3" width="16" height="30" rx="2" stroke="#C5A258" stroke-width="1.2"/>
+              <path d="M10 8h16M10 27h16" stroke="#C5A258" stroke-width="1.2"/>
+              <circle cx="18" cy="30" r="1" fill="#C5A258"/>
+            </svg>
+          </div>
+          <h3>100% à distance</h3>
+          <p>Un smartphone suffit. Pas de rendez-vous, pas de déplacement, pas d'attente. Votre rapport livré par email sous 5 jours.</p>
         </div>
       </div>
     </div>
@@ -1629,6 +1743,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
         <div class="tarif-prix">149&thinsp;€</div>
         <p class="tarif-prix-label">Rapport d'audit et d'estimation complet</p>
         <div class="tarif-features">
+          <div class="tarif-feature"><div class="dot"></div>Estimation indépendante — aucun conflit d'intérêt</div>
           <div class="tarif-feature"><div class="dot"></div>Inventaire détaillé de chaque référence</div>
           <div class="tarif-feature"><div class="dot"></div>Estimation de la valeur de marché</div>
           <div class="tarif-feature"><div class="dot"></div>Recommandations par lot (à vendre, à conserver, à surveiller)</div>
@@ -1649,11 +1764,21 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
   <section class="confidentialite">
     <div class="container">
       <div class="confidentialite-inner">
-        <div class="confidentialite-icon"><svg width="32" height="32" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 4L6 10v8c0 7.2 5.1 13.9 12 16 6.9-2.1 12-8.8 12-16v-8L18 4z" stroke="#C5A258" stroke-width="1.5" stroke-linejoin="round"/><path d="M13 18l3.5 3.5L23 15" stroke="#C5A258" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <p class="section-label" style="color: var(--or);">Engagement</p>
-        <h2>Votre cave reste votre secret</h2>
+        <h2>Nos engagements</h2>
         <span class="ornament-diamond"></span>
-        <p>Toutes les informations transmises sont traitées avec une confidentialité absolue. Vos données ne sont jamais partagées, revendues ou utilisées à d'autres fins que votre mission d'estimation. Confidentialité réciproque garantie par contrat.</p>
+      </div>
+      <div class="engagements-grid">
+        <div class="engagement-block">
+          <div class="engagement-icon"><svg width="28" height="28" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 4L6 10v8c0 7.2 5.1 13.9 12 16 6.9-2.1 12-8.8 12-16v-8L18 4z" stroke="#C5A258" stroke-width="1.5" stroke-linejoin="round"/><path d="M13 18l3.5 3.5L23 15" stroke="#C5A258" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3>Confidentialité absolue</h3>
+          <p>Toutes les informations transmises sont traitées avec une confidentialité absolue. Vos données ne sont jamais partagées, revendues ou utilisées à d'autres fins que votre mission d'estimation. Confidentialité réciproque garantie par contrat.</p>
+        </div>
+        <div class="engagement-block">
+          <div class="engagement-icon"><svg width="28" height="28" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 5v26" stroke="#C5A258" stroke-width="1.5" stroke-linecap="round"/><path d="M8 10h20" stroke="#C5A258" stroke-width="1.5" stroke-linecap="round"/><path d="M8 10l-3 10h6l-3-10zM28 10l-3 10h6l-3-10z" stroke="#C5A258" stroke-width="1.5" stroke-linejoin="round"/><path d="M13 31h10" stroke="#C5A258" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+          <h3>Indépendance garantie</h3>
+          <p>Estimation Cave est un service d'expertise indépendant. Nous ne rachetons pas de vins, nous ne travaillons pas pour une maison de ventes, et nous n'avons aucun intérêt financier dans les décisions que vous prendrez après réception du rapport. Nos recommandations sont établies dans votre seul intérêt.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -1830,7 +1955,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
     <div class="footer-grid">
       <div class="footer-col">
         <div class="footer-logo">estimation<span>cave</span>.com</div>
-        <p class="footer-tagline">Audit et estimation de cave à vins à distance.</p>
+        <p class="footer-tagline">Audit et estimation indépendante de cave à vins à distance.</p>
         <a href="mailto:contact@estimationcave.com" class="footer-email">contact@estimationcave.com</a>
       </div>
       <div class="footer-col">
