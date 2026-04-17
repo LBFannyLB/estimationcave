@@ -501,6 +501,27 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
     .rapport-header {
       text-align: left;
       margin-bottom: 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+    }
+
+    .rapport-header-text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .rapport-header-illustration {
+      flex: 0 0 auto;
+      width: 240px;
+      max-width: 30%;
+    }
+
+    .rapport-header-illustration img {
+      width: 100%;
+      height: auto;
+      display: block;
     }
 
     .rapport-header .ornament-long {
@@ -509,6 +530,18 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
 
     .rapport-header .section-subtitle {
       margin: 1rem 0 0;
+    }
+
+    @media (max-width: 800px) {
+      .rapport-header {
+        flex-direction: column;
+        gap: 2rem;
+      }
+      .rapport-header-illustration {
+        width: 180px;
+        max-width: 60%;
+        align-self: center;
+      }
     }
 
     /* ── CAROUSEL RAPPORT ── */
@@ -1618,10 +1651,15 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
   <section class="rapport-apercu">
     <div class="container">
       <div class="rapport-header">
-        <p class="section-label">Aperçu</p>
-        <h2>Ce que contient votre rapport</h2>
-        <span class="ornament-long"></span>
-        <p class="section-subtitle">Un document d'une dizaine de pages, structuré, lisible et directement actionnable.</p>
+        <div class="rapport-header-text">
+          <p class="section-label">Aperçu</p>
+          <h2>Ce que contient votre rapport</h2>
+          <span class="ornament-long"></span>
+          <p class="section-subtitle">Un document d'une dizaine de pages, structuré, lisible et directement actionnable.</p>
+        </div>
+        <div class="rapport-header-illustration">
+          <img src="boxbois.png" alt="Caisse de vins en bois" loading="lazy">
+        </div>
       </div>
       <div class="carousel-wrapper" id="rapport-carousel">
         <div class="carousel-track">
