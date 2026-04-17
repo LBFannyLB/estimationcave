@@ -364,6 +364,42 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       background: var(--fond);
     }
 
+    .confiance .probleme-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+    }
+
+    .confiance-header-text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .confiance-header-illustration {
+      flex: 0 0 auto;
+      width: 240px;
+      max-width: 30%;
+    }
+
+    .confiance-header-illustration img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    @media (max-width: 800px) {
+      .confiance .probleme-header {
+        flex-direction: column;
+        gap: 2rem;
+      }
+      .confiance-header-illustration {
+        width: 180px;
+        max-width: 60%;
+        align-self: center;
+      }
+    }
+
     .situation-card {
       background: var(--blanc);
       border: 1px solid var(--border);
@@ -1499,9 +1535,14 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
   <section class="probleme confiance">
     <div class="container">
       <div class="probleme-header">
-        <p class="section-label">Pourquoi nous faire confiance</p>
-        <h2>Une estimation neutre, dans votre seul intérêt</h2>
-        <span class="ornament-long"></span>
+        <div class="confiance-header-text">
+          <p class="section-label">Pourquoi nous faire confiance</p>
+          <h2>Une estimation neutre, dans votre seul intérêt</h2>
+          <span class="ornament-long"></span>
+        </div>
+        <div class="confiance-header-illustration">
+          <img src="boxbois.png" alt="Caisse de vins en bois" loading="lazy">
+        </div>
       </div>
       <div class="situations situations-4">
         <div class="situation-card">
