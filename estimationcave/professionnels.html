@@ -210,6 +210,114 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             margin-bottom: 0.4rem;
         }
 
+        /* ── TABLE ── */
+        .article-body table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 1.75rem 0;
+            font-size: 0.92rem;
+            background: var(--blanc);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(45, 27, 46, 0.04);
+            border: 1px solid var(--border);
+        }
+        .article-body table thead th {
+            background: var(--bordeaux);
+            color: var(--blanc);
+            font-family: var(--font-display);
+            font-size: 0.92rem;
+            font-weight: 600;
+            padding: 0.9rem 1rem;
+            text-align: left;
+            letter-spacing: 0.01em;
+            border: none;
+        }
+        .article-body table thead th:first-child {
+            border-top-left-radius: 8px;
+        }
+        .article-body table thead th:last-child {
+            border-top-right-radius: 8px;
+        }
+        .article-body table tbody td {
+            padding: 0.85rem 1rem;
+            border-top: 1px solid var(--border);
+            vertical-align: top;
+            line-height: 1.6;
+            color: var(--texte);
+            text-align: left;
+        }
+        .article-body table tbody tr:nth-child(even) td {
+            background: var(--fond);
+        }
+        .article-body table tbody td:first-child {
+            font-family: var(--font-display);
+            font-size: 1.02rem;
+            font-weight: 600;
+            color: var(--bordeaux);
+            white-space: nowrap;
+            border-left: 3px solid var(--or);
+        }
+        .article-body table tbody tr:hover td {
+            background: rgba(197, 162, 88, 0.06);
+        }
+        @media (max-width: 700px) {
+            .article-body table,
+            .article-body table thead,
+            .article-body table tbody,
+            .article-body table tr,
+            .article-body table th,
+            .article-body table td {
+                display: block;
+                width: 100%;
+            }
+            .article-body table thead { display: none; }
+            .article-body table {
+                border: none;
+                box-shadow: none;
+                background: transparent;
+                overflow: visible;
+            }
+            .article-body table tbody tr {
+                background: var(--blanc);
+                border: 1px solid var(--border);
+                border-radius: 8px;
+                margin-bottom: 1rem;
+                padding: 1rem 1.1rem;
+                box-shadow: 0 1px 3px rgba(45, 27, 46, 0.04);
+            }
+            .article-body table tbody tr:nth-child(even) td {
+                background: transparent;
+            }
+            .article-body table tbody td {
+                border: none;
+                padding: 0.25rem 0;
+            }
+            .article-body table tbody td:first-child {
+                font-family: var(--font-display);
+                font-size: 1.1rem;
+                font-weight: 600;
+                color: var(--bordeaux);
+                white-space: normal;
+                border-left: none;
+                padding-bottom: 0.5rem;
+                margin-bottom: 0.5rem;
+                border-bottom: 1px solid var(--or);
+            }
+            .article-body table tbody td:not(:first-child)::before {
+                content: attr(data-label);
+                display: block;
+                font-size: 0.7rem;
+                font-weight: 600;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+                color: var(--or);
+                margin-top: 0.5rem;
+                margin-bottom: 0.2rem;
+            }
+        }
+
         /* ── SECTION DIVIDERS ── */
         .section-divider {
             display: block;
@@ -879,33 +987,33 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
                 <tbody>
                     <tr>
                         <td>Notaire</td>
-                        <td>Succession avec cave à vins</td>
-                        <td>Valeur opposable pour la déclaration, base de partage entre héritiers</td>
+                        <td data-label="Cas d'usage typique">Succession avec cave à vins</td>
+                        <td data-label="Ce que le rapport apporte">Valeur opposable pour la déclaration, base de partage entre héritiers</td>
                     </tr>
                     <tr>
                         <td>Avocat succession</td>
-                        <td>Litige entre héritiers sur la valeur</td>
-                        <td>Chiffrage neutre et documenté par un tiers indépendant</td>
+                        <td data-label="Cas d'usage typique">Litige entre héritiers sur la valeur</td>
+                        <td data-label="Ce que le rapport apporte">Chiffrage neutre et documenté par un tiers indépendant</td>
                     </tr>
                     <tr>
                         <td>Avocat droit de la famille</td>
-                        <td>Divorce, liquidation de régime</td>
-                        <td>Valorisation de l'actif cave dans la masse à partager</td>
+                        <td data-label="Cas d'usage typique">Divorce, liquidation de régime</td>
+                        <td data-label="Ce que le rapport apporte">Valorisation de l'actif cave dans la masse à partager</td>
                     </tr>
                     <tr>
                         <td>Avocat fiscaliste</td>
-                        <td>IFI, donation, optimisation</td>
-                        <td>Valeur de marché défendable auprès de l'administration fiscale</td>
+                        <td data-label="Cas d'usage typique">IFI, donation, optimisation</td>
+                        <td data-label="Ce que le rapport apporte">Valeur de marché défendable auprès de l'administration fiscale</td>
                     </tr>
                     <tr>
                         <td>CGP</td>
-                        <td>Bilan patrimonial global</td>
-                        <td>Intégration d'un actif non financier dans la stratégie patrimoniale</td>
+                        <td data-label="Cas d'usage typique">Bilan patrimonial global</td>
+                        <td data-label="Ce que le rapport apporte">Intégration d'un actif non financier dans la stratégie patrimoniale</td>
                     </tr>
                     <tr>
                         <td>Expert-comptable</td>
-                        <td>Valorisation d'actifs d'entreprise</td>
-                        <td>Estimation pour bilan, cession, ou apport en société</td>
+                        <td data-label="Cas d'usage typique">Valorisation d'actifs d'entreprise</td>
+                        <td data-label="Ce que le rapport apporte">Estimation pour bilan, cession, ou apport en société</td>
                     </tr>
                 </tbody>
             </table>
