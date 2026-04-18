@@ -1032,6 +1032,79 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
     }
 
     /* ══════════════════════════════════
+       8b. TÉMOIGNAGES
+    ══════════════════════════════════ */
+    .temoignages {
+      padding: 5rem 0;
+      background: var(--fond-alt);
+    }
+
+    .temoignages-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .temoignages-list {
+      max-width: 700px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .temoignage {
+      position: relative;
+      background: var(--blanc);
+      border-left: 3px solid var(--or);
+      border-radius: 4px;
+      padding: 3rem 2.5rem 2rem;
+      box-shadow: 0 4px 20px rgba(45, 27, 46, 0.04);
+    }
+
+    .temoignage::before {
+      content: '\00AB';
+      position: absolute;
+      top: 0.5rem;
+      left: 1.5rem;
+      font-family: var(--font-display);
+      font-size: 4.5rem;
+      line-height: 1;
+      color: var(--or);
+      opacity: 0.25;
+      pointer-events: none;
+    }
+
+    .temoignage-citation {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.15rem;
+      line-height: 1.7;
+      color: var(--texte);
+      margin: 0 0 1.25rem;
+    }
+
+    .temoignage-attribution {
+      font-family: var(--font-body);
+      font-style: normal;
+      font-size: 0.9rem;
+      color: var(--texte-light);
+      margin: 0;
+    }
+
+    @media (max-width: 600px) {
+      .temoignage {
+        padding: 2.5rem 1.5rem 1.75rem;
+      }
+      .temoignage::before {
+        font-size: 3.5rem;
+        left: 1rem;
+      }
+      .temoignage-citation {
+        font-size: 1.05rem;
+      }
+    }
+
+    /* ══════════════════════════════════
        9. FORMULAIRE
     ══════════════════════════════════ */
     .formulaire {
@@ -1828,6 +1901,24 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
           <h3>Indépendance garantie</h3>
           <p>Estimation Cave est un service d'expertise indépendant. Nous ne rachetons pas de vins, nous ne travaillons pas pour une maison de ventes, et nous n'avons aucun intérêt financier dans les décisions que vous prendrez après réception du rapport. Nos recommandations sont établies dans votre seul intérêt.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════ 8b. TÉMOIGNAGES ════════════ -->
+  <section class="temoignages">
+    <div class="container">
+      <div class="temoignages-header">
+        <p class="section-label">Témoignages</p>
+        <h2>Ce qu'en pensent nos clients</h2>
+        <span class="ornament-diamond"></span>
+      </div>
+      <div class="temoignages-list">
+        <blockquote class="temoignage">
+          <p class="temoignage-citation">C'est une belle analyse, le document est bien complet autant sur la particularité de chaque bouteille que sur la tendance de marché actuelle. Ce document met en avant les points forts de la cave et offre un visuel plus précis sur la meilleure stratégie à adopter pour optimiser la vente.</p>
+          <p class="temoignage-attribution">— Simon, collectionneur, vente partielle de cave</p>
+        </blockquote>
       </div>
     </div>
   </section>
