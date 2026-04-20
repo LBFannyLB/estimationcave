@@ -104,16 +104,16 @@ a:hover { color: var(--bordeaux); }
     text-decoration: none;
     display: inline-flex;
     align-items: center;
-    gap: 0.55rem;
 }
 .nav-logo span { color: var(--or); }
 .nav-logo-img {
-    height: 48px;
+    height: 64px;
     width: auto;
     display: block;
+    margin-right: 0.55rem;
 }
 @media (max-width: 768px) {
-    .nav-logo-img { height: 40px; }
+    .nav-logo-img { height: 52px; }
 }
 
 .nav-right {
