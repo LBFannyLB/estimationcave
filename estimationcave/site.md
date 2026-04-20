@@ -5,7 +5,7 @@
 > - **Claude Code** (CLI dans le repo) — via `CLAUDE.md` qui le référence
 > - **Claude Chat** (application desktop/web) — à copier-coller au début d'une conversation pour transmettre le contexte projet
 >
-> **Dernière mise à jour : 20 avril 2026** (maillage SEO : template Excel, comparatif estimation, breadcrumbs, Blog schema ; ajout de 6 nouveaux articles dans les silos Cotes, Héritage et Gérer)
+> **Dernière mise à jour : 20 avril 2026** (branding : nouveau favicon + logo image grappe dorée dans le header ; illustration "Missions complémentaires" remplacée par route-grand-cru.png ; footer Guides complété avec le pilier "Cotes & marché" sur les 40 fichiers concernés)
 
 ---
 
@@ -107,6 +107,10 @@ Configuré dans `vercel.json` :
 - **Titres :** `Cormorant Garamond` (Google Fonts, variable `--font-display`)
 - **Corps :** `DM Sans` (Google Fonts, variable `--font-body`)
 - Hiérarchie : H1 2.6rem max (clamp), H2 1.55rem, H3 1.2rem, corps 1rem line-height 1.85
+
+### Identité visuelle
+- **Favicon** : grappe dorée détourée (`favicon.svg`, `favicon-32x32.png`, `apple-touch-icon.png`) — source `grappe-doree.png`
+- **Logo header** : `<img class="nav-logo-img" src="grappe-doree.png">` à gauche du wordmark (64 px desktop, 52 px mobile, fond transparent). Le wordmark est wrappé dans `<span class="nav-logo-text">` pour éviter l'éclatement en flex items multiples.
 
 ### Composants réutilisables
 | Composant | Classe CSS | Usage |
@@ -248,9 +252,11 @@ Pas de Conventional Commits strict, mais garder une ligne claire et explicite.
 ### Fichiers à ne jamais toucher sans raison
 - `vercel.json` (sauf ajout d'une nouvelle page pilier courte)
 - `robots.txt`
-- `site.webmanifest`, favicons
+- `site.webmanifest`
 - `googlea7875a85f9e9f0aa.html` (vérification Google Search Console)
 - Images du `/rapports/` (illustrations produit)
+
+Les favicons (`favicon.svg`, `favicon-32x32.png`, `apple-touch-icon.png`) peuvent être modifiés si l'identité visuelle évolue — garder les mêmes noms de fichiers pour éviter d'éditer toutes les balises `<link>` des 43 pages.
 
 ---
 
