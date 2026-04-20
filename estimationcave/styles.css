@@ -102,8 +102,19 @@ a:hover { color: var(--bordeaux); }
     font-weight: 600;
     color: var(--bordeaux);
     text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
 }
 .nav-logo span { color: var(--or); }
+.nav-logo-img {
+    height: 36px;
+    width: auto;
+    display: block;
+}
+@media (max-width: 768px) {
+    .nav-logo-img { height: 30px; }
+}
 
 .nav-right {
     display: flex;
