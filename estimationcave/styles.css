@@ -93,7 +93,7 @@ a:hover { color: var(--bordeaux); }
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 88px;
+    height: 72px;
 }
 
 .nav-logo {
@@ -108,13 +108,13 @@ a:hover { color: var(--bordeaux); }
 .nav-logo .nav-logo-text { color: var(--bordeaux); }
 .nav-logo .nav-logo-text span { color: var(--or); }
 .nav-logo-img {
-    height: 80px;
+    height: 64px;
     width: auto;
     display: block;
     margin-right: 0.55rem;
 }
 @media (max-width: 768px) {
-    .nav-logo-img { height: 64px; }
+    .nav-logo-img { height: 52px; }
 }
 
 .nav-right {
