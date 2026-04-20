@@ -111,6 +111,20 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             object-fit: cover;
         }
 
+        .about-illustration {
+            text-align: center;
+            margin: 0 auto 2.5rem;
+        }
+        .about-illustration img {
+            max-width: 280px;
+            width: 100%;
+            height: auto;
+            display: inline-block;
+        }
+        @media (max-width: 600px) {
+            .about-illustration img { max-width: 200px; }
+        }
+
         /* ── BODY ── */
         .about-body {
             padding: 1rem 0 4rem;
@@ -233,6 +247,10 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
 
     <main id="main" class="about-body">
         <div class="container">
+
+            <div class="about-illustration">
+                <img src="carnetvin.png" alt="Illustration carnet de cave" loading="lazy">
+            </div>
 
             <!-- Photo placeholder — activer quand disponible -->
             <div class="photo-placeholder">
