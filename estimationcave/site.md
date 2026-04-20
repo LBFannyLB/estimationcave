@@ -5,7 +5,7 @@
 > - **Claude Code** (CLI dans le repo) — via `CLAUDE.md` qui le référence
 > - **Claude Chat** (application desktop/web) — à copier-coller au début d'une conversation pour transmettre le contexte projet
 >
-> **Dernière mise à jour : 19 avril 2026** (refacto 6 silos, ajout silo Cotes & marché)
+> **Dernière mise à jour : 20 avril 2026** (maillage SEO : template Excel, comparatif estimation, breadcrumbs, Blog schema ; ajout de 6 nouveaux articles dans les silos Cotes, Héritage et Gérer)
 
 ---
 
@@ -71,15 +71,15 @@ Configuré dans `vercel.json` :
 
 | # | Silo | Page pilier | Fichier | Onglet blog | Articles satellites |
 |---|---|---|---|---|---|
-| 1 | Estimer sa cave | Guide estimation | `estimation.html` | 🔎 | 6 |
-| 2 | Cotes & marché | Guide cotes | `article-cotes-pilier.html` | 📊 | 2 |
-| 3 | Héritage & Succession | Guide héritage | `article-heritage-cave.html` | 📜 | 3 |
+| 1 | Estimer sa cave | Guide estimation | `estimation.html` | 🔎 | 5 |
+| 2 | Cotes & marché | Guide cotes | `article-cotes-pilier.html` | 📊 | 6 |
+| 3 | Héritage & Succession | Guide héritage | `article-heritage-cave.html` | 📜 | 4 |
 | 4 | Vendre ses vins | Guide vente | `vendre.html` | 💰 | 6 |
-| 5 | Gérer sa cave | Guide gestion | `gestion.html` | 🗂️ | 4 |
+| 5 | Gérer sa cave | Guide gestion | `gestion.html` | 🗂️ | 5 |
 | 6 | Professionnels | Guide pro | `professionnels.html` | ⚖️ | 2 |
 
-**Total articles satellites :** 23 (source de vérité : [`blog.html`](blog.html))
-**Total pages publiques HTML :** 31 (6 piliers + 23 satellites + accueil + blog + apropos + faq + confidentialite + mentions-legales + merci + 404)
+**Total articles satellites :** 28 (source de vérité : [`blog.html`](blog.html))
+**Total pages publiques HTML :** 37 (6 piliers + 28 satellites + accueil + blog + apropos + faq + confidentialite + mentions-legales + merci + 404)
 
 **NB :** Ne pas tenir à jour dans ce fichier la liste nominative des articles. Elle vit dans `blog.html` (section `.silo-section`) et dans `sitemap.xml`. La lister ici = risque de drift à chaque nouvel article.
 
@@ -199,16 +199,22 @@ Ces skills sont accessibles via le harness Claude Code. Claude Chat ne les a pas
 
 ## 8. Roadmap — articles à créer
 
-### Silo Cotes & marché (prioritaire — compléter le silo)
+### Silo Cotes & marché (à compléter)
+- [x] Faire estimer ses vins de la Vallée du Rhône (`article-estimer-vins-rhone.html`)
+- [x] Estimation de champagne : les bouteilles qui ont de la valeur (`article-estimation-champagne-valeur.html`)
 - [ ] Prix des grands crus de Bordeaux
 - [ ] Quels millésimes de Bordeaux valent le plus cher
-- [ ] Faire estimer ses vins de la Vallée du Rhône
-- [ ] Estimation de champagne : les bouteilles qui ont de la valeur
 - [ ] Cote des vins : comment lire et interpréter les prix du marché
 - [ ] Vins de Loire : lesquels ont une vraie valeur de revente
 - [ ] Estimer ses vins d'Alsace
 - [ ] Vins du Languedoc et du Sud-Ouest
 - [ ] Estimation de vins étrangers : Italie, Espagne, Nouveau Monde
+
+### Articles créés hors roadmap initiale (20 avril 2026)
+- [x] Comment la note Parker influence la cote d'un vin (`article-note-parker-cote-vin.html`) — Silo Cotes
+- [x] Vins bio et nature : ont-ils une cote sur le marché secondaire ? (`article-vins-bio-nature-cote.html`) — Silo Cotes
+- [x] Vider une cave après un décès : guide pratique étape par étape (`article-vider-cave-apres-deces.html`) — Silo Héritage
+- [x] Tableur Excel pour gérer sa cave à vins : template gratuit (`article-tableur-excel-gestion-cave.html`) — Silo Gérer
 
 ### Idées autres silos
 - (à remplir selon les priorités éditoriales)
