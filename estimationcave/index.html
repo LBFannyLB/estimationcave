@@ -78,6 +78,51 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
     }
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Audit et estimation de cave à vins",
+    "description": "Rapport professionnel d'audit et d'estimation de cave à vins à distance — valeur de marché, recommandations et plan d'action.",
+    "brand": {
+      "@type": "Brand",
+      "name": "estimationcave.com"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "149",
+      "priceCurrency": "EUR",
+      "availability": "https://schema.org/InStock"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "ratingCount": "3",
+      "reviewCount": "3"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": {"@type": "Person", "name": "Richard"},
+        "reviewRating": {"@type": "Rating", "ratingValue": "5"},
+        "reviewBody": "J'ai particulièrement apprécié la richesse et la qualité de votre analyse, qui va bien au-delà d'un simple inventaire. Cela pourrait devenir vraiment un bon livre de chevet !"
+      },
+      {
+        "@type": "Review",
+        "author": {"@type": "Person", "name": "Lionel"},
+        "reviewRating": {"@type": "Rating", "ratingValue": "5"},
+        "reviewBody": "Le rapport très complet m'a permis de segmenter ma cave et d'optimiser ma cave grâce aux conseils d'une professionnelle avisée."
+      },
+      {
+        "@type": "Review",
+        "author": {"@type": "Person", "name": "Simon"},
+        "reviewRating": {"@type": "Rating", "ratingValue": "5"},
+        "reviewBody": "C'est une belle analyse, le document est bien complet et offre un visuel plus précis sur la meilleure stratégie à adopter."
+      }
+    ]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -1920,41 +1965,231 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
         <h2>Ce qu'en pensent nos clients</h2>
         <span class="ornament-diamond"></span>
       </div>
-      <div class="temoignages-list">
-        <div style="display: flex; flex-direction: column; gap: 2rem; max-width: 800px; margin: 0 auto;">
+      <style>
+      .testimonial-carousel {
+        position: relative;
+        max-width: 700px;
+        margin: 0 auto;
+        min-height: 320px;
+        overflow: hidden;
+      }
 
-          <!-- Témoignage 1 — Richard -->
-          <div style="background: #FAF6F0; border-left: 4px solid #C5A258; padding: 1.5rem 2rem; border-radius: 4px;">
-            <div style="color: #C5A258; font-size: 1.2rem; margin-bottom: 0.5rem;">★★★★★</div>
-            <p style="font-style: italic; color: #2D1B2E; line-height: 1.7; margin-bottom: 0.75rem;">
-              « J'ai particulièrement apprécié la richesse et la qualité de votre analyse, qui va bien au-delà d'un simple inventaire. Le document offre une vision très claire du contenu de ma cave, de sa structuration et de son positionnement par rapport aux tendances du marché. J'ai vraiment apprécié la pertinence des recommandations par bouteille, qui apportent un éclairage très concret pour orienter mes futures décisions. Cela pourrait devenir vraiment un bon livre de chevet ! »
-            </p>
-            <p style="color: #2D1B2E; font-weight: 600; margin: 0;">— Richard</p>
-            <p style="color: #888; font-size: 0.9rem; margin: 0.25rem 0 0 0;">600 bouteilles</p>
-          </div>
+      .testimonial-card {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: #FAF6F0;
+        border-left: 4px solid #C5A258;
+        border-radius: 6px;
+        padding: 2rem 2.5rem;
+        opacity: 0;
+        transform: translateX(60px);
+        transition: all 0.5s ease;
+        pointer-events: none;
+        box-shadow: 0 2px 12px rgba(45, 27, 46, 0.06);
+      }
 
-          <!-- Témoignage 2 — Lionel -->
-          <div style="background: #FAF6F0; border-left: 4px solid #C5A258; padding: 1.5rem 2rem; border-radius: 4px;">
-            <div style="color: #C5A258; font-size: 1.2rem; margin-bottom: 0.5rem;">★★★★★</div>
-            <p style="font-style: italic; color: #2D1B2E; line-height: 1.7; margin-bottom: 0.75rem;">
-              « Le rapport m'a permis de segmenter ma cave en bénéficiant d'avis en matière de garde, valorisation et tendances du marché. Le rapport très complet a l'avantage de comporter plusieurs parties pour une meilleure connaissance de ma cave. Cet exercice, fort utile, m'a permis d'optimiser ma cave et de bénéficier des conseils d'une professionnelle avisée. Un grand merci. »
-            </p>
-            <p style="color: #2D1B2E; font-weight: 600; margin: 0;">— Lionel</p>
-            <p style="color: #888; font-size: 0.9rem; margin: 0.25rem 0 0 0;">51 bouteilles</p>
-          </div>
+      .testimonial-card.active {
+        opacity: 1;
+        transform: translateX(0);
+        pointer-events: auto;
+      }
 
-          <!-- Témoignage 3 — Simon -->
-          <div style="background: #FAF6F0; border-left: 4px solid #C5A258; padding: 1.5rem 2rem; border-radius: 4px;">
-            <div style="color: #C5A258; font-size: 1.2rem; margin-bottom: 0.5rem;">★★★★★</div>
-            <p style="font-style: italic; color: #2D1B2E; line-height: 1.7; margin-bottom: 0.75rem;">
-              « C'est une belle analyse, le document est bien complet autant sur la particularité de chaque bouteille que sur la tendance de marché actuelle. N'ayant pas une grande expérience dans la vente, ce document met en avant les points forts de la cave et offre un visuel plus précis sur la meilleure stratégie à adopter pour optimiser la vente. Je vais adapter les conseils sur les mises en ventes de mes bouteilles et mettre en vente en priorité les bouteilles les plus sensibles au vu des millésimes. »
-            </p>
-            <p style="color: #2D1B2E; font-weight: 600; margin: 0;">— Simon</p>
-            <p style="color: #888; font-size: 0.9rem; margin: 0.25rem 0 0 0;">33 bouteilles</p>
-          </div>
+      .testimonial-card.exit-left {
+        opacity: 0;
+        transform: translateX(-60px);
+      }
 
+      .testimonial-stars {
+        color: #C5A258;
+        font-size: 1.3rem;
+        margin-bottom: 0.75rem;
+        letter-spacing: 2px;
+      }
+
+      .testimonial-quote {
+        font-style: italic;
+        color: #2D1B2E;
+        line-height: 1.8;
+        font-size: 1.05rem;
+        margin-bottom: 1.25rem;
+        position: relative;
+        padding-left: 0;
+      }
+
+      .testimonial-quote::before {
+        content: "«";
+        color: #C5A258;
+        font-size: 2.5rem;
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        position: absolute;
+        left: -0.1rem;
+        top: -1.2rem;
+        opacity: 0.3;
+      }
+
+      .testimonial-author {
+        color: #2D1B2E;
+        font-weight: 600;
+        font-size: 1rem;
+        margin: 0;
+      }
+
+      .testimonial-detail {
+        color: #888;
+        font-size: 0.88rem;
+        margin: 0.2rem 0 0 0;
+      }
+
+      .testimonial-nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      .testimonial-btn {
+        width: 44px;
+        height: 44px;
+        border: 2px solid #C5A258;
+        background: transparent;
+        color: #C5A258;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        transition: all 0.25s ease;
+      }
+
+      .testimonial-btn:hover {
+        background: #C5A258;
+        color: #FAF6F0;
+      }
+
+      .testimonial-dots {
+        display: flex;
+        gap: 8px;
+      }
+
+      .testimonial-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #D4B76E;
+        opacity: 0.3;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        border: none;
+        padding: 0;
+      }
+
+      .testimonial-dot.active {
+        opacity: 1;
+        transform: scale(1.3);
+        background: #C5A258;
+      }
+
+      @media (max-width: 640px) {
+        .testimonial-card {
+          padding: 1.5rem 1.25rem;
+        }
+        .testimonial-quote {
+          font-size: 0.95rem;
+        }
+        .testimonial-carousel {
+          min-height: 360px;
+        }
+      }
+      </style>
+
+      <div class="testimonial-carousel" id="testimonialCarousel">
+
+        <!-- Témoignage 1 — Richard -->
+        <div class="testimonial-card active" data-index="0">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">
+            J'ai particulièrement apprécié la richesse et la qualité de votre analyse, qui va bien au-delà d'un simple inventaire. Le document offre une vision très claire du contenu de ma cave, de sa structuration et de son positionnement par rapport aux tendances du marché. J'ai vraiment apprécié la pertinence des recommandations par bouteille, qui apportent un éclairage très concret pour orienter mes futures décisions. Cela pourrait devenir vraiment un bon livre de chevet !&nbsp;»
+          </p>
+          <p class="testimonial-author">— Richard</p>
+          <p class="testimonial-detail">600 bouteilles</p>
         </div>
+
+        <!-- Témoignage 2 — Lionel -->
+        <div class="testimonial-card" data-index="1">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">
+            Le rapport m'a permis de segmenter ma cave en bénéficiant d'avis en matière de garde, valorisation et tendances du marché. Le rapport très complet a l'avantage de comporter plusieurs parties pour une meilleure connaissance de ma cave. Cet exercice, fort utile, m'a permis d'optimiser ma cave et de bénéficier des conseils d'une professionnelle avisée. Un grand merci.&nbsp;»
+          </p>
+          <p class="testimonial-author">— Lionel</p>
+          <p class="testimonial-detail">51 bouteilles</p>
+        </div>
+
+        <!-- Témoignage 3 — Simon -->
+        <div class="testimonial-card" data-index="2">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">
+            C'est une belle analyse, le document est bien complet autant sur la particularité de chaque bouteille que sur la tendance de marché actuelle. N'ayant pas une grande expérience dans la vente, ce document met en avant les points forts de la cave et offre un visuel plus précis sur la meilleure stratégie à adopter pour optimiser la vente. Je vais adapter les conseils sur les mises en ventes de mes bouteilles et mettre en vente en priorité les bouteilles les plus sensibles au vu des millésimes.&nbsp;»
+          </p>
+          <p class="testimonial-author">— Simon</p>
+          <p class="testimonial-detail">33 bouteilles</p>
+        </div>
+
       </div>
+
+      <!-- Navigation -->
+      <div class="testimonial-nav">
+        <button class="testimonial-btn" onclick="moveTestimonial(-1)" aria-label="Témoignage précédent">‹</button>
+        <div class="testimonial-dots">
+          <button class="testimonial-dot active" data-dot="0" onclick="goToTestimonial(0)"></button>
+          <button class="testimonial-dot" data-dot="1" onclick="goToTestimonial(1)"></button>
+          <button class="testimonial-dot" data-dot="2" onclick="goToTestimonial(2)"></button>
+        </div>
+        <button class="testimonial-btn" onclick="moveTestimonial(1)" aria-label="Témoignage suivant">›</button>
+      </div>
+
+      <script>
+      (function() {
+        let current = 0;
+        const cards = document.querySelectorAll('.testimonial-card');
+        const dots = document.querySelectorAll('.testimonial-dot');
+        const total = cards.length;
+
+        function showCard(index, direction) {
+          cards.forEach(c => {
+            c.classList.remove('active', 'exit-left');
+          });
+          dots.forEach(d => d.classList.remove('active'));
+
+          if (direction === 'left') {
+            cards[current]?.classList.add('exit-left');
+          }
+
+          setTimeout(() => {
+            cards.forEach(c => c.classList.remove('active', 'exit-left'));
+            cards[index].classList.add('active');
+            dots[index].classList.add('active');
+            current = index;
+          }, direction ? 150 : 0);
+        }
+
+        window.moveTestimonial = function(step) {
+          let next = (current + step + total) % total;
+          showCard(next, step > 0 ? 'left' : 'right');
+        };
+
+        window.goToTestimonial = function(index) {
+          if (index === current) return;
+          showCard(index, index > current ? 'left' : 'right');
+        };
+
+        // Auto-rotation toutes les 8 secondes
+        setInterval(() => moveTestimonial(1), 8000);
+      })();
+      </script>
     </div>
   </section>
 
