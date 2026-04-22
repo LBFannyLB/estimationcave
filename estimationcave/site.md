@@ -73,13 +73,13 @@ Configuré dans `vercel.json` :
 |---|---|---|---|---|---|
 | 1 | Estimer sa cave | Guide estimation | `estimation.html` | 🔎 | 5 |
 | 2 | Cotes & marché | Guide cotes | `article-cotes-pilier.html` | 📊 | 6 |
-| 3 | Héritage & Succession | Guide héritage | `article-heritage-cave.html` | 📜 | 4 |
+| 3 | Héritage & Succession | Guide héritage | `article-heritage-cave.html` | 📜 | 3 |
 | 4 | Vendre ses vins | Guide vente | `vendre.html` | 💰 | 6 |
 | 5 | Gérer sa cave | Guide gestion | `gestion.html` | 🗂️ | 5 |
 | 6 | Professionnels | Guide pro | `professionnels.html` | ⚖️ | 2 |
 
-**Total articles satellites :** 28 (source de vérité : [`blog.html`](blog.html))
-**Total pages publiques HTML :** 37 (6 piliers + 28 satellites + accueil + blog + apropos + faq + confidentialite + mentions-legales + merci + 404)
+**Total articles satellites :** 27 (source de vérité : [`blog.html`](blog.html))
+**Total pages publiques HTML :** 36 (6 piliers + 27 satellites + accueil + blog + apropos + faq + confidentialite + mentions-legales + merci + 404) — `article-cave-heritee-valeur.html` existe encore sur disque mais est rendu inaccessible par une redirection 301 vers `article-vins-parents-valeur-guide.html` dans `vercel.json`.
 
 **NB :** Ne pas tenir à jour dans ce fichier la liste nominative des articles. Elle vit dans `blog.html` (section `.silo-section`) et dans `sitemap.xml`. La lister ici = risque de drift à chaque nouvel article.
 
