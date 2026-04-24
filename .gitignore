@@ -5,9 +5,8 @@
 # Editors / tooling
 .claude/
 
-# Données clients — ne pas publier
+# Données clients — ne pas publier (JSON contiennent noms/emails/localisations)
 estimationcave/rapports/
-estimationcave/skills/
 
 # Fichiers locaux
 estimationcave/cover_logo.png

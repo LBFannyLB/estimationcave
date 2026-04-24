@@ -1,0 +1,3183 @@
+<!DOCTYPE html>
+<html lang="fr"><head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta charset="utf-8">
+<title>Rapport d'estimation — {{ client.nom }}</title>
+<link rel="icon" href="../assets/images/seal.png">
+<style>/* cyrillic-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/cormorant-italic-cyrillic-ext.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/cormorant-italic-cyrillic.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/cormorant-italic-vietnamese.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/cormorant-italic-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/cormorant-italic-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../assets/fonts/cormorant-italic-cyrillic-ext.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../assets/fonts/cormorant-italic-cyrillic.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../assets/fonts/cormorant-italic-vietnamese.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../assets/fonts/cormorant-italic-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../assets/fonts/cormorant-italic-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/cormorant-normal-cyrillic-ext.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/cormorant-normal-cyrillic.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/cormorant-normal-vietnamese.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/cormorant-normal-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/cormorant-normal-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../assets/fonts/cormorant-normal-cyrillic-ext.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../assets/fonts/cormorant-normal-cyrillic.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../assets/fonts/cormorant-normal-vietnamese.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../assets/fonts/cormorant-normal-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../assets/fonts/cormorant-normal-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../assets/fonts/cormorant-normal-cyrillic-ext.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../assets/fonts/cormorant-normal-cyrillic.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../assets/fonts/cormorant-normal-vietnamese.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../assets/fonts/cormorant-normal-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../assets/fonts/cormorant-normal-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../assets/fonts/cormorant-normal-cyrillic-ext.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../assets/fonts/cormorant-normal-cyrillic.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../assets/fonts/cormorant-normal-vietnamese.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../assets/fonts/cormorant-normal-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../assets/fonts/cormorant-normal-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/dm-sans-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/dm-sans-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../assets/fonts/dm-sans-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../assets/fonts/dm-sans-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../assets/fonts/dm-sans-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../assets/fonts/dm-sans-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../assets/fonts/dm-sans-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../assets/fonts/dm-sans-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<style>/* ══════════════════════════════════════════════════
+   Estimation Cave — Design Tokens
+   Colors, Type, Spacing, Shadows, Motion
+   ══════════════════════════════════════════════════ */
+
+/* Fonts are Google Fonts — load once in <head>:
+   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+*/
+
+:root {
+    /* ── BRAND COLORS ── */
+    --bordeaux:      #2D1B2E;  /* primary — deep aubergine/bordeaux */
+    --bordeaux-hover:#3D2940;  /* :hover lift */
+    --or:            #C5A258;  /* gold — accent, links, CTAs */
+    --or-light:      #D4B76E;  /* gold :hover */
+    --or-pale:       rgba(197, 162, 88, 0.10); /* gold tint fills */
+
+    /* ── SURFACES ── */
+    --fond:          #FAF6F0;  /* page background — warm cream */
+    --blanc:         #FFFFFF;  /* pure white, rare */
+    --border:        rgba(45, 27, 46, 0.08);
+    --border-strong: rgba(45, 27, 46, 0.16);
+
+    /* ── TEXT ── */
+    --texte:         #3A3035;  /* body — warm near-black */
+    --texte-light:   #6B5F65;  /* secondary / meta */
+    --texte-inverse: #FAF6F0;  /* on bordeaux */
+
+    /* ── SEMANTIC (app-level, sparingly used) ── */
+    --success:       #5A7A4B;  /* muted olive */
+    --warning:       #B8883A;  /* amber — close to or */
+    --danger:        #8B3A3A;  /* muted burgundy */
+    --info:          #4A5A6B;  /* slate */
+
+    /* ── TYPOGRAPHY FAMILIES ── */
+    --font-display: 'Cormorant Garamond', 'Garamond', Georgia, serif;
+    --font-body:    'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-mono:    ui-monospace, 'SF Mono', Menlo, monospace;
+
+    /* ── TYPE SCALE ──
+       Display uses Cormorant Garamond (serif, elegant, editorial).
+       Body uses DM Sans (geometric, calm, legible). */
+    --fs-display-xl: 3.5rem;   /* 56px — hero h1 */
+    --fs-display-l:  2.75rem;  /* 44px — section h1 */
+    --fs-display-m:  2rem;     /* 32px — h2 */
+    --fs-display-s:  1.5rem;   /* 24px — h3 editorial */
+    --fs-body-l:     1.125rem; /* 18px — lead paragraph */
+    --fs-body:       1rem;     /* 16px — default */
+    --fs-body-s:     0.85rem;  /* 13.6px — nav/meta */
+    --fs-caption:    0.75rem;  /* 12px — legal */
+    --fs-eyebrow:    0.72rem;  /* 11.5px — uppercase tracked label */
+
+    /* Line heights */
+    --lh-tight:   1.15;
+    --lh-display: 1.2;
+    --lh-body:    1.7;   /* generous — editorial */
+    --lh-snug:    1.5;
+
+    /* Letter-spacing */
+    --tracking-eyebrow: 0.18em;   /* uppercase labels */
+    --tracking-btn:     0.03em;
+    --tracking-display: -0.01em;  /* subtle tight for large serif */
+
+    /* ── SPACING (rem based, 4px unit) ── */
+    --space-1:  0.25rem;  /* 4  */
+    --space-2:  0.5rem;   /* 8  */
+    --space-3:  0.75rem;  /* 12 */
+    --space-4:  1rem;     /* 16 */
+    --space-5:  1.5rem;   /* 24 */
+    --space-6:  2rem;     /* 32 */
+    --space-7:  2.5rem;   /* 40 */
+    --space-8:  3.5rem;   /* 56 */
+    --space-9:  5rem;     /* 80 */
+    --space-10: 7rem;     /* 112 — section breaks */
+
+    /* Container */
+    --container-max: 1120px;
+    --gutter:        2rem;
+
+    /* ── RADII — subtle, never rounded ── */
+    --radius-xs: 2px;
+    --radius-sm: 3px;
+    --radius:    4px;  /* canonical */
+    --radius-md: 6px;
+    --radius-lg: 8px;
+
+    /* ── SHADOWS — soft, long, warm bordeaux tint ── */
+    --shadow-xs:    0 1px 2px rgba(45, 27, 46, 0.04);
+    --shadow-sm:    0 4px 16px rgba(45, 27, 46, 0.05);
+    --shadow:       0 8px 30px rgba(45, 27, 46, 0.08);
+    --shadow-gold:  0 8px 30px rgba(197, 162, 88, 0.30);
+    --shadow-lg:    0 12px 40px rgba(45, 27, 46, 0.10);
+    --shadow-inset: inset 0 0 0 1px rgba(197, 162, 88, 0.10); /* double-bezel */
+
+    /* ── MOTION ── */
+    --ease:         cubic-bezier(0.33, 1, 0.68, 1);      /* default — gentle out */
+    --ease-reveal:  cubic-bezier(0.16, 1, 0.3, 1);       /* scroll reveals, ornaments */
+    --dur-fast:     0.2s;
+    --dur:          0.3s;
+    --dur-slow:     0.7s;
+    --dur-reveal:   0.8s;
+
+    /* ── Z-INDEX ── */
+    --z-nav:     1000;
+    --z-overlay: 999;
+    --z-modal:   1100;
+    --z-toast:   1200;
+    --z-grain:   9999;
+}
+
+/* ══════════════════════════════════════════════════
+   SEMANTIC TYPOGRAPHY — apply to content, not utility
+   ══════════════════════════════════════════════════ */
+
+body {
+    font-family: var(--font-body);
+    font-size:   var(--fs-body);
+    line-height: var(--lh-body);
+    color:       var(--texte);
+    background:  var(--fond);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, .h1 {
+    font-family: var(--font-display);
+    font-weight: 500;                   /* Cormorant is heavier than DM */
+    font-size:   var(--fs-display-xl);
+    line-height: var(--lh-display);
+    letter-spacing: var(--tracking-display);
+    color:       var(--bordeaux);
+}
+h2, .h2 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size:   var(--fs-display-l);
+    line-height: var(--lh-display);
+    letter-spacing: var(--tracking-display);
+    color:       var(--bordeaux);
+}
+h3, .h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size:   var(--fs-display-m);
+    line-height: var(--lh-tight);
+    color:       var(--bordeaux);
+}
+h4, .h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size:   var(--fs-display-s);
+    line-height: var(--lh-tight);
+    color:       var(--bordeaux);
+}
+
+.lead {
+    font-size:   var(--fs-body-l);
+    line-height: var(--lh-body);
+    color:       var(--texte);
+}
+
+p {
+    font-size:   var(--fs-body);
+    line-height: var(--lh-body);
+    color:       var(--texte);
+}
+
+.meta, small {
+    font-size: var(--fs-body-s);
+    color:     var(--texte-light);
+}
+
+.eyebrow {
+    display:     inline-block;
+    font-family: var(--font-body);
+    font-size:   var(--fs-eyebrow);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-eyebrow);
+    color:       var(--or);
+}
+
+.display-italic {
+    font-family: var(--font-display);
+    font-style:  italic;
+    font-weight: 400;
+    color:       var(--bordeaux);
+}
+
+/* Price — signature editorial treatment */
+.price {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size:   var(--fs-display-l);
+    color:       var(--bordeaux);
+    letter-spacing: var(--tracking-display);
+}
+.price sup {
+    font-size: 0.55em;
+    vertical-align: super;
+    color: var(--or);
+    margin-left: 0.15em;
+}
+
+/* ── SELECTION ── */
+::selection { background: var(--or-pale); color: var(--bordeaux); }
+</style>
+
+<style>
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: #e8e2d8;
+    padding: 48px 0 96px;
+    font-feature-settings: "kern","liga";
+  }
+  /* Grain overlay */
+  body::after {
+    content: "";
+    position: fixed; inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.06;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.18  0 0 0 0 0.11  0 0 0 0 0.18  0 0 0 0.65 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+
+  .stack {
+    display: flex; flex-direction: column; align-items: center;
+    gap: 48px;
+  }
+
+  /* A4 at 96dpi ~= 794×1123 */
+  .page {
+    width: 820px;
+    min-height: 1160px;
+    background: var(--fond);
+    box-shadow: 0 24px 60px rgba(45,27,46,0.18), 0 2px 6px rgba(45,27,46,0.08);
+    position: relative;
+    padding: 64px 72px 56px;
+    box-sizing: border-box;
+    color: var(--texte);
+  }
+  .page::before {
+    /* inner hairline frame */
+    content: "";
+    position: absolute;
+    inset: 32px;
+    border: 1px solid rgba(45,27,46,0.07);
+    pointer-events: none;
+  }
+
+  /* ───────── Cover ───────── */
+  .cover {
+    background: var(--fond);
+    padding: 0;
+    display: flex; flex-direction: column;
+    overflow: hidden;
+  }
+  .cover::before { inset: 28px; border-color: rgba(197,162,88,0.28); }
+  .cover::after {
+    /* inner double bezel */
+    content:"";
+    position: absolute; inset: 34px;
+    border: 1px solid rgba(45,27,46,0.06);
+    pointer-events: none;
+  }
+  .cover-inner {
+    position: relative;
+    z-index: 1;
+    padding: 72px 76px 56px;
+    display: flex; flex-direction: column;
+    flex: 1;
+  }
+  .cover-top {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: 24px;
+  }
+  .wordmark {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing: 0.04em;
+    color: var(--bordeaux);
+  }
+  .wordmark em {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-style: normal;
+    color: var(--or);
+    font-family: var(--font-body);
+    font-weight: 500;
+    margin-top: 4px;
+  }
+  .ref-tag {
+    text-align: right;
+    font-family: var(--font-body);
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--texte-light);
+  }
+  .ref-tag strong { color: var(--bordeaux); font-weight: 600; letter-spacing: 0.12em; }
+
+  .cover-center {
+    flex: 1;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center;
+    padding: 24px 0;
+  }
+  .cover-eyebrow {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--or);
+    margin-bottom: 28px;
+  }
+  .cover-illus {
+    width: 260px; height: auto;
+    margin-bottom: 24px;
+    mix-blend-mode: multiply;
+  }
+  .cover-title {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 56px;
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+    color: var(--bordeaux);
+    margin: 0;
+    max-width: 560px;
+  }
+  .cover-title em {
+    font-style: italic;
+    font-weight: 400;
+  }
+  .cover-sub {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 20px;
+    color: var(--texte);
+    margin-top: 24px;
+    max-width: 500px;
+    line-height: 1.5;
+  }
+
+  .cover-ornament {
+    display:flex; align-items:center; gap:14px; justify-content:center;
+    margin: 36px 0 28px;
+  }
+  .cover-ornament .line { width: 80px; height: 1px; background: var(--or); }
+  .cover-ornament .diamond {
+    width: 7px; height: 7px; background: var(--or); transform: rotate(45deg);
+  }
+
+  .cover-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    width: 100%;
+    max-width: 560px;
+    background: rgba(197,162,88,0.22);
+    margin-top: 28px;
+  }
+  .cover-meta > div {
+    background: var(--fond);
+    padding: 18px 22px;
+  }
+  .cover-meta .label {
+    font-family: var(--font-body);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--or);
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  .cover-meta .val {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--bordeaux);
+    line-height: 1.25;
+  }
+  .cover-meta .val small {
+    display:block;
+    font-family: var(--font-body);
+    font-size: 11.5px;
+    color: var(--texte-light);
+    font-weight: 400;
+    margin-top: 2px;
+    line-height: 1.4;
+  }
+
+  .cover-foot {
+    border-top: 1px solid rgba(45,27,46,0.08);
+    margin-top: auto;
+    padding-top: 20px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: var(--font-body);
+    font-size: 10.5px;
+    color: var(--texte-light);
+    letter-spacing: 0.04em;
+  }
+  .cover-foot .confid {
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-size: 9.5px;
+  }
+  .cover-foot .signature {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--bordeaux);
+  }
+  .expert-band {
+    margin-top: 22px;
+    display:flex; justify-content:center; align-items:center;
+    gap: 14px;
+  }
+  .expert-band .seal {
+    width: 54px; height: 54px; opacity: 0.95;
+  }
+  .expert-band .text {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 15px;
+    color: var(--bordeaux);
+    line-height: 1.35;
+    max-width: 360px;
+  }
+  .expert-band .text strong {
+    font-style: normal; font-weight: 500;
+    font-family: var(--font-body);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--or);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  /* ───────── Common page chrome ───────── */
+  .page-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(45,27,46,0.08);
+    margin-bottom: 36px;
+  }
+  .page-head .mark {
+    font-family: var(--font-display);
+    font-weight: 500; font-size: 14px;
+    color: var(--bordeaux);
+    letter-spacing: 0.03em;
+  }
+  .page-head .mark em {
+    font-family: var(--font-body); font-style: normal;
+    font-weight: 500; font-size: 9.5px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--or); display:block; margin-top:2px;
+  }
+  .page-head .ref {
+    font-family: var(--font-body);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--texte-light);
+  }
+
+  .page-foot {    position: absolute;
+    left: 72px; right: 72px; bottom: 36px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(45,27,46,0.08);
+    display: flex; justify-content: space-between; gap: 20px;
+    font-family: var(--font-body);
+    font-size: 10px;
+    color: var(--texte-light);
+    letter-spacing: 0.04em;
+  }
+  .page-foot span { white-space: nowrap; }
+  .page-foot .num {
+    color: var(--bordeaux);
+    font-weight: 500;
+  }
+
+  .sect-eyebrow {
+    font-family: var(--font-body);
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--or);
+    font-weight: 500;
+    display:flex; align-items:center; gap:12px;
+  }
+  .sect-eyebrow::before, .sect-eyebrow::after {
+    content:""; display:inline-block; width: 24px; height:1px;
+    background: var(--or); opacity: 0.5;
+  }
+  .sect-title {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 38px;
+    color: var(--bordeaux);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin: 10px 0 0;
+  }
+  .sect-title em { font-style: italic; font-weight: 400; }
+
+  /* ───────── Mission ───────── */
+  .mission-intro {
+    margin: 26px 0 28px;
+    font-family: var(--font-body);
+    font-size: 12px;
+    line-height: 1.65;
+    color: var(--texte);
+    max-width: 620px;
+    text-wrap: pretty;
+  }
+
+  .mission-grid {
+    margin: 0 0 18px;
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 40px;
+    row-gap: 0;
+    border-top: 1px solid var(--or);
+  }
+  .mission-grid dl {
+    margin: 0;
+    display: contents;
+  }
+  .mission-grid > div {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    align-items: baseline;
+    gap: 16px;
+    padding: 6px 0 6px;
+    border-bottom: 1px solid rgba(45,27,46,0.08);
+    position: relative;
+  }
+  .mission-grid > div::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0;
+    width: 6px; height: 1px;
+    background: var(--or);
+  }
+  .mission-grid dt {
+    font-family: var(--font-body);
+    font-size: 8.5px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--bordeaux);
+    position: relative;
+  }
+  .mission-grid dd {
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: 11.5px;
+    line-height: 1.45;
+    color: var(--texte);
+    text-wrap: pretty;
+  }
+  .mission-grid dd.highlight {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--bordeaux);
+    letter-spacing: -0.005em;
+  }
+  .mission-grid dd .num-big {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 17px;
+    color: var(--bordeaux);
+    letter-spacing: -0.01em;
+    margin-right: 6px;
+  }
+
+  .mission-sub { margin-top: 32px; }
+  .mission-sub-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 20px;
+    padding-bottom: 10px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid rgba(30,10,15,0.16);
+  }
+  .mission-sub-head .num {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 18px;
+    color: var(--or);
+  }
+  .mission-sub-head h3 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 19px;
+    letter-spacing: -0.01em;
+    color: var(--bordeaux);
+    margin: 0;
+  }
+  .mission-sub-head .sub-tag {
+    font-family: var(--font-body);
+    font-size: 8.5px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--or);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .method-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 18px;
+  }
+  .method-col-label {
+    font-family: var(--font-body);
+    font-size: 8.5px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--bordeaux);
+    padding-bottom: 6px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(197,162,88,0.5);
+  }
+  .mission-sub p {
+    font-family: var(--font-body);
+    font-size: 11.5px;
+    line-height: 1.65;
+    color: var(--texte);
+    margin: 0 0 9px;
+    text-wrap: pretty;
+  }
+  .mission-sub p.lead::first-letter {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 38px;
+    color: var(--bordeaux);
+    float: left;
+    line-height: 0.88;
+    padding: 3px 8px 0 0;
+  }
+  .mission-list {
+    margin: 6px 0 10px;
+    padding: 0;
+    list-style: none;
+    font-family: var(--font-body);
+    font-size: 11.5px;
+    line-height: 1.6;
+    color: var(--texte);
+  }
+  .mission-list-cols {
+    columns: 2;
+    column-gap: 40px;
+  }
+  .mission-list-cols li {
+    break-inside: avoid;
+  }
+  .mission-list li {
+    padding-left: 20px;
+    position: relative;
+    margin-bottom: 3px;
+    text-wrap: pretty;
+  }
+  .mission-list li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 9px;
+    width: 10px; height: 1px;
+    background: var(--or);
+  }
+  .etat-scale {
+    margin: 6px 0 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 40px;
+    row-gap: 0;
+  }
+  .etat-scale > div {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(30,10,15,0.08);
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    align-items: baseline;
+    gap: 14px;
+    font-family: var(--font-body);
+    font-size: 11px;
+    line-height: 1.5;
+    color: var(--texte);
+  }
+  .etat-scale dt {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 13px;
+    color: var(--bordeaux);
+    letter-spacing: -0.005em;
+  }
+  .etat-scale dd { margin: 0; text-wrap: pretty; }
+
+  .mission-list b { color: var(--bordeaux); font-weight: 600; }
+
+  /* ───────── Charts ───────── */
+  .chart-row.with-sep {
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(30,10,15,0.16);
+    position: relative;
+    display: block;
+  }
+  .chart-row.with-sep::before {
+    content: "";
+    position: absolute;
+    top: -1px; left: 50%;
+    transform: translateX(-50%);
+    width: 40px; height: 1px;
+    background: var(--or);
+  }
+  .chart-row.with-sep > .chart-card + .chart-card { margin-top: 20px; }
+  .chart-row.with-sep .chart-head {
+    padding-bottom: 6px;
+    margin-bottom: 10px;
+  }
+  .tops-head {
+    margin-top: 32px;
+    padding-top: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+    display: block;
+  }
+  .tops-head + .chart-row.with-sep {
+    margin-top: 12px;
+    padding-top: 0;
+    border-top: none;
+  }
+  .tops-head + .chart-row.with-sep::before { display: none; }
+  .tops-title {
+    margin-top: 32px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(30,10,15,0.16);
+    font-family: var(--font-body);
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--or);
+    font-weight: 500;
+    text-align: center;
+    position: relative;
+  }
+  .tops-title::before {
+    content: "";
+    position: absolute;
+    top: -1px; left: 50%;
+    transform: translateX(-50%);
+    width: 40px; height: 1px;
+    background: var(--or);
+  }
+  .tops-title + .chart-row.with-sep {
+    margin-top: 14px;
+    padding-top: 0;
+    border-top: none;
+  }
+  .tops-title + .chart-row.with-sep::before { display: none; }
+  .chart-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 22px;
+  }
+  .chart-row.one { display: block; margin-top: 28px; }
+  .chart-row.stacked-full {
+    display: block;
+  }
+  .chart-row.stacked-full > .chart-card + .chart-card {
+    margin-top: 24px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(30,10,15,0.1);
+  }
+  .stack-legend.two-col {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 30px;
+  }
+  .stack-legend.two-col li {
+    grid-template-columns: 12px 1fr auto;
+  }
+  .chart-card {
+    padding: 0;
+  }
+  .chart-card.solo { margin-top: 24px; }
+  .chart-head {
+    padding-bottom: 10px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid rgba(30,10,15,0.16);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: baseline;
+    column-gap: 14px;
+    row-gap: 2px;
+  }
+  .chart-kicker {
+    grid-column: 1 / -1;
+    font-family: var(--font-body);
+    font-size: 8.5px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--or);
+  }
+  .chart-title {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing: -0.005em;
+    color: var(--bordeaux);
+    margin: 0;
+  }
+  .chart-base {
+    justify-self: end;
+    font-family: var(--font-body);
+    font-size: 10px;
+    color: var(--texte-light);
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+  .chart-base b { color: var(--bordeaux); font-weight: 600; }
+
+  /* Horizontal bar list */
+  .bar-list {
+    list-style: none; padding: 0; margin: 0;
+    display: grid; gap: 7px;
+  }
+  .bar-list li {
+    display: grid;
+    grid-template-columns: 140px 1fr 110px;
+    align-items: center;
+    gap: 14px;
+    font-family: var(--font-body);
+    font-size: 11px;
+    color: var(--texte);
+  }
+  .bar-value small { white-space: nowrap; }
+  .bar-label {
+    color: var(--bordeaux);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+  .bar-track {
+    height: 14px;
+    background: rgba(30,10,15,0.06);
+    position: relative;
+    overflow: hidden;
+  }
+  .bar-fill {
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: calc(var(--pct) * 1%);
+    background: var(--bordeaux);
+    display: flex; align-items: center; justify-content: flex-end;
+    overflow: visible;
+  }
+  .bar-fill.accent { background: var(--or); }
+  .bar-pct {
+    position: absolute;
+    right: -4px;
+    transform: translateX(100%);
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 11px;
+    color: var(--bordeaux);
+    white-space: nowrap;
+    letter-spacing: -0.01em;
+    padding-left: 6px;
+  }
+  .bar-fill.accent .bar-pct { color: var(--or); }
+  .bar-value {
+    justify-self: end;
+    text-align: right;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 10.5px;
+    color: var(--texte-light);
+    white-space: nowrap;
+  }
+  .bar-value small {
+    display: block;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--bordeaux);
+    letter-spacing: -0.01em;
+    margin-top: 1px;
+  }
+
+  /* Donut (conic-gradient) */
+  .donut-wrap {
+    display: grid;
+    grid-template-columns: 138px 1fr;
+    gap: 22px;
+    align-items: center;
+  }
+  .donut {
+    width: 138px; height: 138px;
+    border-radius: 50%;
+    background: conic-gradient(
+      var(--c1) 0 calc(var(--p1) * 1%),
+      var(--c2) 0 calc((var(--p1) + var(--p2)) * 1%),
+      var(--c3) 0 calc((var(--p1) + var(--p2) + var(--p3)) * 1%),
+      var(--c4) 0 calc((var(--p1) + var(--p2) + var(--p3) + var(--p4)) * 1%),
+      var(--c5) 0 100%
+    );
+    position: relative;
+  }
+  .donut::after {
+    content: "";
+    position: absolute;
+    inset: 36px;
+    border-radius: 50%;
+    background: var(--fond);
+    box-shadow: inset 0 0 0 1px rgba(30,10,15,0.06);
+  }
+  .donut-legend {
+    list-style: none; padding: 0; margin: 0;
+    display: grid; gap: 6px;
+    font-family: var(--font-body);
+    font-size: 10.5px;
+    color: var(--texte);
+  }
+  .donut-legend li {
+    display: grid;
+    grid-template-columns: 12px 1fr auto auto;
+    align-items: baseline;
+    gap: 8px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(30,10,15,0.06);
+  }
+  .donut-legend em {
+    font-style: normal;
+    color: var(--texte-light);
+    font-size: 9.5px;
+    letter-spacing: 0.02em;
+  }
+  .donut-legend b {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 13px;
+    color: var(--bordeaux);
+  }
+  .sw {
+    width: 10px; height: 10px;
+    display: inline-block;
+    border-radius: 1px;
+  }
+
+  /* Stacked bar */
+  .stacked-bar {
+    display: flex;
+    width: 100%;
+    height: 34px;
+    margin: 4px 0 14px;
+    overflow: hidden;
+  }
+  .stacked-bar .seg {
+    flex: 0 0 calc(var(--pct) * 1%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--fond);
+    font-family: var(--font-body);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    position: relative;
+  }
+  .stacked-bar .seg > span {
+    text-align: center;
+    padding: 0 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .stacked-bar.labeled { height: 44px; }
+  .stacked-bar.labeled .seg > span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1px;
+    line-height: 1.15;
+  }
+  .stacked-bar.labeled .seg b {
+    font-weight: 600;
+    font-size: 9px;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+  }
+  .stacked-bar.labeled .seg i {
+    font-style: normal;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    opacity: 0.9;
+  }
+  .stack-legend {
+    list-style: none; padding: 0; margin: 10px 0 0;
+    display: grid; gap: 6px;
+    font-family: var(--font-body);
+    font-size: 10.5px;
+    color: var(--texte);
+  }
+  .stack-legend li {
+    display: grid;
+    grid-template-columns: 12px 1fr auto;
+    align-items: baseline;
+    gap: 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(30,10,15,0.06);
+  }
+  .stack-legend li:last-child { border-bottom: none; }
+  .stack-legend li > div b {
+    color: var(--bordeaux);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 1px;
+  }
+  .stack-legend li > div em {
+    font-style: normal;
+    font-size: 9.5px;
+    color: var(--texte-light);
+    letter-spacing: 0.02em;
+  }
+  .stack-legend .pct {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--bordeaux);
+  }
+
+  /* Reco split (volume vs valeur) */
+  .reco-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin: 6px 0 18px;
+  }
+  .split-kicker {
+    font-family: var(--font-body);
+    font-size: 8.5px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--bordeaux);
+    margin-bottom: 6px;
+  }
+  .split-total {
+    margin-top: 4px;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--bordeaux);
+    text-align: right;
+  }
+  .reco-split-legend {
+    list-style: none; padding: 0; margin: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(30,10,15,0.08);
+    font-family: var(--font-body);
+    font-size: 10.5px;
+    color: var(--texte);
+  }
+  .reco-split-legend li {
+    display: grid;
+    grid-template-columns: 12px 1fr;
+    gap: 10px;
+    align-items: baseline;
+  }
+  .reco-split-legend li b {
+    color: var(--bordeaux);
+    font-weight: 600;
+    display: block;
+    font-family: var(--font-display);
+    font-size: 14px;
+    margin-bottom: 2px;
+  }
+  .reco-split-legend li em {
+    font-style: normal;
+    font-size: 9.5px;
+    color: var(--texte-light);
+    line-height: 1.5;
+    display: block;
+  }
+
+  /* Top 5 list */
+  .top-list {
+    list-style: none; padding: 0; margin: 0;
+    counter-reset: top;
+  }
+  .top-list li {
+    display: grid;
+    grid-template-columns: 22px 1fr auto;
+    gap: 10px;
+    align-items: baseline;
+    padding: 4px 0;
+    border-bottom: 1px solid rgba(30,10,15,0.08);
+    font-family: var(--font-body);
+    font-size: 10.5px;
+  }
+  .top-list .rk {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 18px;
+    color: var(--or);
+    line-height: 1;
+    text-align: center;
+  }
+  .top-main b {
+    display: block;
+    font-family: var(--font-body);
+    font-weight: 600;
+    color: var(--bordeaux);
+    letter-spacing: 0.005em;
+    font-size: 11px;
+  }
+  .top-main em {
+    display: block;
+    font-style: normal;
+    font-size: 9.5px;
+    color: var(--texte-light);
+    letter-spacing: 0.04em;
+    margin-top: 1px;
+  }
+  .top-val {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 13px;
+    color: var(--bordeaux);
+    letter-spacing: -0.005em;
+  }
+  .top-summary {
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: rgba(197,162,88,0.08);
+    border-left: 2px solid var(--or);
+    font-family: var(--font-body);
+    font-size: 10.5px;
+    line-height: 1.5;
+    color: var(--texte);
+    text-wrap: pretty;
+  }
+
+  /* ───────── Potentiel de garde ───────── */
+  .garde-group { margin-top: 22px; }
+  .garde-group + .garde-group { margin-top: 18px; }
+  .garde-head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(30,10,15,0.16);
+    margin-bottom: 0;
+  }
+  .garde-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    position: relative;
+    top: 1px;
+  }
+  .garde-head h3 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--bordeaux);
+    margin: 0;
+    letter-spacing: -0.005em;
+  }
+  .garde-sub {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-style: italic;
+    font-size: 11.5px;
+    color: var(--texte-light);
+    letter-spacing: 0;
+    text-transform: none;
+    margin-left: 4px;
+  }
+  .garde-count {
+    margin-left: auto;
+    font-family: var(--font-body);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--texte-light);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .garde-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-body);
+    font-size: 10.5px;
+    color: var(--texte);
+  }
+  .garde-table thead th {
+    text-align: left;
+    font-weight: 600;
+    font-size: 8px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--or);
+    padding: 7px 6px;
+    border-bottom: 1px solid rgba(197,162,88,0.3);
+    white-space: nowrap;
+  }
+  .garde-table tbody td {
+    padding: 6px 6px;
+    border-bottom: 1px solid rgba(30,10,15,0.06);
+    vertical-align: top;
+    line-height: 1.4;
+  }
+  .garde-table .domaine {
+    font-weight: 500;
+    color: var(--bordeaux);
+    font-family: var(--font-display);
+    font-size: 12px;
+  }
+  .garde-table .num { text-align: right; font-variant-numeric: tabular-nums; }
+
+  /* ───────── Plan d'action ───────── */
+  .etapes {
+    margin: 8px 0 0;
+    padding: 0;
+    display: grid;
+    gap: 0;
+  }
+  .etapes > div {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 30px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(30,10,15,0.08);
+    align-items: baseline;
+  }
+  .etapes > div:first-child { border-top: 1px solid rgba(30,10,15,0.16); }
+  .etapes dt {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: -0.005em;
+    color: var(--bordeaux);
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+  .etapes dd {
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: 11.5px;
+    line-height: 1.6;
+    color: var(--texte);
+    text-wrap: pretty;
+  }
+  .etapes .step-num {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 20px;
+    color: var(--or);
+    line-height: 1;
+    min-width: 16px;
+  }
+  .etapes .muted {
+    display: block;
+    margin-top: 6px;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--or);
+    font-weight: 600;
+  }
+  .etapes-compact > div {
+    grid-template-columns: 260px 1fr;
+    padding: 11px 0;
+  }
+  .etapes-compact dt { font-size: 12.5px; }
+
+  .devis-line {
+    margin-top: 14px !important;
+    padding: 10px 14px;
+    background: rgba(197,162,88,0.08);
+    border-left: 2px solid var(--or);
+    font-size: 11px !important;
+  }
+  .devis-line b { color: var(--bordeaux); font-weight: 600; }
+
+  .closing-signature {
+    margin-top: 22px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .closing-signature .sig-rule {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(30,10,15,0.2));
+  }
+  .closing-signature .sig-block {
+    text-align: right;
+  }
+  .closing-signature .sig-name {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 20px;
+    color: var(--bordeaux);
+    letter-spacing: -0.005em;
+  }
+  .closing-signature .sig-title {
+    font-family: var(--font-body);
+    font-size: 9.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--texte-light);
+    margin-top: 4px;
+  }
+  .market-lede {
+    margin: 26px 0 30px;
+    font-family: var(--font-body);
+    font-size: 12px;
+    line-height: 1.65;
+    color: var(--texte);
+    max-width: 640px;
+    text-wrap: pretty;
+  }
+  .market-block + .market-block { margin-top: 28px; }
+  .market-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    padding-bottom: 8px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid rgba(30,10,15,0.16);
+  }
+  .market-num {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 18px;
+    color: var(--or);
+    letter-spacing: 0;
+  }
+  .market-title {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 17px;
+    letter-spacing: -0.005em;
+    color: var(--bordeaux);
+    margin: 0;
+  }
+  .market-sub {
+    margin: 0 0 18px;
+    padding-left: 26px;
+    position: relative;
+  }
+  .market-sub::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 7px;
+    width: 14px; height: 1px;
+    background: var(--or);
+  }
+  .market-sub h4 {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 11.5px;
+    color: var(--bordeaux);
+    letter-spacing: 0.01em;
+    margin: 0 0 4px;
+  }
+  .market-sub p {
+    font-family: var(--font-body);
+    font-size: 11.5px;
+    line-height: 1.6;
+    color: var(--texte);
+    margin: 0;
+    text-wrap: pretty;
+  }
+  .market-sub p b { color: var(--bordeaux); font-weight: 600; }
+
+  /* ───────── Synthèse ───────── */
+  .hero-value {
+    margin-top: 16px;
+    background: var(--bordeaux);
+    color: var(--texte-inverse);
+    padding: 24px 32px;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 26px;
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-value::after {
+    content:""; position:absolute; top:0; left:0; right:0; height: 2px;
+    background: var(--or);
+  }
+  .hv-label {
+    font-family: var(--font-body);
+    font-size: 10.5px;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--or);
+    font-weight: 500;
+  }
+  .hv-value {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 68px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--fond);
+    margin: 6px 0 4px;
+  }
+  .hv-value sup {
+    font-size: 0.38em;
+    vertical-align: super;
+    color: var(--or);
+    margin-left: 4px;
+    font-weight: 400;
+  }
+  .hv-range {
+    font-family: var(--font-body);
+    font-size: 11.5px;
+    color: rgba(250,246,240,0.72);
+    letter-spacing: 0.04em;
+    padding-top: 10px;
+    margin-top: 10px;
+    max-width: 280px;
+  }
+  .hv-stats {
+    display:flex; flex-direction: column; justify-content: center;
+    gap: 12px;
+    border-left: 1px solid rgba(197,162,88,0.3);
+    padding-left: 28px;
+  }
+  .hv-stats .row {
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: var(--font-body);
+    min-height: 37px;
+    font-size: 11.5px;
+    letter-spacing: 0.04em;
+  }
+  .hv-stats .row .k { color: rgba(250,246,240,0.7); text-transform: uppercase; letter-spacing: 0.18em; font-size:9.5px;}
+  .hv-stats .row .v {
+    font-family: var(--font-display);
+    font-size: 22px;
+    color: var(--fond);
+    font-weight: 500;
+  }
+  .hv-stats .row .v em { color: var(--or); font-style: normal; }
+
+  .sect-sub {
+    margin-top: 28px;
+    margin-bottom: 10px;
+    font-family: var(--font-body);
+    font-size: 10.5px;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--texte-light);
+    font-weight: 500;
+  }
+
+  /* Region bars */
+  .bars { display: grid; row-gap: 9px; }
+  .bar-row {
+    display: grid;
+    grid-template-columns: 128px 1fr 54px;
+    align-items: center;
+    gap: 14px;
+    font-family: var(--font-body);
+    font-size: 12.5px;
+    color: var(--texte);
+  }
+  .bar-row .name { color: var(--bordeaux); font-weight: 500; letter-spacing: 0.01em; }
+  .bar-track {
+    height: 10px;
+    background: rgba(45,27,46,0.07);
+    position: relative;
+    border-radius: 1px;
+  }
+  .bar-fill {
+    height: 100%;
+    background: var(--bordeaux);
+    border-radius: 1px;
+  }
+  .bar-val {
+    font-family: var(--font-body);
+    font-size: 11.5px;
+    color: var(--texte-light);
+    text-align: right;
+    letter-spacing: 0.02em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Stacked color bar */
+  .stacked {
+    display: flex; height: 40px; margin-top: 6px;
+    border-radius: 2px; overflow: hidden;
+  }
+  .stacked > div {
+    display: flex; align-items:center; justify-content:center;
+    font-family: var(--font-body); font-weight: 500;
+    font-size: 12px;
+  }
+  .color-split {
+    display: grid; grid-template-columns: 1fr; gap: 14px;
+    margin-top: 6px;
+  }
+  .color-split .stacked { margin-top: 0; height: 30px; }
+  .color-split-head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    margin-bottom: 6px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(45,27,46,0.08);
+  }
+  .color-split-head > span:first-child {
+    font-family: var(--font-body);
+    font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--or); font-weight: 500;
+  }
+  .color-split-base {
+    font-family: var(--font-display);
+    font-weight: 500; font-size: 12px;
+    color: var(--bordeaux); font-variant-numeric: tabular-nums;
+  }
+  .legend-dots {
+    display: flex; gap: 22px; margin-top: 12px;
+    font-family: var(--font-body); font-size: 11px;
+    color: var(--texte); flex-wrap: wrap;
+  }
+  .legend-dots span { display:inline-flex; align-items:center; gap:6px; }
+  .legend-dots i { width:9px; height:9px; display:inline-block; border-radius: 1px; }
+
+  /* Recap table */
+  .recap {
+    margin-top: 16px;
+    border: 1px solid rgba(45,27,46,0.1);
+  }
+  .recap-row {
+    display: grid;
+    grid-template-columns: 24px 1.4fr 1fr 1fr 1.2fr;
+    align-items: center;
+    padding: 9px 16px;
+    border-bottom: 1px solid rgba(45,27,46,0.07);
+    font-family: var(--font-body);
+    font-size: 12px;
+  }
+  .recap-row:last-child { border-bottom: none; }
+  .recap-row.head {
+    background: rgba(197,162,88,0.10);
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--or);
+    font-weight: 600;
+    padding: 8px 16px;
+  }
+  .recap-row.total {
+    background: var(--bordeaux);
+    color: var(--fond);
+    font-weight: 500;
+  }
+  .recap-row.total .price { color: var(--or); font-weight:500; }
+  .recap-dot {
+    width: 10px; height: 10px;
+    background: var(--bordeaux);
+    border-radius: 50%;
+  }
+  .recap-dot.vendre { background: var(--or); }
+  .recap-dot.surveiller { background: rgba(45,27,46,0.25); }
+  .recap-row .label-cell {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--bordeaux);
+  }
+  .recap-row .num-cell { font-variant-numeric: tabular-nums; color: var(--texte-light); }
+  .recap-row .price {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--bordeaux);
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+  }
+
+  /* ───────── Inventaire ───────── */
+  .inv-lead {
+    margin: 10px 0 24px;
+    font-family: var(--font-body);
+    font-size: 12.5px;
+    line-height: 1.65;
+    color: var(--texte);
+    max-width: 620px;
+  }
+  table.inv {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-body);
+    font-size: 10.5px;
+    color: var(--texte);
+  }
+  table.inv thead th {
+    text-align: left;
+    font-weight: 600;
+    font-size: 8.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--or);
+    padding: 10px 6px;
+    border-bottom: 1px solid rgba(197,162,88,0.4);
+    background: rgba(197,162,88,0.06);
+    white-space: nowrap;
+  }
+  table.inv tbody td {
+    padding: 9px 6px;
+    border-bottom: 1px solid rgba(45,27,46,0.06);
+    vertical-align: top;
+    line-height: 1.4;
+  }
+  table.inv tbody tr:nth-child(even) td { background: rgba(45,27,46,0.015); }
+  table.inv .domaine {
+    font-weight: 500;
+    color: var(--bordeaux);
+    font-family: var(--font-display);
+    font-size: 12.5px;
+    line-height: 1.2;
+  }
+  table.inv .cuvee {
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-style: italic;
+    color: var(--texte-light);
+    display: block;
+    margin-top: 1px;
+  }
+  table.inv .num { text-align: right; font-variant-numeric: tabular-nums; }
+  table.inv .total-val {
+    color: var(--bordeaux);
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+  table.inv .idx {
+    color: var(--texte-light);
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 11px;
+    width: 20px;
+  }
+  .pill {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 1px;
+    border: 1px solid currentColor;
+    white-space: nowrap;
+  }
+  .pill.conserver { color: var(--bordeaux); background: rgba(45,27,46,0.04); }
+  .pill.vendre { color: #8a6a2d; background: rgba(197,162,88,0.15); border-color: rgba(197,162,88,0.55); }
+  .pill.surveiller { color: var(--texte-light); background: transparent; border-color: rgba(45,27,46,0.2); }
+  .etat-dot {
+    display: none;
+  }
+
+  table.inv tfoot td {
+    padding: 12px 6px 2px;
+    border-top: 2px solid var(--bordeaux);
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--bordeaux);
+  }
+  table.inv tfoot td.num { font-size: 14px; }
+
+  .inv-legend {
+    margin-top: 14px;
+    font-family: var(--font-body);
+    font-size: 9.5px;
+    color: var(--texte-light);
+    line-height: 1.6;
+    letter-spacing: 0.02em;
+    padding: 10px 14px;
+    background: rgba(197,162,88,0.06);
+    border-left: 2px solid var(--or);
+  }
+
+  /* ───────── Recommandations ───────── */
+  .reco-group-head {
+    display: flex; align-items: baseline; gap: 14px;
+    margin: 28px 0 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(45,27,46,0.08);
+  }
+  .reco-group-head .glyph {
+    width: 22px; height: 22px;
+    position: relative;
+  }
+  .reco-group-head .glyph::before {
+    content:""; position:absolute; inset: 4px;
+    background: var(--bordeaux);
+    transform: rotate(45deg);
+  }
+  .reco-group-head.vendre .glyph::before { background: var(--or); }
+  .reco-group-head.surveiller .glyph::before { background: transparent; border: 1.5px solid rgba(45,27,46,0.3); }
+  .reco-group-head .title {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 22px;
+    color: var(--bordeaux);
+    letter-spacing: -0.005em;
+    white-space: nowrap;
+  }
+  .reco-group-head .count {
+    margin-left: auto;
+    font-family: var(--font-body);
+    font-size: 10.5px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--texte-light);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .reco-group-head .count strong {
+    color: var(--bordeaux); font-weight: 600;
+  }
+
+  .reco-card {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr;
+    gap: 24px;
+    padding: 18px 20px;
+    background: var(--blanc);
+    border: 1px solid rgba(45,27,46,0.08);
+    box-shadow: inset 0 0 0 1px rgba(197,162,88,0.08);
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .reco-card + .reco-card { margin-top: -1px; }
+  .reco-card .top {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .reco-card .name {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 17px;
+    color: var(--bordeaux);
+    line-height: 1.2;
+  }
+  .reco-card .name em {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-style: normal;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--or);
+    font-weight: 500;
+    margin-bottom: 3px;
+  }
+  .reco-card .appellation {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 12px;
+    color: var(--texte-light);
+    font-weight: 400;
+    margin-top: 4px;
+  }
+  .reco-card .just {
+    font-family: var(--font-body);
+    font-size: 11.5px;
+    line-height: 1.55;
+    color: var(--texte);
+  }
+  .reco-card .just b {
+    color: var(--bordeaux);
+    font-weight: 500;
+  }
+
+  .reco-side {
+    border-left: 1px solid rgba(197,162,88,0.35);
+    padding-left: 20px;
+    display: flex; flex-direction: column;
+    gap: 10px;
+  }
+  .reco-kv {
+    display: grid; grid-template-columns: 1fr auto;
+    gap: 8px;
+    align-items: center;
+    font-family: var(--font-body);
+    font-size: 10.5px;
+    color: var(--texte-light);
+    letter-spacing: 0.02em;
+  }
+  .reco-kv .k { text-transform: uppercase; letter-spacing: 0.18em; font-size: 9px; color: var(--or); font-weight: 500;}
+  .reco-kv .v {
+    font-family: var(--font-display);
+    font-weight: 500; font-size: 13px; color: var(--bordeaux);
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .reco-kv .v.big {
+    font-size: 20px;
+  }
+
+  .reco-meta {
+    display: flex; flex-direction: column; gap: 4px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(45,27,46,0.08);
+    font-family: var(--font-body); font-size: 10px;
+    color: var(--texte-light); letter-spacing: 0.04em;
+    text-align: right;
+  }
+  .reco-meta span { display: flex; justify-content: space-between; gap: 8px; }
+  .reco-meta span .lbl { text-transform: uppercase; letter-spacing: 0.18em; font-size: 8.5px; color: var(--or); font-weight: 500; }
+  .reco-meta span strong { color: var(--bordeaux); font-weight: 500; font-family: var(--font-display); font-size: 12px; font-variant-numeric: tabular-nums; }
+
+  .reco-summary-line {
+    display: flex; justify-content: space-between;
+    font-family: var(--font-body);
+    font-size: 11px;
+    color: var(--texte-light);
+    letter-spacing: 0.03em;
+    margin: 0 0 14px;
+  }
+
+  /* print */
+  @media print {
+    body { background: white; padding: 0; }
+    body::after { display: none; }
+    .stack { gap: 0; }
+    .page { box-shadow: none; margin: 0; page-break-after: always; }
+  }
+</style>
+<style>
+/* ═══════ CSS Paged Media natif ═══════
+   @page margin + @bottom-* fournit la marge haute/basse uniforme sur
+   CHAQUE page A4 physique (continuations incluses) et la pagination
+   automatique "X / Y" via counter(page)/counter(pages). Plus besoin de
+   .page-foot manuel ni de 2-pass rendering côté Python.
+
+   Pour le fond beige : on remplit explicitement chaque margin-box
+   @page (corners + sides + top/bottom) avec la couleur, parce que
+   ni html/body { background } ni position:fixed ne couvrent les
+   zones de marges en mode print Chromium. */
+@page {
+  size: A4;
+  margin: 10mm 16mm 18mm;
+  background: #FAF6F0;  /* peut être ignoré par certaines versions */
+
+  /* Coins */
+  @top-left-corner     { content: ""; background: #FAF6F0; }
+  @top-right-corner    { content: ""; background: #FAF6F0; }
+  @bottom-left-corner  { content: ""; background: #FAF6F0; }
+  @bottom-right-corner { content: ""; background: #FAF6F0; }
+  /* Bandes haut */
+  @top-left   { content: ""; background: #FAF6F0; }
+  @top-center { content: ""; background: #FAF6F0; }
+  @top-right  { content: ""; background: #FAF6F0; }
+  /* Bandes côtés */
+  @left-top    { content: ""; background: #FAF6F0; }
+  @left-middle { content: ""; background: #FAF6F0; }
+  @left-bottom { content: ""; background: #FAF6F0; }
+  @right-top    { content: ""; background: #FAF6F0; }
+  @right-middle { content: ""; background: #FAF6F0; }
+  @right-bottom { content: ""; background: #FAF6F0; }
+  /* Bande bas — avec le footer paginé */
+  @bottom-center { content: ""; background: #FAF6F0; }
+  @bottom-left {
+    content: "{{ client.nom }} · Rapport confidentiel · {{ client.ref_dossier }}";
+    background: #FAF6F0;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9px;
+    color: #6B5F65;
+    letter-spacing: 0.04em;
+    vertical-align: top;
+    padding-top: 4mm;
+    border-top: 1px solid rgba(45,27,46,0.08);
+    margin-top: 6mm;
+  }
+  @bottom-right {
+    content: counter(page) " / " counter(pages);
+    background: #FAF6F0;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9px;
+    color: #6B5F65;
+    letter-spacing: 0.04em;
+    vertical-align: top;
+    padding-top: 4mm;
+    border-top: 1px solid rgba(45,27,46,0.08);
+    margin-top: 6mm;
+  }
+}
+@page :first {
+  margin: 0;
+  background: #FAF6F0;
+  @top-left-corner     { content: none; }
+  @top-right-corner    { content: none; }
+  @bottom-left-corner  { content: none; }
+  @bottom-right-corner { content: none; }
+  @top-left   { content: none; }
+  @top-center { content: none; }
+  @top-right  { content: none; }
+  @left-top    { content: none; }
+  @left-middle { content: none; }
+  @left-bottom { content: none; }
+  @right-top    { content: none; }
+  @right-middle { content: none; }
+  @right-bottom { content: none; }
+  @bottom-center { content: none; }
+  @bottom-left   { content: none; }
+  @bottom-right  { content: none; }
+}
+
+html, body { background: #FAF6F0 !important; }
+
+.page {
+  width: 100%;
+  min-height: 269mm; /* A4 - 10mm top - 18mm bottom */
+  padding: 0;
+  background: #FAF6F0;
+  position: relative;
+}
+/* Le cadre décoratif .page::before crée une hairline visible juste au-dessus
+   du footer @page sur les pages qui ne débordent pas (mission, synthèse,
+   répartition I/II). On le masque sur tout sauf la couverture (qui a son
+   propre cadre doré .cover::before). */
+.page:not(.cover)::before { display: none !important; }
+
+/* Pas de séparateur visible entre les deux cards d'un même
+   .chart-row.stacked-full (Volume + Valeur) — la respiration verticale
+   suffit. */
+.chart-row.stacked-full > .chart-card + .chart-card {
+  border-top: none !important;
+  padding-top: 12px;
+  margin-top: 12px;
+}
+
+/* Cover : @page :first margin 0 donne l'A4 plein format 210×297 ; .cover
+   assume ses propres paddings intérieurs. width:100% = 210mm sur la
+   première page (pas de marges) → cover plein format. */
+.page.cover { min-height: 297mm; padding: 0; }
+.cover-inner { padding: 16mm 18mm 10mm; }
+.cover::before { inset: 7mm; }
+.cover::after { inset: 9mm; }
+
+/* Les anciens <div class="page-foot"> du template sont masqués : les
+   footers sont désormais rendus par les margin-boxes @page. */
+.page-foot { display: none !important; }
+
+/* ═══════ Drop caps — explicit span, not ::first-letter ═══════ */
+/* Kill the upstream ::first-letter drop cap so it doesn't double up. */
+.mission-sub p.lead::first-letter {
+  float: none;
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  padding: 0;
+}
+.with-dropcap {
+  /* BFC : garantit que la lettrine flottante est bien contenue dans
+     le paragraphe, sans lignes vides parasites en cas de paragraphe court. */
+  overflow: hidden;
+  /* Annule toute règle margin-top: auto qu'un contexte flex parent
+     pourrait appliquer à un paragraphe. */
+  margin-top: 0 !important;
+}
+.dropcap {
+  float: left;
+  font-family: 'Cormorant Garamond', 'Garamond', Georgia, serif;
+  font-weight: 500;
+  font-size: 2.8em;
+  line-height: 0.92;
+  padding: 0.05em 0.12em 0 0;
+  color: var(--bordeaux);
+}
+
+/* ═══════ Natural pagination on content-flowing sections ═══════ */
+.inv tbody tr        { page-break-inside: avoid; break-inside: avoid; }
+.reco-card           { page-break-inside: avoid; break-inside: avoid; }
+.reco-group-head     { page-break-after: avoid; break-after: avoid; }
+.garde-group         { page-break-inside: avoid; break-inside: avoid; }
+.garde-table tbody tr { page-break-inside: avoid; break-inside: avoid; }
+/* Mission-sub paragraphs flow freely — forcing keep-together would leave
+   large gaps at the bottom of p10 for plans d'action denses. */
+.mission-sub-head    { page-break-after: avoid; break-after: avoid; }
+
+/* ═══════ Compact reco-card — override upstream grid/aside ═══════ */
+.reco-card {
+  display: block;
+  padding: 4px 9px 3px;
+  margin-bottom: 0;
+  background: var(--blanc);
+  border: 1px solid rgba(45,27,46,0.08);
+  border-top-width: 0;
+  position: relative;
+}
+.reco-card:first-of-type { border-top-width: 1px; }
+.reco-group-head + .reco-card { border-top-width: 1px; }
+.reco-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 3px;
+}
+.reco-card-title {
+  flex: 1;
+  min-width: 0;
+}
+.reco-card-name {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--bordeaux);
+  margin-right: 8px;
+  line-height: 1.2;
+}
+.reco-card-app {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 10.5px;
+  color: var(--texte-light);
+  font-weight: 400;
+}
+.reco-card-stats {
+  font-family: var(--font-body);
+  font-size: 10.5px;
+  color: var(--texte);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.reco-card-stats b {
+  color: var(--bordeaux);
+  font-weight: 500;
+}
+.reco-card-just {
+  font-family: var(--font-body);
+  font-size: 9px;
+  line-height: 1.35;
+  color: var(--texte);
+  margin: 0 0 1px;
+  text-wrap: pretty;
+}
+.reco-card-just b {
+  color: var(--bordeaux);
+  font-weight: 500;
+}
+.reco-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px 14px;
+  font-family: var(--font-body);
+  font-size: 8.5px;
+  color: var(--texte-light);
+  margin-top: 1px;
+}
+.reco-card-meta .lbl {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-right: 4px;
+  color: var(--or);
+  font-weight: 500;
+}
+.reco-card-meta b {
+  color: var(--bordeaux);
+  font-weight: 500;
+}
+
+/* Tighten reco-group-head spacing so multi-group pages don't waste vertical
+   room. */
+.reco-group-head {
+  margin-top: 12px;
+  margin-bottom: 5px;
+  padding-bottom: 4px;
+}
+.reco-group-head:first-of-type {
+  margin-top: 8px;
+}
+
+/* ═══════ Stacked-bar — always show all labels, even narrow segments ═══════ */
+/* The default flex:0 0 calc(var(--pct)*1%) makes segments exactly proportional,
+   which hides labels on small (< 8 %) segments. We give each segment a hard
+   min-width so "GARDE LONGUE" still fits at 6 %, and shrink the label font +
+   tracking so short labels stay horizontal. */
+.stacked-bar .seg {
+  flex: var(--pct) 1 70px;
+  min-width: 70px;
+  font-size: 8px;
+  letter-spacing: 0.04em;
+}
+.stacked-bar .seg > span {
+  padding: 0 3px;
+}
+.stacked-bar.labeled .seg {
+  min-width: 78px;
+}
+.stacked-bar.labeled .seg b { font-size: 8px; letter-spacing: 0.04em; }
+.stacked-bar.labeled .seg i { font-size: 10px; }
+
+/* ═══════ Dense variants for inventory / market / plan / garde ═══════ */
+/* Inventaire (p4) — pack 20+ rows per A4 */
+.inv th { padding: 5px 4px; font-size: 8px; }
+.inv td { padding: 2px 4px; font-size: 8.5px; line-height: 1.2; }
+.inv .idx { color: var(--texte-light); font-family: var(--font-body); }
+.inv .domaine-cell {
+  font-weight: 500;
+  color: var(--bordeaux);
+  font-family: var(--font-display);
+  font-size: 9.5px;
+  line-height: 1.2;
+}
+.inv .appellation-cell {
+  font-size: 8.5px;
+  line-height: 1.2;
+}
+.inv .appellation-cell em {
+  font-style: italic;
+  color: var(--texte-light);
+}
+.inv .pill { padding: 0.5px 5px; font-size: 7.5px; }
+.inv tfoot td { font-size: 8.5px; padding: 5px 4px; white-space: nowrap; }
+
+/* Total estimé : div hors-table pour ne s'afficher qu'une fois en bas
+   de la dernière A4 d'inventaire (le tfoot natif se dupliquait sur
+   chaque page de continuation dans Chromium print). */
+.inv-total {
+  display: flex;
+  justify-content: flex-end;
+  align-items: baseline;
+  gap: 32px;
+  padding: 10px 4px 0;
+  margin-top: 4px;
+  border-top: 1px solid rgba(45,27,46,0.12);
+}
+.inv-total-label {
+  text-align: right;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 10px;
+  font-family: var(--font-body);
+  color: var(--or);
+}
+.inv-total-btl {
+  font-family: var(--font-body);
+  font-size: 9.5px;
+  color: var(--texte);
+  min-width: 30px;
+  text-align: right;
+}
+.inv-total-val {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--or);
+  min-width: 70px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* Marché (p5) — lisibilité prime, on accepte de déborder sur 2 A4 si besoin */
+.market-block { margin-top: 16px; }
+.market-block:first-of-type { margin-top: 10px; }
+.market-head { margin-bottom: 6px; }
+.market-title { font-size: 15px; }
+.market-sub { margin-top: 10px; }
+.market-sub h4 { font-size: 12px; margin-bottom: 4px; line-height: 1.3; }
+.market-sub p { font-size: 11px; line-height: 1.5; margin: 0; text-wrap: pretty; }
+.market-lede { margin-bottom: 12px; line-height: 1.5; font-size: 11px; }
+/* Autorise la coupe naturelle (même logique que plan d'action). */
+#p5 .market-block { page-break-inside: auto; break-inside: auto; }
+
+/* Plan d'action (p10) — lisibilité prime, peut déborder sur 2 A4 */
+#p10 .mission-sub { margin-top: 18px; }
+#p10 .mission-sub:first-of-type { margin-top: 10px; }
+#p10 .mission-sub-head { padding-bottom: 6px; margin-bottom: 12px; }
+#p10 .mission-sub-head h3 { font-size: 17px; }
+#p10 .mission-sub p {
+  font-size: 11px;
+  line-height: 1.5;
+  margin: 0 0 8px;
+  text-wrap: pretty;
+}
+/* p10 : chaque bloc (Conclusion / Vigilance / Étapes) ne doit PAS être
+   coupé au milieu. Si un bloc ne tient pas, il bascule entier sur la
+   page suivante. */
+#p10 .mission-sub { page-break-inside: avoid; break-inside: avoid; }
+/* Fallback hors p10 : légèrement plus aéré. */
+.mission-sub p { font-size: 10.5px; line-height: 1.5; margin: 0 0 5px; }
+
+/* Potentiel de garde (p9) — titres de groupe visibles, tables compactes */
+.garde-group { margin-bottom: 14px; }
+.garde-head {
+  margin-bottom: 6px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid rgba(45,27,46,0.18);
+}
+.garde-head h3 {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  color: var(--bordeaux);
+}
+.garde-head h3 .garde-sub {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--texte-light);
+  letter-spacing: 0;
+}
+.garde-count {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--texte-light);
+}
+.garde-table th { padding: 3px 4px; font-size: 8px; }
+.garde-table td { padding: 2.5px 4px; font-size: 9px; line-height: 1.25; }
+.garde-table .pill { padding: 1px 6px; font-size: 8px; }
+
+/* ═══════ Content trim — fit cover/mission/synthèse into A4 ═══════ */
+/* Cover (p1) */
+.cover-eyebrow { margin-bottom: 18px; }
+.cover-illus   { width: 200px; margin-bottom: 12px; }
+.cover-sub     { margin-top: 14px; font-size: 18px; }
+.cover-ornament { margin: 20px 0 16px; }
+.cover-meta    { margin-top: 16px; }
+.cover-meta > div { padding: 12px 18px; }
+.expert-band   { margin-top: 14px; }
+.expert-band .seal { width: 44px; height: 44px; }
+.cover-foot    { padding-top: 14px; }
+
+/* Mission (p2) */
+.mission-intro { margin: 14px 0 16px; line-height: 1.5; }
+.mission-grid > div { padding: 3px 0; }
+.mission-sub   { margin-top: 18px; }
+.mission-sub-head { padding-bottom: 5px; margin-bottom: 10px; }
+.method-cols   { gap: 28px; margin-top: 10px; }
+.mission-sub p { line-height: 1.5; margin: 0 0 5px; }
+.mission-list  { margin: 4px 0 6px; line-height: 1.45; }
+
+/* Synthèse (p3) — respirer entre les blocs (~24px minimum)
+   Mais on garde la compacité interne pour tenir sur 1 A4 imprimable (270 mm).
+*/
+.sect-sub       { margin-top: 24px; }
+.sect-sub:first-of-type { margin-top: 8px; }
+.hero-value     { padding: 12px 22px; margin-top: 8px; }
+.hv-value       { font-size: 48px !important; }
+.bars           { margin-top: 4px; }
+.bar-row        { padding: 0 0; }
+.bar-track      { height: 6px; }
+.color-split    { margin-top: 4px; }
+.color-split-head { padding: 2px 0; font-size: 10px; }
+.stacked        { height: 16px; }
+.legend-dots    { margin-top: 2px; padding: 2px 0; font-size: 9.5px; }
+.recap          { margin-top: 4px; }
+.recap-row      {
+  padding: 3px 18px;
+}
+.recap-row.head { padding: 4px 18px; }
+.recap-row.total { padding: 4px 18px; }
+
+/* Répartition II (p7) — save a few px */
+.chart-card.solo { margin-top: 8px; }
+.tops-head      { margin-top: 10px; }
+.chart-row.with-sep { margin-top: 12px; padding-top: 10px; }
+.top-list li    { padding: 3px 0; }
+.reco-split-col .split-total { margin-top: 2px; }
+#p7 .reco-split { margin-top: 8px; }
+#p7 .reco-split-legend { margin-top: 10px; }
+
+/* Print tweaks so natural-flow sections don't carry their hairline frame
+   across A4 boundaries — keeps inventaire/reco/garde/plan-action clean. */
+@media print {
+  .page:is(#p4, #p8, #p9, #p10, #p11)::before { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="stack">
+
+  <!-- ════════════ PAGE 1 — COUVERTURE ════════════ -->
+  <section class="page cover" id="p1">
+    <div class="cover-inner">
+      <div class="cover-top">
+        <div class="wordmark">
+          estimation<span style="color:var(--or);">cave</span>.com
+          <em>expertise indépendante</em>
+        </div>
+        <div class="ref-tag">
+          Référence<br><strong>{{ client.ref_dossier }}</strong>
+        </div>
+      </div>
+
+      <div class="cover-center">
+        <div class="cover-eyebrow">Rapport d'audit et d'estimation</div>
+        <img src="../assets/images/cover-illus.png" alt="" class="cover-illus">
+        <h1 class="cover-title">
+          Audit et estimation<br>
+          <em>de votre cave à vins</em>
+        </h1>
+        <div class="cover-sub">
+          Inventaire, valorisation de marché<br>
+          et recommandations d'arbitrage patrimonial.
+        </div>
+
+        <div class="cover-ornament" aria-hidden="true">
+          <span class="line"></span>
+          <span class="diamond"></span>
+          <span class="line"></span>
+        </div>
+
+        <div class="cover-meta">
+          <div>
+            <div class="label">Établi pour</div>
+            <div class="val">{{ client.nom }}<small>{{ client.localisation }}</small></div>
+          </div>
+          <div>
+            <div class="label">Objectif</div>
+            <div class="val">{{ client.objectif_court }}<small>{{ client.objectif_detail }}</small></div>
+          </div>
+          <div>
+            <div class="label">Date d'émission</div>
+            <div class="val">{{ rapport.date_emission }}<small>{{ rapport.validite }}</small></div>
+          </div>
+          <div>
+            <div class="label">Périmètre</div>
+            <div class="val">{{ perimetre.nb_references }} réf. · {{ perimetre.nb_bouteilles }} bouteilles<small>{{ perimetre.base_estimation }}</small></div>
+          </div>
+        </div>
+
+        <div class="expert-band">
+          <img src="../assets/images/seal.png" alt="" class="seal">
+          <div class="text">
+            <strong>Expertise réalisée par</strong>
+            {{ expert.nom }}
+          </div>
+        </div>
+      </div>
+
+      <div class="cover-foot">
+        <span class="confid">Document strictement confidentiel</span>
+        <span class="signature">contact@estimationcave.com</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════ PAGE 2 — INFORMATIONS DE LA MISSION ════════════ -->
+  <section class="page" id="p2">
+    <div class="sect-eyebrow">— 1. Informations de la mission —</div>
+    <h2 class="sect-title">Périmètre <em>et méthode</em></h2>
+
+    <p class="mission-intro">
+      Le présent rapport fait suite à la demande d'audit et d'estimation adressée par <b style="color:var(--bordeaux);">{{ client.nom }}</b>. Il fixe le périmètre, la méthode et les limites de l'estimation.
+    </p>
+
+    <div class="mission-grid">
+      <div><dt>Client</dt><dd class="highlight">{{ client.nom }}</dd></div>
+      <div><dt>Contact</dt><dd>{{ client.email }}</dd></div>
+      <div><dt>Localisation</dt><dd>{{ client.localisation }}</dd></div>
+      <div><dt>Référence dossier</dt><dd>{{ client.ref_dossier }}</dd></div>
+      <div><dt>Date du rapport</dt><dd>{{ rapport.date_emission }}</dd></div>
+      <div><dt>Objectif</dt><dd>{{ client.objectif_long }}</dd></div>
+      <div><dt>Conditions d'estimation</dt><dd>{{ perimetre.conditions }}</dd></div>
+      <div><dt>Conservation déclarée</dt><dd>{{ perimetre.conservation }}</dd></div>
+      <div><dt>Provenance</dt><dd>{{ perimetre.provenance }}</dd></div>
+      <div><dt>Références</dt><dd><span class="num-big">{{ perimetre.nb_references }}</span>références auditées</dd></div>
+      <div><dt>Bouteilles</dt><dd><span class="num-big">{{ perimetre.nb_bouteilles }}</span>flacons audités</dd></div>
+    </div>
+
+    <div class="mission-sub">
+      <div class="mission-sub-head">
+        <h3>Méthodologie &amp; limites de l'estimation</h3>
+        <span class="sub-tag">Cadre de lecture</span>
+      </div>
+
+      <div class="method-body">
+        <div class="method-col-label">Sources et données</div>
+        <p class="lead with-dropcap">
+          <span class="dropcap">L</span>e rapport s'appuie sur trois sources de référence du marché secondaire du vin&nbsp;: la <b>Cote iDealwine</b>, leader européen des ventes aux enchères spécialisées, qui consolide les résultats hebdomadaires des adjudications réalisées en France&nbsp;; <b>Wine-Searcher</b>, agrégateur international des prix pratiqués en retail&nbsp;; et les résultats publiés des principales maisons de ventes françaises et internationales (Sotheby's, Christie's, Baghera/wines, Artcurial, Drouot, Hart Davis Hart, Zachys, Acker), consultés pour les références à faible rotation ou à forte valeur unitaire. Les données sont extraites dans les 5&nbsp;jours précédant l'émission du rapport, afin de refléter l'état du marché à une date proche de la livraison.
+        </p>
+        <p>
+          La valeur marchande de chaque référence est établie par croisement pondéré de ces sources, de manière à neutraliser les biais propres à chaque canal — forte volatilité des adjudications isolées, dispersion des prix de détail internationaux, saisonnalité marquée de certaines ventes prestigieuses. La valeur globale de la cave est proposée sous forme de fourchette <b>±15&nbsp;%</b>, qui reflète à la fois la volatilité normale des cours observée sur les douze derniers mois et les aléas d'adjudication spécifiques au marché aux enchères.
+        </p>
+
+        <div class="method-cols">
+          <div class="method-col">
+            <div class="method-col-label">Indépendance</div>
+            <p>
+              <b>estimationcave.com</b> s'interdit toute activité d'achat, de revente, de courtage ou de mise en relation commerciale rémunérée sur les vins évalués. L'estimation est établie sans conflit d'intérêt et sans objectif commercial sous-jacent à la vente ou à l'acquisition des bouteilles auditées.
+            </p>
+          </div>
+          <div class="method-col">
+            <div class="method-col-label">Portée du document</div>
+            <p>
+              Le rapport fournit une lecture structurée et datée de la cave auditée, destinée à l'aide à la décision dans une logique de conservation, d'arbitrage patrimonial, de cession partielle ou totale, de souscription ou de réévaluation d'un contrat d'assurance objets de valeur, ou d'inventaire dans le cadre d'une succession.
+            </p>
+          </div>
+        </div>
+
+        <div class="method-col-label" style="margin-top:18px;">Ce que ce rapport n'est pas</div>
+        <ul class="mission-list mission-list-cols">
+          <li>une expertise judiciaire&nbsp;;</li>
+          <li>une certification d'authenticité des flacons&nbsp;;</li>
+          <li>une garantie de l'état organoleptique du vin&nbsp;;</li>
+          <li>un substitut à une inspection physique des bouteilles&nbsp;;</li>
+          <li>une garantie de prix de vente effectif&nbsp;;</li>
+          <li>une garantie de liquidité à court terme aux enchères&nbsp;;</li>
+          <li>un conseil en investissement financier.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════ PAGE 3 — SYNTHÈSE ════════════ -->
+  <section class="page" id="p3">
+    <div class="sect-eyebrow">— 2. Synthèse exécutive —</div>
+    <h2 class="sect-title">Vue <em>d'ensemble</em></h2>
+
+    <div class="hero-value">
+      <div>
+        <div class="hv-label">Valeur estimée de la cave</div>
+        <div class="hv-value" style="text-align: left;">{{ synthese.valeur_totale_fmt }}<sup style="text-align: left;">€</sup></div>
+        <div class="hv-range" style="font-size: 13.5px;">
+          Fourchette indicative de marché à date<br>
+          <strong style="color: var(--or); font-weight: 500; font-size: 18.5px;">{{ synthese.fourchette_min_fmt }} €  —  {{ synthese.fourchette_max_fmt }} €</strong>
+        </div>
+      </div>
+      <div class="hv-stats">
+        <div class="row"><span class="k">Références</span><span class="v">{{ perimetre.nb_references }}</span></div>
+        <div class="row"><span class="k">Bouteilles</span><span class="v">{{ perimetre.nb_bouteilles }}</span></div>
+        <div class="row"><span class="k">Liquidité globale</span><span class="v" style="font-size:15px;">{{ synthese.liquidite_globale }}</span></div>
+      </div>
+    </div>
+
+    <div class="sect-sub">Valeur par {{ synthese.geo_axis | default('région') }}</div>
+    <div class="bars">
+{% for row in synthese.regions_valeur %}      <div class="bar-row"><span class="name">{{ row.nom }}</span><div class="bar-track"><div class="bar-fill" style="width:{{ row.width }}%"></div></div><span class="bar-val">{{ row.pct_fmt }} %</span></div>
+{% endfor %}    </div>
+
+    <div class="sect-sub">Répartition par couleur</div>
+    <div class="color-split">
+      <div class="color-split-col">
+        <div class="color-split-head">
+          <span>En volume</span>
+          <span class="color-split-base">{{ perimetre.nb_bouteilles }} btl</span>
+        </div>
+        <div class="stacked">
+{% for seg in synthese.color_split.volume %}          <div style="width:{{ seg.width }}%; background: {{ seg.color }}; color: {{ seg.text_color }};{% if seg.small %} font-size:10px;{% endif %}">{{ seg.pct_fmt }} %</div>
+{% endfor %}        </div>
+      </div>
+      <div class="color-split-col">
+        <div class="color-split-head">
+          <span>En valeur</span>
+          <span class="color-split-base">{{ synthese.valeur_totale_fmt }} €</span>
+        </div>
+        <div class="stacked">
+{% for seg in synthese.color_split.valeur %}          <div style="width:{{ seg.width }}%; background: {{ seg.color }}; color: {{ seg.text_color }};{% if seg.small %} font-size:10px;{% endif %}">{{ seg.pct_fmt }} %</div>
+{% endfor %}        </div>
+      </div>
+    </div>
+    <div class="legend-dots">
+      <span><i style="background:#6A1F2E"></i>Rouge</span>
+      <span><i style="background:#C5A258"></i>Blanc sec</span>
+      <span><i style="background:#8a6a2d"></i>Liquoreux</span>
+      <span><i style="background:rgba(138,106,45,0.6)"></i>Effervescent</span>
+    </div>
+
+    <div class="sect-sub">Recommandation synthétique</div>
+    <div class="recap">
+      <div class="recap-row head">
+        <span></span>
+        <span>Orientation</span>
+        <span style="text-align:right">Lots</span>
+        <span style="text-align:right">Bouteilles</span>
+        <span style="text-align:right">Valeur estimée</span>
+      </div>
+{% for row in synthese.recap %}      <div class="recap-row">
+        <span class="recap-dot{% if row.dot_class %} {{ row.dot_class }}{% endif %}"></span>
+        <span class="label-cell">{{ row.label }}</span>
+        <span class="num-cell" style="text-align:right">{{ row.lots }}</span>
+        <span class="num-cell" style="text-align:right">{{ row.btl }}</span>
+        <span class="price">{{ row.valeur_fmt }} €</span>
+      </div>
+{% endfor %}      <div class="recap-row total">
+        <span></span>
+        <span style="font-family:var(--font-display);font-size:15px;">Total de la cave</span>
+        <span style="text-align:right">{{ perimetre.nb_references }}</span>
+        <span style="text-align:right">{{ perimetre.nb_bouteilles }}</span>
+        <span class="price">{{ synthese.valeur_totale_fmt }} €</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════ PAGE 3 — INVENTAIRE ════════════ -->
+  <section class="page" id="p4">
+    <div class="sect-eyebrow">— 3. Inventaire détaillé —</div>
+    <h2 class="sect-title">Lecture <em>technique</em> de la cave</h2>
+
+    <table class="inv">
+      <colgroup>
+        <col style="width:22px"><col style="width:120px"><col><col style="width:66px"><col style="width:38px"><col style="width:48px"><col style="width:62px"><col style="width:20px"><col style="width:50px"><col style="width:58px"><col style="width:80px">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Domaine</th>
+          <th>Appellation / Cuvée</th>
+          <th>Région</th>
+          <th>Coul.</th>
+          <th>Mill.</th>
+          <th>État</th>
+          <th class="num">Qté</th>
+          <th class="num">Unit.</th>
+          <th class="num">Total</th>
+          <th>Orientation</th>
+        </tr>
+      </thead>
+      <tbody>
+{% for vin in inventaire %}        <tr><td class="idx">{{ "%02d" | format(loop.index) }}</td><td class="domaine-cell">{{ vin.domaine }}</td><td class="appellation-cell">{{ vin.appellation }}{% if vin.cuvee %} · <em>{{ vin.cuvee }}</em>{% endif %}</td><td>{{ vin.region }}</td><td>{{ vin.couleur }}</td><td>{{ vin.millesime }}</td><td><span class="etat-dot {{ vin.etat_class }}"></span>{{ vin.etat }}</td><td class="num">{{ vin.qte }}</td><td class="num">{{ vin.unit_fmt }} €</td><td class="num total-val">{{ vin.total_fmt }} €</td><td><span class="pill {{ vin.orientation_class }}">{{ vin.orientation }}</span></td></tr>
+{% endfor %}      </tbody>
+    </table>
+
+    <div class="inv-total">
+      <span class="inv-total-label">Total estimé de la cave</span>
+      <span class="inv-total-btl">{{ perimetre.nb_bouteilles }}</span>
+      <span class="inv-total-val">{{ synthese.valeur_totale_fmt }} €</span>
+    </div>
+
+    <div class="inv-legend">
+      <strong style="color:var(--bordeaux);letter-spacing:0.18em;text-transform:uppercase;font-size:9px;">Échelle de lecture</strong> &nbsp;·&nbsp;
+      Excellent — présentation optimale &nbsp;·&nbsp;
+      Très bon — signes du temps sans incidence &nbsp;·&nbsp;
+      Bon — défauts compatibles avec une valorisation normale &nbsp;·&nbsp;
+      NM = non millésimé &nbsp;·&nbsp; CBO = caisse bois d'origine &nbsp;·&nbsp; Val. en euros.
+    </div>
+  </section>
+
+  <!-- ════════════ PAGE 4 — CONTEXTE MARCHÉ ════════════ -->
+  <section class="page" id="p5">
+    <div class="sect-eyebrow">— 4. Contexte marché —</div>
+    <h2 class="sect-title">Lecture <em>du marché</em> à date</h2>
+
+    <p class="market-lede">{{ marche.lede }}</p>
+
+{% for block in marche.blocs %}    <section class="market-block">
+      <header class="market-head">
+        <span class="market-num">{{ block.num }}</span>
+        <h3 class="market-title">{{ block.titre }}</h3>
+      </header>
+{% for sub in block.subs %}      <article class="market-sub">
+        <h4>{{ sub.titre }}</h4>
+        <p>{{ sub.corps | safe }}</p>
+      </article>
+{% endfor %}    </section>
+
+{% endfor %}
+  </section>
+
+  <!-- ════════════ PAGE 6 — RÉPARTITION I ════════════ -->
+  <section class="page" id="p6">
+    <div class="sect-eyebrow">— 5. Répartition de la cave —</div>
+    <h2 class="sect-title">Lecture <em>analytique</em></h2>
+
+    <p class="mission-intro">
+      Quatre axes de lecture complémentaires pour comprendre la structure de votre cave : géographie, valeur, arbitrage, et profil de garde. Chaque graphique est exprimé en pourcentage de la référence indiquée.
+    </p>
+
+    <div class="chart-row stacked-full">
+      <section class="chart-card">
+        <header class="chart-head">
+          <div class="chart-kicker">Par {{ repartition.geo_axis | default("région") }}</div>
+          <h3 class="chart-title">Volume de bouteilles</h3>
+          <div class="chart-base">Base : <b>{{ perimetre.nb_bouteilles }} flacons</b></div>
+        </header>
+        <ul class="bar-list">
+{% for row in repartition.volume_region %}          <li><span class="bar-label">{{ row.label }}</span><span class="bar-track"><span class="bar-fill" style="--pct:{{ row.pct }};"><span class="bar-pct">{{ row.pct_fmt }} %</span></span></span><span class="bar-value">{{ row.value_fmt }} btl</span></li>
+{% endfor %}        </ul>
+      </section>
+
+      <section class="chart-card">
+        <header class="chart-head">
+          <div class="chart-kicker">Par {{ repartition.geo_axis | default("région") }}</div>
+          <h3 class="chart-title">Valeur estimée</h3>
+          <div class="chart-base">Base : <b>{{ repartition.valeur_region_base_fmt }} €</b></div>
+        </header>
+        <ul class="bar-list">
+{% for row in repartition.valeur_region %}          <li><span class="bar-label">{{ row.label }}</span><span class="bar-track"><span class="bar-fill accent" style="--pct:{{ row.pct }};"><span class="bar-pct">{{ row.pct_fmt }} %</span></span></span><span class="bar-value">{{ row.value_fmt }} € </span></li>
+{% endfor %}        </ul>
+      </section>
+    </div>
+
+    <div class="chart-row one">
+      <section class="chart-card">
+        <header class="chart-head">
+          <div class="chart-kicker">Profil temporel</div>
+          <h3 class="chart-title">Potentiel de garde</h3>
+        </header>
+        <div class="stacked-bar">
+{% for seg in repartition.garde.segments %}          <span class="seg" style="--pct:{{ seg.pct }};background:{{ seg.color }};"><span>{{ seg.label }}</span></span>
+{% endfor %}        </div>
+        <ul class="stack-legend two-col">
+{% for item in repartition.garde.legende %}          <li><span class="sw" style="background:{{ item.color }};"></span><div><b>{{ item.label }}</b><em>{{ item.detail }}</em></div><span class="pct">{{ item.pct_fmt }} %</span></li>
+{% endfor %}        </ul>
+      </section>
+    </div>
+  </section>
+
+  <!-- ════════════ PAGE 7 — RÉPARTITION II ════════════ -->
+  <section class="page" id="p7">
+    <div class="sect-eyebrow">— 5. Répartition, suite —</div>
+    <h2 class="sect-title">Arbitrage <em>et concentration</em></h2>
+
+    <section class="chart-card solo">
+      <header class="chart-head">
+        <div class="chart-kicker">Stratégie</div>
+        <h3 class="chart-title">Répartition des recommandations</h3>
+        <div class="chart-base">En volume &amp; en valeur</div>
+      </header>
+      <div class="reco-split">
+        <div class="reco-split-col">
+          <div class="split-kicker">Volume</div>
+          <div class="stacked-bar labeled">
+{% for seg in repartition.reco_split.volume %}            <span class="seg" style="--pct:{{ seg.pct }};background:{{ seg.color }};"><span><b>{{ seg.label }}</b><i>{{ seg.pct_int }} %</i></span></span>
+{% endfor %}          </div>
+          <div class="split-total">{{ perimetre.nb_bouteilles }} btl</div>
+        </div>
+        <div class="reco-split-col">
+          <div class="split-kicker">Valeur</div>
+          <div class="stacked-bar labeled">
+{% for seg in repartition.reco_split.valeur %}            <span class="seg" style="--pct:{{ seg.pct }};background:{{ seg.color }};"><span><b>{{ seg.label }}</b><i>{{ seg.pct_int }} %</i></span></span>
+{% endfor %}          </div>
+          <div class="split-total">{{ repartition.reco_split.valeur_total_fmt }} €</div>
+        </div>
+      </div>
+      <ul class="reco-split-legend">
+{% for item in repartition.reco_split.legende %}        <li><span class="sw" style="background:{{ item.color }};"></span><div><b>{{ item.label }}</b><em>{{ item.detail }}</em></div></li>
+{% endfor %}      </ul>
+    </section>
+
+    <header class="chart-head tops-head">
+      <div class="chart-kicker">Concentration des valeurs</div>
+    </header>
+    <div class="chart-row with-sep">
+      <section class="chart-card">
+        <header class="chart-head">
+          <h3 class="chart-title">Top 5 — valeur unitaire</h3>
+          <div class="chart-base">Prix moyen estimé par flacon</div>
+        </header>
+        <ol class="top-list">
+{% for item in repartition.top_unitaire %}          <li><span class="rk">{{ loop.index }}</span><div class="top-main"><b>{{ item.nom }}</b><em>{{ item.detail }}</em></div><span class="top-val">{{ item.value_fmt }} €</span></li>
+{% endfor %}        </ol>
+      </section>
+
+      <section class="chart-card">
+        <header class="chart-head">
+          <h3 class="chart-title">Top 5 — valeur totale</h3>
+          <div class="chart-base">Valeur cumulée par référence</div>
+        </header>
+        <ol class="top-list">
+{% for item in repartition.top_totale %}          <li><span class="rk">{{ loop.index }}</span><div class="top-main"><b>{{ item.nom }}</b><em>{{ item.detail }}</em></div><span class="top-val">{{ item.value_fmt }} €</span></li>
+{% endfor %}        </ol>
+        <div class="top-summary">
+          Les <b>5 premières références</b> concentrent <b style="color:var(--bordeaux);">{{ repartition.top_concentration_pct }} %</b> de la valeur totale estimée.
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <!-- ════════════ PAGE 5 — RECOMMANDATIONS ════════════ -->
+  <section class="page" id="p8">
+    <div class="sect-eyebrow">— 7. Recommandations détaillées —</div>
+    <h2 class="sect-title">Pour chaque lot, <em>une justification</em></h2>
+
+{% for groupe in recommandations %}    <div class="reco-group-head{% if groupe.class_mod %} {{ groupe.class_mod }}{% endif %}">
+      <span class="glyph"></span>
+      <span class="title">{{ groupe.titre }}</span>
+      <span class="count"><strong>{{ groupe.nb_bouteilles }}</strong> bouteilles &nbsp;·&nbsp; <strong>{{ groupe.valeur_fmt }} €</strong></span>
+    </div>
+{% for lot in groupe.lots %}    <article class="reco-card">
+      <div class="reco-card-head">
+        <div class="reco-card-title">
+          <span class="reco-card-name">{{ lot.nom }}</span>
+          <span class="reco-card-app">{{ lot.appellation }}</span>
+        </div>
+        <span class="reco-card-stats">{{ lot.qte }}&nbsp;btl&nbsp;·&nbsp;<b>{{ lot.valeur_fmt }}&nbsp;€</b></span>
+      </div>
+      <p class="reco-card-just">{{ lot.justification | safe }}</p>
+{% if lot.garde or lot.meta %}      <div class="reco-card-meta">
+{% if lot.garde %}        <span><span class="lbl">Garde</span><b>{{ lot.garde }}</b></span>
+{% endif %}{% for meta in lot.meta %}        <span><span class="lbl">{{ meta.lbl }}</span><b>{{ meta.val }}</b></span>
+{% endfor %}      </div>
+{% endif %}    </article>
+{% endfor %}
+{% endfor %}
+  </section>
+
+  <!-- ════════════ PAGE 9 — POTENTIEL DE GARDE ════════════ -->
+  <section class="page" id="p9">
+    <div class="sect-eyebrow">— 8. Potentiel de garde —</div>
+    <h2 class="sect-title">Fenêtres <em>d'apogée</em></h2>
+
+    <p class="mission-intro">{{ potentiel_garde.intro }}</p>
+
+{% for g in potentiel_garde.groupes %}    <div class="garde-group">
+      <header class="garde-head">
+        <span class="garde-dot" style="background:{{ g.color }};"></span>
+        <h3>{{ g.titre | safe }}</h3>
+        <span class="garde-count">{{ g.nb_bouteilles }} bouteilles · {{ g.valeur_fmt }} €</span>
+      </header>
+      <table class="garde-table">
+        <thead><tr><th>Domaine / Cuvée</th><th>Appellation</th><th>Mill.</th><th class="num">Qté</th><th>Apogée estimée</th><th>Orientation</th></tr></thead>
+        <tbody>
+{% for row in g.lignes %}          <tr><td class="domaine">{{ row.domaine }}</td><td>{{ row.appellation }}</td><td>{{ row.millesime }}</td><td class="num">{{ row.qte }}</td><td>{{ row.apogee }}</td><td><span class="pill {{ row.orientation_class }}">{{ row.orientation }}</span></td></tr>
+{% endfor %}        </tbody>
+      </table>
+    </div>
+
+{% endfor %}
+  </section>
+
+  <!-- ════════════ PAGE 7 — PLAN D'ACTION ════════════ -->
+  <section class="page" id="p10">
+    <div class="sect-eyebrow">— 8. Plan d'action —</div>
+    <h2 class="sect-title">Conclusion <em>et vigilance</em></h2>
+
+{% for sec in plan_action %}    <div class="mission-sub">
+      <div class="mission-sub-head">
+        <h3>{{ sec.titre }}</h3>
+        <span class="sub-tag">{{ sec.tag }}</span>
+      </div>
+{% for para in sec.paragraphes %}      <p{% if loop.first %} class="lead"{% else %} style="margin-top:10px;"{% endif %}>{{ para | safe }}</p>
+{% endfor %}    </div>
+
+{% endfor %}
+  </section>
+
+  <!-- ════════════ PAGE 8 — ACCOMPAGNEMENT & CADRE ════════════ -->
+  <section class="page" id="p11">
+    <div class="sect-eyebrow">— 9. Accompagnement &amp; cadre —</div>
+    <h2 class="sect-title">Pour aller <em>plus loin</em></h2>
+
+    <div class="mission-sub">
+      <div class="mission-sub-head">
+        <h3>{{ accompagnement.missions.titre }}</h3>
+        <span class="sub-tag">{{ accompagnement.missions.tag }}</span>
+      </div>
+      <p class="lead">{{ accompagnement.missions.intro }}</p>
+      <dl class="etapes etapes-compact">
+{% for m in accompagnement.missions.liste %}        <div><dt>{{ m.titre }}</dt><dd>{{ m.description }}</dd></div>
+{% endfor %}      </dl>
+      <p class="devis-line">{{ accompagnement.missions.devis | safe }}</p>
+    </div>
+
+    <div class="mission-sub">
+      <div class="mission-sub-head">
+        <h3>{{ accompagnement.confidentialite.titre }}</h3>
+        <span class="sub-tag">{{ accompagnement.confidentialite.tag }}</span>
+      </div>
+      <p>{{ accompagnement.confidentialite.corps }}</p>
+    </div>
+
+    <div class="mission-sub">
+      <div class="mission-sub-head">
+        <h3>{{ accompagnement.validite.titre }}</h3>
+        <span class="sub-tag">{{ accompagnement.validite.tag }}</span>
+      </div>
+      <p>{{ accompagnement.validite.corps | safe }}</p>
+      <div class="closing-signature">
+        <div class="sig-rule"></div>
+        <div class="sig-block">
+          <div class="sig-name">{{ expert.nom }}</div>
+          <div class="sig-title">{{ expert.titre }}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+
+
+</body></html>

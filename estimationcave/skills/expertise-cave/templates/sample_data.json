@@ -1,0 +1,421 @@
+{
+  "_schema": {
+    "description": "Structure attendue par templates/rapport.html. Les clés sont référencées par le rapport Jinja2 ci-dessous.",
+    "sections": {
+      "client": "Identité et contexte du client (cover + mission).",
+      "expert": "Nom et titre de l'expert (cover + signature finale).",
+      "rapport": "Métadonnées du rapport (date, validité, nombre total de pages).",
+      "perimetre": "Volume et conditions d'audit (cover + mission + tableaux de totaux).",
+      "synthese": "Page 3 — hero value, barres par région, split couleurs, recap orientations.",
+      "inventaire": "Page 4 — tableau détaillé (1 entrée par ligne, ordre = ordre d'affichage).",
+      "marche": "Page 5 — lede + blocs marché numérotés (I, II…) avec sous-articles.",
+      "repartition": "Pages 6-7 — charts volume/valeur, potentiel de garde, reco-split, top 5.",
+      "recommandations": "Page 8 — groupes (conserver / vendre / surveiller) + lots détaillés.",
+      "potentiel_garde": "Page 9 — 4 groupes temporels (à boire / proche apogée / développement / garde longue).",
+      "plan_action": "Page 10 — mission-sub blocks (titre, tag, paragraphes en lead + suite).",
+      "accompagnement": "Page 11 — missions complémentaires, confidentialité, validité + signature."
+    },
+    "conventions": {
+      "*_fmt": "Chaîne déjà formatée pour affichage (ex. 9 225 au lieu de 9225). Les templates ne font pas de formatage numérique.",
+      "*_class": "Nom de classe CSS (conserver / vendre / surveiller / excellent / tres-bon / bon).",
+      "width": "Pour les bar-rows de la synthèse, largeur en % relative à la plus grande barre (100 pour la plus haute).",
+      "pct": "Pourcentage brut (ex. 25.5) — utilisé dans les custom properties CSS --pct: des pages 6-7.",
+      "pct_fmt": "Pourcentage formaté pour affichage (ex. \"25,5\" ou \"32.6\").",
+      "safe_html": "Certains champs acceptent du HTML inline (balises <b>) — ils sont marqués `| safe` dans le template."
+    }
+  },
+
+  "client": {
+    "nom": "M. et Mme Dupont",
+    "email": "m.dupont@exemple.fr",
+    "localisation": "Lyon (69)",
+    "ref_dossier": "EST-2026-04-DUP",
+    "objectif_court": "Succession",
+    "objectif_detail": "Estimation en vue de vente partielle",
+    "objectif_long": "Vente partielle de la cave dans le cadre d'une succession"
+  },
+
+  "expert": {
+    "nom": "Fanny Lonqueu-Brochard",
+    "titre": "Expert indépendante · estimationcave.com"
+  },
+
+  "rapport": {
+    "date_emission": "15 avril 2026",
+    "validite": "Estimation valable 30 jours",
+    "total_pages": 19
+  },
+
+  "perimetre": {
+    "nb_references": 16,
+    "nb_bouteilles": 47,
+    "base_estimation": "Estimation basée sur photos",
+    "conditions": "Sur éléments fournis par le client — photographies, descriptifs, factures partielles",
+    "conservation": "Cave enterrée, 12–14 °C",
+    "provenance": "Achats directs domaine & négoce"
+  },
+
+  "synthese": {
+    "valeur_totale_fmt": "9 225",
+    "fourchette_min_fmt": "7 845",
+    "fourchette_max_fmt": "10 150",
+    "liquidite_globale": "Élevée",
+
+    "regions_valeur": [
+      { "nom": "Bordeaux",        "pct_fmt": "32.6", "width": 100.0 },
+      { "nom": "Bourgogne",       "pct_fmt": "31.9", "width": 97.8  },
+      { "nom": "Vallée du Rhône", "pct_fmt": "11.9", "width": 36.5  },
+      { "nom": "Alsace",          "pct_fmt": "6.9",  "width": 21.2  },
+      { "nom": "Espagne",         "pct_fmt": "5.4",  "width": 16.6  },
+      { "nom": "Champagne",       "pct_fmt": "4.3",  "width": 13.2  },
+      { "nom": "Loire",           "pct_fmt": "2.6",  "width": 8.0   },
+      { "nom": "Italie",          "pct_fmt": "2.4",  "width": 7.4   },
+      { "nom": "Liban",           "pct_fmt": "2.0",  "width": 6.1   }
+    ],
+
+    "color_split": {
+      "volume": [
+        { "pct_fmt": "53", "width": 53.2, "color": "#6A1F2E",              "text_color": "#FAF6F0",        "small": false },
+        { "pct_fmt": "28", "width": 27.7, "color": "#C5A258",              "text_color": "var(--bordeaux)","small": false },
+        { "pct_fmt": "15", "width": 14.9, "color": "#8a6a2d",              "text_color": "var(--fond)",   "small": true  },
+        { "pct_fmt": "4",  "width": 4.2,  "color": "rgba(138,106,45,0.6)", "text_color": "var(--fond)",   "small": true  }
+      ],
+      "valeur": [
+        { "pct_fmt": "76", "width": 76.2, "color": "#6A1F2E",              "text_color": "#FAF6F0",        "small": false },
+        { "pct_fmt": "13", "width": 12.7, "color": "#C5A258",              "text_color": "var(--bordeaux)","small": false },
+        { "pct_fmt": "7",  "width": 6.7,  "color": "#8a6a2d",              "text_color": "var(--fond)",   "small": true  },
+        { "pct_fmt": "4",  "width": 4.3,  "color": "rgba(138,106,45,0.6)", "text_color": "var(--fond)",   "small": true  }
+      ]
+    },
+
+    "recap": [
+      { "label": "À conserver",  "dot_class": "",           "lots": 5, "btl": 13, "valeur_fmt": "4 720" },
+      { "label": "À vendre",     "dot_class": "vendre",     "lots": 6, "btl": 17, "valeur_fmt": "2 650" },
+      { "label": "À surveiller", "dot_class": "surveiller", "lots": 5, "btl": 17, "valeur_fmt": "1 855" }
+    ]
+  },
+
+  "inventaire": [
+    { "domaine": "Château Margaux",           "cuvee": null,                            "appellation": "Margaux",               "region": "Bordeaux",     "couleur": "Rouge",   "millesime": "2010", "etat": "Excellent", "etat_class": "excellent", "qte": 3, "unit_fmt": "450",   "total_fmt": "1 350", "orientation": "Conserver",  "orientation_class": "conserver"  },
+    { "domaine": "Romanée-Conti",             "cuvee": "Échézeaux Grand Cru",          "appellation": "Échézeaux G.C.",        "region": "Bourgogne",    "couleur": "Rouge",   "millesime": "2015", "etat": "Excellent", "etat_class": "excellent", "qte": 2, "unit_fmt": "1 200", "total_fmt": "2 400", "orientation": "Conserver",  "orientation_class": "conserver"  },
+    { "domaine": "Château d'Yquem",           "cuvee": null,                            "appellation": "Sauternes",             "region": "Bordeaux",     "couleur": "Liquor.", "millesime": "2009", "etat": "Très bon",  "etat_class": "tres-bon",  "qte": 1, "unit_fmt": "380",   "total_fmt": "380",   "orientation": "Conserver",  "orientation_class": "conserver"  },
+    { "domaine": "Pichon-Longueville Baron",  "cuvee": null,                            "appellation": "Pauillac",              "region": "Bordeaux",     "couleur": "Rouge",   "millesime": "2016", "etat": "Excellent", "etat_class": "excellent", "qte": 6, "unit_fmt": "120",   "total_fmt": "720",   "orientation": "Surveiller", "orientation_class": "surveiller" },
+    { "domaine": "Zind-Humbrecht",            "cuvee": "Rangen Grand Cru",              "appellation": "Rangen de Thann",       "region": "Alsace",       "couleur": "Blanc",   "millesime": "2017", "etat": "Bon",       "etat_class": "bon",       "qte": 4, "unit_fmt": "65",    "total_fmt": "260",   "orientation": "Vendre",     "orientation_class": "vendre"     },
+    { "domaine": "Château Rayas",             "cuvee": null,                            "appellation": "Châteauneuf-du-Pape",   "region": "V. du Rhône",  "couleur": "Rouge",   "millesime": "2012", "etat": "Très bon",  "etat_class": "tres-bon",  "qte": 2, "unit_fmt": "550",   "total_fmt": "1 100", "orientation": "Vendre",     "orientation_class": "vendre"     },
+    { "domaine": "Domaine Leflaive",          "cuvee": "Puligny-Montrachet 1er Cru",    "appellation": "Puligny-Montrachet",    "region": "Bourgogne",    "couleur": "Blanc",   "millesime": "2018", "etat": "Excellent", "etat_class": "excellent", "qte": 3, "unit_fmt": "180",   "total_fmt": "540",   "orientation": "Surveiller", "orientation_class": "surveiller" },
+    { "domaine": "Clos Mogador",              "cuvee": null,                            "appellation": "Priorat DOCa",          "region": "Espagne",      "couleur": "Rouge",   "millesime": "2016", "etat": "Bon",       "etat_class": "bon",       "qte": 2, "unit_fmt": "75",    "total_fmt": "150",   "orientation": "Vendre",     "orientation_class": "vendre"     },
+    { "domaine": "Krug",                      "cuvee": "Grande Cuvée",                  "appellation": "Champagne",             "region": "Champagne",    "couleur": "Eff.",    "millesime": "NM",   "etat": "Excellent", "etat_class": "excellent", "qte": 2, "unit_fmt": "200",   "total_fmt": "400",   "orientation": "Vendre",     "orientation_class": "vendre"     },
+    { "domaine": "Domaine Weinbach",          "cuvee": "Schlossberg Grand Cru",         "appellation": "Schlossberg",           "region": "Alsace",       "couleur": "Blanc",   "millesime": "2019", "etat": "Excellent", "etat_class": "excellent", "qte": 3, "unit_fmt": "55",    "total_fmt": "165",   "orientation": "Surveiller", "orientation_class": "surveiller" },
+    { "domaine": "Château Lynch-Bages",       "cuvee": null,                            "appellation": "Pauillac",              "region": "Bordeaux",     "couleur": "Rouge",   "millesime": "2005", "etat": "Très bon",  "etat_class": "tres-bon",  "qte": 4, "unit_fmt": "140",   "total_fmt": "560",   "orientation": "Vendre",     "orientation_class": "vendre"     },
+    { "domaine": "Tignanello",                "cuvee": "Antinori",                      "appellation": "Toscana IGT",           "region": "Italie",       "couleur": "Rouge",   "millesime": "2018", "etat": "Excellent", "etat_class": "excellent", "qte": 2, "unit_fmt": "110",   "total_fmt": "220",   "orientation": "Surveiller", "orientation_class": "surveiller" },
+    { "domaine": "Domaine Huet",              "cuvee": "Le Mont Demi-Sec",              "appellation": "Vouvray",               "region": "Loire",        "couleur": "Liquor.", "millesime": "2015", "etat": "Excellent", "etat_class": "excellent", "qte": 6, "unit_fmt": "40",    "total_fmt": "240",   "orientation": "Conserver",  "orientation_class": "conserver"  },
+    { "domaine": "Château Musar",             "cuvee": null,                            "appellation": "Bekaa Valley",          "region": "Liban",        "couleur": "Rouge",   "millesime": "2000", "etat": "Bon",       "etat_class": "bon",       "qte": 3, "unit_fmt": "60",    "total_fmt": "180",   "orientation": "Vendre",     "orientation_class": "vendre"     },
+    { "domaine": "Vega Sicilia",              "cuvee": "Único",                         "appellation": "Ribera del Duero",      "region": "Espagne",      "couleur": "Rouge",   "millesime": "2011", "etat": "Excellent", "etat_class": "excellent", "qte": 1, "unit_fmt": "350",   "total_fmt": "350",   "orientation": "Conserver",  "orientation_class": "conserver"  },
+    { "domaine": "Marcel Deiss",              "cuvee": "Altenberg Grand Cru",           "appellation": "Altenberg de Bergheim", "region": "Alsace",       "couleur": "Blanc",   "millesime": "2016", "etat": "Très bon",  "etat_class": "tres-bon",  "qte": 3, "unit_fmt": "70",    "total_fmt": "210",   "orientation": "Surveiller", "orientation_class": "surveiller" }
+  ],
+
+  "marche": {
+    "lede": "Le marché des vins fins demeure sélectif et sensible à plusieurs facteurs structurants : qualité de présentation, provenance, désirabilité du domaine, profondeur du millésime, format et canal de commercialisation. L'estimation d'une cave ne peut se limiter à une cote théorique ; elle doit être replacée dans une lecture de marché concrète et actuelle.",
+    "blocs": [
+      {
+        "num": "I.",
+        "titre": "Tendances générales du marché",
+        "subs": [
+          {
+            "titre": "Bordeaux — un socle retrouvé, porté par les grands millésimes.",
+            "corps": "Après deux années de correction, les <b>premiers crus classés du Médoc</b> retrouvent une assise de demande sur les millésimes historiques (2009, 2010, 2016). Le Château Margaux 2010 de votre cave s'inscrit dans ce flux : cote stable sur 18 mois, adjudications régulières chez iDealwine et Baghera, intérêt renforcé des collectionneurs asiatiques. Les seconds crus (Pichon-Longueville, Lynch-Bages) suivent la tendance avec un effet d'entraînement plus mesuré — les millésimes anniversaires restent les fenêtres de liquidité les plus efficaces."
+          },
+          {
+            "titre": "Bourgogne — normalisation post-2023, fondamentaux intacts sur les Grands Crus.",
+            "corps": "Le marché des grands bourgognes traverse une <b>phase de normalisation</b> après les pics spéculatifs de 2022-2023 : les cotes iDealwine reculent de -2 % à -7 % selon les appellations, mais la correction touche surtout les villages et millésimes récents. Les Grands Crus de producteurs cultes (DRC, Leflaive, Rousseau) <b>résistent mieux</b> et restent soutenus par une demande internationale structurelle. L'Échézeaux 2015 de la Romanée-Conti est une des rares références de la cave dont la cote continue de progresser à contre-courant du marché."
+          },
+          {
+            "titre": "Rhône & autres régions — spéculation retombée, fenêtre de cession favorable.",
+            "corps": "Le Château Rayas 2012 illustre la situation type du Rhône nord : <b>-4 % sur 12 mois</b> après un sommet spéculatif en 2023, mais liquidité aux enchères qui reste parmi les plus rapides du marché. Les cuvées itériennes (Tignanello) et ibériques (Vega Sicilia, Clos Mogador) bénéficient d'un regain d'intérêt patrimonial, mais avec des volumes d'enchères plus limités : privilégier la vente groupée pour les petits tickets."
+          }
+        ]
+      },
+      {
+        "num": "II.",
+        "titre": "Liquidité des références",
+        "subs": [
+          {
+            "titre": "Liquidité élevée — un cœur de cave directement vendable.",
+            "corps": "Six références de votre cave bénéficient d'une demande soutenue et d'un temps d'adjudication court (souvent moins de 72 heures chez iDealwine) : <b>Romanée-Conti Échézeaux 2015, Château Margaux 2010, Château d'Yquem 2009, Château Rayas 2012, Krug Grande Cuvée et Vega Sicilia Único 2011</b>. Ces lots cumulent <b>5 580 €</b>, soit plus de 60 % de la valeur totale — toute décision de vente ou de conservation les concernant doit être prise avec un niveau d'attention supérieur."
+          },
+          {
+            "titre": "Liquidité moyenne — références à cibler sur fenêtre favorable.",
+            "corps": "Les seconds crus bordelais et les 1ers crus bourguignons reconnus — <b>Pichon-Longueville Baron, Lynch-Bages, Leflaive Puligny-Montrachet</b> — sont régulièrement adjugés mais avec des volumes plus mesurés. La vente reste réaliste, en particulier lors des <b>fenêtres anniversaires</b> (10 ans, 20 ans) qui génèrent un regain d'intérêt ponctuel. C'est notamment le cas du Lynch-Bages 2005 en 2026."
+          },
+          {
+            "titre": "Liquidité faible — privilégier la vente groupée.",
+            "corps": "Les références confidentielles ou à valeur unitaire modeste (Clos Mogador, Musar, Huet, Deiss, Weinbach, Zind-Humbrecht) circulent peu sur le marché secondaire. Pour ces lots entre 40 et 75 € l'unité, les <b>commissions d'enchères (15–20 %)</b> absorberaient une part importante du prix. Deux options : constituer des <b>lots groupés</b> par région ou couleur pour les enchères, ou vendre directement à des particuliers connaisseurs."
+          }
+        ]
+      }
+    ]
+  },
+
+  "repartition": {
+    "volume_region": [
+      { "label": "Bordeaux",         "pct": 25.5, "pct_fmt": "25,5", "value_fmt": "12" },
+      { "label": "Bourgogne",        "pct": 17.0, "pct_fmt": "17,0", "value_fmt": "8"  },
+      { "label": "Alsace",           "pct": 14.9, "pct_fmt": "14,9", "value_fmt": "7"  },
+      { "label": "Champagne",        "pct": 12.8, "pct_fmt": "12,8", "value_fmt": "6"  },
+      { "label": "Vallée du Rhône",  "pct": 10.6, "pct_fmt": "10,6", "value_fmt": "5"  },
+      { "label": "Val-de-Loire",     "pct": 6.4,  "pct_fmt": "6,4",  "value_fmt": "3"  },
+      { "label": "Italie & Espagne", "pct": 8.5,  "pct_fmt": "8,5",  "value_fmt": "4"  },
+      { "label": "Autres (Liban)",   "pct": 4.3,  "pct_fmt": "4,3",  "value_fmt": "2"  }
+    ],
+    "valeur_region_base_fmt": "9 310",
+    "valeur_region": [
+      { "label": "Bourgogne",        "pct": 31.6, "pct_fmt": "31,6", "value_fmt": "2 940" },
+      { "label": "Bordeaux",         "pct": 32.7, "pct_fmt": "32,7", "value_fmt": "3 040" },
+      { "label": "Vallée du Rhône",  "pct": 11.8, "pct_fmt": "11,8", "value_fmt": "1 100" },
+      { "label": "Italie & Espagne", "pct": 9.6,  "pct_fmt": "9,6",  "value_fmt": "890"   },
+      { "label": "Champagne",        "pct": 5.8,  "pct_fmt": "5,8",  "value_fmt": "540"   },
+      { "label": "Alsace",           "pct": 4.5,  "pct_fmt": "4,5",  "value_fmt": "420"   },
+      { "label": "Val-de-Loire",     "pct": 2.8,  "pct_fmt": "2,8",  "value_fmt": "260"   },
+      { "label": "Autres (Liban)",   "pct": 1.3,  "pct_fmt": "1,3",  "value_fmt": "120"   }
+    ],
+    "garde": {
+      "segments": [
+        { "label": "À boire",         "pct": 21.3, "color": "#8B3A3A" },
+        { "label": "Proche apogée",   "pct": 29.8, "color": "#B8883A" },
+        { "label": "En développement","pct": 27.7, "color": "#5A7A4B" },
+        { "label": "Garde longue",    "pct": 21.3, "color": "#2D1B2E" }
+      ],
+      "legende": [
+        { "label": "À boire maintenant",  "detail": "10 btl · fenêtre de consommation ouverte", "pct_fmt": "21", "color": "#8B3A3A" },
+        { "label": "Proche apogée",       "detail": "14 btl · 2 à 4 ans avant le pic",           "pct_fmt": "30", "color": "#B8883A" },
+        { "label": "En développement",    "detail": "13 btl · encore en phase de garde active",  "pct_fmt": "28", "color": "#5A7A4B" },
+        { "label": "Garde longue",        "detail": "10 btl · potentiel > 10 ans",               "pct_fmt": "21", "color": "#2D1B2E" }
+      ]
+    },
+    "reco_split": {
+      "volume": [
+        { "label": "Conserver",  "pct": 27.7, "pct_int": 28, "color": "#5A7A4B" },
+        { "label": "Surveiller", "pct": 25.5, "pct_int": 25, "color": "#B8883A" },
+        { "label": "Vendre",     "pct": 46.8, "pct_int": 47, "color": "#8B3A3A" }
+      ],
+      "valeur": [
+        { "label": "Conserver",  "pct": 50.7, "pct_int": 51, "color": "#5A7A4B" },
+        { "label": "Surveiller", "pct": 25.3, "pct_int": 25, "color": "#B8883A" },
+        { "label": "Vendre",     "pct": 24.0, "pct_int": 24, "color": "#8B3A3A" }
+      ],
+      "valeur_total_fmt": "9 310",
+      "legende": [
+        { "label": "Conserver",  "detail": "13 btl / 4 720 € — cœur patrimonial, à maintenir en cave.",            "color": "#5A7A4B" },
+        { "label": "Surveiller", "detail": "12 btl / 2 350 € — à réexaminer d'ici 2027–2028.",                     "color": "#B8883A" },
+        { "label": "Vendre",     "detail": "22 btl / 2 240 € — fenêtre de cession favorable en 2026.",             "color": "#8B3A3A" }
+      ]
+    },
+    "top_unitaire": [
+      { "nom": "Romanée-Conti Échézeaux 2015", "detail": "Échézeaux Grand Cru",  "value_fmt": "1 200" },
+      { "nom": "Château d'Yquem 2009",         "detail": "Sauternes",            "value_fmt": "420"   },
+      { "nom": "Château Margaux 2010",         "detail": "Margaux · CBO",        "value_fmt": "450"   },
+      { "nom": "Château Rayas 2012",           "detail": "Châteauneuf-du-Pape",  "value_fmt": "220"   },
+      { "nom": "Vega Sicilia Único 2011",      "detail": "Ribera del Duero",     "value_fmt": "210"   }
+    ],
+    "top_totale": [
+      { "nom": "Romanée-Conti Échézeaux 2015", "detail": "2 btl",         "value_fmt": "2 400" },
+      { "nom": "Château Margaux 2010",         "detail": "3 btl · CBO",  "value_fmt": "1 350" },
+      { "nom": "Château Rayas 2012",           "detail": "5 btl",         "value_fmt": "1 100" },
+      { "nom": "Château d'Yquem 2009",         "detail": "2 btl",         "value_fmt": "840"   },
+      { "nom": "Vega Sicilia Único 2011",      "detail": "4 btl",         "value_fmt": "840"   }
+    ],
+    "top_concentration_pct": "71"
+  },
+
+  "recommandations": [
+    {
+      "titre": "À conserver",
+      "class_mod": "",
+      "nb_bouteilles": 13,
+      "valeur_fmt": "4 720",
+      "lots": [
+        {
+          "nom": "Romanée-Conti — Échézeaux",
+          "appellation": "Échézeaux Grand Cru · 2015 · 75 cl",
+          "qte": 2,
+          "valeur_fmt": "2 400",
+          "garde": "10–20 ans",
+          "justification": "<b>Cote en forte progression</b> depuis 2023, avec une demande internationale soutenue sur tous les millésimes DRC. Le 2015 — millésime classique, grand potentiel de garde — n'a pas encore atteint sa fenêtre d'apogée. <b>Toute cession prématurée serait un coût d'opportunité certain.</b> À conserver au minimum jusqu'en 2030.",
+          "meta": [
+            { "lbl": "Apogée", "val": "2027–2050" }
+          ]
+        },
+        {
+          "nom": "Château Margaux",
+          "appellation": "Margaux · 2010 · 75 cl · CBO",
+          "qte": 3,
+          "valeur_fmt": "1 350",
+          "garde": "5–15 ans",
+          "justification": "Millésime d'exception du Médoc, <b>fenêtre d'apogée non atteinte</b> — le vin entre à peine dans sa phase d'expression. Cote stable sur 18 mois, demande structurelle soutenue sur les grands millésimes bordelais chez les collectionneurs asiatiques. Caisse bois d'origine : valorisation renforcée aux enchères.",
+          "meta": [
+            { "lbl": "Apogée", "val": "2022–2045" }
+          ]
+        }
+      ]
+    },
+    {
+      "titre": "À vendre",
+      "class_mod": "vendre",
+      "nb_bouteilles": 17,
+      "valeur_fmt": "2 650",
+      "lots": [
+        {
+          "nom": "Château Rayas",
+          "appellation": "Châteauneuf-du-Pape · 2012 · 75 cl",
+          "qte": 2,
+          "valeur_fmt": "1 100",
+          "garde": null,
+          "justification": "<b>Forte liquidité</b> aux enchères — les Rayas se vendent en 48 h. Cote en <b>légère baisse sur 12 mois</b> (-4 %) après un pic spéculatif en 2023 ; la fenêtre de cession actuelle reste favorable mais pourrait s'éroder. Millésime arrivé en phase d'apogée : l'argument de garde s'affaiblit.",
+          "meta": [
+            { "lbl": "Apogée",         "val": "2020–2037" },
+            { "lbl": "Canal de vente", "val": "enchères"   }
+          ]
+        },
+        {
+          "nom": "Château Lynch-Bages",
+          "appellation": "Pauillac · 2005 · 75 cl · CBO",
+          "qte": 4,
+          "valeur_fmt": "560",
+          "garde": null,
+          "justification": "Millésime <b>21 ans cette année</b> — les acheteurs recherchent ce profil pour consommation immédiate. CBO conservée : atout de valorisation. Marché secondaire des seconds crus du Médoc stable ; <b>pas de perspective de hausse supplémentaire</b>, fenêtre anniversaire à saisir avant que le vin ne glisse vers l'apogée.",
+          "meta": [
+            { "lbl": "Apogée",         "val": "2017–2040"    },
+            { "lbl": "Canal de vente", "val": "enchères gr." }
+          ]
+        }
+      ]
+    },
+    {
+      "titre": "À surveiller",
+      "class_mod": "surveiller",
+      "nb_bouteilles": 17,
+      "valeur_fmt": "1 855",
+      "lots": [
+        {
+          "nom": "Domaine Leflaive — Puligny-Montrachet",
+          "appellation": "Puligny-Montrachet 1er Cru · 2018 · 75 cl",
+          "qte": 3,
+          "valeur_fmt": "540",
+          "garde": null,
+          "justification": "Domaine culte, mais millésime 2018 encore <b>jeune pour un grand blanc bourguignon</b> — attractivité insuffisante sur le marché secondaire aujourd'hui. Réévaluer au printemps 2028 : la cote de Leflaive progresse régulièrement (+6,6 % sur 12 mois pour les Grands Crus), et une fenêtre de vente plus favorable devrait s'ouvrir à cet horizon.",
+          "meta": [
+            { "lbl": "Apogée",   "val": "2026–2043"      },
+            { "lbl": "Réexamen", "val": "printemps 2028" }
+          ]
+        }
+      ]
+    }
+  ],
+
+  "potentiel_garde": {
+    "intro": "Pour chaque lot, l'apogée estimée indique la fenêtre optimale de consommation. Ces estimations sont établies à titre indicatif sur la base du millésime, de l'appellation et du style du domaine.",
+    "groupes": [
+      {
+        "titre": "À boire maintenant",
+        "color": "#8B3A3A",
+        "nb_bouteilles": 12,
+        "valeur_fmt": "1 945",
+        "lignes": [
+          { "domaine": "Château Musar",         "appellation": "Bekaa Valley",          "millesime": "2000", "qte": 3, "apogee": "À boire maintenant", "orientation": "Vendre",     "orientation_class": "vendre"     },
+          { "domaine": "Marcel Deiss — Altenberg","appellation": "Altenberg de Bergheim", "millesime": "2016", "qte": 3, "apogee": "2021–2031",          "orientation": "Surveiller", "orientation_class": "surveiller" },
+          { "domaine": "Zind-Humbrecht — Rangen","appellation": "Rangen de Thann",       "millesime": "2017", "qte": 4, "apogee": "2022–2027",          "orientation": "Vendre",     "orientation_class": "vendre"     },
+          { "domaine": "Krug — Grande Cuvée",   "appellation": "Champagne",             "millesime": "NM",   "qte": 2, "apogee": "À boire maintenant", "orientation": "Vendre",     "orientation_class": "vendre"     }
+        ]
+      },
+      {
+        "titre": "Proche apogée (2/4 ans)&nbsp;<span class=\"garde-sub\">— fenêtre qui s'ouvre bientôt</span>",
+        "color": "#B8883A",
+        "nb_bouteilles": 9,
+        "valeur_fmt": "1 860",
+        "lignes": [
+          { "domaine": "Château Lynch-Bages",         "appellation": "Pauillac",            "millesime": "2005", "qte": 4, "apogee": "2017–2040", "orientation": "Vendre",     "orientation_class": "vendre"     },
+          { "domaine": "Château Rayas",               "appellation": "Châteauneuf-du-Pape", "millesime": "2012", "qte": 2, "apogee": "2020–2037", "orientation": "Vendre",     "orientation_class": "vendre"     },
+          { "domaine": "Domaine Weinbach — Schlossberg","appellation": "Schlossberg",       "millesime": "2019", "qte": 3, "apogee": "2024–2034", "orientation": "Surveiller", "orientation_class": "surveiller" }
+        ]
+      },
+      {
+        "titre": "En développement (5/10 ans)&nbsp;<span class=\"garde-sub\">— patience requise</span>",
+        "color": "#5A7A4B",
+        "nb_bouteilles": 9,
+        "valeur_fmt": "2 270",
+        "lignes": [
+          { "domaine": "Château Margaux",           "appellation": "Margaux",             "millesime": "2010", "qte": 3, "apogee": "2022–2045", "orientation": "Conserver",  "orientation_class": "conserver"  },
+          { "domaine": "Vega Sicilia — Único",      "appellation": "Ribera del Duero",    "millesime": "2011", "qte": 1, "apogee": "2021–2041", "orientation": "Conserver",  "orientation_class": "conserver"  },
+          { "domaine": "Clos Mogador",              "appellation": "Priorat DOCa",        "millesime": "2016", "qte": 2, "apogee": "2026–2041", "orientation": "Vendre",     "orientation_class": "vendre"     },
+          { "domaine": "Domaine Leflaive — Puligny","appellation": "Puligny-Montrachet",  "millesime": "2018", "qte": 3, "apogee": "2026–2043", "orientation": "Surveiller", "orientation_class": "surveiller" }
+        ]
+      },
+      {
+        "titre": "Garde longue (10 ans et plus)&nbsp;<span class=\"garde-sub\">— patrimoine à long terme</span>",
+        "color": "#2D1B2E",
+        "nb_bouteilles": 17,
+        "valeur_fmt": "3 150",
+        "lignes": [
+          { "domaine": "Château d'Yquem",           "appellation": "Sauternes",             "millesime": "2009", "qte": 1, "apogee": "2019–2059", "orientation": "Conserver",  "orientation_class": "conserver"  },
+          { "domaine": "Romanée-Conti — Échézeaux", "appellation": "Échézeaux Grand Cru",   "millesime": "2015", "qte": 2, "apogee": "2027–2050", "orientation": "Conserver",  "orientation_class": "conserver"  },
+          { "domaine": "Domaine Huet — Le Mont",    "appellation": "Vouvray",               "millesime": "2015", "qte": 6, "apogee": "2025–2055", "orientation": "Conserver",  "orientation_class": "conserver"  },
+          { "domaine": "Pichon-Longueville Baron",  "appellation": "Pauillac",              "millesime": "2016", "qte": 6, "apogee": "2028–2051", "orientation": "Surveiller", "orientation_class": "surveiller" },
+          { "domaine": "Tignanello — Antinori",     "appellation": "Toscana IGT",           "millesime": "2018", "qte": 2, "apogee": "2028–2048", "orientation": "Surveiller", "orientation_class": "surveiller" }
+        ]
+      }
+    ]
+  },
+
+  "plan_action": [
+    {
+      "titre": "Conclusion de l'expert",
+      "tag": "Lecture d'ensemble",
+      "paragraphes": [
+        "La cave de M. et Mme Dupont présente un profil équilibré : un <b>noyau patrimonial solide</b> (Romanée-Conti Échézeaux, Château Margaux, Château d'Yquem) qui justifie une conservation active, adossé à un ensemble de références de qualité dont certaines ont atteint ou dépassé leur fenêtre d'apogée. La vente partielle envisagée dans le cadre successoral est pleinement cohérente avec la lecture de marché à date.",
+        "Nous recommandons de <b>scinder l'arbitrage en deux horizons</b> : un premier mouvement de cession dès 2026 sur les références à liquidité élevée et en fenêtre favorable (Rayas 2012, Lynch-Bages 2005, Krug, Vega Sicilia), puis une réévaluation en 2028 pour les lots à maturité plus longue. Les références à faible liquidité unitaire gagneront à être proposées en lots groupés, afin de préserver la marge après commissions."
+      ]
+    },
+    {
+      "titre": "Points de vigilance",
+      "tag": "À surveiller",
+      "paragraphes": [
+        "Deux horizons de vigilance se dégagent. <b>Avant toute cession</b>, une inspection physique des flacons à liquidité élevée (niveaux, capsules, étiquetage) s'impose, tout comme la réunion des factures et éléments de provenance pour les lots supérieurs à 500 €. La présence des caisses bois d'origine (CBO) sur Margaux et Rayas devra être vérifiée : elle renforce sensiblement la valorisation.",
+        "<b>Sur la durée</b>, la stabilité de la température et de l'hygrométrie dans la cave enterrée doit être surveillée. Un suivi semestriel des cotes iDealwine et des résultats d'enchères est recommandé sur les références conservées, avec une <b>réévaluation en 2028</b> des millésimes bourguignons, particulièrement sensibles aux évolutions de marché."
+      ]
+    },
+    {
+      "titre": "Prochaines étapes",
+      "tag": "Calendrier proposé",
+      "paragraphes": [
+        "<b>Validation du rapport</b> — sous 15 jours, un échange téléphonique de 30 minutes permettra de parcourir les conclusions, ajuster les priorités et valider le périmètre de la première vague de cession. Une <b>inspection physique</b> optionnelle des flacons ciblés pour la vente peut être conduite en avril-mai 2026, assortie d'un rapport photographique joint au dossier.",
+        "La <b>première vague de cession</b> portera sur les références à liquidité élevée, via les canaux d'enchères principaux (iDealwine, Baghera), lors de la session d'été ou d'automne 2026. Une <b>réévaluation au printemps 2028</b> viendra actualiser l'estimation des références conservées, en intégrant les résultats des adjudications précédentes."
+      ]
+    }
+  ],
+
+  "accompagnement": {
+    "missions": {
+      "titre": "Missions complémentaires disponibles",
+      "tag": "Sur mesure",
+      "intro": "Ce rapport peut être complété par des missions d'accompagnement sur mesure, selon vos besoins et l'évolution de votre projet.",
+      "liste": [
+        { "titre": "Inspection physique des flacons",       "description": "Examen approfondi en cave, avec déplacement ou recours à un mandataire local. Permet de confirmer l'état réel des bouteilles et d'affiner l'estimation." },
+        { "titre": "Accompagnement à la mise en vente",     "description": "Sélection de la maison de vente ou plateforme adaptée, constitution du dossier de présentation des lots, coordination avec les experts." },
+        { "titre": "Suivi des adjudications",               "description": "Présence ou suivi à distance lors de la vente, compte-rendu détaillé des résultats et analyse des écarts avec l'estimation initiale." },
+        { "titre": "Réévaluation périodique",               "description": "Mise à jour annuelle ou semestrielle de l'estimation, intégrant les évolutions du marché et l'état de conservation de la cave." },
+        { "titre": "Conseil à l'achat",                     "description": "Identification de références à acquérir pour compléter, rééquilibrer ou valoriser la cave, selon un budget et des objectifs définis." }
+      ],
+      "devis": "Ces missions font l'objet d'un devis personnalisé. Pour toute demande : <b>contact@estimationcave.com</b>"
+    },
+    "confidentialite": {
+      "titre": "Confidentialité réciproque",
+      "tag": "Cadre contractuel",
+      "corps": "Ce rapport est établi dans le cadre d'une relation de stricte confidentialité. Le client s'engage à ne pas diffuser ce document à des tiers non autorisés. L'expert s'engage en retour à ne divulguer aucune information relative à l'existence, la composition, la localisation ou la valeur de la cave à quelque tiers que ce soit, sans accord écrit préalable du client."
+    },
+    "validite": {
+      "titre": "Validité et contact",
+      "tag": "Clôture",
+      "corps": "Les estimations contenues dans ce rapport sont valables <b>30 jours</b> à compter de la date d'émission. Au-delà, une réévaluation peut être demandée. Pour toute question : <b>contact@estimationcave.com</b>"
+    }
+  }
+}

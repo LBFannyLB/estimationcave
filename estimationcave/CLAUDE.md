@@ -41,3 +41,40 @@ La source de vérité pour la répartition des articles dans les silos : [`blog.
 
 Repo GitHub : `LBFannyLB/estimationcave` → Vercel (auto sur push `main`).
 Flow : commit local → `git push origin main` → Vercel déploie en ~30 s.
+
+## Génération des rapports clients (skill expertise-cave)
+
+Pipeline **Jinja2 → HTML → Playwright → PDF** — remplace l'ancien générateur ReportLab archivé dans [`skills/expertise-cave/_deprecated/`](skills/expertise-cave/_deprecated/).
+
+**Commande** :
+```bash
+cd skills/expertise-cave
+python3 generate_report.py <inventaire.xlsx> <client.json> [output_dir]
+# Exemple
+python3 generate_report.py ../../rapports/unia/unia_inventaire.xlsx \
+                           ../../rapports/unia/unia.json /tmp/outputs
+```
+
+**Chemins clés** :
+- Template HTML : [`skills/expertise-cave/templates/rapport.html`](skills/expertise-cave/templates/rapport.html)
+- Exemple de données : [`skills/expertise-cave/templates/sample_data.json`](skills/expertise-cave/templates/sample_data.json) (Dupont — bloc `_schema` en tête documente la structure)
+- Polices : [`skills/expertise-cave/assets/fonts/`](skills/expertise-cave/assets/fonts/) (12 × .woff2 Cormorant + DM Sans)
+- Images : [`skills/expertise-cave/assets/images/{cover-illus,seal}.png`](skills/expertise-cave/assets/images/)
+- Test de référence : [`skills/expertise-cave/test_template.py`](skills/expertise-cave/test_template.py) (rend `sample_data.json` → PDF Dupont)
+
+**Structure minimale d'un `<client>.json`** :
+```json
+{
+  "client":    { "nom", "email", "localisation", "ref_dossier",
+                 "objectif_court", "objectif_detail", "objectif_long" },
+  "expert":    { "nom", "titre" },
+  "rapport":   { "date_emission", "validite" },
+  "perimetre": { "conditions", "conservation", "provenance", "base_estimation" },
+  "synthese":  { "liquidite_globale": "Élevée|Moyenne|Faible" },
+  "marche":    { "lede", "blocs": [{num, titre, subs:[{titre, corps}]}, …] },
+  "plan_action": [{ "titre", "tag", "paragraphes": ["...", "..."] }, × 3],
+  "accompagnement": { ... optionnel ... }
+}
+```
+
+L'Excel fournit l'inventaire détaillé (17 colonnes), le script calcule toutes les agrégations (régions, couleurs, top 5, potentiel de garde, reco-split). Seuls les blocs rédactionnels ci-dessus sont à fournir dans le JSON.
