@@ -2660,6 +2660,21 @@ html, body { background: #FAF6F0 !important; }
 .recap-row.head { padding: 4px 18px; }
 .recap-row.total { padding: 4px 18px; }
 
+/* Lisibilité des % sur les bar-fill (Lecture analytique) : l'étiquette
+   reste positionnée juste à droite du remplissage (hors du bar, sur
+   fond clair du track) pour ne jamais être clippée sur les barres
+   étroites. Taille + poids augmentés pour une vraie lecture à distance. */
+.bar-fill { overflow: visible; }
+.bar-pct {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0;
+  color: var(--bordeaux);
+  padding-left: 8px;
+}
+.bar-fill.accent .bar-pct { color: var(--bordeaux); }
+
 /* Répartition II (p7) — save a few px */
 .chart-card.solo { margin-top: 8px; }
 .tops-head      { margin-top: 10px; }
