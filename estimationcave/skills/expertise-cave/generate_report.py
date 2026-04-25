@@ -467,12 +467,12 @@ def subregion_of(region: str, appellation: str) -> str | None:
     return None
 
 COULEUR_COLORS = [
-    # Couleur libellée, couleur CSS, texte, small ?
-    ("Rouge",         "#6A1F2E",            "#FAF6F0",          False),
-    ("Blanc",         "#C5A258",            "var(--bordeaux)",  False),
-    ("Liquoreux",     "#8a6a2d",            "var(--fond)",      True),
-    ("Effervescent",  "rgba(138,106,45,0.6)", "var(--fond)",    True),
-    ("Rosé",          "#E8A0B0",            "var(--bordeaux)",  True),
+    # Couleur libellée, couleur CSS, texte, small ?, label legend
+    ("Rouge",         "#6A1F2E",              "#FAF6F0",         False, "Rouge"),
+    ("Blanc",         "#C5A258",              "var(--bordeaux)", False, "Blanc sec"),
+    ("Rosé",          "#E8A0B0",              "var(--bordeaux)", True,  "Rosé"),
+    ("Liquoreux",     "#8a6a2d",              "var(--fond)",     True,  "Liquoreux"),
+    ("Effervescent",  "rgba(138,106,45,0.6)", "var(--fond)",     True,  "Effervescent"),
 ]
 
 GARDE_GROUPS = [
@@ -564,7 +564,7 @@ def build_synthese(inv: list[dict]) -> dict:
 
     def color_segments(buckets: dict, total: int) -> list[dict]:
         segments = []
-        for label, color, text_color, small in COULEUR_COLORS:
+        for label, color, text_color, small, _ in COULEUR_COLORS:
             if label not in buckets or buckets[label] == 0:
                 continue
             pct = buckets[label] / total * 100 if total else 0
@@ -577,9 +577,18 @@ def build_synthese(inv: list[dict]) -> dict:
             })
         return segments
 
+    # Légende dynamique : on n'affiche que les couleurs effectivement
+    # présentes dans la cave (sinon Rosé / Liquoreux apparaissent à tort).
+    color_legend = [
+        {"label": legend, "color": color}
+        for label, color, _tc, _s, legend in COULEUR_COLORS
+        if by_col_vol.get(label, 0) > 0 or by_col_val.get(label, 0) > 0
+    ]
+
     color_split = {
-        "volume": color_segments(by_col_vol, total_btl),
-        "valeur": color_segments(by_col_val, total_val),
+        "volume":  color_segments(by_col_vol, total_btl),
+        "valeur":  color_segments(by_col_val, total_val),
+        "legende": color_legend,
     }
 
     # Recap orientations : lots (≠ références pour les 3 catégories)
@@ -750,10 +759,12 @@ def build_repartition(inv: list[dict], synthese: dict) -> dict:
 def build_inventaire_rows(inv: list[dict]) -> list[dict]:
     """Transforme l'inventaire brut en lignes prêtes pour le template p4.
 
-    On tronque proprement (domaine + cuvée) via heuristique : si le nom
-    contient un séparateur fort ou une longue appellation, on scinde.
+    Tri par millésime croissant (NM = 0 en tête), puis par domaine
+    alphabétique pour les ex æquo : permet de lire la cave dans l'ordre
+    chronologique et facilite les comparaisons inter-millésimes.
     """
     rows = []
+    inv = sorted(inv, key=lambda b: (b.get("millesime") or 0, b.get("bouteille", "")))
     for b in inv:
         rows.append({
             "domaine": b["bouteille"],
@@ -778,7 +789,9 @@ def build_recommandations(inv: list[dict]) -> list[dict]:
     groups = []
     for label, class_mod, _orient_class in RECAP_ORDER:
         lots = [b for b in inv if b["reco"] == label]
-        lots.sort(key=lambda b: (-b["qte"] * b["val_unit"], b["millesime"]))
+        # Tri par millésime ASC (NM = 0 en tête) puis par domaine
+        # alphabétique. Cohérent avec l'inventaire détaillé p4.
+        lots.sort(key=lambda b: (b.get("millesime") or 0, b.get("bouteille", "")))
         if not lots:
             continue
         nb_btl = sum(b["qte"] for b in lots)

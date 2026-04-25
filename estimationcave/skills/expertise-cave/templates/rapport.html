@@ -2333,6 +2333,16 @@ html, body { background: #FAF6F0 !important; }
   margin-top: 12px;
 }
 
+/* Le bloc "Potentiel de garde" (chart-row.one) doit rester groupé :
+   stacked-bar + sa légende ne doivent jamais être coupés en travers de
+   page. Idem pour les chart-card individuelles dans .chart-row. */
+.chart-row.one .chart-card,
+.chart-row.with-sep .chart-card {
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+.stack-legend, .stacked-bar { page-break-inside: avoid; break-inside: avoid; }
+
 /* Cover : @page :first margin 0 donne l'A4 plein format 210×297 ; .cover
    assume ses propres paddings intérieurs. width:100% = 210mm sur la
    première page (pas de marges) → cover plein format. */
@@ -2663,17 +2673,18 @@ html, body { background: #FAF6F0 !important; }
 /* Lisibilité des % sur les bar-fill (Lecture analytique) : l'étiquette
    reste positionnée juste à droite du remplissage (hors du bar, sur
    fond clair du track) pour ne jamais être clippée sur les barres
-   étroites. Taille + poids augmentés pour une vraie lecture à distance. */
+   étroites. Couleur très foncée + poids 700 + 12,5 px pour une vraie
+   lecture, même à distance / sur petite barre. */
 .bar-fill { overflow: visible; }
 .bar-pct {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 12px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 11.5px;
   letter-spacing: 0;
-  color: var(--bordeaux);
-  padding-left: 8px;
+  color: #1A1A1A;
+  padding-left: 10px;
 }
-.bar-fill.accent .bar-pct { color: var(--bordeaux); }
+.bar-fill.accent .bar-pct { color: #1A1A1A; }
 
 /* Répartition II (p7) — save a few px */
 .chart-card.solo { margin-top: 8px; }
@@ -2875,11 +2886,8 @@ html, body { background: #FAF6F0 !important; }
       </div>
     </div>
     <div class="legend-dots">
-      <span><i style="background:#6A1F2E"></i>Rouge</span>
-      <span><i style="background:#C5A258"></i>Blanc sec</span>
-      <span><i style="background:#8a6a2d"></i>Liquoreux</span>
-      <span><i style="background:rgba(138,106,45,0.6)"></i>Effervescent</span>
-    </div>
+{% for c in synthese.color_split.legende %}      <span><i style="background:{{ c.color }}"></i>{{ c.label }}</span>
+{% endfor %}    </div>
 
     <div class="sect-sub">Recommandation synthétique</div>
     <div class="recap">
