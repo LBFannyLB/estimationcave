@@ -542,16 +542,17 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
     }
 
     .apercu-header {
-      text-align: center;
+      text-align: left;
       margin-bottom: 4rem;
+      max-width: 720px;
     }
 
     .apercu-header .ornament-dots {
-      margin: 1.5rem auto;
+      margin: 1.5rem 0;
     }
 
     .apercu-header .section-subtitle {
-      margin: 1rem auto 0;
+      margin: 1rem 0 0;
     }
 
     .apercu-grid {
@@ -598,12 +599,26 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
 
     .apercu-page-num {
       flex-shrink: 0;
-      width: 3rem;
-      font-family: var(--font-body);
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: var(--texte-light);
-      letter-spacing: 0.04em;
+      width: 1.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      align-self: center;
+    }
+
+    .apercu-page-num::before {
+      content: '';
+      display: block;
+      width: 7px;
+      height: 7px;
+      background: var(--or);
+      transform: rotate(45deg);
+      transition: background 0.25s cubic-bezier(0.33, 1, 0.68, 1), transform 0.25s cubic-bezier(0.33, 1, 0.68, 1);
+    }
+
+    .apercu-item.active .apercu-page-num::before {
+      background: var(--bordeaux);
+      transform: rotate(45deg) scale(1.15);
     }
 
     .apercu-page-title {
@@ -640,7 +655,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
     }
 
     .apercu-panel-inner {
-      padding: 0 0.5rem 1.5rem 4rem;
+      padding: 0 0.5rem 1.5rem 2.6rem;
       font-family: var(--font-body);
       font-size: 0.92rem;
       line-height: 1.7;
@@ -746,44 +761,40 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
         display: none;
       }
       .apercu-mobile-image {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        display: block;
         margin-top: 1.25rem;
+        max-width: 320px;
         aspect-ratio: 3 / 4;
-        max-width: 280px;
         border: 1px solid var(--border);
         border-radius: 6px;
+        overflow: hidden;
         background: var(--fond-alt);
-        font-family: var(--font-body);
-        font-size: 0.8rem;
-        color: var(--texte-light);
-        text-align: center;
-        padding: 1rem;
       }
-      .apercu-mobile-image::before {
-        content: 'Aperçu p. ' attr(data-page) ' — ' attr(data-title);
+      .apercu-mobile-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+        display: block;
       }
       .apercu-panel-inner {
-        padding-left: 4rem;
+        padding-left: 2.6rem;
         padding-right: 0;
       }
     }
 
     @media (max-width: 500px) {
       .apercu-page-num {
-        width: 2.5rem;
-        font-size: 0.75rem;
+        width: 1.5rem;
       }
       .apercu-page-title {
         font-size: 1.02rem;
       }
       .apercu-panel-inner {
-        padding-left: 3rem;
+        padding-left: 2rem;
         font-size: 0.88rem;
       }
       .apercu-mobile-image {
-        margin-left: -3rem;
         max-width: none;
       }
     }
@@ -1895,15 +1906,15 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
           <li class="apercu-item active"
               data-page="2"
               data-title="Synthèse exécutive"
-              data-img="">
+              data-img="rapport-synthese.jpg">
             <button class="apercu-tab" role="tab" aria-selected="true" aria-expanded="true" tabindex="0" id="apercu-tab-1" aria-controls="apercu-panel-1">
-              <span class="apercu-page-num">p. 2</span>
+              <span class="apercu-page-num" aria-hidden="true"></span>
               <span class="apercu-page-title">Synthèse exécutive</span>
             </button>
             <div class="apercu-panel" id="apercu-panel-1" role="region" aria-labelledby="apercu-tab-1">
               <div class="apercu-panel-inner">
                 Une vue d'ensemble immédiate : valeur totale estimée, répartition par recommandation (à vendre / à conserver / à surveiller), points d'attention prioritaires. La page que vous lirez en premier.
-                <div class="apercu-mobile-image" data-page="2" data-title="Synthèse exécutive"></div>
+                <div class="apercu-mobile-image"><img src="rapport-synthese.jpg" alt="Aperçu p. 2 — Synthèse exécutive" loading="lazy"></div>
               </div>
             </div>
           </li>
@@ -1911,15 +1922,15 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
           <li class="apercu-item"
               data-page="4"
               data-title="Inventaire détaillé"
-              data-img="">
+              data-img="rapport-inventaire.jpg">
             <button class="apercu-tab" role="tab" aria-selected="false" aria-expanded="false" tabindex="-1" id="apercu-tab-2" aria-controls="apercu-panel-2">
-              <span class="apercu-page-num">p. 4</span>
+              <span class="apercu-page-num" aria-hidden="true"></span>
               <span class="apercu-page-title">Inventaire détaillé</span>
             </button>
             <div class="apercu-panel" id="apercu-panel-2" role="region" aria-labelledby="apercu-tab-2">
               <div class="apercu-panel-inner">
                 Chaque référence identifiée et documentée : appellation, domaine, millésime, format, état observé, valeur estimée. Le tableau complet de votre cave, lot par lot.
-                <div class="apercu-mobile-image" data-page="4" data-title="Inventaire détaillé"></div>
+                <div class="apercu-mobile-image"><img src="rapport-inventaire.jpg" alt="Aperçu p. 4 — Inventaire détaillé" loading="lazy"></div>
               </div>
             </div>
           </li>
@@ -1927,15 +1938,15 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
           <li class="apercu-item"
               data-page="5"
               data-title="Répartition par format, région, couleur"
-              data-img="">
+              data-img="rapport-repartition.jpg">
             <button class="apercu-tab" role="tab" aria-selected="false" aria-expanded="false" tabindex="-1" id="apercu-tab-3" aria-controls="apercu-panel-3">
-              <span class="apercu-page-num">p. 5</span>
+              <span class="apercu-page-num" aria-hidden="true"></span>
               <span class="apercu-page-title">Répartition par format, région, couleur</span>
             </button>
             <div class="apercu-panel" id="apercu-panel-3" role="region" aria-labelledby="apercu-tab-3">
               <div class="apercu-panel-inner">
                 Votre cave en visualisations : graphiques de répartition par région, couleur, format et potentiel. Pour comprendre d'un coup d'œil la composition de votre patrimoine liquide.
-                <div class="apercu-mobile-image" data-page="5" data-title="Répartition"></div>
+                <div class="apercu-mobile-image"><img src="rapport-repartition.jpg" alt="Aperçu p. 5 — Répartition" loading="lazy"></div>
               </div>
             </div>
           </li>
@@ -1943,15 +1954,15 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
           <li class="apercu-item"
               data-page="6"
               data-title="Contexte de marché"
-              data-img="">
+              data-img="rapport-contexte-marche.jpg">
             <button class="apercu-tab" role="tab" aria-selected="false" aria-expanded="false" tabindex="-1" id="apercu-tab-4" aria-controls="apercu-panel-4">
-              <span class="apercu-page-num">p. 6</span>
+              <span class="apercu-page-num" aria-hidden="true"></span>
               <span class="apercu-page-title">Contexte de marché</span>
             </button>
             <div class="apercu-panel" id="apercu-panel-4" role="region" aria-labelledby="apercu-tab-4">
               <div class="apercu-panel-inner">
                 L'état actuel des enchères et du négoce pour vos références : tendances, liquidité, dynamique sur les douze derniers mois. Le marché derrière les chiffres de votre cave.
-                <div class="apercu-mobile-image" data-page="6" data-title="Contexte de marché"></div>
+                <div class="apercu-mobile-image"><img src="rapport-contexte-marche.jpg" alt="Aperçu p. 6 — Contexte de marché" loading="lazy"></div>
               </div>
             </div>
           </li>
@@ -1959,15 +1970,15 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
           <li class="apercu-item"
               data-page="10"
               data-title="Recommandations lot par lot"
-              data-img="">
+              data-img="rapport-recommandations.jpg">
             <button class="apercu-tab" role="tab" aria-selected="false" aria-expanded="false" tabindex="-1" id="apercu-tab-5" aria-controls="apercu-panel-5">
-              <span class="apercu-page-num">p. 10</span>
+              <span class="apercu-page-num" aria-hidden="true"></span>
               <span class="apercu-page-title">Recommandations lot par lot</span>
             </button>
             <div class="apercu-panel" id="apercu-panel-5" role="region" aria-labelledby="apercu-tab-5">
               <div class="apercu-panel-inner">
                 Pour chaque référence : à vendre, à conserver ou à surveiller — avec une justification claire fondée sur la cote, l'apogée du vin et la dynamique de marché actuelle.
-                <div class="apercu-mobile-image" data-page="10" data-title="Recommandations"></div>
+                <div class="apercu-mobile-image"><img src="rapport-recommandations.jpg" alt="Aperçu p. 10 — Recommandations" loading="lazy"></div>
               </div>
             </div>
           </li>
@@ -1975,15 +1986,15 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
           <li class="apercu-item"
               data-page="12"
               data-title="Potentiel de garde"
-              data-img="">
+              data-img="rapport-garde.jpg">
             <button class="apercu-tab" role="tab" aria-selected="false" aria-expanded="false" tabindex="-1" id="apercu-tab-6" aria-controls="apercu-panel-6">
-              <span class="apercu-page-num">p. 12</span>
+              <span class="apercu-page-num" aria-hidden="true"></span>
               <span class="apercu-page-title">Potentiel de garde</span>
             </button>
             <div class="apercu-panel" id="apercu-panel-6" role="region" aria-labelledby="apercu-tab-6">
               <div class="apercu-panel-inner">
                 Fenêtre d'apogée pour chaque lot. Quatre horizons : à boire maintenant, proche apogée, en développement, garde longue. Pour savoir quoi ouvrir et quand.
-                <div class="apercu-mobile-image" data-page="12" data-title="Potentiel de garde"></div>
+                <div class="apercu-mobile-image"><img src="rapport-garde.jpg" alt="Aperçu p. 12 — Potentiel de garde" loading="lazy"></div>
               </div>
             </div>
           </li>
@@ -1991,15 +2002,15 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
           <li class="apercu-item"
               data-page="14"
               data-title="Plan d'action"
-              data-img="">
+              data-img="rapport-plan-action.jpg">
             <button class="apercu-tab" role="tab" aria-selected="false" aria-expanded="false" tabindex="-1" id="apercu-tab-7" aria-controls="apercu-panel-7">
-              <span class="apercu-page-num">p. 14</span>
+              <span class="apercu-page-num" aria-hidden="true"></span>
               <span class="apercu-page-title">Plan d'action</span>
             </button>
             <div class="apercu-panel" id="apercu-panel-7" role="region" aria-labelledby="apercu-tab-7">
               <div class="apercu-panel-inner">
                 Des étapes concrètes adaptées à votre situation et vos objectifs — succession, vente, partage familial, conservation. Un calendrier opérationnel pour passer à l'action sans hésiter.
-                <div class="apercu-mobile-image" data-page="14" data-title="Plan d'action"></div>
+                <div class="apercu-mobile-image"><img src="rapport-plan-action.jpg" alt="Aperçu p. 14 — Plan d'action" loading="lazy"></div>
               </div>
             </div>
           </li>
@@ -2010,8 +2021,8 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             <div class="apercu-preview-image">
               <span class="apercu-preview-badge" id="apercu-preview-badge">p. 2</span>
               <!-- Remplacer src par le visuel réel quand disponible -->
-              <img id="apercu-preview-img" src="" alt="" style="display:none;" loading="lazy">
-              <span class="apercu-placeholder" id="apercu-preview-placeholder">Aperçu p. 2 — Synthèse exécutive</span>
+              <img id="apercu-preview-img" src="rapport-synthese.jpg" alt="Synthèse exécutive" loading="lazy">
+              <span class="apercu-placeholder" id="apercu-preview-placeholder" style="display:none;">Aperçu p. 2 — Synthèse exécutive</span>
             </div>
             <div class="apercu-preview-caption" id="apercu-preview-caption">Synthèse exécutive</div>
           </div>
