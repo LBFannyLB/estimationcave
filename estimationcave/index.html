@@ -1509,7 +1509,11 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
     }
 
     .missions-list {
-      max-width: 760px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 3rem;
+      max-width: 880px;
+      border-top: 1px solid rgba(197, 162, 88, 0.25);
     }
 
     .mission-item {
@@ -1517,8 +1521,11 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       border-bottom: 1px solid rgba(197, 162, 88, 0.25);
     }
 
-    .mission-item:first-child {
-      border-top: 1px solid rgba(197, 162, 88, 0.25);
+    @media (max-width: 700px) {
+      .missions-list {
+        grid-template-columns: 1fr;
+        column-gap: 0;
+      }
     }
 
     .mission-name {
