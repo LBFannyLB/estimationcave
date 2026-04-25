@@ -1025,62 +1025,8 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       margin: 0 auto;
     }
 
-    /* ══════════════════════════════════
-       6. TARIF
-    ══════════════════════════════════ */
-    .tarif {
-      padding: 7rem 0;
-      background: var(--blanc);
-    }
-
-    .tarif-header {
-      text-align: center;
-      margin-bottom: 3.5rem;
-    }
-
-    .tarif-card {
-      max-width: 640px;
-      margin: 0 auto;
-      background: var(--fond);
-      border: 1.5px solid rgba(197, 162, 88, 0.25);
-      border-radius: 8px;
-      padding: 3.5rem 3rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      box-shadow: inset 0 0 0 1px rgba(197, 162, 88, 0.1), 0 16px 48px rgba(45, 27, 46, 0.06);
-    }
-
-    .tarif-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--or), var(--bordeaux), var(--or));
-    }
-
-    .tarif-prix {
-      font-family: var(--font-display);
-      font-size: 4rem;
-      font-weight: 700;
-      color: var(--bordeaux);
-      line-height: 1;
-      margin-bottom: 0.25rem;
-    }
-
-    .tarif-prix-label {
-      font-size: 0.9rem;
-      color: var(--texte-light);
-      margin-bottom: 2rem;
-    }
-
-    .tarif-features {
-      text-align: left;
-      max-width: 440px;
-      margin: 0 auto 2.5rem;
-    }
-
-    .tarif-feature {
+    /* ── Checklist (réutilisé dans le formulaire) ── */
+    .checklist-item {
       display: flex;
       align-items: baseline;
       gap: 0.75rem;
@@ -1090,9 +1036,9 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       border-bottom: 1px solid var(--border);
     }
 
-    .tarif-feature:last-child { border-bottom: none; }
+    .checklist-item:last-child { border-bottom: none; }
 
-    .tarif-feature .dot {
+    .checklist-item .dot {
       flex-shrink: 0;
       width: 6px;
       height: 6px;
@@ -1612,8 +1558,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       .hero-subtitle { margin: 1.5rem auto 2.5rem; }
 
       .hero-visual { width: 240px; order: -1; }
-
-      .tarif-card { padding: 2.5rem 1.5rem; }
     }
 
     @media (max-width: 600px) {
@@ -1624,10 +1568,9 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       .hero { padding: 7rem 0 3.5rem; }
       .hero-subtitle { font-size: 1rem; }
       .btn-primary { padding: 0.95rem 2rem; font-size: 0.92rem; }
-      .tarif-prix { font-size: 3rem; }
       .tally-embed-zone { padding: 2rem 1.25rem; }
 
-      .probleme, .apercu, .process, .tarif, .formulaire {
+      .probleme, .apercu, .process, .formulaire {
         padding: 4rem 0;
       }
     }
@@ -1896,34 +1839,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
   </section>
 
 
-  <!-- ════════════ 6. TARIF ════════════ -->
-  <section class="tarif">
-    <div class="container">
-      <div class="tarif-header">
-        <p class="section-label">Tarif</p>
-        <h2>Une offre unique. Claire et sans surprise.</h2>
-        <span class="ornament-long"></span>
-
-      </div>
-      <div class="tarif-card">
-        <div class="tarif-prix">149&thinsp;€</div>
-        <p class="tarif-prix-label">Rapport d'audit et d'estimation complet</p>
-        <div class="tarif-features">
-          <div class="tarif-feature"><div class="dot"></div>Estimation indépendante — aucun conflit d'intérêt</div>
-          <div class="tarif-feature"><div class="dot"></div>Inventaire détaillé de chaque référence</div>
-          <div class="tarif-feature"><div class="dot"></div>Estimation de la valeur de marché</div>
-          <div class="tarif-feature"><div class="dot"></div>Recommandations par lot (à vendre, à conserver, à surveiller)</div>
-          <div class="tarif-feature"><div class="dot"></div>Graphiques de répartition</div>
-          <div class="tarif-feature"><div class="dot"></div>Contexte marché personnalisé et liquidité des références</div>
-          <div class="tarif-feature"><div class="dot"></div>Plan d'action concret</div>
-          <div class="tarif-feature"><div class="dot"></div>Livraison PDF sous 5 jours ouvrés</div>
-        </div>
-        <a href="#formulaire" class="btn btn-primary">Commencer mon audit</a>
-      </div>
-    </div>
-  </section>
-
-
   <!-- ════════════ 4. CE QUE VOUS RECEVEZ — APERÇU INTERACTIF ════════════ -->
   <section class="apercu">
     <div class="container">
@@ -1931,7 +1846,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
         <div class="apercu-content">
           <div class="apercu-header">
             <p class="section-label">Ce que vous recevez</p>
-            <h2>Un rapport de 15 pages,<br><em>circonstancié et opposable.</em></h2>
+            <h2>Un rapport complet,<br><em>personnalisé et opposable.</em></h2>
             <div class="ornament-dots"><span></span></div>
             <p class="section-subtitle">Cliquez sur chaque section pour découvrir ce qu'elle contient.</p>
           </div>
@@ -2354,10 +2269,10 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       <div class="tally-embed-zone" style="text-align:left;">
         <p style="font-size:1rem;font-weight:500;color:var(--bordeaux);margin-bottom:1.25rem;">Le formulaire vous prendra moins de 10 minutes et vous demandera&nbsp;:</p>
         <div style="margin-bottom:1.5rem;">
-          <div class="tarif-feature"><div class="dot"></div>Votre objectif (succession, vente, inventaire...)</div>
-          <div class="tarif-feature"><div class="dot"></div>Le nombre approximatif de bouteilles</div>
-          <div class="tarif-feature"><div class="dot"></div>Une liste de vos vins (par fichier, via photos, ou en texte libre)</div>
-          <div class="tarif-feature"><div class="dot"></div>Toutes les informations que vous jugerez nécessaire de nous communiquer sur la conservation et la constitution de la cave</div>
+          <div class="checklist-item"><div class="dot"></div>Votre objectif (succession, vente, inventaire...)</div>
+          <div class="checklist-item"><div class="dot"></div>Le nombre approximatif de bouteilles</div>
+          <div class="checklist-item"><div class="dot"></div>Une liste de vos vins (par fichier, via photos, ou en texte libre)</div>
+          <div class="checklist-item"><div class="dot"></div>Toutes les informations que vous jugerez nécessaire de nous communiquer sur la conservation et la constitution de la cave</div>
         </div>
         <p style="font-style:italic;font-size:0.92rem;color:var(--texte-light);margin-bottom:2rem;">Un smartphone suffit pour les photos. Pas besoin de connaissances en vin.</p>
         <div style="text-align:center;">
