@@ -2333,16 +2333,40 @@ html, body { background: #FAF6F0 !important; }
   margin-top: 12px;
 }
 
-/* Le bloc "Potentiel de garde" doit pouvoir s'enchaîner derrière les
-   barres "Volume / Valeur" sans saut forcé sur une page dédiée. On
-   protège uniquement le sous-bloc stacked-bar + premiers éléments de
-   légende contre une césure abrupte ; .chart-row.with-sep (Top 5) reste
-   en keep-together car ses listes ordonnées sont fragiles à couper. */
+/* "Potentiel de garde" : on protège uniquement chaque entrée de légende
+   contre une césure intra-li, et on garde le titre+bar accolés à leur
+   première entrée. Pas de keep-together global du chart-card — sinon
+   il bascule entier sur la page suivante alors qu'il y a la place
+   après les bars Volume/Valeur. */
+.chart-row.one .chart-head { page-break-after: avoid; break-after: avoid; }
+.chart-row.one .stacked-bar { page-break-after: avoid; break-after: avoid; }
+.stack-legend li { page-break-inside: avoid; break-inside: avoid; }
+/* Top 5 (chart-row.with-sep) : listes ordonnées qui se cassent mal en
+   travers de page → keep-together. */
 .chart-row.with-sep .chart-card {
   page-break-inside: avoid;
   break-inside: avoid;
 }
-.stacked-bar { page-break-after: avoid; break-after: avoid; }
+/* Compacte le bloc Potentiel de garde pour qu'il rentre systématiquement
+   derrière les bars sur la même A4 — c'est notre contrainte principale,
+   sinon il se retrouve seul sur la page suivante. */
+.chart-row.one { margin-top: 14px; }
+.chart-row.one .chart-card { padding-top: 0; }
+.chart-row.one .chart-head { padding-bottom: 4px; margin-bottom: 6px; }
+.chart-row.one .chart-head h3.chart-title { font-size: 18px; }
+.chart-row.one .stacked-bar { height: 24px; margin: 4px 0 8px; }
+.stack-legend.two-col {
+  gap: 3px 26px;
+  margin-top: 4px;
+  font-size: 10px;
+  line-height: 1.25;
+}
+.stack-legend.two-col li {
+  padding: 2px 0;
+  grid-template-columns: 12px 1fr auto;
+}
+.stack-legend.two-col li b { font-size: 10px; }
+.stack-legend.two-col li em { font-size: 9px; line-height: 1.2; display: block; }
 
 /* Cover : @page :first margin 0 donne l'A4 plein format 210×297 ; .cover
    assume ses propres paddings intérieurs. width:100% = 210mm sur la

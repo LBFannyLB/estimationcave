@@ -547,7 +547,7 @@ def build_synthese(inv: list[dict]) -> dict:
     regions_valeur = [
         {
             "nom": nom,
-            "pct_fmt": f"{val / total_val * 100:.1f}".replace(".", ",") if total_val else "0,0",
+            "pct_fmt": f"{val / total_val * 100:.0f}" if total_val else "0",
             "width": round(val / max_val * 100, 1) if max_val else 0,
         }
         for nom, val in regions_sorted
@@ -636,7 +636,7 @@ def build_repartition(inv: list[dict], synthese: dict) -> dict:
             {
                 "label": nom,
                 "pct": round(v / total * 100, 1) if total else 0,
-                "pct_fmt": f"{v / total * 100:.1f}".replace(".", ",") if total else "0,0",
+                "pct_fmt": f"{v / total * 100:.0f}" if total else "0",
                 "value_fmt": fmt_int(v),
             }
             for nom, v in sorted_items
