@@ -543,8 +543,18 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
 
     .apercu-header {
       text-align: left;
-      margin-bottom: 4rem;
-      max-width: 720px;
+      margin-bottom: 3rem;
+    }
+
+    .apercu-header h2 {
+      font-weight: 500;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+    }
+
+    .apercu-header h2 em {
+      font-style: italic;
+      font-weight: 500;
     }
 
     .apercu-header .ornament-dots {
@@ -562,6 +572,10 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       max-width: 1060px;
       margin: 0 auto;
       align-items: start;
+    }
+
+    .apercu-content {
+      min-width: 0;
     }
 
     .apercu-list {
@@ -667,10 +681,18 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       display: none;
     }
 
-    /* Right column : preview card */
+    /* Right column : preview card — décalé pour s'aligner sur le sous-titre */
     .apercu-preview {
       position: sticky;
       top: 6rem;
+      /* aligne le haut de la carte avec la ligne du sous-titre (≈ section-label + h2 + ornement) */
+      margin-top: calc(0.7rem + 4.5rem + 1px + 1.5rem);
+    }
+
+    @media (max-width: 1100px) {
+      .apercu-preview {
+        margin-top: calc(0.7rem + 4rem + 1px + 1.5rem);
+      }
     }
 
     .apercu-preview-card {
@@ -747,6 +769,47 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       border-top: 1px solid var(--border);
     }
 
+    .apercu-preview-nav {
+      display: flex;
+      justify-content: center;
+      gap: 0.55rem;
+      margin-top: 1.25rem;
+    }
+
+    .apercu-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      border: none;
+      padding: 0;
+      background: var(--border);
+      cursor: pointer;
+      transition: background 0.25s cubic-bezier(0.33, 1, 0.68, 1), transform 0.25s cubic-bezier(0.33, 1, 0.68, 1);
+    }
+
+    .apercu-dot:hover {
+      background: var(--or);
+    }
+
+    .apercu-dot.active {
+      background: var(--bordeaux);
+      transform: scale(1.25);
+    }
+
+    .apercu-dot:focus-visible {
+      outline: 2px solid var(--or);
+      outline-offset: 3px;
+    }
+
+    .apercu-preview-credit {
+      margin-top: 0.85rem;
+      text-align: center;
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      color: var(--texte-light);
+      letter-spacing: 0.02em;
+    }
+
     .apercu-cta {
       text-align: center;
       margin-top: 4rem;
@@ -759,6 +822,9 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       }
       .apercu-preview {
         display: none;
+      }
+      .apercu-header {
+        margin-bottom: 2.5rem;
       }
       .apercu-mobile-image {
         display: block;
@@ -1894,15 +1960,16 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
   <!-- ════════════ 4. CE QUE VOUS RECEVEZ — APERÇU INTERACTIF ════════════ -->
   <section class="apercu">
     <div class="container">
-      <div class="apercu-header">
-        <p class="section-label">Ce que vous recevez</p>
-        <h2>Un rapport de 15 pages, circonstancié et opposable</h2>
-        <div class="ornament-dots"><span></span></div>
-        <p class="section-subtitle">Cliquez sur chaque section pour découvrir ce qu'elle contient.</p>
-      </div>
-
       <div class="apercu-grid">
-        <ul class="apercu-list" role="tablist" aria-label="Sommaire du rapport">
+        <div class="apercu-content">
+          <div class="apercu-header">
+            <p class="section-label">Ce que vous recevez</p>
+            <h2>Un rapport de 15 pages,<br><em>circonstancié et opposable.</em></h2>
+            <div class="ornament-dots"><span></span></div>
+            <p class="section-subtitle">Cliquez sur chaque section pour découvrir ce qu'elle contient.</p>
+          </div>
+
+          <ul class="apercu-list" role="tablist" aria-label="Sommaire du rapport">
           <li class="apercu-item active"
               data-page="2"
               data-title="Synthèse exécutive"
@@ -2015,17 +2082,27 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             </div>
           </li>
         </ul>
+        </div><!-- /.apercu-content -->
 
         <aside class="apercu-preview" aria-label="Aperçu de la page sélectionnée">
           <div class="apercu-preview-card" role="button" tabindex="0" aria-label="Agrandir l'aperçu">
             <div class="apercu-preview-image">
               <span class="apercu-preview-badge" id="apercu-preview-badge">p. 2</span>
-              <!-- Remplacer src par le visuel réel quand disponible -->
               <img id="apercu-preview-img" src="rapport-synthese.jpg" alt="Synthèse exécutive" loading="lazy">
               <span class="apercu-placeholder" id="apercu-preview-placeholder" style="display:none;">Aperçu p. 2 — Synthèse exécutive</span>
             </div>
             <div class="apercu-preview-caption" id="apercu-preview-caption">Synthèse exécutive</div>
           </div>
+          <div class="apercu-preview-nav" role="tablist" aria-label="Navigation rapide entre les pages">
+            <button class="apercu-dot active" type="button" aria-label="Aller à la page 2 — Synthèse exécutive" data-target="0"></button>
+            <button class="apercu-dot" type="button" aria-label="Aller à la page 4 — Inventaire détaillé" data-target="1"></button>
+            <button class="apercu-dot" type="button" aria-label="Aller à la page 5 — Répartition" data-target="2"></button>
+            <button class="apercu-dot" type="button" aria-label="Aller à la page 6 — Contexte de marché" data-target="3"></button>
+            <button class="apercu-dot" type="button" aria-label="Aller à la page 10 — Recommandations" data-target="4"></button>
+            <button class="apercu-dot" type="button" aria-label="Aller à la page 12 — Potentiel de garde" data-target="5"></button>
+            <button class="apercu-dot" type="button" aria-label="Aller à la page 14 — Plan d'action" data-target="6"></button>
+          </div>
+          <p class="apercu-preview-credit">Rapport d'exemple · Famille M. · anonymisé</p>
         </aside>
       </div>
 
@@ -2588,6 +2665,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       var previewBadge = document.getElementById('apercu-preview-badge');
       var previewCaption = document.getElementById('apercu-preview-caption');
       var previewCard = document.querySelector('.apercu-preview-card');
+      var dots = document.querySelectorAll('.apercu-dot');
 
       function setPreview(item){
         var page = item.dataset.page;
@@ -2614,16 +2692,28 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       }
 
       function activate(target){
-        items.forEach(function(item){
+        var activeIdx = -1;
+        items.forEach(function(item, idx){
           var tab = item.querySelector('.apercu-tab');
           var isActive = item === target;
+          if (isActive) activeIdx = idx;
           item.classList.toggle('active', isActive);
           tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
           tab.setAttribute('aria-expanded', isActive ? 'true' : 'false');
           tab.setAttribute('tabindex', isActive ? '0' : '-1');
         });
+        dots.forEach(function(dot, idx){
+          dot.classList.toggle('active', idx === activeIdx);
+          dot.setAttribute('aria-current', idx === activeIdx ? 'true' : 'false');
+        });
         setPreview(target);
       }
+
+      dots.forEach(function(dot, idx){
+        dot.addEventListener('click', function(){
+          if (items[idx]) activate(items[idx]);
+        });
+      });
 
       items.forEach(function(item, idx){
         var tab = item.querySelector('.apercu-tab');
