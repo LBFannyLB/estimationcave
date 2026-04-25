@@ -534,95 +534,261 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
     }
 
     /* ══════════════════════════════════
-       4. CE QUE VOUS RECEVEZ
+       4. CE QUE VOUS RECEVEZ — APERÇU INTERACTIF
     ══════════════════════════════════ */
-    .livrables {
-      padding: 5rem 0;
-      background: var(--fond);
-    }
-
-    .livrables-header {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-
-    .livrables-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-      max-width: 880px;
-      margin: 0 auto;
-    }
-
-    .livrable-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      padding: 1.5rem;
-      border-radius: 6px;
-      background: var(--blanc);
-      border: 1px solid var(--border);
-      transition: all 0.3s cubic-bezier(0.33, 1, 0.68, 1);
-    }
-
-    @media (hover: hover) {
-      .livrable-item:hover {
-        border-color: rgba(197, 162, 88, 0.3);
-        background: rgba(197, 162, 88, 0.03);
-      }
-    }
-
-    .livrable-check {
-      flex-shrink: 0;
-      width: 28px;
-      height: 28px;
-      background: var(--or-pale);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--or);
-      font-size: 0.85rem;
-      font-weight: 700;
-      margin-top: 0.1rem;
-    }
-
-    .livrable-item h4 {
-      font-family: var(--font-body);
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--bordeaux);
-      margin-bottom: 0.2rem;
-    }
-
-    .livrable-item p {
-      font-size: 0.85rem;
-      color: var(--texte-light);
-      line-height: 1.6;
-    }
-
-    /* ══════════════════════════════════
-       4b. APERÇU RAPPORT
-    ══════════════════════════════════ */
-    .rapport-apercu {
+    .apercu {
       padding: 6rem 0;
       background: var(--blanc);
     }
 
-    .rapport-header {
-      text-align: left;
+    .apercu-header {
+      text-align: center;
       margin-bottom: 4rem;
     }
 
-    .rapport-header .ornament-long {
-      margin: 1.5rem 0;
+    .apercu-header .ornament-dots {
+      margin: 1.5rem auto;
     }
 
-    .rapport-header .section-subtitle {
-      margin: 1rem 0 0;
+    .apercu-header .section-subtitle {
+      margin: 1rem auto 0;
     }
 
-    /* ── CAROUSEL RAPPORT ── */
+    .apercu-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 3.5rem;
+      max-width: 1060px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    .apercu-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .apercu-item {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .apercu-tab {
+      width: 100%;
+      display: flex;
+      align-items: baseline;
+      gap: 0.4rem;
+      background: transparent;
+      border: none;
+      padding: 1.4rem 0.5rem 1.4rem 1rem;
+      margin-left: -1rem;
+      text-align: left;
+      cursor: pointer;
+      font-family: var(--font-body);
+      border-left: 2px solid transparent;
+      transition: border-color 0.25s cubic-bezier(0.33, 1, 0.68, 1);
+    }
+
+    .apercu-tab:focus-visible {
+      outline: 2px solid var(--or);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+
+    .apercu-page-num {
+      flex-shrink: 0;
+      width: 3rem;
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--texte-light);
+      letter-spacing: 0.04em;
+    }
+
+    .apercu-page-title {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--bordeaux);
+      line-height: 1.3;
+      flex-grow: 1;
+      transition: color 0.25s cubic-bezier(0.33, 1, 0.68, 1), font-weight 0.2s;
+    }
+
+    .apercu-item.active .apercu-tab {
+      border-left-color: var(--bordeaux);
+    }
+    .apercu-item.active .apercu-page-title {
+      font-weight: 600;
+    }
+
+    @media (hover: hover) {
+      .apercu-tab:hover .apercu-page-title {
+        color: var(--or);
+      }
+    }
+
+    .apercu-panel {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.25s cubic-bezier(0.33, 1, 0.68, 1);
+    }
+
+    .apercu-item.active .apercu-panel {
+      max-height: 600px;
+    }
+
+    .apercu-panel-inner {
+      padding: 0 0.5rem 1.5rem 4rem;
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      line-height: 1.7;
+      color: var(--texte-light);
+    }
+
+    /* Mobile inline preview (hidden on desktop) */
+    .apercu-mobile-image {
+      display: none;
+    }
+
+    /* Right column : preview card */
+    .apercu-preview {
+      position: sticky;
+      top: 6rem;
+    }
+
+    .apercu-preview-card {
+      background: var(--blanc);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: 0 12px 40px rgba(45, 27, 46, 0.06);
+      transition: box-shadow 0.3s cubic-bezier(0.33, 1, 0.68, 1);
+    }
+
+    .apercu-preview-card:focus-visible {
+      outline: 2px solid var(--or);
+      outline-offset: 4px;
+    }
+
+    @media (hover: hover) {
+      .apercu-preview-card:hover {
+        box-shadow: 0 20px 56px rgba(45, 27, 46, 0.12);
+      }
+    }
+
+    .apercu-preview-image {
+      position: relative;
+      aspect-ratio: 3 / 4;
+      background: var(--fond-alt);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .apercu-preview-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      transition: opacity 0.2s ease;
+    }
+
+    .apercu-placeholder {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      color: var(--texte-light);
+      letter-spacing: 0.04em;
+      text-align: center;
+      padding: 0 1.5rem;
+      transition: opacity 0.2s ease;
+    }
+
+    .apercu-preview-badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--bordeaux);
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      padding: 0.3rem 0.6rem;
+      border-radius: 3px;
+      z-index: 2;
+    }
+
+    .apercu-preview-caption {
+      padding: 1rem 1.25rem 1.25rem;
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--bordeaux);
+      border-top: 1px solid var(--border);
+    }
+
+    .apercu-cta {
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    @media (max-width: 900px) {
+      .apercu-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .apercu-preview {
+        display: none;
+      }
+      .apercu-mobile-image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 1.25rem;
+        aspect-ratio: 3 / 4;
+        max-width: 280px;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        background: var(--fond-alt);
+        font-family: var(--font-body);
+        font-size: 0.8rem;
+        color: var(--texte-light);
+        text-align: center;
+        padding: 1rem;
+      }
+      .apercu-mobile-image::before {
+        content: 'Aperçu p. ' attr(data-page) ' — ' attr(data-title);
+      }
+      .apercu-panel-inner {
+        padding-left: 4rem;
+        padding-right: 0;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .apercu-page-num {
+        width: 2.5rem;
+        font-size: 0.75rem;
+      }
+      .apercu-page-title {
+        font-size: 1.02rem;
+      }
+      .apercu-panel-inner {
+        padding-left: 3rem;
+        font-size: 0.88rem;
+      }
+      .apercu-mobile-image {
+        margin-left: -3rem;
+        max-width: none;
+      }
+    }
+
+    /* ── CAROUSEL (partagé avec la section Guides) ── */
     .carousel-wrapper {
       position: relative;
       max-width: 1060px;
@@ -640,71 +806,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
     .carousel-track.dragging {
       transition: none;
       cursor: grabbing;
-    }
-
-    .rapport-card {
-      flex: 0 0 calc(25% - 0.94rem);
-      background: var(--blanc);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
-      transition: transform 0.3s cubic-bezier(0.33, 1, 0.68, 1), box-shadow 0.3s cubic-bezier(0.33, 1, 0.68, 1);
-    }
-
-    @media (hover: hover) {
-      .rapport-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 16px 48px rgba(45, 27, 46, 0.1);
-      }
-    }
-
-    .rapport-img-wrapper {
-      position: relative;
-      overflow: hidden;
-      aspect-ratio: 3 / 4;
-      background: var(--fond-alt);
-    }
-
-    .rapport-img-wrapper img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top;
-      display: block;
-      transition: transform 0.4s cubic-bezier(0.33, 1, 0.68, 1);
-    }
-
-    .rapport-card:hover .rapport-img-wrapper img {
-      transform: scale(1.04);
-    }
-
-    .rapport-img-wrapper::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 40%;
-      background: linear-gradient(to bottom, transparent, rgba(250, 246, 240, 0.85));
-      pointer-events: none;
-    }
-
-    .rapport-card-text {
-      padding: 1rem 1.25rem 1.25rem;
-    }
-
-    .rapport-card-text h3 {
-      font-family: var(--font-display);
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--bordeaux);
-      margin-bottom: 0.3rem;
-    }
-
-    .rapport-card-text p {
-      font-size: 0.82rem;
-      color: var(--texte-light);
-      line-height: 1.6;
     }
 
     .carousel-controls {
@@ -767,23 +868,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       transform: scale(1.2);
     }
 
-    .rapport-cta {
-      text-align: center;
-      margin-top: 3rem;
-    }
-
-    @media (max-width: 900px) {
-      .rapport-card {
-        flex: 0 0 calc(50% - 0.63rem);
-      }
-    }
-
-    @media (max-width: 500px) {
-      .rapport-card {
-        flex: 0 0 85%;
-      }
-    }
-
     /* ── LIGHTBOX ── */
     .lightbox {
       display: none;
@@ -818,8 +902,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       line-height: 1;
       font-weight: 300;
     }
-
-    .rapport-card { cursor: pointer; }
 
     /* ══════════════════════════════════
        5. COMMENT ÇA MARCHE
@@ -1473,10 +1555,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
 
       .steps::before { display: none; }
 
-      .livrables-grid {
-        grid-template-columns: 1fr;
-      }
-
       .hero { padding: 8rem 0 4rem; }
 
       .hero-layout {
@@ -1503,7 +1581,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       .tarif-prix { font-size: 3rem; }
       .tally-embed-zone { padding: 2rem 1.25rem; }
 
-      .probleme, .livrables, .process, .tarif, .formulaire {
+      .probleme, .apercu, .process, .tarif, .formulaire {
         padding: 4rem 0;
       }
     }
@@ -1511,7 +1589,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
     /* ── ANIMATIONS ── */
     @media (prefers-reduced-motion: no-preference) {
       .situation-card,
-      .livrable-item,
       .step {
         opacity: 0;
         transform: translateY(20px);
@@ -1520,12 +1597,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       .situation-card:nth-child(1), .step:nth-child(1) { animation-delay: 0.1s; }
       .situation-card:nth-child(2), .step:nth-child(2) { animation-delay: 0.2s; }
       .situation-card:nth-child(3), .step:nth-child(3) { animation-delay: 0.3s; }
-      .livrable-item:nth-child(1) { animation-delay: 0.05s; }
-      .livrable-item:nth-child(2) { animation-delay: 0.1s; }
-      .livrable-item:nth-child(3) { animation-delay: 0.15s; }
-      .livrable-item:nth-child(4) { animation-delay: 0.2s; }
-      .livrable-item:nth-child(5) { animation-delay: 0.25s; }
-      .livrable-item:nth-child(6) { animation-delay: 0.3s; }
     }
 
     @keyframes fadeUp {
@@ -1809,158 +1880,145 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
   </section>
 
 
-  <!-- ════════════ 4. CE QUE VOUS RECEVEZ ════════════ -->
-  <section class="livrables">
+  <!-- ════════════ 4. CE QUE VOUS RECEVEZ — APERÇU INTERACTIF ════════════ -->
+  <section class="apercu">
     <div class="container">
-      <div class="livrables-header">
+      <div class="apercu-header">
         <p class="section-label">Ce que vous recevez</p>
-        <h2>Un rapport professionnel de A à Z</h2>
+        <h2>Un rapport de 15 pages, circonstancié et opposable</h2>
         <div class="ornament-dots"><span></span></div>
-        <p class="section-subtitle">Un document structuré, lisible et directement actionnable — que vous soyez novice ou connaisseur.</p>
+        <p class="section-subtitle">Cliquez sur chaque section pour découvrir ce qu'elle contient.</p>
       </div>
-      <div class="livrables-grid">
-        <div class="livrable-item">
-          <div class="livrable-check">&#10003;</div>
-          <div>
-            <h4>Inventaire structuré</h4>
-            <p>Chaque référence identifiée, classée et documentée avec soin.</p>
-          </div>
-        </div>
-        <div class="livrable-item">
-          <div class="livrable-check">&#10003;</div>
-          <div>
-            <h4>Estimation de la valeur de marché</h4>
-            <p>Un prix de marché réaliste pour chaque lot, basé sur les transactions réelles.</p>
-          </div>
-        </div>
-        <div class="livrable-item">
-          <div class="livrable-check">&#10003;</div>
-          <div>
-            <h4>Recommandation par lot</h4>
-            <p>À vendre, à conserver ou à surveiller — avec justification claire.</p>
-          </div>
-        </div>
-        <div class="livrable-item">
-          <div class="livrable-check">&#10003;</div>
-          <div>
-            <h4>Graphiques de répartition</h4>
-            <p>Région, couleur, potentiel de garde — votre cave en un coup d'œil.</p>
-          </div>
-        </div>
-        <div class="livrable-item">
-          <div class="livrable-check">&#10003;</div>
-          <div>
-            <h4>Contexte marché et liquidité</h4>
-            <p>Où en sont vos références sur le marché actuel des enchères et du négoce.</p>
-          </div>
-        </div>
-        <div class="livrable-item">
-          <div class="livrable-check">&#10003;</div>
-          <div>
-            <h4>Plan d'action personnalisé</h4>
-            <p>Des étapes concrètes pour valoriser votre cave selon vos objectifs.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
+      <div class="apercu-grid">
+        <ul class="apercu-list" role="tablist" aria-label="Sommaire du rapport">
+          <li class="apercu-item active"
+              data-page="2"
+              data-title="Synthèse exécutive"
+              data-img="">
+            <button class="apercu-tab" role="tab" aria-selected="true" aria-expanded="true" tabindex="0" id="apercu-tab-1" aria-controls="apercu-panel-1">
+              <span class="apercu-page-num">p. 2</span>
+              <span class="apercu-page-title">Synthèse exécutive</span>
+            </button>
+            <div class="apercu-panel" id="apercu-panel-1" role="region" aria-labelledby="apercu-tab-1">
+              <div class="apercu-panel-inner">
+                Une vue d'ensemble immédiate : valeur totale estimée, répartition par recommandation (à vendre / à conserver / à surveiller), points d'attention prioritaires. La page que vous lirez en premier.
+                <div class="apercu-mobile-image" data-page="2" data-title="Synthèse exécutive"></div>
+              </div>
+            </div>
+          </li>
 
-  <!-- ════════════ 4b. APERÇU DU RAPPORT ════════════ -->
-  <section class="rapport-apercu">
-    <div class="container">
-      <div class="rapport-header">
-        <p class="section-label">Aperçu</p>
-        <h2>Ce que contient votre rapport</h2>
-        <span class="ornament-long"></span>
-        <p class="section-subtitle">Un document d'une dizaine de pages, structuré, lisible et directement actionnable.</p>
+          <li class="apercu-item"
+              data-page="4"
+              data-title="Inventaire détaillé"
+              data-img="">
+            <button class="apercu-tab" role="tab" aria-selected="false" aria-expanded="false" tabindex="-1" id="apercu-tab-2" aria-controls="apercu-panel-2">
+              <span class="apercu-page-num">p. 4</span>
+              <span class="apercu-page-title">Inventaire détaillé</span>
+            </button>
+            <div class="apercu-panel" id="apercu-panel-2" role="region" aria-labelledby="apercu-tab-2">
+              <div class="apercu-panel-inner">
+                Chaque référence identifiée et documentée : appellation, domaine, millésime, format, état observé, valeur estimée. Le tableau complet de votre cave, lot par lot.
+                <div class="apercu-mobile-image" data-page="4" data-title="Inventaire détaillé"></div>
+              </div>
+            </div>
+          </li>
+
+          <li class="apercu-item"
+              data-page="5"
+              data-title="Répartition par format, région, couleur"
+              data-img="">
+            <button class="apercu-tab" role="tab" aria-selected="false" aria-expanded="false" tabindex="-1" id="apercu-tab-3" aria-controls="apercu-panel-3">
+              <span class="apercu-page-num">p. 5</span>
+              <span class="apercu-page-title">Répartition par format, région, couleur</span>
+            </button>
+            <div class="apercu-panel" id="apercu-panel-3" role="region" aria-labelledby="apercu-tab-3">
+              <div class="apercu-panel-inner">
+                Votre cave en visualisations : graphiques de répartition par région, couleur, format et potentiel. Pour comprendre d'un coup d'œil la composition de votre patrimoine liquide.
+                <div class="apercu-mobile-image" data-page="5" data-title="Répartition"></div>
+              </div>
+            </div>
+          </li>
+
+          <li class="apercu-item"
+              data-page="6"
+              data-title="Contexte de marché"
+              data-img="">
+            <button class="apercu-tab" role="tab" aria-selected="false" aria-expanded="false" tabindex="-1" id="apercu-tab-4" aria-controls="apercu-panel-4">
+              <span class="apercu-page-num">p. 6</span>
+              <span class="apercu-page-title">Contexte de marché</span>
+            </button>
+            <div class="apercu-panel" id="apercu-panel-4" role="region" aria-labelledby="apercu-tab-4">
+              <div class="apercu-panel-inner">
+                L'état actuel des enchères et du négoce pour vos références : tendances, liquidité, dynamique sur les douze derniers mois. Le marché derrière les chiffres de votre cave.
+                <div class="apercu-mobile-image" data-page="6" data-title="Contexte de marché"></div>
+              </div>
+            </div>
+          </li>
+
+          <li class="apercu-item"
+              data-page="10"
+              data-title="Recommandations lot par lot"
+              data-img="">
+            <button class="apercu-tab" role="tab" aria-selected="false" aria-expanded="false" tabindex="-1" id="apercu-tab-5" aria-controls="apercu-panel-5">
+              <span class="apercu-page-num">p. 10</span>
+              <span class="apercu-page-title">Recommandations lot par lot</span>
+            </button>
+            <div class="apercu-panel" id="apercu-panel-5" role="region" aria-labelledby="apercu-tab-5">
+              <div class="apercu-panel-inner">
+                Pour chaque référence : à vendre, à conserver ou à surveiller — avec une justification claire fondée sur la cote, l'apogée du vin et la dynamique de marché actuelle.
+                <div class="apercu-mobile-image" data-page="10" data-title="Recommandations"></div>
+              </div>
+            </div>
+          </li>
+
+          <li class="apercu-item"
+              data-page="12"
+              data-title="Potentiel de garde"
+              data-img="">
+            <button class="apercu-tab" role="tab" aria-selected="false" aria-expanded="false" tabindex="-1" id="apercu-tab-6" aria-controls="apercu-panel-6">
+              <span class="apercu-page-num">p. 12</span>
+              <span class="apercu-page-title">Potentiel de garde</span>
+            </button>
+            <div class="apercu-panel" id="apercu-panel-6" role="region" aria-labelledby="apercu-tab-6">
+              <div class="apercu-panel-inner">
+                Fenêtre d'apogée pour chaque lot. Quatre horizons : à boire maintenant, proche apogée, en développement, garde longue. Pour savoir quoi ouvrir et quand.
+                <div class="apercu-mobile-image" data-page="12" data-title="Potentiel de garde"></div>
+              </div>
+            </div>
+          </li>
+
+          <li class="apercu-item"
+              data-page="14"
+              data-title="Plan d'action"
+              data-img="">
+            <button class="apercu-tab" role="tab" aria-selected="false" aria-expanded="false" tabindex="-1" id="apercu-tab-7" aria-controls="apercu-panel-7">
+              <span class="apercu-page-num">p. 14</span>
+              <span class="apercu-page-title">Plan d'action</span>
+            </button>
+            <div class="apercu-panel" id="apercu-panel-7" role="region" aria-labelledby="apercu-tab-7">
+              <div class="apercu-panel-inner">
+                Des étapes concrètes adaptées à votre situation et vos objectifs — succession, vente, partage familial, conservation. Un calendrier opérationnel pour passer à l'action sans hésiter.
+                <div class="apercu-mobile-image" data-page="14" data-title="Plan d'action"></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+        <aside class="apercu-preview" aria-label="Aperçu de la page sélectionnée">
+          <div class="apercu-preview-card" role="button" tabindex="0" aria-label="Agrandir l'aperçu">
+            <div class="apercu-preview-image">
+              <span class="apercu-preview-badge" id="apercu-preview-badge">p. 2</span>
+              <!-- Remplacer src par le visuel réel quand disponible -->
+              <img id="apercu-preview-img" src="" alt="" style="display:none;" loading="lazy">
+              <span class="apercu-placeholder" id="apercu-preview-placeholder">Aperçu p. 2 — Synthèse exécutive</span>
+            </div>
+            <div class="apercu-preview-caption" id="apercu-preview-caption">Synthèse exécutive</div>
+          </div>
+        </aside>
       </div>
-      <div class="carousel-wrapper" id="rapport-carousel">
-        <div class="carousel-track">
-          <div class="rapport-card">
-            <div class="rapport-img-wrapper">
-              <img src="rapport-garde.jpg" alt="Page de garde du rapport d'estimation de cave" loading="lazy">
-            </div>
-            <div class="rapport-card-text">
-              <h3>Page de garde</h3>
-              <p>Votre rapport personnalisé, avec référence de mission et date de livraison.</p>
-            </div>
-          </div>
-          <div class="rapport-card">
-            <div class="rapport-img-wrapper">
-              <img src="rapport-synthese.jpg" alt="Synthèse exécutive de l'estimation" loading="lazy">
-            </div>
-            <div class="rapport-card-text">
-              <h3>Synthèse exécutive</h3>
-              <p>Une vue d'ensemble immédiate : valeur totale, répartition, points d'attention.</p>
-            </div>
-          </div>
-          <div class="rapport-card">
-            <div class="rapport-img-wrapper">
-              <img src="rapport-inventaire.jpg" alt="Inventaire détaillé de chaque référence" loading="lazy">
-            </div>
-            <div class="rapport-card-text">
-              <h3>Inventaire détaillé</h3>
-              <p>Chaque référence identifiée, avec appellation, millésime, estimation et état observé.</p>
-            </div>
-          </div>
-          <div class="rapport-card">
-            <div class="rapport-img-wrapper">
-              <img src="rapport-estimation.jpg" alt="Estimation globale de la cave" loading="lazy">
-            </div>
-            <div class="rapport-card-text">
-              <h3>Estimation globale</h3>
-              <p>La valeur de marché de votre cave, calculée à partir des transactions réelles.</p>
-            </div>
-          </div>
-          <div class="rapport-card">
-            <div class="rapport-img-wrapper">
-              <img src="rapport-graphiques.jpg" alt="Graphiques de répartition de la cave" loading="lazy">
-            </div>
-            <div class="rapport-card-text">
-              <h3>Graphiques de répartition</h3>
-              <p>Votre cave en un coup d'œil : par recommandation, par région, par potentiel.</p>
-            </div>
-          </div>
-          <div class="rapport-card">
-            <div class="rapport-img-wrapper">
-              <img src="rapport-reco-conserver.jpg" alt="Recommandations détaillées par lot" loading="lazy">
-            </div>
-            <div class="rapport-card-text">
-              <h3>Recommandations par lot</h3>
-              <p>Chaque référence est classée : à vendre, à conserver ou à surveiller — avec une justification claire.</p>
-            </div>
-          </div>
-          <div class="rapport-card">
-            <div class="rapport-img-wrapper">
-              <img src="rapport-plan-action.jpg" alt="Plan d'action personnalisé" loading="lazy">
-            </div>
-            <div class="rapport-card-text">
-              <h3>Plan d'action</h3>
-              <p>Des prochaines étapes concrètes, adaptées à votre situation et vos objectifs.</p>
-            </div>
-          </div>
-          <div class="rapport-card">
-            <div class="rapport-img-wrapper">
-              <img src="rapport-prochaines-etapes.jpg" alt="Prochaines étapes personnalisées" loading="lazy">
-            </div>
-            <div class="rapport-card-text">
-              <h3>Prochaines étapes</h3>
-              <p>Un calendrier d'actions pour valoriser votre cave selon vos priorités.</p>
-            </div>
-          </div>
-        </div>
-        <div class="carousel-controls">
-          <button class="carousel-btn" id="carousel-prev" aria-label="Diapositive précédente">
-            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-          </button>
-          <div class="carousel-dots" id="carousel-dots"></div>
-          <button class="carousel-btn" id="carousel-next" aria-label="Diapositive suivante">
-            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-          </button>
-        </div>
-      </div>
-      <div class="rapport-cta">
+
+      <div class="apercu-cta">
         <a href="#formulaire" class="btn btn-primary">Recevoir ce rapport — 149&thinsp;€</a>
       </div>
     </div>
@@ -2465,12 +2523,8 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
         if(lastFocused) lastFocused.focus();
       }
 
-      document.querySelectorAll('.rapport-card').forEach(function(card){
-        card.addEventListener('click',function(){
-          var img=this.querySelector('.rapport-img-wrapper img');
-          if(img) openLightbox(img.src, img.alt);
-        });
-      });
+      // Exposed for the apercu interactive section
+      window.openApercuLightbox = openLightbox;
 
       lb.addEventListener('click',function(e){
         if(e.target===lb||e.target===lbClose) closeLightbox();
@@ -2516,101 +2570,90 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
 
     <script>
     (function(){
-      var wrapper = document.getElementById('rapport-carousel');
-      if (!wrapper) return;
-      var track = wrapper.querySelector('.carousel-track');
-      var cards = wrapper.querySelectorAll('.rapport-card');
-      var prevBtn = document.getElementById('carousel-prev');
-      var nextBtn = document.getElementById('carousel-next');
-      var dotsContainer = document.getElementById('carousel-dots');
-      var currentIndex = 0;
-      var cardsPerView = 4;
-      var gap = 20;
+      var items = document.querySelectorAll('.apercu-item');
+      if (!items.length) return;
+      var previewImg = document.getElementById('apercu-preview-img');
+      var previewPh = document.getElementById('apercu-preview-placeholder');
+      var previewBadge = document.getElementById('apercu-preview-badge');
+      var previewCaption = document.getElementById('apercu-preview-caption');
+      var previewCard = document.querySelector('.apercu-preview-card');
 
-      function getCardsPerView() {
-        if (window.innerWidth <= 500) return 1;
-        if (window.innerWidth <= 900) return 2;
-        return 4;
+      function setPreview(item){
+        var page = item.dataset.page;
+        var title = item.dataset.title;
+        var src = item.dataset.img;
+        if (previewBadge) previewBadge.textContent = 'p. ' + page;
+        if (previewCaption) previewCaption.textContent = title;
+        if (!previewImg || !previewPh) return;
+        previewImg.style.opacity = '0';
+        setTimeout(function(){
+          if (src) {
+            previewImg.src = src;
+            previewImg.alt = title;
+            previewImg.style.display = 'block';
+            previewPh.style.display = 'none';
+          } else {
+            previewImg.removeAttribute('src');
+            previewImg.style.display = 'none';
+            previewPh.textContent = 'Aperçu p. ' + page + ' — ' + title;
+            previewPh.style.display = 'flex';
+          }
+          previewImg.style.opacity = '1';
+        }, 100);
       }
 
-      function getTotalPages() {
-        return Math.ceil(cards.length / cardsPerView);
+      function activate(target){
+        items.forEach(function(item){
+          var tab = item.querySelector('.apercu-tab');
+          var isActive = item === target;
+          item.classList.toggle('active', isActive);
+          tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+          tab.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+          tab.setAttribute('tabindex', isActive ? '0' : '-1');
+        });
+        setPreview(target);
       }
 
-      function buildDots() {
-        dotsContainer.innerHTML = '';
-        var total = getTotalPages();
-        for (var i = 0; i < total; i++) {
-          var dot = document.createElement('button');
-          dot.className = 'carousel-dot' + (i === currentIndex ? ' active' : '');
-          dot.setAttribute('aria-label', 'Page ' + (i + 1));
-          dot.addEventListener('click', (function(idx){ return function(){ goTo(idx); }; })(i));
-          dotsContainer.appendChild(dot);
-        }
-      }
-
-      function updateButtons() {
-        prevBtn.disabled = currentIndex === 0;
-        nextBtn.disabled = currentIndex >= getTotalPages() - 1;
-        var dots = dotsContainer.querySelectorAll('.carousel-dot');
-        dots.forEach(function(d, i){ d.className = 'carousel-dot' + (i === currentIndex ? ' active' : ''); });
-      }
-
-      function goTo(index) {
-        var maxIndex = getTotalPages() - 1;
-        currentIndex = Math.max(0, Math.min(index, maxIndex));
-        var card = cards[0];
-        var cardWidth = card.offsetWidth + gap;
-        var offset = currentIndex * cardsPerView * cardWidth;
-        var maxOffset = track.scrollWidth - wrapper.offsetWidth;
-        offset = Math.min(offset, maxOffset);
-        track.style.transform = 'translateX(-' + offset + 'px)';
-        updateButtons();
-      }
-
-      prevBtn.addEventListener('click', function(){ goTo(currentIndex - 1); });
-      nextBtn.addEventListener('click', function(){ goTo(currentIndex + 1); });
-
-      // Drag/swipe
-      var startX = 0, currentX = 0, isDragging = false, startTranslate = 0;
-      function getTranslate() {
-        var st = window.getComputedStyle(track);
-        var matrix = new DOMMatrixReadOnly(st.transform);
-        return matrix.m41;
-      }
-      track.addEventListener('mousedown', function(e){ isDragging = true; startX = e.clientX; startTranslate = getTranslate(); track.classList.add('dragging'); });
-      track.addEventListener('touchstart', function(e){ isDragging = true; startX = e.touches[0].clientX; startTranslate = getTranslate(); track.classList.add('dragging'); }, {passive:true});
-      window.addEventListener('mousemove', function(e){ if(!isDragging) return; currentX = e.clientX; track.style.transform = 'translateX(' + (startTranslate + currentX - startX) + 'px)'; });
-      window.addEventListener('touchmove', function(e){ if(!isDragging) return; currentX = e.touches[0].clientX; track.style.transform = 'translateX(' + (startTranslate + currentX - startX) + 'px)'; }, {passive:true});
-      function endDrag() {
-        if (!isDragging) return;
-        isDragging = false;
-        track.classList.remove('dragging');
-        var diff = currentX - startX;
-        if (Math.abs(diff) > 60) {
-          if (diff < 0) goTo(currentIndex + 1);
-          else goTo(currentIndex - 1);
-        } else { goTo(currentIndex); }
-      }
-      window.addEventListener('mouseup', endDrag);
-      window.addEventListener('touchend', endDrag);
-
-      // Resize
-      var resizeTimer;
-      window.addEventListener('resize', function(){
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(function(){
-          cardsPerView = getCardsPerView();
-          currentIndex = Math.min(currentIndex, getTotalPages() - 1);
-          buildDots();
-          goTo(currentIndex);
-        }, 150);
+      items.forEach(function(item, idx){
+        var tab = item.querySelector('.apercu-tab');
+        tab.addEventListener('click', function(){ activate(item); });
+        tab.addEventListener('keydown', function(e){
+          var next = null;
+          if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+            next = items[(idx + 1) % items.length];
+          } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+            next = items[(idx - 1 + items.length) % items.length];
+          } else if (e.key === 'Home') {
+            next = items[0];
+          } else if (e.key === 'End') {
+            next = items[items.length - 1];
+          } else if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            activate(item);
+            return;
+          } else {
+            return;
+          }
+          e.preventDefault();
+          activate(next);
+          next.querySelector('.apercu-tab').focus();
+        });
       });
 
-      // Init
-      cardsPerView = getCardsPerView();
-      buildDots();
-      updateButtons();
+      if (previewCard) {
+        previewCard.addEventListener('click', function(){
+          var active = document.querySelector('.apercu-item.active');
+          if (!active) return;
+          var src = active.dataset.img;
+          if (src && typeof window.openApercuLightbox === 'function') {
+            window.openApercuLightbox(src, active.dataset.title || '');
+          }
+        });
+      }
+
+      // Init: first item active by default (already has .active in HTML, but ensure preview state)
+      var initial = document.querySelector('.apercu-item.active') || items[0];
+      setPreview(initial);
     })();
     </script>
 
@@ -2732,11 +2775,8 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
         var targets = document.querySelectorAll('section > .container, .article-header, .toc, .key-points, .article-cta, .inline-faq, .silo-section, .garantie-item, .page-header');
         targets.forEach(function(el){ el.classList.add('reveal'); });
 
-        // Left reveals (probleme-header, rapport-header, missions-header)
+        // Left reveals
         document.querySelectorAll('.probleme-header, .missions-header').forEach(function(el){ el.classList.add('reveal-left'); });
-
-        // Right reveals
-        document.querySelectorAll('.rapport-header').forEach(function(el){ el.classList.add('reveal-right'); });
 
         // Ornament reveals
         document.querySelectorAll('.ornament, .ornament-double, .ornament-dots, .ornament-diamond, .ornament-long').forEach(function(el){ el.classList.add('ornament-reveal'); });
