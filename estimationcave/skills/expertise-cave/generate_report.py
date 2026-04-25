@@ -764,7 +764,9 @@ def build_inventaire_rows(inv: list[dict]) -> list[dict]:
     chronologique et facilite les comparaisons inter-millésimes.
     """
     rows = []
-    inv = sorted(inv, key=lambda b: (b.get("millesime") or 0, b.get("bouteille", "")))
+    # Tri par millésime ASC, NM (millesime=0) renvoyé en fin de liste,
+    # puis par domaine alphabétique pour les ex æquo.
+    inv = sorted(inv, key=lambda b: (b.get("millesime") or 9999, b.get("bouteille", "")))
     for b in inv:
         rows.append({
             "domaine": b["bouteille"],
@@ -789,9 +791,9 @@ def build_recommandations(inv: list[dict]) -> list[dict]:
     groups = []
     for label, class_mod, _orient_class in RECAP_ORDER:
         lots = [b for b in inv if b["reco"] == label]
-        # Tri par millésime ASC (NM = 0 en tête) puis par domaine
-        # alphabétique. Cohérent avec l'inventaire détaillé p4.
-        lots.sort(key=lambda b: (b.get("millesime") or 0, b.get("bouteille", "")))
+        # Tri par millésime ASC, NM en fin, puis par domaine alphabétique.
+        # Cohérent avec l'inventaire détaillé p4.
+        lots.sort(key=lambda b: (b.get("millesime") or 9999, b.get("bouteille", "")))
         if not lots:
             continue
         nb_btl = sum(b["qte"] for b in lots)

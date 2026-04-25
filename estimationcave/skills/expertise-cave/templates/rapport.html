@@ -2333,15 +2333,16 @@ html, body { background: #FAF6F0 !important; }
   margin-top: 12px;
 }
 
-/* Le bloc "Potentiel de garde" (chart-row.one) doit rester groupé :
-   stacked-bar + sa légende ne doivent jamais être coupés en travers de
-   page. Idem pour les chart-card individuelles dans .chart-row. */
-.chart-row.one .chart-card,
+/* Le bloc "Potentiel de garde" doit pouvoir s'enchaîner derrière les
+   barres "Volume / Valeur" sans saut forcé sur une page dédiée. On
+   protège uniquement le sous-bloc stacked-bar + premiers éléments de
+   légende contre une césure abrupte ; .chart-row.with-sep (Top 5) reste
+   en keep-together car ses listes ordonnées sont fragiles à couper. */
 .chart-row.with-sep .chart-card {
   page-break-inside: avoid;
   break-inside: avoid;
 }
-.stack-legend, .stacked-bar { page-break-inside: avoid; break-inside: avoid; }
+.stacked-bar { page-break-after: avoid; break-after: avoid; }
 
 /* Cover : @page :first margin 0 donne l'A4 plein format 210×297 ; .cover
    assume ses propres paddings intérieurs. width:100% = 210mm sur la
@@ -2670,21 +2671,25 @@ html, body { background: #FAF6F0 !important; }
 .recap-row.head { padding: 4px 18px; }
 .recap-row.total { padding: 4px 18px; }
 
-/* Lisibilité des % sur les bar-fill (Lecture analytique) : l'étiquette
-   reste positionnée juste à droite du remplissage (hors du bar, sur
-   fond clair du track) pour ne jamais être clippée sur les barres
-   étroites. Couleur très foncée + poids 700 + 12,5 px pour une vraie
-   lecture, même à distance / sur petite barre. */
-.bar-fill { overflow: visible; }
-.bar-pct {
+/* % désormais affiché dans .bar-value à droite (combiné avec btl/€) plutôt
+   qu'incrusté dans le bar-fill : c'est plus lisible (jamais sur fond
+   bordeaux/or) et reste cohérent quelle que soit la longueur du bar. */
+.bar-value {
+  text-align: right;
   font-family: var(--font-body);
-  font-weight: 700;
-  font-size: 11.5px;
-  letter-spacing: 0;
-  color: #1A1A1A;
-  padding-left: 10px;
+  font-size: 10.5px;
+  color: var(--texte-light);
+  white-space: nowrap;
 }
-.bar-fill.accent .bar-pct { color: #1A1A1A; }
+.bar-value b {
+  font-weight: 600;
+  color: var(--bordeaux);
+  font-size: 11px;
+}
+/* Élargir la colonne bar-value puisqu'elle porte maintenant deux infos. */
+.bar-list li {
+  grid-template-columns: 130px 1fr 110px;
+}
 
 /* Répartition II (p7) — save a few px */
 .chart-card.solo { margin-top: 8px; }
@@ -2997,7 +3002,7 @@ html, body { background: #FAF6F0 !important; }
           <div class="chart-base">Base : <b>{{ perimetre.nb_bouteilles }} flacons</b></div>
         </header>
         <ul class="bar-list">
-{% for row in repartition.volume_region %}          <li><span class="bar-label">{{ row.label }}</span><span class="bar-track"><span class="bar-fill" style="--pct:{{ row.pct }};"><span class="bar-pct">{{ row.pct_fmt }} %</span></span></span><span class="bar-value">{{ row.value_fmt }} btl</span></li>
+{% for row in repartition.volume_region %}          <li><span class="bar-label">{{ row.label }}</span><span class="bar-track"><span class="bar-fill" style="--pct:{{ row.pct }};"></span></span><span class="bar-value"><b>{{ row.pct_fmt }} %</b> · {{ row.value_fmt }} btl</span></li>
 {% endfor %}        </ul>
       </section>
 
@@ -3008,7 +3013,7 @@ html, body { background: #FAF6F0 !important; }
           <div class="chart-base">Base : <b>{{ repartition.valeur_region_base_fmt }} €</b></div>
         </header>
         <ul class="bar-list">
-{% for row in repartition.valeur_region %}          <li><span class="bar-label">{{ row.label }}</span><span class="bar-track"><span class="bar-fill accent" style="--pct:{{ row.pct }};"><span class="bar-pct">{{ row.pct_fmt }} %</span></span></span><span class="bar-value">{{ row.value_fmt }} € </span></li>
+{% for row in repartition.valeur_region %}          <li><span class="bar-label">{{ row.label }}</span><span class="bar-track"><span class="bar-fill accent" style="--pct:{{ row.pct }};"></span></span><span class="bar-value"><b>{{ row.pct_fmt }} %</b> · {{ row.value_fmt }} €</span></li>
 {% endfor %}        </ul>
       </section>
     </div>
