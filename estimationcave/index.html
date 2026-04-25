@@ -357,48 +357,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
     }
 
     /* ══════════════════════════════════
-       2b. INTRO
-    ══════════════════════════════════ */
-    .intro {
-      padding: 2rem 0 2.5rem;
-      background: var(--blanc);
-    }
-
-    .intro-inner {
-      max-width: 700px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .intro-inner p {
-      font-size: 1.1rem;
-      font-weight: 300;
-      color: var(--texte-light);
-      line-height: 1.85;
-      margin-bottom: 1.25rem;
-    }
-
-    .intro-inner p:last-of-type { margin-bottom: 0; }
-
-    .intro-inner em {
-      font-family: var(--font-display);
-      font-size: clamp(1.5rem, 3vw, 2rem);
-      color: var(--bordeaux);
-      font-weight: 500;
-      font-style: italic;
-      letter-spacing: -0.02em;
-      line-height: 1.3;
-    }
-
-    .intro-ornament {
-      display: block;
-      width: 48px;
-      height: 2px;
-      background: var(--or);
-      margin: 2rem auto 0;
-    }
-
-    /* ══════════════════════════════════
        3. PROBLÈME
     ══════════════════════════════════ */
     .probleme {
@@ -411,7 +369,18 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
     }
 
     .probleme-header h2 {
-      max-width: 600px;
+      max-width: 720px;
+    }
+
+    .probleme:not(.confiance) .probleme-header h2 {
+      font-weight: 500;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+    }
+
+    .probleme:not(.confiance) .probleme-header h2 em {
+      font-style: italic;
+      font-weight: 500;
     }
 
     .probleme-header .ornament-long {
@@ -1777,27 +1746,15 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
   </section>
 
 
-  <!-- ════════════ 2b. INTRO ════════════ -->
-  <section class="intro">
-    <div class="container">
-      <div class="intro-inner">
-        <p><em>Avant de vendre une cave à vin, il faut d'abord la comprendre.</em></p>
-        <p>Valeur réelle des bouteilles, état de conservation, potentiel de revente : une cave ne s'évalue pas en quelques minutes. Succession, vente, partage familial ou simple mise au point — quel que soit votre projet, vous recevez un audit indépendant, structuré et adapté à votre situation pour prendre une décision sereine.</p>
-        <span class="intro-ornament"></span>
-      </div>
-    </div>
-  </section>
-
-
   <!-- ════════════ 3. PROBLÈME ════════════ -->
   <section class="probleme">
     <div class="container">
       <div class="probleme-header">
         <p class="section-label">Le problème</p>
-        <h2>Vous avez une cave. Mais savez-vous vraiment ce qu'elle vaut&nbsp;?</h2>
+        <h2>Quatre situations, <em>une même question</em>&nbsp;: combien vaut cette cave&nbsp;?</h2>
         <span class="ornament-long"></span>
       </div>
-      <div class="situations">
+      <div class="situations situations-4">
         <div class="situation-card">
           <div class="situation-icon">
             <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1831,6 +1788,16 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
           </div>
           <h3>Inventaire personnel</h3>
           <p>Vous possédez une cave constituée au fil des années et vous souhaitez faire un point sérieux sur sa valeur, son état général et les meilleures décisions à prendre.</p>
+        </div>
+        <div class="situation-card">
+          <div class="situation-icon">
+            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 4L6 9v9c0 7.2 5.1 13.6 12 16 6.9-2.4 12-8.8 12-16V9L18 4z" stroke="#C5A258" stroke-width="1.2" stroke-linejoin="round"/>
+              <path d="M13 18l3.5 3.5L23 15" stroke="#C5A258" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Assurance</h3>
+          <p>Vous connaissez votre cave, mais vous souhaitez un regard neutre pour valider une valeur d'assurance, une mise à jour annuelle, ou un second avis.</p>
         </div>
       </div>
     </div>
