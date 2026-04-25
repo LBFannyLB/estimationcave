@@ -313,7 +313,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
 
     .hero-text {
       flex: 1;
-      text-align: center;
+      text-align: left;
     }
 
     .hero-visual {
@@ -330,7 +330,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
 
     .hero h1 {
       max-width: 600px;
-      margin: 0 auto;
+      margin: 0;
       font-weight: 500;
     }
 
@@ -344,7 +344,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       font-weight: 400;
       color: var(--texte-light);
       max-width: 540px;
-      margin: 1.5rem auto 2.5rem;
+      margin: 1.5rem 0 2.5rem;
       line-height: 1.85;
     }
 
@@ -1518,7 +1518,19 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       grid-template-columns: repeat(2, 1fr);
       column-gap: 3rem;
       max-width: 880px;
+      margin: 0 auto;
       border-top: 1px solid rgba(197, 162, 88, 0.25);
+    }
+
+    .missions-header h2 {
+      font-weight: 500;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+    }
+
+    .missions-header h2 em {
+      font-style: italic;
+      font-weight: 500;
     }
 
     .mission-item {
@@ -1594,6 +1606,8 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
         gap: 2.5rem;
       }
 
+      .hero-text { text-align: center; }
+      .hero h1 { margin: 0 auto; }
       .hero-subtitle { margin: 1.5rem auto 2.5rem; }
 
       .hero-visual { width: 240px; order: -1; }
@@ -2428,7 +2442,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       <div class="missions-header">
         <div class="missions-header-text">
           <p class="section-label">Aller plus loin</p>
-          <h2>Missions complémentaires</h2>
+          <h2>Missions <em>complémentaires.</em></h2>
           <div class="ornament-dots"><span></span></div>
           <p class="section-subtitle">Ce rapport peut être complété par des missions d'accompagnement sur mesure, selon vos besoins et l'évolution de votre projet, sur devis personnalisé.</p>
         </div>
