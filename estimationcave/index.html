@@ -1143,10 +1143,9 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
        8b. GARANTIES
     ══════════════════════════════════ */
     .garanties {
-      padding: 2.5rem 0;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      background: var(--blanc);
+      padding: 3rem 0;
+      background: var(--bordeaux);
+      color: rgba(250, 246, 240, 0.85);
     }
 
     .garanties-grid {
@@ -1157,7 +1156,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
 
     .garantie-item {
       text-align: center;
-      max-width: 200px;
+      max-width: 220px;
     }
 
     .garantie-item svg {
@@ -1169,13 +1168,13 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       font-family: var(--font-display);
       font-size: 1.05rem;
       font-weight: 600;
-      color: var(--bordeaux);
+      color: var(--fond);
       margin-bottom: 0.35rem;
     }
 
     .garantie-desc {
       font-size: 0.82rem;
-      color: var(--texte-light);
+      color: rgba(250, 246, 240, 0.7);
       line-height: 1.55;
     }
 
@@ -1361,6 +1360,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
     .contact-form textarea {
       font-family: var(--font-body);
       font-size: 0.95rem;
+      line-height: 1.5;
       color: var(--texte);
       background: var(--fond);
       border: 1px solid var(--border);
@@ -1368,6 +1368,13 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       padding: 0.75rem 0.9rem;
       transition: border-color 0.2s ease, background 0.2s ease;
       width: 100%;
+      box-sizing: border-box;
+    }
+    .contact-form input[type="text"],
+    .contact-form input[type="email"],
+    .contact-form input[type="tel"],
+    .contact-form select {
+      height: 46px;
     }
     .contact-form input:focus,
     .contact-form select:focus,
@@ -2444,7 +2451,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
         <div class="step">
           <div class="step-number">1</div>
           <h3>Vous remplissez le formulaire</h3>
-          <p>Ci-dessous, en 10 minutes. Vous décrivez votre situation et déposez votre liste de vins si vous l'avez déjà.</p>
+          <p>Ci-dessous, en 5 minutes. Vous décrivez votre situation et déposez votre liste de vins si vous l'avez déjà.</p>
         </div>
         <div class="step">
           <div class="step-number">2</div>
