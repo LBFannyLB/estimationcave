@@ -112,6 +112,8 @@ export default async function handler(req, res) {
     maxFileSize: MAX_TOTAL_BYTES,
     maxTotalFileSize: MAX_TOTAL_BYTES,
     keepExtensions: true,
+    allowEmptyFiles: true,
+    minFileSize: 0,
   });
 
   let fields, files;
@@ -175,12 +177,16 @@ export default async function handler(req, res) {
       : [files.fichiers]
     : [];
 
-  if (fileList.length > MAX_FILES) {
+  // Le navigateur envoie un "fichier vide" (size 0) quand l'utilisateur ne sélectionne rien.
+  // On l'écarte pour la validation et l'envoi, mais on garde fileList pour le cleanup /tmp.
+  const realFiles = fileList.filter((f) => f.size > 0);
+
+  if (realFiles.length > MAX_FILES) {
     return res.status(400).json({ success: false, error: 'Vous ne pouvez pas envoyer plus de 10 fichiers.' });
   }
 
   let totalSize = 0;
-  for (const f of fileList) {
+  for (const f of realFiles) {
     totalSize += f.size;
     const name = f.originalFilename || '';
     const dot = name.lastIndexOf('.');
@@ -203,7 +209,7 @@ export default async function handler(req, res) {
   let attachments = [];
   try {
     attachments = await Promise.all(
-      fileList.map(async (f) => ({
+      realFiles.map(async (f) => ({
         filename: f.originalFilename || 'piece-jointe',
         content: await fs.readFile(f.filepath),
       })),
@@ -215,7 +221,7 @@ export default async function handler(req, res) {
 
   // ── Envoi via Resend ──
   const subject = `[Demande estimation] ${data.civilite} ${data.nom} - ${data.volume} bouteilles - ${data.contexte}`;
-  const html = buildEmailHtml(data, fileList);
+  const html = buildEmailHtml(data, realFiles);
   const resend = new Resend(process.env.RESEND_API_KEY);
 
   try {
