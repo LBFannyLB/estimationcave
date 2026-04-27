@@ -1075,7 +1075,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       text-align: left;
     }
 
-    .confidentialite-inner .ornament-diamond {
+    .confidentialite-inner .ornament-long {
       margin: 1.5rem 0;
     }
 
@@ -1311,43 +1311,179 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       width: auto;
     }
 
-    .tally-embed-zone {
+    /* ── Steps "claires" pour la section formulaire (override .step sur fond beige) ── */
+    .formulaire-steps {
+      max-width: 900px;
+      margin: 0 auto 2.5rem;
+    }
+    .formulaire-steps.steps::before {
+      background: linear-gradient(90deg, var(--or), rgba(197,162,88,0.4), var(--or));
+    }
+    .formulaire-steps .step h3 { color: var(--bordeaux); }
+    .formulaire-steps .step p { color: var(--texte-light); }
+
+    /* ── Bandeau de réassurance avant le formulaire ── */
+    .formulaire-reassurance {
+      max-width: 720px;
+      margin: 0 auto 1.75rem;
+      padding: 1.1rem 1.5rem;
+      background: var(--or-pale);
+      border-left: 3px solid var(--or);
+      border-radius: 4px;
+      text-align: center;
+    }
+    .formulaire-reassurance p {
+      font-size: 0.92rem;
+      color: var(--bordeaux);
+      margin: 0;
+      line-height: 1.65;
+    }
+    .formulaire-reassurance strong { font-weight: 600; color: var(--bordeaux); }
+
+    .form-card {
       max-width: 720px;
       margin: 0 auto;
       background: var(--blanc);
       border: 1px solid var(--border);
       border-radius: 8px;
       padding: 3rem 2.5rem;
-      text-align: center;
+      text-align: left;
       box-shadow: inset 0 0 0 1px rgba(197, 162, 88, 0.08), 0 12px 40px rgba(45, 27, 46, 0.05);
     }
 
-    .tally-placeholder {
-      padding: 2rem;
-      border: 2px dashed rgba(197, 162, 88, 0.3);
-      border-radius: 6px;
-      color: var(--texte-light);
-      font-size: 0.9rem;
-      line-height: 1.7;
-      margin-bottom: 2rem;
+    /* ── FORMULAIRE NATIF (remplace Tally) ── */
+    .contact-form .form-row {
+      display: grid;
+      gap: 1.25rem;
+      margin-bottom: 1.25rem;
     }
+    .contact-form .form-row-2 { grid-template-columns: 1fr 1fr; }
+    .contact-form .form-row-3 { grid-template-columns: 0.7fr 1fr 1fr; }
 
-    .tally-placeholder code {
-      display: block;
-      background: var(--fond);
-      padding: 1rem;
-      border-radius: 4px;
-      font-size: 0.82rem;
-      margin-top: 1rem;
-      font-family: 'Courier New', monospace;
-      color: var(--bordeaux);
-      word-break: break-all;
+    .contact-form .form-field {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1.25rem;
     }
+    .contact-form .form-row .form-field { margin-bottom: 0; }
 
-    .tally-alt {
+    .contact-form label {
+      font-family: var(--font-body);
       font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--bordeaux);
+      margin-bottom: 0.4rem;
+    }
+    .contact-form .req { color: var(--or); }
+
+    .contact-form input[type="text"],
+    .contact-form input[type="email"],
+    .contact-form input[type="tel"],
+    .contact-form select,
+    .contact-form textarea {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--texte);
+      background: var(--fond);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.75rem 0.9rem;
+      transition: border-color 0.2s ease, background 0.2s ease;
+      width: 100%;
+    }
+    .contact-form input:focus,
+    .contact-form select:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--or);
+      background: var(--blanc);
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 110px;
+      line-height: 1.6;
+    }
+
+    .contact-form input[type="file"] {
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      color: var(--texte);
+      padding: 0.5rem 0;
+    }
+
+    .contact-form .form-hint {
+      font-size: 0.8rem;
       color: var(--texte-light);
-      margin-top: 1rem;
+      margin-top: 0.4rem;
+      font-style: italic;
+    }
+
+    .contact-form .form-checkbox {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 0.7rem;
+      background: var(--or-pale);
+      padding: 1rem 1.1rem;
+      border-radius: 4px;
+      border-left: 3px solid var(--or);
+    }
+    .contact-form .form-checkbox input[type="checkbox"] {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      margin-top: 0.15rem;
+      accent-color: var(--bordeaux);
+      cursor: pointer;
+    }
+    .contact-form .form-checkbox label {
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--texte);
+      line-height: 1.5;
+      cursor: pointer;
+      margin-bottom: 0;
+    }
+
+    .contact-form .form-feedback {
+      font-size: 0.9rem;
+      margin: 1rem 0;
+      display: none;
+    }
+    .contact-form .form-feedback.is-error {
+      display: block;
+      background: rgba(180, 50, 50, 0.08);
+      border-left: 3px solid #b43232;
+      color: #8a2424;
+      padding: 0.75rem 1rem;
+      border-radius: 4px;
+    }
+    .contact-form .form-feedback.is-success {
+      display: block;
+      background: var(--or-pale);
+      border-left: 3px solid var(--or);
+      color: var(--bordeaux);
+      padding: 0.85rem 1.1rem;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    .contact-form .form-submit {
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+    .contact-form button[disabled] {
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
+
+    /* Honeypot — hors écran, hors tab order */
+    .hp-field {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 0;
+      overflow: hidden;
     }
 
     /* ══════════════════════════════════
@@ -1625,7 +1761,9 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       .hero { padding: 7rem 0 3.5rem; }
       .hero-subtitle { font-size: 1rem; }
       .btn-primary { padding: 0.95rem 2rem; font-size: 0.92rem; }
-      .tally-embed-zone { padding: 2rem 1.25rem; }
+      .form-card { padding: 2rem 1.25rem; }
+      .contact-form .form-row-2,
+      .contact-form .form-row-3 { grid-template-columns: 1fr; }
 
       .probleme, .apercu, .process, .formulaire {
         padding: 4rem 0;
@@ -2295,7 +2433,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       <div class="confidentialite-inner">
         <p class="section-label" style="color: var(--or);">Mes engagements</p>
         <h2>Un rapport de confiance,<br><em>sans conflit d'intérêt.</em></h2>
-        <span class="ornament-diamond"></span>
+        <span class="ornament-long"></span>
       </div>
       <div class="engagements-grid">
         <div class="engagement-block">
@@ -2321,9 +2459,32 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
         <h2>Prêt à connaître la valeur de votre cave&nbsp;?</h2>
         <div class="formulaire-illustration"><img src="caissebois.png" alt="Illustration caisse de vins" loading="lazy"></div>
         <span class="ornament-long"></span>
-        <p class="section-subtitle">Avant de procéder au paiement, voici ce que vous aurez à préparer&nbsp;:</p>
+        <p class="section-subtitle">Voici comment nous allons travailler ensemble.</p>
       </div>
-      <div class="tally-embed-zone" style="text-align:left;">
+
+      <div class="steps formulaire-steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Vous remplissez le formulaire</h3>
+          <p>Ci-dessous, en 10 minutes. Vous décrivez votre situation et déposez votre liste de vins si vous l'avez déjà.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Je vous réponds sous 48h ouvrées</h3>
+          <p>Je confirme que votre cave entre dans le cadre de mon forfait et je vous transmets le lien de paiement sécurisé.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Vous recevez votre rapport sous 5 jours ouvrés</h3>
+          <p>Dès paiement reçu, j'analyse votre cave et je vous livre votre rapport PDF complet.</p>
+        </div>
+      </div>
+
+      <div class="formulaire-reassurance">
+        <p>Tarif unique&nbsp;: <strong>149&nbsp;€</strong> · Aucun paiement n'est demandé à ce stade · Le paiement intervient uniquement après confirmation écrite de la mission.</p>
+      </div>
+
+      <div class="form-card">
         <p style="font-size:1rem;font-weight:500;color:var(--bordeaux);margin-bottom:1.25rem;">Le formulaire vous prendra moins de 10 minutes et vous demandera&nbsp;:</p>
         <div style="margin-bottom:1.5rem;">
           <div class="checklist-item"><div class="dot"></div>Votre objectif (succession, vente, inventaire...)</div>
@@ -2332,10 +2493,105 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
           <div class="checklist-item"><div class="dot"></div>Toutes les informations que vous jugerez nécessaire de me communiquer sur la conservation et la constitution de la cave</div>
         </div>
         <p style="font-style:italic;font-size:0.92rem;color:var(--texte-light);margin-bottom:2rem;">Un smartphone suffit pour les photos. Pas besoin de connaissances en vin.</p>
-        <div style="text-align:center;">
-          <a href="https://tally.so/r/eq25ZO" target="_blank" rel="noopener" class="btn btn-primary">Remplir le formulaire — 149&thinsp;€</a>
-          <p style="font-size:0.82rem;color:var(--texte-light);margin-top:1.2rem;">Pour toute question, écrivez directement à <a href="mailto:contact@estimationcave.com" style="color:var(--or);">contact@estimationcave.com</a></p>
-        </div>
+
+        <form id="contact-form" class="contact-form" novalidate>
+          <!-- Honeypot anti-bot : invisible utilisateur + clavier + lecteur d'écran -->
+          <div class="hp-field" aria-hidden="true">
+            <label for="hp-website">Site web (laissez vide)</label>
+            <input type="text" id="hp-website" name="website" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="form-row form-row-3">
+            <div class="form-field">
+              <label for="civilite">Civilité <span class="req">*</span></label>
+              <select id="civilite" name="civilite" required>
+                <option value="">Choisir</option>
+                <option value="Mme">Mme</option>
+                <option value="M.">M.</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="prenom">Prénom</label>
+              <input type="text" id="prenom" name="prenom" autocomplete="given-name">
+            </div>
+            <div class="form-field">
+              <label for="nom">Nom <span class="req">*</span></label>
+              <input type="text" id="nom" name="nom" required autocomplete="family-name">
+            </div>
+          </div>
+
+          <div class="form-row form-row-2">
+            <div class="form-field">
+              <label for="email">Email <span class="req">*</span></label>
+              <input type="email" id="email" name="email" required autocomplete="email">
+            </div>
+            <div class="form-field">
+              <label for="telephone">Téléphone</label>
+              <input type="tel" id="telephone" name="telephone" autocomplete="tel">
+            </div>
+          </div>
+
+          <div class="form-row form-row-2">
+            <div class="form-field">
+              <label for="contexte">Contexte de votre demande <span class="req">*</span></label>
+              <select id="contexte" name="contexte" required>
+                <option value="">Choisir</option>
+                <option value="Succession">Succession / héritage</option>
+                <option value="Vente">Vente d'une cave</option>
+                <option value="Inventaire">Inventaire / patrimoine</option>
+                <option value="Assurance">Assurance / déclaration de valeur</option>
+                <option value="Autre">Autre</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="volume">Volume estimé <span class="req">*</span></label>
+              <select id="volume" name="volume" required>
+                <option value="">Choisir</option>
+                <option value="Moins de 20">Moins de 20 bouteilles</option>
+                <option value="20 à 50">20 à 50 bouteilles</option>
+                <option value="50 à 100">50 à 100 bouteilles</option>
+                <option value="100 à 300">100 à 300 bouteilles</option>
+                <option value="Plus de 300">Plus de 300 bouteilles</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="format">Format dont vous disposez</label>
+            <select id="format" name="format">
+              <option value="">Choisir</option>
+              <option value="Excel / liste">Excel ou liste écrite</option>
+              <option value="Photos">Photos d'étiquettes</option>
+              <option value="Les deux">Les deux</option>
+              <option value="Ni l'un ni l'autre">Ni l'un ni l'autre (je décrirai en mots)</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="situation">Quelques mots sur votre situation <span class="req">*</span></label>
+            <textarea id="situation" name="situation" rows="5" required placeholder="Décrivez en quelques phrases votre cave et ce que vous attendez de l'estimation."></textarea>
+          </div>
+
+          <div class="form-field">
+            <label for="fichiers">Fichiers (optionnel) — 4 Mo maximum au total</label>
+            <input type="file" id="fichiers" name="fichiers" multiple accept=".xlsx,.xls,.csv,.pdf,.jpg,.jpeg,.png,.heic">
+            <p class="form-hint">Si vos fichiers sont plus volumineux, vous pourrez me les transmettre par email après ma confirmation.</p>
+          </div>
+
+          <div class="form-field form-checkbox">
+            <input type="checkbox" id="consentement_rgpd" name="consentement_rgpd" required>
+            <label for="consentement_rgpd">
+              J'accepte que mes informations soient utilisées pour répondre à ma demande. Elles ne sont transmises à aucun tiers et sont supprimées après livraison du rapport ou sur simple demande à <a href="mailto:contact@estimationcave.com">contact@estimationcave.com</a>. <span class="req">*</span>
+            </label>
+          </div>
+
+          <div class="form-feedback" id="form-feedback" role="status" aria-live="polite"></div>
+
+          <div class="form-submit">
+            <button type="submit" class="btn btn-primary" id="form-submit-btn">Envoyer ma demande</button>
+            <p style="font-size:0.82rem;color:var(--texte-light);margin-top:1.2rem;">Pour toute question, écrivez directement à <a href="mailto:contact@estimationcave.com" style="color:var(--or);">contact@estimationcave.com</a></p>
+          </div>
+        </form>
       </div>
     </div>
   </section>
@@ -2832,6 +3088,65 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             });
         }, {threshold: 0.1, rootMargin: '0px 0px -40px 0px'});
         allReveal.forEach(function(el){ observer.observe(el); });
+    })();
+    </script>
+
+    <script>
+    // ── Soumission formulaire de contact ──
+    (function(){
+      var form = document.getElementById('contact-form');
+      if (!form) return;
+      var btn = document.getElementById('form-submit-btn');
+      var feedback = document.getElementById('form-feedback');
+      var filesInput = document.getElementById('fichiers');
+      var MAX_TOTAL = 4 * 1024 * 1024;
+
+      function setFeedback(type, msg){
+        feedback.className = 'form-feedback';
+        if (!msg) return;
+        feedback.classList.add(type === 'success' ? 'is-success' : 'is-error');
+        feedback.textContent = msg;
+      }
+
+      form.addEventListener('submit', async function(e){
+        e.preventDefault();
+        setFeedback(null, '');
+
+        if (filesInput && filesInput.files && filesInput.files.length){
+          var total = 0;
+          for (var i = 0; i < filesInput.files.length; i++) total += filesInput.files[i].size;
+          if (total > MAX_TOTAL){
+            setFeedback('error', "Vos fichiers dépassent 4 Mo au total. Vous pouvez soit les compresser, soit ne rien joindre maintenant et me les envoyer par email après ma confirmation sous 48h — ça ne change rien pour vous.");
+            feedback.scrollIntoView({behavior:'smooth', block:'center'});
+            return;
+          }
+        }
+
+        var originalLabel = btn.textContent;
+        btn.disabled = true;
+        btn.textContent = 'Envoi en cours…';
+
+        try {
+          var fd = new FormData(form);
+          var res = await fetch('/api/contact', { method: 'POST', body: fd });
+          var payload = {};
+          try { payload = await res.json(); } catch(_){}
+
+          if (res.ok && payload.success){
+            setFeedback('success', "Merci, j'ai bien reçu votre demande. Je reviens vers vous sous 48h ouvrées pour confirmer la mission.");
+            form.reset();
+            feedback.scrollIntoView({behavior:'smooth', block:'center'});
+          } else {
+            setFeedback('error', payload.error || "Une erreur est survenue, merci de réessayer ou d'écrire à contact@estimationcave.com.");
+            feedback.scrollIntoView({behavior:'smooth', block:'center'});
+          }
+        } catch (err) {
+          setFeedback('error', "Connexion impossible, merci de réessayer ou d'écrire à contact@estimationcave.com.");
+        } finally {
+          btn.disabled = false;
+          btn.textContent = originalLabel;
+        }
+      });
     })();
     </script>
 </body>
