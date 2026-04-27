@@ -1038,28 +1038,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       margin: 0 auto;
     }
 
-    /* ── Checklist (réutilisé dans le formulaire) ── */
-    .checklist-item {
-      display: flex;
-      align-items: baseline;
-      gap: 0.75rem;
-      padding: 0.55rem 0;
-      font-size: 0.92rem;
-      color: var(--texte);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .checklist-item:last-child { border-bottom: none; }
-
-    .checklist-item .dot {
-      flex-shrink: 0;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--or);
-      margin-top: 0.4rem;
-    }
-
     /* ══════════════════════════════════
        8. CONFIDENTIALITÉ
     ══════════════════════════════════ */
@@ -2485,15 +2463,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       </div>
 
       <div class="form-card">
-        <p style="font-size:1rem;font-weight:500;color:var(--bordeaux);margin-bottom:1.25rem;">Le formulaire vous prendra moins de 10 minutes et vous demandera&nbsp;:</p>
-        <div style="margin-bottom:1.5rem;">
-          <div class="checklist-item"><div class="dot"></div>Votre objectif (succession, vente, inventaire...)</div>
-          <div class="checklist-item"><div class="dot"></div>Le nombre approximatif de bouteilles</div>
-          <div class="checklist-item"><div class="dot"></div>Une liste de vos vins (par fichier, via photos, ou en texte libre)</div>
-          <div class="checklist-item"><div class="dot"></div>Toutes les informations que vous jugerez nécessaire de me communiquer sur la conservation et la constitution de la cave</div>
-        </div>
-        <p style="font-style:italic;font-size:0.92rem;color:var(--texte-light);margin-bottom:2rem;">Un smartphone suffit pour les photos. Pas besoin de connaissances en vin.</p>
-
         <form id="contact-form" class="contact-form" novalidate>
           <!-- Honeypot anti-bot : invisible utilisateur + clavier + lecteur d'écran -->
           <div class="hp-field" aria-hidden="true">
@@ -2569,7 +2538,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
 
           <div class="form-field">
             <label for="situation">Quelques mots sur votre situation <span class="req">*</span></label>
-            <textarea id="situation" name="situation" rows="5" required placeholder="Décrivez en quelques phrases votre cave et ce que vous attendez de l'estimation."></textarea>
+            <textarea id="situation" name="situation" rows="5" required placeholder="N'hésitez pas à partager toute information utile sur votre cave : provenance, conditions de conservation, doutes sur certaines références, état général des étiquettes, ou tout autre élément qui peut m'aider dans mon analyse."></textarea>
           </div>
 
           <div class="form-field">
