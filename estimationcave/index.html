@@ -1038,6 +1038,14 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       margin: 0 auto;
     }
 
+    /* CTA secondaire en sortie de bloc — variante outline adaptée au fond bordeaux */
+    .process-cta {
+      text-align: center;
+      margin-top: 2.25rem;
+    }
+    .process .btn-outline { border-color: var(--or); color: var(--fond); }
+    .process .btn-outline:hover { background: var(--or); color: var(--bordeaux); }
+
     /* ══════════════════════════════════
        8. CONFIDENTIALITÉ
     ══════════════════════════════════ */
@@ -1951,6 +1959,9 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
           <h3>Recevez votre rapport</h3>
           <p>Vous recevez votre rapport PDF complet sous 5 jours ouvrés par e-mail.</p>
         </div>
+      </div>
+      <div class="process-cta">
+        <a href="#formulaire" class="btn btn-outline">Démarrer ma demande</a>
       </div>
     </div>
   </section>
