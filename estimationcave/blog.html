@@ -261,12 +261,11 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
         .bl-featured__visual {
             position: relative;
             z-index: 1;
-            max-width: 75%;
-            max-height: 320px;
-            width: auto;
+            width: clamp(140px, 28%, 220px);
             height: auto;
             object-fit: contain;
-            filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.35));
+            opacity: 0.92;
+            filter: drop-shadow(0 4px 16px rgba(197, 162, 88, 0.18));
         }
         .bl-featured__label {
             position: absolute;
@@ -601,7 +600,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
         @media (max-width: 860px) {
             .bl-featured__card { grid-template-columns: 1fr; }
             .bl-featured__media { min-height: 220px; padding: 2.5rem 2rem 3rem; }
-            .bl-featured__visual { max-width: 60%; max-height: 180px; }
+            .bl-featured__visual { width: clamp(110px, 35%, 160px); }
             .bl-featured__label { bottom: 1rem; font-size: 0.62rem; }
             .bl-featured__body { padding: 2rem 1.75rem 2.25rem; }
             .bl-silo-section__head {
@@ -717,7 +716,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
     <section class="bl-featured">
         <a href="article-estimation-distance.html" class="bl-featured__card">
             <div class="bl-featured__media">
-                <img src="caissebois.png" alt="Illustration caisse de vins en bois" class="bl-featured__visual" loading="lazy">
+                <img src="grappe-doree.png" alt="" class="bl-featured__visual" loading="lazy">
                 <span class="bl-featured__label">— Article à la une</span>
             </div>
             <div class="bl-featured__body">
