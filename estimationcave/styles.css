@@ -106,7 +106,7 @@ a:hover { color: var(--bordeaux); }
     align-items: center;
 }
 .nav-logo .nav-logo-text { color: var(--bordeaux); }
-.nav-logo .nav-logo-text span { color: var(--or); }
+.nav-logo .nav-logo-text span { color: var(--or); font-style: italic; font-weight: 500; }
 .nav-logo-img {
     height: 64px;
     width: auto;
