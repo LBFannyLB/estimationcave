@@ -258,28 +258,27 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             opacity: 0.08;
             pointer-events: none;
         }
-        .bl-featured__num {
-            font-family: var(--font-display);
-            font-style: italic;
-            font-size: 9rem;
-            color: var(--or);
-            opacity: 0.55;
-            line-height: 0.85;
-            letter-spacing: -0.04em;
+        .bl-featured__visual {
             position: relative;
             z-index: 1;
-            text-align: center;
+            max-width: 75%;
+            max-height: 320px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.35));
         }
-        .bl-featured__num::after {
-            content: '— Article à la une';
-            display: block;
-            font-size: 0.72rem;
+        .bl-featured__label {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.68rem;
             letter-spacing: 0.22em;
             text-transform: uppercase;
             color: var(--or);
-            font-style: normal;
-            font-family: var(--font-body);
-            margin-top: 1rem;
+            font-weight: 500;
+            z-index: 2;
             opacity: 0.9;
         }
         .bl-featured__body {
@@ -601,8 +600,9 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
         }
         @media (max-width: 860px) {
             .bl-featured__card { grid-template-columns: 1fr; }
-            .bl-featured__media { min-height: 200px; padding: 2.5rem; }
-            .bl-featured__num { font-size: 6rem; }
+            .bl-featured__media { min-height: 220px; padding: 2.5rem 2rem 3rem; }
+            .bl-featured__visual { max-width: 60%; max-height: 180px; }
+            .bl-featured__label { bottom: 1rem; font-size: 0.62rem; }
             .bl-featured__body { padding: 2rem 1.75rem 2.25rem; }
             .bl-silo-section__head {
                 flex-direction: column;
@@ -717,7 +717,8 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
     <section class="bl-featured">
         <a href="article-estimation-distance.html" class="bl-featured__card">
             <div class="bl-featured__media">
-                <div class="bl-featured__num">01</div>
+                <img src="caissebois.png" alt="Illustration caisse de vins en bois" class="bl-featured__visual" loading="lazy">
+                <span class="bl-featured__label">— Article à la une</span>
             </div>
             <div class="bl-featured__body">
                 <span class="bl-featured__tag">À la une · Estimation</span>
