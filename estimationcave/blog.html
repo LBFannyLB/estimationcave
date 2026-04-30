@@ -227,9 +227,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             padding: 0 1.5rem 4rem;
         }
         .bl-featured__card {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 0;
+            display: block;
             background: var(--bordeaux);
             border-radius: 4px;
             overflow: hidden;
@@ -237,55 +235,25 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             position: relative;
             transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
         }
-        .bl-featured__card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 18px 40px rgba(45, 27, 46, 0.16);
-        }
-        .bl-featured__media {
-            background: linear-gradient(135deg, #3D2940 0%, #2D1B2E 100%);
-            padding: 2.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            min-height: 340px;
-        }
-        .bl-featured__media::before {
+        .bl-featured__card::before {
             content: '';
             position: absolute;
             inset: 0;
             background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 0.77 0 0 0 0 0.64 0 0 0 0 0.34 0 0 0 0.6 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
-            opacity: 0.08;
+            opacity: 0.06;
             pointer-events: none;
         }
-        .bl-featured__visual {
-            position: relative;
-            z-index: 1;
-            width: clamp(120px, 55%, 180px);
-            height: auto;
-            object-fit: contain;
-            opacity: 0.92;
-            filter: drop-shadow(0 4px 16px rgba(197, 162, 88, 0.18));
-        }
-        .bl-featured__label {
-            position: absolute;
-            bottom: 1.5rem;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 0.68rem;
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
-            color: var(--or);
-            font-weight: 500;
-            z-index: 2;
-            opacity: 0.9;
+        .bl-featured__card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 18px 40px rgba(45, 27, 46, 0.16);
         }
         .bl-featured__body {
-            padding: 3rem 3rem 2.5rem;
+            padding: 3rem 3.25rem 2.75rem;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             color: var(--fond);
+            position: relative;
+            z-index: 1;
         }
         .bl-featured__tag {
             display: inline-flex;
@@ -598,10 +566,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             .bl-silos__grid { grid-template-columns: repeat(3, 1fr); }
         }
         @media (max-width: 860px) {
-            .bl-featured__card { grid-template-columns: 1fr; }
-            .bl-featured__media { min-height: 220px; padding: 2.5rem 2rem 3rem; }
-            .bl-featured__visual { width: clamp(110px, 35%, 160px); }
-            .bl-featured__label { bottom: 1rem; font-size: 0.62rem; }
             .bl-featured__body { padding: 2rem 1.75rem 2.25rem; }
             .bl-silo-section__head {
                 flex-direction: column;
@@ -715,10 +679,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
     <!-- ═══════════ ARTICLE À LA UNE ═══════════ -->
     <section class="bl-featured">
         <a href="article-estimation-distance.html" class="bl-featured__card">
-            <div class="bl-featured__media">
-                <img src="grappe-doree.png" alt="" class="bl-featured__visual" loading="lazy">
-                <span class="bl-featured__label">— Article à la une</span>
-            </div>
             <div class="bl-featured__body">
                 <span class="bl-featured__tag">À la une · Estimation</span>
                 <h2 class="bl-featured__title">Estimation de cave à vins à distance&nbsp;: comment ça fonctionne&nbsp;?</h2>
