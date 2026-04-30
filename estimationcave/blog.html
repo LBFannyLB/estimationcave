@@ -72,361 +72,551 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
-
+        /* ── Tokens complémentaires (compat avec le design Blog) ── */
+        :root {
+            --bordeaux-hover: #3D2940;
+            --border-strong: rgba(45, 27, 46, 0.16);
+            --ease: cubic-bezier(0.33, 1, 0.68, 1);
+        }
         a { text-decoration: none; color: inherit; }
 
-        .container {
-            max-width: 1100px;
+        /* ══════════════ HERO ══════════════ */
+        .bl-hero {
+            max-width: 880px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: clamp(3.5rem, 7vw, 5.5rem) 1.5rem 2.5rem;
+            text-align: center;
         }
-
-        h1, h2, h3 { font-family: var(--font-display); font-weight: 600; color: var(--bordeaux); line-height: 1.2; }
-        h1 { font-size: clamp(2rem, 4vw, 2.8rem); letter-spacing: -0.02em; }
-        h2 { font-size: clamp(1.4rem, 2.5vw, 1.8rem); }
-
-        .section-label {
-            font-family: var(--font-body);
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.18em;
+        .bl-eyebrow {
+            font-size: 0.72rem;
+            letter-spacing: 0.22em;
             text-transform: uppercase;
             color: var(--or);
-            margin-bottom: 0.75rem;
+            font-weight: 500;
+            margin-bottom: 1.25rem;
+            display: block;
         }
-
-        /* ── HEADER ── */
-        .page-header {
-            padding: 8.5rem 0 2.5rem;
-            text-align: center;
+        .bl-hero h1 {
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: clamp(2.5rem, 5vw, 3.75rem);
+            line-height: 1.1;
+            letter-spacing: -0.018em;
+            color: var(--bordeaux);
+            margin: 0 0 1.5rem;
+            text-wrap: balance;
         }
-
-        .page-header .intro {
-            font-size: 1.05rem;
+        .bl-hero p {
+            font-size: 1.1rem;
+            line-height: 1.65;
             color: var(--texte-light);
-            font-weight: 300;
             max-width: 560px;
-            margin: 1rem auto 0;
-            line-height: 1.8;
+            margin: 0 auto 2.5rem;
         }
-
-        /* ── ILLUSTRATION BOUCHONS ── */
-        .blog-illustration {
-            text-align: center;
-            margin: 1.5rem 0 0.5rem;
+        .bl-hero__illustration {
+            margin: 0.5rem 0 1.75rem;
+            display: flex;
+            justify-content: center;
         }
-        .blog-illustration img {
-            height: 240px;
+        .bl-hero__illustration img {
+            height: 200px;
             width: auto;
+            opacity: 0.95;
         }
+        @media (max-width: 540px) {
+            .bl-hero__illustration img { height: 150px; }
+        }
+        .bl-search {
+            display: flex;
+            max-width: 460px;
+            margin: 0 auto;
+            border: 1px solid var(--border-strong);
+            border-radius: 4px;
+            overflow: hidden;
+            background: var(--blanc);
+            transition: border-color 0.25s var(--ease);
+        }
+        .bl-search:focus-within { border-color: var(--or); }
+        .bl-search svg {
+            align-self: center;
+            margin-left: 1rem;
+            opacity: 0.5;
+            color: var(--texte-light);
+        }
+        .bl-search input {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 0.95rem 1rem;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            background: transparent;
+            color: var(--texte);
+        }
+        .bl-search input::placeholder { color: var(--texte-light); }
 
-        /* ── TABS ── */
-        .tabs {
+        /* ══════════════ CARTES SILOS (NAV VISUELLE) ══════════════ */
+        .bl-silos {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem 4rem;
+        }
+        .bl-silos__grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 0.85rem;
+        }
+        .bl-silo-card {
+            display: flex;
+            flex-direction: column;
+            padding: 1.4rem 1.1rem 1.2rem;
+            background: var(--blanc);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            text-decoration: none;
+            position: relative;
+            transition: all 0.3s var(--ease);
+            min-height: 140px;
+        }
+        .bl-silo-card:hover {
+            border-color: var(--or);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(45, 27, 46, 0.08);
+        }
+        .bl-silo-card__icon {
+            width: 32px;
+            height: 32px;
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            padding: 0 2rem 2.5rem;
-            max-width: 800px;
-            margin: 0 auto;
+            margin-bottom: 0.85rem;
         }
-
-        .tab-btn {
-            font-family: var(--font-body);
-            font-size: 0.82rem;
+        .bl-silo-card__icon svg { width: 32px; height: 32px; }
+        .bl-silo-card__title {
+            font-family: var(--font-display);
             font-weight: 500;
-            color: var(--texte-light);
-            background: var(--blanc);
-            border: 1px solid var(--border);
-            border-radius: 100px;
-            padding: 0.5rem 1.15rem;
-            cursor: pointer;
-            transition: all 0.25s cubic-bezier(0.33, 1, 0.68, 1);
-            white-space: nowrap;
-        }
-
-        .tab-btn:hover {
+            font-size: 1.1rem;
             color: var(--bordeaux);
-            border-color: var(--or);
+            line-height: 1.2;
+            margin: 0 0 0.4rem;
+            letter-spacing: -0.005em;
         }
-
-        .tab-btn.active {
-            background: var(--bordeaux);
-            color: var(--fond);
-            border-color: var(--bordeaux);
-        }
-
-        /* ── SILO SECTIONS ── */
-        .silo-section {
-            margin-bottom: 2.5rem;
-        }
-
-        .silo-section.hidden {
-            display: none;
-        }
-
-        .silo-header {
-            margin-bottom: 1.25rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-        }
-
-        .silo-icon {
-            flex-shrink: 0;
-            width: 36px;
-            height: 36px;
-            margin-top: 0.15rem;
-        }
-
-        .silo-icon svg {
-            width: 36px;
-            height: 36px;
-        }
-
-        .silo-header-text h2 {
-            font-size: 1.5rem;
-            margin-bottom: 0.25rem;
-        }
-
-        .silo-header-text p {
-            font-size: 0.9rem;
+        .bl-silo-card__count {
+            font-size: 0.7rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
             color: var(--texte-light);
-            font-weight: 300;
-            line-height: 1.6;
+            font-weight: 500;
+            margin-top: auto;
+        }
+        .bl-silo-card__count strong {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            color: var(--bordeaux);
+            margin-right: 0.3rem;
+            letter-spacing: 0;
         }
 
-        /* ── ARTICLES GRID ── */
-        .articles {
-            padding: 0 0 5rem;
+        /* ══════════════ ARTICLE À LA UNE ══════════════ */
+        .bl-featured {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 1.5rem 4rem;
         }
-
-        .article-card {
-            background: var(--blanc);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            padding: 2.5rem 2rem;
-            transition: all 0.3s cubic-bezier(0.33, 1, 0.68, 1);
+        .bl-featured__card {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 0;
+            background: var(--bordeaux);
+            border-radius: 4px;
+            overflow: hidden;
+            text-decoration: none;
             position: relative;
-            display: block;
+            transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
         }
-
-        .article-card + .article-card {
-            margin-top: 0;
+        .bl-featured__card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 18px 40px rgba(45, 27, 46, 0.16);
         }
-
-        .article-card::before {
+        .bl-featured__media {
+            background: linear-gradient(135deg, #3D2940 0%, #2D1B2E 100%);
+            padding: 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            min-height: 380px;
+        }
+        .bl-featured__media::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 2rem;
-            right: 2rem;
-            height: 2px;
-            background: var(--or);
-            opacity: 0;
-            transition: opacity 0.3s cubic-bezier(0.33, 1, 0.68, 1);
+            inset: 0;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 0.77 0 0 0 0 0.64 0 0 0 0 0.34 0 0 0 0.6 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+            opacity: 0.08;
+            pointer-events: none;
         }
-
-        @media (hover: hover) {
-        .article-card:hover {
-            border-color: rgba(197, 162, 88, 0.3);
-            box-shadow: inset 0 0 0 1px rgba(197, 162, 88, 0.1), 0 8px 24px rgba(45, 27, 46, 0.05);
-        }
-        }
-
-        .article-card:hover::before { opacity: 1; }
-
-        .article-date {
-            display: none; /* Réactiver quand les dates seront variées */
-        }
-
-        .article-card h3 {
+        .bl-featured__num {
             font-family: var(--font-display);
-            font-weight: 600;
-            color: var(--bordeaux);
-            margin-bottom: 0.75rem;
-            font-size: 1.4rem;
-            line-height: 1.2;
-            transition: color 0.25s cubic-bezier(0.33, 1, 0.68, 1);
-        }
-
-        .article-card:hover h3 { color: var(--or); }
-
-        .article-card p {
-            font-size: 0.95rem;
-            color: var(--texte-light);
-            line-height: 1.75;
-            margin-bottom: 1.25rem;
-        }
-
-        .read-more {
-            font-size: 0.85rem;
-            font-weight: 500;
+            font-style: italic;
+            font-size: 9rem;
             color: var(--or);
+            opacity: 0.55;
+            line-height: 0.85;
+            letter-spacing: -0.04em;
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+        .bl-featured__num::after {
+            content: '— Article à la une';
+            display: block;
+            font-size: 0.72rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--or);
+            font-style: normal;
+            font-family: var(--font-body);
+            margin-top: 1rem;
+            opacity: 0.9;
+        }
+        .bl-featured__body {
+            padding: 3rem 3rem 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: var(--fond);
+        }
+        .bl-featured__tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            align-self: flex-start;
+            font-size: 0.68rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--or);
+            font-weight: 500;
+            margin-bottom: 1.25rem;
+            padding: 0.4rem 0.85rem;
+            border: 1px solid rgba(197, 162, 88, 0.4);
+            border-radius: 999px;
+        }
+        .bl-featured__title {
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: clamp(1.65rem, 2.6vw, 2.2rem);
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+            color: var(--fond);
+            margin: 0 0 1.25rem;
+            text-wrap: balance;
+        }
+        .bl-featured__lead {
+            font-size: 0.98rem;
+            line-height: 1.65;
+            color: rgba(250, 246, 240, 0.78);
+            margin: 0 0 1.75rem;
+        }
+        .bl-featured__meta {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            font-size: 0.78rem;
+            color: rgba(250, 246, 240, 0.6);
+            letter-spacing: 0.04em;
+            flex-wrap: wrap;
+        }
+        .bl-featured__cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--or);
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 0.04em;
+            margin-left: auto;
+            transition: gap 0.3s var(--ease);
+        }
+        .bl-featured__card:hover .bl-featured__cta { gap: 0.85rem; }
+
+        /* ══════════════ SECTIONS PAR SILO ══════════════ */
+        .bl-silo-section {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 1.5rem 4.5rem;
+            scroll-margin-top: 90px;
+        }
+        .bl-silo-section.hidden { display: none; }
+        .bl-silo-section__head {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 2rem;
+            padding: 1.25rem 0 1.5rem;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 2rem;
+        }
+        .bl-silo-section__title-wrap { max-width: 640px; }
+        .bl-silo-section__title-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.6rem;
+        }
+        .bl-silo-section__icon {
+            width: 56px;
+            height: 56px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            background: var(--blanc);
+            border: 1px solid var(--border-strong);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .bl-silo-section__icon svg { width: 32px; height: 32px; }
+        .bl-silo-section__title {
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: clamp(1.7rem, 2.6vw, 2.15rem);
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+            color: var(--bordeaux);
+            margin: 0;
+        }
+        .bl-silo-section__lead {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--texte-light);
+            margin: 0;
+        }
+        .bl-silo-section__pilier {
+            white-space: nowrap;
+            font-size: 0.85rem;
+            color: var(--bordeaux);
+            text-decoration: none;
+            border-bottom: 1px solid var(--or);
+            padding-bottom: 2px;
+            font-weight: 500;
+            flex-shrink: 0;
+            align-self: flex-end;
+            margin-bottom: 0.4rem;
+            transition: color 0.25s var(--ease);
+        }
+        .bl-silo-section__pilier:hover { color: var(--or); }
+
+        /* ══════════════ CARROUSEL ══════════════ */
+        .bl-carousel { position: relative; }
+        .bl-articles {
+            display: grid;
+            grid-auto-flow: column;
+            grid-auto-columns: minmax(300px, calc((100% - 3rem) / 3));
+            gap: 1.5rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-padding: 0 1.5rem;
+            scrollbar-width: thin;
+            scrollbar-color: var(--border-strong) transparent;
+            padding-bottom: 0.5rem;
+            -webkit-overflow-scrolling: touch;
+        }
+        .bl-articles::-webkit-scrollbar { height: 6px; }
+        .bl-articles::-webkit-scrollbar-track { background: transparent; }
+        .bl-articles::-webkit-scrollbar-thumb {
+            background: var(--border-strong);
+            border-radius: 3px;
+        }
+        .bl-articles > .bl-article { scroll-snap-align: start; }
+        .bl-carousel__btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--blanc);
+            border: 1px solid var(--border-strong);
+            color: var(--bordeaux);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 16px rgba(45, 27, 46, 0.08);
+            transition: all 0.25s var(--ease);
+            z-index: 5;
+        }
+        .bl-carousel__btn:hover {
+            border-color: var(--or);
+            color: var(--or);
+            transform: translateY(-50%) scale(1.05);
+        }
+        .bl-carousel__btn:disabled { opacity: 0.3; cursor: not-allowed; }
+        .bl-carousel__btn--prev { left: -18px; }
+        .bl-carousel__btn--next { right: -18px; }
+
+        /* ══════════════ CARTE ARTICLE ══════════════ */
+        .bl-article {
+            background: var(--blanc);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 1.75rem 1.6rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            transition: all 0.3s var(--ease);
+            position: relative;
+            min-height: 260px;
+        }
+        .bl-article:hover {
+            border-color: var(--or);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(45, 27, 46, 0.06);
+        }
+        .bl-article--guide {
+            background: rgba(197, 162, 88, 0.04);
+            border-color: rgba(197, 162, 88, 0.22);
+        }
+        .bl-article--guide:hover {
+            border-color: var(--or);
+            box-shadow: 0 12px 30px rgba(197, 162, 88, 0.12);
+        }
+        .bl-article__tag {
             display: inline-flex;
             align-items: center;
             gap: 0.4rem;
-            transition: gap 0.25s cubic-bezier(0.33, 1, 0.68, 1);
-        }
-
-        .article-card:hover .read-more { gap: 0.7rem; }
-
-        .read-more svg { width: 14px; height: 14px; }
-
-        /* ── PILLAR BADGE ── */
-        .badge-pilier {
-            display: inline-block;
-            font-family: var(--font-body);
-            font-size: 0.65rem;
-            font-weight: 600;
-            letter-spacing: 0.08em;
+            align-self: flex-start;
+            font-size: 0.62rem;
+            letter-spacing: 0.14em;
             text-transform: uppercase;
-            color: var(--or);
-            background: var(--or-pale);
-            padding: 0.2rem 0.6rem;
-            border-radius: 3px;
-            margin-left: 0.5rem;
-            vertical-align: middle;
+            color: var(--texte-light);
+            font-weight: 500;
+            margin-bottom: 1rem;
         }
-
-        /* ── GUIDE CARD ── */
-        .article-card.guide {
-            background: rgba(197, 162, 88, 0.04);
-            border-color: rgba(197, 162, 88, 0.2);
-            padding: 3rem 2.5rem;
-        }
-
-        @media (hover: hover) {
-        .article-card.guide:hover {
-            border-color: rgba(197, 162, 88, 0.5);
-            box-shadow: inset 0 0 0 1px rgba(197, 162, 88, 0.15), 0 12px 32px rgba(45, 27, 46, 0.07);
-        }
-        }
-
-        /* ── CAROUSEL ── */
-        .carousel {
-            position: relative;
-            display: flex;
-            align-items: center;
-            gap: 0;
-        }
-
-        .carousel-track {
-            display: flex;
-            gap: 1.25rem;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            scroll-behavior: smooth;
-            -webkit-overflow-scrolling: touch;
-            padding: 0.25rem 0;
-        }
-
-        .carousel-track::-webkit-scrollbar { display: none; }
-        .carousel-track { -ms-overflow-style: none; scrollbar-width: none; }
-
-        .carousel-track .article-card {
-            flex: 0 0 calc((100% - 2.5rem) / 3);
-            scroll-snap-align: start;
-            min-width: 0;
-        }
-
-        .carousel-track .article-card h3 {
-            font-size: 1.15rem;
-        }
-
-        .carousel-track .article-card p {
-            font-size: 0.88rem;
-            line-height: 1.65;
-        }
-
-        .carousel-track .article-card.guide {
-            padding: 2rem 1.75rem;
-        }
-
-        .carousel-arrow {
-            flex-shrink: 0;
-            width: 36px;
-            height: 36px;
+        .bl-article__tag-dot {
+            width: 6px;
+            height: 6px;
             border-radius: 50%;
-            border: 1.5px solid var(--or);
-            background: var(--blanc);
-            color: var(--or);
-            font-size: 1.3rem;
-            font-weight: 300;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.25s cubic-bezier(0.33, 1, 0.68, 1);
-            z-index: 2;
-        }
-
-        .carousel-prev { margin-right: 0.75rem; }
-        .carousel-next { margin-left: 0.75rem; }
-
-        .carousel-arrow:hover {
-            background: var(--bordeaux);
-            border-color: var(--bordeaux);
-            color: var(--or);
-        }
-
-        .carousel-arrow:disabled {
-            opacity: 0.25;
-            cursor: default;
-            pointer-events: none;
-        }
-
-        .carousel-dots {
-            display: none;
-            justify-content: center;
-            gap: 0.5rem;
-            padding: 1rem 0 0;
-        }
-
-        .carousel-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--border);
-            border: none;
-            padding: 0;
-            cursor: pointer;
-            transition: all 0.25s cubic-bezier(0.33, 1, 0.68, 1);
-        }
-
-        .carousel-dot.active {
             background: var(--or);
-            transform: scale(1.25);
+        }
+        .bl-article--guide .bl-article__tag {
+            color: var(--or);
+            font-weight: 600;
+        }
+        .bl-article__title {
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: 1.18rem;
+            line-height: 1.25;
+            color: var(--bordeaux);
+            margin: 0 0 0.7rem;
+            letter-spacing: -0.005em;
+            text-wrap: balance;
+        }
+        .bl-article__excerpt {
+            font-size: 0.88rem;
+            line-height: 1.55;
+            color: var(--texte-light);
+            margin: 0;
+            flex: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .bl-article__foot {
+            display: flex;
+            justify-content: flex-end;
+            align-items: baseline;
+            margin-top: 1.25rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.78rem;
+        }
+        .bl-article__cta {
+            color: var(--or);
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            transition: gap 0.3s var(--ease);
+        }
+        .bl-article:hover .bl-article__cta { gap: 0.6rem; }
+
+        /* ══════════════ BANDEAU CTA FINAL ══════════════ */
+        .bl-cta-strip {
+            background: var(--bordeaux);
+            color: var(--fond);
+            padding: 4rem 1.5rem;
+            margin-top: 2rem;
+        }
+        .bl-cta-strip__inner {
+            max-width: 760px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .bl-cta-strip h2 {
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: clamp(1.7rem, 2.8vw, 2.2rem);
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+            color: var(--fond);
+            margin: 0 0 1rem;
+        }
+        .bl-cta-strip p {
+            color: rgba(250, 246, 240, 0.75);
+            font-size: 1rem;
+            line-height: 1.6;
+            max-width: 520px;
+            margin: 0 auto 2rem;
+        }
+        .bl-cta-strip__btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--or);
+            color: var(--bordeaux);
+            border: none;
+            padding: 0.9rem 1.75rem;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.04em;
+            cursor: pointer;
+            border-radius: 3px;
+            text-decoration: none;
+            transition: background 0.25s var(--ease), transform 0.25s var(--ease);
+        }
+        .bl-cta-strip__btn:hover {
+            background: var(--or-light);
+            transform: translateY(-1px);
         }
 
-        @media (max-width: 1024px) {
-            .carousel-track .article-card {
-                flex: 0 0 calc((100% - 1.25rem) / 2);
+        /* ══════════════ RESPONSIVE ══════════════ */
+        @media (max-width: 1100px) {
+            .bl-silos__grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 860px) {
+            .bl-featured__card { grid-template-columns: 1fr; }
+            .bl-featured__media { min-height: 200px; padding: 2.5rem; }
+            .bl-featured__num { font-size: 6rem; }
+            .bl-featured__body { padding: 2rem 1.75rem 2.25rem; }
+            .bl-silo-section__head {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
             }
+            .bl-silo-section__pilier { margin-bottom: 0; align-self: flex-start; }
+            .bl-carousel__btn--prev { left: 0; }
+            .bl-carousel__btn--next { right: 0; }
         }
-
-        @media (max-width: 768px) {
-            .carousel-track .article-card {
-                flex: 0 0 85%;
-            }
-            .carousel-arrow { display: none; }
-            .carousel-prev { margin-right: 0; }
-            .carousel-next { margin-left: 0; }
-            .carousel-dots { display: flex; }
-        }
-
-        @media (max-width: 600px) {
-            .container { padding: 0 1.25rem; }
-            .page-header { padding: 7rem 0 2rem; }
-
-            .tabs { gap: 0.35rem; padding: 0 1.25rem 2rem; }
-            .tab-btn { font-size: 0.72rem; padding: 0.4rem 0.85rem; }
+        @media (max-width: 540px) {
+            .bl-silos__grid { grid-template-columns: repeat(2, 1fr); }
+            .bl-articles { grid-auto-columns: 85%; }
+            .bl-carousel__btn { display: none; }
         }
     </style>
 </head>
@@ -452,374 +642,468 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
     </nav>
     <div class="nav-overlay"></div>
 
-    <header class="page-header">
-        <div class="container">
-            <p class="section-label">Blog</p>
-            <h1>Conseils &amp; expertise</h1>
-            <div class="blog-illustration"><img src="bouchonsliege.png" alt="Illustration bouchons de liège" loading="lazy"></div>
-            <span class="ornament-diamond"></span>
-            <p class="intro">Tout ce que vous devez savoir sur l'estimation, la gestion et la vente de cave à vins.</p>
+    <!-- ═══════════ HERO ═══════════ -->
+    <section class="bl-hero">
+        <span class="bl-eyebrow">Le journal</span>
+        <h1>Conseils &amp; <em style="font-style: italic; font-weight: 400;">expertise</em></h1>
+        <div class="bl-hero__illustration">
+            <img src="bouchonsliege.png" alt="Illustration bouchons de liège" loading="lazy">
         </div>
-    </header>
+        <p>Méthodes, cotes, héritage, vente — tout ce qu'il faut savoir avant de prendre une décision sur votre cave à vins.</p>
+        <label class="bl-search">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>
+            </svg>
+            <input type="search" placeholder="Rechercher un article, un domaine, un millésime…" />
+        </label>
+    </section>
 
-    <!-- ONGLETS -->
-    <div class="tabs">
-        <button class="tab-btn active" data-silo="tous">Tous</button>
-        <button class="tab-btn" data-silo="estimer">🔎 Estimer sa cave</button>
-        <button class="tab-btn" data-silo="cotes">📊 Cotes &amp; marché</button>
-        <button class="tab-btn" data-silo="heritage">📜 Héritage &amp; Succession</button>
-        <button class="tab-btn" data-silo="vendre">💰 Vendre ses vins</button>
-        <button class="tab-btn" data-silo="gestion">🗂️ Gérer sa cave</button>
-        <button class="tab-btn" data-silo="professionnels">⚖️ Professionnels</button>
-    </div>
+    <!-- ═══════════ NAV SILOS ═══════════ -->
+    <section class="bl-silos">
+        <div class="bl-silos__grid">
 
-    <main id="main" class="articles">
-        <div class="container">
-
-            <!-- ══ SILO : ESTIMER SA CAVE ══ -->
-            <div class="silo-section" data-silo="estimer">
-                <div class="silo-header">
-                    <div class="silo-icon"><svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><text x="18" y="25" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="26" font-weight="500" fill="none" stroke="#C5A258" stroke-width="1.2">€</text></svg></div>
-                    <div class="silo-header-text"><h2>Estimer sa cave</h2>
-                    <p>Méthodes, outils et critères pour connaître la valeur réelle de votre cave à vins.</p></div>
+            <a href="#estimer" class="bl-silo-card">
+                <div class="bl-silo-card__icon">
+                    <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><text x="18" y="25" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="26" font-weight="500" fill="none" stroke="#C5A258" stroke-width="1.2">€</text></svg>
                 </div>
+                <h3 class="bl-silo-card__title">Estimer sa cave</h3>
+                <span class="bl-silo-card__count"><strong>6</strong>articles</span>
+            </a>
 
-                <div class="carousel">
-                    <button class="carousel-arrow carousel-prev" aria-label="Précédent">&#8249;</button>
-                    <div class="carousel-track">
-                        <a href="estimation.html" class="article-card guide">
-                            <p class="article-date">Avril 2026</p>
-                            <h3>Comment faire estimer sa cave à vins : le guide complet <span class="badge-pilier">Guide</span></h3>
-                            <p>Méthodes, critères de valorisation, erreurs à éviter — tout ce qu'il faut savoir pour obtenir une estimation fiable de votre cave.</p>
-                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-                        </a>
-                        <a href="article-quand-cave-merite-audit.html" class="article-card">
-                            <p class="article-date">Avril 2026</p>
-                            <h3>Quand une cave à vins mérite un audit complet</h3>
-                            <p>Succession, vente, assurance, doute sur la valeur : les situations concrètes où un audit professionnel de votre cave s'impose.</p>
-                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-                        </a>
-                        <a href="article-preparer-audit-cave.html" class="article-card">
-                            <p class="article-date">Avril 2026</p>
-                            <h3>Comment préparer l'audit de sa cave à vins</h3>
-                            <p>Documents, photos, informations à rassembler — la checklist complète pour un audit rapide et précis, sans allers-retours inutiles.</p>
-                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-                        </a>
-                        <a href="article-estimation-distance.html" class="article-card">
-                            <p class="article-date">Avril 2026</p>
-                            <h3>Estimation de cave à vins à distance : comment ça fonctionne ?</h3>
-                            <p>Faire estimer sa cave sans déplacer une seule bouteille, c'est possible. Découvrez comment fonctionne un audit à distance.</p>
-                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-                        </a>
-                        <a href="article-estimation-gratuite-vs-professionnelle.html" class="article-card">
-                            <p class="article-date">Avril 2026</p>
-                            <h3>Estimation gratuite vs estimation professionnelle : quelle différence ?</h3>
-                            <p>Comparatif des 4 solutions d'estimation — racheteur, maison de ventes, outils en ligne, estimation indépendante — et ce que vous recevez vraiment.</p>
-                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-                        </a>
-                        <a href="article-criteres-prix-bouteille.html" class="article-card">
-                            <p class="article-date">Avril 2026</p>
-                            <h3>Combien vaut une bouteille de vin : les critères qui font le prix</h3>
-                            <p>Appellation, millésime, domaine, état, conservation — les critères qui déterminent la valeur d'une bouteille sur le marché.</p>
-                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-                        </a>
-                    </div>
-                    <button class="carousel-arrow carousel-next" aria-label="Suivant">&#8250;</button>
+            <a href="#cotes" class="bl-silo-card">
+                <div class="bl-silo-card__icon">
+                    <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 29h26" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round"/><path d="M9 24v-6M15 24v-12M21 24v-8M27 24v-15" stroke="#C5A258" stroke-width="1.6" stroke-linecap="round"/><path d="M7 15l6-5 6 3 8-8" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="27" cy="5" r="1.5" fill="#C5A258"/></svg>
                 </div>
-                <div class="carousel-dots"></div>
-            </div>
+                <h3 class="bl-silo-card__title">Cotes &amp; marché</h3>
+                <span class="bl-silo-card__count"><strong>8</strong>articles</span>
+            </a>
 
-            <!-- ══ SILO : COTES & MARCHÉ ══ -->
-            <div class="silo-section" data-silo="cotes">
-                <div class="silo-header">
-                    <div class="silo-icon"><svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 29h26" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round"/><path d="M9 24v-6M15 24v-12M21 24v-8M27 24v-15" stroke="#C5A258" stroke-width="1.6" stroke-linecap="round"/><path d="M7 15l6-5 6 3 8-8" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="27" cy="5" r="1.5" fill="#C5A258"/></svg></div>
-                    <div class="silo-header-text"><h2>Cotes &amp; marché</h2>
-                    <p>Prix, tendances et évolutions par région et millésime : décryptage du marché secondaire du vin.</p></div>
+            <a href="#heritage" class="bl-silo-card">
+                <div class="bl-silo-card__icon">
+                    <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 30V12l12-8 12 8v18H6z" stroke="#C5A258" stroke-width="1.2" stroke-linejoin="round"/><rect x="14" y="20" width="8" height="10" stroke="#C5A258" stroke-width="1.2"/><circle cx="18" cy="16" r="2" stroke="#C5A258" stroke-width="1.2"/></svg>
                 </div>
+                <h3 class="bl-silo-card__title">Héritage &amp; succession</h3>
+                <span class="bl-silo-card__count"><strong>6</strong>articles</span>
+            </a>
 
-                <div class="carousel">
-                    <button class="carousel-arrow carousel-prev" aria-label="Précédent">&#8249;</button>
-                    <div class="carousel-track">
-                        <a href="article-cotes-pilier.html" class="article-card guide">
-                            <p class="article-date">Avril 2026</p>
-                            <h3>Cotes des vins : comprendre le marché et les prix <span class="badge-pilier">Guide</span></h3>
-                            <p>Comment lire une cote, sources de référence, facteurs de valorisation, panorama par région et tendances actuelles du marché aux enchères.</p>
-                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-                        </a>
-                        <a href="article-estimer-vins-bordeaux.html" class="article-card">
-                            <p class="article-date">Avril 2026</p>
-                            <h3>Faire estimer ses vins de Bordeaux : guide complet</h3>
-                            <p>Critères de valorisation, classification, millésimes clés et appellations à repérer pour obtenir une estimation fiable d'une cave de Bordeaux.</p>
-                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-                        </a>
-                        <a href="article-estimer-vins-bourgogne.html" class="article-card">
-                            <p class="article-date">Avril 2026</p>
-                            <h3>Estimation de vins de Bourgogne : ce qu'il faut savoir</h3>
-                            <p>Hiérarchie des appellations, notion de climat, grands domaines et millésimes clés pour évaluer la valeur réelle de vos vins de Bourgogne.</p>
-                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-                        </a>
-                        <a href="article-estimer-vins-rhone.html" class="article-card">
-                            <p class="article-date">Avril 2026</p>
-                            <h3>Faire estimer ses vins de la Vallée du Rhône</h3>
-                            <p>Rhône Nord et Sud, appellations Crus, grands domaines (Guigal, Chave, Rayas…), millésimes clés et pièges à éviter dans l'estimation.</p>
-                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-                        </a>
-                        <a href="article-note-parker-cote-vin.html" class="article-card">
-                            <p class="article-date">Avril 2026</p>
-                            <h3>Comment la note Parker influence la cote d'un vin</h3>
-                            <p>Histoire, échelle 50-100, effet de seuil 90/100, vignobles sensibles et limites : l'influence réelle de la note Parker sur les prix du vin.</p>
-                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-                        </a>
-                        <a href="article-vins-bio-nature-cote.html" class="article-card">
-                            <p class="article-date">Avril 2026</p>
-                            <h3>Vins bio et nature : ont-ils une cote sur le marché secondaire ?</h3>
-                            <p>Bio, biodynamie, vin nature, Vin de France : ce que le marché secondaire valorise réellement, les domaines cotés et les limites actuelles.</p>
-                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-                        </a>
-                        <a href="article-estimation-champagne-valeur.html" class="article-card">
-                            <p class="article-date">Avril 2026</p>
-                            <h3>Estimation de champagne : les bouteilles qui ont de la valeur</h3>
-                            <p>Cuvées de prestige (Krug, Dom Pérignon, Cristal, Salon, Bollinger VVF), vignerons cultes (Selosse, Prévost), millésimes clés et pièges à éviter.</p>
-                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-                        </a>
-                        <a href="article-vins-plus-chers-du-monde.html" class="article-card">
-                            <p class="article-date">Avril 2026</p>
-                            <h3>Les vins les plus chers du monde : classement et explication</h3>
-                            <p>Records d'enchères Sotheby's et Christie's, Romanée-Conti 1945, Cheval Blanc 1947, champagnes du Jönköping — et les 5 facteurs qui font ces prix.</p>
-                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-                        </a>
-                    </div>
-                    <button class="carousel-arrow carousel-next" aria-label="Suivant">&#8250;</button>
+            <a href="#vendre" class="bl-silo-card">
+                <div class="bl-silo-card__icon">
+                    <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="8" width="28" height="22" rx="2" stroke="#C5A258" stroke-width="1.2"/><path d="M10 24l6-8 5 5 5-7" stroke="#C5A258" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="26" cy="14" r="2" stroke="#C5A258" stroke-width="1.2"/></svg>
                 </div>
-                <div class="carousel-dots"></div>
-            </div>
+                <h3 class="bl-silo-card__title">Vendre ses vins</h3>
+                <span class="bl-silo-card__count"><strong>7</strong>articles</span>
+            </a>
 
-            <!-- ══ SILO : HERITAGE & SUCCESSION ══ -->
-            <div class="silo-section" data-silo="heritage">
-                <div class="silo-header">
-                    <div class="silo-icon"><svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 30V12l12-8 12 8v18H6z" stroke="#C5A258" stroke-width="1.2" stroke-linejoin="round"/><rect x="14" y="20" width="8" height="10" stroke="#C5A258" stroke-width="1.2"/><circle cx="18" cy="16" r="2" stroke="#C5A258" stroke-width="1.2"/></svg></div>
-                    <div class="silo-header-text"><h2>Héritage &amp; Succession</h2>
-                    <p>Démarches, fiscalité et conseils pour gérer une cave reçue en héritage.</p></div>
+            <a href="#gestion" class="bl-silo-card">
+                <div class="bl-silo-card__icon">
+                    <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 6h20v28H8z" stroke="#C5A258" stroke-width="1.2" stroke-linejoin="round"/><path d="M12 12h12M12 17h12M12 22h8" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round"/><path d="M14 6V4h8v2" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </div>
+                <h3 class="bl-silo-card__title">Gérer sa cave</h3>
+                <span class="bl-silo-card__count"><strong>8</strong>articles</span>
+            </a>
 
-                <div class="carousel">
-                    <button class="carousel-arrow carousel-prev" aria-label="Précédent">&#8249;</button>
-                    <div class="carousel-track">
-                        <a href="article-heritage-cave.html" class="article-card guide">
-                            <p class="article-date">Avril 2026</p>
-                            <h3>J'ai hérité d'une cave à vins : que faire ? <span class="badge-pilier">Guide</span></h3>
-                            <p>Démarches, estimation, fiscalité, vente ou partage entre héritiers — guide complet pour gérer une cave de succession.</p>
-                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-                        </a>
-                        <a href="article-vins-parents-valeur-guide.html" class="article-card">
-                            <p class="article-date">Avril 2026</p>
-                            <h3>Les vins de mon père valent-ils quelque chose ? Guide pour non-connaisseurs</h3>
-                            <p>Guide complet pour héritiers non-connaisseurs : signaux de valeur, fourchettes de prix, obligations fiscales et méthode d'estimation.</p>
-                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-                        </a>
-                        <a href="article-garder-ou-vendre-cave-heritee.html" class="article-card">
-                            <p class="article-date">Avril 2026</p>
-                            <h3>Héritage de cave : faut-il garder ou vendre les bouteilles ?</h3>
-                            <p>Guide d'arbitrage pour trancher sans regret : matrice de décision selon votre profil, scénarios types, et quand vendre vite plutôt que garder.</p>
-                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-                        </a>
-                        <a href="article-vendre-cave-heritee-erreurs.html" class="article-card">
-                            <p class="article-date">Avril 2026</p>
-                            <h3>Vendre une cave héritée : les erreurs à éviter</h3>
-                            <p>Les 7 erreurs les plus fréquentes quand on vend une cave héritée — et comment les éviter pour ne pas brader votre héritage.</p>
-                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-                        </a>
-                        <a href="article-vider-cave-apres-deces.html" class="article-card">
-                            <p class="article-date">Avril 2026</p>
-                            <h3>Vider une cave après un décès : guide pratique étape par étape</h3>
-                            <p>Guide étape par étape pour gérer une cave à vins après un décès : sécurisation, inventaire, estimation, partage entre héritiers et erreurs à éviter.</p>
-                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-                        </a>
-                        <a href="article-cave-vins-succession-demarches.html" class="article-card">
-                            <p class="article-date">Avril 2026</p>
-                            <h3>Cave à vins et succession : les démarches à connaître</h3>
-                            <p>Délais, options d'acceptation, déclaration fiscale, forfait mobilier, barèmes, indivision et usufruit — toutes les démarches légales et administratives à franchir.</p>
-                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-                        </a>
-                    </div>
-                    <button class="carousel-arrow carousel-next" aria-label="Suivant">&#8250;</button>
+            <a href="#professionnels" class="bl-silo-card">
+                <div class="bl-silo-card__icon">
+                    <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="18" y1="4" x2="18" y2="30" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round"/><line x1="8" y1="10" x2="28" y2="10" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round"/><path d="M8 10l-2 10h8L12 10" stroke="#C5A258" stroke-width="1.2" stroke-linejoin="round"/><path d="M24 10l-2 10h8L28 10" stroke="#C5A258" stroke-width="1.2" stroke-linejoin="round"/><path d="M6 20a4 2 0 0 0 8 0" stroke="#C5A258" stroke-width="1.2"/><path d="M22 20a4 2 0 0 0 8 0" stroke="#C5A258" stroke-width="1.2"/><line x1="12" y1="30" x2="24" y2="30" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round"/></svg>
                 </div>
-                <div class="carousel-dots"></div>
-            </div>
-
-            <!-- ══ SILO : VENDRE SES VINS ══ -->
-            <div class="silo-section" data-silo="vendre">
-                <div class="silo-header">
-                    <div class="silo-icon"><svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="8" width="28" height="22" rx="2" stroke="#C5A258" stroke-width="1.2"/><path d="M10 24l6-8 5 5 5-7" stroke="#C5A258" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="26" cy="14" r="2" stroke="#C5A258" stroke-width="1.2"/></svg></div>
-                    <div class="silo-header-text"><h2>Vendre ses vins</h2>
-                    <p>Canaux de vente, préparation et stratégies pour vendre vos bouteilles au meilleur prix.</p></div>
-                </div>
-
-                <div class="carousel">
-                    <button class="carousel-arrow carousel-prev" aria-label="Précédent">&#8249;</button>
-                    <div class="carousel-track">
-                        <a href="vendre.html" class="article-card guide">
-                            <p class="article-date">Avril 2026</p>
-                            <h3>Comment vendre ses bouteilles de vin : le guide complet <span class="badge-pilier">Guide</span></h3>
-                            <p>Enchères, négociant, caviste, entre particuliers — canaux, frais, préparation et erreurs à éviter pour vendre vos vins au meilleur prix.</p>
-                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-                        </a>
-                        <a href="article-prix-vendre-bouteilles.html" class="article-card">
-                            <p class="article-date">Avril 2026</p>
-                            <h3>À quel prix vendre mes bouteilles de vin ?</h3>
-                            <p>Cotes, frais par canal de vente, décotes à prévoir et conseils pour fixer le juste prix de vos bouteilles.</p>
-                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-                        </a>
-                        <a href="article-vins-revente-france.html" class="article-card">
-                            <p class="article-date">Avril 2026</p>
-                            <h3>Quels vins se revendent le mieux en France ?</h3>
-                            <p>Bordeaux, Bourgogne, Rhône, champagne — régions, appellations et critères du marché secondaire de la revente.</p>
-                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-                        </a>
-                        <a href="article-vendre-vin-encheres.html" class="article-card">
-                            <p class="article-date">Avril 2026</p>
-                            <h3>Vendre ses vins aux enchères : comment ça marche ?</h3>
-                            <p>Étapes, frais, délais, bouteilles adaptées et erreurs à éviter — guide complet pour valoriser vos bouteilles en vente aux enchères.</p>
-                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-                        </a>
-                        <a href="article-encheres-ou-conservation.html" class="article-card">
-                            <p class="article-date">Avril 2026</p>
-                            <h3>Vente aux enchères ou conservation : comment décider ?</h3>
-                            <p>Les critères objectifs pour trancher entre vendre, garder ou boire — avec un arbre de décision clair en quatre questions.</p>
-                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-                        </a>
-                        <a href="article-vendre-vin-entre-particuliers.html" class="article-card">
-                            <p class="article-date">Avril 2026</p>
-                            <h3>Vendre du vin entre particuliers : plateformes et précautions</h3>
-                            <p>Cadre légal, plateformes disponibles, risques et précautions — tout ce qu'il faut savoir pour vendre ses bouteilles entre particuliers.</p>
-                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-                        </a>
-                        <a href="article-vendre-cave-caviste-negociant.html" class="article-card">
-                            <p class="article-date">Avril 2026</p>
-                            <h3>Vendre sa cave à un caviste ou négociant : avantages et limites</h3>
-                            <p>Fonctionnement, prix de rachat, marges pratiquées — ce que rapporte réellement la vente à un professionnel et quand c'est la meilleure option.</p>
-                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-                        </a>
-                    </div>
-                    <button class="carousel-arrow carousel-next" aria-label="Suivant">&#8250;</button>
-                </div>
-                <div class="carousel-dots"></div>
-            </div>
-
-            <!-- ══ SILO : GERER SA CAVE ══ -->
-            <div class="silo-section" data-silo="gestion">
-                <div class="silo-header">
-                    <div class="silo-icon"><svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 6h20v28H8z" stroke="#C5A258" stroke-width="1.2" stroke-linejoin="round"/><path d="M12 12h12M12 17h12M12 22h8" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round"/><path d="M14 6V4h8v2" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-                    <div class="silo-header-text"><h2>Gérer sa cave</h2>
-                    <p>Conservation, inventaire, organisation — tout pour entretenir et valoriser votre collection.</p></div>
-                </div>
-
-                <div class="carousel">
-                    <button class="carousel-arrow carousel-prev" aria-label="Précédent">&#8249;</button>
-                    <div class="carousel-track">
-                        <a href="gestion.html" class="article-card guide">
-                            <p class="article-date">Avril 2026</p>
-                            <h3>Bien gérer sa cave à vins : le guide complet <span class="badge-pilier">Guide</span></h3>
-                            <p>Conservation, inventaire, apogée, organisation — tout ce qu'il faut savoir pour entretenir et valoriser votre collection.</p>
-                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-                        </a>
-                        <a href="article-inventaire-cave.html" class="article-card">
-                            <p class="article-date">Avril 2026</p>
-                            <h3>Comment faire l'inventaire de sa cave à vins</h3>
-                            <p>Méthode pas à pas, outils, informations à relever et erreurs à éviter pour un inventaire fiable de votre cave.</p>
-                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-                        </a>
-                        <a href="article-apogee-vin.html" class="article-card">
-                            <p class="article-date">Avril 2026</p>
-                            <h3>Quand boire ses bouteilles : comprendre l'apogée d'un vin</h3>
-                            <p>Durées de garde par région, signes de maturité et conseils pour décider quand boire, garder ou vendre vos bouteilles.</p>
-                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-                        </a>
-                        <a href="article-erreurs-conservation-vin.html" class="article-card">
-                            <p class="article-date">Avril 2026</p>
-                            <h3>Les 10 erreurs de conservation qui tuent vos bouteilles</h3>
-                            <p>Température, lumière, vibrations, humidité, position — les erreurs qui dégradent vos vins en silence et comment les corriger.</p>
-                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-                        </a>
-                        <a href="article-temperature-conservation-vin.html" class="article-card">
-                            <p class="article-date">Avril 2026</p>
-                            <h3>Température idéale de conservation du vin : le guide définitif</h3>
-                            <p>12 °C, stabilité avant tout : tout ce qu'il faut savoir pour conserver vos rouges, blancs, champagnes et grands crus sans perte de valeur.</p>
-                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-                        </a>
-                        <a href="article-savoir-si-vin-encore-bon.html" class="article-card">
-                            <p class="article-date">Avril 2026</p>
-                            <h3>Comment savoir si un vin est encore bon sans l'ouvrir</h3>
-                            <p>5 indicateurs visuels — niveau, capsule, bouchon, étiquette, dépôt — pour diagnostiquer une bouteille avant de la déboucher.</p>
-                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-                        </a>
-                        <a href="article-tableur-excel-gestion-cave.html" class="article-card">
-                            <p class="article-date">Avril 2026</p>
-                            <h3>Tableur Excel pour gérer sa cave : template gratuit</h3>
-                            <p>Template gratuit Excel / Google Sheets pour inventorier votre cave — 12 colonnes à remplir, méthode et erreurs à éviter.</p>
-                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-                        </a>
-                        <a href="article-assurer-cave-vins.html" class="article-card">
-                            <p class="article-date">Avril 2026</p>
-                            <h3>Assurer sa cave à vins : couverture, valeur et déclaration</h3>
-                            <p>MRH classique, option objets de valeur, contrats spécialisés : comment couvrir correctement une cave et éviter la règle proportionnelle en cas de sinistre.</p>
-                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-                        </a>
-                    </div>
-                    <button class="carousel-arrow carousel-next" aria-label="Suivant">&#8250;</button>
-                </div>
-                <div class="carousel-dots"></div>
-            </div>
-
-            <!-- ══ SILO : PROFESSIONNELS ══ -->
-            <div class="silo-section" data-silo="professionnels">
-                <div class="silo-header">
-                    <div class="silo-icon"><svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="18" y1="4" x2="18" y2="30" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round"/><line x1="8" y1="10" x2="28" y2="10" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round"/><path d="M8 10l-2 10h8L12 10" stroke="#C5A258" stroke-width="1.2" stroke-linejoin="round"/><path d="M24 10l-2 10h8L28 10" stroke="#C5A258" stroke-width="1.2" stroke-linejoin="round"/><path d="M6 20a4 2 0 0 0 8 0" stroke="#C5A258" stroke-width="1.2"/><path d="M22 20a4 2 0 0 0 8 0" stroke="#C5A258" stroke-width="1.2"/><line x1="12" y1="30" x2="24" y2="30" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round"/></svg></div>
-                    <div class="silo-header-text"><h2>Professionnels</h2>
-                    <p>Ressources pour notaires, avocats, CGP et experts-comptables confrontés à la valorisation d'une cave.</p></div>
-                </div>
-
-                <div class="carousel">
-                    <button class="carousel-arrow carousel-prev" aria-label="Précédent">&#8249;</button>
-                    <div class="carousel-track">
-                        <a href="professionnels.html" class="article-card guide">
-                            <p class="article-date">Avril 2026</p>
-                            <h3>Professionnels : comment valoriser une cave à vins dans un dossier <span class="badge-pilier">Guide</span></h3>
-                            <p>Notaires, avocats, CGP, experts-comptables — méthodes, obligations et outils pour intégrer une estimation fiable de cave à vins dans vos dossiers professionnels.</p>
-                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-                        </a>
-                        <a href="article-notaires-evaluer-cave-succession.html" class="article-card">
-                            <p class="article-date">Avril 2026</p>
-                            <h3>Notaires : comment évaluer une cave à vins dans une succession</h3>
-                            <p>Statut fiscal des bouteilles, forfait mobilier, rapport d'estimation opposable — tout ce qu'un notaire doit savoir pour valoriser une cave en succession.</p>
-                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-                        </a>
-                        <a href="article-externaliser-estimation-cave.html" class="article-card">
-                            <p class="article-date">Avril 2026</p>
-                            <h3>Externaliser l'estimation de cave : gagner du temps sur vos dossiers</h3>
-                            <p>Pourquoi et comment déléguer l'estimation d'une cave à vins pour accélérer vos dossiers de succession, patrimoine ou divorce.</p>
-                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-                        </a>
-                        <a href="article-vin-actif-patrimoine.html" class="article-card">
-                            <p class="article-date">Avril 2026</p>
-                            <h3>Gestion de patrimoine : intégrer le vin comme actif dans un portefeuille</h3>
-                            <p>Fiscalité, performance historique, vins investment grade et méthodes de valorisation — guide destiné aux CGP, notaires et conseillers patrimoniaux.</p>
-                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-                        </a>
-                        <a href="article-assureurs-evaluer-cave-police.html" class="article-card">
-                            <p class="article-date">Avril 2026</p>
-                            <h3>Assureurs : évaluer une cave à vins pour une police d'assurance</h3>
-                            <p>Souscription, valeur agréée, expertise en sinistre — méthodes et pièces à demander pour les souscripteurs, courtiers et experts d'assurance.</p>
-                            <span class="read-more">Lire l'article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-                        </a>
-                    </div>
-                    <button class="carousel-arrow carousel-next" aria-label="Suivant">&#8250;</button>
-                </div>
-                <div class="carousel-dots"></div>
-            </div>
+                <h3 class="bl-silo-card__title">Professionnels</h3>
+                <span class="bl-silo-card__count"><strong>5</strong>articles</span>
+            </a>
 
         </div>
+    </section>
+
+    <!-- ═══════════ ARTICLE À LA UNE ═══════════ -->
+    <section class="bl-featured">
+        <a href="article-estimation-distance.html" class="bl-featured__card">
+            <div class="bl-featured__media">
+                <div class="bl-featured__num">01</div>
+            </div>
+            <div class="bl-featured__body">
+                <span class="bl-featured__tag">À la une · Estimation</span>
+                <h2 class="bl-featured__title">Estimation de cave à vins à distance&nbsp;: comment ça fonctionne&nbsp;?</h2>
+                <p class="bl-featured__lead">Faire estimer sa cave sans déplacer une seule bouteille, c'est possible. Découvrez comment fonctionne un audit à distance — méthode, photos, livrables, garanties.</p>
+                <div class="bl-featured__meta">
+                    <span>Avril 2026</span>
+                    <span>· 8 min de lecture</span>
+                    <span class="bl-featured__cta">Lire l'article →</span>
+                </div>
+            </div>
+        </a>
+    </section>
+
+    <main id="main">
+
+        <!-- ══ SILO : ESTIMER SA CAVE ══ -->
+        <section class="bl-silo-section" id="estimer">
+            <div class="bl-silo-section__head">
+                <div class="bl-silo-section__title-wrap">
+                    <div class="bl-silo-section__title-row">
+                        <div class="bl-silo-section__icon">
+                            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><text x="18" y="25" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="26" font-weight="500" fill="none" stroke="#C5A258" stroke-width="1.2">€</text></svg>
+                        </div>
+                        <h2 class="bl-silo-section__title">Estimer sa cave</h2>
+                    </div>
+                    <p class="bl-silo-section__lead">Méthodes, outils et critères pour connaître la valeur réelle de votre cave à vins.</p>
+                </div>
+                <a href="blog-estimer.html" class="bl-silo-section__pilier">Voir les 6 articles →</a>
+            </div>
+            <div class="bl-carousel">
+                <div class="bl-articles">
+                    <a href="estimation.html" class="bl-article bl-article--guide">
+                        <span class="bl-article__tag"><span class="bl-article__tag-dot"></span>Guide pilier</span>
+                        <h3 class="bl-article__title">Comment faire estimer sa cave à vins&nbsp;: le guide complet</h3>
+                        <p class="bl-article__excerpt">Méthodes, critères de valorisation, erreurs à éviter — tout ce qu'il faut savoir pour obtenir une estimation fiable de votre cave.</p>
+                        <div class="bl-article__foot"><span class="bl-article__cta">Lire →</span></div>
+                    </a>
+                    <a href="article-quand-cave-merite-audit.html" class="bl-article">
+                        <span class="bl-article__tag"><span class="bl-article__tag-dot"></span>Audit</span>
+                        <h3 class="bl-article__title">Quand une cave à vins mérite un audit complet</h3>
+                        <p class="bl-article__excerpt">Succession, vente, assurance, doute sur la valeur&nbsp;: les situations concrètes où un audit professionnel s'impose.</p>
+                        <div class="bl-article__foot"><span class="bl-article__cta">Lire →</span></div>
+                    </a>
+                    <a href="article-preparer-audit-cave.html" class="bl-article">
+                        <span class="bl-article__tag"><span class="bl-article__tag-dot"></span>Préparation</span>
+                        <h3 class="bl-article__title">Comment préparer l'audit de sa cave à vins</h3>
+                        <p class="bl-article__excerpt">Documents, photos, informations à rassembler — la checklist complète pour un audit rapide et précis.</p>
+                        <div class="bl-article__foot"><span class="bl-article__cta">Lire →</span></div>
+                    </a>
+                    <a href="article-estimation-distance.html" class="bl-article">
+                        <span class="bl-article__tag"><span class="bl-article__tag-dot"></span>Méthode</span>
+                        <h3 class="bl-article__title">Estimation de cave à vins à distance&nbsp;: comment ça fonctionne&nbsp;?</h3>
+                        <p class="bl-article__excerpt">Faire estimer sa cave sans déplacer une seule bouteille, c'est possible. Découvrez comment fonctionne un audit à distance.</p>
+                        <div class="bl-article__foot"><span class="bl-article__cta">Lire →</span></div>
+                    </a>
+                    <a href="article-estimation-gratuite-vs-professionnelle.html" class="bl-article">
+                        <span class="bl-article__tag"><span class="bl-article__tag-dot"></span>Comparatif</span>
+                        <h3 class="bl-article__title">Estimation gratuite vs estimation professionnelle&nbsp;: quelle différence&nbsp;?</h3>
+                        <p class="bl-article__excerpt">Comparatif des 4 solutions d'estimation — racheteur, maison de ventes, outils en ligne, estimation indépendante.</p>
+                        <div class="bl-article__foot"><span class="bl-article__cta">Lire →</span></div>
+                    </a>
+                    <a href="article-criteres-prix-bouteille.html" class="bl-article">
+                        <span class="bl-article__tag"><span class="bl-article__tag-dot"></span>Critères</span>
+                        <h3 class="bl-article__title">Combien vaut une bouteille de vin&nbsp;: les critères qui font le prix</h3>
+                        <p class="bl-article__excerpt">Appellation, millésime, domaine, état, conservation — les critères qui déterminent la valeur d'une bouteille.</p>
+                        <div class="bl-article__foot"><span class="bl-article__cta">Lire →</span></div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══ SILO : COTES & MARCHÉ ══ -->
+        <section class="bl-silo-section" id="cotes">
+            <div class="bl-silo-section__head">
+                <div class="bl-silo-section__title-wrap">
+                    <div class="bl-silo-section__title-row">
+                        <div class="bl-silo-section__icon">
+                            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 29h26" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round"/><path d="M9 24v-6M15 24v-12M21 24v-8M27 24v-15" stroke="#C5A258" stroke-width="1.6" stroke-linecap="round"/><path d="M7 15l6-5 6 3 8-8" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="27" cy="5" r="1.5" fill="#C5A258"/></svg>
+                        </div>
+                        <h2 class="bl-silo-section__title">Cotes &amp; marché</h2>
+                    </div>
+                    <p class="bl-silo-section__lead">Prix, tendances et évolutions par région et millésime — décryptage du marché secondaire du vin.</p>
+                </div>
+                <a href="blog-cotes.html" class="bl-silo-section__pilier">Voir les 8 articles →</a>
+            </div>
+            <div class="bl-carousel">
+                <div class="bl-articles">
+                    <a href="article-cotes-pilier.html" class="bl-article bl-article--guide">
+                        <span class="bl-article__tag"><span class="bl-article__tag-dot"></span>Guide pilier</span>
+                        <h3 class="bl-article__title">Cotes des vins&nbsp;: comprendre le marché et les prix</h3>
+                        <p class="bl-article__excerpt">Comment lire une cote, sources de référence, facteurs de valorisation, panorama par région et tendances actuelles.</p>
+                        <div class="bl-article__foot"><span class="bl-article__cta">Lire →</span></div>
+                    </a>
+                    <a href="article-estimer-vins-bordeaux.html" class="bl-article">
+                        <span class="bl-article__tag"><span class="bl-article__tag-dot"></span>Bordeaux</span>
+                        <h3 class="bl-article__title">Faire estimer ses vins de Bordeaux&nbsp;: guide complet</h3>
+                        <p class="bl-article__excerpt">Critères de valorisation, classification, millésimes clés et appellations à repérer pour une estimation fiable.</p>
+                        <div class="bl-article__foot"><span class="bl-article__cta">Lire →</span></div>
+                    </a>
+                    <a href="article-estimer-vins-bourgogne.html" class="bl-article">
+                        <span class="bl-article__tag"><span class="bl-article__tag-dot"></span>Bourgogne</span>
+                        <h3 class="bl-article__title">Estimation de vins de Bourgogne&nbsp;: ce qu'il faut savoir</h3>
+                        <p class="bl-article__excerpt">Hiérarchie des appellations, notion de climat, grands domaines et millésimes clés pour évaluer la valeur réelle.</p>
+                        <div class="bl-article__foot"><span class="bl-article__cta">Lire →</span></div>
+                    </a>
+                    <a href="article-estimer-vins-rhone.html" class="bl-article">
+                        <span class="bl-article__tag"><span class="bl-article__tag-dot"></span>Rhône</span>
+                        <h3 class="bl-article__title">Faire estimer ses vins de la Vallée du Rhône</h3>
+                        <p class="bl-article__excerpt">Rhône Nord et Sud, appellations Crus, grands domaines (Guigal, Chave, Rayas…), millésimes clés et pièges à éviter.</p>
+                        <div class="bl-article__foot"><span class="bl-article__cta">Lire →</span></div>
+                    </a>
+                    <a href="article-note-parker-cote-vin.html" class="bl-article">
+                        <span class="bl-article__tag"><span class="bl-article__tag-dot"></span>Notation</span>
+                        <h3 class="bl-article__title">Comment la note Parker influence la cote d'un vin</h3>
+                        <p class="bl-article__excerpt">Histoire, échelle 50-100, effet de seuil 90/100, vignobles sensibles et limites&nbsp;: l'influence réelle sur les prix.</p>
+                        <div class="bl-article__foot"><span class="bl-article__cta">Lire →</span></div>
+                    </a>
+                    <a href="article-vins-bio-nature-cote.html" class="bl-article">
+                        <span class="bl-article__tag"><span class="bl-article__tag-dot"></span>Tendance</span>
+                        <h3 class="bl-article__title">Vins bio et nature&nbsp;: ont-ils une cote sur le marché secondaire&nbsp;?</h3>
+                        <p class="bl-article__excerpt">Bio, biodynamie, vin nature, Vin de France — ce que le marché secondaire valorise réellement, les domaines cotés.</p>
+                        <div class="bl-article__foot"><span class="bl-article__cta">Lire →</span></div>
+                    </a>
+                    <a href="article-estimation-champagne-valeur.html" class="bl-article">
+                        <span class="bl-article__tag"><span class="bl-article__tag-dot"></span>Champagne</span>
+                        <h3 class="bl-article__title">Estimation de champagne&nbsp;: les bouteilles qui ont de la valeur</h3>
+                        <p class="bl-article__excerpt">Cuvées de prestige (Krug, Dom Pérignon, Cristal, Salon, Bollinger VVF), vignerons cultes (Selosse, Prévost), millésimes clés.</p>
+                        <div class="bl-article__foot"><span class="bl-article__cta">Lire →</span></div>
+                    </a>
+                    <a href="article-vins-plus-chers-du-monde.html" class="bl-article">
+                        <span class="bl-article__tag"><span class="bl-article__tag-dot"></span>Records</span>
+                        <h3 class="bl-article__title">Les vins les plus chers du monde&nbsp;: classement et explication</h3>
+                        <p class="bl-article__excerpt">Records aux enchères Sotheby's et Christie's, Romanée-Conti 1945, Cheval Blanc 1947, et les facteurs qui font ces prix.</p>
+                        <div class="bl-article__foot"><span class="bl-article__cta">Lire →</span></div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══ SILO : HÉRITAGE & SUCCESSION ══ -->
+        <section class="bl-silo-section" id="heritage">
+            <div class="bl-silo-section__head">
+                <div class="bl-silo-section__title-wrap">
+                    <div class="bl-silo-section__title-row">
+                        <div class="bl-silo-section__icon">
+                            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 30V12l12-8 12 8v18H6z" stroke="#C5A258" stroke-width="1.2" stroke-linejoin="round"/><rect x="14" y="20" width="8" height="10" stroke="#C5A258" stroke-width="1.2"/><circle cx="18" cy="16" r="2" stroke="#C5A258" stroke-width="1.2"/></svg>
+                        </div>
+                        <h2 class="bl-silo-section__title">Héritage &amp; succession</h2>
+                    </div>
+                    <p class="bl-silo-section__lead">Démarches, fiscalité et conseils pour gérer une cave reçue en héritage.</p>
+                </div>
+                <a href="blog-heritage.html" class="bl-silo-section__pilier">Voir les 6 articles →</a>
+            </div>
+            <div class="bl-carousel">
+                <div class="bl-articles">
+                    <a href="article-heritage-cave.html" class="bl-article bl-article--guide">
+                        <span class="bl-article__tag"><span class="bl-article__tag-dot"></span>Guide pilier</span>
+                        <h3 class="bl-article__title">J'ai hérité d'une cave à vins&nbsp;: que faire&nbsp;?</h3>
+                        <p class="bl-article__excerpt">Démarches, estimation, fiscalité, vente ou partage entre héritiers — guide complet pour gérer une cave de succession.</p>
+                        <div class="bl-article__foot"><span class="bl-article__cta">Lire →</span></div>
+                    </a>
+                    <a href="article-vins-parents-valeur-guide.html" class="bl-article">
+                        <span class="bl-article__tag"><span class="bl-article__tag-dot"></span>Héritiers</span>
+                        <h3 class="bl-article__title">Les vins de mon père valent-ils quelque chose&nbsp;? Guide pour non-connaisseurs</h3>
+                        <p class="bl-article__excerpt">Guide complet pour héritiers non-connaisseurs&nbsp;: signaux de valeur, fourchettes de prix, obligations fiscales et méthode.</p>
+                        <div class="bl-article__foot"><span class="bl-article__cta">Lire →</span></div>
+                    </a>
+                    <a href="article-garder-ou-vendre-cave-heritee.html" class="bl-article">
+                        <span class="bl-article__tag"><span class="bl-article__tag-dot"></span>Arbitrage</span>
+                        <h3 class="bl-article__title">Héritage de cave&nbsp;: faut-il garder ou vendre les bouteilles&nbsp;?</h3>
+                        <p class="bl-article__excerpt">Matrice de décision selon votre profil, scénarios types, et quand vendre vite plutôt que garder.</p>
+                        <div class="bl-article__foot"><span class="bl-article__cta">Lire →</span></div>
+                    </a>
+                    <a href="article-vendre-cave-heritee-erreurs.html" class="bl-article">
+                        <span class="bl-article__tag"><span class="bl-article__tag-dot"></span>Erreurs</span>
+                        <h3 class="bl-article__title">Vendre une cave héritée&nbsp;: les erreurs à éviter</h3>
+                        <p class="bl-article__excerpt">Les 7 erreurs les plus fréquentes quand on vend une cave héritée — et comment les éviter pour ne pas brader.</p>
+                        <div class="bl-article__foot"><span class="bl-article__cta">Lire →</span></div>
+                    </a>
+                    <a href="article-vider-cave-apres-deces.html" class="bl-article">
+                        <span class="bl-article__tag"><span class="bl-article__tag-dot"></span>Pratique</span>
+                        <h3 class="bl-article__title">Vider une cave après un décès&nbsp;: guide pratique étape par étape</h3>
+                        <p class="bl-article__excerpt">Sécurisation, inventaire, estimation, partage entre héritiers et erreurs à éviter — guide étape par étape.</p>
+                        <div class="bl-article__foot"><span class="bl-article__cta">Lire →</span></div>
+                    </a>
+                    <a href="article-cave-vins-succession-demarches.html" class="bl-article">
+                        <span class="bl-article__tag"><span class="bl-article__tag-dot"></span>Démarches</span>
+                        <h3 class="bl-article__title">Cave à vins et succession&nbsp;: les démarches à connaître</h3>
+                        <p class="bl-article__excerpt">Délais, options d'acceptation, déclaration fiscale, forfait mobilier, indivision et usufruit — toutes les démarches.</p>
+                        <div class="bl-article__foot"><span class="bl-article__cta">Lire →</span></div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══ SILO : VENDRE SES VINS ══ -->
+        <section class="bl-silo-section" id="vendre">
+            <div class="bl-silo-section__head">
+                <div class="bl-silo-section__title-wrap">
+                    <div class="bl-silo-section__title-row">
+                        <div class="bl-silo-section__icon">
+                            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="8" width="28" height="22" rx="2" stroke="#C5A258" stroke-width="1.2"/><path d="M10 24l6-8 5 5 5-7" stroke="#C5A258" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="26" cy="14" r="2" stroke="#C5A258" stroke-width="1.2"/></svg>
+                        </div>
+                        <h2 class="bl-silo-section__title">Vendre ses vins</h2>
+                    </div>
+                    <p class="bl-silo-section__lead">Canaux de vente, préparation et stratégies pour vendre vos bouteilles au meilleur prix.</p>
+                </div>
+                <a href="blog-vendre.html" class="bl-silo-section__pilier">Voir les 7 articles →</a>
+            </div>
+            <div class="bl-carousel">
+                <div class="bl-articles">
+                    <a href="vendre.html" class="bl-article bl-article--guide">
+                        <span class="bl-article__tag"><span class="bl-article__tag-dot"></span>Guide pilier</span>
+                        <h3 class="bl-article__title">Comment vendre ses bouteilles de vin&nbsp;: le guide complet</h3>
+                        <p class="bl-article__excerpt">Enchères, négociant, caviste, entre particuliers — canaux, frais, préparation et erreurs à éviter pour vendre au meilleur prix.</p>
+                        <div class="bl-article__foot"><span class="bl-article__cta">Lire →</span></div>
+                    </a>
+                    <a href="article-prix-vendre-bouteilles.html" class="bl-article">
+                        <span class="bl-article__tag"><span class="bl-article__tag-dot"></span>Prix</span>
+                        <h3 class="bl-article__title">À quel prix vendre mes bouteilles de vin&nbsp;?</h3>
+                        <p class="bl-article__excerpt">Cotes, frais par canal de vente, décotes à prévoir et conseils pour fixer le juste prix de vos bouteilles.</p>
+                        <div class="bl-article__foot"><span class="bl-article__cta">Lire →</span></div>
+                    </a>
+                    <a href="article-vins-revente-france.html" class="bl-article">
+                        <span class="bl-article__tag"><span class="bl-article__tag-dot"></span>Marché</span>
+                        <h3 class="bl-article__title">Quels vins se revendent le mieux en France&nbsp;?</h3>
+                        <p class="bl-article__excerpt">Bordeaux, Bourgogne, Rhône, champagne — régions, appellations et critères du marché secondaire de la revente.</p>
+                        <div class="bl-article__foot"><span class="bl-article__cta">Lire →</span></div>
+                    </a>
+                    <a href="article-vendre-vin-encheres.html" class="bl-article">
+                        <span class="bl-article__tag"><span class="bl-article__tag-dot"></span>Enchères</span>
+                        <h3 class="bl-article__title">Vendre ses vins aux enchères&nbsp;: comment ça marche&nbsp;?</h3>
+                        <p class="bl-article__excerpt">Étapes, frais, délais, bouteilles adaptées et erreurs à éviter — guide complet pour valoriser vos bouteilles aux enchères.</p>
+                        <div class="bl-article__foot"><span class="bl-article__cta">Lire →</span></div>
+                    </a>
+                    <a href="article-encheres-ou-conservation.html" class="bl-article">
+                        <span class="bl-article__tag"><span class="bl-article__tag-dot"></span>Décision</span>
+                        <h3 class="bl-article__title">Vente aux enchères ou conservation&nbsp;: comment décider&nbsp;?</h3>
+                        <p class="bl-article__excerpt">Les critères objectifs pour trancher entre vendre, garder ou boire — avec un arbre de décision en quatre questions.</p>
+                        <div class="bl-article__foot"><span class="bl-article__cta">Lire →</span></div>
+                    </a>
+                    <a href="article-vendre-vin-entre-particuliers.html" class="bl-article">
+                        <span class="bl-article__tag"><span class="bl-article__tag-dot"></span>Particuliers</span>
+                        <h3 class="bl-article__title">Vendre du vin entre particuliers&nbsp;: plateformes et précautions</h3>
+                        <p class="bl-article__excerpt">Cadre légal, plateformes disponibles, risques et précautions — tout pour vendre ses bouteilles entre particuliers.</p>
+                        <div class="bl-article__foot"><span class="bl-article__cta">Lire →</span></div>
+                    </a>
+                    <a href="article-vendre-cave-caviste-negociant.html" class="bl-article">
+                        <span class="bl-article__tag"><span class="bl-article__tag-dot"></span>Négociant</span>
+                        <h3 class="bl-article__title">Vendre sa cave à un caviste ou négociant&nbsp;: avantages et limites</h3>
+                        <p class="bl-article__excerpt">Fonctionnement, prix de rachat, marges pratiquées — ce que rapporte la vente à un professionnel et quand c'est la meilleure option.</p>
+                        <div class="bl-article__foot"><span class="bl-article__cta">Lire →</span></div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══ SILO : GÉRER SA CAVE ══ -->
+        <section class="bl-silo-section" id="gestion">
+            <div class="bl-silo-section__head">
+                <div class="bl-silo-section__title-wrap">
+                    <div class="bl-silo-section__title-row">
+                        <div class="bl-silo-section__icon">
+                            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 6h20v28H8z" stroke="#C5A258" stroke-width="1.2" stroke-linejoin="round"/><path d="M12 12h12M12 17h12M12 22h8" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round"/><path d="M14 6V4h8v2" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <h2 class="bl-silo-section__title">Gérer sa cave</h2>
+                    </div>
+                    <p class="bl-silo-section__lead">Conservation, inventaire, organisation — tout pour entretenir et valoriser votre collection.</p>
+                </div>
+                <a href="blog-gestion.html" class="bl-silo-section__pilier">Voir les 8 articles →</a>
+            </div>
+            <div class="bl-carousel">
+                <div class="bl-articles">
+                    <a href="gestion.html" class="bl-article bl-article--guide">
+                        <span class="bl-article__tag"><span class="bl-article__tag-dot"></span>Guide pilier</span>
+                        <h3 class="bl-article__title">Bien gérer sa cave à vins&nbsp;: le guide complet</h3>
+                        <p class="bl-article__excerpt">Conservation, inventaire, apogée, organisation — tout ce qu'il faut savoir pour entretenir et valoriser votre collection.</p>
+                        <div class="bl-article__foot"><span class="bl-article__cta">Lire →</span></div>
+                    </a>
+                    <a href="article-inventaire-cave.html" class="bl-article">
+                        <span class="bl-article__tag"><span class="bl-article__tag-dot"></span>Inventaire</span>
+                        <h3 class="bl-article__title">Comment faire l'inventaire de sa cave à vins</h3>
+                        <p class="bl-article__excerpt">Méthode pas à pas, outils, informations à relever et erreurs à éviter pour un inventaire fiable de votre cave.</p>
+                        <div class="bl-article__foot"><span class="bl-article__cta">Lire →</span></div>
+                    </a>
+                    <a href="article-apogee-vin.html" class="bl-article">
+                        <span class="bl-article__tag"><span class="bl-article__tag-dot"></span>Apogée</span>
+                        <h3 class="bl-article__title">Quand boire ses bouteilles&nbsp;: comprendre l'apogée d'un vin</h3>
+                        <p class="bl-article__excerpt">Durées de garde par région, signes de maturité et conseils pour décider quand boire, garder ou vendre.</p>
+                        <div class="bl-article__foot"><span class="bl-article__cta">Lire →</span></div>
+                    </a>
+                    <a href="article-erreurs-conservation-vin.html" class="bl-article">
+                        <span class="bl-article__tag"><span class="bl-article__tag-dot"></span>Conservation</span>
+                        <h3 class="bl-article__title">Les 10 erreurs de conservation qui tuent vos bouteilles</h3>
+                        <p class="bl-article__excerpt">Température, lumière, vibrations, humidité, position — les erreurs qui dégradent vos vins en silence.</p>
+                        <div class="bl-article__foot"><span class="bl-article__cta">Lire →</span></div>
+                    </a>
+                    <a href="article-temperature-conservation-vin.html" class="bl-article">
+                        <span class="bl-article__tag"><span class="bl-article__tag-dot"></span>Température</span>
+                        <h3 class="bl-article__title">Température idéale de conservation du vin&nbsp;: le guide définitif</h3>
+                        <p class="bl-article__excerpt">12 °C, stabilité avant tout&nbsp;: tout ce qu'il faut savoir pour conserver vos rouges, blancs, champagnes et grands crus.</p>
+                        <div class="bl-article__foot"><span class="bl-article__cta">Lire →</span></div>
+                    </a>
+                    <a href="article-savoir-si-vin-encore-bon.html" class="bl-article">
+                        <span class="bl-article__tag"><span class="bl-article__tag-dot"></span>Diagnostic</span>
+                        <h3 class="bl-article__title">Comment savoir si un vin est encore bon sans l'ouvrir</h3>
+                        <p class="bl-article__excerpt">5 indicateurs visuels — niveau, capsule, bouchon, étiquette, dépôt — pour diagnostiquer une bouteille avant de la déboucher.</p>
+                        <div class="bl-article__foot"><span class="bl-article__cta">Lire →</span></div>
+                    </a>
+                    <a href="article-tableur-excel-gestion-cave.html" class="bl-article">
+                        <span class="bl-article__tag"><span class="bl-article__tag-dot"></span>Outil</span>
+                        <h3 class="bl-article__title">Tableur Excel pour gérer sa cave&nbsp;: template gratuit</h3>
+                        <p class="bl-article__excerpt">Template gratuit Excel / Google Sheets pour inventorier votre cave — 12 colonnes à remplir, méthode et erreurs à éviter.</p>
+                        <div class="bl-article__foot"><span class="bl-article__cta">Lire →</span></div>
+                    </a>
+                    <a href="article-assurer-cave-vins.html" class="bl-article">
+                        <span class="bl-article__tag"><span class="bl-article__tag-dot"></span>Assurance</span>
+                        <h3 class="bl-article__title">Assurer sa cave à vins&nbsp;: couverture, valeur et déclaration</h3>
+                        <p class="bl-article__excerpt">MRH classique, option objets de valeur, contrats spécialisés&nbsp;: comment couvrir correctement une cave et éviter les pièges.</p>
+                        <div class="bl-article__foot"><span class="bl-article__cta">Lire →</span></div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══ SILO : PROFESSIONNELS ══ -->
+        <section class="bl-silo-section" id="professionnels">
+            <div class="bl-silo-section__head">
+                <div class="bl-silo-section__title-wrap">
+                    <div class="bl-silo-section__title-row">
+                        <div class="bl-silo-section__icon">
+                            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="18" y1="4" x2="18" y2="30" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round"/><line x1="8" y1="10" x2="28" y2="10" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round"/><path d="M8 10l-2 10h8L12 10" stroke="#C5A258" stroke-width="1.2" stroke-linejoin="round"/><path d="M24 10l-2 10h8L28 10" stroke="#C5A258" stroke-width="1.2" stroke-linejoin="round"/><path d="M6 20a4 2 0 0 0 8 0" stroke="#C5A258" stroke-width="1.2"/><path d="M22 20a4 2 0 0 0 8 0" stroke="#C5A258" stroke-width="1.2"/><line x1="12" y1="30" x2="24" y2="30" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round"/></svg>
+                        </div>
+                        <h2 class="bl-silo-section__title">Professionnels</h2>
+                    </div>
+                    <p class="bl-silo-section__lead">Ressources pour notaires, avocats, CGP et experts-comptables confrontés à la valorisation d'une cave.</p>
+                </div>
+                <a href="blog-professionnels.html" class="bl-silo-section__pilier">Voir les 5 articles →</a>
+            </div>
+            <div class="bl-carousel">
+                <div class="bl-articles">
+                    <a href="professionnels.html" class="bl-article bl-article--guide">
+                        <span class="bl-article__tag"><span class="bl-article__tag-dot"></span>Guide pilier</span>
+                        <h3 class="bl-article__title">Professionnels&nbsp;: comment valoriser une cave à vins dans un dossier</h3>
+                        <p class="bl-article__excerpt">Notaires, avocats, CGP, experts-comptables — méthodes, obligations et outils pour intégrer une estimation fiable dans vos dossiers.</p>
+                        <div class="bl-article__foot"><span class="bl-article__cta">Lire →</span></div>
+                    </a>
+                    <a href="article-notaires-evaluer-cave-succession.html" class="bl-article">
+                        <span class="bl-article__tag"><span class="bl-article__tag-dot"></span>Notaires</span>
+                        <h3 class="bl-article__title">Notaires&nbsp;: comment évaluer une cave à vins dans une succession</h3>
+                        <p class="bl-article__excerpt">Statut fiscal, forfait mobilier, rapport d'estimation opposable — tout ce qu'un notaire doit savoir pour valoriser une cave.</p>
+                        <div class="bl-article__foot"><span class="bl-article__cta">Lire →</span></div>
+                    </a>
+                    <a href="article-externaliser-estimation-cave.html" class="bl-article">
+                        <span class="bl-article__tag"><span class="bl-article__tag-dot"></span>Délégation</span>
+                        <h3 class="bl-article__title">Externaliser l'estimation de cave&nbsp;: gagner du temps sur vos dossiers</h3>
+                        <p class="bl-article__excerpt">Pourquoi et comment déléguer l'estimation d'une cave à vins pour accélérer vos dossiers de succession, patrimoine ou divorce.</p>
+                        <div class="bl-article__foot"><span class="bl-article__cta">Lire →</span></div>
+                    </a>
+                    <a href="article-vin-actif-patrimoine.html" class="bl-article">
+                        <span class="bl-article__tag"><span class="bl-article__tag-dot"></span>Patrimoine</span>
+                        <h3 class="bl-article__title">Gestion de patrimoine&nbsp;: intégrer le vin comme actif dans un portefeuille</h3>
+                        <p class="bl-article__excerpt">Fiscalité, performance historique, vins investment grade et méthodes de valorisation — guide pour CGP, notaires et conseillers.</p>
+                        <div class="bl-article__foot"><span class="bl-article__cta">Lire →</span></div>
+                    </a>
+                    <a href="article-assureurs-evaluer-cave-police.html" class="bl-article">
+                        <span class="bl-article__tag"><span class="bl-article__tag-dot"></span>Assureurs</span>
+                        <h3 class="bl-article__title">Assureurs&nbsp;: évaluer une cave à vins pour une police d'assurance</h3>
+                        <p class="bl-article__excerpt">Souscription, valeur agréée, expertise en sinistre — méthodes et pièces à demander pour souscripteurs, courtiers et experts.</p>
+                        <div class="bl-article__foot"><span class="bl-article__cta">Lire →</span></div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
     </main>
+
+    <!-- ═══════════ CTA FINAL ═══════════ -->
+    <section class="bl-cta-strip">
+        <div class="bl-cta-strip__inner">
+            <h2>Prêt à connaître la valeur de votre cave&nbsp;?</h2>
+            <p>Audit indépendant à distance, rapport PDF complet et cote actuelle de chaque bouteille — sans déplacement.</p>
+            <a href="/#formulaire" class="bl-cta-strip__btn">Faire estimer ma cave →</a>
+        </div>
+    </section>
 
     <footer class="footer">
         <div class="footer-grid">
@@ -865,108 +1149,70 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
 
     <script>
     // Back to top
-    (function(){var b=document.getElementById('btt');window.addEventListener('scroll',function(){if(window.scrollY>300){b.style.opacity='1';b.style.visibility='visible'}else{b.style.opacity='0';b.style.visibility='hidden'}});b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})})})();
+    (function(){
+        var b = document.getElementById('btt');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) { b.style.opacity = '1'; b.style.visibility = 'visible'; }
+            else { b.style.opacity = '0'; b.style.visibility = 'hidden'; }
+        });
+        b.addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+    })();
 
-    // Carousel logic
-    document.querySelectorAll('.carousel').forEach(function(carousel) {
-        var track = carousel.querySelector('.carousel-track');
-        var prevBtn = carousel.querySelector('.carousel-prev');
-        var nextBtn = carousel.querySelector('.carousel-next');
-        var dotsContainer = carousel.nextElementSibling;
-        var cards = track.querySelectorAll('.article-card');
-        var cardCount = cards.length;
+    // Carrousels horizontaux (flèches prev/next)
+    document.querySelectorAll('.bl-silo-section').forEach(function(section) {
+        var carousel = section.querySelector('.bl-carousel');
+        var grid = section.querySelector('.bl-articles');
+        if (!grid || !carousel) return;
 
-        // Generate dots
-        if (dotsContainer && dotsContainer.classList.contains('carousel-dots')) {
-            dotsContainer.innerHTML = '';
-            for (var i = 0; i < cardCount; i++) {
-                var dot = document.createElement('button');
-                dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-                dot.setAttribute('aria-label', 'Aller à l\'article ' + (i + 1));
-                dot.setAttribute('data-index', i);
-                dotsContainer.appendChild(dot);
-            }
+        var prev = document.createElement('button');
+        prev.className = 'bl-carousel__btn bl-carousel__btn--prev';
+        prev.setAttribute('aria-label', 'Précédent');
+        prev.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m15 18-6-6 6-6"/></svg>';
 
-            // Dot click
-            dotsContainer.addEventListener('click', function(e) {
-                var dot = e.target.closest('.carousel-dot');
-                if (!dot) return;
-                var idx = parseInt(dot.getAttribute('data-index'));
-                var card = cards[idx];
-                if (card) {
-                    track.scrollTo({ left: card.offsetLeft - track.offsetLeft, behavior: 'smooth' });
-                }
-            });
+        var next = document.createElement('button');
+        next.className = 'bl-carousel__btn bl-carousel__btn--next';
+        next.setAttribute('aria-label', 'Suivant');
+        next.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m9 18 6-6-6-6"/></svg>';
+
+        carousel.appendChild(prev);
+        carousel.appendChild(next);
+
+        function step() {
+            var card = grid.querySelector('.bl-article');
+            if (!card) return 320;
+            return card.getBoundingClientRect().width + 24;
         }
 
-        // Arrow clicks
-        function getScrollAmount() {
-            if (!cards[0]) return 300;
-            var style = getComputedStyle(track);
-            var gap = parseFloat(style.gap) || 20;
-            return cards[0].offsetWidth + gap;
+        prev.addEventListener('click', function() { grid.scrollBy({ left: -step(), behavior: 'smooth' }); });
+        next.addEventListener('click', function() { grid.scrollBy({ left: step(), behavior: 'smooth' }); });
+
+        function update() {
+            prev.disabled = grid.scrollLeft <= 4;
+            next.disabled = grid.scrollLeft + grid.clientWidth >= grid.scrollWidth - 4;
         }
-
-        prevBtn.addEventListener('click', function() {
-            track.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
-        });
-
-        nextBtn.addEventListener('click', function() {
-            track.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
-        });
-
-        // Update arrows & dots on scroll
-        function updateState() {
-            var scrollLeft = track.scrollLeft;
-            var maxScroll = track.scrollWidth - track.clientWidth;
-
-            prevBtn.disabled = scrollLeft <= 2;
-            nextBtn.disabled = scrollLeft >= maxScroll - 2;
-
-            // Find active card
-            if (!dotsContainer) return;
-            var dots = dotsContainer.querySelectorAll('.carousel-dot');
-            var trackLeft = track.getBoundingClientRect().left;
-            var activeIdx = 0;
-            for (var i = 0; i < cards.length; i++) {
-                var cardLeft = cards[i].getBoundingClientRect().left - trackLeft;
-                if (cardLeft >= -10) { activeIdx = i; break; }
-            }
-            dots.forEach(function(d, j) {
-                d.classList.toggle('active', j === activeIdx);
-            });
-        }
-
-        track.addEventListener('scroll', updateState);
-        updateState();
-
-        // Recalculate on resize
-        window.addEventListener('resize', function() {
-            updateState();
-        });
+        grid.addEventListener('scroll', update, { passive: true });
+        window.addEventListener('resize', update);
+        update();
     });
 
-    // Tabs filtering
-    document.querySelectorAll('.tab-btn').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-            var silo = this.getAttribute('data-silo');
-
-            document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
-            this.classList.add('active');
-
-            document.querySelectorAll('.silo-section').forEach(function(section) {
-                if (silo === 'tous') {
-                    section.classList.remove('hidden');
-                } else {
-                    if (section.getAttribute('data-silo') === silo) {
-                        section.classList.remove('hidden');
-                    } else {
-                        section.classList.add('hidden');
-                    }
-                }
+    // Recherche live (filtre par contenu)
+    var searchInput = document.querySelector('.bl-search input');
+    if (searchInput) {
+        searchInput.addEventListener('input', function(e) {
+            var q = e.target.value.toLowerCase().trim();
+            document.querySelectorAll('.bl-silo-section').forEach(function(section) {
+                var cards = section.querySelectorAll('.bl-article');
+                var any = false;
+                cards.forEach(function(card) {
+                    var txt = card.textContent.toLowerCase();
+                    var match = !q || txt.includes(q);
+                    card.style.display = match ? '' : 'none';
+                    if (match) any = true;
+                });
+                section.style.display = (q && !any) ? 'none' : '';
             });
         });
-    });
+    }
     </script>
 
     <script>
@@ -999,20 +1245,10 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
 
     <script>
     (function(){
-        // Standard reveals (up)
-        var targets = document.querySelectorAll('section > .container, .article-header, .toc, .key-points, .article-cta, .inline-faq, .silo-section, .garantie-item, .page-header, .bon-a-savoir, .highlight-box, .about-cta, .faq-cta');
+        // Reveals on scroll
+        var targets = document.querySelectorAll('.bl-hero, .bl-silos, .bl-featured, .bl-silo-section, .bl-cta-strip');
         targets.forEach(function(el){ el.classList.add('reveal'); });
 
-        // Left reveals
-        document.querySelectorAll('.steps-grid, .visual-block:nth-child(odd)').forEach(function(el){ el.classList.add('reveal-left'); });
-
-        // Right reveals
-        document.querySelectorAll('.visual-block:nth-child(even)').forEach(function(el){ el.classList.add('reveal-right'); });
-
-        // Ornament reveals
-        document.querySelectorAll('.ornament, .ornament-double, .ornament-dots, .ornament-diamond, .ornament-long, .section-divider').forEach(function(el){ el.classList.add('ornament-reveal'); });
-
-        // Single observer for all
         var allReveal = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .ornament-reveal');
         var observer = new IntersectionObserver(function(entries){
             entries.forEach(function(entry){
