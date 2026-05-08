@@ -1,5 +1,6 @@
 - [Mise à jour Excel obligatoire après chaque batch](feedback_excel_update_obligatoire.md) — RÈGLE DURE : reporter Val_unit/Reco/Code/Note dans l'Excel après chaque batch validé, avant de passer au suivant
 - [Champs obligatoires par recommandation](feedback_champs_obligatoires_par_reco.md) — RÈGLE DURE : À conserver → Durée de garde / À vendre → Canal de vente / À surveiller → Date de réexamen
+- [Version Fanny exacte toujours](feedback_version_fanny_exacte.md) — RÈGLE DURE : copier mot-à-mot la note Fanny, ne jamais reformuler/embellir/compléter
 - [Format de synthèse par vin](feedback_phase1_format.md) — Format Phase 1+2 fusionné, batchs de 10, validation au fil de l'eau
 - [Workflow Phase 1 — partage des tâches](feedback_workflow_phase1.md) — Fanny fournit les cotes iDealwine que je ne trouve pas ; je gère Wine-Searcher, structure, notes
 - [Codes 6 vs 19 pour primeurs Bordeaux accessibles](feedback_code_6_vs_19.md) — Cru Bourgeois/Bordeaux régional/satellites en primeur = code 6 (table), pas 19
