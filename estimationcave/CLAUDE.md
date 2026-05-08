@@ -37,6 +37,16 @@ La source de vérité pour la répartition des articles dans les silos : [`blog.
 - `expertise-cave` — dès qu'un client/inventaire est mentionné
 - `estimation-cote-vin` — pour une recherche ponctuelle de cote d'un vin
 
+## Règles dures expertise-cave (à lire AVANT toute valorisation client)
+
+Avant de commencer une session de valorisation/estimation, lire impérativement :
+- [`skills/expertise-cave/workflow/MEMORY.md`](skills/expertise-cave/workflow/MEMORY.md) — index des règles
+- [`skills/expertise-cave/workflow/feedback_excel_update_obligatoire.md`](skills/expertise-cave/workflow/feedback_excel_update_obligatoire.md) — Excel update après chaque batch
+- [`skills/expertise-cave/workflow/feedback_champs_obligatoires_par_reco.md`](skills/expertise-cave/workflow/feedback_champs_obligatoires_par_reco.md) — Durée/Canal/Réexamen obligatoires selon Reco
+- [`skills/expertise-cave/workflow/feedback_phase1_format.md`](skills/expertise-cave/workflow/feedback_phase1_format.md) — format des fiches Phase 1
+
+Ces fichiers sont aussi accessibles via le symlink `~/.claude/projects/.../memory/` (chargement auto par Claude Code).
+
 ## Déploiement
 
 Repo GitHub : `LBFannyLB/estimationcave` → Vercel (auto sur push `main`).

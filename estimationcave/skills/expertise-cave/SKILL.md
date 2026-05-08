@@ -5,9 +5,21 @@ description: Skill complet d'expertise de cave à vins — valorisation marché 
 
 # Skill : Expertise Cave — estimationcave.com
 
+## ⚠️ AVANT DE COMMENCER — règles dures à lire impérativement
+
+À chaque invocation de ce skill, lire d'abord :
+- [`workflow/MEMORY.md`](workflow/MEMORY.md) — index des règles dures et préférences Fanny
+- [`workflow/feedback_excel_update_obligatoire.md`](workflow/feedback_excel_update_obligatoire.md) — RÈGLE DURE : reporter Val_unit/Reco/Code/Note/Apogée/Durée/Canal/Réexamen dans l'Excel inventaire APRÈS CHAQUE BATCH validé, avant de passer au suivant
+- [`workflow/feedback_champs_obligatoires_par_reco.md`](workflow/feedback_champs_obligatoires_par_reco.md) — RÈGLE DURE : À conserver → Durée de garde / À vendre → Canal de vente / À surveiller → Date de réexamen
+- [`workflow/feedback_phase1_format.md`](workflow/feedback_phase1_format.md) — format de fiche Phase 1 fusionnée Phase 2
+
+Le dossier `workflow/` est aussi exposé via symlink à `~/.claude/projects/.../memory/` (chargement auto par Claude Code).
+
+---
+
 Workflow d'estimation en 3 phases séquentielles, chacune déclenchable indépendamment. **Chrome requis** pour phases 1 et 2 (`claude --chrome`).
 
-**Fichiers** : `SKILL.md` (orchestrateur), `generate_report.py` (PDF), `rapport_data.py` (template 6 variables), `check_inventaire.py` (validation pré-rapport), `grille_analyse_vin.md` (décision), `assets/{signature,cover_logo}.png`.
+**Fichiers** : `SKILL.md` (orchestrateur), `generate_report.py` (PDF), `rapport_data.py` (template 6 variables), `check_inventaire.py` (validation pré-rapport), `grille_analyse_vin.md` (décision), `workflow/*.md` (règles dures et préférences Fanny), `assets/{signature,cover_logo}.png`.
 
 ---
 

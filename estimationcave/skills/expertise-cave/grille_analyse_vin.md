@@ -126,15 +126,16 @@ Les années anniversaires génèrent une prime de liquidité aux enchères.
 
 ---
 
-## 10. CODES JUSTIFICATION — 17 codes officiels
+## 10. CODES JUSTIFICATION — 19 codes officiels
 
-**À conserver (1–6) :**
+**À conserver (1–6 + 18) :**
 - `1` — Fenêtre d'apogée non atteinte
-- `2` — Cote en progression
+- `2` — Cote en progression (hausse chiffrée et confirmée sur la cuvée)
 - `3` — Référence rare ou confidentielle
 - `4` — Millésime exceptionnel
 - `5` — Grand format — magnum, double-magnum (prime de valeur)
 - `6` — Valeur de dégustation supérieure à la valeur de revente
+- `18` — Signature montante
 
 **À vendre (7–12 + 17) :**
 - `7` — Apogée atteinte ou dépassée
@@ -145,11 +146,12 @@ Les années anniversaires génèrent une prime de liquidité aux enchères.
 - `12` — Format demi-bouteille (décote systématique sur le marché secondaire)
 - `17` — Cote ayant atteint un plateau / tendance baissière
 
-**À surveiller (13–16) :**
+**À surveiller (13–16 + 19) :**
 - `13` — Maturité encore indéterminée
 - `14` — Attractivité encore insuffisante sur le marché
 - `15` — Millésime illisible ou inconnu
 - `16` — Signaux contradictoires (cote, tendance ou marché peu lisibles)
+- `19` — Primeur (marché secondaire en formation)
 
 ---
 
@@ -169,5 +171,5 @@ Les années anniversaires génèrent une prime de liquidité aux enchères.
 
 ---
 
-*Grille mise à jour le 05/04/2026 — 16 codes officiels*
+*Grille mise à jour le 08/05/2026 — 19 codes officiels*
 *Sources : rapports d'enchères iDealwine 2025-2026, expertise Fanny Lonqueu-Brochard*

@@ -1,0 +1,9 @@
+- [Mise à jour Excel obligatoire après chaque batch](feedback_excel_update_obligatoire.md) — RÈGLE DURE : reporter Val_unit/Reco/Code/Note dans l'Excel après chaque batch validé, avant de passer au suivant
+- [Champs obligatoires par recommandation](feedback_champs_obligatoires_par_reco.md) — RÈGLE DURE : À conserver → Durée de garde / À vendre → Canal de vente / À surveiller → Date de réexamen
+- [Format de synthèse par vin](feedback_phase1_format.md) — Format Phase 1+2 fusionné, batchs de 10, validation au fil de l'eau
+- [Workflow Phase 1 — partage des tâches](feedback_workflow_phase1.md) — Fanny fournit les cotes iDealwine que je ne trouve pas ; je gère Wine-Searcher, structure, notes
+- [Codes 6 vs 19 pour primeurs Bordeaux accessibles](feedback_code_6_vs_19.md) — Cru Bourgeois/Bordeaux régional/satellites en primeur = code 6 (table), pas 19
+- [Grands blancs secs Bordeaux — marché actif](feedback_grands_blancs_secs_bordeaux.md) — Pavillon Blanc, Aile d'Argent, Y d'Yquem, Suduiraut VV : code 1/4, pas 6
+- [Code 6 plafonné à 25€ Val_unit](feedback_code_6_seuil_25.md) — Règle dure : jamais code 6 sur un vin qui vaut plus de 25€
+- [Cru Bourgeois Exceptionnel primeur — code 19](feedback_cru_bourgeois_exceptionnel_primeur.md) — Haut-Marbuzet, Lilian Ladouys etc. en primeur 25€+ → code 19, pas 6
+- [Le Puy starisé par les Gouttes de Dieu](reference_le_puy_gouttes_de_dieu.md) — Manga japonais qui soutient la liquidité du domaine sur le marché asiatique
