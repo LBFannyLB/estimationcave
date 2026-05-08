@@ -4,6 +4,6 @@
 - [Workflow Phase 1 — partage des tâches](feedback_workflow_phase1.md) — Fanny fournit les cotes iDealwine que je ne trouve pas ; je gère Wine-Searcher, structure, notes
 - [Codes 6 vs 19 pour primeurs Bordeaux accessibles](feedback_code_6_vs_19.md) — Cru Bourgeois/Bordeaux régional/satellites en primeur = code 6 (table), pas 19
 - [Grands blancs secs Bordeaux — marché actif](feedback_grands_blancs_secs_bordeaux.md) — Pavillon Blanc, Aile d'Argent, Y d'Yquem, Suduiraut VV : code 1/4, pas 6
-- [Code 6 plafonné à 25€ Val_unit](feedback_code_6_seuil_25.md) — Règle dure : jamais code 6 sur un vin qui vaut plus de 25€
+- [Code 6 — pas de plafond de prix strict](feedback_code_6_seuil_25.md) — Le critère = absence de marché secondaire actif, pas le prix (Austin Hope 40€, Sauzet 35€ validés en code 6)
 - [Cru Bourgeois Exceptionnel primeur — code 19](feedback_cru_bourgeois_exceptionnel_primeur.md) — Haut-Marbuzet, Lilian Ladouys etc. en primeur 25€+ → code 19, pas 6
 - [Le Puy starisé par les Gouttes de Dieu](reference_le_puy_gouttes_de_dieu.md) — Manga japonais qui soutient la liquidité du domaine sur le marché asiatique

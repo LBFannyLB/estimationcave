@@ -1,17 +1,17 @@
 ---
-name: Code 6 réservé aux vins ≤ 25€ Val_unit
-description: Règle dure — on ne met JAMAIS un code 6 (valeur dégustation > revente) sur un vin dont la Val_unit est supérieure à 25€. Au-dessus, utiliser code 1, 4, 18 selon dynamique.
+name: Code 6 — pas de seuil de prix strict, indication uniquement
+description: Le code 6 (valeur de dégustation supérieure à la valeur de revente) peut s'appliquer même au-delà de 30€ si le profil du vin le justifie (signature confidentielle sans marché secondaire actif, vin de plaisir gastronomique). Pas de plafond strict.
 type: feedback
 ---
 
-**Règle dure : on ne met pas un code 6 sur un vin qui vaut plus de 25€.**
+**Code 6 (valeur de dégustation > valeur de revente) — pas de plafond de prix strict.**
 
-**Why:** Le code 6 (valeur de dégustation supérieure à la valeur de revente) signale qu'un vin n'a pas de marché secondaire pertinent et que sa logique est purement gustative. Au-delà de 25€ Val_unit, le vin entre mécaniquement dans une catégorie où un marché secondaire existe (même si de niche), et la recommandation doit refléter la dimension marché. Pattern établi après correction Fanny sur Suduiraut Sauternes 2023 (Val 50€) — initialement code 6, corrigé en code 1.
+**Why:** Initialement, j'avais inféré une règle "code 6 plafonné à 25-30€". Fanny a clarifié que **le code 6 peut s'appliquer même sur des vins à 35-50€** si la logique est gustative (signature confidentielle, marché secondaire restreint, vocation table). Cas validés explicitement : Austin Hope Cab Sauv Paso Robles 2021 à 40€, Sauzet Hautes-Côtes Beaune Jardin du Calvaire 2023 à 35€. Le critère qui prime n'est pas le seuil de prix, mais **l'absence réelle de marché secondaire significatif** sur la cuvée.
 
 **How to apply:**
-- Val_unit ≤ 25€ → code 6 par défaut acceptable pour les vins de table sans dimension spéculative (Bordeaux régionaux, Cru Bourgeois primeurs, satellites accessibles, vins de plaisir)
-- Val_unit 25-30€ → zone de tolérance ; code 6 reste possible pour les seconds vins / vins gastronomiques sans marché secondaire (ex. Pavillon de Taillefer 2019 à 30€ validé en code 6)
-- Val_unit > 30€ → privilégier code 1 (avant apogée), code 4 (grand millésime), code 18 (signature montante), code 19 (primeur grand cru), code 5 (grand format), code 2 (cote en hausse confirmée)
-- Au-dessus de 25€ pour un vin avant apogée avec garde devant lui → préférer code 1 même si la dimension spéculative est faible (cas Domaine de l'A 2019 à 25€ → code 1, pas 6)
+- Le code 6 reste la **recommandation par défaut** pour les vins **sans marché secondaire actif**, indépendamment du prix : Bordeaux régionaux, Cru Bourgeois primeurs accessibles, satellites, signatures confidentielles à diffusion limitée, blancs de domaines réputés mais hors circuit Cru Classé, etc.
+- À ne PAS confondre avec code 1 (avant apogée) : code 1 = le vin a un marché et progressera, code 6 = le vin n'a pas de marché et n'a pas vocation à se valoriser à terme.
+- Au-dessus de 50€ Val_unit, le code 6 devient peu fréquent — la plupart des vins à ce niveau ont un marché secondaire structuré. Mais pas d'exclusion automatique.
+- À l'inverse : un vin avant apogée avec marché secondaire actif → code 1 même si Val_unit < 25€ (ex. Domaine de l'A 2019 à 25€ → code 1, pas 6).
 
-Cette règle s'applique aussi aux primeurs : un primeur à 30€+ ne tombe pas en code 6 même s'il n'a pas de marché secondaire structuré encore — utiliser code 19 (primeur) ou code 1 (avant apogée) selon la signature.
+**Anciennes règles invalidées** : seuil 25€ et zone tolérance 25-30€ → ne pas appliquer. Le critère qualitatif "marché secondaire actif ou non" prime sur le seuil de prix.
