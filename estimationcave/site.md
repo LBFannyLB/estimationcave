@@ -60,7 +60,8 @@ Checklist à respecter à chaque modification :
 Configuré dans `vercel.json` :
 - `/{page}` → `/{page}.html` pour les pages piliers courtes (`estimation`, `vendre`, `gestion`, `professionnels`, `blog`, `apropos`, `faq`, `confidentialite`, `mentions-legales`, `merci`)
 - `/article-{slug}` → `/article-{slug}.html` pour tous les articles
-- `/index.html` et `/index_1.html` → `/` (canonique)
+- `/index.html` → `/` (canonique)
+- `/index_1.html` → `/` (redirect 308 d'archive, fichier supprimé — ancienne page tarif fondateur 99€)
 
 **Pour ajouter un nouveau pilier court** (ex : `cotes.html`) : ajouter son nom dans la regex de `vercel.json`.
 **Pour les articles** (`article-*.html`) : pas d'action nécessaire, le rewrite est déjà générique.
