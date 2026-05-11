@@ -325,11 +325,17 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             color: var(--texte);
         }
 
-        /* ── SECTION 5 — PROFIL ── */
+        /* ── SECTION PROFIL (fond bordeaux) ── */
+        .profil-section {
+            background: var(--bordeaux);
+            color: var(--blanc);
+        }
+        .profil-section h2 { color: var(--blanc); }
+        .profil-section h2 em { color: var(--or); font-style: italic; font-weight: 400; }
         .profil p {
             font-size: 1rem;
             line-height: 1.85;
-            color: var(--texte);
+            color: var(--blanc);
             margin-bottom: 1.5rem;
             text-align: justify;
         }
@@ -593,6 +599,20 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             </div>
         </section>
 
+        <!-- ── SECTION PROFIL (déplacée entre Constat et Cas d'usage) ── -->
+        <section class="section profil-section">
+            <div class="container-tight profil">
+                <h2><em>L'expertise</em> qui sous-tend chaque rapport</h2>
+                <span class="ornament-diamond"></span>
+                <p>Je m'appelle Fanny Lonqueu-Brochard. Pendant 6 ans, j'ai été responsable des ventes aux enchères chez iDealwine, leader européen du marché secondaire du vin. J'ai estimé plusieurs milliers de caves dans tous les contextes patrimoniaux — successions, divorces, liquidations, ventes volontaires. WSET niveau 3 avec distinction (2024).</p>
+                <p>Depuis estimationcave.com, je propose la même méthodologie d'expertise — indépendante et structurée — à une échelle plus accessible, en 100 % distanciel. Aucun rachat, aucune mise en vente, aucun conflit d'intérêt.</p>
+                <p style="text-align: center;">
+                    <a href="/apropos" class="profil-link">En savoir plus sur mon parcours →</a>
+                </p>
+                <span class="ornament-diamond"></span>
+            </div>
+        </section>
+
         <!-- ── SECTION 3 — CE QUE J'APPORTE ── -->
         <section class="section" style="background: var(--fond);">
             <div class="container-mid">
@@ -690,22 +710,8 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             </div>
         </section>
 
-        <!-- ── SECTION 5 — PROFIL ── -->
-        <section class="section">
-            <div class="container-tight profil">
-                <h2><em>L'expertise</em> qui sous-tend chaque rapport</h2>
-                <span class="ornament-diamond"></span>
-                <p>Je m'appelle Fanny Lonqueu-Brochard. Pendant 6 ans, j'ai été responsable des ventes aux enchères chez iDealwine, leader européen du marché secondaire du vin. J'ai estimé plusieurs milliers de caves dans tous les contextes patrimoniaux — successions, divorces, liquidations, ventes volontaires. WSET niveau 3 avec distinction (2024).</p>
-                <p>Depuis estimationcave.com, je propose la même méthodologie d'expertise — indépendante et structurée — à une échelle plus accessible, en 100 % distanciel. Aucun rachat, aucune mise en vente, aucun conflit d'intérêt.</p>
-                <p style="text-align: center;">
-                    <a href="/apropos" class="profil-link">En savoir plus sur mon parcours →</a>
-                </p>
-                <span class="ornament-diamond"></span>
-            </div>
-        </section>
-
         <!-- ── SECTION 6 — PARTENARIATS ── -->
-        <section class="section section-alt">
+        <section class="section">
             <div class="container">
                 <h2>Trois niveaux d'engagement, à vous de choisir</h2>
                 <p class="section-intro">Je travaille avec des assureurs et courtiers selon trois modalités, du plus simple au plus engageant. Vous restez maître du périmètre.</p>
@@ -734,7 +740,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
         </section>
 
         <!-- ── SECTION 7 — RAPPORT EXEMPLE ── -->
-        <section class="section" id="rapport-exemple">
+        <section class="section section-alt" id="rapport-exemple">
             <div class="container-tight rapport-block">
                 <h2>Voyez par vous-même la qualité du livrable</h2>
                 <span class="ornament-long"></span>
