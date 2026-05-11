@@ -17,7 +17,7 @@ Checklist à respecter à chaque modification :
 |---|---|
 | Nouvel article publié | §3 (compte par silo) + §8 (retirer de la roadmap si prévu) |
 | Nouveau silo / migration d'articles | §3 intégralement + §2 si règle structurelle impactée |
-| Changement de prix audit (149 €) | §1 + grep dans tout le repo (le prix est écrit en dur dans les articles et dans les Schema FAQ) |
+| Changement de prix audit (199 €) | §1 + grep dans tout le repo (le prix est écrit en dur dans les articles et dans les Schema FAQ) |
 | Changement de design token (couleur, font) | §4 + `styles.css` |
 | Nouveau pilier | §3 + `CLAUDE.md` (tableau silos) + `sitemap.xml` + `blog.html` (onglet + carte + footer) |
 | Changement d'URL Tally ou contact | §1 (ce fichier) + `index.html` + tous les emplacements concernés |
@@ -31,11 +31,11 @@ Checklist à respecter à chaque modification :
 - **Site :** [estimationcave.com](https://estimationcave.com) — audit et estimation indépendante de cave à vins à distance
 - **Audience cible :** propriétaires de cave particuliers, héritiers non-connaisseurs, professionnels du droit (notaires, avocats, CGP, experts-comptables)
 - **Positionnement éditorial :** ancienne experte enchères iDealwine, indépendante (pas de conflit d'intérêt avec un racheteur), audit 100 % à distance
-- **Produit unique :** rapport d'audit complet à **149 €**, livré sous **5 jours ouvrés** (inventaire + valorisation bouteille par bouteille + recommandations + plan d'action)
+- **Produit unique :** rapport d'audit complet à **199 €**, livré sous **5 jours ouvrés** (inventaire + valorisation bouteille par bouteille + recommandations + plan d'action)
 - **Flow de conversion :**
   1. Visiteur arrive sur un article ou l'accueil
   2. Clic sur un CTA → section `#formulaire` de `index.html` (section pédagogique sur ce qu'il va remplir)
-  3. Clic sur "Remplir le formulaire — 149 €" → Tally (`https://tally.so/r/eq25ZO`) — le paiement Stripe est intégré dans le flow Tally
+  3. Clic sur "Remplir le formulaire — 199 €" → Tally (`https://tally.so/r/eq25ZO`) — le paiement Stripe est intégré dans le flow Tally
 - **Contact :** `contact@estimationcave.com`
 
 **⚠️ Règle dure :** aucun article ne doit linker directement vers Tally ou Stripe. Toujours vers `index.html#formulaire` pour que le visiteur voie la section pédagogique avant.
@@ -262,7 +262,7 @@ Les favicons (`favicon.svg`, `favicon-32x32.png`, `apple-touch-icon.png`) peuven
 
 ## 10. Points de vigilance
 
-1. **Prix 149 €** : écrit en dur dans presque tous les articles, CTA, et dans les Schema FAQ. Si changement, grep complet nécessaire.
+1. **Prix 199 €** : écrit en dur dans presque tous les articles, CTA, et dans les Schema FAQ. Si changement, grep complet nécessaire.
 2. **Délai 5 jours ouvrés** : idem, mentionné dans plusieurs FAQ et CTA.
 3. **URL Tally** (`tally.so/r/eq25ZO`) : un seul point d'usage actuellement (`index.html`), mais attention si le formulaire est changé.
 4. **Date de dernière modification `<lastmod>`** dans `sitemap.xml` : doit être mise à jour à chaque édition substantielle d'un article (signal SEO).
