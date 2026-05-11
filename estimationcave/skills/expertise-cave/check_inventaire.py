@@ -188,15 +188,22 @@ def check_format_value(df: pd.DataFrame) -> list:
 
 def check_duplicates(df: pd.DataFrame) -> list:
     """
-    Détecte les doublons exacts (même domaine + appellation + millésime + format).
-    L'appellation est incluse car un domaine peut produire plusieurs cuvées
-    de millésimes identiques sur des appellations différentes.
+    Détecte les doublons exacts (même domaine + appellation + millésime + format + couleur).
+    L'appellation et la couleur sont incluses car un domaine peut produire plusieurs cuvées
+    de millésimes identiques sur des appellations différentes ou des couleurs différentes
+    pour la même appellation (ex. Bourgogne Rouge / Bourgogne Blanc).
+    Ignore les lignes fusionnées (Qte=0 + note "FUSIONNÉ AVEC").
     """
     alerts = []
-    key_cols = ["Domaine", "Appellation", "Millesime", "Format"]
+    key_cols = ["Domaine", "Appellation", "Millesime", "Format", "Couleur"]
     # Garder uniquement les colonnes disponibles
     key_cols = [c for c in key_cols if c in df.columns]
-    dupes = df[df.duplicated(subset=key_cols, keep=False)]
+    # Filtrer les lignes fusionnées avant de chercher les doublons
+    qte_num = pd.to_numeric(df.get("Qte"), errors="coerce")
+    note_str = df.get("Note_marche", pd.Series([""] * len(df))).astype(str).str.upper()
+    is_fusion = (qte_num == 0) & note_str.str.contains("FUSIONNÉ AVEC", na=False)
+    df_actives = df[~is_fusion]
+    dupes = df_actives[df_actives.duplicated(subset=key_cols, keep=False)]
     seen: set = set()
     for _, row in dupes.iterrows():
         key = tuple(str(row.get(c, "")).strip() for c in key_cols)
@@ -214,9 +221,15 @@ def check_duplicates(df: pd.DataFrame) -> list:
 
 
 def check_missing(df: pd.DataFrame) -> list:
-    """Détecte les données manquantes sur les colonnes critiques."""
+    """Détecte les données manquantes sur les colonnes critiques.
+    Ignore les lignes fusionnées (Qte=0 + note "FUSIONNÉ AVEC")."""
     alerts = []
     for idx, row in df.iterrows():
+        # Skip ligne fusionnée
+        qte_val = safe_float(row.get("Qte"))
+        note_val = str(row.get("Note_marche", "")).upper()
+        if qte_val == 0 and "FUSIONNÉ AVEC" in note_val:
+            continue
         domaine  = row.get("Domaine", "")
         mil      = row.get("Millesime", "")
         val      = safe_float(row.get("Val_unit"))

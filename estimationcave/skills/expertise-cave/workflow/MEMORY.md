@@ -8,3 +8,4 @@
 - [Code 6 — pas de plafond de prix strict](feedback_code_6_seuil_25.md) — Le critère = absence de marché secondaire actif, pas le prix (Austin Hope 40€, Sauzet 35€ validés en code 6)
 - [Cru Bourgeois Exceptionnel primeur — code 19](feedback_cru_bourgeois_exceptionnel_primeur.md) — Haut-Marbuzet, Lilian Ladouys etc. en primeur 25€+ → code 19, pas 6
 - [Le Puy starisé par les Gouttes de Dieu](reference_le_puy_gouttes_de_dieu.md) — Manga japonais qui soutient la liquidité du domaine sur le marché asiatique
+- [Réexamen des primeurs Bordeaux à 7 ans](feedback_reexamen_primeurs_bordeaux.md) — RÈGLE DURE : Réexamen primeur Bordeaux = N+7 (pas N+3/N+4), le marché secondaire a besoin de 5-6 ans post-livraison pour se stabiliser

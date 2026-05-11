@@ -147,6 +147,18 @@ def lire_inventaire_excel(fichier_excel: pathlib.Path) -> list[dict]:
         if not domaine_val or domaine_val.lower() == "domaine" or not domaine_val[0].isalnum():
             continue
 
+        # Filtrer les lignes fusionnées (Qte=0 + note "FUSIONNÉ AVEC LX").
+        # Ces lignes existent dans l'Excel pour traçabilité interne mais
+        # n'ont pas vocation à apparaître dans le rapport client.
+        qte_raw = d.get("Qte")
+        note_raw = str(d.get("Note_marche") or "").upper()
+        try:
+            qte_int = int(float(qte_raw)) if qte_raw not in (None, "", "None") else 1
+        except (ValueError, TypeError):
+            qte_int = 1
+        if qte_int == 0 and "FUSIONNÉ AVEC" in note_raw:
+            continue
+
         mill_raw = d.get("Millesime")
         if mill_raw is None or str(mill_raw).strip().upper() in ("NM", "", "NONE"):
             mill = 0
@@ -165,10 +177,8 @@ def lire_inventaire_excel(fichier_excel: pathlib.Path) -> list[dict]:
         reco_raw = safe_str(d.get("Reco"), "À surveiller")
         reco_val = reco_map.get(reco_raw, reco_raw)
 
-        try:
-            qte = int(float(d.get("Qte") or 1))
-        except (ValueError, TypeError):
-            qte = 1
+        # Réutilise qte_int déjà calculé pour le filtre fusion (préserve Qte=0 explicite)
+        qte = qte_int
         try:
             val_unit = int(float(d.get("Val_unit") or 0))
         except (ValueError, TypeError):
@@ -518,7 +528,15 @@ def _group_by_geo(inv: list[dict], mono_region: str | None) -> tuple[dict, dict,
     En monorégion, on regroupe par sous-région ("Côte de Nuits", "Côte de
     Beaune"…). Sinon, par région. axis_label sert à titrer les graphiques
     ("région" ou "sous-région").
+
+    Consolidation appliquée en multi-régions :
+    - Toutes les régions « Étranger — XXX » sont regroupées sous « Étranger »
+    - Provence, Languedoc et Spiritueux sont regroupés sous « Autres »
+      (régions résiduelles à faible valeur secondaire en France)
     """
+    # Régions de petite valeur secondaire à regrouper sous « Autres »
+    SMALL_REGIONS_OTHER = {"Provence", "Languedoc", "Spiritueux"}
+
     by_vol: dict[str, int] = defaultdict(int)
     by_val: dict[str, int] = defaultdict(int)
     if mono_region:
@@ -530,6 +548,11 @@ def _group_by_geo(inv: list[dict], mono_region: str | None) -> tuple[dict, dict,
         return by_vol, by_val, "sous-région"
     for b in inv:
         r = b["region"] or "Autres"
+        # Consolidation des régions étrangères et des petites régions résiduelles
+        if r.startswith("Étranger"):
+            r = "Étranger"
+        elif r in SMALL_REGIONS_OTHER:
+            r = "Autres"
         by_vol[r] += b["qte"]
         by_val[r] += b["qte"] * b["val_unit"]
     return by_vol, by_val, "région"
@@ -608,13 +631,12 @@ def build_synthese(inv: list[dict]) -> dict:
     return {
         "valeur_totale": total_val,
         "valeur_totale_fmt": fmt_int(total_val),
-        # Fourchette asymétrique -15 % / +10 % — reprise du comportement ReportLab
-        # historique : la borne basse reflète les décotes d'adjudication, la haute
-        # est volontairement prudente car les pics spéculatifs sont rares.
+        # Fourchette symétrique ±15 % — la borne basse reflète les décotes
+        # d'adjudication, la borne haute les remontées sur cycles favorables.
         # Les deux bornes sont arrondies au multiple de 10 supérieur pour une
         # lecture "ronde" cohérente avec l'ancien rapport.
         "fourchette_min_fmt": fmt_int(_ceil10(total_val * 0.85)),
-        "fourchette_max_fmt": fmt_int(_ceil10(total_val * 1.10)),
+        "fourchette_max_fmt": fmt_int(_ceil10(total_val * 1.15)),
         "geo_axis": geo_axis,
         "regions_valeur": regions_valeur,
         "color_split": color_split,
@@ -734,7 +756,8 @@ def build_repartition(inv: list[dict], synthese: dict) -> dict:
     top_totale = [
         {
             "nom": f"{b['bouteille']} {millesime_str(b['millesime'])}".strip(),
-            "detail": f"{b['qte']} btl",
+            "detail": (f"{b['appellation']} · {b['qte']} btl"
+                       if b.get("appellation") else f"{b['qte']} btl"),
             "value_fmt": fmt_int(b["qte"] * b["val_unit"]),
         }
         for b in by_total

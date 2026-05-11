@@ -2347,6 +2347,10 @@ html, body { background: #FAF6F0 !important; }
   page-break-inside: avoid;
   break-inside: avoid;
 }
+/* Force le bloc Potentiel de garde à rester ensemble (titre + graphique
+   + légende) — si la place manque sur la page courante, le pousser tout
+   entier sur la page suivante. */
+.chart-row.one { page-break-inside: avoid; break-inside: avoid; }
 /* Compacte le bloc Potentiel de garde pour qu'il rentre systématiquement
    derrière les bars sur la même A4 — c'est notre contrainte principale,
    sinon il se retrouve seul sur la page suivante. */
@@ -2413,7 +2417,13 @@ html, body { background: #FAF6F0 !important; }
 .inv tbody tr        { page-break-inside: avoid; break-inside: avoid; }
 .reco-card           { page-break-inside: avoid; break-inside: avoid; }
 .reco-group-head     { page-break-after: avoid; break-after: avoid; }
-.garde-group         { page-break-inside: avoid; break-inside: avoid; }
+/* Garde-group : on autorise la coupure inter-page si le groupe est gros
+   (cave de plus de 30 btl par fenêtre) ; on garde l'en-tête avec sa table
+   pour éviter qu'il reste seul en bas de page. */
+.garde-group         { page-break-inside: auto; break-inside: auto; }
+.garde-head          { page-break-after: avoid; break-after: avoid; }
+.garde-table         { page-break-inside: auto; break-inside: auto; }
+.garde-table thead   { display: table-header-group; }
 .garde-table tbody tr { page-break-inside: avoid; break-inside: avoid; }
 /* Mission-sub paragraphs flow freely — forcing keep-together would leave
    large gaps at the bottom of p10 for plans d'action denses. */
@@ -2512,22 +2522,20 @@ html, body { background: #FAF6F0 !important; }
   margin-top: 8px;
 }
 
-/* ═══════ Stacked-bar — always show all labels, even narrow segments ═══════ */
-/* The default flex:0 0 calc(var(--pct)*1%) makes segments exactly proportional,
-   which hides labels on small (< 8 %) segments. We give each segment a hard
-   min-width so "GARDE LONGUE" still fits at 6 %, and shrink the label font +
-   tracking so short labels stay horizontal. */
+/* ═══════ Stacked-bar — strictly proportional segments ═══════ */
+/* Segments largeur = proportion exacte (calc(--pct * 1%)) pour refléter la
+   réalité du graphique. Pas de min-width pour éviter l'overflow quand un
+   segment dominant (>80 %) cohabite avec deux segments minoritaires —
+   le total visuel doit rester à 100 % du conteneur. */
 .stacked-bar .seg {
-  flex: var(--pct) 1 70px;
-  min-width: 70px;
+  flex: 0 0 calc(var(--pct) * 1%);
   font-size: 8px;
   letter-spacing: 0.04em;
+  overflow: hidden;
 }
 .stacked-bar .seg > span {
   padding: 0 3px;
-}
-.stacked-bar.labeled .seg {
-  min-width: 78px;
+  white-space: nowrap;
 }
 .stacked-bar.labeled .seg b { font-size: 8px; letter-spacing: 0.04em; }
 .stacked-bar.labeled .seg i { font-size: 10px; }
@@ -2603,6 +2611,11 @@ html, body { background: #FAF6F0 !important; }
 .market-lede { margin-bottom: 12px; line-height: 1.5; font-size: 11px; }
 /* Autorise la coupe naturelle (même logique que plan d'action). */
 #p5 .market-block { page-break-inside: auto; break-inside: auto; }
+/* Évite qu'un titre de bloc (II., III.) ou de sub reste seul en bas de page
+   sans son contenu — push sur la page suivante. */
+#p5 .market-head { page-break-after: avoid; break-after: avoid; }
+#p5 .market-sub h4 { page-break-after: avoid; break-after: avoid; }
+#p5 .market-sub { page-break-inside: avoid; break-inside: avoid; }
 
 /* Plan d'action (p10) — lisibilité prime, peut déborder sur 2 A4 */
 #p10 .mission-sub { margin-top: 18px; }
@@ -2677,7 +2690,7 @@ html, body { background: #FAF6F0 !important; }
 /* Synthèse (p3) — respirer entre les blocs (~24px minimum)
    Mais on garde la compacité interne pour tenir sur 1 A4 imprimable (270 mm).
 */
-.sect-sub       { margin-top: 24px; }
+.sect-sub       { margin-top: 24px; page-break-after: avoid; break-after: avoid; }
 .sect-sub:first-of-type { margin-top: 8px; }
 .hero-value     { padding: 12px 22px; margin-top: 8px; }
 .hv-value       { font-size: 48px !important; }
@@ -2688,7 +2701,7 @@ html, body { background: #FAF6F0 !important; }
 .color-split-head { padding: 2px 0; font-size: 10px; }
 .stacked        { height: 16px; }
 .legend-dots    { margin-top: 2px; padding: 2px 0; font-size: 9.5px; }
-.recap          { margin-top: 4px; }
+.recap          { margin-top: 4px; page-break-inside: avoid; break-inside: avoid; }
 .recap-row      {
   padding: 3px 18px;
 }
@@ -2901,7 +2914,7 @@ html, body { background: #FAF6F0 !important; }
           <span class="color-split-base">{{ perimetre.nb_bouteilles }} btl</span>
         </div>
         <div class="stacked">
-{% for seg in synthese.color_split.volume %}          <div style="width:{{ seg.width }}%; background: {{ seg.color }}; color: {{ seg.text_color }};{% if seg.small %} font-size:10px;{% endif %}">{{ seg.pct_fmt }} %</div>
+{% for seg in synthese.color_split.volume %}          <div style="width:{{ seg.width }}%; background: {{ seg.color }}; color: {{ seg.text_color }};overflow:hidden;{% if seg.small %} font-size:10px;{% endif %}">{% if seg.width >= 5 %}{{ seg.pct_fmt }} %{% endif %}</div>
 {% endfor %}        </div>
       </div>
       <div class="color-split-col">
@@ -2910,7 +2923,7 @@ html, body { background: #FAF6F0 !important; }
           <span class="color-split-base">{{ synthese.valeur_totale_fmt }} €</span>
         </div>
         <div class="stacked">
-{% for seg in synthese.color_split.valeur %}          <div style="width:{{ seg.width }}%; background: {{ seg.color }}; color: {{ seg.text_color }};{% if seg.small %} font-size:10px;{% endif %}">{{ seg.pct_fmt }} %</div>
+{% for seg in synthese.color_split.valeur %}          <div style="width:{{ seg.width }}%; background: {{ seg.color }}; color: {{ seg.text_color }};overflow:hidden;{% if seg.small %} font-size:10px;{% endif %}">{% if seg.width >= 5 %}{{ seg.pct_fmt }} %{% endif %}</div>
 {% endfor %}        </div>
       </div>
     </div>
@@ -3049,7 +3062,7 @@ html, body { background: #FAF6F0 !important; }
           <h3 class="chart-title">Potentiel de garde</h3>
         </header>
         <div class="stacked-bar">
-{% for seg in repartition.garde.segments %}          <span class="seg" style="--pct:{{ seg.pct }};background:{{ seg.color }};"><span>{{ seg.label }}</span></span>
+{% for seg in repartition.garde.segments %}          <span class="seg" style="--pct:{{ seg.pct }};background:{{ seg.color }};"><span>{% if seg.pct >= 12 %}{{ seg.label }}{% endif %}</span></span>
 {% endfor %}        </div>
         <ul class="stack-legend two-col">
 {% for item in repartition.garde.legende %}          <li><span class="sw" style="background:{{ item.color }};"></span><div><b>{{ item.label }}</b><em>{{ item.detail }}</em></div><span class="pct">{{ item.pct_fmt }} %</span></li>
@@ -3073,14 +3086,14 @@ html, body { background: #FAF6F0 !important; }
         <div class="reco-split-col">
           <div class="split-kicker">Volume</div>
           <div class="stacked-bar labeled">
-{% for seg in repartition.reco_split.volume %}            <span class="seg" style="--pct:{{ seg.pct }};background:{{ seg.color }};"><span><b>{{ seg.label }}</b><i>{{ seg.pct_int }} %</i></span></span>
+{% for seg in repartition.reco_split.volume %}            <span class="seg" style="--pct:{{ seg.pct }};background:{{ seg.color }};"><span>{% if seg.pct >= 12 %}<b>{{ seg.label }}</b>{% endif %}<i>{{ seg.pct_int }} %</i></span></span>
 {% endfor %}          </div>
           <div class="split-total">{{ perimetre.nb_bouteilles }} btl</div>
         </div>
         <div class="reco-split-col">
           <div class="split-kicker">Valeur</div>
           <div class="stacked-bar labeled">
-{% for seg in repartition.reco_split.valeur %}            <span class="seg" style="--pct:{{ seg.pct }};background:{{ seg.color }};"><span><b>{{ seg.label }}</b><i>{{ seg.pct_int }} %</i></span></span>
+{% for seg in repartition.reco_split.valeur %}            <span class="seg" style="--pct:{{ seg.pct }};background:{{ seg.color }};"><span>{% if seg.pct >= 12 %}<b>{{ seg.label }}</b>{% endif %}<i>{{ seg.pct_int }} %</i></span></span>
 {% endfor %}          </div>
           <div class="split-total">{{ repartition.reco_split.valeur_total_fmt }} €</div>
         </div>
@@ -3121,7 +3134,7 @@ html, body { background: #FAF6F0 !important; }
 
   <!-- ════════════ PAGE 5 — RECOMMANDATIONS ════════════ -->
   <section class="page" id="p8">
-    <div class="sect-eyebrow">— 7. Recommandations détaillées —</div>
+    <div class="sect-eyebrow">— 6. Recommandations détaillées —</div>
     <h2 class="sect-title">Pour chaque lot, <em>une justification</em></h2>
 
 {% for groupe in recommandations %}    <div class="reco-group-head{% if groupe.class_mod %} {{ groupe.class_mod }}{% endif %}">
@@ -3149,7 +3162,7 @@ html, body { background: #FAF6F0 !important; }
 
   <!-- ════════════ PAGE 9 — POTENTIEL DE GARDE ════════════ -->
   <section class="page" id="p9">
-    <div class="sect-eyebrow">— 8. Potentiel de garde —</div>
+    <div class="sect-eyebrow">— 7. Potentiel de garde —</div>
     <h2 class="sect-title">Fenêtres <em>d'apogée</em></h2>
 
     <p class="mission-intro">{{ potentiel_garde.intro }}</p>
