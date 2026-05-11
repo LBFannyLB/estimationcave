@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<script src="https://cdn.jsdelivr.net/npm/tarteaucitronjs@latest/tarteaucitron.js"></script>
+<script>
+tarteaucitron.init({
+  "privacyUrl": "https://www.estimationcave.com/confidentialite.html",
+  "bodyPosition": "bottom",
+  "hashtag": "#tarteaucitron",
+  "cookieName": "tarteaucitron",
+  "orientation": "bottom",
+  "groupServices": false,
+  "showDetailsOnClick": true,
+  "serviceDefaultState": "wait",
+  "showAlertSmall": false,
+  "cookieslist": false,
+  "closePopup": false,
+  "showIcon": true,
+  "iconPosition": "BottomRight",
+  "adblocker": false,
+  "DenyAllCta": true,
+  "AcceptAllCta": true,
+  "highPrivacy": true,
+  "handleBrowserDNTRequest": false,
+  "removeCredit": false,
+  "moreInfoLink": true,
+  "useExternalCss": false,
+  "useExternalJs": false,
+  "mandatory": false,
+  "mandatoryCta": false,
+  "readmoreLink": "https://www.estimationcave.com/confidentialite.html"
+});
+tarteaucitron.user.gtagUa = 'G-CDTHEK83FV';
+tarteaucitron.user.gtagMore = function () {};
+(tarteaucitron.job = tarteaucitron.job || []).push('gtag');
+tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
+(tarteaucitron.job = tarteaucitron.job || []).push('googletagmanager');
+</script>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pour les assureurs — Expert indépendant en estimation de cave à vins | estimationcave.com</title>
+    <meta name="description" content="Audit d'estimation de cave à vins pour vos clients propriétaires de collection : indépendant, structuré, livré sous 5 jours ouvrés à 199€. Pour assureurs, courtiers et agents généraux.">
+    <link rel="canonical" href="https://estimationcave.com/assureurs">
+
+    <meta property="og:title" content="Expert indépendant en estimation de cave à vins — pour assureurs et courtiers">
+    <meta property="og:description" content="63% des collections sont sous-assurées. Je vous aide à sécuriser vos souscriptions et désamorcer vos sinistres.">
+    <meta property="og:url" content="https://estimationcave.com/assureurs">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:image" content="https://estimationcave.com/og-image.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Expert indépendant en estimation de cave à vins — pour assureurs et courtiers">
+    <meta name="twitter:description" content="63% des collections sont sous-assurées. Je vous aide à sécuriser vos souscriptions et désamorcer vos sinistres.">
+    <meta name="twitter:image" content="https://estimationcave.com/og-image.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        a { text-decoration: none; color: inherit; }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .container-narrow {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .container-mid {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .container-tight {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* ── SECTIONS GÉNÉRIQUES ── */
+        .section {
+            padding: 4rem 0;
+        }
+        .section-alt {
+            background: var(--blanc);
+        }
+        .section-dark {
+            background: var(--bordeaux);
+            color: var(--blanc);
+        }
+
+        /* ── HERO ── */
+        .hero {
+            padding: 9rem 0 4rem;
+            text-align: center;
+        }
+        .hero .eyebrow {
+            font-family: var(--font-body);
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--or);
+            margin-bottom: 1.25rem;
+        }
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.4rem, 4.5vw, 3.2rem);
+            font-weight: 600;
+            color: var(--bordeaux);
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+        }
+        .hero h1 em { font-style: italic; font-weight: 400; }
+        h2 em { font-style: italic; font-weight: 400; }
+        .hero .lead {
+            font-family: var(--font-body);
+            font-size: 1.15rem;
+            line-height: 1.65;
+            color: var(--texte);
+            margin: 0 auto;
+            max-width: 720px;
+        }
+        .hero-ctas {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        .hero-ctas .btn-primary,
+        .hero-ctas .btn-outline {
+            padding: 0.9rem 1.8rem;
+            font-size: 0.95rem;
+        }
+        .btn-outline {
+            display: inline-block;
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 0.85rem;
+            letter-spacing: 0.03em;
+            background: transparent;
+            color: var(--bordeaux);
+            padding: 0.65rem 1.5rem;
+            border-radius: 4px;
+            border: 1.5px solid var(--bordeaux);
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+        }
+        .btn-outline:hover,
+        .btn-outline:focus,
+        .btn-outline:active {
+            background: var(--or);
+            color: var(--bordeaux);
+            border-color: var(--or);
+        }
+
+        /* ── H2 commun ── */
+        h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.7rem, 3vw, 2.1rem);
+            font-weight: 600;
+            color: var(--bordeaux);
+            line-height: 1.25;
+            text-align: center;
+            margin: 0 0 1.25rem;
+        }
+        .section-dark h2 { color: var(--blanc); }
+
+        .section-intro {
+            font-size: 1.02rem;
+            line-height: 1.7;
+            color: var(--texte);
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto 2rem;
+        }
+
+        /* ── SECTION 2 — PAIN POINTS ── */
+        .pains-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .pain-card {
+            background: var(--blanc);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            transition: all 0.3s cubic-bezier(0.33, 1, 0.68, 1);
+        }
+        @media (hover: hover) {
+            .pain-card:hover {
+                border-color: rgba(197, 162, 88, 0.4);
+                box-shadow: 0 8px 24px rgba(45, 27, 46, 0.05);
+            }
+        }
+        .pain-number {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 2px solid var(--or);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 0 1.25rem;
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--or);
+        }
+        .pain-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--bordeaux);
+            margin-bottom: 0.85rem;
+            line-height: 1.3;
+        }
+        .pain-card p {
+            font-size: 0.95rem;
+            color: var(--texte);
+            line-height: 1.7;
+            margin: 0;
+            text-align: justify;
+        }
+        .pain-card strong { color: var(--bordeaux); font-weight: 600; }
+
+        /* ── SECTION 3 — USAGES ── */
+        .usage-block {
+            margin: 2rem 0;
+        }
+        .usage-block h3 {
+            font-family: var(--font-display);
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--bordeaux);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .usage-block h3 .pain-number {
+            margin: 0;
+            flex-shrink: 0;
+        }
+        .usage-block p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--texte);
+            margin-bottom: 0.85rem;
+        }
+        .usage-block .livrable {
+            font-style: italic;
+            font-size: 0.95rem;
+            color: var(--texte-light);
+            border-left: 2px solid var(--or);
+            padding-left: 1rem;
+            margin-top: 1rem;
+        }
+
+        /* ── SECTION 4 — MATRICE ── */
+        .matrix-wrap { margin-top: 2rem; }
+        .matrix {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--blanc);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(45, 27, 46, 0.04);
+            font-size: 0.92rem;
+        }
+        .matrix thead th {
+            background: var(--bordeaux);
+            color: var(--blanc);
+            font-family: var(--font-body);
+            font-weight: 600;
+            padding: 1rem 0.9rem;
+            text-align: left;
+            font-size: 0.88rem;
+        }
+        .matrix tbody td {
+            padding: 0.95rem 0.9rem;
+            border-bottom: 1px solid var(--border);
+            color: var(--texte);
+            vertical-align: top;
+        }
+        .matrix tbody tr:last-child td { border-bottom: none; }
+        .matrix tbody td:first-child {
+            font-weight: 600;
+            color: var(--bordeaux);
+            background: rgba(45, 27, 46, 0.02);
+        }
+        .matrix .col-ec {
+            background: var(--or-pale);
+            font-weight: 600;
+            color: var(--bordeaux);
+        }
+        .matrix thead .col-ec {
+            background: #8B6B2E;
+            color: var(--blanc);
+        }
+        .bon-a-savoir {
+            background: var(--or-pale);
+            border-radius: 6px;
+            padding: 1.5rem 1.75rem;
+            margin: 2rem 0 0;
+            font-size: 0.98rem;
+            line-height: 1.7;
+            color: var(--texte);
+        }
+
+        /* ── SECTION 5 — PROFIL ── */
+        .profil p {
+            font-size: 1rem;
+            line-height: 1.85;
+            color: var(--texte);
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+        .profil-link {
+            display: inline-block;
+            margin-top: 0.5rem;
+            color: var(--or) !important;
+            font-weight: 500;
+            text-decoration: none !important;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.25s ease;
+        }
+        .profil-link:hover { border-bottom-color: var(--or); }
+
+        /* ── SECTION 6 — PARTENARIATS ── */
+        .partner-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+            align-items: stretch;
+        }
+        .partner-card {
+            background: var(--blanc);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .partner-card:hover {
+            border-color: var(--or);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(45, 27, 46, 0.08);
+        }
+        .partner-card .eyebrow {
+            font-family: var(--font-body);
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--or);
+            margin-bottom: 0.85rem;
+        }
+        .partner-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--bordeaux);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+        .partner-card p {
+            font-size: 0.95rem;
+            color: var(--texte);
+            line-height: 1.7;
+            margin: 0;
+            text-align: justify;
+        }
+        .partner-cta {
+            text-align: center;
+            margin-top: 2.5rem;
+            font-size: 1rem;
+            color: var(--texte);
+        }
+        .partner-cta a {
+            font-family: var(--font-display);
+            font-size: 1.35rem;
+            color: var(--or) !important;
+            font-weight: 600;
+            text-decoration: none !important;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+        .partner-cta a:hover { color: var(--bordeaux) !important; }
+
+        /* ── SECTION 7 — RAPPORT EXEMPLE ── */
+        .rapport-block { text-align: center; }
+        .rapport-block p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--texte);
+            margin-bottom: 2rem;
+        }
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 0.95rem;
+            background: var(--bordeaux);
+            color: var(--fond);
+            padding: 0.9rem 1.8rem;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.33, 1, 0.68, 1);
+        }
+        @media (hover: hover) {
+            .btn-download:hover {
+                background: #3D2940;
+                color: var(--fond);
+                transform: translateY(-1px);
+                box-shadow: 0 8px 30px rgba(45, 27, 46, 0.2);
+            }
+        }
+        .btn-download svg { width: 18px; height: 18px; }
+
+        /* ── SECTION 8 — CTA FINAL ── */
+        .cta-final {
+            padding: 5rem 0;
+            background: var(--bordeaux);
+            color: var(--blanc);
+            text-align: center;
+        }
+        .cta-final h2 { color: var(--blanc); margin-bottom: 1rem; }
+        .cta-final .lead {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--blanc);
+            opacity: 0.9;
+            max-width: 640px;
+            margin: 0 auto 2rem;
+        }
+        .cta-mailto {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 3.5vw, 2rem);
+            font-weight: 600;
+            color: var(--or) !important;
+            text-decoration: none !important;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.01em;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.25s ease;
+        }
+        .cta-mailto:hover { border-bottom-color: var(--or); }
+        .cta-final .subtext {
+            font-size: 0.92rem;
+            color: var(--blanc);
+            opacity: 0.7;
+            max-width: 580px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* ── ANCHOR OFFSET ── */
+        #rapport-exemple { scroll-margin-top: 96px; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
+            .pains-grid,
+            .partner-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+        }
+        @media (max-width: 700px) {
+            .matrix { font-size: 0.82rem; }
+            .matrix thead th,
+            .matrix tbody td { padding: 0.7rem 0.55rem; }
+        }
+        @media (max-width: 600px) {
+            .container,
+            .container-narrow,
+            .container-mid,
+            .container-tight { padding: 0 1.25rem; }
+            .hero { padding: 7.5rem 0 3rem; }
+            .section { padding: 3rem 0; }
+            .cta-final { padding: 3.5rem 0; }
+            .matrix-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+            .matrix { min-width: 560px; }
+            .pain-card,
+            .partner-card { padding: 1.5rem; }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Estimation de cave à vins pour assureurs",
+      "provider": {
+        "@type": "Person",
+        "name": "Fanny — estimationcave.com",
+        "url": "https://estimationcave.com"
+      },
+      "areaServed": "FR",
+      "offers": {
+        "@type": "Offer",
+        "price": "199",
+        "priceCurrency": "EUR"
+      },
+      "audience": {
+        "@type": "BusinessAudience",
+        "audienceType": "Assureurs, courtiers et agents d'assurance"
+      }
+    }
+    </script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Aller au contenu</a>
+
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo"><img src="grappe-doree.png" alt="" class="nav-logo-img"><span class="nav-logo-text">estimation<span>cave</span>.com</span></a>
+            <div class="nav-right">
+                <a href="/" class="nav-back">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    Retour au site
+                </a>
+                <a href="/#formulaire" class="btn-gold">Estimer ma cave</a>
+            </div>
+            <button class="hamburger" aria-label="Menu" aria-expanded="false">
+                <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+        </div>
+    </nav>
+    <div class="nav-overlay"></div>
+
+    <main id="main">
+
+        <!-- ── SECTION 1 — HERO ── -->
+        <header class="hero">
+            <div class="container-narrow">
+                <p class="eyebrow reveal">POUR LES ASSUREURS ET COURTIERS</p>
+                <h1 class="reveal">Pour vos clients propriétaires de cave, un <em>expert indépendant</em> qui sécurise vos contrats</h1>
+                <p class="lead reveal">63 % des collections de vins en France sont sous-assurées de 20 à 40 % (étude Verspieren, 2024). Je réalise pour vos assurés des audits d'estimation de cave structurés, indépendants et opposables, livrés sous 5 jours ouvrés au tarif unique de 199 €.</p>
+                <span class="ornament-diamond"></span>
+                <div class="hero-ctas reveal">
+                    <a href="mailto:contact@estimationcave.com?subject=Partenariat%20assureur" class="btn-primary">Discuter d'un partenariat</a>
+                    <a href="#rapport-exemple" class="btn-outline">Voir un exemple de rapport</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- ── SECTION 2 — LE CONSTAT ── -->
+        <section class="section section-alt">
+            <div class="container">
+                <h2>Trois douleurs structurelles dans la gestion des polices "cave à vin"</h2>
+                <p class="section-intro">Le marché des grands crus s'apprécie de 5 à 10 % par an. Vos clients ne réévaluent jamais leur cave. Et un expert habitation généraliste ne dispose pas, par construction, de la compétence pour évaluer un Pétrus. Voilà ce que cela produit concrètement.</p>
+                <span class="ornament-long"></span>
+                <div class="pains-grid">
+                    <article class="pain-card reveal">
+                        <div class="pain-number">1</div>
+                        <h3>Le frein à la souscription</h3>
+                        <p>Pour les contrats au-delà de 10 000 €, vos partenaires experts actuels — commissaires-priseurs principalement — facturent <strong>500 à 1 200 €</strong> avec déplacement physique obligatoire. Pour les caves de <strong>10 000 à 50 000 €</strong>, ce coût est dissuasif pour vos clients. Résultat : vous perdez la souscription, ou vous souscrivez sans documenter la valeur, en accumulant un <strong>risque non quantifié</strong>.</p>
+                    </article>
+                    <article class="pain-card reveal">
+                        <div class="pain-number">2</div>
+                        <h3>La règle proportionnelle, bombe à retardement</h3>
+                        <p><strong>Article L121-5 du Code des assurances</strong> : si la valeur réelle dépasse la somme garantie, l'indemnisation est réduite au prorata. Une cave réellement à 100 000 € mais assurée 60 000 € sera indemnisée à <strong>60 % du préjudice</strong>. Vous appliquez la loi, vous perdez un client, vous récoltez une médiation et un avis Trustpilot à une étoile.</p>
+                    </article>
+                    <article class="pain-card reveal">
+                        <div class="pain-number">3</div>
+                        <h3>Le devoir de conseil DDA, exposé</h3>
+                        <p>La <strong>Directive sur la Distribution d'Assurances</strong> impose un <strong>conseil adapté</strong>. Recommander un contrat "cave à vin" sans vérifier la valeur réelle expose le réseau à une <strong>mise en cause</strong>. Un rapport d'expertise indépendant documente le conseil et <strong>transfère la responsabilité de l'évaluation à un tiers expert</strong>.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── SECTION 3 — CE QUE J'APPORTE ── -->
+        <section class="section" style="background: var(--fond);">
+            <div class="container-mid">
+                <h2>Trois cas d'usage où je fais <em>gagner du temps</em> à vos équipes</h2>
+                <span class="ornament-long"></span>
+
+                <div class="usage-block">
+                    <h3><span class="pain-number">1</span>À la souscription : pour les caves de 10 à 50 K€</h3>
+                    <p>Le segment où l'expertise commissaire-priseur n'est pas rentable pour vos clients. Mon rapport à 199 € rend la friction tarifaire acceptable et débloque vos souscriptions sur ce segment aujourd'hui mal couvert. Délai 5 jours ouvrés, 100 % distanciel, couverture nationale sans frais cachés.</p>
+                    <p class="livrable">Livrable : PDF d'audit complet (15 à 50 pages) — inventaire valorisé bouteille par bouteille, fourchette d'estimation ±15 %, identification des concentrations de risque, top valeurs.</p>
+                </div>
+
+                <div class="ornament-dots"><span></span></div>
+
+                <div class="usage-block">
+                    <h3><span class="pain-number">2</span>Sur votre portefeuille existant : la réévaluation périodique</h3>
+                    <p>Les contrats "cave" souscrits il y a 3 à 5 ans et jamais réévalués sont vos plus exposés à la règle proportionnelle. Je réalise des audits actualisés qui détectent la sous-assurance avant le sinistre. Activable en recommandation individuelle au fil de l'eau, ou en campagne dédiée sur un segment de portefeuille ciblé.</p>
+                    <p class="livrable">Livrable : Même rapport qu'en souscription, avec un volet "évolution depuis dernière déclaration" si vous me transmettez l'historique.</p>
+                </div>
+
+                <div class="ornament-dots"><span></span></div>
+
+                <div class="usage-block">
+                    <h3><span class="pain-number">3</span>Quand le sinistre est déclaré : l'expertise post-sinistre</h3>
+                    <p>Votre expert habitation n'a pas la compétence vin pour évaluer les pertes — risque systématique de sous-évaluation, d'expertise contradictoire, et de litige. J'interviens en expertise spécialisée pour fournir une évaluation opposable et limiter le coût de gestion sinistre.</p>
+                    <p class="livrable">Livrable : Rapport d'expertise sinistre formaté pour le dossier d'indemnisation. Tarif sur devis selon volume.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── SECTION 4 — POURQUOI MOI ── -->
+        <section class="section section-alt">
+            <div class="container">
+                <h2>Pourquoi recommander mon service plutôt que les options existantes</h2>
+                <div class="matrix-wrap">
+                    <table class="matrix">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Commissaire-priseur</th>
+                                <th>Sommelier / caviste</th>
+                                <th>Maison de ventes</th>
+                                <th class="col-ec">estimationcave.com</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Tarif</td>
+                                <td>500 - 1 200 € + déplacement</td>
+                                <td>300 - 800 € + déplacement</td>
+                                <td>"Gratuit" si mise en vente</td>
+                                <td class="col-ec">199 €</td>
+                            </tr>
+                            <tr>
+                                <td>Délai</td>
+                                <td>3 à 6 semaines</td>
+                                <td>Variable</td>
+                                <td>Variable</td>
+                                <td class="col-ec">5 jours ouvrés</td>
+                            </tr>
+                            <tr>
+                                <td>Indépendance</td>
+                                <td>⚠️ Conflit (vend aux enchères)</td>
+                                <td>⚠️ Conflit (rachat possible)</td>
+                                <td>⚠️ Conflit (cherche la mise en vente)</td>
+                                <td class="col-ec">Aucun conflit</td>
+                            </tr>
+                            <tr>
+                                <td>100 % distanciel</td>
+                                <td>Non</td>
+                                <td>Non</td>
+                                <td>Partiel</td>
+                                <td class="col-ec">Oui</td>
+                            </tr>
+                            <tr>
+                                <td>Rapport structuré opposable</td>
+                                <td>Variable</td>
+                                <td>Rarement</td>
+                                <td>Orienté vente</td>
+                                <td class="col-ec">Oui (PDF 15-50 pages)</td>
+                            </tr>
+                            <tr>
+                                <td>Couverture nationale</td>
+                                <td>Limitée</td>
+                                <td>Limitée</td>
+                                <td>Concentrée Paris</td>
+                                <td class="col-ec">Totale</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="bon-a-savoir">
+                    Mon argument central : je n'ai aucun intérêt à minorer une cave pour la racheter, ni à orienter une recommandation vers une mise en vente. Pour vous comme pour vos clients, c'est la garantie d'une évaluation neutre, opposable, et défendable en cas de contestation.
+                </div>
+            </div>
+        </section>
+
+        <!-- ── SECTION 5 — PROFIL ── -->
+        <section class="section">
+            <div class="container-tight profil">
+                <h2><em>L'expertise</em> qui sous-tend chaque rapport</h2>
+                <span class="ornament-diamond"></span>
+                <p>Je m'appelle Fanny Lonqueu-Brochard. Pendant 6 ans, j'ai été responsable des ventes aux enchères chez iDealwine, leader européen du marché secondaire du vin. J'ai estimé plusieurs milliers de caves dans tous les contextes patrimoniaux — successions, divorces, liquidations, ventes volontaires. WSET niveau 3 avec distinction (2024).</p>
+                <p>Depuis estimationcave.com, je propose la même méthodologie d'expertise — indépendante et structurée — à une échelle plus accessible, en 100 % distanciel. Aucun rachat, aucune mise en vente, aucun conflit d'intérêt.</p>
+                <p style="text-align: center;">
+                    <a href="/apropos" class="profil-link">En savoir plus sur mon parcours →</a>
+                </p>
+                <span class="ornament-diamond"></span>
+            </div>
+        </section>
+
+        <!-- ── SECTION 6 — PARTENARIATS ── -->
+        <section class="section section-alt">
+            <div class="container">
+                <h2>Trois niveaux d'engagement, à vous de choisir</h2>
+                <p class="section-intro">Je travaille avec des assureurs et courtiers selon trois modalités, du plus simple au plus engageant. Vous restez maître du périmètre.</p>
+                <div class="partner-grid">
+                    <article class="partner-card reveal">
+                        <p class="eyebrow">LE PLUS SIMPLE, SANS ENGAGEMENT</p>
+                        <h3>Référencement passif</h3>
+                        <p>Vous me mentionnez dans votre onboarding client, votre extranet ou vos communications comme "expert recommandé pour l'estimation de cave à vins". Aucun engagement, aucune commission. Vos clients me trouvent quand ils en ont besoin, je leur livre un rapport qu'ils transmettent à votre équipe.</p>
+                    </article>
+                    <article class="partner-card reveal">
+                        <p class="eyebrow">AVEC CODE DE RÉDUCTION POUR VOS CLIENTS</p>
+                        <h3>Recommandation active</h3>
+                        <p>Vous me recommandez nominativement avec un code de réduction (par exemple -10 %, soit 179 € au lieu de 199 €). Je trace les conversions venant de votre réseau, vous pouvez mesurer votre apport, et nous formalisons éventuellement un partenariat structuré.</p>
+                    </article>
+                    <article class="partner-card reveal">
+                        <p class="eyebrow">POUR LES EXPERTISES SINISTRE ET RÉÉVALUATIONS</p>
+                        <h3>Mandat direct</h3>
+                        <p>Vous me mandatez directement sur des dossiers spécifiques — expertise post-sinistre, réévaluation périodique d'un portefeuille, audit pour souscription d'un contrat haut de gamme. Tarif sur devis selon volume et complexité.</p>
+                    </article>
+                </div>
+                <p class="partner-cta">
+                    Pour discuter du scénario adapté à votre structure :<br>
+                    <a href="mailto:contact@estimationcave.com?subject=Partenariat%20assureur">contact@estimationcave.com</a>
+                </p>
+            </div>
+        </section>
+
+        <!-- ── SECTION 7 — RAPPORT EXEMPLE ── -->
+        <section class="section" id="rapport-exemple">
+            <div class="container-tight rapport-block">
+                <h2>Voyez par vous-même la qualité du livrable</h2>
+                <span class="ornament-long"></span>
+                <p>Le meilleur moyen d'évaluer si je peux être utile à vos clients : lire un rapport complet. Voici un exemple anonymisé d'un audit récent — cave de 33 bouteilles 100 % Bourgogne, valorisée à 6 150 €, avec recommandations détaillées d'arbitrage patrimonial.</p>
+                <!-- TODO : PDF à uploader dans /exemples/rapport-anonymise.pdf avant prospection -->
+                <a href="/exemples/rapport-anonymise.pdf" class="btn-download">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    Télécharger le rapport exemple (PDF, ~2 Mo)
+                </a>
+            </div>
+        </section>
+
+        <!-- ── SECTION 8 — CTA FINAL ── -->
+        <section class="cta-final">
+            <div class="container-narrow">
+                <h2>Parlons-en</h2>
+                <p class="lead">Si l'un des trois scénarios résonne avec votre structure, ou si vous voulez simplement explorer la pertinence d'un partenariat, écrivez-moi. Je réponds sous 24 à 48 heures ouvrées.</p>
+                <a href="mailto:contact@estimationcave.com?subject=Partenariat%20assureur" class="cta-mailto">contact@estimationcave.com</a>
+                <p class="subtext">Mentionnez votre structure (assureur, courtier, agent général), votre périmètre d'intervention, et le scénario qui vous intéresse — ça me permettra de vous répondre de manière ciblée.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="footer-logo">estimation<span>cave</span>.com</div>
+                <p class="footer-tagline">Audit et estimation indépendante de cave à vins à distance.</p>
+                <a href="mailto:contact@estimationcave.com" class="footer-email">contact@estimationcave.com</a>
+            </div>
+            <div class="footer-col">
+                <div class="footer-heading">Navigation</div>
+                <ul class="footer-links">
+                    <li><a href="/">Accueil</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="apropos.html">À propos</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <div class="footer-heading">Guides</div>
+                <ul class="footer-links">
+                    <li><a href="estimation.html">Estimer sa cave</a></li>
+                    <li><a href="article-cotes-pilier.html">Cotes &amp; marché</a></li>
+                    <li><a href="article-heritage-cave.html">Héritage &amp; Succession</a></li>
+                    <li><a href="vendre.html">Vendre ses vins</a></li>
+                    <li><a href="gestion.html">Gérer sa cave</a></li>
+                    <li><a href="professionnels.html">Professionnels</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <div class="footer-heading">Informations</div>
+                <ul class="footer-links">
+                    <li><a href="mentions-legales.html">Mentions légales</a></li>
+                    <li><a href="confidentialite.html">Confidentialité</a></li>
+                    <li><a href="/assureurs">Pour les assureurs</a></li>
+                </ul>
+                <p class="footer-copy">© 2026 estimationcave.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="btt" aria-label="Retour en haut" style="position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:#2D1B2E;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s cubic-bezier(.33,1,.68,1),visibility .3s cubic-bezier(.33,1,.68,1),transform .3s cubic-bezier(.33,1,.68,1);z-index:999;box-shadow:0 4px 16px rgba(45,27,46,.25);">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C5A258" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+    </button>
+    <script>
+        (function(){var b=document.getElementById('btt');window.addEventListener('scroll',function(){if(window.scrollY>300){b.style.opacity='1';b.style.visibility='visible'}else{b.style.opacity='0';b.style.visibility='hidden'}});b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})})})();
+    </script>
+
+    <script>
+    (function(){
+        var hamburger = document.querySelector('.hamburger');
+        var navRight = document.querySelector('.nav-right');
+        var overlay = document.querySelector('.nav-overlay');
+        if (!hamburger) return;
+        function toggleMenu() {
+            var isOpen = navRight.classList.toggle('open');
+            hamburger.classList.toggle('active');
+            overlay.classList.toggle('active');
+            hamburger.setAttribute('aria-expanded', isOpen);
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+        }
+        function closeMenu() {
+            navRight.classList.remove('open');
+            hamburger.classList.remove('active');
+            overlay.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        }
+        hamburger.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', closeMenu);
+        navRight.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', closeMenu);
+        });
+    })();
+    </script>
+
+    <script>
+    (function(){
+        var targets = document.querySelectorAll('.hero .eyebrow, .hero h1, .lead, .hero-ctas, .pain-card, .partner-card, .usage-block, .matrix-wrap, .bon-a-savoir, .profil p, .rapport-block, .cta-final h2, .cta-final .lead, .cta-mailto, .section-intro');
+        targets.forEach(function(el){ if(!el.classList.contains('reveal')) el.classList.add('reveal'); });
+
+        document.querySelectorAll('.ornament, .ornament-double, .ornament-dots, .ornament-diamond, .ornament-long, .section-divider').forEach(function(el){ el.classList.add('ornament-reveal'); });
+
+        var allReveal = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .ornament-reveal');
+        var observer = new IntersectionObserver(function(entries){
+            entries.forEach(function(entry){
+                if(entry.isIntersecting){
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {threshold: 0.1, rootMargin: '0px 0px -40px 0px'});
+        allReveal.forEach(function(el){ observer.observe(el); });
+    })();
+    </script>
+</body>
+</html>
