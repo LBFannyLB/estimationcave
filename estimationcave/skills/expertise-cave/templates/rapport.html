@@ -2632,6 +2632,43 @@ html, body { background: #FAF6F0 !important; }
    coupé au milieu. Si un bloc ne tient pas, il bascule entier sur la
    page suivante. */
 #p10 .mission-sub { page-break-inside: avoid; break-inside: avoid; }
+
+/* Bloc optionnel « Calendrier de cession » — liste des vagues
+   sans puces, espacement aéré, alignement avec le reste du Plan d'action. */
+#p10 .calendrier-cession p {
+  font-size: 11px;
+  line-height: 1.5;
+  margin: 0 0 8px;
+  text-wrap: pretty;
+}
+#p10 .calendrier-cession p:first-child {
+  font-family: var(--font-display);
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--texte);
+  margin-bottom: 12px;
+}
+#p10 .calendrier-cession ul.vagues-cession {
+  list-style: none;
+  padding-left: 0;
+  margin: 0 0 12px;
+}
+#p10 .calendrier-cession ul.vagues-cession li {
+  font-size: 11px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  padding-left: 14px;
+  position: relative;
+  text-wrap: pretty;
+}
+#p10 .calendrier-cession ul.vagues-cession li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--or);
+  font-weight: 500;
+}
+#p10 .calendrier-cession ul.vagues-cession li:last-child { margin-bottom: 0; }
 /* Fallback hors p10 : légèrement plus aéré. */
 .mission-sub p { font-size: 10.5px; line-height: 1.5; margin: 0 0 5px; }
 
@@ -3198,6 +3235,18 @@ html, body { background: #FAF6F0 !important; }
 {% endfor %}    </div>
 
 {% endfor %}
+{# Optionnel — bloc « Construire la vente partielle dans la durée ».
+   Apparaît uniquement quand accompagnement.calendrier_cession est non vide
+   (objectif vente partielle où l'arbitrage strict couvre moins de bouteilles
+   que la cession initialement envisagée par le client). #}
+{% if accompagnement.calendrier_cession %}    <div class="mission-sub">
+      <div class="mission-sub-head">
+        <h3>Construire la vente partielle dans la durée</h3>
+        <span class="sub-tag">Calendrier de cession</span>
+      </div>
+      <div class="calendrier-cession">{{ accompagnement.calendrier_cession | safe }}</div>
+    </div>
+{% endif %}
   </section>
 
   <!-- ════════════ PAGE 8 — ACCOMPAGNEMENT & CADRE ════════════ -->

@@ -29,6 +29,18 @@ prochaines_etapes = (
     "[À rédiger — étapes concrètes et actionnables]"
 )
 
+# Optionnel — uniquement pour objectif "vente partielle" quand le volume
+# "À vendre" est significativement inférieur au volume initialement envisagé
+# par le client. Laisser vide ("") pour les autres objectifs (succession,
+# assurance, vente totale, inventaire).
+# Le contenu est du HTML libre (peut inclure <p>, <ul class="vagues-cession">,
+# <strong>) et sera inséré dans le rapport via le bloc « Calendrier de
+# cession » du Plan d'action.
+# Note : dans le pipeline JSON actuel, cette valeur est portée par
+# accompagnement.calendrier_cession dans le fichier client.json — ce module
+# Python sert de référence documentaire.
+calendrier_cession = ""
+
 # Contexte marché — tendances par région (2-3 paragraphes)
 contexte_marche_tendances = (
     "[À rédiger — tendances des régions présentes dans la cave]"
