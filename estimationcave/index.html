@@ -1470,13 +1470,119 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       cursor: not-allowed;
     }
 
-    /* Honeypot — hors écran, hors tab order */
+    /* Honeypot — hors écran, hors tab order, hors lecteur d'écran, hors autofill */
     .hp-field {
-      position: absolute;
-      left: -9999px;
+      position: absolute !important;
+      left: -9999px !important;
+      top: auto;
       width: 1px;
-      height: 0;
+      height: 1px;
       overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* CTA sticky mobile */
+    .cta-sticky {
+      display: none;
+    }
+    @media (max-width: 768px) {
+      .cta-sticky {
+        position: fixed;
+        bottom: calc(12px + env(safe-area-inset-bottom));
+        left: 12px;
+        right: 12px;
+        z-index: 90;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 14px 20px;
+        background: #2D1B2E;
+        color: #FAF6F0;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 0.95rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        text-decoration: none;
+        border-radius: 999px;
+        box-shadow: 0 8px 24px rgba(45, 27, 46, 0.25);
+        opacity: 0;
+        transform: translateY(120%);
+        transition: opacity 0.25s ease, transform 0.25s ease;
+        pointer-events: none;
+      }
+      .cta-sticky.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+      .cta-sticky-price {
+        color: #C5A258;
+        font-weight: 700;
+      }
+    }
+
+    /* Bloc Partager / Référer */
+    .referral {
+      background: #F4EDE3;
+      padding: 64px 24px;
+      border-top: 1px solid rgba(45, 27, 46, 0.08);
+    }
+    .referral-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .referral-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.6rem, 3vw, 2.1rem);
+      font-weight: 500;
+      color: #2D1B2E;
+      line-height: 1.25;
+      margin: 0 0 16px;
+    }
+    .referral-title em {
+      font-style: italic;
+      color: #C5A258;
+    }
+    .referral-text {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      color: #6B5F65;
+      line-height: 1.65;
+      margin: 0 0 28px;
+    }
+    .referral-actions {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .referral-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 22px;
+      border: 1px solid #C5A258;
+      border-radius: 999px;
+      color: #2D1B2E;
+      background: #FFFFFF;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .referral-btn:hover {
+      background: #2D1B2E;
+      color: #FAF6F0;
+      border-color: #2D1B2E;
+    }
+    @media (max-width: 600px) {
+      .referral { padding: 48px 20px; }
+      .referral-actions { flex-direction: column; align-items: stretch; }
+      .referral-btn { justify-content: center; }
     }
 
     /* ══════════════════════════════════
@@ -2498,8 +2604,8 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
               </select>
             </div>
             <div class="form-field">
-              <label for="prenom">Prénom</label>
-              <input type="text" id="prenom" name="prenom" autocomplete="given-name">
+              <label for="prenom">Prénom <span class="req">*</span></label>
+              <input type="text" id="prenom" name="prenom" required autocomplete="given-name">
             </div>
             <div class="form-field">
               <label for="nom">Nom <span class="req">*</span></label>
@@ -2721,6 +2827,19 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
 
 
   </main>
+
+  <!-- ════════════ 9z. PARTAGER / RÉFÉRER ════════════ -->
+  <section class="referral" aria-labelledby="referral-title">
+    <div class="referral-inner">
+      <h2 id="referral-title" class="referral-title">Quelqu'un dans votre entourage <em>pourrait être concerné&nbsp;?</em></h2>
+      <p class="referral-text">Une succession en cours, une cave à vendre, un patrimoine à évaluer&nbsp;: transmettez ce service à la personne qui en a besoin.</p>
+      <div class="referral-actions">
+        <a class="referral-btn" href="https://wa.me/?text=Je%20viens%20de%20d%C3%A9couvrir%20un%20service%20d%27estimation%20de%20cave%20%C3%A0%20vins%20%C3%A0%20distance%2C%20par%20une%20ancienne%20experte%20des%20ench%C3%A8res%20iDealwine.%20Si%20jamais%20%C3%A7a%20peut%20t%27%C3%AAtre%20utile%20%3A%20https%3A%2F%2Festimationcave.com" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="referral-btn" href="mailto:?subject=Estimation%20de%20cave%20%C3%A0%20vins%20%C3%A0%20distance&body=Je%20viens%20de%20d%C3%A9couvrir%20ce%20service%20d%27estimation%20de%20cave%20%C3%A0%20vins%20par%20une%20ancienne%20experte%20des%20ench%C3%A8res%20iDealwine.%20Le%20rapport%20est%20livr%C3%A9%20sous%205%20jours%20ouvr%C3%A9s%20%3A%20https%3A%2F%2Festimationcave.com">E-mail</a>
+        <a class="referral-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Festimationcave.com" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </section>
 
   <!-- ════════════ 10. FOOTER ════════════ -->
   <footer class="footer">
@@ -3137,5 +3256,52 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       });
     })();
     </script>
+
+  <!-- CTA sticky mobile -->
+  <a href="#formulaire" class="cta-sticky" data-cta="sticky-mobile" aria-label="Demander mon audit pour 199 euros">
+    <span>Demander mon audit</span>
+    <span class="cta-sticky-price">199 €</span>
+  </a>
+  <script>
+    (function() {
+      var btn = document.querySelector('.cta-sticky');
+      var form = document.getElementById('formulaire');
+      var hero = document.querySelector('.hero, header.hero, [data-section="hero"]');
+      if (!btn || !form) return;
+
+      var heroFallback = !hero;
+
+      function update() {
+        var scrolled = window.scrollY || window.pageYOffset;
+        var formRect = form.getBoundingClientRect();
+        var vh = window.innerHeight;
+
+        var pastHero;
+        if (heroFallback) {
+          pastHero = scrolled > 600;
+        } else {
+          var heroRect = hero.getBoundingClientRect();
+          pastHero = heroRect.bottom < 80;
+        }
+        var formVisible = formRect.top < vh * 0.9 && formRect.bottom > 0;
+
+        if (pastHero && !formVisible) {
+          btn.classList.add('is-visible');
+        } else {
+          btn.classList.remove('is-visible');
+        }
+      }
+
+      var ticking = false;
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          window.requestAnimationFrame(function() { update(); ticking = false; });
+          ticking = true;
+        }
+      }, { passive: true });
+      window.addEventListener('resize', update);
+      update();
+    })();
+  </script>
 </body>
 </html>
