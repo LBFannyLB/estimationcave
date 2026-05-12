@@ -129,22 +129,28 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
         }
 
         /* ── PORTRAIT FANNY ── */
-        .about-illustration img.about-portrait,
         .about-portrait {
             display: block;
-            margin: 0 auto 2.5rem;
-            max-width: 320px;
+            max-width: 256px;
             width: 100%;
             height: auto;
             border-radius: 12px;
             box-shadow: 0 14px 36px rgba(45, 27, 46, 0.18);
             object-fit: cover;
         }
+        .parcours-wrap {
+            overflow: hidden; /* contient le float */
+        }
+        .parcours-wrap .about-portrait {
+            float: right;
+            margin: 0 0 1.25rem 2rem;
+            shape-outside: inset(0 round 12px);
+        }
         @media (max-width: 600px) {
-            .about-illustration img.about-portrait,
-            .about-portrait {
-                max-width: 260px;
-                margin-bottom: 2rem;
+            .parcours-wrap .about-portrait {
+                float: none;
+                margin: 0 auto 1.5rem;
+                max-width: 208px;
             }
         }
 
@@ -272,22 +278,17 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
     <main id="main" class="about-body">
         <div class="container">
 
-            <div class="about-illustration">
-                <img class="about-portrait" src="fanny-lonqueu-brochard.jpg" alt="Fanny Lonqueu-Brochard, ancienne experte en ventes aux enchères chez iDealwine et fondatrice d'estimationcave.com" width="800" height="1201" loading="eager">
-            </div>
-
-            <!-- Photo placeholder — activer quand disponible -->
-            <div class="photo-placeholder">
-                <!-- <img src="photo-fanny.jpg" alt="Fanny Lonqueu-Brochard"> -->
-            </div>
-
             <p>Je m'appelle Fanny, et j'accompagne les particuliers dans l'audit, l'estimation et l'arbitrage de leur cave à vins.</p>
 
             <h2>Parcours</h2>
 
-            <p>Depuis près de 10 ans, j'évolue dans le monde du vin, avec une spécialisation forte dans le marché secondaire et la valorisation des bouteilles. Pendant plus de 6 ans, j'ai occupé le poste de responsable des ventes aux enchères chez iDealwine, leader mondial dans ce domaine. J'y ai développé une connaissance approfondie des dynamiques de marché, de la liquidité des références et des logiques de valorisation.</p>
+            <div class="parcours-wrap">
+                <img class="about-portrait" src="fanny-lonqueu-brochard.jpg" alt="Fanny Lonqueu-Brochard, ancienne experte en ventes aux enchères chez iDealwine et fondatrice d'estimationcave.com" width="800" height="1201" loading="eager">
 
-            <p>J'ai également exercé pendant 2 ans comme acheteuse vin, une fonction qui a renforcé mon exigence de sélection, ma lecture du marché et ma compréhension fine des vins, de leur positionnement et de leur potentiel. En 2024, j'ai obtenu le WSET 3 avec distinction, une certification qui vient compléter une expérience de terrain construite au quotidien, au contact des bouteilles, du marché et des passionnés.</p>
+                <p>Depuis près de 10 ans, j'évolue dans le monde du vin, avec une spécialisation forte dans le marché secondaire et la valorisation des bouteilles. Pendant plus de 6 ans, j'ai occupé le poste de responsable des ventes aux enchères chez iDealwine, leader mondial dans ce domaine. J'y ai développé une connaissance approfondie des dynamiques de marché, de la liquidité des références et des logiques de valorisation.</p>
+
+                <p>J'ai également exercé pendant 2 ans comme acheteuse vin, une fonction qui a renforcé mon exigence de sélection, ma lecture du marché et ma compréhension fine des vins, de leur positionnement et de leur potentiel. En 2024, j'ai obtenu le WSET 3 avec distinction, une certification qui vient compléter une expérience de terrain construite au quotidien, au contact des bouteilles, du marché et des passionnés.</p>
+            </div>
 
             <div class="highlight-box">
                 <p>Ce double regard — <strong>commercial et acheteur</strong> — me permet aujourd'hui d'aborder une cave avec précision, recul et discernement.</p>
