@@ -2590,9 +2590,14 @@ html, body { background: #FAF6F0 !important; }
 .inv td { padding: 2px 4px; font-size: 8.5px; line-height: 1.2; }
 
 /* Variante assureur : 14 colonnes (5 valeurs + SOURCE) — on resserre encore
-   pour tenir sur A4 sans casser la lisibilité. */
-.inv-assureur th { padding: 4px 3px; font-size: 7px; }
-.inv-assureur td { padding: 2px 3px; font-size: 7.5px; line-height: 1.2; }
+   pour tenir sur A4 sans casser la lisibilité.
+   table-layout: fixed force les largeurs des <col> et empêche les en-têtes
+   longs ("Val. marché", "Total rempl.") de pousser le tableau au-delà de
+   la zone utile A4 — sinon overflow horizontal qui désorganise toutes les
+   pages (incl. la couverture). */
+.inv-assureur { table-layout: fixed; }
+.inv-assureur th { padding: 4px 2px; font-size: 7px; line-height: 1.15; white-space: normal; word-wrap: break-word; }
+.inv-assureur td { padding: 2px 3px; font-size: 7.5px; line-height: 1.2; overflow: hidden; }
 .inv-assureur .domaine-cell { font-size: 8.5px; }
 .inv-assureur .appellation-cell { font-size: 7.5px; }
 .inv-assureur .pill { padding: 0.5px 4px; font-size: 6.5px; letter-spacing: 0.03em; }
@@ -3085,7 +3090,7 @@ html, body { background: #FAF6F0 !important; }
 
     <table class="inv inv-assureur">
       <colgroup>
-        <col style="width:20px"><col style="width:108px"><col><col style="width:56px"><col style="width:30px"><col style="width:38px"><col style="width:46px"><col style="width:18px"><col style="width:46px"><col style="width:46px"><col style="width:28px"><col style="width:50px"><col style="width:50px"><col style="width:72px">
+        <col style="width:18px"><col style="width:86px"><col><col style="width:46px"><col style="width:26px"><col style="width:30px"><col style="width:16px"><col style="width:18px"><col style="width:38px"><col style="width:38px"><col style="width:22px"><col style="width:40px"><col style="width:40px"><col style="width:54px">
       </colgroup>
       <thead>
         <tr>
@@ -3097,12 +3102,12 @@ html, body { background: #FAF6F0 !important; }
           <th>Mill.</th>
           <th>Ét.</th>
           <th class="num">Qté</th>
-          <th class="num">Val. marché</th>
-          <th class="num">Val. rempl.</th>
+          <th class="num">Val.<br>marché</th>
+          <th class="num">Val.<br>rempl.</th>
           <th>Src</th>
-          <th class="num">Total marché</th>
-          <th class="num">Total rempl.</th>
-          <th>Orientation</th>
+          <th class="num">Total<br>marché</th>
+          <th class="num">Total<br>rempl.</th>
+          <th>Orient.</th>
         </tr>
       </thead>
       <tbody>
