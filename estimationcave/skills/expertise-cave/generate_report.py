@@ -38,6 +38,7 @@ TEMPLATES_DIR = HERE / "templates"
 TEMPLATE_NAME = "rapport.html"
 DEFAULT_OUTPUT_DIR = pathlib.Path("/mnt/user-data/outputs")
 CURRENT_YEAR = datetime.now().year
+DEFAULT_TEMPLATE = "rapport.html"
 
 MOIS_FR = {
     1: "janvier", 2: "février", 3: "mars", 4: "avril", 5: "mai", 6: "juin",
@@ -801,6 +802,8 @@ def build_inventaire_rows(inv: list[dict]) -> list[dict]:
             "etat": b["etat"] or "Bon",
             "etat_class": etat_class(b["etat"] or "Bon"),
             "qte": b["qte"],
+            "unit_val": b["val_unit"],
+            "total_val": b["qte"] * b["val_unit"],
             "unit_fmt": fmt_int(b["val_unit"]),
             "total_fmt": fmt_int(b["qte"] * b["val_unit"]),
             "orientation": b["reco"],
@@ -936,9 +939,13 @@ def dropcap(html: str) -> Markup:
     return Markup(f'{prefix}<span class="dropcap">{letter}</span>{html[len(prefix) + 1:]}')
 
 
-def make_env() -> Environment:
+def make_env(extra_dirs: list[pathlib.Path] | None = None) -> Environment:
+    search_paths = [str(TEMPLATES_DIR)]
+    if extra_dirs:
+        # On préfixe avec les dossiers explicites (priorité), puis fallback templates/
+        search_paths = [str(d) for d in extra_dirs] + search_paths
     env = Environment(
-        loader=FileSystemLoader(str(TEMPLATES_DIR)),
+        loader=FileSystemLoader(search_paths),
         autoescape=select_autoescape(["html"]),
     )
     env.filters["dropcap"] = dropcap
@@ -1043,13 +1050,14 @@ def default_accompagnement() -> dict:
     }
 
 
-async def render_pdf(context: dict, output_path: pathlib.Path) -> None:
+async def render_pdf(context: dict, output_path: pathlib.Path, template_name: str = DEFAULT_TEMPLATE,
+                     extra_template_dirs: list[pathlib.Path] | None = None) -> None:
     """Rendu mono-passe : la pagination "X / Y" vient désormais de
     @page @bottom-right { content: counter(page) " / " counter(pages) }
     — le CSS Paged Media de Chromium compte automatiquement les A4
     physiques, sans qu'on ait besoin d'un pré-rendu."""
-    env = make_env()
-    html = env.get_template(TEMPLATE_NAME).render(**context)
+    env = make_env(extra_template_dirs)
+    html = env.get_template(template_name).render(**context)
     scratch = TEMPLATES_DIR / "_rendered.html"
     scratch.write_text(html)
     try:
@@ -1089,31 +1097,77 @@ def build_output_path(nom: str, ref: str, output_dir: pathlib.Path) -> pathlib.P
 # ═════════════════════════════════════════════════════════════════
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("inventaire", type=pathlib.Path, help="Excel inventaire (feuille 'Inventaire').")
-    parser.add_argument("client_json", type=pathlib.Path, help="JSON des analyses expert.")
-    parser.add_argument("output_dir", type=pathlib.Path, nargs="?", default=DEFAULT_OUTPUT_DIR)
+    parser.add_argument("inventaire", type=pathlib.Path, nargs="?",
+                        help="Excel inventaire (feuille 'Inventaire'). Peut aussi être passé via --inventaire.")
+    parser.add_argument("client_json", type=pathlib.Path, nargs="?",
+                        help="JSON des analyses expert. Peut aussi être passé via --client.")
+    parser.add_argument("output_dir", type=pathlib.Path, nargs="?", default=None)
+    parser.add_argument("--inventaire", dest="inventaire_flag", type=pathlib.Path, default=None)
+    parser.add_argument("--client", dest="client_flag", type=pathlib.Path, default=None)
+    parser.add_argument("--output", dest="output_flag", type=pathlib.Path, default=None,
+                        help="Chemin du PDF de sortie (fichier ou dossier). Si fichier, on conserve ce nom exact.")
+    parser.add_argument("--template", dest="template", default=DEFAULT_TEMPLATE,
+                        help="Nom ou chemin du template Jinja2 (défaut : rapport.html)")
     args = parser.parse_args()
 
+    inventaire_path = args.inventaire_flag or args.inventaire
+    client_path = args.client_flag or args.client_json
+    if not inventaire_path or not client_path:
+        parser.error("inventaire et client_json sont requis (positionnels ou via --inventaire / --client).")
+
+    # Résolution du template : si on passe un chemin contenant '/' ou '\', on
+    # détache le dossier parent et on l'ajoute au search path du loader. Sinon,
+    # on cherche dans templates/ par défaut.
+    template_arg = args.template
+    template_path = pathlib.Path(template_arg)
+    template_name = template_path.name
+    extra_template_dirs: list[pathlib.Path] = []
+    if str(template_path) != template_name:  # chemin explicite fourni
+        if template_path.is_absolute():
+            extra_template_dirs.append(template_path.parent.resolve())
+        else:
+            # Résolution relative au CWD puis au repo (parent du skill)
+            candidates = [
+                pathlib.Path.cwd() / template_path,
+                HERE.parent.parent / template_path,
+            ]
+            resolved = next((c for c in candidates if c.exists()), None)
+            if resolved:
+                extra_template_dirs.append(resolved.parent.resolve())
+            else:
+                extra_template_dirs.append((pathlib.Path.cwd() / template_path).parent.resolve())
+
     print("→ Lecture de l'inventaire Excel")
-    inv = lire_inventaire_excel(args.inventaire)
+    inv = lire_inventaire_excel(inventaire_path)
     for b in inv:
         b["format"] = normaliser_format(b["format"])
         if not b["apogee"]:
             b["apogee"] = estimate_apogee(b)
 
     print("→ Lecture des analyses expert")
-    client_json = json.loads(args.client_json.read_text())
+    client_json = json.loads(client_path.read_text())
 
     print("→ Calcul des agrégats")
     context = build_render_context(inv, client_json)
     ref = context["client"]["ref_dossier"]
     nom = context["client"]["nom"]
 
-    args.output_dir.mkdir(parents=True, exist_ok=True)
-    out = build_output_path(nom, ref, args.output_dir)
+    # Détermination du chemin de sortie
+    if args.output_flag is not None:
+        out_arg = args.output_flag
+        if out_arg.suffix.lower() == ".pdf":
+            out_arg.parent.mkdir(parents=True, exist_ok=True)
+            out = out_arg
+        else:
+            out_arg.mkdir(parents=True, exist_ok=True)
+            out = build_output_path(nom, ref, out_arg)
+    else:
+        output_dir = args.output_dir or DEFAULT_OUTPUT_DIR
+        output_dir.mkdir(parents=True, exist_ok=True)
+        out = build_output_path(nom, ref, output_dir)
 
-    print(f"→ Rendu PDF ({nom}, {ref})")
-    asyncio.run(render_pdf(context, out))
+    print(f"→ Rendu PDF ({nom}, {ref}) — template : {template_name}")
+    asyncio.run(render_pdf(context, out, template_name=template_name, extra_template_dirs=extra_template_dirs))
     print("→ Terminé.")
     return 0
 
