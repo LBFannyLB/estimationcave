@@ -2600,7 +2600,7 @@ html, body { background: #FAF6F0 !important; }
 .inv-assureur td { padding: 2px 3px; font-size: 7.5px; line-height: 1.2; overflow: hidden; }
 .inv-assureur .domaine-cell { font-size: 8.5px; }
 .inv-assureur .appellation-cell { font-size: 7.5px; }
-.inv-assureur .pill { padding: 0.5px 4px; font-size: 6.5px; letter-spacing: 0.03em; }
+.inv-assureur .pill { padding: 0.5px 3px; font-size: 6.5px; letter-spacing: 0.02em; white-space: nowrap; }
 .inv-assureur .src-cell {
   text-align: center;
   font-family: var(--font-body);
@@ -2612,6 +2612,23 @@ html, body { background: #FAF6F0 !important; }
 .inv-assureur .total-repl {
   color: var(--bordeaux);
   font-weight: 500;
+}
+.inv-assureur .etat-cell {
+  font-size: 7px;
+  color: var(--texte-light);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+/* Séparation visuelle entre les deux blocs : patrimonial (Val. marché /
+   Total marché / Recom.) et assurance (Val. rempl. / Total rempl. / Src).
+   Une fine bordure gauche dorée marque le début de chaque bloc. */
+.inv-assureur th.col-block-patrimonial,
+.inv-assureur td.col-block-patrimonial {
+  border-left: 1.5px solid rgba(197, 162, 88, 0.35);
+}
+.inv-assureur th.col-block-assurance,
+.inv-assureur td.col-block-assurance {
+  border-left: 1.5px solid rgba(45, 27, 46, 0.25);
 }
 .inv-total-assureur { gap: 22px; flex-wrap: wrap; justify-content: flex-end; }
 .inv-total-assureur .inv-total-val { font-size: 13px; }
@@ -2919,7 +2936,7 @@ html, body { background: #FAF6F0 !important; }
         <span class="signature">contact@estimationcave.com</span>
       </div>
       <div class="cover-exemple-mention">
-        EXEMPLE — Document anonymisé à des fins de démonstration. Données issues d'un audit réel, avec accord du client.
+        EXEMPLE — Document anonymisé à des fins de démonstration.
       </div>
     </div>
   </section>
@@ -3014,9 +3031,9 @@ html, body { background: #FAF6F0 !important; }
           Fourchette indicative de marché à date<br>
           <strong style="color: var(--or); font-weight: 500; font-size: 18.5px;">1&nbsp;600 €  —  2&nbsp;080 €</strong>
         </div>
-        <div class="hv-range" style="font-size: 13.5px; margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.18);">
-          Valeur de remplacement <em style="font-style: italic; opacity: 0.7;">(assiette assurantielle)</em><br>
-          <strong style="color: var(--fond); font-weight: 600; font-size: 22px;">2&nbsp;229 €</strong>
+        <div class="hv-range hv-replacement" style="font-size: 13.5px; margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.18);">
+          Valeur de remplacement <em style="font-style: italic; opacity: 0.7;">(assiette assurantielle)</em>
+          <div class="hv-value" style="text-align: left; font-size: 36px; margin-top: 4px;">2&nbsp;229<sup style="text-align: left;">€</sup></div>
         </div>
       </div>
       <div class="hv-stats">
@@ -3088,9 +3105,11 @@ html, body { background: #FAF6F0 !important; }
     <div class="sect-eyebrow">— 3. Inventaire détaillé —</div>
     <h2 class="sect-title">Lecture <em>technique</em> de la cave</h2>
 
+    {# Abréviations état pour la colonne étroite "Ét." #}
+    {% set ETAT_ABBR = {'Excellent': 'Exc.', 'Très bon': 'TB', 'Bon': 'Bon', 'Moyen': 'Moy.', 'Abîmé': 'Abî.', 'À vérifier': 'AV'} %}
     <table class="inv inv-assureur">
       <colgroup>
-        <col style="width:18px"><col style="width:86px"><col><col style="width:46px"><col style="width:26px"><col style="width:30px"><col style="width:16px"><col style="width:18px"><col style="width:38px"><col style="width:38px"><col style="width:22px"><col style="width:40px"><col style="width:40px"><col style="width:54px">
+        <col style="width:16px"><col style="width:78px"><col><col style="width:42px"><col style="width:22px"><col style="width:28px"><col style="width:22px"><col style="width:16px"><col style="width:36px"><col style="width:36px"><col style="width:68px"><col style="width:36px"><col style="width:36px"><col style="width:22px">
       </colgroup>
       <thead>
         <tr>
@@ -3102,16 +3121,16 @@ html, body { background: #FAF6F0 !important; }
           <th>Mill.</th>
           <th>Ét.</th>
           <th class="num">Qté</th>
-          <th class="num">Val.<br>marché</th>
-          <th class="num">Val.<br>rempl.</th>
-          <th>Src</th>
+          <th class="num col-block-patrimonial">Val.<br>marché</th>
           <th class="num">Total<br>marché</th>
+          <th>Recom.</th>
+          <th class="num col-block-assurance">Val.<br>rempl.</th>
           <th class="num">Total<br>rempl.</th>
-          <th>Orient.</th>
+          <th>Src</th>
         </tr>
       </thead>
       <tbody>
-{% for vin in inventaire %}        {% set src_idx = loop.index0 % 3 %}{% set src = ['WS', 'MIL', 'VIN'][src_idx] %}{% set repl_unit = (vin.unit_val * 1.18) | round | int %}{% set repl_total = repl_unit * vin.qte %}<tr><td class="idx">{{ "%02d" | format(loop.index) }}</td><td class="domaine-cell">{{ vin.domaine }}</td><td class="appellation-cell">{{ vin.appellation }}{% if vin.cuvee %} · <em>{{ vin.cuvee }}</em>{% endif %}</td><td>{{ vin.region }}</td><td>{{ vin.couleur }}</td><td>{{ vin.millesime }}</td><td><span class="etat-dot {{ vin.etat_class }}"></span></td><td class="num">{{ vin.qte }}</td><td class="num">{{ vin.unit_fmt }} €</td><td class="num">{{ repl_unit }} €</td><td class="src-cell">{{ src }}</td><td class="num total-val">{{ vin.total_fmt }} €</td><td class="num total-repl">{{ repl_total }} €</td><td><span class="pill {{ vin.orientation_class }}">{{ vin.orientation }}</span></td></tr>
+{% for vin in inventaire %}        {% set src_idx = loop.index0 % 3 %}{% set src = ['WS', 'MIL', 'VIN'][src_idx] %}{% set repl_unit = (vin.unit_val * 1.18) | round | int %}{% set repl_total = repl_unit * vin.qte %}<tr><td class="idx">{{ "%02d" | format(loop.index) }}</td><td class="domaine-cell">{{ vin.domaine }}</td><td class="appellation-cell">{{ vin.appellation }}{% if vin.cuvee %} · <em>{{ vin.cuvee }}</em>{% endif %}</td><td>{{ vin.region }}</td><td>{{ vin.couleur }}</td><td>{{ vin.millesime }}</td><td class="etat-cell">{{ ETAT_ABBR.get(vin.etat, vin.etat) }}</td><td class="num">{{ vin.qte }}</td><td class="num col-block-patrimonial">{{ vin.unit_fmt }} €</td><td class="num total-val">{{ vin.total_fmt }} €</td><td><span class="pill {{ vin.orientation_class }}">{{ vin.orientation }}</span></td><td class="num col-block-assurance">{{ repl_unit }} €</td><td class="num total-repl">{{ repl_total }} €</td><td class="src-cell">{{ src }}</td></tr>
 {% endfor %}      </tbody>
     </table>
 
