@@ -2302,6 +2302,13 @@ p {
     margin-top: 6mm;
   }
 }
+/* Page inventaire (p4) : marges latérales réduites pour donner plus de
+   place aux 14 colonnes. Les autres margin-boxes (footer, pagination)
+   restent identiques car ils héritent. */
+@page inventaire {
+  margin: 10mm 8mm 18mm;
+}
+
 @page :first {
   margin: 0;
   background: #FAF6F0;
@@ -2632,6 +2639,11 @@ html, body { background: #FAF6F0 !important; }
 }
 .inv-total-assureur { gap: 22px; flex-wrap: wrap; justify-content: flex-end; }
 .inv-total-assureur .inv-total-val { font-size: 13px; }
+
+/* Liaison de la section inventaire à la @page nommée "inventaire"
+   (marges latérales 8mm au lieu de 16mm pour gagner ~30mm de largeur
+   utile pour les 14 colonnes). */
+.page-inventaire { page: inventaire; }
 .inv .idx { color: var(--texte-light); font-family: var(--font-body); }
 .inv .domaine-cell {
   font-weight: 500;
@@ -3100,7 +3112,7 @@ html, body { background: #FAF6F0 !important; }
   </section>
 
   <!-- ════════════ PAGE 3 — INVENTAIRE ════════════ -->
-  <section class="page" id="p4">
+  <section class="page page-inventaire" id="p4">
     <div class="watermark">EXEMPLE — DOCUMENT ANONYMISÉ</div>
     <div class="sect-eyebrow">— 3. Inventaire détaillé —</div>
     <h2 class="sect-title">Lecture <em>technique</em> de la cave</h2>
@@ -3109,7 +3121,7 @@ html, body { background: #FAF6F0 !important; }
     {% set ETAT_ABBR = {'Excellent': 'Exc.', 'Très bon': 'TB', 'Bon': 'Bon', 'Moyen': 'Moy.', 'Abîmé': 'Abî.', 'À vérifier': 'AV'} %}
     <table class="inv inv-assureur">
       <colgroup>
-        <col style="width:14px"><col style="width:76px"><col style="width:100px"><col style="width:42px"><col style="width:22px"><col style="width:28px"><col style="width:22px"><col style="width:14px"><col style="width:42px"><col style="width:42px"><col style="width:66px"><col style="width:42px"><col style="width:42px"><col style="width:22px">
+        <col style="width:16px"><col style="width:90px"><col style="width:130px"><col style="width:48px"><col style="width:26px"><col style="width:32px"><col style="width:24px"><col style="width:16px"><col style="width:48px"><col style="width:48px"><col style="width:72px"><col style="width:48px"><col style="width:48px"><col style="width:26px">
       </colgroup>
       <thead>
         <tr>
