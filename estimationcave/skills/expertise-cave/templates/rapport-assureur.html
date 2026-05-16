@@ -2338,6 +2338,11 @@ html, body { background: #FAF6F0 !important; }
   padding: 0;
   background: #FAF6F0;
   position: relative;
+  /* overflow: hidden empêche les filigranes (position:absolute,
+     white-space:nowrap, font 46px rotation -30°) de déborder la page
+     et de faire scaler tout le PDF par Chromium, ce qui réduisait
+     visuellement la cover à ~90 % de sa hauteur réelle. */
+  overflow: hidden;
 }
 /* Le cadre décoratif .page::before crée une hairline visible juste au-dessus
    du footer @page sur les pages qui ne débordent pas (mission, synthèse,
