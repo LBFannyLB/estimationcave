@@ -367,37 +367,47 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
 
             <!-- VISUEL SVG 2 : Schéma de calcul du net perçu -->
             <div class="visual-block">
-                <p class="visual-title">Du prix marteau au montant net perçu — exemple sur 1 000 €</p>
-                <svg viewBox="0 0 660 360" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
-                    <rect width="660" height="360" rx="8" fill="#FAF6F0"/>
+                <p class="visual-title">Du prix payé par l'acheteur au montant net perçu — exemple sur 1 000 € adjugés (iDealwine)</p>
+                <svg viewBox="0 0 660 450" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+                    <rect width="660" height="450" rx="8" fill="#FAF6F0"/>
                     <rect x="0" y="0" width="660" height="3" rx="1.5" fill="#C5A258"/>
+                    <!-- Step 0 : Prix payé par l'acheteur -->
+                    <rect x="120" y="30" width="420" height="50" rx="6" fill="#2D1B2E" opacity="0.85"/>
+                    <text x="330" y="52" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#C5A258">Prix payé par l'acheteur</text>
+                    <text x="330" y="71" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF">1 258 €</text>
+                    <!-- Arrow + side annotation -->
+                    <line x1="330" y1="85" x2="330" y2="108" stroke="#C5A258" stroke-width="2"/>
+                    <polygon points="325,106 335,106 330,116" fill="#C5A258"/>
+                    <rect x="385" y="84" width="255" height="36" rx="4" fill="rgba(45,27,46,0.05)"/>
+                    <text x="512" y="98" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" font-weight="600" fill="#2D1B2E">– 258 € frais acheteur (25,8 % TTC)</text>
+                    <text x="512" y="112" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#6B5F65">vers la maison de vente, hors votre part</text>
                     <!-- Step 1 : Adjudication -->
-                    <rect x="120" y="30" width="420" height="50" rx="6" fill="#2D1B2E"/>
-                    <text x="330" y="52" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#C5A258">Prix d'adjudication (prix marteau)</text>
-                    <text x="330" y="71" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF">1 000 €</text>
+                    <rect x="120" y="120" width="420" height="50" rx="6" fill="#2D1B2E"/>
+                    <text x="330" y="142" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#C5A258">Prix d'adjudication (prix marteau)</text>
+                    <text x="330" y="161" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF">1 000 €</text>
                     <!-- Arrow -->
-                    <line x1="330" y1="85" x2="330" y2="105" stroke="#C5A258" stroke-width="2"/>
-                    <polygon points="325,103 335,103 330,113" fill="#C5A258"/>
+                    <line x1="330" y1="175" x2="330" y2="195" stroke="#C5A258" stroke-width="2"/>
+                    <polygon points="325,193 335,193 330,203" fill="#C5A258"/>
                     <!-- Step 2 : Commission vendeur -->
-                    <rect x="120" y="118" width="420" height="48" rx="6" fill="#FFFFFF" stroke="#C5A258" stroke-width="1.5"/>
-                    <text x="140" y="139" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#2D1B2E">– Commission vendeur (15,6 % TTC)</text>
-                    <text x="140" y="156" font-family="DM Sans, sans-serif" font-size="9" fill="#6B5F65">Plateforme spécialisée type iDealwine</text>
-                    <text x="520" y="148" text-anchor="end" font-family="DM Sans, sans-serif" font-size="13" font-weight="600" fill="#C5A258">– 156 €</text>
+                    <rect x="120" y="208" width="420" height="48" rx="6" fill="#FFFFFF" stroke="#C5A258" stroke-width="1.5"/>
+                    <text x="140" y="229" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#2D1B2E">– Commission vendeur (15,6 % TTC)</text>
+                    <text x="140" y="246" font-family="DM Sans, sans-serif" font-size="9" fill="#6B5F65">Plateforme spécialisée type iDealwine</text>
+                    <text x="520" y="238" text-anchor="end" font-family="DM Sans, sans-serif" font-size="13" font-weight="600" fill="#C5A258">– 156 €</text>
                     <!-- Arrow -->
-                    <line x1="330" y1="171" x2="330" y2="191" stroke="#C5A258" stroke-width="2"/>
-                    <polygon points="325,189 335,189 330,199" fill="#C5A258"/>
+                    <line x1="330" y1="261" x2="330" y2="281" stroke="#C5A258" stroke-width="2"/>
+                    <polygon points="325,279 335,279 330,289" fill="#C5A258"/>
                     <!-- Step 3 : Frais annexes -->
-                    <rect x="120" y="204" width="420" height="48" rx="6" fill="#FFFFFF" stroke="#C5A258" stroke-width="1.5"/>
-                    <text x="140" y="225" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#2D1B2E">– Transport &amp; frais annexes</text>
-                    <text x="140" y="242" font-family="DM Sans, sans-serif" font-size="9" fill="#6B5F65">Cave de taille moyenne</text>
-                    <text x="520" y="234" text-anchor="end" font-family="DM Sans, sans-serif" font-size="13" font-weight="600" fill="#C5A258">– 20 €</text>
+                    <rect x="120" y="294" width="420" height="48" rx="6" fill="#FFFFFF" stroke="#C5A258" stroke-width="1.5"/>
+                    <text x="140" y="315" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#2D1B2E">– Transport &amp; frais annexes</text>
+                    <text x="140" y="332" font-family="DM Sans, sans-serif" font-size="9" fill="#6B5F65">Cave de taille moyenne</text>
+                    <text x="520" y="324" text-anchor="end" font-family="DM Sans, sans-serif" font-size="13" font-weight="600" fill="#C5A258">– 20 €</text>
                     <!-- Arrow -->
-                    <line x1="330" y1="257" x2="330" y2="277" stroke="#C5A258" stroke-width="2"/>
-                    <polygon points="325,275 335,275 330,285" fill="#C5A258"/>
+                    <line x1="330" y1="347" x2="330" y2="367" stroke="#C5A258" stroke-width="2"/>
+                    <polygon points="325,365 335,365 330,375" fill="#C5A258"/>
                     <!-- Step 4 : Net perçu -->
-                    <rect x="120" y="290" width="420" height="56" rx="6" fill="#C5A258"/>
-                    <text x="330" y="313" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#2D1B2E">Montant net perçu par le vendeur</text>
-                    <text x="330" y="335" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="16" font-weight="700" fill="#2D1B2E">824 € (82,4 %)</text>
+                    <rect x="120" y="380" width="420" height="56" rx="6" fill="#C5A258"/>
+                    <text x="330" y="403" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#2D1B2E">Montant net perçu par le vendeur</text>
+                    <text x="330" y="425" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="16" font-weight="700" fill="#2D1B2E">824 € (82,4 % du marteau)</text>
                 </svg>
             </div>
 
