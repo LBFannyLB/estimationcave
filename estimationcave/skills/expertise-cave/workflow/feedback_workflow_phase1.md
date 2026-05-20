@@ -39,8 +39,7 @@ Pour la Phase 1 d'expertise-cave, **toujours chercher la cote iDealwine pour CHA
    - **Trim détails techniques d'orientation/exposition/altitude** sauf s'ils éclairent directement la décision commerciale (par ex. l'altitude d'un Hautes-Côtes peut justifier la fraîcheur, mais "exposition sud-est en haut du coteau" est un détail descriptif qui n'aide pas à décider).
 
 4. **Canal de vente** :
-   - **JAMAIS mentionner "iDealwine"** dans le canal de vente — règle skill (aucune mention dans le rapport final)
-   - Pour les ventes en enchère type iDealwine : écrire **"Enchères en ligne"**
+   - Pour les ventes en enchère type iDealwine : écrire **"Enchères en ligne"** ou **"Enchères iDealwine"** (les deux sont acceptés depuis 05/2026)
    - Autres canaux : "Vente directe", "Caviste local", "Pro / négoce", "Vente de gré à gré"
 
 8. **Distinction code 2 / code 18 (NOUVEAU code créé 07/05/2026)** :
@@ -106,8 +105,8 @@ Pour la Phase 1 d'expertise-cave, **toujours chercher la cote iDealwine pour CHA
     
     **Val_unit Yquem N° = ~80€** (la rareté de distribution n'est pas assortie d'une prime spéculative énorme sur le marché secondaire — le prix retail château reste autour de 60€).
 
-14. **Trim "iDealwine" dans les notes marché** :
-    Quand on parle de cote/adjudications, écrire "cote affichée" sans préciser "iDealwine" — règle skill (aucune mention iDealwine dans le rapport final).
+14. **Mention "iDealwine" dans les notes marché — autorisée depuis 05/2026** :
+    iDealwine peut être cité quand c'est utile à l'analyse (référence d'adjudication précise, dynamique de cote chiffrée). Pour les mentions génériques, "cote affichée" ou "cote secondaire" reste préférable pour ne pas alourdir le texte.
 
 16. **Éviter les anglicismes dans les notes marché** :
     - "grower champagne" → "champagne de vigneron" ou "récoltant-manipulant"
@@ -150,6 +149,50 @@ Pour la Phase 1 d'expertise-cave, **toujours chercher la cote iDealwine pour CHA
 6. **Effet "millésime anniversaire"** (règle skill, à utiliser comme horizon de vente)
    En 2026, anniversaires = 1986 (40), 1996 (30), 2006 (20), 2016 (10).
    Pour anticiper : un vin 2009 deviendra "millésime anniversaire 20 ans" en 2029 → fenêtre de liquidité favorable cette année-là, ce qui donne un horizon d'arbitrage naturel pour les vins en cote progression / fin d'apogée.
+
+23. **Typologie des blancs dans la colonne Couleur (validé 05/2026)** :
+    Le chart « Répartition par couleur » du rapport agrège les lignes par la valeur exacte de la colonne `Couleur` dans l'Excel. Pour que la lecture soit pédagogiquement juste, **distinguer 4 catégories de blancs** au lieu d'un fourre-tout « Blanc » :
+
+    | Catégorie Excel | Cas couverts | Couleur graphique |
+    |---|---|---|
+    | **Blanc** | Blancs secs classiques (Chardonnay, Riesling, Sauvignon, Chenin sec, Savagnin ouillé Arbois/Côtes du Jura non sous-voile, etc.) | Or champagne `#C5A258` (legend : "Blanc sec") |
+    | **Jaune** | Toutes appellations Vin Jaune + Château-Chalon (Arbois Vin Jaune, Côtes du Jura Vin Jaune, L'Étoile Vin Jaune, Château-Chalon) — saisir « Jaune » dans la colonne Couleur de l'Excel | Ambre oxydatif `#A67C2F` |
+    | **Liquoreux** | Sauternes, Barsac, Vin de Constance, Tokaji Aszú, Coteaux du Layon SGN/grains nobles, Vouvray moelleux/SGN, Vendanges Tardives Alsace SGN, Jurançon moelleux | Or sombre `#8a6a2d` |
+    | **Effervescent** | Champagne, Crémants, Pétillants naturels | Or translucide |
+
+    **Cas limites / arbitrages** :
+    - **Savagnin ouillé** (Cuvée du Professeur Rousset-Martin, certains Tissot Arbois ouillés, Cuvée Sacha Puffeney) → **Blanc sec** (vinification classique, pas sous voile)
+    - **Sauternes / Barsac « secs »** type Y de Yquem, R de Rieussec → **Blanc sec** (sans sucre résiduel)
+    - **Vouvray demi-sec/sec** → **Blanc sec** (différencier des moelleux/SGN)
+    - **Cidres, vermouths, vins doux naturels (Banyuls, Maury, Rivesaltes)** → catégorie à créer si volume significatif, sinon noter dans Liquoreux avec mention dans note marché
+
+    **Why** : Un Vin Jaune sous voile et un Vin de Constance n'ont rien à voir avec un Chardonnay Bourgogne sec. Les regrouper sous « Blanc sec » est œnologiquement faux et masque la signature spécifique d'une cave (cas type : cave à fort poids Jura, ou cave avec sélection liquoreuse). La catégorie « Vin Jaune » a été ajoutée à `COULEUR_COLORS` dans `generate_report.py` le 05/2026.
+
+    **How to apply** :
+    - Au moment du remplissage de l'Excel (Phase 1 ou correction Phase 3), vérifier que les lignes Vin Jaune / Château-Chalon ont bien `Couleur = "Jaune"` (libellé court validé 05/2026, à la fois pour l'inventaire détaillé et la légende du chart)
+    - Vérifier que les Sauternes / Vin de Constance / SGN ont `Couleur = "Liquoreux"`
+    - Le script gère le reste automatiquement (légende auto-filtrée selon les catégories présentes)
+
+22. **Notes "pédagogiques" — expliciter les paradoxes de marché (validé 05/2026)** :
+    Quand un vin présente une situation **contre-intuitive** que le client lettré pourrait remettre en question (ex. millésime commercialement plus faible avec cote secondaire plus élevée, vin déjà en apogée à cote stable, repli de cote sur signature culte, etc.), **inclure une phrase d'explication pédagogique** dans la note marché. Cela évite que le client perçoive l'estimation comme incohérente et démontre l'analyse experte du marché.
+
+    **Pattern type** : poser le paradoxe → l'expliquer par un mécanisme de marché identifié → le qualifier comme typique d'une catégorie d'effet.
+
+    - ✅ Exemple Perrières Comtes Lafon 2021 (cote 650 € supérieure aux 2022/2023 pourtant mieux notés par la critique) : *"Le millésime 2021 a été marqué par un gel printanier sévère en Bourgogne, entraînant des rendements historiquement bas — la rareté structurelle qui en découle maintient la cote secondaire à un niveau élevé (650 € actuellement, supérieur aux 2022 et 2023 pourtant mieux notés), exemple typique d'un effet « rareté » qui prime sur la qualité absolue du millésime."*
+
+    - ✅ Exemple Les Chaumes Méo-Camuzet 2015 (cote stable d'un climat moins prestigieux que ses voisins) : *"Ce profil de climat sous-estimé, voisin direct des Grands Crus de Vosne, laisse entrevoir une dynamique de revalorisation possible à moyen terme."*
+
+    **Effets de marché à nommer explicitement quand pertinent** :
+    - **Effet "rareté" (millésime gel/grêle)** : rendements bas → cote secondaire élevée malgré accueil critique mitigé (cf. Bourgogne 2021)
+    - **Effet "underdog" / climat sous-estimé** : revalorisation potentielle d'un climat moins coté que ses voisins Grands Crus
+    - **Effet "millésime anniversaire"** : pic de liquidité à 10/20/30 ans
+    - **Effet "rareté structurelle"** : production très limitée (microcuvées, parcellaires) → cote soutenue indépendamment du cycle marché
+    - **Effet "signature culte"** : prime de domaine qui prime sur la qualité absolue d'un millésime donné
+
+    **Garde-fous** :
+    - Une seule explication pédagogique par note (pas d'empilement) — utiliser quand le paradoxe est réel et perceptible, pas systématiquement
+    - Ne pas la confondre avec une justification de code (qui est obligatoire et différente)
+    - Si le paradoxe relève d'une donnée non vérifiable (ex. impact gel sur un domaine précis sans source), basculer en formulation prudente ("possible effet rareté" plutôt qu'affirmer)
 
 4. **Patterns repérés sur ses corrections de notes marché** :
    - Pas d'écart cote/retail mentionné explicitement (réservé au texte interne, pas au rapport final)

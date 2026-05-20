@@ -38,7 +38,7 @@ Recommandation : [À conserver / À vendre / À surveiller] — [justification]
 [Si À vendre] Canal de vente privilégié : [Enchère iDealwine / Vente directe / Pro / etc.]
 [Si À surveiller] Date de réexamen : [année]
 Code justification : [n°] — [libellé du code, voir grille_analyse_vin.md]
-Note marché : [paragraphe rédigé — contexte appellation, climat, producteur, raisons de la cote, signal marché, recommandation argumentée. ⚠️ ne JAMAIS mentionner iDealwine ni Fanny dans le texte rendu (règle skill). Le rapport final reprend ce texte tel quel.]
+Note marché : [paragraphe rédigé — contexte appellation, climat, producteur, raisons de la cote, signal marché, recommandation argumentée. ⚠️ ne JAMAIS mentionner Fanny dans le texte rendu (règle skill). iDealwine peut être cité quand c'est utile à l'analyse (référence d'adjudication, dynamique de cote précise). Le rapport final reprend ce texte tel quel.]
 ```
 
 ## Règles

@@ -107,7 +107,7 @@ Pour garder les économies de tokens obtenues :
 □ Phase 2 terminée (Reco + Justification + Note_marche remplies)
 □ rapport_data.py créé et rempli (6 variables validées)
 □ PDF généré et vérifié visuellement
-□ Aucune mention "iDealwine" / "Fanny" dans le corps du PDF
+□ Aucune mention "Fanny" dans le corps du PDF (iDealwine autorisé)
 □ PDF envoyé au client
 □ Commit Git du dossier mission
 ```

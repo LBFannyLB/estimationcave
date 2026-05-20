@@ -171,5 +171,57 @@ Les années anniversaires génèrent une prime de liquidité aux enchères.
 
 ---
 
-*Grille mise à jour le 08/05/2026 — 19 codes officiels*
+## 12. AJOUTS POST-MARTIN-GABLA (20/05/2026)
+
+Cave de référence : EST-2026-05-MGA — 196 réf / 493 btl. Archétype « collectionneur d'auteur » : Bourgogne d'artisans + Rhône Nord nature + Jura de voile + Italie de garde, zéro Bordeaux/Champagne, profil très blanc, 90 %+ destiné à la conservation.
+
+### 12.1 Rareté structurelle vs qualité du millésime (§ 6 — grands millésimes)
+
+Un millésime classé « plus fragile » qualitativement peut coter AU-DESSUS d'un millésime supérieur s'il est structurellement rare. Cas type : **Bourgogne 2021** (gel printanier sévère, rendements historiquement bas) — la rareté soutient la cote au-dessus des 2022/2023 pourtant mieux notés.
+
+- **Nuance grille millésimes** : 2021 Bourgogne reste « fragile en qualité » MAIS « rare et soutenu en cote ». Ne pas dévaloriser mécaniquement sur la seule note de millésime.
+- **Règle de rédaction (transverse)** : dès qu'une valeur unitaire contredit la hiérarchie qualité au sein d'une verticale, la fiche DOIT porter une phrase d'explication (gel / rendement / rareté). Sans elle, le client lit une erreur.
+- **Exemple** : Comtes Lafon Meursault 1er Cru Perrières 2021 (520 €) > 2022/2023 (500 €) → la note 2021 explique le paradoxe rareté/qualité.
+
+### 12.2 Asymétrie d'orientation justifiée (§ 4 — matrice)
+
+Deux cuvées d'un même domaine et millésime, au profil de cote voisin, peuvent recevoir des orientations différentes — **à condition que la fiche porte explicitement la raison de l'écart**.
+
+- **Règle** : orientation divergente sur profil voisin ⇒ justification différenciante obligatoire dans la note marché.
+- **Exemple** : Méo-Camuzet 2015 — Les Chaumes → À conserver (climat sous-coté, revalorisation possible) vs Aux Boudots → À surveiller (cote au plafond, risque de repli).
+
+### 12.3 Classification régionale du Vin de France d'auteur
+
+Un Vin de France produit par un vigneron rattaché à une région mais à partir de raisin d'une **AUTRE région** se classe selon l'origine du raisin, **pas le domicile du vigneron**.
+
+- **Exemple** : Théo Dancer (fils de Vincent Dancer, Bourgogne) :
+  - *Aragon* = Grenache du Vaucluse → **Rhône**
+  - *Botanica* = Gamay de Chiroubles → **Beaujolais**
+- **Vigilance** : « Rhône » sur une telle ligne ≠ « Rhône Nord premium ». Ne pas l'agréger au narratif Rhône Nord de la cave dans le Contexte marché.
+
+### 12.4 Routage des cuvées non millésimées (NM) de garde longue (§ 13/16 — codes NM + garde)
+
+Une cuvée sans millésime (NM) de garde longue — vin jaune, savagnin de voile, champagne NM, solera — se classe selon **sa nature de garde, jamais en « À boire » par défaut**.
+
+- **Exemple** : Puffeney « Cuvée Sacha » (NM, assemblage multi-millésimes, garde 10-30 ans) → Garde longue.
+- **Implication technique** : la fonction `apogee_bucket()` du script gère désormais les étiquettes textuelles d'apogée (« Très longue garde », « Apogée dépassée », « Proche apogée ») — voir fix 05/2026 dans `generate_report.py`.
+
+### 12.5 Convention inventaire — Couleur en 4 catégories
+
+La colonne **Couleur** distingue désormais :
+- **Rouge**
+- **Blanc sec**
+- **Jaune** (vins de voile : Vin Jaune, Château-Chalon, Savagnin sous voile)
+- **Liquoreux** (Sauternes, Vin de Constance, SGN, moelleux grand cru)
+
+À renseigner dès la mise en forme de l'inventaire pour toute cave contenant du Jura ou des liquoreux. **Marqueur d'expertise** — un estimateur générique met tout en « blanc ».
+
+Cas limites documentés dans `workflow/feedback_workflow_phase1.md` § 23 :
+- Savagnin ouillé (non sous voile) → Blanc sec
+- Y/R de Yquem/Rieussec (secs sans sucre résiduel) → Blanc sec
+- Vouvray demi-sec/sec → Blanc sec (à différencier des moelleux/SGN)
+
+---
+
+*Grille mise à jour le 20/05/2026 — 19 codes officiels + ajouts post-Martin-Gabla*
 *Sources : rapports d'enchères iDealwine 2025-2026, expertise Fanny Lonqueu-Brochard*

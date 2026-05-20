@@ -202,7 +202,7 @@ Pour chaque bloc éditorial, Claude analyse l'inventaire, propose un texte, atte
 1. **`synthese.liquidite_globale`** — `"Élevée"` / `"Moyenne"` / `"Faible"` — croiser régions avec grille de liquidité.
 2. **`plan_action[0]` (Conclusion de l'expert)** — 3-5 paragraphes riches : profil de la cave, structure, répartition, concentration, pôles de valorisation, dimension internationale, profil de garde. **Les chiffres (totaux €, %, nb bouteilles) doivent être calculés depuis l'Excel — ne jamais les inventer.**
 3. **`plan_action[1]` (Points de vigilance)** — risques concrets (niveaux, CBO, formats, millésimes illisibles), un par paragraphe. **Les prix cités doivent correspondre exactement à Val_unit dans l'Excel.**
-4. **`marche.blocs[0]` (Tendances générales)** — 3 sous-articles `{titre, corps}`, tendances par région présente ; **ne jamais mentionner iDealwine ni Fanny dans le corps rendu**.
+4. **`marche.blocs[0]` (Tendances générales)** — 3 sous-articles `{titre, corps}`, tendances par région présente ; **ne jamais mentionner Fanny dans le corps rendu**. iDealwine peut être cité quand c'est utile à l'analyse (référence d'adjudication, dynamique de cote précise).
 5. **`marche.blocs[1]` (Liquidité des références)** — 2-3 sous-articles, facilité de vente par région/type.
 6. **`plan_action[2]` (Prochaines étapes)** — 3-6 actions concrètes avec totaux recalculés depuis l'Excel.
 
@@ -274,7 +274,7 @@ Ouvrir le PDF et vérifier :
 - iDealwine = source primaire sans exception
 - Une seule adjudication ne fait pas une cote
 - Formule : `(iDealwine × 0.80 + Wine-Searcher × 0.70) ÷ 2`
-- Aucune mention d'iDealwine ou de Fanny dans le rapport final
+- Aucune mention de Fanny dans le rapport final (iDealwine peut être cité quand c'est pertinent pour l'analyse)
 - Les totaux/pourcentages cités en prose doivent être recalculés depuis l'Excel à chaque session (ne jamais copier de mémoire)
 
 ### Dossier client
