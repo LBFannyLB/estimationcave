@@ -20,24 +20,33 @@ import re
 
 # ── Définition des motifs ───────────────────────────────────────────────────────
 
-# Mots/expressions de réserve d'analyste qui ne doivent pas fuiter dans un rendu client
-RESERVE_PATTERNS = [
-    (r"à\s*confirmer", "réserve : à confirmer"),
-    (r"à\s*vérifier", "réserve : à vérifier"),
-    (r"à\s*valider", "réserve : à valider"),
-    (r"\(est-ce\b", "fuite : (est-ce"),
-    (r"\bTODO\b", "marqueur dev : TODO"),
-    (r"\bTBD\b", "marqueur dev : TBD"),
-    (r"\bXXX\b", "marqueur dev : XXX"),
+# Whitelist d'expressions à NE PAS flaguer même si elles contiennent un mot de réserve.
+# Format : motif d'exclusion (lookbehind ou contexte) → s'applique au motif suivant.
+# Ajoute ici toute expression légitime du domaine (libellés de codes, etc.).
+WHITELIST_RESERVE = [
+    # « tendance à confirmer » est le libellé officiel du Code 16 (Signaux contradictoires).
+    r"(?<=tendance )à\s+confirmer",
 ]
 
-# Doublons consécutifs (mots ≥ 4 lettres pour éviter "le le", "la la" qui sont rares
-# et bruyants). Et doublons avec 1-2 mots courts intercalés (« climat du climat »).
+# Mots/expressions de réserve d'analyste qui ne doivent pas fuiter dans un rendu client.
+# Chaque motif est combiné en lookbehind négatif avec les exclusions ci-dessus.
+RESERVE_PATTERNS = [
+    (r"(?<!tendance )à\s+confirmer", "réserve : à confirmer"),
+    (r"à\s+vérifier",                "réserve : à vérifier"),
+    (r"à\s+valider",                 "réserve : à valider"),
+    (r"\(est-ce\b",                  "fuite : (est-ce"),
+    (r"\bTODO\b",                    "marqueur dev : TODO"),
+    (r"\bTBD\b",                     "marqueur dev : TBD"),
+    (r"\bXXX\b",                     "marqueur dev : XXX"),
+]
+
+# Doublon strictement consécutif (mots ≥ 4 lettres pour éviter "le le", "la la").
+# Le motif avec mot intercalé ("climat du climat") a été retiré : trop bruyant sur
+# les noms propres type "Hart Davis Hart", et son cas utile est résolu côté template.
 DUP_CONSECUTIVE = re.compile(r"\b(\w{4,})\s+\1\b", re.IGNORECASE)
-DUP_WITH_GAP   = re.compile(r"\b(\w{4,})\s+\w{1,5}\s+\1\b", re.IGNORECASE)
 
 # Minuscule d'orientation après point (artefact de génération)
-# Sensible à la casse : on cherche un « à » MINUSCULE après ". " — le « À » majuscule
+# Sensible à la casse : on cherche un « à » MINUSCULE après ". » — le « À » majuscule
 # est la forme légitime. Ne pas mettre re.IGNORECASE ici.
 ORIENT_LOWER = re.compile(
     r"\.\s+(à\s+(?:conserver|garder|céder|boire|surveiller|vendre))\b"
@@ -54,9 +63,14 @@ SCRIPT_STYLE_RE = re.compile(r"<(script|style)[^>]*>.*?</\1>", re.DOTALL | re.IG
 
 def extract_visible_text(html: str) -> str:
     """Strip script/style + balises, normalise les whitespaces.
-    Stdlib uniquement (pas de BeautifulSoup)."""
+    Stdlib uniquement (pas de BeautifulSoup).
+
+    Important : remplace chaque balise par un ESPACE (et non par "") pour ne pas
+    coller deux cellules de tableau lors du strip (faux positifs sur les doublons
+    type "Références 196 références" extraits de cellules adjacentes).
+    """
     s = SCRIPT_STYLE_RE.sub(" ", html)
-    s = TAG_RE.sub(" ", s)
+    s = TAG_RE.sub(" ", s)  # ← espace obligatoire pour découpler les cellules
     # Décodage minimal des entités les plus fréquentes
     s = (s.replace("&nbsp;", " ")
            .replace("&amp;", "&")
@@ -102,7 +116,7 @@ def scan_artefacts(html: str) -> list[dict]:
                 "context": _context(text, m.start(), m.end()),
             })
 
-    # 3. Doublons consécutifs
+    # 3. Doublons strictement consécutifs (motif "X X")
     for m in DUP_CONSECUTIVE.finditer(text):
         issues.append({
             "kind": "doublon consécutif",
@@ -110,16 +124,7 @@ def scan_artefacts(html: str) -> list[dict]:
             "context": _context(text, m.start(), m.end()),
         })
 
-    # 4. Doublons avec 1-2 mots intercalés (« climat du climat »)
-    for m in DUP_WITH_GAP.finditer(text):
-        # Évite double-comptage avec DUP_CONSECUTIVE (rare mais possible)
-        issues.append({
-            "kind": "doublon avec gap",
-            "match": m.group(0),
-            "context": _context(text, m.start(), m.end()),
-        })
-
-    # 5. Minuscule d'orientation après point
+    # 4. Minuscule d'orientation après point
     for m in ORIENT_LOWER.finditer(text):
         # On exclut le cas où le contenu vient d'être ouvert par une majuscule
         # entre points (très rare). Heuristique simple : on remonte 5 chars avant
