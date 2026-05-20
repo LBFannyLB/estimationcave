@@ -1143,7 +1143,7 @@ p {
     gap: 30px;
     margin-top: 22px;
   }
-  .chart-row.one { display: block; margin-top: 28px; }
+  .chart-row.one { display: block; margin-top: 56px; }
   .chart-row.stacked-full {
     display: block;
   }
@@ -1439,8 +1439,9 @@ p {
   }
   .reco-split-legend {
     list-style: none; padding: 0; margin: 0;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
     padding-top: 14px;
     border-top: 1px solid rgba(30,10,15,0.08);
@@ -1449,6 +1450,7 @@ p {
     color: var(--texte);
   }
   .reco-split-legend li {
+    flex: 0 1 200px;
     display: grid;
     grid-template-columns: 12px 1fr;
     gap: 10px;
@@ -1990,7 +1992,22 @@ p {
     font-family: var(--font-body);
     font-size: 10.5px;
     color: var(--texte);
+    table-layout: fixed;
   }
+  /* Largeurs colonnes — fixées pour garantir Domaine > Appellation
+     + colonnes courtes (Région, État, Orientation) en nowrap */
+  table.inv th:nth-child(1), table.inv td:nth-child(1) { width: 3%; }   /* # */
+  table.inv th:nth-child(2), table.inv td:nth-child(2) { width: 16%; }  /* Domaine */
+  table.inv th:nth-child(3), table.inv td:nth-child(3) { width: 17%; } /* Appellation — wrap autorisé pour libellés longs type "Nuits-Saint-Georges 1er Cru Aux Boudots" */
+  table.inv th:nth-child(4), table.inv td:nth-child(4) { width: 4%; text-align: center; }  /* CBO */
+  table.inv th:nth-child(5), table.inv td:nth-child(5) { width: 18%; white-space: nowrap; padding-right: 60px !important; } /* Région — gros padding-right pour bien détacher de Couleur */
+  table.inv th:nth-child(6), table.inv td:nth-child(6) { width: 8%; text-align: center; padding-left: 24px !important; padding-right: 60px !important; } /* Couleur — gros padding-right pour bien détacher de Millésime */
+  table.inv th:nth-child(7), table.inv td:nth-child(7) { width: 5%; text-align: center !important; }   /* Millésime — centré */
+  table.inv th:nth-child(8), table.inv td:nth-child(8) { width: 6%; white-space: nowrap; text-align: center !important; }  /* État — centré */
+  table.inv th:nth-child(9), table.inv td:nth-child(9) { width: 2%; padding-right: 0 !important; text-align: right !important; }   /* Qté — resserré contre Unit */
+  table.inv th:nth-child(10), table.inv td:nth-child(10) { width: 3%; white-space: nowrap; padding-left: 2px !important; padding-right: 0 !important; text-align: right !important; } /* Unit — collé à droite, resserré contre Qté */
+  table.inv th:nth-child(11), table.inv td:nth-child(11) { width: 5%; white-space: nowrap; padding-left: 0 !important; padding-right: 0 !important; text-align: center !important; } /* Total — centré */
+  table.inv th:nth-child(12), table.inv td:nth-child(12) { width: 13%; white-space: nowrap; } /* Orientation */
   table.inv thead th {
     text-align: left;
     font-weight: 600;
@@ -2242,7 +2259,7 @@ p {
    zones de marges en mode print Chromium. */
 @page {
   size: A4;
-  margin: 10mm 16mm 18mm;
+  margin: 10mm 9mm 18mm;
   background: #FAF6F0;  /* peut être ignoré par certaines versions */
 
   /* Coins */
@@ -2354,7 +2371,7 @@ html, body { background: #FAF6F0 !important; }
 /* Compacte le bloc Potentiel de garde pour qu'il rentre systématiquement
    derrière les bars sur la même A4 — c'est notre contrainte principale,
    sinon il se retrouve seul sur la page suivante. */
-.chart-row.one { margin-top: 14px; }
+.chart-row.one { margin-top: 60px; }
 .chart-row.one .chart-card { padding-top: 0; }
 .chart-row.one .chart-head { padding-bottom: 4px; margin-bottom: 6px; }
 .chart-row.one .chart-head h3.chart-title { font-size: 18px; }
@@ -2417,6 +2434,14 @@ html, body { background: #FAF6F0 !important; }
 .inv tbody tr        { page-break-inside: avoid; break-inside: avoid; }
 .reco-card           { page-break-inside: avoid; break-inside: avoid; }
 .reco-group-head     { page-break-after: avoid; break-after: avoid; }
+/* Forcer une nouvelle page entre chaque groupe (À vendre / À surveiller
+   commencent en haut de page) pour éviter qu'un lecteur prenne la queue
+   d'un groupe pour la tête du suivant. Le premier groupe (À conserver)
+   reste sur la même page que le titre de section.
+   Utilisation du sélecteur sibling général « ~ » pour cibler tous les
+   reco-group-head qui ont un autre reco-group-head AVANT dans la section :
+   le premier (À conserver) n'a pas de précédent et n'est donc pas matché. */
+.reco-group-head ~ .reco-group-head { page-break-before: always; break-before: page; }
 /* Garde-group : on autorise la coupure inter-page si le groupe est gros
    (cave de plus de 30 btl par fenêtre) ; on garde l'en-tête avec sa table
    pour éviter qu'il reste seul en bas de page. */
@@ -2544,6 +2569,8 @@ html, body { background: #FAF6F0 !important; }
 /* Inventaire (p4) — pack 20+ rows per A4 */
 .inv th { padding: 5px 4px; font-size: 8px; }
 .inv td { padding: 2px 4px; font-size: 8.5px; line-height: 1.2; }
+/* Les paddings spécifiques aux colonnes sont gérés dans table.inv th:nth-child(...) */
+.inv .pill { font-size: 6.8px; padding: 0.5px 4px; letter-spacing: 0.04em; }
 .inv .idx { color: var(--texte-light); font-family: var(--font-body); }
 .inv .domaine-cell {
   font-weight: 500;
@@ -2555,6 +2582,10 @@ html, body { background: #FAF6F0 !important; }
 .inv .appellation-cell {
   font-size: 8.5px;
   line-height: 1.2;
+}
+.inv .cbo-cell {
+  font-size: 8.5px;
+  text-align: center;
 }
 .inv .appellation-cell em {
   font-style: italic;
@@ -2767,7 +2798,7 @@ html, body { background: #FAF6F0 !important; }
 
 /* Répartition II (p7) — save a few px */
 .chart-card.solo { margin-top: 8px; }
-.tops-head      { margin-top: 10px; }
+.tops-head      { margin-top: 50px; }
 .chart-row.with-sep { margin-top: 12px; padding-top: 10px; }
 .top-list li    { padding: 3px 0; }
 .reco-split-col .split-total { margin-top: 2px; }
@@ -3007,7 +3038,8 @@ html, body { background: #FAF6F0 !important; }
         <tr>
           <th>#</th>
           <th>Domaine</th>
-          <th>Appellation / Cuvée</th>
+          <th>Appellation</th>
+          <th>CBO</th>
           <th>Région</th>
           <th>Coul.</th>
           <th>Mill.</th>
@@ -3019,7 +3051,7 @@ html, body { background: #FAF6F0 !important; }
         </tr>
       </thead>
       <tbody>
-{% for vin in inventaire %}        <tr><td class="idx">{{ "%02d" | format(loop.index) }}</td><td class="domaine-cell">{{ vin.domaine }}</td><td class="appellation-cell">{{ vin.appellation }}{% if vin.cuvee %} · <em>{{ vin.cuvee }}</em>{% endif %}</td><td>{{ vin.region }}</td><td>{{ vin.couleur }}</td><td>{{ vin.millesime }}</td><td><span class="etat-dot {{ vin.etat_class }}"></span>{{ vin.etat }}</td><td class="num">{{ vin.qte }}</td><td class="num">{{ vin.unit_fmt }} €</td><td class="num total-val">{{ vin.total_fmt }} €</td><td><span class="pill {{ vin.orientation_class }}">{{ vin.orientation }}</span></td></tr>
+{% for vin in inventaire %}        <tr><td class="idx">{{ "%02d" | format(loop.index) }}</td><td class="domaine-cell">{{ vin.domaine }}</td><td class="appellation-cell">{{ vin.appellation }}{% if vin.cuvee %} · <em>{{ vin.cuvee }}</em>{% endif %}</td><td class="cbo-cell">{{ vin.cbo }}</td><td>{{ vin.region }}</td><td>{{ vin.couleur }}</td><td>{{ vin.millesime }}</td><td><span class="etat-dot {{ vin.etat_class }}"></span>{{ vin.etat }}</td><td class="num">{{ vin.qte }}</td><td class="num">{{ vin.unit_fmt }} €</td><td class="num total-val">{{ vin.total_fmt }} €</td><td><span class="pill {{ vin.orientation_class }}">{{ vin.orientation }}</span></td></tr>
 {% endfor %}      </tbody>
     </table>
 

@@ -189,7 +189,7 @@ def lire_inventaire_excel(fichier_excel: pathlib.Path) -> list[dict]:
             "bouteille": domaine_val,
             "appellation": safe_str(d.get("Appellation")),
             "region": safe_str(d.get("Region")),
-            "couleur": safe_str(d.get("Couleur"), "Rouge"),
+            "couleur": normalize_couleur(safe_str(d.get("Couleur"), "Rouge")),
             "format": safe_str(d.get("Format"), "75cl"),
             "millesime": mill,
             "apogee": safe_str(d.get("Apogee")),
@@ -246,7 +246,20 @@ def estimate_apogee(bottle: dict) -> str:
     """
     mill = bottle.get("millesime", 0)
     if mill == 0:
-        return "À boire maintenant"
+        # NM (non millésimé) — routage selon Durée_garde, jamais "À boire" par défaut.
+        # Les NM représentent typiquement des cuvées de très longue garde (Vin Jaune,
+        # Savagnin de voile, Solera) ou des assemblages multi-millésimes patrimoniaux.
+        # Si l'experte renseigne une Apogee explicite dans l'Excel (ex. "À boire maintenant"
+        # pour un Champagne NM), elle prime — estimate_apogee n'est appelée que sur Apogee vide.
+        duree = (bottle.get("duree_garde") or "").lower()
+        m = re.search(r"(\d+)\s*[-–]\s*(\d+)\s*ans?", duree)
+        if m and int(m.group(2)) >= 10:
+            return "Très longue garde"
+        m = re.search(r"(\d+)\s*\+\s*ans?", duree)
+        if m and int(m.group(1)) >= 10:
+            return "Très longue garde"
+        # Pas de Durée_garde exploitable — défaut conservateur pour NM (jamais À boire).
+        return "Garde longue"
     region = bottle.get("region", "").lower()
     appellation = bottle.get("appellation", "").lower()
     etat = bottle.get("etat", "Bon")
@@ -311,6 +324,54 @@ def couleur_abbrev(c: str) -> str:
     if lower.startswith("effervesc") or lower == "eff":
         return "Eff."
     return c
+
+
+def normalize_couleur(raw: str) -> str:
+    """Normalise les variantes de la colonne `Couleur` Excel vers 4 catégories
+    canoniques + 2 mineures (Rosé, Effervescent).
+
+    Insensible à la casse et aux accents. Variantes acceptées :
+      - Rouge       : 'rouge', 'red'
+      - Blanc       : 'blanc', 'blanc sec', 'white' (rendu legend : "Blanc sec")
+      - Jaune       : 'jaune', 'vin jaune', 'voile', 'vin de voile', 'yellow'
+      - Liquoreux   : 'liquoreux', 'doux', 'moelleux', 'vdn', 'sweet'
+      - Rosé        : 'rose', 'rosé'
+      - Effervescent: 'effervescent', 'eff', 'sparkling'
+
+    Cas inconnu : renvoie la valeur originale strippée (l'experte tranche).
+    """
+    if not raw:
+        return "Rouge"
+    s = unicodedata.normalize("NFD", str(raw)).encode("ascii", "ignore").decode("ascii").lower().strip()
+    if s in ("rouge", "red"):
+        return "Rouge"
+    if s in ("blanc", "blanc sec", "blancsec", "white"):
+        return "Blanc"
+    if s in ("jaune", "vin jaune", "voile", "vin de voile", "yellow"):
+        return "Jaune"
+    if s in ("liquoreux", "doux", "moelleux", "vdn", "sweet"):
+        return "Liquoreux"
+    if s in ("rose", "rosé"):
+        return "Rosé"
+    if s in ("effervescent", "eff", "sparkling"):
+        return "Effervescent"
+    return str(raw).strip()
+
+
+def warn_couleur_anomalies(inv: list[dict]) -> None:
+    """Filet de sécurité non bloquant : signale les lignes marquées 'Blanc'
+    mais dont l'appellation suggère un Vin Jaune / Château-Chalon.
+    Ne modifie pas la donnée — l'experte tranche."""
+    flagged = []
+    for b in inv:
+        if b.get("couleur", "") == "Blanc":
+            app = (b.get("appellation") or "").lower()
+            if "château-chalon" in app or "chateau-chalon" in app or "vin jaune" in app:
+                flagged.append((b.get("bouteille", ""), b.get("appellation", ""), b.get("millesime", "")))
+    if flagged:
+        print(f"⚠️  Couleur suspecte sur {len(flagged)} ligne(s) — suggérer 'Jaune' (Château-Chalon / Vin Jaune marqué Blanc) :")
+        for dom, app, mil in flagged:
+            print(f"    · {dom} | {app} | {mil}")
 
 
 def etat_class(etat: str) -> str:
@@ -481,6 +542,7 @@ COULEUR_COLORS = [
     # Couleur libellée, couleur CSS, texte, small ?, label legend
     ("Rouge",         "#6A1F2E",              "#FAF6F0",         False, "Rouge"),
     ("Blanc",         "#C5A258",              "var(--bordeaux)", False, "Blanc sec"),
+    ("Jaune",         "#A67C2F",              "var(--fond)",     True,  "Jaune"),
     ("Rosé",          "#E8A0B0",              "var(--bordeaux)", True,  "Rosé"),
     ("Liquoreux",     "#8a6a2d",              "var(--fond)",     True,  "Liquoreux"),
     ("Effervescent",  "rgba(138,106,45,0.6)", "var(--fond)",     True,  "Effervescent"),
@@ -495,10 +557,34 @@ GARDE_GROUPS = [
 
 
 def apogee_bucket(apogee: str) -> int:
-    """Retourne l'index (0-3) dans GARDE_GROUPS selon la fenêtre d'apogée."""
+    """Retourne l'index (0-3) dans GARDE_GROUPS selon la fenêtre d'apogée.
+
+    Accepte deux formats :
+    - Fenêtre numérique AAAA–AAAA (ex. 2025–2040)
+    - Étiquettes textuelles (ex. "Très longue garde", "Apogée dépassée",
+      "Proche apogée") — utile pour les cuvées non-millésimées (NM) où
+      l'apogée est qualifiée manuellement par l'expert.
+    """
     apogee = (apogee or "").strip()
-    if apogee.lower().startswith(("à boire", "a boire")):
+    apogee_lower = apogee.lower()
+
+    # 1) Étiquettes textuelles — vérifier AVANT le parsing numérique pour
+    # éviter qu'une chaîne non parsable tombe par défaut en bucket 0.
+    if apogee_lower.startswith(("à boire", "a boire")) \
+            or "apogée dépassée" in apogee_lower or "apogee depassee" in apogee_lower \
+            or "au-delà de l'apogée" in apogee_lower:
         return 0
+    if "proche apogée" in apogee_lower or "proche apogee" in apogee_lower:
+        return 1
+    if "en développement" in apogee_lower or "en developpement" in apogee_lower:
+        return 2
+    if any(k in apogee_lower for k in (
+            "très longue garde", "tres longue garde",
+            "longue garde", "garde longue",
+            "garde exceptionnelle", "patrimoine")):
+        return 3
+
+    # 2) Fenêtre numérique AAAA–AAAA
     m = re.match(r"(\d{4})\s*[–\-]\s*(\d{4})", apogee)
     if not m:
         return 0
@@ -546,6 +632,16 @@ def _group_by_geo(inv: list[dict], mono_region: str | None) -> tuple[dict, dict,
             sub = subregion_of(mono_region, b["appellation"]) or fallback
             by_vol[sub] += b["qte"]
             by_val[sub] += b["qte"] * b["val_unit"]
+        # Si la cave est en plus mono-sous-région (ex: 100 % Médoc), descendre
+        # au niveau appellation pour avoir un graphique pertinent.
+        if len(by_val) == 1:
+            by_vol = defaultdict(int)
+            by_val = defaultdict(int)
+            for b in inv:
+                app = b["appellation"] or "—"
+                by_vol[app] += b["qte"]
+                by_val[app] += b["qte"] * b["val_unit"]
+            return by_vol, by_val, "appellation"
         return by_vol, by_val, "sous-région"
     for b in inv:
         r = b["region"] or "Autres"
@@ -571,7 +667,7 @@ def build_synthese(inv: list[dict]) -> dict:
     regions_valeur = [
         {
             "nom": nom,
-            "pct_fmt": f"{val / total_val * 100:.0f}" if total_val else "0",
+            "pct_fmt": (f"{val / total_val * 100:.1f}".replace(".", ",")) if total_val else "0",
             "width": round(val / max_val * 100, 1) if max_val else 0,
         }
         for nom, val in regions_sorted
@@ -659,7 +755,7 @@ def build_repartition(inv: list[dict], synthese: dict) -> dict:
             {
                 "label": nom,
                 "pct": round(v / total * 100, 1) if total else 0,
-                "pct_fmt": f"{v / total * 100:.0f}" if total else "0",
+                "pct_fmt": (f"{v / total * 100:.1f}".replace(".", ",")) if total else "0",
                 "value_fmt": fmt_int(v),
             }
             for nom, v in sorted_items
@@ -749,7 +845,8 @@ def build_repartition(inv: list[dict], synthese: dict) -> dict:
     top_unitaire = [
         {
             "nom": f"{b['bouteille']} {millesime_str(b['millesime'])}".strip(),
-            "detail": b["appellation"] or "",
+            "detail": (f"{b['appellation']} · {b.get('format') or '75cl'}"
+                       if b.get("appellation") else (b.get('format') or '75cl')),
             "value_fmt": fmt_int(b["val_unit"]),
         }
         for b in by_unit
@@ -799,6 +896,7 @@ def build_inventaire_rows(inv: list[dict]) -> list[dict]:
             "region": b["region"] or "—",
             "couleur": couleur_abbrev(b["couleur"]),
             "millesime": millesime_str(b["millesime"]),
+            "cbo": b.get("cbo") or "Non",
             "etat": b["etat"] or "Bon",
             "etat_class": etat_class(b["etat"] or "Bon"),
             "qte": b["qte"],
@@ -1051,13 +1149,30 @@ def default_accompagnement() -> dict:
 
 
 async def render_pdf(context: dict, output_path: pathlib.Path, template_name: str = DEFAULT_TEMPLATE,
-                     extra_template_dirs: list[pathlib.Path] | None = None) -> None:
+                     extra_template_dirs: list[pathlib.Path] | None = None,
+                     strict_artefacts: bool = False) -> None:
     """Rendu mono-passe : la pagination "X / Y" vient désormais de
     @page @bottom-right { content: counter(page) " / " counter(pages) }
     — le CSS Paged Media de Chromium compte automatiquement les A4
-    physiques, sans qu'on ait besoin d'un pré-rendu."""
+    physiques, sans qu'on ait besoin d'un pré-rendu.
+
+    Passe anti-artefacts exécutée sur le HTML AVANT la génération PDF :
+    warnings par défaut, échec en mode strict.
+    """
     env = make_env(extra_template_dirs)
     html = env.get_template(template_name).render(**context)
+
+    # Passe anti-artefacts sur le HTML rendu
+    try:
+        from check_artefacts import check_html
+    except ImportError:
+        import importlib.util
+        spec = importlib.util.spec_from_file_location("check_artefacts", HERE / "check_artefacts.py")
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        check_html = mod.check_html
+    check_html(html, strict=strict_artefacts)
+
     scratch = TEMPLATES_DIR / "_rendered.html"
     scratch.write_text(html)
     try:
@@ -1108,6 +1223,8 @@ def main() -> int:
                         help="Chemin du PDF de sortie (fichier ou dossier). Si fichier, on conserve ce nom exact.")
     parser.add_argument("--template", dest="template", default=DEFAULT_TEMPLATE,
                         help="Nom ou chemin du template Jinja2 (défaut : rapport.html)")
+    parser.add_argument("--strict", action="store_true",
+                        help="Échec si la passe anti-artefacts détecte au moins une occurrence (sinon WARNING).")
     args = parser.parse_args()
 
     inventaire_path = args.inventaire_flag or args.inventaire
@@ -1143,6 +1260,7 @@ def main() -> int:
         b["format"] = normaliser_format(b["format"])
         if not b["apogee"]:
             b["apogee"] = estimate_apogee(b)
+    warn_couleur_anomalies(inv)
 
     print("→ Lecture des analyses expert")
     client_json = json.loads(client_path.read_text())
@@ -1167,7 +1285,9 @@ def main() -> int:
         out = build_output_path(nom, ref, output_dir)
 
     print(f"→ Rendu PDF ({nom}, {ref}) — template : {template_name}")
-    asyncio.run(render_pdf(context, out, template_name=template_name, extra_template_dirs=extra_template_dirs))
+    asyncio.run(render_pdf(context, out, template_name=template_name,
+                            extra_template_dirs=extra_template_dirs,
+                            strict_artefacts=args.strict))
     print("→ Terminé.")
     return 0
 
