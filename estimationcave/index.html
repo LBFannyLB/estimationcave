@@ -595,6 +595,23 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
     @media (hover: hover) {
       .kpi-item:hover { background: var(--fond); }
     }
+    .kpi-item-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+    .kpi-link-arrow {
+      display: inline-block;
+      margin-top: 0.9rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--or);
+      transition: transform 0.25s ease;
+    }
+    @media (hover: hover) {
+      .kpi-item-link:hover .kpi-link-arrow { transform: translateX(4px); }
+    }
     .kpi-number {
       font-family: 'Cormorant Garamond', serif;
       font-size: 4.5rem;
@@ -2234,11 +2251,12 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
         <span class="ornament-long"></span>
       </div>
       <div class="kpi-grid">
-        <div class="kpi-item">
+        <a href="apropos.html" class="kpi-item kpi-item-link">
           <div class="kpi-number">10<span class="kpi-unit">ans</span></div>
           <div class="kpi-label">d'expertise</div>
           <p class="kpi-desc">Dont 6 ans chez iDealwine, première maison européenne. Certification WSET 3 avec distinction.</p>
-        </div>
+          <span class="kpi-link-arrow">Qui suis-je ?&nbsp;→</span>
+        </a>
         <div class="kpi-item">
           <div class="kpi-number">199<span class="kpi-unit">€</span></div>
           <div class="kpi-label">prix fixe et transparent</div>
