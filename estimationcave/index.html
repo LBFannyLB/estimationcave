@@ -513,6 +513,129 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       line-height: 1.75;
     }
 
+    /* ── Variante narratif horizontal (section .probleme) ── */
+    .situations-narratif {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem 2.5rem;
+    }
+    .situation-narr {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      padding: 1.75rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .situation-narr:nth-child(3),
+    .situation-narr:nth-child(4) { border-bottom: none; padding-bottom: 0; }
+    .situation-narr-icon {
+      flex: 0 0 56px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--blanc);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .situation-narr-icon svg { width: 28px; height: 28px; }
+    .situation-narr-content { flex: 1; min-width: 0; }
+    .situation-narr h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.25rem;
+    }
+    .situation-narr-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      color: var(--bordeaux);
+      font-size: 1.05rem;
+      line-height: 1.5;
+      margin-bottom: 0.6rem;
+      opacity: 0.85;
+    }
+    .situation-narr p {
+      font-size: 0.9rem;
+      color: var(--texte-light);
+      line-height: 1.7;
+    }
+    @media (max-width: 800px) {
+      .situations-narratif { grid-template-columns: 1fr; gap: 0; }
+      .situation-narr { border-bottom: 1px solid var(--border) !important; padding: 1.5rem 0 !important; }
+      .situation-narr:last-child { border-bottom: none !important; }
+    }
+
+    /* ── Variante KPI chiffres-clés (section .confiance.confiance-kpi) ── */
+    .confiance-kpi .probleme-header {
+      display: block;
+      text-align: center;
+    }
+    .confiance-kpi .probleme-header h2 {
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .confiance-kpi .probleme-header .ornament-long {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .kpi-item {
+      text-align: center;
+      padding: 3rem 1.5rem;
+      border-right: 1px solid var(--border);
+      transition: background 0.3s ease;
+    }
+    .kpi-item:last-child { border-right: none; }
+    @media (hover: hover) {
+      .kpi-item:hover { background: var(--fond); }
+    }
+    .kpi-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4.5rem;
+      font-weight: 500;
+      line-height: 1;
+      color: var(--or);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .kpi-number .kpi-unit {
+      font-size: 1.8rem;
+      margin-left: 0.15em;
+      font-weight: 400;
+    }
+    .kpi-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--bordeaux);
+      margin-bottom: 0.75rem;
+    }
+    .kpi-desc {
+      font-size: 0.85rem;
+      color: var(--texte-light);
+      line-height: 1.6;
+      max-width: 220px;
+      margin: 0 auto;
+    }
+    @media (max-width: 1100px) {
+      .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+      .kpi-item:nth-child(1), .kpi-item:nth-child(2) { border-bottom: 1px solid var(--border); }
+      .kpi-item:nth-child(2) { border-right: none; }
+      .kpi-item:nth-child(3) { border-right: 1px solid var(--border); }
+    }
+    @media (max-width: 600px) {
+      .kpi-grid { grid-template-columns: 1fr; }
+      .kpi-item { border-right: none !important; border-bottom: 1px solid var(--border); padding: 2rem 1rem; }
+      .kpi-item:last-child { border-bottom: none; }
+      .kpi-number { font-size: 3.5rem; }
+    }
+
     /* ══════════════════════════════════
        4. CE QUE VOUS RECEVEZ — APERÇU INTERACTIF
     ══════════════════════════════════ */
@@ -2008,9 +2131,9 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
         <h2>Quatre situations, <em>une même question</em>&nbsp;: combien vaut cette cave&nbsp;?</h2>
         <span class="ornament-long"></span>
       </div>
-      <div class="situations situations-4">
-        <div class="situation-card">
-          <div class="situation-icon">
+      <div class="situations-narratif">
+        <div class="situation-narr">
+          <div class="situation-narr-icon">
             <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M6 30V12l12-8 12 8v18H6z" stroke="#C5A258" stroke-width="1.2" stroke-linejoin="round"/>
               <rect x="14" y="20" width="8" height="10" stroke="#C5A258" stroke-width="1.2"/>
@@ -2018,40 +2141,52 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
               <circle cx="18" cy="16" r="2" stroke="#C5A258" stroke-width="1.2"/>
             </svg>
           </div>
-          <h3>Succession ou héritage</h3>
-          <p>Vous avez hérité d'une cave et vous ne savez pas précisément ce qu'elle contient, ni quelle valeur elle représente.</p>
+          <div class="situation-narr-content">
+            <h3>Succession ou héritage</h3>
+            <p class="situation-narr-quote">«&nbsp;Mon père nous a laissé sa cave. On ne sait ni ce qu'elle contient, ni ce qu'elle vaut.&nbsp;»</p>
+            <p>Vous avez hérité d'une cave et vous ne savez pas précisément ce qu'elle contient, ni quelle valeur elle représente.</p>
+          </div>
         </div>
-        <div class="situation-card">
-          <div class="situation-icon">
+        <div class="situation-narr">
+          <div class="situation-narr-icon">
             <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect x="4" y="8" width="28" height="22" rx="2" stroke="#C5A258" stroke-width="1.2"/>
               <path d="M10 24l6-8 5 5 5-7" stroke="#C5A258" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
               <circle cx="26" cy="14" r="2" stroke="#C5A258" stroke-width="1.2"/>
             </svg>
           </div>
-          <h3>Vente partielle ou totale</h3>
-          <p>Vous voulez vendre au bon prix, au bon moment, sans sous-estimer vos bouteilles ni passer à côté d'une opportunité.</p>
+          <div class="situation-narr-content">
+            <h3>Vente partielle ou totale</h3>
+            <p class="situation-narr-quote">«&nbsp;J'aimerais vendre quelques bouteilles, mais je ne veux pas brader.&nbsp;»</p>
+            <p>Vous voulez vendre au bon prix, au bon moment, sans sous-estimer vos bouteilles ni passer à côté d'une opportunité.</p>
+          </div>
         </div>
-        <div class="situation-card">
-          <div class="situation-icon">
+        <div class="situation-narr">
+          <div class="situation-narr-icon">
             <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M8 6h20v28H8z" stroke="#C5A258" stroke-width="1.2" stroke-linejoin="round"/>
               <path d="M12 12h12M12 17h12M12 22h8" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round"/>
               <path d="M14 6V4h8v2" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
-          <h3>Inventaire personnel</h3>
-          <p>Vous possédez une cave constituée au fil du temps et vous souhaitez faire un point sur sa valeur, son état général et les meilleures décisions à prendre.</p>
+          <div class="situation-narr-content">
+            <h3>Inventaire personnel</h3>
+            <p class="situation-narr-quote">«&nbsp;J'ai constitué ma cave pendant 20 ans. Il est temps d'y voir clair.&nbsp;»</p>
+            <p>Vous possédez une cave constituée au fil du temps et vous souhaitez faire un point sur sa valeur et les meilleures décisions à prendre.</p>
+          </div>
         </div>
-        <div class="situation-card">
-          <div class="situation-icon">
+        <div class="situation-narr">
+          <div class="situation-narr-icon">
             <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M18 4L6 9v9c0 7.2 5.1 13.6 12 16 6.9-2.4 12-8.8 12-16V9L18 4z" stroke="#C5A258" stroke-width="1.2" stroke-linejoin="round"/>
               <path d="M13 18l3.5 3.5L23 15" stroke="#C5A258" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
-          <h3>Assurance</h3>
-          <p>Vous connaissez votre cave, mais vous souhaitez un regard neutre pour valider une valeur d'assurance, une mise à jour annuelle, ou un second avis.</p>
+          <div class="situation-narr-content">
+            <h3>Assurance</h3>
+            <p class="situation-narr-quote">«&nbsp;Mon assureur me demande un justificatif de valeur.&nbsp;»</p>
+            <p>Vous connaissez votre cave, mais vous souhaitez un regard neutre pour valider une valeur d'assurance ou un second avis.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -2091,62 +2226,33 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
 
 
   <!-- ════════════ 5. POURQUOI NOUS FAIRE CONFIANCE ════════════ -->
-  <section class="probleme confiance">
+  <section class="probleme confiance confiance-kpi">
     <div class="container">
       <div class="probleme-header">
-        <div class="confiance-header-text">
-          <p class="section-label">Pourquoi me faire confiance</p>
-          <h2>Une estimation neutre,<br><em>dans votre seul intérêt.</em></h2>
-          <span class="ornament-long"></span>
-        </div>
-        <div class="confiance-header-illustration">
-          <img src="boxbois.png" alt="Caisse de vins en bois" loading="lazy">
-        </div>
+        <p class="section-label">Pourquoi me faire confiance</p>
+        <h2>Une estimation neutre,<br><em>dans votre seul intérêt.</em></h2>
+        <span class="ornament-long"></span>
       </div>
-      <div class="situations situations-4">
-        <div class="situation-card">
-          <div class="situation-icon">
-            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M18 5v26" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round"/>
-              <path d="M8 10h20" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round"/>
-              <path d="M8 10l-3 10h6l-3-10zM28 10l-3 10h6l-3-10z" stroke="#C5A258" stroke-width="1.2" stroke-linejoin="round"/>
-              <path d="M13 31h10" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <h3>Indépendance totale</h3>
-          <p>Je ne rachète pas vos bouteilles et ne travaille pour aucune maison de ventes. Mon estimation est neutre — je n'ai aucun intérêt financier dans vos décisions.</p>
+      <div class="kpi-grid">
+        <div class="kpi-item">
+          <div class="kpi-number">10<span class="kpi-unit">ans</span></div>
+          <div class="kpi-label">d'expertise</div>
+          <p class="kpi-desc">Dont 6 ans chez iDealwine, première maison européenne. Certification WSET 3 avec distinction.</p>
         </div>
-        <div class="situation-card">
-          <div class="situation-icon">
-            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M10 5h16v10a8 8 0 01-16 0V5z" stroke="#C5A258" stroke-width="1.2" stroke-linejoin="round"/>
-              <path d="M10 8H6v3a4 4 0 004 4M26 8h4v3a4 4 0 01-4 4" stroke="#C5A258" stroke-width="1.2" stroke-linejoin="round"/>
-              <path d="M18 23v5M13 31h10" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <h3>Expertise enchères</h3>
-          <p>10 ans d'expérience dans le vin dont 6 ans chez iDealwine, première maison de ventes aux enchères de vin en Europe. Certification WSET 3 avec distinction.</p>
+        <div class="kpi-item">
+          <div class="kpi-number">199<span class="kpi-unit">€</span></div>
+          <div class="kpi-label">prix fixe et transparent</div>
+          <p class="kpi-desc">Un rapport complet. Pas de devis opaque, pas de frais cachés, pas de surprise.</p>
         </div>
-        <div class="situation-card">
-          <div class="situation-icon">
-            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="18" cy="18" r="13" stroke="#C5A258" stroke-width="1.2"/>
-              <path d="M18 10v16M22 13h-6a2.5 2.5 0 000 5h4a2.5 2.5 0 010 5h-6" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <h3>Prix fixe et transparent</h3>
-          <p>199€ pour un rapport complet. Pas de devis opaque, pas de frais cachés, pas de commission sur vos ventes futures.</p>
+        <div class="kpi-item">
+          <div class="kpi-number">0<span class="kpi-unit">%</span></div>
+          <div class="kpi-label">commission, jamais</div>
+          <p class="kpi-desc">Je ne rachète pas vos bouteilles, je ne touche aucune commission. Mon estimation est neutre.</p>
         </div>
-        <div class="situation-card">
-          <div class="situation-icon">
-            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="10" y="3" width="16" height="30" rx="2" stroke="#C5A258" stroke-width="1.2"/>
-              <path d="M10 8h16M10 27h16" stroke="#C5A258" stroke-width="1.2"/>
-              <circle cx="18" cy="30" r="1" fill="#C5A258"/>
-            </svg>
-          </div>
-          <h3>100% à distance</h3>
-          <p>Un smartphone suffit. Pas de rendez-vous, pas de déplacement, pas d'attente. Votre rapport livré par email sous 5 jours.</p>
+        <div class="kpi-item">
+          <div class="kpi-number">5<span class="kpi-unit">jours</span></div>
+          <div class="kpi-label">100&nbsp;% à distance</div>
+          <p class="kpi-desc">Un smartphone suffit. Pas de rendez-vous, pas de déplacement. Rapport livré par email.</p>
         </div>
       </div>
     </div>
