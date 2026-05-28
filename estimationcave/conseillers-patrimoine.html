@@ -232,12 +232,27 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
   .final p{margin:20px auto 34px;font-size:16px;font-weight:300;color:#e1d6c7;max-width:50ch;line-height:1.7;}
   .final .mail{margin-top:26px;font-size:14px;color:#cdbfb0;letter-spacing:.3px;}
   .final .mail a{color:var(--gold);text-decoration:none;}
+  .final .legal-note{margin:28px auto 0;max-width:60ch;font-size:11.5px;line-height:1.65;color:#a89a8b;font-style:italic;}
 
   /* ============ FOOT ============ */
-  footer{background:#241622;color:#9a8d97;padding:30px 0;}
-  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
-  footer .logo{font-size:17px;}
-  footer .legal{font-size:11px;line-height:1.6;max-width:60ch;color:#7d7280;}
+  /* ============ FOOTER (identique site) ============ */
+  .footer{padding:3.5rem 0 2.5rem;border-top:1px solid var(--line);background:var(--cream);color:var(--ink);}
+  .footer-grid{max-width:1120px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:2rem;}
+  .footer-col{font-size:.82rem;color:var(--muted);}
+  .footer-logo{font-family:'Cormorant Garamond',serif;font-weight:600;color:var(--bordeaux);font-size:1.1rem;margin-bottom:.5rem;}
+  .footer-logo span{color:var(--gold);}
+  .footer-tagline{font-size:.82rem;color:var(--muted);line-height:1.6;margin-bottom:.75rem;}
+  .footer-email{font-size:.82rem;color:var(--gold);text-decoration:none;transition:color .25s cubic-bezier(.33,1,.68,1);}
+  .footer-email:hover{color:var(--bordeaux);}
+  .footer-heading{font-family:'Cormorant Garamond',serif;font-size:.92rem;font-weight:600;color:var(--bordeaux);margin-bottom:.75rem;}
+  .footer-links{list-style:none;padding:0;margin:0;}
+  .footer-links li{margin-bottom:.4rem;}
+  .footer-links a{font-size:.82rem;color:var(--muted);text-decoration:none;transition:color .25s cubic-bezier(.33,1,.68,1);}
+  .footer-links a:hover{color:var(--gold);}
+  .footer-copy{font-size:.75rem;color:var(--muted);opacity:.7;margin-top:1rem;}
+  @media(max-width:840px){
+    .footer-grid{grid-template-columns:1fr;gap:2rem;text-align:center;}
+  }
 
   /* ============ RESPONSIVE ============ */
   @media(max-width:840px){
@@ -401,18 +416,52 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
   <div class="wrap">
     <div class="eyebrow center">Premier dossier</div>
     <h2>Une cave dans un dossier <em>en cours</em> ?</h2>
-    <p>Si vous avez un dossier en cours ou souhaitez engager un partenariat, écrivez-moi en quelques lignes. Je reviens vers vous sous 24 h.</p>
+    <p>Si vous avez un dossier en cours ou souhaitez engager un partenariat, écrivez-moi. Je reviens vers vous sous 24h.</p>
     <a href="mailto:contact@estimationcave.com?subject=Dossier%20CGP%20%E2%80%94%20estimation%20de%20cave" class="btn">Échanger sur un dossier</a>
     <div class="mail">ou directement : <a href="mailto:contact@estimationcave.com">contact@estimationcave.com</a></div>
+    <p class="legal-note">Le rapport est une aide à la décision patrimoniale. Il ne constitue ni une expertise judiciaire, ni une certification d'authenticité, ni un conseil en investissement financier.</p>
   </div>
 </section>
 
 </main>
 
-<footer>
-  <div class="wrap">
-    <div class="logo serif">estimation<span style="color:var(--gold)">cave</span>.com</div>
-    <div class="legal">Le rapport est une aide à la décision patrimoniale. Il ne constitue ni une expertise judiciaire, ni une certification d'authenticité, ni un conseil en investissement financier.</div>
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <div class="footer-logo">estimation<span>cave</span>.com</div>
+      <p class="footer-tagline">Audit et estimation indépendante de cave à vins à distance.</p>
+      <a href="mailto:contact@estimationcave.com" class="footer-email">contact@estimationcave.com</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-heading">Navigation</div>
+      <ul class="footer-links">
+        <li><a href="/">Accueil</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="apropos.html">Qui suis-je</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-heading">Guides</div>
+      <ul class="footer-links">
+        <li><a href="estimation.html">Estimer sa cave</a></li>
+        <li><a href="article-cotes-pilier.html">Cotes &amp; marché</a></li>
+        <li><a href="article-heritage-cave.html">Héritage &amp; Succession</a></li>
+        <li><a href="vendre.html">Vendre ses vins</a></li>
+        <li><a href="gestion.html">Gérer sa cave</a></li>
+        <li><a href="professionnels.html">Professionnels</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-heading">Informations</div>
+      <ul class="footer-links">
+        <li><a href="mentions-legales.html">Mentions légales</a></li>
+        <li><a href="confidentialite.html">Confidentialité</a></li>
+        <li><a href="/assureurs">Pour les assureurs</a></li>
+        <li><a href="/notaires">Pour les notaires</a></li>
+      </ul>
+      <p class="footer-copy">© 2026 estimationcave.com</p>
+    </div>
   </div>
 </footer>
 
