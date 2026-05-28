@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<script src="https://cdn.jsdelivr.net/npm/tarteaucitronjs@latest/tarteaucitron.js"></script>
+<script>
+tarteaucitron.init({
+  "privacyUrl": "https://www.estimationcave.com/confidentialite.html",
+  "bodyPosition": "bottom",
+  "hashtag": "#tarteaucitron",
+  "cookieName": "tarteaucitron",
+  "orientation": "bottom",
+  "groupServices": false,
+  "showDetailsOnClick": true,
+  "serviceDefaultState": "wait",
+  "showAlertSmall": false,
+  "cookieslist": false,
+  "closePopup": false,
+  "showIcon": true,
+  "iconPosition": "BottomRight",
+  "adblocker": false,
+  "DenyAllCta": true,
+  "AcceptAllCta": true,
+  "highPrivacy": true,
+  "handleBrowserDNTRequest": false,
+  "removeCredit": false,
+  "moreInfoLink": true,
+  "useExternalCss": false,
+  "useExternalJs": false,
+  "mandatory": false,
+  "mandatoryCta": false,
+  "readmoreLink": "https://www.estimationcave.com/confidentialite.html"
+});
+tarteaucitron.user.gtagUa = 'G-CDTHEK83FV';
+tarteaucitron.user.gtagMore = function () {};
+(tarteaucitron.job = tarteaucitron.job || []).push('gtag');
+tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
+(tarteaucitron.job = tarteaucitron.job || []).push('googletagmanager');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estimation de cave pour conseils en gestion de patrimoine | estimationcave.com</title>
+<meta name="description" content="Valorisation indépendante de cave à vins pour les conseils en gestion de patrimoine : rapport daté et recevable pour bilan patrimonial, succession, cession et assurance.">
+<link rel="canonical" href="https://estimationcave.com/conseillers-patrimoine">
+<meta property="og:title" content="Estimation de cave pour conseils en gestion de patrimoine | estimationcave.com">
+<meta property="og:description" content="Valorisation indépendante de cave à vins pour les conseils en gestion de patrimoine : rapport daté et recevable pour bilan patrimonial, succession, cession et assurance.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://estimationcave.com/conseillers-patrimoine">
+<meta property="og:image" content="https://estimationcave.com/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bordeaux:#2D1B2E;
+    --bordeaux-2:#3c2640;
+    --gold:#C5A258;
+    --gold-deep:#a8852f;
+    --cream:#FAF6F0;
+    --cream-2:#f3ebdf;
+    --ink:#3a2f38;
+    --muted:#7d7079;
+    --line:#e3d8c8;
+    --line-dark:rgba(197,162,88,.22);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;background:var(--cream);color:var(--ink);
+    -webkit-font-smoothing:antialiased;line-height:1.6;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px;}
+  h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif;}
+  em{font-style:italic;}
+
+  /* eyebrow */
+  .eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-deep);font-weight:600;display:flex;align-items:center;gap:11px;}
+  .eyebrow::before{content:"";height:1px;width:30px;background:var(--gold);}
+  .eyebrow.center{justify-content:center;}
+  .eyebrow.center::after{content:"";height:1px;width:30px;background:var(--gold);}
+
+  /* buttons */
+  .btn{display:inline-block;background:var(--gold);color:var(--bordeaux);font-weight:600;font-size:14px;
+    letter-spacing:.4px;padding:15px 30px;border-radius:2px;text-decoration:none;transition:.25s;border:1px solid var(--gold);}
+  .btn:hover{background:transparent;color:var(--gold);}
+  .btn.ghost{background:transparent;color:var(--cream);border-color:rgba(250,246,240,.35);}
+  .btn.ghost:hover{border-color:var(--gold);color:var(--gold);}
+
+  /* ============ NAV ============ */
+  nav{position:sticky;top:0;z-index:50;background:rgba(45,27,46,.96);backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line-dark);}
+  nav .wrap{display:flex;justify-content:space-between;align-items:center;height:64px;}
+  .logo{font-family:'Cormorant Garamond';font-size:21px;font-weight:600;color:var(--cream);letter-spacing:.3px;}
+  .logo span{color:var(--gold);}
+  nav .cta{font-size:13px;color:var(--cream);text-decoration:none;border:1px solid rgba(250,246,240,.3);padding:9px 18px;border-radius:2px;transition:.25s;letter-spacing:.3px;}
+  nav .cta:hover{border-color:var(--gold);color:var(--gold);}
+
+  /* ============ HERO ============ */
+  .hero{background:var(--bordeaux);color:var(--cream);position:relative;overflow:hidden;
+    padding:108px 0 116px;}
+  .hero::before{content:"";position:absolute;inset:0;
+    background:radial-gradient(900px 420px at 78% -10%,rgba(197,162,88,.16),transparent 60%);}
+  .hero::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:5px;
+    background:linear-gradient(90deg,var(--gold) 0%,var(--gold) 38%,transparent 38%);}
+  .hero .wrap{position:relative;}
+  .hero .eyebrow{margin-bottom:26px;}
+  .hero h1{font-size:clamp(38px,6vw,64px);font-weight:500;line-height:1.08;letter-spacing:.3px;max-width:15ch;}
+  .hero h1 em{color:var(--gold);}
+  .hero p.sub{margin-top:24px;font-size:17px;font-weight:300;line-height:1.7;max-width:54ch;color:#e6dccd;}
+  .hero p.sub b{font-weight:500;color:#fff;}
+  .hero .actions{margin-top:38px;display:flex;gap:14px;flex-wrap:wrap;}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal.in{opacity:1;transform:none;}
+  .hero .reveal{opacity:0;transform:translateY(22px);animation:rise .9s ease forwards;}
+  .hero .reveal:nth-child(1){animation-delay:.05s;}
+  .hero .reveal:nth-child(2){animation-delay:.18s;}
+  .hero .reveal:nth-child(3){animation-delay:.32s;}
+  .hero .reveal:nth-child(4){animation-delay:.46s;}
+  @keyframes rise{to{opacity:1;transform:none;}}
+
+  /* ============ section base ============ */
+  section{padding:84px 0;}
+  .sec-head{max-width:62ch;}
+  .sec-head h2{font-size:clamp(28px,4vw,40px);font-weight:500;color:var(--bordeaux);line-height:1.16;margin-top:16px;letter-spacing:.2px;}
+  .sec-head h2 em{color:var(--gold-deep);}
+  .sec-head p{margin-top:16px;font-size:16px;font-weight:300;color:var(--ink);line-height:1.75;}
+
+  /* ============ PROBLEM ============ */
+  .problem{background:var(--cream-2);}
+  .quote-mark{font-family:'Cormorant Garamond';font-size:90px;color:var(--gold);line-height:.6;font-style:italic;}
+  .problem .lead{font-family:'Cormorant Garamond';font-size:clamp(22px,3vw,30px);font-weight:500;color:var(--bordeaux);line-height:1.4;max-width:24ch;}
+  .problem .row{display:grid;grid-template-columns:1fr 1.1fr;gap:54px;align-items:center;}
+  .problem .body p{font-size:16px;font-weight:300;line-height:1.8;color:var(--ink);}
+  .problem .body p + p{margin-top:16px;}
+  .problem .body b{color:var(--bordeaux);font-weight:600;}
+
+  /* ============ USES ============ */
+  .uses .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);margin-top:48px;border:1px solid var(--line);}
+  .uses .card{background:var(--cream);padding:34px 32px;transition:.3s;}
+  .uses .card:hover{background:#fff;}
+  .uses .card .tag{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-deep);font-weight:600;}
+  .uses .card h3{font-size:23px;font-weight:600;color:var(--bordeaux);margin:10px 0 9px;}
+  .uses .card p{font-size:14.5px;font-weight:300;line-height:1.7;color:var(--ink);}
+
+  /* ============ REPORTING-READY ============ */
+  .ready{background:var(--bordeaux);color:var(--cream);}
+  .ready .row{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+  .ready .eyebrow{color:var(--gold);}
+  .ready .eyebrow::before{background:var(--gold);}
+  .ready h2{font-size:clamp(27px,3.6vw,38px);font-weight:500;color:#fff;line-height:1.18;margin-top:16px;}
+  .ready h2 em{color:var(--gold);}
+  .ready p{margin-top:18px;font-size:16px;font-weight:300;line-height:1.78;color:#e1d6c7;}
+  .ready p b{color:#fff;font-weight:500;}
+  /* fact card */
+  .factcard{background:var(--cream);color:var(--ink);border-radius:4px;padding:30px 30px 26px;box-shadow:0 24px 60px rgba(0,0,0,.3);}
+  .factcard .fc-top{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1.5px solid var(--bordeaux);padding-bottom:12px;}
+  .factcard .fc-top .t{font-family:'Cormorant Garamond';font-size:19px;font-weight:600;color:var(--bordeaux);}
+  .factcard .fc-top .r{font-size:10px;letter-spacing:1.5px;color:var(--gold-deep);font-weight:600;text-transform:uppercase;}
+  .factcard .fc-row{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--line);font-size:13px;}
+  .factcard .fc-row:last-child{border-bottom:none;}
+  .factcard .fc-row .k{color:var(--muted);letter-spacing:.3px;}
+  .factcard .fc-row .v{color:var(--bordeaux);font-weight:600;font-family:'Cormorant Garamond';font-size:16px;}
+  .factcard .fc-note{margin-top:14px;font-size:10.5px;color:var(--muted);font-style:italic;line-height:1.5;}
+
+  /* ============ INDEPENDENCE ============ */
+  .indep .band{border:1px solid var(--line);border-left:4px solid var(--gold);background:#fff;padding:40px 44px;border-radius:3px;display:flex;gap:34px;align-items:center;}
+  .indep .band .big{font-family:'Cormorant Garamond';font-size:64px;font-weight:600;color:var(--bordeaux);line-height:.9;white-space:nowrap;}
+  .indep .band .big small{display:block;font-size:13px;font-family:'Inter';font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-deep);margin-top:8px;}
+  .indep .band .txt p{font-size:16px;font-weight:300;line-height:1.8;color:var(--ink);}
+  .indep .band .txt p b{color:var(--bordeaux);font-weight:600;}
+
+  /* ============ CREDIBILITY ============ */
+  .cred{background:var(--cream-2);}
+  .cred .row{display:grid;grid-template-columns:.85fr 1.15fr;gap:50px;align-items:center;}
+  .cred .stats{display:flex;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .cred .stats .c{flex:1;padding:18px 18px 18px 0;border-right:1px solid var(--line);}
+  .cred .stats .c:last-child{border-right:none;padding-right:0;}
+  .cred .stats .c:not(:first-child){padding-left:18px;}
+  .cred .stats .n{font-family:'Cormorant Garamond';font-size:26px;font-weight:600;color:var(--bordeaux);line-height:1;}
+  .cred .stats .d{font-size:11.5px;color:var(--ink);margin-top:6px;line-height:1.45;font-weight:400;}
+  .cred .bio h2{margin-bottom:10px;}
+  .cred .bio p{font-size:16px;font-weight:300;line-height:1.8;color:var(--ink);}
+  .cred .bio p b{color:var(--bordeaux);font-weight:600;}
+
+  /* ============ COLLAB ============ */
+  .collab .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:46px;}
+  .collab .opt{border:1px solid var(--line);border-radius:3px;padding:30px 26px;background:#fff;position:relative;}
+  .collab .opt .num{font-family:'Cormorant Garamond';font-size:15px;color:var(--gold-deep);font-weight:600;letter-spacing:1px;}
+  .collab .opt h3{font-size:21px;color:var(--bordeaux);font-weight:600;margin:6px 0 10px;}
+  .collab .opt p{font-size:14px;font-weight:300;line-height:1.7;color:var(--ink);}
+  .collab .opt p b{color:var(--bordeaux);font-weight:600;}
+
+  /* ============ CTA ============ */
+  .final{background:var(--bordeaux);color:var(--cream);text-align:center;}
+  .final h2{font-size:clamp(30px,4.4vw,46px);font-weight:500;color:#fff;line-height:1.12;max-width:18ch;margin:18px auto 0;}
+  .final h2 em{color:var(--gold);}
+  .final p{margin:20px auto 34px;font-size:16px;font-weight:300;color:#e1d6c7;max-width:50ch;line-height:1.7;}
+  .final .mail{margin-top:26px;font-size:14px;color:#cdbfb0;letter-spacing:.3px;}
+  .final .mail a{color:var(--gold);text-decoration:none;}
+
+  /* ============ FOOT ============ */
+  footer{background:#241622;color:#9a8d97;padding:30px 0;}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+  footer .logo{font-size:17px;}
+  footer .legal{font-size:11px;line-height:1.6;max-width:60ch;color:#7d7280;}
+
+  /* ============ RESPONSIVE ============ */
+  @media(max-width:840px){
+    .problem .row,.ready .row,.cred .row{grid-template-columns:1fr;gap:34px;}
+    .uses .grid,.collab .grid{grid-template-columns:1fr;}
+    .indep .band{flex-direction:column;align-items:flex-start;gap:20px;}
+    .indep .band .big{font-size:52px;}
+    nav .cta{display:none;}
+    section{padding:60px 0;}
+    .hero{padding:78px 0 84px;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="index.html" class="logo" style="text-decoration:none;color:inherit;">estimation<span>cave</span>.com</a>
+    <a href="#contact" class="cta">Échanger sur un dossier</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow reveal">Pour les conseils en gestion de patrimoine</div>
+    <h1 class="reveal">La cave de vos clients est un actif.<br>Pas une <em>ligne fantôme</em>.</h1>
+    <p class="sub reveal">J'établis la valeur d'une cave à vins de manière <b>indépendante, datée et recevable</b> — pour l'intégrer à un bilan patrimonial, une succession ou une couverture d'assurance. À distance, sur photos, sous cinq jours ouvrés. Sans jamais acheter ni revendre une seule bouteille.</p>
+    <div class="actions reveal">
+      <a href="#contact" class="btn">Échanger sur un dossier</a>
+      <a href="#methode" class="btn ghost">Voir la méthode</a>
+    </div>
+  </div>
+</header>
+
+<!-- PROBLEM -->
+<section class="problem">
+  <div class="wrap">
+    <div class="row">
+      <div>
+        <div class="quote-mark">“</div>
+        <p class="lead">Connue, parfois précieuse, mais ni chiffrée, ni datée, ni documentée.</p>
+      </div>
+      <div class="body">
+        <p>Dans un patrimoine, la cave appartient à la famille des <b>actifs passion</b> — au même titre que l'art, les montres ou les voitures de collection. Et comme eux, elle échappe à vos systèmes : les valeurs sont obsolètes, la documentation éparpillée entre une vieille expertise et une police d'assurance, et personne n'ose s'appuyer sur ces chiffres pour décider.</p>
+        <p>C'est précisément ce vide que je comble. Là où vous portez la cave « pour mémoire », je vous remets <b>une valeur de référence</b> que vous pouvez inscrire au bilan, transmettre à un notaire ou présenter à un assureur — en toute confiance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- USES -->
+<section class="uses" id="methode">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Quatre moments de votre pratique</div>
+      <h2>Un même document, <em>quatre usages</em> dans votre quotidien.</h2>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <div class="tag">Inventaire</div>
+        <h3>Bilan patrimonial</h3>
+        <p>Une valeur chiffrée et traçable pour intégrer la cave à votre audit d'actifs et à vos outils d'agrégation, sans approximation ni angle mort.</p>
+      </div>
+      <div class="card">
+        <div class="tag">Déclaration</div>
+        <h3>Succession &amp; transmission</h3>
+        <p>Un inventaire à dire d'expert, daté et recevable, pour fiabiliser la déclaration de succession et éclairer le partage entre héritiers.</p>
+      </div>
+      <div class="card">
+        <div class="tag">Fiscalité</div>
+        <h3>Arbitrage &amp; cession</h3>
+        <p>Une valorisation de référence avant toute cession, pour calibrer l'opération et anticiper le régime de plus-value sur biens meubles applicable.</p>
+      </div>
+      <div class="card">
+        <div class="tag">Couverture</div>
+        <h3>Assurance objets de valeur</h3>
+        <p>Une base solide de souscription ou de réévaluation d'un contrat objets de valeur, alignée sur la valeur réelle du marché secondaire.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REPORTING READY -->
+<section class="ready">
+  <div class="wrap">
+    <div class="row">
+      <div>
+        <div class="eyebrow">Pensé pour votre process</div>
+        <h2>Un rapport <em>prêt à intégrer</em> à votre reporting.</h2>
+        <p>Mon rapport ne vous laisse pas un PDF isolé à reclasser. Sa synthèse reprend exactement les champs qu'attendent vos outils de consolidation patrimoniale : <b>valeur retenue, date d'évaluation, méthode et sources, localisation déclarée, et données d'assurance</b>.</p>
+        <p>Vous reportez la cave dans votre dashboard comme n'importe quelle autre classe d'actif — avec une fraîcheur de valorisation et une traçabilité que vous ne pouviez pas obtenir jusqu'ici.</p>
+      </div>
+      <div>
+        <div class="factcard">
+          <div class="fc-top">
+            <div class="t">Synthèse de valorisation</div>
+            <div class="r">EST-2026</div>
+          </div>
+          <div class="fc-row"><span class="k">Valeur globale retenue</span><span class="v">— € ± 15 %</span></div>
+          <div class="fc-row"><span class="k">Date d'évaluation</span><span class="v">JJ / MM / AAAA</span></div>
+          <div class="fc-row"><span class="k">Méthode</span><span class="v">Croisement marché secondaire</span></div>
+          <div class="fc-row"><span class="k">Références auditées</span><span class="v">— flacons</span></div>
+          <div class="fc-row"><span class="k">Localisation déclarée</span><span class="v">France</span></div>
+          <div class="fc-row"><span class="k">Valeur à assurer</span><span class="v">— €</span></div>
+          <div class="fc-note">Champs structurés repris en clôture de chaque rapport, directement reportables dans un outil de consolidation patrimoniale.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDEPENDENCE -->
+<section class="indep">
+  <div class="wrap">
+    <div class="sec-head" style="margin-bottom:34px;">
+      <div class="eyebrow">Ce qui me distingue</div>
+      <h2>L'indépendance qui vous <em>protège</em>.</h2>
+    </div>
+    <div class="band">
+      <div class="big">0<small>conflit d'intérêt</small></div>
+      <div class="txt">
+        <p>Je n'achète pas, je ne revends pas, je ne perçois <b>aucune rétrocommission</b> — ni de vous, ni d'une maison de ventes. Vous pouvez me recommander sans craindre que la prestation se transforme en appel d'offre déguisé sur la cave de votre client. C'est une garantie qu'aucun acteur lié à la transaction ne peut offrir, et c'est ce qui préserve votre posture de conseil.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDIBILITY -->
+<section class="cred">
+  <div class="wrap">
+    <div class="row">
+      <div class="bio">
+        <div class="eyebrow">Qui établit la valeur</div>
+        <h2>Une expertise du <em>marché secondaire</em>, pas une opinion.</h2>
+        <p>Pendant plus de six ans, j'ai dirigé les ventes aux enchères chez <b>iDealwine</b>, la référence européenne du marché secondaire du vin. J'y ai estimé, calibré et adjugé des milliers de lots. C'est cette lecture du marché — et non un avis de dégustation — que je mets au service de vos dossiers.</p>
+      </div>
+      <div class="stats">
+        <div class="c"><div class="n">6 ans</div><div class="d">Responsable des ventes aux enchères, iDealwine</div></div>
+        <div class="c"><div class="n">WSET 3</div><div class="d">Niveau 3 avec distinction (2024)</div></div>
+        <div class="c"><div class="n">5 j.</div><div class="d">Délai de livraison du rapport, 100 % à distance</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COLLAB -->
+<section class="collab">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Cadre de collaboration</div>
+      <h2>Trois manières de <em>travailler ensemble</em>.</h2>
+    </div>
+    <div class="grid">
+      <div class="opt">
+        <div class="num">01</div>
+        <h3>Recommandation</h3>
+        <p>Vous m'adressez votre client. Honoraire fixe et transparent, <b>sans aucune rétrocommission</b> — un cadre propre qui préserve votre indépendance de conseil.</p>
+      </div>
+      <div class="opt">
+        <div class="num">02</div>
+        <h3>Co-branding</h3>
+        <p>Le rapport est établi <b>pour les clients de votre cabinet</b> : votre logo en couverture, mon nom et ma signature d'experte garants de l'indépendance et de la recevabilité.</p>
+      </div>
+      <div class="opt">
+        <div class="num">03</div>
+        <h3>Reporting interne</h3>
+        <p>Pour un volume récurrent destiné à votre seul reporting consolidé, une <b>production en marque blanche</b> est envisageable, sur devis.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final" id="contact">
+  <div class="wrap">
+    <div class="eyebrow center">Premier dossier</div>
+    <h2>Une cave dans un dossier <em>en cours</em> ?</h2>
+    <p>Présentez-moi la situation en quelques lignes. Je vous dis sous 24 h si la cave relève d'une simple valorisation ou mérite un audit complet, et sous quel délai je peux vous livrer.</p>
+    <a href="mailto:contact@estimationcave.com?subject=Dossier%20CGP%20%E2%80%94%20estimation%20de%20cave" class="btn">Échanger sur un dossier</a>
+    <div class="mail">ou directement : <a href="mailto:contact@estimationcave.com">contact@estimationcave.com</a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="logo serif">estimation<span style="color:var(--gold)">cave</span>.com</div>
+    <div class="legal">Le rapport est une aide à la décision patrimoniale. Il ne constitue ni une expertise judiciaire, ni une certification d'authenticité, ni un conseil en investissement financier.</div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.14});
+  document.querySelectorAll('section .sec-head, section .row, section .grid, section .band, section .factcard, .final h2, .final p, .final .btn').forEach((el,i)=>{
+    el.classList.add('reveal'); el.style.transitionDelay=(i%3*0.08)+'s'; io.observe(el);
+  });
+</script>
+</body>
+</html>

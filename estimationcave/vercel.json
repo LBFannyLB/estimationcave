@@ -26,7 +26,7 @@
       "permanent": true
     },
     {
-      "source": "/:page(apropos|assureurs|blog|confidentialite|estimation|faq|gestion|mentions-legales|merci|notaires|professionnels|vendre)",
+      "source": "/:page(apropos|assureurs|blog|confidentialite|conseillers-patrimoine|estimation|faq|gestion|mentions-legales|merci|notaires|professionnels|vendre)",
       "destination": "/:page.html",
       "permanent": true
     }
