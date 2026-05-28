@@ -513,25 +513,30 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       line-height: 1.75;
     }
 
-    /* ── Variante narratif horizontal (section .probleme) ── */
+    /* ── Variante grille narratif (section .probleme) ── inspirée landing CGP */
     .situations-narratif {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 2rem 2.5rem;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 3rem;
     }
     .situation-narr {
       display: flex;
       align-items: flex-start;
-      gap: 1.5rem;
-      padding: 1.75rem 0;
-      border-bottom: 1px solid var(--border);
+      gap: 1.25rem;
+      padding: 2rem 1.85rem;
+      background: var(--fond);
+      transition: background 0.3s cubic-bezier(0.33, 1, 0.68, 1);
     }
-    .situation-narr:nth-child(3),
-    .situation-narr:nth-child(4) { border-bottom: none; padding-bottom: 0; }
+    @media (hover: hover) {
+      .situation-narr:hover { background: var(--blanc); }
+    }
     .situation-narr-icon {
-      flex: 0 0 56px;
-      width: 56px;
-      height: 56px;
+      flex: 0 0 48px;
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
       background: var(--blanc);
       border: 1px solid var(--border);
@@ -539,19 +544,20 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       align-items: center;
       justify-content: center;
     }
-    .situation-narr-icon svg { width: 28px; height: 28px; }
+    .situation-narr-icon svg { width: 24px; height: 24px; }
     .situation-narr-content { flex: 1; min-width: 0; }
     .situation-narr h3 {
       margin-bottom: 0.5rem;
       font-size: 1.25rem;
+      color: var(--bordeaux);
     }
     .situation-narr-quote {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
       color: var(--bordeaux);
-      font-size: 1.05rem;
+      font-size: 1.02rem;
       line-height: 1.5;
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.55rem;
       opacity: 0.85;
     }
     .situation-narr p {
@@ -560,9 +566,8 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       line-height: 1.7;
     }
     @media (max-width: 800px) {
-      .situations-narratif { grid-template-columns: 1fr; gap: 0; }
-      .situation-narr { border-bottom: 1px solid var(--border) !important; padding: 1.5rem 0 !important; }
-      .situation-narr:last-child { border-bottom: none !important; }
+      .situations-narratif { grid-template-columns: 1fr; }
+      .situation-narr { padding: 1.75rem 1.5rem; }
     }
 
     /* ── Variante KPI chiffres-clés (section .confiance.confiance-kpi) ── */
