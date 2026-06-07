@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://estimationcave.com/</loc>
-    <lastmod>2026-05-30</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -52,7 +52,7 @@
   <!-- Têtes de silo -->
   <url>
     <loc>https://estimationcave.com/estimation.html</loc>
-    <lastmod>2026-05-30</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -64,7 +64,7 @@
   </url>
   <url>
     <loc>https://estimationcave.com/vendre.html</loc>
-    <lastmod>2026-04-09</lastmod>
+    <lastmod>2026-06-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
