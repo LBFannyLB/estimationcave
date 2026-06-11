@@ -351,6 +351,24 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://estimationcave.com/article-frais-vente-encheres-vin.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://estimationcave.com/article-identifier-defauts-vin-bouchonne.html</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://estimationcave.com/article-organiser-cave-classement.html</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <!-- Pages utilitaires -->
   <url>
     <loc>https://estimationcave.com/faq.html</loc>
@@ -365,14 +383,20 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://estimationcave.com/assureurs</loc>
-    <lastmod>2026-05-11</lastmod>
+    <loc>https://estimationcave.com/assureurs.html</loc>
+    <lastmod>2026-06-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://estimationcave.com/notaires</loc>
-    <lastmod>2026-05-21</lastmod>
+    <loc>https://estimationcave.com/notaires.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://estimationcave.com/conseillers-patrimoine.html</loc>
+    <lastmod>2026-06-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
