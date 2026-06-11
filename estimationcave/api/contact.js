@@ -14,7 +14,7 @@ const ALLOWED_EXTS = new Set([
   '.jpg', '.jpeg', '.png', '.heic',
 ]);
 const REQUIRED_FIELDS = [
-  'civilite', 'nom', 'email',
+  'nom', 'email',
   'contexte', 'volume', 'situation',
   'consentement_rgpd',
 ];
@@ -68,7 +68,6 @@ function buildEmailHtml(d, files) {
 
           <h2 style="font-family:Georgia,serif;color:#2D1B2E;font-size:16px;margin:0 0 12px;">Coordonnées</h2>
           <table width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #eee;margin-bottom:24px;border-collapse:collapse;">
-            ${row('Civilité', d.civilite)}
             ${row('Prénom', d.prenom)}
             ${row('Nom', d.nom)}
             ${row('Email', d.email)}
@@ -220,7 +219,7 @@ export default async function handler(req, res) {
   }
 
   // ── Envoi via Resend ──
-  const subject = `[Demande estimation] ${data.civilite} ${data.nom} - ${data.volume} bouteilles - ${data.contexte}`;
+  const subject = `[Demande estimation] ${data.nom} - ${data.volume} bouteilles - ${data.contexte}`;
   const html = buildEmailHtml(data, realFiles);
   const resend = new Resend(process.env.RESEND_API_KEY);
 
