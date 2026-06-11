@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<script src="https://cdn.jsdelivr.net/npm/tarteaucitronjs@latest/tarteaucitron.js"></script>
+<meta charset="UTF-8">
+<script src="https://cdn.jsdelivr.net/npm/tarteaucitronjs@1.33.0/tarteaucitron.js" defer></script>
 <script>
+window.addEventListener("DOMContentLoaded", function () {
 tarteaucitron.init({
   "privacyUrl": "https://www.estimationcave.com/confidentialite.html",
   "bodyPosition": "bottom",
@@ -35,8 +37,8 @@ tarteaucitron.user.gtagMore = function () {};
 (tarteaucitron.job = tarteaucitron.job || []).push('gtag');
 tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
 (tarteaucitron.job = tarteaucitron.job || []).push('googletagmanager');
+});
 </script>
-    <meta charset="UTF-8">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -195,7 +197,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
 
     <nav class="nav">
         <div class="nav-inner">
-            <a href="/" class="nav-logo"><img src="grappe-doree.png" alt="" class="nav-logo-img"><span class="nav-logo-text">estimation<span>cave</span>.com</span></a>
+            <a href="/" class="nav-logo"><img width="160" height="160" src="grappe-doree.webp" alt="" class="nav-logo-img"><span class="nav-logo-text">estimation<span>cave</span>.com</span></a>
             <div class="nav-right">
                 <a href="blog.html" class="nav-back">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>

@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<script src="https://cdn.jsdelivr.net/npm/tarteaucitronjs@latest/tarteaucitron.js"></script>
+<meta charset="UTF-8">
+<script src="https://cdn.jsdelivr.net/npm/tarteaucitronjs@1.33.0/tarteaucitron.js" defer></script>
 <script>
+window.addEventListener("DOMContentLoaded", function () {
 tarteaucitron.init({
   "privacyUrl": "https://www.estimationcave.com/confidentialite.html",
   "bodyPosition": "bottom",
@@ -35,8 +37,8 @@ tarteaucitron.user.gtagMore = function () {};
 (tarteaucitron.job = tarteaucitron.job || []).push('gtag');
 tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
 (tarteaucitron.job = tarteaucitron.job || []).push('googletagmanager');
+});
 </script>
-    <meta charset="UTF-8">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
