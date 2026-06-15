@@ -3413,6 +3413,20 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
           try { payload = await res.json(); } catch(_){}
 
           if (res.ok && payload.success){
+            // ── Conversion : demande d'audit envoyée (lead) ──
+            // Événement consommé par GTM (GTM-PZ7XM58P) UNIQUEMENT si l'utilisateur a
+            // accepté les cookies (GTM n'est chargé qu'après consentement tarteaucitron).
+            // Aucune donnée personnelle n'est transmise au dataLayer.
+            try {
+              window.dataLayer = window.dataLayer || [];
+              window.dataLayer.push({
+                event: 'generate_lead',
+                lead_type: 'audit_cave',
+                form_location: 'index_formulaire',
+                value: 199,
+                currency: 'EUR'
+              });
+            } catch (_) {}
             setFeedback('success', "Merci, j'ai bien reçu votre demande. Je reviens vers vous sous 48h ouvrées pour confirmer la mission.");
             form.reset();
             feedback.scrollIntoView({behavior:'smooth', block:'center'});
