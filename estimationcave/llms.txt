@@ -1,0 +1,68 @@
+# estimationcave.com
+
+> Service d'estimation professionnelle et indépendante de caves à vins en France. Un expert indépendant en estimation de cave réalise un audit complet de votre cave et fournit une recommandation bouteille par bouteille — quoi vendre, quoi garder, à qui et quand — sur la base des prix réels du marché (cotes de ventes aux enchères et marché secondaire). Prestation à 199 €, réalisable à distance partout en France.
+
+L'estimation repose sur les prix réellement constatés sur le marché secondaire (résultats de ventes aux enchères et cotes), et non sur les prix affichés en ligne, qui correspondent rarement au prix de revente réel. Le service s'adresse aux particuliers (caves héritées, succession, assurance, vente) comme aux professionnels (notaires, assureurs, conseillers en gestion de patrimoine).
+
+## Pages piliers (une par thème)
+
+- [Estimer sa cave à vins — le guide complet](https://estimationcave.com/estimation.html): méthodes d'estimation, critères de valeur, coût, et différence entre estimation gratuite en ligne et audit professionnel.
+- [Cote et prix d'un vin — comprendre le marché](https://estimationcave.com/article-cotes-pilier.html): ce qu'est une cote, comment elle se forme, et pourquoi elle diffère du prix de vente réel.
+- [Cave héritée et succession](https://estimationcave.com/article-heritage-cave.html): valoriser une cave reçue en héritage, obligations de déclaration en succession, démarches.
+- [Vendre ses vins](https://estimationcave.com/vendre.html): canaux de vente (enchères, caviste, négociant, particuliers), frais, et choix du bon circuit selon les bouteilles.
+- [Gérer sa cave](https://estimationcave.com/gestion.html): inventaire, classement, conservation, apogée et suivi de la valeur dans le temps.
+- [Professionnels — notaires, assureurs, patrimoine](https://estimationcave.com/professionnels.html): expertise de cave pour évaluation en succession, police d'assurance et gestion de patrimoine.
+
+## Estimer sa cave
+
+- [Estimation à distance](https://estimationcave.com/article-estimation-distance.html): comment se déroule une estimation de cave sans déplacement.
+- [Estimation gratuite vs professionnelle](https://estimationcave.com/article-estimation-gratuite-vs-professionnelle.html): limites des comparateurs en ligne face à un audit d'expert.
+- [Qui choisir pour estimer sa cave](https://estimationcave.com/article-qui-choisir-estimer-cave.html): commissaire-priseur, caviste, expert indépendant — avantages et limites.
+- [Critères qui déterminent le prix d'une bouteille](https://estimationcave.com/article-criteres-prix-bouteille.html): appellation, millésime, état, provenance, conservation.
+- [Préparer un audit de cave](https://estimationcave.com/article-preparer-audit-cave.html): inventaire et informations à réunir avant l'estimation.
+- [Estimer ses vins de Bordeaux](https://estimationcave.com/article-estimer-vins-bordeaux.html)
+- [Estimer ses vins de Bourgogne](https://estimationcave.com/article-estimer-vins-bourgogne.html)
+- [Estimer ses vins du Rhône](https://estimationcave.com/article-estimer-vins-rhone.html)
+- [Étude de cas : estimation d'un Mouton Rothschild](https://estimationcave.com/estimation-mouton-rothschild-exemple.html)
+
+## Cotes et marché
+
+- [Note Parker et cote d'un vin](https://estimationcave.com/article-note-parker-cote-vin.html)
+- [Argus des vins](https://estimationcave.com/article-argus-des-vins.html)
+- [Les vins les plus chers du monde](https://estimationcave.com/article-vins-plus-chers-du-monde.html)
+- [Apogée d'un vin — quand est-il à son potentiel](https://estimationcave.com/article-apogee-vin.html)
+
+## Héritage et succession
+
+- [Cave héritée — quelle valeur](https://estimationcave.com/article-cave-heritee-valeur.html)
+- [Vider une cave après un décès](https://estimationcave.com/article-vider-cave-apres-deces.html)
+- [Démarches de succession pour une cave à vins](https://estimationcave.com/article-cave-vins-succession-demarches.html)
+- [Notaires : évaluer une cave en succession](https://estimationcave.com/article-notaires-evaluer-cave-succession.html)
+- [Garder ou vendre une cave héritée](https://estimationcave.com/article-garder-ou-vendre-cave-heritee.html)
+
+## Vendre ses vins
+
+- [Prix pour vendre ses bouteilles](https://estimationcave.com/article-prix-vendre-bouteilles.html)
+- [Vendre via caviste ou négociant](https://estimationcave.com/article-vendre-cave-caviste-negociant.html)
+- [Vendre aux enchères](https://estimationcave.com/article-vendre-vin-encheres.html)
+- [Frais de vente aux enchères](https://estimationcave.com/article-frais-vente-encheres-vin.html)
+- [Vendre entre particuliers](https://estimationcave.com/article-vendre-vin-entre-particuliers.html)
+
+## Gérer et conserver sa cave
+
+- [Faire l'inventaire de sa cave](https://estimationcave.com/article-inventaire-cave.html)
+- [Tableur Excel de gestion de cave](https://estimationcave.com/article-tableur-excel-gestion-cave.html)
+- [Température de conservation du vin](https://estimationcave.com/article-temperature-conservation-vin.html)
+- [Savoir si un vin est encore bon](https://estimationcave.com/article-savoir-si-vin-encore-bon.html)
+- [Vieilles bouteilles : que faire](https://estimationcave.com/article-vieilles-bouteilles-vin-que-faire.html)
+
+## Professionnels
+
+- [Assureurs : évaluer une cave pour une police](https://estimationcave.com/article-assureurs-evaluer-cave-police.html)
+- [Assurer sa cave à vins](https://estimationcave.com/article-assurer-cave-vins.html)
+- [Cave sous-assurée](https://estimationcave.com/article-cave-sous-assuree.html)
+
+## À propos
+
+- [Qui suis-je](https://estimationcave.com/apropos.html): expert indépendant en estimation de cave à vins.
+- [Blog complet](https://estimationcave.com/blog.html): tous les articles classés par silo.
