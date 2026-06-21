@@ -39,6 +39,27 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
 (tarteaucitron.job = tarteaucitron.job || []).push('googletagmanager');
 });
 </script>
+<script>
+/* ── Consent Mode v2 — alignement du signal publicitaire sur le consentement global ──
+   tarteaucitron 1.33.0 gère déjà le Consent Mode : défaut "denied" pour tout, puis
+   analytics_storage → "granted" à l'acceptation. Mais les signaux publicitaires
+   (ad_storage, ad_user_data, ad_personalization) restaient bloqués sur "denied" même
+   après acceptation (aucun service "googleads" déclaré). Ce complément les fait passer
+   en "granted" quand le visiteur accepte les cookies, et les laisse "denied" s'il refuse.
+   Hook : événements gtag_consentModeOk / gtag_consentModeKo émis par tarteaucitron sur document. */
+(function () {
+  function adsConsent(state) {
+    var push = window.tac_gtag || function () { (window.dataLayer = window.dataLayer || []).push(arguments); };
+    push('consent', 'update', {
+      ad_storage: state,
+      ad_user_data: state,
+      ad_personalization: state
+    });
+  }
+  document.addEventListener('gtag_consentModeOk', function () { adsConsent('granted'); });
+  document.addEventListener('gtag_consentModeKo', function () { adsConsent('denied'); });
+})();
+</script>
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
