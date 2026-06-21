@@ -2125,7 +2125,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
         <a href="faq.html" class="nav-link">FAQ</a>
         <a href="blog.html" class="nav-link">Blog</a>
         <a href="apropos.html" class="nav-link">Qui suis-je</a>
-        <a href="#formulaire" class="btn btn-gold">Estimer ma cave</a>
+        <a href="#formulaire" class="btn btn-gold" data-cta="nav">Estimer ma cave</a>
       </div>
             <button class="hamburger" aria-label="Menu" aria-expanded="false">
                 <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -2146,7 +2146,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
           <p class="section-label">Audit &amp; estimation de cave à vins</p>
           <h1>Que vaut <em>réellement</em> votre cave à vins&nbsp;?</h1>
           <p class="hero-subtitle">Recevez un audit indépendant de votre cave : valeur réelle de chaque bouteille, recommandations garder ou vendre, et plan d'action concret — pour vendre au bon moment, garder ce qui a de la valeur, et ne rien regretter.</p>
-          <a href="#formulaire" class="btn btn-primary">Demander un audit — 199&thinsp;€</a>
+          <a href="#formulaire" class="btn btn-primary" data-cta="hero">Demander un audit — 199&thinsp;€</a>
           <span class="hero-mention">
             Livraison sous 5 jours ouvrés <span>·</span> 100% à distance <span>·</span> Strictement confidentiel
           </span>
@@ -2255,7 +2255,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
         </div>
       </div>
       <div class="process-cta">
-        <a href="#formulaire" class="btn btn-outline">Démarrer ma demande</a>
+        <a href="#formulaire" class="btn btn-outline" data-cta="process">Démarrer ma demande</a>
       </div>
     </div>
   </section>
@@ -2446,7 +2446,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       </div>
 
       <div class="apercu-cta">
-        <a href="#formulaire" class="btn btn-primary">Recevoir ce rapport — 199&thinsp;€</a>
+        <a href="#formulaire" class="btn btn-primary" data-cta="apercu">Recevoir ce rapport — 199&thinsp;€</a>
       </div>
     </div>
   </section>
@@ -3494,6 +3494,44 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       }, { passive: true });
       window.addEventListener('resize', update);
       update();
+    })();
+  </script>
+
+  <!-- ── Tracking micro-conversions (clics CTA + début de formulaire) ──
+       Pousse des événements dans le dataLayer, consommés par GTM (GTM-PZ7XM58P)
+       UNIQUEMENT après consentement cookies. Aucune donnée personnelle transmise.
+       Ce sont des signaux d'analyse de tunnel, PAS des conversions Google Ads. -->
+  <script>
+    (function(){
+      window.dataLayer = window.dataLayer || [];
+
+      // 1) Clic sur un CTA vers le formulaire (nav / hero / process / apercu / sticky-mobile)
+      document.addEventListener('click', function(e){
+        var el = e.target.closest ? e.target.closest('[data-cta]') : null;
+        if (!el) return;
+        try {
+          window.dataLayer.push({
+            event: 'cta_click',
+            cta_location: el.getAttribute('data-cta')
+          });
+        } catch (_) {}
+      }, true);
+
+      // 2) Début de remplissage du formulaire (1re interaction, une seule fois)
+      var form = document.getElementById('contact-form');
+      if (form) {
+        var started = false;
+        form.addEventListener('focusin', function(){
+          if (started) return;
+          started = true;
+          try {
+            window.dataLayer.push({
+              event: 'form_start',
+              form_location: 'index_formulaire'
+            });
+          } catch (_) {}
+        });
+      }
     })();
   </script>
 </body>
