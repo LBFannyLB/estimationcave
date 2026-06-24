@@ -2181,7 +2181,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
 
 
   <!-- ════════════ 3. PROBLÈME ════════════ -->
-  <section class="probleme">
+  <section class="probleme" id="situations">
     <div class="container">
       <div class="probleme-header">
         <p class="section-label">Le problème</p>
@@ -2251,7 +2251,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
 
 
   <!-- ════════════ 3b. COMMENT ÇA MARCHE ════════════ -->
-  <section class="process">
+  <section class="process" id="comment-ca-marche">
     <div class="container">
       <div class="process-header">
         <p class="section-label">Comment ça marche</p>
@@ -2318,7 +2318,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
 
 
   <!-- ════════════ 4. CE QUE VOUS RECEVEZ — APERÇU INTERACTIF ════════════ -->
-  <section class="apercu">
+  <section class="apercu" id="exemple-rapport">
     <div class="container">
       <div class="apercu-grid">
         <div class="apercu-content">
@@ -2722,7 +2722,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
 
 
   <!-- ════════════ 8b. ENGAGEMENTS ════════════ -->
-  <section class="confidentialite">
+  <section class="confidentialite" id="engagements">
     <div class="container">
       <div class="confidentialite-inner">
         <p class="section-label" style="color: var(--or);">Mes engagements</p>
@@ -3444,15 +3444,24 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             // ── Conversion : demande d'audit envoyée (lead) ──
             // Événement consommé par GTM (GTM-PZ7XM58P) UNIQUEMENT si l'utilisateur a
             // accepté les cookies (GTM n'est chargé qu'après consentement tarteaucitron).
-            // Aucune donnée personnelle n'est transmise au dataLayer.
+            // L'email est ajouté pour les Conversions avancées Google Ads : il est normalisé
+            // puis haché (SHA-256) par la balise Google AVANT tout envoi, et n'est exploité
+            // qu'après consentement. Aucun email en clair n'est transmis à Google.
+            // (Mention à ajouter à la politique de confidentialité.)
             try {
+              var ecEmail = '';
+              try {
+                var emailField = document.getElementById('email');
+                ecEmail = emailField && emailField.value ? emailField.value.trim().toLowerCase() : '';
+              } catch (_) {}
               window.dataLayer = window.dataLayer || [];
               window.dataLayer.push({
                 event: 'generate_lead',
                 lead_type: 'audit_cave',
                 form_location: 'index_formulaire',
                 value: 199,
-                currency: 'EUR'
+                currency: 'EUR',
+                user_data: { email: ecEmail }
               });
             } catch (_) {}
             setFeedback('success', "Merci, j'ai bien reçu votre demande. Je reviens vers vous sous 48h ouvrées pour confirmer la mission.");
