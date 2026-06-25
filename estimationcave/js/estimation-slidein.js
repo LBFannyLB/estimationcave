@@ -190,7 +190,7 @@
       if (!e.relatedTarget && e.clientY <= 0) show(root);
     });
 
-    // Déclencheur 2 : scroll >= 80 % (couvre le mobile)
+    // Déclencheur 2 : scroll >= 60 % (couvre le mobile)
     var onScroll = function () {
       if (shown) return;
       var h = document.documentElement;
