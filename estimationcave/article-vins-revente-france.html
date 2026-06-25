@@ -412,6 +412,151 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
 </div>
     </main>
 
+    <!-- ══ Estimation offerte — encart de capture (formulaire natif → /api/estimation-offerte) ══ -->
+    <section class="eo-section" id="estimation-offerte">
+      <style>
+        .eo-section{background:rgba(197,162,88,0.06);border-top:1px solid rgba(197,162,88,0.25);border-bottom:1px solid rgba(197,162,88,0.25);padding:3.5rem 1.25rem;margin:3rem 0 0;}
+        .eo-wrap{max-width:620px;margin:0 auto;}
+        .eo-eyebrow{font-family:var(--font-body);font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--or);font-weight:600;text-align:center;margin:0 0 0.6rem;}
+        .eo-title{font-family:var(--font-display);font-size:1.9rem;line-height:1.15;color:var(--bordeaux);text-align:center;margin:0 0 0.8rem;}
+        .eo-sub{font-family:var(--font-body);font-size:0.98rem;line-height:1.6;color:var(--texte-light);text-align:center;margin:0 auto 2rem;max-width:520px;}
+        .eo-form{background:var(--blanc);border:1px solid rgba(45,27,46,0.10);box-shadow:inset 0 0 0 1px rgba(197,162,88,0.10);padding:1.8rem;position:relative;}
+        .eo-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;}
+        .eo-field{display:flex;flex-direction:column;}
+        .eo-field.eo-full{grid-column:1/-1;}
+        .eo-field label{font-family:var(--font-body);font-size:0.8rem;font-weight:600;color:var(--bordeaux);margin-bottom:0.35rem;}
+        .eo-req{color:var(--or);}
+        .eo-field input,.eo-field select{font-family:var(--font-body);font-size:0.95rem;padding:0.7rem 0.8rem;border:1px solid rgba(45,27,46,0.18);background:var(--fond);color:var(--texte);border-radius:4px;width:100%;box-sizing:border-box;}
+        .eo-field input:focus,.eo-field select:focus{outline:2px solid var(--or);outline-offset:1px;}
+        .eo-check{display:flex;gap:0.6rem;align-items:flex-start;margin:0.4rem 0 1.2rem;font-family:var(--font-body);font-size:0.82rem;line-height:1.5;color:var(--texte-light);cursor:pointer;}
+        .eo-check input{margin-top:0.2rem;flex-shrink:0;}
+        .eo-check a{color:var(--or);}
+        .eo-btn{display:block;width:100%;background:var(--bordeaux);color:var(--fond);font-family:var(--font-body);font-size:1rem;font-weight:600;letter-spacing:0.02em;border:none;padding:0.95rem;cursor:pointer;transition:background .25s;}
+        .eo-btn:hover{background:#3d2840;}
+        .eo-btn:disabled{opacity:.6;cursor:default;}
+        .eo-reassurance{font-family:var(--font-body);font-size:0.78rem;line-height:1.5;color:var(--texte-light);text-align:center;margin:1rem 0 0;}
+        .eo-feedback{display:none;font-family:var(--font-body);font-size:0.9rem;line-height:1.5;padding:0.9rem 1rem;border-radius:4px;margin-bottom:1.2rem;}
+        .eo-feedback.is-success{display:block;background:var(--bordeaux);border:1px solid var(--bordeaux);color:var(--fond);}
+        .eo-feedback.is-error{display:block;background:rgba(180,40,40,0.08);border:1px solid #b42828;color:#8a2020;}
+        .eo-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
+        @media(max-width:560px){.eo-row{grid-template-columns:1fr;}.eo-title{font-size:1.55rem;}.eo-form{padding:1.4rem;}}
+      </style>
+
+      <div class="eo-wrap">
+        <p class="eo-eyebrow">Pas encore prêt pour un audit complet&nbsp;?</p>
+        <h2 class="eo-title">Une estimation offerte, sans engagement</h2>
+        <p class="eo-sub">Choisissez une bouteille de votre cave : un expert indépendant vous renvoie sa cote du moment, sa tendance et une indication garder ou vendre. Gratuitement, sous 48&nbsp;h.</p>
+
+        <form class="eo-form" id="eo-form" novalidate>
+          <div class="eo-hp" aria-hidden="true">
+            <label for="eo-website">Site web (laissez vide)</label>
+            <input type="text" id="eo-website" name="website" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="eo-feedback" id="eo-feedback" role="status" aria-live="polite"></div>
+
+          <div class="eo-row">
+            <div class="eo-field eo-full">
+              <label for="eo-domaine">Domaine / Château <span class="eo-req">*</span></label>
+              <input type="text" id="eo-domaine" name="domaine" required autocomplete="off">
+            </div>
+          </div>
+
+          <div class="eo-row">
+            <div class="eo-field">
+              <label for="eo-appellation">Appellation <span class="eo-req">*</span></label>
+              <input type="text" id="eo-appellation" name="appellation" required autocomplete="off">
+            </div>
+            <div class="eo-field">
+              <label for="eo-millesime">Millésime <span class="eo-req">*</span></label>
+              <input type="text" id="eo-millesime" name="millesime" required autocomplete="off" inputmode="numeric">
+            </div>
+          </div>
+
+          <div class="eo-row">
+            <div class="eo-field">
+              <label for="eo-format">Format <span class="eo-req">*</span></label>
+              <select id="eo-format" name="format" required>
+                <option value="">Choisir</option>
+                <option value="Bouteille (75 cl)">Bouteille (75 cl)</option>
+                <option value="Magnum (1,5 L)">Magnum (1,5 L)</option>
+                <option value="Autre format">Autre format</option>
+              </select>
+            </div>
+            <div class="eo-field">
+              <label for="eo-quantite">Quantité <span class="eo-req">*</span></label>
+              <input type="number" id="eo-quantite" name="quantite" required min="1" value="1">
+            </div>
+          </div>
+
+          <div class="eo-row">
+            <div class="eo-field eo-full">
+              <label for="eo-nb-references">Combien de références environ dans votre cave&nbsp;?</label>
+              <select id="eo-nb-references" name="nb_references">
+                <option value="">Préférez ne pas répondre</option>
+                <option value="1 à 10">1 à 10</option>
+                <option value="10 à 50">10 à 50</option>
+                <option value="50 à 200">50 à 200</option>
+                <option value="200 et plus">200 et plus</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="eo-row">
+            <div class="eo-field eo-full">
+              <label for="eo-email">Votre email <span class="eo-req">*</span></label>
+              <input type="email" id="eo-email" name="email" required autocomplete="email">
+            </div>
+          </div>
+
+          <label class="eo-check" for="eo-consentement">
+            <input type="checkbox" id="eo-consentement" name="consentement_rgpd" required>
+            <span>J'accepte de recevoir mon estimation et des conseils d'estimation par email. Mes informations ne sont transmises à aucun tiers et sont supprimées sur simple demande à <a href="mailto:contact@estimationcave.com">contact@estimationcave.com</a>. <span class="eo-req">*</span></span>
+          </label>
+
+          <button type="submit" class="eo-btn" id="eo-btn">Recevoir mon estimation</button>
+          <p class="eo-reassurance">Réponse d'un expert indépendant sous 48&nbsp;h · Une estimation offerte par adresse mail · Sans carte bancaire, sans engagement.</p>
+        </form>
+      </div>
+
+      <script>
+        (function(){
+          var form=document.getElementById('eo-form');
+          if(!form)return;
+          var btn=document.getElementById('eo-btn');
+          var feedback=document.getElementById('eo-feedback');
+          function setFeedback(type,msg){feedback.className='eo-feedback';if(!msg)return;feedback.classList.add(type==='success'?'is-success':'is-error');feedback.textContent=msg;}
+          form.addEventListener('submit',async function(e){
+            e.preventDefault();
+            setFeedback(null,'');
+            var original=btn.textContent;
+            btn.disabled=true;btn.textContent='Envoi en cours…';
+            try{
+              var params=new URLSearchParams(new FormData(form));
+              var res=await fetch('/api/estimation-offerte',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:params});
+              var payload={};try{payload=await res.json();}catch(_){}
+              if(res.ok&&payload.success){
+                try{
+                  var ecEmail='';try{var ef=document.getElementById('eo-email');ecEmail=ef&&ef.value?ef.value.trim().toLowerCase():'';}catch(_){}
+                  window.dataLayer=window.dataLayer||[];
+                  window.dataLayer.push({event:'generate_lead',lead_type:'estimation_offerte',form_location:'estimation_offerte',value:0,currency:'EUR',user_data:{email:ecEmail}});
+                }catch(_){}
+                setFeedback('success',"Merci, j'ai bien reçu votre demande. Vous recevez votre estimation par email sous 48 h.");
+                form.reset();
+                feedback.scrollIntoView({behavior:'smooth',block:'center'});
+              }else{
+                setFeedback('error',payload.error||"Une erreur est survenue, merci de réessayer ou d'écrire à contact@estimationcave.com.");
+              }
+            }catch(err){
+              setFeedback('error',"Connexion impossible, merci de réessayer ou d'écrire à contact@estimationcave.com.");
+            }finally{
+              btn.disabled=false;btn.textContent=original;
+            }
+          });
+        })();
+      </script>
+    </section>
+
     <div class="back-to-blog">
         <a href="blog.html">← Retour au blog</a>
     </div>
