@@ -23,7 +23,7 @@
     .eo-btn:disabled{opacity:.6;cursor:default;}
     .eo-reassurance{font-family:var(--font-body);font-size:0.78rem;line-height:1.5;color:var(--texte-light);text-align:center;margin:1rem 0 0;}
     .eo-feedback{display:none;font-family:var(--font-body);font-size:0.9rem;line-height:1.5;padding:0.9rem 1rem;border-radius:4px;margin-bottom:1.2rem;}
-    .eo-feedback.is-success{display:block;background:rgba(197,162,88,0.14);border:1px solid var(--or);color:var(--bordeaux);}
+    .eo-feedback.is-success{display:block;background:var(--bordeaux);border:1px solid var(--bordeaux);color:var(--fond);}
     .eo-feedback.is-error{display:block;background:rgba(180,40,40,0.08);border:1px solid #b42828;color:#8a2020;}
     .eo-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
     @media(max-width:560px){.eo-row{grid-template-columns:1fr;}.eo-title{font-size:1.55rem;}.eo-form{padding:1.4rem;}}
@@ -128,7 +128,7 @@
               window.dataLayer=window.dataLayer||[];
               window.dataLayer.push({event:'generate_lead',lead_type:'estimation_offerte',form_location:'estimation_offerte',value:0,currency:'EUR',user_data:{email:ecEmail}});
             }catch(_){}
-            setFeedback('success',"Merci, j'ai bien reçu votre bouteille. Vous recevez votre estimation par email sous 48 h.");
+            setFeedback('success',"Merci, j'ai bien reçu votre demande. Vous recevez votre estimation par email sous 48 h.");
             form.reset();
             feedback.scrollIntoView({behavior:'smooth',block:'center'});
           }else{
