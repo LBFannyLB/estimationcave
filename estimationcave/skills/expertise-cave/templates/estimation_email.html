@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="fr"><body style="margin:0;padding:0;background:#FAF6F0;font-family:Georgia,'Times New Roman',serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="padding:24px 0;background:#FAF6F0;">
+    <tr><td align="center">
+      <table width="560" cellpadding="0" cellspacing="0" style="max-width:560px;width:100%;background:#FAF6F0;border:1px solid #e8e0d0;">
+
+        <tr><td style="padding:24px 30px 18px;border-bottom:3px solid #C5A258;background:#fff;">
+          <div style="font-family:Arial,sans-serif;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:#C5A258;font-weight:bold;">estimationcave.com</div>
+          <div style="font-size:25px;color:#2D1B2E;margin-top:6px;">Votre estimation offerte</div>
+        </td></tr>
+
+        <tr><td style="padding:24px 30px 8px;font-family:Arial,Helvetica,sans-serif;font-size:13.5px;line-height:1.6;color:#4a3f48;">
+          Bonjour,<br><br>
+          Merci pour votre demande. Voici l'estimation de la bouteille que vous m'avez confiée.
+        </td></tr>
+
+        <tr><td style="padding:8px 30px 4px;">
+          <table width="100%" cellpadding="0" cellspacing="0" style="background:#fff;border:1px solid #e3d9c4;">
+            <tr><td style="padding:18px 20px;">
+
+              <table width="100%" cellpadding="0" cellspacing="0"><tr>
+                <td style="vertical-align:top;">
+                  <div style="font-family:Arial,sans-serif;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:#C5A258;font-weight:bold;margin-bottom:3px;">Estimation</div>
+                  <div style="font-size:19px;color:#2D1B2E;line-height:1.15;">{{ domaine }}</div>
+                  <div style="font-style:italic;font-size:12.5px;color:#8a7d86;margin-top:4px;">{{ appellation }} &middot; {{ millesime }} &middot; {{ format }}{% if quantite %} &middot; {{ quantite }}{% endif %}</div>
+                </td>
+                <td style="vertical-align:top;text-align:right;white-space:nowrap;">
+                  <div style="font-size:23px;color:#2D1B2E;font-weight:bold;">{{ cote }}</div>
+                  <div style="font-family:Arial,sans-serif;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#8a7d86;">la bouteille</div>
+                </td>
+              </tr></table>
+
+              <table width="100%" cellpadding="0" cellspacing="0" style="margin:16px 0;border-top:1px solid #ecdfc4;border-bottom:1px solid #ecdfc4;"><tr>
+                <td style="padding:12px 0;vertical-align:top;">
+                  <div style="font-family:Arial,sans-serif;font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:#C5A258;font-weight:bold;">Tendance</div>
+                  <div style="font-size:13px;color:#2D1B2E;margin-top:3px;">{% if tendance_dir == 'down' %}&#9660;{% elif tendance_dir == 'up' %}&#9650;{% else %}&#8594;{% endif %}&nbsp;{{ tendance }}</div>
+                </td>
+                <td style="padding:12px 0;vertical-align:top;">
+                  <div style="font-family:Arial,sans-serif;font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:#C5A258;font-weight:bold;">Liquidité</div>
+                  <div style="font-size:13px;color:#2D1B2E;margin-top:3px;">{{ liquidite }}</div>
+                </td>
+                <td style="padding:12px 0;vertical-align:top;">
+                  <div style="font-family:Arial,sans-serif;font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:#C5A258;font-weight:bold;">Apogée</div>
+                  <div style="font-size:13px;color:#2D1B2E;margin-top:3px;">{{ apogee }}</div>
+                </td>
+              </tr></table>
+
+              <div style="font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:1.6;color:#4a3f48;">
+                {% if justification_lead %}<span style="color:#2D1B2E;font-weight:bold;">{{ justification_lead }}</span> {% endif %}{{ justification }}
+              </div>
+
+              <div style="margin-top:14px;">
+                <span style="display:inline-block;font-family:Arial,sans-serif;font-size:10.5px;letter-spacing:0.10em;text-transform:uppercase;color:#2D1B2E;font-weight:bold;background:#FAF6F0;border:1px solid #C5A258;padding:5px 12px;">{{ orientation }}</span>
+              </div>
+
+            </td></tr>
+          </table>
+        </td></tr>
+
+        <tr><td style="padding:16px 30px 4px;">
+          <table width="100%" cellpadding="0" cellspacing="0" style="background:#fff;"><tr>
+            <td style="border-left:3px solid #C5A258;padding:16px 18px;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:1.6;color:#4a3f48;">
+              <span style="color:#2D1B2E;font-weight:bold;">La limite d'une bouteille isolée.</span> Prise seule, cette estimation vous donne un repère fiable. Mais le bon arbitrage &mdash; quoi vendre en premier, quoi garder, sur quel canal et à quel moment &mdash; se décide sur l'ensemble de votre cave et selon vos objectifs. C'est précisément ce que couvre l'audit complet : une recommandation bouteille par bouteille et un plan d'action personnalisé, pour 199&nbsp;€.
+            </td>
+          </tr></table>
+        </td></tr>
+
+        <tr><td style="padding:18px 30px 24px;text-align:center;">
+          <a href="https://estimationcave.com/#formulaire" style="display:inline-block;background:#2D1B2E;color:#FAF6F0;font-family:Arial,sans-serif;font-size:13px;letter-spacing:0.04em;text-decoration:none;padding:13px 26px;">Demander un audit complet de votre cave — 199&nbsp;€</a>
+        </td></tr>
+
+        <tr><td style="padding:16px 30px 22px;border-top:1px solid #e8e0d0;font-family:Arial,sans-serif;font-size:10.5px;line-height:1.6;color:#9a8f96;background:#fff;">
+          estimationcave.com — expertise indépendante en estimation de cave. Aucune activité d'achat, de revente ni de courtage. Estimation établie à partir des adjudications récentes, pour une bouteille en bon état et provenance standard.
+        </td></tr>
+
+      </table>
+    </td></tr>
+  </table>
+</body></html>
