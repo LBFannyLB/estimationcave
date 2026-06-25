@@ -2,7 +2,7 @@
    Autonome : injecte son CSS + HTML + comportement. À inclure via
    <script src="/js/estimation-slidein.js" defer></script> sur les pages hors homepage.
 
-   Déclencheurs : exit-intent (souris vers le haut, desktop) OU scroll >= 80 %.
+   Déclencheurs : exit-intent (souris vers le haut, desktop) OU scroll >= 60 %.
    Affiché 1 seule fois par visiteur (localStorage, 30 j). Jamais sur la homepage,
    ni si le visiteur a déjà soumis le formulaire (estimation inline ou pop-up).
    Poste vers /api/estimation-offerte avec form_location: estimation_offerte_popup. */
@@ -195,7 +195,7 @@
       if (shown) return;
       var h = document.documentElement;
       var scrolled = (h.scrollTop + window.innerHeight) / h.scrollHeight;
-      if (scrolled >= 0.8) {
+      if (scrolled >= 0.6) {
         show(root);
         window.removeEventListener("scroll", onScroll);
       }
