@@ -75,6 +75,7 @@ def send_via_resend(to_email: str, subject: str, html: str) -> None:
         headers={
             "Authorization": f"Bearer {api_key}",
             "Content-Type": "application/json",
+            "User-Agent": "estimationcave-mailer/1.0",
         },
         method="POST",
     )
