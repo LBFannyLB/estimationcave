@@ -13,9 +13,11 @@ const ALLOWED_EXTS = new Set([
   '.xlsx', '.xls', '.csv', '.pdf',
   '.jpg', '.jpeg', '.png', '.heic',
 ]);
+// Formulaire allégé : seuls les champs qui qualifient et permettent de répondre sont requis.
+// 'nom' et 'situation' sont désormais optionnels (cohérent avec le HTML de la landing).
 const REQUIRED_FIELDS = [
-  'nom', 'email',
-  'contexte', 'volume', 'situation',
+  'prenom', 'email',
+  'contexte', 'volume',
   'consentement_rgpd',
 ];
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -82,7 +84,7 @@ function buildEmailHtml(d, files) {
           </table>
 
           <h2 style="font-family:Georgia,serif;color:#2D1B2E;font-size:16px;margin:0 0 12px;">Situation décrite par le client</h2>
-          <div style="padding:14px 16px;background:#FAF6F0;border-left:3px solid #C5A258;white-space:pre-wrap;color:#333;margin-bottom:24px;">${escapeHtml(d.situation)}</div>
+          <div style="padding:14px 16px;background:#FAF6F0;border-left:3px solid #C5A258;white-space:pre-wrap;color:#333;margin-bottom:24px;">${d.situation && String(d.situation).trim() ? escapeHtml(d.situation) : '<em style="color:#888;">Non renseigné — à préciser lors de l\'échange.</em>'}</div>
 
           <h2 style="font-family:Georgia,serif;color:#2D1B2E;font-size:16px;margin:0 0 12px;">Pièces jointes</h2>
           ${filesHtml}
@@ -219,7 +221,7 @@ export default async function handler(req, res) {
   }
 
   // ── Envoi via Resend ──
-  const subject = `[Demande estimation] ${data.nom} - ${data.volume} bouteilles - ${data.contexte}`;
+  const subject = `[Demande estimation] ${data.nom || data.prenom || 'Contact'} - ${data.volume} bouteilles - ${data.contexte}`;
   const html = buildEmailHtml(data, realFiles);
   const resend = new Resend(process.env.RESEND_API_KEY);
 
