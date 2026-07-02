@@ -36,8 +36,11 @@ Détermine aussi le **slug** (kebab-case, sans accent : `chateau-chalon`, `cote-
 
 Contrairement à un article de blog (recherche → plan → rédaction), ici **le relevé des cotes est la colonne vertébrale** : on ne peut pas écrire les tableaux avant d'avoir les prix. Donc la recherche marché vient tôt.
 
-### ÉTAPE 1 — Analyse SEO (comme article-seo, adaptée)
-1. Recherche web sur le **mot-clé tête** (ex. « vin jaune prix », « cote vins bourgogne », « prix château-chalon ») pour cerner l'intention et le paysage concurrentiel.
+### ÉTAPE 1 — Lire l'existant, puis analyse SEO
+
+**Avant d'écrire quoi que ce soit — lire en entier l'article blog équivalent s'il existe** (`article-estimer-vins-{region}.html`, `article-vins-{region}-cote-valeur.html`, `article-{appellation}-*.html`). C'est la matière première de la fiche : il contient presque toujours des domaines, des nuances, des ordres de grandeur et des visuels que la fiche doit **reprendre et enrichir, jamais perdre** (règle dure 10). Comparer explicitement les deux avant de considérer la page finie. *(Leçon du hub Bordeaux : sauter cette lecture a fait oublier Château Lafleur, la hiérarchie des millésimes et les ordres de grandeur des crus bourgeois/génériques — tous déjà présents dans l'article existant, à rapatrier après coup sur remarque de la cliente.)*
+
+1. Recherche web sur le **mot-clé tête** (ex. « vin jaune prix », « cote vins bordeaux », « prix château-chalon ») pour cerner l'intention et le paysage concurrentiel.
 2. Identifier le **volume réel** du mot-clé tête et 5-10 mots-clés secondaires / longue traîne (variantes, questions fréquentes). Le mot-clé tête = le terme à fort volume réel, pas une supposition.
 3. Analyser les 3-5 premiers résultats Google : quels angles sont couverts, quelles **lacunes** exploiter (un tableau de cote par domaine que personne ne propose = notre avantage).
 4. Fixer le **slug** et le **`<title>` keyword-rich** (peut différer du H1).

@@ -44,6 +44,8 @@ Fiches « argus ». Densité = **tableau de cote**. Référence d'implémentatio
 
 Fiche **mono-producteur**, densité données **maximale**. C'est **ici** que vont les détails **par millésime**. Construite progressivement (au fil des relevés de cote ou des rencontres en cave cliente). Aucun template live encore — bâtir sur ce gabarit en repartant de la coquille N3.
 
+> **Modèle de format apprécié pour ce niveau** : l'article `estimation-mouton-rothschild-exemple.html` (Château Mouton Rothschild, cote **millésime par millésime** de 1945 à 2017 + recommandation **garder / vendre** par bouteille). Il est **calqué sur le rapport d'expertise** — format explicitement validé par la cliente. S'en inspirer pour le ton et la structure « argus détaillé » d'une fiche domaine N4, et **le lier** depuis le hub région / la fiche appellation quand le domaine concerné y apparaît (fait sur `/cotes/bordeaux/`, section millésime → Mouton).
+
 **H1 type** : « {Domaine} : cote et prix par millésime ».
 
 ### Structure (dans l'ordre)
