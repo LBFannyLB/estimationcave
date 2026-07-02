@@ -33,7 +33,8 @@ La source de vérité pour la répartition des articles dans les silos : [`blog.
 
 ## Skills à utiliser proactivement
 
-- `article-seo-estimationcave` — dès que l'utilisateur demande un nouvel article SEO
+- `article-seo-estimationcave` — dès que l'utilisateur demande un nouvel article SEO (billet de blog `article-*.html`)
+- `cotes-seo-estimationcave` — dès qu'il s'agit de créer/enrichir une page de l'arbre `/cotes/` (hub région N2, fiche appellation/style N3, fiche domaine N4)
 - `expertise-cave` — dès qu'un client/inventaire est mentionné
 - `estimation-cote-vin` — pour une recherche ponctuelle de cote d'un vin
 
