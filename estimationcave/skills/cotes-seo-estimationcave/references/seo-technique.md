@@ -74,8 +74,8 @@ Sur modification d'une page existante, mettre à jour son `<lastmod>`. **Pas de 
 
 Ces dispositifs ne s'activent qu'une fois **pilier N1 + ≥ 1 hub région** en ligne (c'est le cas). À chaque nouveau hub région :
 
-1. **Menu nav — déroulant « Cotes des vins ▾ »** : ajouter la région (uniquement si son hub existe) + garder « Toutes les cotes → » vers `/cotes/`.
-2. **Section pied de homepage** « la cote de vos vins, par région » : ajouter la vignette → `/cotes/{region}/`.
+1. **Menu nav — déroulant « Prix des vins ▾ »** (**jamais « Cotes des vins »** — trop proche du produit déposé iDealwine ; le déroulant top pointe déjà `/cotes/`) : ajouter la région (uniquement si son hub existe) + garder l'item bas « Toutes les régions → » vers `/cotes/`.
+2. **Section pied de homepage « Prix des vins »** (`#prix-des-vins`) : ajouter la vignette région → `/cotes/{region}/`.
 3. **Footer** : « Cotes & marché » de la colonne Guides pointe vers `/cotes/`.
 4. **Pilier `cotes/index.html`** : ajouter la région dans le carrousel de cartes régions **et** un H3 région dans la section « La cote par région » (pointer vers `/cotes/{region}/` au lieu de l'ancien article).
 

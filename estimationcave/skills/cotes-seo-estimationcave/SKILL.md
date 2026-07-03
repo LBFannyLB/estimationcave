@@ -72,7 +72,7 @@ Contrairement à un article de blog (recherche → plan → rédaction), ici **l
 ### ÉTAPE 7 — Maillage interne
 15. **Parents** (pas de barre de fil d'Ariane visible) : champ **« Région » cliquable** dans la carte d'identité + **lien silo contextuel** dans l'intro + **`BreadcrumbList` JSON-LD**.
 16. **Enfants / sœurs** : bloc de bas de page listant enfants (fiches N4) et/ou sœurs (autres appellations/styles de la région) **quand elles existent** — jamais de lien parent ici, **bloc omis si vide** (pas de lien creux, pas de « fiche à venir »).
-17. **Brancher le nouvel enfant dans son parent** : quand on crée un hub région N2, l'ajouter au pilier `cotes/index.html` (carte carrousel région **+** H3 région dans « La cote par région »), au **menu nav déroulant « Cotes des vins ▾ »**, à la **section home** « la cote de vos vins par région », et pointer le footer « Cotes & marché » → `/cotes/`. Quand on crée une fiche N3, l'activer dans le tableau des appellations du hub région + le bloc sœurs. Un lien interne vise **toujours la vraie URL** (jamais un 301, jamais une page inexistante).
+17. **Brancher le nouvel enfant dans son parent** : quand on crée un hub région N2, l'ajouter au pilier `cotes/index.html` (carte carrousel région **+** H3 région dans « La cote par région »), au **menu nav déroulant « Prix des vins ▾ »** (**jamais « Cotes des vins »** — trop proche du produit déposé iDealwine), à la **section home « Prix des vins »**, et pointer le footer « Cotes & marché » → `/cotes/`. Quand on crée une fiche N3, l'activer dans le **tableau des appellations** du hub région **+ ajouter sa carte dans le carrousel d'appellations** du hub (cf. `gabarit-region.md` §7) + le bloc sœurs. Un lien interne vise **toujours la vraie URL** (jamais un 301, jamais une page inexistante).
 18. **Liens satellites** : vers les articles pertinents du silo (`estimer-vins-{region}`, `estimation-champagne-valeur`, `cave-investissement`, guides succession…) et vers le pilier `/cotes/`.
 
 ### ÉTAPE 8 — Capture lead + CTA
@@ -85,7 +85,7 @@ Contrairement à un article de blog (recherche → plan → rédaction), ici **l
 20. **CTA audit** contextuel thématisé (bouton or « Estimer vos {appellation/région} ») **et** CTA de bas de page, tous deux → `/#formulaire` : `<a href="/#formulaire" class="btn-primary">Demander mon rapport — 199 €</a>`. Jamais vers Tally ni Stripe.
 
 ### ÉTAPE 9 — Build HTML
-21. **Partir du fichier template live** du niveau (Étape 0), le copier et adapter le contenu — ne pas reconstruire la coquille de zéro (on hérite du CSS de page, du losange doré H2, de la carte premium, du footer canonique). Créer le dossier `cotes/{region}/[{appellation}/[{domaine}/]]index.html`.
+21. **Partir du fichier template live** du niveau (Étape 0), le copier et adapter le contenu — ne pas reconstruire la coquille de zéro (on hérite du CSS de page, du losange doré H2, de la carte premium, du footer canonique). Créer le dossier `cotes/{region}/[{appellation}/[{domaine}/]]index.html`. **Lien retour du header** (`a.nav-back`) : sur toute fiche/hub N2/N3/N4 = **« Prix des vins » → `/cotes/`** ; sur le pilier N1 uniquement = **« Accueil » → `/`**. **Jamais « Retour au blog »** (ces pages ne sont pas des billets) — les templates live sont déjà conformes, le préserver en copiant.
 22. Vérifier : un seul `<h1>`, zéro erreur de syntaxe HTML/JS, tous les placeholders remplis (aucun `à relever` oublié), aucune plateforme nommée (`grep -niE "idealwine|wine-searcher" <fichier>` doit être vide).
 
 ### ÉTAPE 10 — Index & sitemap
@@ -116,9 +116,13 @@ Ces règles sont le fruit d'un cadrage cliente précis. Les enfreindre casse soi
 
 ---
 
-## Piège CSS connu (cartes-liens dans `.article-body`)
+## Pièges CSS connus (composants insérés dans `.article-body`)
 
-`styles.css` a une règle globale `.article-body a { text-decoration: underline; }` (spécificité `(0,1,1)`), voulue pour les liens de texte courant. Elle souligne aussi toute **carte-lien** (carrousel région, carte sœur) vivant dans `.article-body`. Une simple classe `.region-card { text-decoration: none; }` `(0,1,0)` **ne l'emporte pas**. Utiliser le sélecteur **élément + classe** : `a.region-card { text-decoration: none; }` (même spécificité, gagne par ordre de cascade). Même piège pour tout futur composant carte inséré dans `.article-body`.
+**1. Soulignement des cartes-liens.** `styles.css` a une règle globale `.article-body a { text-decoration: underline; }` (spécificité `(0,1,1)`), voulue pour les liens de texte courant. Elle souligne aussi toute **carte-lien** (carrousel appellations/région, carte sœur) vivant dans `.article-body`. Une simple classe `.region-card { text-decoration: none; }` `(0,1,0)` **ne l'emporte pas**. Utiliser le sélecteur **élément + classe** : `a.region-card { text-decoration: none; }` (même spécificité, gagne par ordre de cascade).
+
+**2. Teaser justifié.** Le `<p class="region-teaser">` d'une carte hérite de `.article-body p { text-align: justify; }` `(0,1,1)`, qui **écrase** le `text-align: left` de `.region-teaser` `(0,1,0)` → grands espaces inter-mots disgracieux. Remonter la spécificité : `.region-card .region-teaser, .region-card .region-label { text-align: left; }` `(0,2,0)`.
+
+Même logique pour tout futur composant carte inséré dans `.article-body`.
 
 ---
 
