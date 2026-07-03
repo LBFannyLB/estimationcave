@@ -161,6 +161,40 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
         .bank dd { margin: 0.15rem 0 0; font-size: 0.9rem; line-height: 1.55; color: var(--texte); }
         @media (max-width: 640px) { .banks { grid-template-columns: 1fr; } }
 
+        /* ── CARROUSEL APPELLATIONS (repris du pilier) ── */
+        .carousel-wrapper { position: relative; max-width: 100%; margin: 0 auto; overflow: hidden; padding: 4px 0; }
+        .carousel-track { display: flex; gap: 1.1rem; transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); cursor: grab; user-select: none; }
+        .carousel-track.dragging { transition: none; cursor: grabbing; }
+        .carousel-controls { display: flex; align-items: center; justify-content: center; gap: 1.4rem; margin-top: 1.5rem; }
+        .carousel-btn { width: 38px; height: 38px; border-radius: 50%; border: 1.5px solid var(--or); background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.25s cubic-bezier(0.33, 1, 0.68, 1); flex-shrink: 0; }
+        .carousel-btn:hover { background: var(--or); }
+        .carousel-btn:hover svg { stroke: var(--bordeaux); }
+        .carousel-btn:disabled { opacity: 0.3; cursor: default; }
+        .carousel-btn:disabled:hover { background: transparent; }
+        .carousel-btn:disabled:hover svg { stroke: var(--or); }
+        .carousel-btn svg { width: 17px; height: 17px; stroke: var(--or); stroke-width: 2; fill: none; }
+        .carousel-dots { display: flex; gap: 0.5rem; align-items: center; }
+        .carousel-dot { width: 8px; height: 8px; border-radius: 50%; border: none; background: var(--border); cursor: pointer; transition: all 0.25s cubic-bezier(0.33, 1, 0.68, 1); padding: 0; }
+        .carousel-dot.active { background: var(--or); transform: scale(1.2); }
+
+        a.region-card { flex: 0 0 calc(50% - 0.55rem); background: var(--blanc); border: 1px solid rgba(197, 162, 88, 0.2); border-radius: 6px; padding: 1.6rem 1.5rem; display: flex; flex-direction: column; position: relative; text-decoration: none; transition: border-color 0.3s cubic-bezier(0.33, 1, 0.68, 1), box-shadow 0.3s cubic-bezier(0.33, 1, 0.68, 1); }
+        .region-card::before { content: ''; position: absolute; top: 0; left: 1.5rem; right: 1.5rem; height: 2px; background: var(--or); opacity: 0; transition: opacity 0.3s cubic-bezier(0.33, 1, 0.68, 1); }
+        @media (hover: hover) {
+            .region-card:hover { border-color: rgba(197, 162, 88, 0.5); box-shadow: inset 0 0 0 1px rgba(197, 162, 88, 0.15), 0 10px 28px rgba(45, 27, 46, 0.07); }
+            .region-card:hover::before { opacity: 1; }
+            .region-card:hover h3 { color: var(--or); }
+            .region-card:hover .region-read { gap: 0.6rem; }
+        }
+        .region-label { font-family: var(--font-body); font-size: 0.63rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--or); margin-bottom: 0.7rem; }
+        .region-card h3 { font-family: var(--font-display); font-weight: 600; color: var(--bordeaux); font-size: 1.2rem; line-height: 1.25; margin: 0 0 0.5rem; transition: color 0.25s cubic-bezier(0.33, 1, 0.68, 1); }
+        .region-teaser { font-family: var(--font-body); font-size: 0.85rem; color: var(--texte-light); line-height: 1.55; margin-bottom: 1rem; flex-grow: 1; text-align: left; }
+        .region-read { font-family: var(--font-body); font-size: 0.82rem; font-weight: 500; color: var(--or); display: inline-flex; align-items: center; gap: 0.35rem; margin-top: auto; transition: gap 0.25s cubic-bezier(0.33, 1, 0.68, 1); }
+        .region-read svg { width: 13px; height: 13px; }
+        .region-card .region-teaser, .region-card .region-label { text-align: left; }
+        @media (max-width: 600px) {
+            .region-card { flex: 0 0 85%; padding: 1.4rem 1.3rem; }
+        }
+
         /* ── BON A SAVOIR ── */
         .bon-a-savoir { background: var(--or-pale); border-radius: 6px; padding: 1.5rem 1.75rem; margin: 1.5rem 0; }
         .bon-a-savoir-title { font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--bordeaux); margin-bottom: 0.5rem; }
@@ -234,9 +268,9 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
         <div class="nav-inner">
             <a href="/" class="nav-logo"><img width="160" height="160" src="/grappe-doree.webp" alt="" class="nav-logo-img"><span class="nav-logo-text">estimation<span>cave</span>.com</span></a>
             <div class="nav-right">
-                <a href="/blog.html" class="nav-back">
+                <a href="/cotes/" class="nav-back">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                    Retour au blog
+                    Prix des vins
                 </a>
                 <a href="/apropos.html" class="nav-back" style="text-decoration:none;">Qui suis-je</a>
                 <a href="/#formulaire" class="btn-gold">Estimer ma cave</a>
@@ -336,6 +370,32 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             <h2 id="appellations">Les appellations de Bordeaux et leur cote</h2>
 
             <p>Bordeaux compte une soixantaine d'appellations, que l'on regroupe en grandes familles géographiques. La cote dépend d'abord de la famille — et, à l'intérieur, du rang du château. Le tableau ci-dessous donne le niveau de cote de chaque grande appellation ; les fiches détaillées sont mises en ligne progressivement.</p>
+
+            <div class="carousel-wrapper" id="regions-carousel">
+                <div class="carousel-track">
+                    <a href="/cotes/bordeaux/pauillac/" class="region-card">
+                        <p class="region-label">Appellation · Rive gauche</p>
+                        <h3>Pauillac</h3>
+                        <p class="region-teaser">Trois des cinq premiers crus — Lafite, Latour, Mouton — et une grappe de « super-seconds » recherchés.</p>
+                        <span class="region-read">Voir la cote de Pauillac<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+                    </a>
+                    <a href="/cotes/bordeaux/pomerol/" class="region-card">
+                        <p class="region-label">Appellation · Rive droite</p>
+                        <h3>Pomerol</h3>
+                        <p class="region-teaser">Le sommet de la rive droite — Petrus, Le Pin, Lafleur — sans classement officiel, mais parmi les cotes les plus hautes du Bordelais.</p>
+                        <span class="region-read">Voir la cote de Pomerol<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+                    </a>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-btn" id="regions-prev" aria-label="Appellations précédentes">
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    </button>
+                    <div class="carousel-dots" id="regions-dots"></div>
+                    <button class="carousel-btn" id="regions-next" aria-label="Appellations suivantes">
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </button>
+                </div>
+            </div>
 
             <table>
                 <thead>
@@ -811,6 +871,82 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
     <script>
         (function(){var b=document.getElementById('btt');window.addEventListener('scroll',function(){if(window.scrollY>300){b.style.opacity='1';b.style.visibility='visible'}else{b.style.opacity='0';b.style.visibility='hidden'}});b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})})})();
         document.querySelectorAll('.inline-faq-trigger').forEach(function(btn){btn.addEventListener('click',function(){var item=this.parentElement;var content=item.querySelector('.inline-faq-content');if(item.classList.contains('open')){content.style.maxHeight=null;item.classList.remove('open');this.setAttribute('aria-expanded','false')}else{item.classList.add('open');this.setAttribute('aria-expanded','true');content.style.maxHeight=content.scrollHeight+'px'}})});
+    </script>
+
+    <script>
+    (function(){
+        var wrapper = document.getElementById('regions-carousel');
+        if (!wrapper) return;
+        var track = wrapper.querySelector('.carousel-track');
+        var cards = wrapper.querySelectorAll('.region-card');
+        var prevBtn = document.getElementById('regions-prev');
+        var nextBtn = document.getElementById('regions-next');
+        var dotsContainer = document.getElementById('regions-dots');
+        var controls = wrapper.querySelector('.carousel-controls');
+        var currentIndex = 0;
+        var gap = 18;
+        var wasDragging = false;
+
+        function getCardsPerView() { return window.innerWidth <= 600 ? 1 : 2; }
+        function getTotalPages() { return Math.ceil(cards.length / getCardsPerView()); }
+        function updateControlsVisibility() { if (controls) controls.style.display = getTotalPages() <= 1 ? 'none' : 'flex'; }
+
+        function buildDots() {
+            dotsContainer.innerHTML = '';
+            var total = getTotalPages();
+            for (var i = 0; i < total; i++) {
+                var dot = document.createElement('button');
+                dot.className = 'carousel-dot' + (i === currentIndex ? ' active' : '');
+                dot.setAttribute('aria-label', 'Page ' + (i + 1));
+                dot.addEventListener('click', (function(idx){ return function(){ goTo(idx); }; })(i));
+                dotsContainer.appendChild(dot);
+            }
+        }
+        function updateButtons() {
+            prevBtn.disabled = currentIndex === 0;
+            nextBtn.disabled = currentIndex >= getTotalPages() - 1;
+            var dots = dotsContainer.querySelectorAll('.carousel-dot');
+            dots.forEach(function(d, i){ d.className = 'carousel-dot' + (i === currentIndex ? ' active' : ''); });
+        }
+        function goTo(index) {
+            var maxIndex = getTotalPages() - 1;
+            currentIndex = Math.max(0, Math.min(index, maxIndex));
+            var cardsPerView = getCardsPerView();
+            var card = cards[0];
+            var cardWidth = card.offsetWidth + gap;
+            var offset = currentIndex * cardsPerView * cardWidth;
+            var maxOffset = Math.max(0, track.scrollWidth - wrapper.offsetWidth);
+            offset = Math.min(offset, maxOffset);
+            track.style.transform = 'translateX(-' + offset + 'px)';
+            updateButtons();
+        }
+        prevBtn.addEventListener('click', function(){ goTo(currentIndex - 1); });
+        nextBtn.addEventListener('click', function(){ goTo(currentIndex + 1); });
+
+        var startX = 0, currentX = 0, isDragging = false, startTranslate = 0;
+        function getTranslate() { var st = window.getComputedStyle(track); var matrix = new DOMMatrixReadOnly(st.transform); return matrix.m41; }
+        track.addEventListener('mousedown', function(e){ isDragging = true; startX = e.clientX; currentX = e.clientX; startTranslate = getTranslate(); track.classList.add('dragging'); });
+        track.addEventListener('touchstart', function(e){ isDragging = true; startX = e.touches[0].clientX; currentX = startX; startTranslate = getTranslate(); track.classList.add('dragging'); }, {passive:true});
+        window.addEventListener('mousemove', function(e){ if(!isDragging) return; currentX = e.clientX; track.style.transform = 'translateX(' + (startTranslate + currentX - startX) + 'px)'; });
+        window.addEventListener('touchmove', function(e){ if(!isDragging) return; currentX = e.touches[0].clientX; track.style.transform = 'translateX(' + (startTranslate + currentX - startX) + 'px)'; }, {passive:true});
+        function endDrag() {
+            if (!isDragging) return;
+            isDragging = false;
+            track.classList.remove('dragging');
+            var diff = currentX - startX;
+            if (Math.abs(diff) > 5) wasDragging = true;
+            if (Math.abs(diff) > 60) { if (diff < 0) goTo(currentIndex + 1); else goTo(currentIndex - 1); }
+            else { goTo(currentIndex); }
+        }
+        window.addEventListener('mouseup', endDrag);
+        window.addEventListener('touchend', endDrag);
+        cards.forEach(function(card){ card.addEventListener('click', function(e){ if (wasDragging) { e.preventDefault(); wasDragging = false; } }); });
+
+        buildDots();
+        updateButtons();
+        updateControlsVisibility();
+        window.addEventListener('resize', function(){ buildDots(); updateControlsVisibility(); goTo(0); });
+    })();
     </script>
 
     <script>
