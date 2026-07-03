@@ -26,6 +26,7 @@ Fiches « argus ». Densité = **tableau de cote**. Référence d'implémentatio
    - *Définition de référence* — ce qu'est l'appellation/le style, précisément (répond direct à l'intention).
    - **« Combien vaut un {X} ? » = tableau de cote par domaine** (le **cœur**, sourcé) : domaine × cuvée/appellation phare × niveau × fourchette. Synthétique — les millésimes précis vont en N4.
    - *Ce qui fait varier le prix* — facteurs propres à l'appellation (millésime, domaine, rareté, état…).
+   - **Apogée & potentiel de garde** — un paragraphe (souvent un H3) sur la longévité type de l'appellation et la logique « vendre à l'apogée, garder en devenir » : c'est ce qui commande l'arbitrage garder/vendre et justifie une lecture millésime par millésime.
    - **« {Domaine ou appellation phare} »** — section dédiée au nom emblématique → futur **lien N4** quand la fiche domaine existera ; pour une page style, section sur l'**appellation reine** (lien transversal).
    - *Tendance & liquidité* — dynamique récente + **le fait d'enchères marquant** s'il existe (maison de ventes + date + montant, cf. sourcing). Éventuel **SVG**.
    - *Vous en avez en cave ?* — checklist courte actionnable.
@@ -54,7 +55,7 @@ Fiche **mono-producteur**, densité données **maximale**. C'est **ici** que von
 2. **Carte premium « fiche d'identité » mono-entité** (le producteur : appellation(s), cépages, style, garde, liquidité ; chiffres clés = fourchette / tendance / format).
 3. **Bloc « L'essentiel »** : fourchette · tendance · liquidité · format.
 4. **Tableau de cote par millésime × cuvée × format** (densité max, sourcé) — le cœur de la page.
-5. **Sections H2** : *Ce qui fait la valeur du domaine* · *Où / comment vendre* (→ `/vendre/`) · *Tendance & liquidité* (fait d'enchères marquant s'il existe, éventuel SVG).
+5. **Sections H2** : *Ce qui fait la valeur du domaine* — y inclure un **contexte historique bref** (propriétaire, faits fondateurs, dates clés) **et un paragraphe « apogée & temps de garde »** (longévité du cru, logique « vendre à l'apogée / garder en devenir », qui commande l'arbitrage) · *Où / comment vendre* (→ `/vendre/`) · *Tendance & liquidité* (fait d'enchères marquant s'il existe, éventuel SVG).
 6. **FAQ + `FAQPage`** · **CTA audit 199 €**.
 7. **Maillage** : parents via carte/intro/`BreadcrumbList` ; bloc bas = sœurs (autres domaines de l'appellation) si elles existent, omis sinon.
 8. **Mini-bloc estimation offerte** (`data-contexte="{domaine}"`, `data-region="{Région}"`) · **date en pied**.
