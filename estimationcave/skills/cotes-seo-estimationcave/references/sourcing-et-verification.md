@@ -15,6 +15,20 @@ Le contenu chiffré de ces pages est leur valeur. **Aucun chiffre n'est publié 
 
 Les skills **`estimation-cote-vin`** et **`expertise-cave`** font déjà exactement ce relevé bi-source — s'en servir pour un vin précis. Ce qui suit est le protocole adapté au remplissage d'un **tableau** de page `/cotes/`.
 
+## Méthode de calcul du prix — alignée sur le skill `expertise-cave`
+
+Pour chiffrer une **valeur vénale** (Val_unit) sur une fiche `/cotes/`, appliquer la **formule de valorisation du skill `expertise-cave`** (`skills/expertise-cave/SKILL.md`) — jamais un « à peu près » :
+
+```
+Val_unit = (cote_idealwine × 0,80 + prix_winesearcher × 0,70) ÷ 2
+```
+arrondi au **multiple de 5 € inférieur**.
+
+- **iDealwine = source primaire, toujours.** Wine-Searcher ne sert qu'à confirmer ou compléter.
+- **Une source manque ou est peu fiable → prendre l'autre seule avec sa décote** : iDealwine seul → `cote × 0,80` ; Wine-Searcher seul → `prix × 0,70`.
+- **Grands crus très spéculés (premiers crus, DRC, Pétrus, Rayas…)** : le prix Wine-Searcher (retail) surestime fortement — jusqu'à **~2× la valeur d'enchères réelle** (vérifié sur Lafite Rothschild, 6 millésimes recalés : 2800→1800, 1600→700, 800→400, 1000→600, 750→500, 550→320). Sur ces vins, **s'appuyer sur la branche iDealwine seule (`cote iDealwine × 0,80`)** plutôt que de réinjecter un Wine-Searcher gonflé. La valeur vénale se situe **un cran sous la « cote actuelle » iDealwine** (≈ bas des adjudications 12 mois).
+- **Toujours relever la vraie cote iDealwine** (page cote du millésime : « cote actuelle » + adjudications récentes), jamais un prix retail seul. Vérifier ensuite la **cohérence de hiérarchie** : une année faible doit rester au plancher, sous les bons millésimes.
+
 ## Protocole de remplissage d'un tableau
 
 1. Lister les entités (domaines / cuvées / millésimes) à coter.
