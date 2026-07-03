@@ -457,6 +457,18 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://estimationcave.com/cotes/bordeaux/pomerol/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://estimationcave.com/cotes/bordeaux/pomerol/petrus/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://estimationcave.com/cotes/jura/</loc>
     <lastmod>2026-06-25</lastmod>
     <changefreq>monthly</changefreq>
