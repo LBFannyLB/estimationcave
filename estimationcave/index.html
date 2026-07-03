@@ -313,6 +313,75 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       font-size: 0.85rem;
     }
 
+    /* ── Menu déroulant « Prix des vins » ── */
+    .nav-dropdown { position: relative; display: inline-flex; align-items: center; }
+    .nav-dropdown > .nav-link { display: inline-flex; align-items: center; gap: 0.25rem; cursor: pointer; }
+    .nav-dropdown > .nav-link svg { width: 11px; height: 11px; transition: transform 0.25s; }
+    .nav-dropdown-menu {
+      position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px);
+      min-width: 200px; background: var(--blanc); border: 1px solid var(--border);
+      border-radius: 8px; box-shadow: 0 14px 34px rgba(45, 27, 46, 0.14);
+      padding: 0.5rem; opacity: 0; visibility: hidden;
+      transition: opacity 0.2s ease, transform 0.2s ease; z-index: 1002;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu,
+    .nav-dropdown:focus-within .nav-dropdown-menu {
+      opacity: 1; visibility: visible; transform: translateX(-50%) translateY(3px);
+    }
+    .nav-dropdown:hover > .nav-link svg { transform: rotate(180deg); }
+    .nav-dropdown-menu a {
+      display: block; padding: 0.55rem 0.85rem; font-size: 0.85rem; font-weight: 500;
+      color: var(--bordeaux); text-decoration: none; border-radius: 5px; white-space: nowrap;
+    }
+    .nav-dropdown-menu a:hover { background: var(--or-pale); color: var(--or); }
+    .nav-dropdown-menu .nav-dropdown-all {
+      color: var(--or); font-weight: 600; margin-top: 0.3rem;
+      border-top: 1px solid var(--border); border-radius: 0; padding-top: 0.6rem;
+    }
+
+    /* ── Section « Prix des vins » (home) ── */
+    .cotes-home { padding: 5rem 0; }
+    .cotes-home-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 2.5rem; }
+    .cotes-home-card { display: flex; flex-direction: column; background: var(--blanc); border: 1px solid var(--border); border-radius: 8px; padding: 1.6rem 1.6rem 1.4rem; text-decoration: none; transition: border-color 0.3s cubic-bezier(0.33,1,0.68,1), box-shadow 0.3s cubic-bezier(0.33,1,0.68,1), transform 0.3s cubic-bezier(0.33,1,0.68,1); }
+    .cotes-home-card:hover { border-color: rgba(197,162,88,0.5); box-shadow: 0 12px 30px rgba(45,27,46,0.08); transform: translateY(-2px); }
+    .cotes-home-kicker { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--or); margin: 0 0 0.5rem; }
+    .cotes-home-card h3 { font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--bordeaux); line-height: 1.25; margin: 0 0 0.5rem; }
+    .cotes-home-teaser { font-size: 0.9rem; color: var(--texte-light); line-height: 1.6; margin: 0 0 1rem; }
+    .cotes-home-read { margin-top: auto; font-size: 0.85rem; font-weight: 600; color: var(--or); }
+    .cotes-home-region { border-top: 3px solid var(--or); }
+    .cotes-home-all { background: var(--bordeaux); border-color: var(--bordeaux); }
+    .cotes-home-all .cotes-home-kicker { color: var(--or-light); }
+    .cotes-home-all h3 { color: var(--fond); }
+    .cotes-home-all .cotes-home-read { color: var(--or-light); }
+    @media (max-width: 900px) { .cotes-home-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .cotes-home-grid { grid-template-columns: 1fr; } }
+
+    /* Nav → menu hamburger dès la tablette (le 5e item « Prix des vins » tasse trop la barre) */
+    @media (max-width: 880px) {
+      .hamburger { display: block; }
+      .nav-right {
+        position: fixed; top: 0; right: -280px; width: 280px;
+        height: 100vh; height: 100dvh; background: var(--fond);
+        flex-direction: column; align-items: stretch;
+        padding: 5rem 2rem 2rem; gap: 0;
+        box-shadow: -4px 0 24px rgba(45, 27, 46, 0.12);
+        transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        z-index: 1001; overflow-y: auto;
+      }
+      .nav-right.open { right: 0; }
+      .nav-right > a { font-size: 1rem; padding: 0.85rem 0; border-bottom: 1px solid var(--border); white-space: normal; }
+      .nav-right > a:last-child { border-bottom: none; }
+      .nav-right .btn-gold { margin-top: 1rem; padding: 0.85rem 1.5rem; font-size: 0.9rem; text-align: center; border-bottom: none; }
+      .nav-overlay.active { display: block; }
+      /* déroulant déplié dans le panneau */
+      .nav-dropdown { display: block; width: 100%; }
+      .nav-dropdown > .nav-link { font-size: 1rem; padding: 0.85rem 0; border-bottom: 1px solid var(--border); width: 100%; justify-content: space-between; }
+      .nav-dropdown > .nav-link svg { display: none; }
+      .nav-dropdown-menu { position: static; transform: none; opacity: 1; visibility: visible; min-width: 0; background: transparent; border: none; box-shadow: none; padding: 0 0 0 0.9rem; }
+      .nav-dropdown-menu a { padding: 0.7rem 0; font-size: 0.95rem; border-bottom: 1px solid var(--border); border-radius: 0; }
+      .nav-dropdown-menu .nav-dropdown-all { border-top: none; margin-top: 0; padding-top: 0.7rem; color: var(--or); }
+    }
+
     /* ══════════════════════════════════
        2. HERO
     ══════════════════════════════════ */
@@ -2147,6 +2216,16 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       <div class="nav-right">
         <a href="faq.html" class="nav-link">FAQ</a>
         <a href="blog.html" class="nav-link">Blog</a>
+        <div class="nav-dropdown">
+          <a href="/cotes/" class="nav-link">Prix des vins
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </a>
+          <div class="nav-dropdown-menu">
+            <a href="/cotes/bordeaux/">Vins de Bordeaux</a>
+            <a href="/cotes/jura/">Vins du Jura</a>
+            <a href="/cotes/" class="nav-dropdown-all">Toutes les régions →</a>
+          </div>
+        </div>
         <a href="apropos.html" class="nav-link">Qui suis-je</a>
         <a href="#formulaire" class="btn btn-gold" data-cta="nav">Estimer ma cave</a>
       </div>
@@ -3023,6 +3102,52 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       </div>
       <div class="missions-footer">
         <a href="mailto:contact@estimationcave.com" class="btn btn-outline">Me contacter</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════ 9y. PRIX DES VINS ════════════ -->
+  <section class="cotes-home" id="prix-des-vins">
+    <div class="container">
+      <div class="guides-header">
+        <p class="section-label">Prix &amp; valeur</p>
+        <h2>Le prix des vins, <em>région par région.</em></h2>
+        <div class="ornament-dots"><span></span></div>
+        <p class="section-subtitle">Combien vaut une bouteille&nbsp;? Nos repères de prix par région, par appellation et par domaine.</p>
+      </div>
+      <div class="cotes-home-grid">
+        <a href="/cotes/bordeaux/" class="cotes-home-card cotes-home-region">
+          <p class="cotes-home-kicker">Région</p>
+          <h3>Prix des vins de Bordeaux</h3>
+          <p class="cotes-home-teaser">Premiers crus, Pomerol, Pauillac… la valeur des grands crus classés.</p>
+          <span class="cotes-home-read">Découvrir →</span>
+        </a>
+        <a href="/cotes/jura/" class="cotes-home-card cotes-home-region">
+          <p class="cotes-home-kicker">Région</p>
+          <h3>Prix des vins du Jura</h3>
+          <p class="cotes-home-teaser">Vin jaune, domaines cultes&nbsp;: la région qui monte le plus vite aux enchères.</p>
+          <span class="cotes-home-read">Découvrir →</span>
+        </a>
+        <a href="/cotes/bordeaux/pomerol/petrus/" class="cotes-home-card">
+          <p class="cotes-home-kicker">Domaine</p>
+          <h3>Petrus, prix par millésime</h3>
+          <span class="cotes-home-read">Voir la fiche →</span>
+        </a>
+        <a href="/cotes/bordeaux/pauillac/mouton-rothschild/" class="cotes-home-card">
+          <p class="cotes-home-kicker">Domaine</p>
+          <h3>Mouton Rothschild, prix par millésime</h3>
+          <span class="cotes-home-read">Voir la fiche →</span>
+        </a>
+        <a href="/cotes/jura/vin-jaune/" class="cotes-home-card">
+          <p class="cotes-home-kicker">Style</p>
+          <h3>Vin jaune, prix par domaine</h3>
+          <span class="cotes-home-read">Voir la fiche →</span>
+        </a>
+        <a href="/cotes/" class="cotes-home-card cotes-home-all">
+          <p class="cotes-home-kicker">Tout voir</p>
+          <h3>Le prix des vins, par région</h3>
+          <span class="cotes-home-read">Toutes les pages →</span>
+        </a>
       </div>
     </div>
   </section>
