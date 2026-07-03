@@ -469,6 +469,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://estimationcave.com/cotes/bordeaux/pauillac/lafite-rothschild/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://estimationcave.com/cotes/bordeaux/pomerol/</loc>
     <lastmod>2026-07-03</lastmod>
     <changefreq>monthly</changefreq>
