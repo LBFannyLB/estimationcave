@@ -135,6 +135,32 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             .article-body table tbody td:not(:first-child)::before { content: attr(data-label); display: block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--or); margin-top: 0.5rem; margin-bottom: 0.2rem; }
         }
 
+        /* ══ BLOC EXEMPLE DE RAPPORT ══ */
+        .report-block { background: rgba(197,162,88,0.05); border: 1px solid rgba(197,162,88,0.28); border-radius: 10px; padding: 1.9rem 2rem 2.1rem; margin: 1.5rem 0; }
+        .report-flag { padding: 1.05rem 1.4rem; background: var(--bordeaux); color: #FAF6F0; border-radius: 8px; font-size: 0.86rem; line-height: 1.65; margin-bottom: 1.5rem; }
+        .report-flag strong { color: var(--or-light); }
+        .synth-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.25rem 0; }
+        .synth-card { background: var(--blanc); border: 1px solid var(--border); border-radius: 8px; padding: 1.4rem 1.2rem; text-align: center; }
+        .synth-card .num { font-family: var(--font-display); font-size: 1.9rem; font-weight: 700; color: var(--bordeaux); line-height: 1; }
+        .synth-card .num span { font-size: 1.1rem; color: var(--or); }
+        .synth-card .lbl { font-size: 0.78rem; color: var(--texte-light); margin-top: 0.45rem; letter-spacing: 0.02em; }
+        .inv-foot { font-size: 0.78rem; color: var(--texte-light); font-style: italic; margin: 0.5rem 0 0; line-height: 1.6; text-align: left; }
+        .fiche { border: 1px solid var(--border); border-left: 3px solid var(--or); border-radius: 0 8px 8px 0; padding: 1.3rem 1.5rem; margin: 1.1rem 0; background: var(--blanc); }
+        .fiche__head { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.35rem; }
+        .fiche__head h3 { margin: 0; font-family: var(--font-display); font-size: 1.4rem; color: var(--bordeaux); line-height: 1.15; }
+        .fiche__label { display: block; font-family: var(--font-body); font-size: 0.8rem; font-weight: 500; color: var(--texte-light); letter-spacing: 0.02em; margin-top: 0.2rem; }
+        .fiche .fiche__est { font-size: 0.95rem; color: var(--bordeaux); margin: 0.3rem 0 0.7rem; text-align: left; }
+        .fiche .fiche__est strong { font-size: 1.15rem; }
+        .fiche .fiche__note { font-size: 0.96rem; line-height: 1.8; color: var(--texte); text-align: justify; margin: 0; }
+        .badge { display: inline-block; padding: 0.22rem 0.6rem; border-radius: 20px; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.02em; white-space: nowrap; }
+        .badge-garder { background: var(--bordeaux); color: #FAF6F0; }
+        .badge-vendre { background: var(--or); color: var(--bordeaux); }
+        .badge-arbitrer { background: rgba(45,27,46,0.07); color: var(--bordeaux); border: 1px solid var(--border); }
+        .report-more { text-align: center; margin: 1.6rem 0 0; }
+        .report-more a { color: var(--or); font-weight: 600; text-decoration: none; font-size: 0.95rem; border-bottom: 1px solid rgba(197,162,88,0.4); }
+        .report-more a:hover { color: var(--bordeaux); }
+        @media (max-width: 640px) { .synth-grid { grid-template-columns: 1fr; } .report-block { padding: 1.4rem 1.2rem 1.6rem; } }
+
         .bon-a-savoir { background: var(--or-pale); border-radius: 6px; padding: 1.5rem 1.75rem; margin: 1.5rem 0; }
         .bon-a-savoir-title { font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--bordeaux); margin-bottom: 0.5rem; }
         .bon-a-savoir p { font-size: 0.92rem; color: var(--texte); line-height: 1.7; margin-bottom: 0; }
@@ -270,6 +296,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
                     <ul>
                         <li><a href="#valeur"><span class="toc-dot"></span>Ce qui fait la valeur d'un DRC</a></li>
                         <li><a href="#cuvees"><span class="toc-dot"></span>La cote, cuvée par cuvée</a></li>
+                        <li><a href="#rapport"><span class="toc-dot"></span>Conserver, vendre, surveiller</a></li>
                         <li><a href="#tendance"><span class="toc-dot"></span>Tendance &amp; liquidité</a></li>
                         <li><a href="#vendre"><span class="toc-dot"></span>Vendre ou faire estimer un DRC</a></li>
                         <li><a href="#faq"><span class="toc-dot"></span>Questions fréquentes</a></li>
@@ -359,6 +386,62 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             <div class="bon-a-savoir">
                 <p class="bon-a-savoir-title">Bon à savoir — Échezeaux, la plus « accessible »</p>
                 <p>Tout est relatif : l'Échezeaux est réputé le grand cru le plus précoce et le plus abordable du domaine — « abordable » signifiant tout de même plusieurs milliers d'euros. C'est souvent la première bouteille du DRC qu'on croise dans une cave héritée. À l'autre bout, la Romanée-Conti et La Tâche, les deux monopoles, jouent dans une catégorie à part.</p>
+            </div>
+
+            <!-- ══ SECTION — RAPPORT PAR CUVÉE ══ -->
+            <h2 id="rapport">Conserver, vendre, surveiller : l'exemple d'une collection</h2>
+
+            <p>Une cote donne un repère ; une <strong>estimation</strong> répond à une autre question : que faire de <em>vos</em> bouteilles ? Voici, sur une petite collection illustrative, la forme que prend un rapport — chaque cuvée analysée, avec une recommandation conserver, vendre ou surveiller, et le raisonnement derrière la décision.</p>
+
+            <div class="report-block">
+                <div class="report-flag">
+                    <strong>Exemple illustratif.</strong> La collection présentée ici est fictive. Les estimations reflètent en revanche la valeur réelle de chaque cuvée sur le marché secondaire à la mi-2026, pour un millésime récent en bon état. Votre cave peut faire l'objet d'une analyse personnalisée.
+                </div>
+
+                <div class="synth-grid">
+                    <div class="synth-card"><div class="num">6</div><div class="lbl">bouteilles · 5 cuvées</div></div>
+                    <div class="synth-card"><div class="num">≈ 31 600 <span>€</span></div><div class="lbl">valeur estimée</div></div>
+                    <div class="synth-card"><div class="num">Élevée</div><div class="lbl">liquidité globale</div></div>
+                </div>
+
+                <p class="inv-foot" style="margin:0 0 1.2rem;">Estimation = valeur vénale par bouteille de 75 cl : ce qu'une vente rapporterait sur le marché secondaire, à la mi-2026, avant les frais de transaction propres à chaque canal.</p>
+
+                <div class="fiche">
+                    <div class="fiche__head"><h3>Romanée-Conti<span class="fiche__label">Monopole · 1,8 ha</span></h3><span class="badge badge-garder">Conserver</span></div>
+                    <p class="fiche__est"><strong>Estimation : ≈ 14 000 €</strong> / bouteille · 1 bouteille · garde patrimoniale</p>
+                    <p class="fiche__note">Le trophée absolu du vin mondial : monopole d'1,8 hectare, à peine 6 000 bouteilles par an, une demande qui excède structurellement l'offre. Sa valeur progresse sur le long terme, portée par une rareté que rien ne peut reproduire. On ne vend une Romanée-Conti que par nécessité de liquidités — sinon, c'est le socle patrimonial que l'on garde. Réserve absolue : à ce niveau, seule une provenance et un état irréprochables soutiennent l'estimation.</p>
+                </div>
+
+                <div class="fiche">
+                    <div class="fiche__head"><h3>La Tâche<span class="fiche__label">Monopole</span></h3><span class="badge badge-garder">Conserver</span></div>
+                    <p class="fiche__est"><strong>Estimation : ≈ 4 000 €</strong> / bouteille · 1 bouteille · garde 10+ ans</p>
+                    <p class="fiche__note">Le second monopole du domaine, souvent cité comme sa cuvée la plus régulière — grande dans les petites années comme dans les grandes. Comme la Romanée-Conti, sa nature de monopole en fait un actif que l'on conserve : la marge d'appréciation reste réelle, et on ne le retrouve nulle part ailleurs. À garder tant que la cave n'a pas besoin de dégager des liquidités.</p>
+                </div>
+
+                <div class="fiche">
+                    <div class="fiche__head"><h3>Montrachet<span class="fiche__label">Grand cru blanc</span></h3><span class="badge badge-arbitrer">Surveiller</span></div>
+                    <p class="fiche__est"><strong>Estimation : ≈ 6 000 €</strong> / bouteille · 1 bouteille · réexamen rapproché</p>
+                    <p class="fiche__note">Souvent présenté comme le plus grand blanc du monde — et le plus rare du domaine. Mais c'est un <strong>blanc</strong>, et les grands blancs de Bourgogne ont une fenêtre de dégustation plus courte que les rouges, avec un risque d'oxydation prématurée sur les vieilles bouteilles. D'où la surveillance : sa valeur est élevée, mais elle suppose un flacon parfaitement conservé et pas trop âgé. À réexaminer de près, et à céder au premier doute sur son évolution plutôt qu'à le garder trop longtemps.</p>
+                </div>
+
+                <div class="fiche">
+                    <div class="fiche__head"><h3>Richebourg<span class="fiche__label">Grand cru</span></h3><span class="badge badge-vendre">Vendre</span></div>
+                    <p class="fiche__est"><strong>Estimation : ≈ 2 800 €</strong> / bouteille · 1 bouteille · canal : vente aux enchères</p>
+                    <p class="fiche__note">Grand cru somptueux, puissant et charmeur — mais, contrairement aux deux monopoles, il n'est pas irremplaçable. Dans une logique d'arbitrage, c'est un excellent candidat à la vente : la cote est élevée et très liquide, la demande internationale profonde. Le céder permet de dégager des liquidités <em>sans toucher</em> aux pièces uniques (Romanée-Conti, La Tâche) que l'on préfère garder.</p>
+                </div>
+
+                <div class="fiche">
+                    <div class="fiche__head"><h3>Échezeaux<span class="fiche__label">Grand cru · la porte d'entrée</span></h3><span class="badge badge-vendre">Vendre</span></div>
+                    <p class="fiche__est"><strong>Estimation : ≈ 2 400 €</strong> / bouteille · 2 bouteilles · canal : vente</p>
+                    <p class="fiche__note">La cuvée la plus précoce et la plus « accessible » du domaine — donc la plus échangée et la plus facile à vendre. Elle trouve preneur immédiatement, à un très bon prix pour ce qu'elle est. C'est le premier lot à mobiliser pour réaliser une partie de la valeur de la collection : on capte une somme élevée, tout de suite, en conservant les cuvées les plus rares.</p>
+                </div>
+
+                <div class="bon-a-savoir" style="margin-bottom:0;">
+                    <p class="bon-a-savoir-title">La logique d'ensemble</p>
+                    <p>Les deux <strong>monopoles</strong> (Romanée-Conti, La Tâche), irremplaçables, se <strong>conservent</strong> — ce sont eux qui portent la valeur de long terme. Les grands crus liquides mais non uniques (Richebourg, Échezeaux) se <strong>vendent</strong> pour dégager des liquidités sans entamer le socle rare. Le <strong>Montrachet</strong>, blanc à la fenêtre plus courte, se <strong>surveille</strong>. À ce niveau, la provenance et l'authentification peuvent à elles seules déplacer une estimation de plusieurs milliers d'euros.</p>
+                </div>
+
+                <p class="report-more"><a href="/estimation-mouton-rothschild-exemple.html">Voir un exemple de rapport d'estimation complet, avec plan d'action →</a></p>
             </div>
 
             <!-- ══ SECTION 3 — TENDANCE ══ -->
