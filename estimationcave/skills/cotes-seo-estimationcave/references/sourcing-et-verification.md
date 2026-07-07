@@ -26,6 +26,7 @@ arrondi au **multiple de 5 € inférieur**.
 
 - **iDealwine = source primaire, toujours.** Wine-Searcher ne sert qu'à confirmer ou compléter.
 - **Une source manque ou est peu fiable → prendre l'autre seule avec sa décote** : iDealwine seul → `cote × 0,80` ; Wine-Searcher seul → `prix × 0,70`.
+- **Fiches domaine N4 (« Estimation » par millésime)** : l'estimation vénale affichée pour chaque millésime = **`cote iDealwine × 0,80`**, arrondie au **multiple de 5 € inférieur**. On travaille sur la branche iDealwine seule (grands crus très spéculés où le retail surestime). C'est la **valeur de revente réelle**, en dessous de la cote affichée — à ne jamais confondre avec la cote brute.
 - **Grands crus très spéculés (premiers crus, DRC, Pétrus, Rayas…)** : le prix Wine-Searcher (retail) surestime fortement — jusqu'à **~2× la valeur d'enchères réelle** (vérifié sur Lafite Rothschild, 6 millésimes recalés : 2800→1800, 1600→700, 800→400, 1000→600, 750→500, 550→320). Sur ces vins, **s'appuyer sur la branche iDealwine seule (`cote iDealwine × 0,80`)** plutôt que de réinjecter un Wine-Searcher gonflé. La valeur vénale se situe **un cran sous la « cote actuelle » iDealwine** (≈ bas des adjudications 12 mois).
 - **Toujours relever la vraie cote iDealwine** (page cote du millésime : « cote actuelle » + adjudications récentes), jamais un prix retail seul. Vérifier ensuite la **cohérence de hiérarchie** : une année faible doit rester au plancher, sous les bons millésimes.
 
