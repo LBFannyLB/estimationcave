@@ -482,13 +482,19 @@
   </url>
   <url>
     <loc>https://estimationcave.com/cotes/rhone/</loc>
-    <lastmod>2026-07-10</lastmod>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://estimationcave.com/cotes/rhone/cote-rotie/</loc>
-    <lastmod>2026-07-10</lastmod>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://estimationcave.com/cotes/rhone/chateauneuf-du-pape/</loc>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
