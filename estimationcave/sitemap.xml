@@ -464,7 +464,13 @@
   </url>
   <url>
     <loc>https://estimationcave.com/cotes/bordeaux/margaux/</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://estimationcave.com/cotes/bordeaux/margaux/chateau-margaux/</loc>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
