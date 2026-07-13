@@ -43,7 +43,7 @@ arrondi au **multiple de 5 € inférieur**.
 - **Inventer** un prix, une fourchette, un pourcentage de hausse, une part de marché.
 - Publier un **volume de recherche SEO** comme chiffre visiteur (métrique interne, pas un fait marché).
 - Reprendre un chiffre d'un **brief ou d'un résumé tiers** sans le re-sourcer (les synthèses courtiers/retail gonflent souvent les prix vs la cote enchères réelle).
-- **Nommer la plateforme** sur la page (voir règle dure 1 du SKILL) : le croisement reste en coulisses, la page n'affiche qu'une date.
+- **Nommer une plateforme pour PRÉSENTER une cote** (colonne ou mention « cote iDealwine / Wine-Searcher » ; voir règle dure 1 du SKILL) : le croisement reste en coulisses, la page n'affiche qu'une date. *(≠ un fait d'enchères daté, qui PEUT nommer iDealwine comme maison de ventes — voir « Fait d'enchères marquant » ci-dessous.)*
 - Écrire une formulation **péjorative** sur un vin (« sans réelle cote » → « vin de plaisir » / « plus confidentiel aux enchères »).
 
 ## Faits structurels (non-prix)
@@ -55,3 +55,5 @@ Superficie du vignoble, nombre d'AOC (compter aussi crémant / macvin / marc), c
 Dès qu'on trouve, pour l'appellation ou le domaine de la page, un **record / une adjudication notable sourçable**, l'inclure en un court paragraphe dans *Tendance & liquidité*, en **citant la maison de ventes**, la date et le montant. Renforce la crédibilité « valeur sûre » et l'AEO (fait concret citable). **Jamais inventé ; omis si aucun exemple sourçable.**
 
 Exemple (fiche vin jaune) : « Le 26 mai 2018, la maison Jura Enchères adjugeait à Lons-le-Saunier une bouteille de vin jaune d'Arbois de 1774 pour 103 700 €, un record pour un vin du Jura. » — ici la **maison de ventes** est nommée (c'est un fait d'actualité sourcé), ce qui est distinct de nommer une **plateforme de cote** (interdit).
+
+**iDealwine est nommable ici comme maison de ventes (cadrage cliente 2026-07-10).** Un résultat d'adjudication iDealwine sourcé peut la citer, à condition de donner l'**année d'adjudication + le montant du lot** — ex. « En septembre 2018, la maison d'enchères iDealwine adjugeait un Valmur 1990 de Raveneau à 2 274 €, soit ~760 € la bouteille » (appliqué sur la fiche Chablis). Ce qui reste **interdit** : présenter iDealwine comme **source de cote** (colonne de tableau, « cote iDealwine X € ») — cf. règle dure 1 du SKILL.

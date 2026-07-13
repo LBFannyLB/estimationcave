@@ -505,6 +505,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://estimationcave.com/cotes/bourgogne/cote-de-beaune/meursault/</loc>
+    <lastmod>2026-07-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://estimationcave.com/cotes/rhone/</loc>
     <lastmod>2026-07-13</lastmod>
     <changefreq>monthly</changefreq>

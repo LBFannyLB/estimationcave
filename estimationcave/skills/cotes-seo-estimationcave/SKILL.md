@@ -28,6 +28,12 @@ Test de réussite d'une page : elle répond à « **combien ça vaut et pourquoi
 
 > **Domaine = producteur** (Macle, Guigal, Giscours…), **jamais une appellation**. Une appellation prestigieuse (Château-Chalon, Margaux) est une page **N3**, pas N4. Le vin jaune est un **style** (N3 transversal), pas une appellation.
 
+> **Cas particulier Bourgogne — arbre à 5 niveaux (cadrage cliente 2026-07-10).** La Bourgogne s'organise en **côtes** (sous-régions) que Bordeaux et le Rhône n'ont pas. Pour **ce silo seulement**, on intercale un niveau — les 3 gabarits ne changent pas, ils descendent juste d'un cran :
+> - **N3 = côte** (`/cotes/bourgogne/{cote}/` : Côte de Nuits, Côte de Beaune, Côte Chalonnaise, Mâconnais, Chablis) → gabarit **hub** [`gabarit-region.md`](references/gabarit-region.md), template `cotes/bourgogne/cote-de-nuits/index.html`.
+> - **N4 = appellation** (`/cotes/bourgogne/{cote}/{appellation}/` : Pommard, Meursault, Vosne-Romanée…) → gabarit **fiche** [`gabarit-fiche.md`](references/gabarit-fiche.md), template `cotes/bourgogne/chablis/index.html`.
+> - **N5 = domaine** (`/cotes/bourgogne/{cote}/{appellation}/{domaine}/` : Coche-Dury, Leflaive…) → gabarit **domaine** (`gabarit-fiche.md` §N4).
+> **Chablis** est une côte (N3) **sans couche village** : ses domaines (Raveneau, Dauvissat) vont directement en **N4**. **Exception grandfathered** : le Domaine de la Romanée-Conti est déjà publié en N4 sous `cote-de-nuits/` (sans couche appellation) — on **ne le déplace pas** (URL indexée, règle dure) ; les *futurs* domaines de la Côte de Nuits vont en N5 sous leur appellation. **Bordeaux et Rhône** gardent l'appellation en **N3** (pas de couche côte).
+
 Détermine aussi le **slug** (kebab-case, sans accent : `chateau-chalon`, `cote-rotie`, `domaine-macle`) et **ne renomme JAMAIS** un fichier existant (règle dure SEO du site).
 
 ---
@@ -86,7 +92,7 @@ Contrairement à un article de blog (recherche → plan → rédaction), ici **l
 
 ### ÉTAPE 9 — Build HTML
 21. **Partir du fichier template live** du niveau (Étape 0), le copier et adapter le contenu — ne pas reconstruire la coquille de zéro (on hérite du CSS de page, du losange doré H2, de la carte premium, du footer canonique). Créer le dossier `cotes/{region}/[{appellation}/[{domaine}/]]index.html`. **Lien retour du header** (`a.nav-back`) : sur toute fiche/hub N2/N3/N4 = **« Prix des vins » → `/cotes/`** ; sur le pilier N1 uniquement = **« Accueil » → `/`**. **Jamais « Retour au blog »** (ces pages ne sont pas des billets) — les templates live sont déjà conformes, le préserver en copiant.
-22. Vérifier : un seul `<h1>`, zéro erreur de syntaxe HTML/JS, tous les placeholders remplis (aucun `à relever` oublié), aucune plateforme nommée (`grep -niE "idealwine|wine-searcher" <fichier>` doit être vide).
+22. Vérifier : un seul `<h1>`, zéro erreur de syntaxe HTML/JS, tous les placeholders remplis (aucun `à relever` oublié). **Plateforme nommée** : `grep -niE "idealwine|wine-searcher" <fichier>` doit être vide — **sauf** un éventuel **fait d'enchères daté** nommant iDealwine comme maison de ventes (exception règle dure 1 : année d'adjudication + montant obligatoires). Wine-Searcher, lui, n'apparaît **jamais**.
 
 ### ÉTAPE 10 — Index & sitemap
 23. **`sitemap.xml`** : ajouter la nouvelle URL (**slash final**) + `<lastmod>`. Sur modification d'une page existante, mettre à jour son `<lastmod>`.
@@ -103,7 +109,9 @@ Contrairement à un article de blog (recherche → plan → rédaction), ici **l
 
 Ces règles sont le fruit d'un cadrage cliente précis. Les enfreindre casse soit le SEO, soit le positionnement « analyse propre », soit une contrainte juridique.
 
-1. **Aucune plateforme de prix nommée sur la page** — ni iDealwine (mise en demeure), ni Wine-Searcher. Le relevé les croise **en coulisses**, la page n'affiche qu'un « Mis à jour le {date} ». Motif : l'estimation doit se présenter comme **l'analyse propre** du service, pas un copier-coller de cotes externes. *(Exception unique : section « Où trouver la cote » du pilier N1 — hors périmètre de ce skill.)*
+1. **Aucune plateforme de prix nommée pour PRÉSENTER LA COTE** — pas de colonne ni de mention « cote iDealwine » / « Wine-Searcher » dans les tableaux ou la prose. Le relevé les croise **en coulisses**, la page n'affiche qu'un « Mis à jour le {date} ». Motif : l'estimation doit se présenter comme **l'analyse propre** du service, pas un copier-coller de cotes externes.
+   - **Exception — fait d'enchères daté (cadrage cliente 2026-07-10)** : un **résultat d'adjudication précis et sourcé** PEUT nommer **iDealwine comme maison de ventes**, à condition de toujours donner l'**année d'adjudication + le montant du lot** (ex. « en septembre 2018, la maison d'enchères iDealwine adjugeait un Valmur 1990 de Raveneau à 2 274 €, soit ~760 € la bouteille »). C'est un **fait d'actualité sourcé**, distinct d'une plateforme de cote — même logique que l'exemple « Jura Enchères » de [`sourcing-et-verification.md`](references/sourcing-et-verification.md) (« Fait d'enchères marquant »). Ne PAS étendre au-delà : les **tableaux de cote restent sans plateforme**, et **Wine-Searcher n'est jamais nommé**.
+   - **Exception** : section « Où trouver la cote » du pilier N1 — hors périmètre de ce skill.
 2. **Aucune cote inventée.** Tout chiffre publié est relevé multi-sources (iDealwine + Wine-Searcher, croisés) et daté. Voir [`references/sourcing-et-verification.md`](references/sourcing-et-verification.md).
 3. **Pas de barre de fil d'Ariane visible.** Parents via champ « Région » + lien silo intro + `BreadcrumbList` JSON-LD uniquement.
 4. **Date en pied** (« Page mise à jour le {date}. »), jamais sous le H1, jamais de ligne « Sources ».
