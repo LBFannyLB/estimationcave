@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<script src="https://cdn.jsdelivr.net/npm/tarteaucitronjs@1.33.0/tarteaucitron.js" defer></script>
+<script>
+window.addEventListener("DOMContentLoaded", function () {
+tarteaucitron.init({
+  "privacyUrl": "https://www.estimationcave.com/confidentialite.html",
+  "bodyPosition": "bottom",
+  "hashtag": "#tarteaucitron",
+  "cookieName": "tarteaucitron",
+  "orientation": "bottom",
+  "groupServices": false,
+  "showDetailsOnClick": true,
+  "serviceDefaultState": "wait",
+  "showAlertSmall": false,
+  "cookieslist": false,
+  "closePopup": false,
+  "showIcon": true,
+  "iconPosition": "BottomRight",
+  "adblocker": false,
+  "DenyAllCta": true,
+  "AcceptAllCta": true,
+  "highPrivacy": true,
+  "handleBrowserDNTRequest": false,
+  "removeCredit": false,
+  "moreInfoLink": true,
+  "useExternalCss": false,
+  "useExternalJs": false,
+  "mandatory": false,
+  "mandatoryCta": false,
+  "readmoreLink": "https://www.estimationcave.com/confidentialite.html"
+});
+tarteaucitron.user.gtagUa = 'G-CDTHEK83FV';
+tarteaucitron.user.gtagMore = function () {};
+(tarteaucitron.job = tarteaucitron.job || []).push('gtag');
+tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
+(tarteaucitron.job = tarteaucitron.job || []).push('googletagmanager');
+});
+</script>
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Estimation gratuite d'une bouteille de vin — cote sous 24 h</title>
+    <meta name="description" content="Quelle est la valeur de votre bouteille de vin ? Un expert indépendant vous renvoie gratuitement sa cote, sa tendance et une recommandation claire : la garder ou la vendre, sous 24 h. Sans carte bancaire, sans engagement.">
+    <link rel="canonical" href="https://estimationcave.com/estimation-bouteille.html">
+
+    <meta property="og:title" content="Estimation gratuite d'une bouteille de vin — cote sous 24 h">
+    <meta property="og:description" content="Indiquez une bouteille de votre cave : un expert indépendant vous renvoie gratuitement sa cote, sa tendance et une recommandation claire : la garder ou la vendre. Sous 24 h, sans engagement.">
+    <meta property="og:url" content="https://estimationcave.com/estimation-bouteille.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:image" content="https://estimationcave.com/og-image.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Estimation gratuite d'une bouteille de vin — cote sous 24 h">
+    <meta name="twitter:description" content="Indiquez une bouteille de votre cave : un expert indépendant vous renvoie gratuitement sa cote, sa tendance et une recommandation claire : la garder ou la vendre. Sous 24 h, sans engagement.">
+    <meta name="twitter:image" content="https://estimationcave.com/og-image.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        a { text-decoration: none; color: inherit; }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+        .container-mid { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
+        .container-narrow { max-width: 800px; margin: 0 auto; padding: 0 2rem; }
+        .container-tight { max-width: 700px; margin: 0 auto; padding: 0 2rem; }
+
+        /* ── SECTIONS GÉNÉRIQUES ── */
+        .section { padding: 4rem 0; }
+        .section-alt { background: var(--blanc); }
+        .section-dark { background: var(--bordeaux); color: var(--blanc); }
+        .section-dark h2 { color: var(--blanc); }
+        .section-dark .section-intro { color: var(--blanc); }
+
+        /* ── HERO ── */
+        .hero { padding: 8.5rem 0 4rem; }
+        .hero-grid { display: grid; grid-template-columns: 256px 1fr; gap: 3.5rem; align-items: center; }
+        .hero-text { text-align: center; }
+        .hero .eyebrow {
+            font-family: var(--font-body); font-size: 0.78rem; font-weight: 600;
+            letter-spacing: 0.22em; text-transform: uppercase; color: var(--or); margin-bottom: 1.25rem;
+        }
+        .hero h1 {
+            font-family: var(--font-display); font-size: clamp(2.4rem, 4.5vw, 3.2rem); font-weight: 600;
+            color: var(--bordeaux); line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 1.5rem;
+        }
+        .hero h1 em { font-style: italic; font-weight: 400; }
+        h2 em { font-style: italic; font-weight: 400; }
+        .hero .lead {
+            font-family: var(--font-body); font-size: 1.15rem; line-height: 1.65;
+            color: var(--texte); margin: 0 auto; max-width: 560px;
+        }
+        .hero-ctas { display: flex; justify-content: center; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
+        .hero-ctas .btn-primary { padding: 0.95rem 2rem; font-size: 1rem; }
+        .hero-mention {
+            display: block; margin-top: 1.5rem; font-size: 0.85rem; color: var(--texte-light); letter-spacing: 0.01em;
+        }
+        .hero-mention span { color: var(--or); margin: 0 0.35rem; }
+        .hero-visual { width: 100%; }
+        .hero-visual img { width: 100%; height: auto; display: block; }
+        @media (max-width: 760px) {
+            .hero { text-align: center; }
+            .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .hero-text { order: 1; }
+            .hero-visual { order: 2; max-width: 176px; margin: 0.5rem auto 0; }
+            .hero .lead { margin: 0 auto; }
+            .hero-ctas { justify-content: center; }
+        }
+
+        /* ── H2 commun ── */
+        h2 {
+            font-family: var(--font-display); font-size: clamp(1.7rem, 3vw, 2.1rem); font-weight: 600;
+            color: var(--bordeaux); line-height: 1.25; text-align: center; margin: 0 0 1.25rem;
+        }
+        .section-intro {
+            font-size: 1.02rem; line-height: 1.7; color: var(--texte); text-align: center;
+            max-width: 680px; margin: 0 auto 2rem;
+        }
+
+        /* ── STEPS / PAIN CARDS ── */
+        .pains-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2rem; }
+        .pain-card {
+            background: var(--blanc); border: 1px solid var(--border); border-radius: 8px; padding: 2rem;
+            transition: all 0.3s cubic-bezier(0.33, 1, 0.68, 1);
+        }
+        @media (hover: hover) {
+            .pain-card:hover { border-color: rgba(197, 162, 88, 0.4); box-shadow: 0 8px 24px rgba(45, 27, 46, 0.05); }
+        }
+        .pain-number {
+            width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--or);
+            display: flex; align-items: center; justify-content: center; margin: 0 0 1.25rem;
+            font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; color: var(--or);
+        }
+        .pain-card h3 {
+            font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; color: var(--bordeaux);
+            margin-bottom: 0.85rem; line-height: 1.3;
+        }
+        .pain-card p { font-size: 0.95rem; color: var(--texte); line-height: 1.7; margin: 0; }
+        .pain-card strong { color: var(--bordeaux); font-weight: 600; }
+
+        /* ── FAQ (blocs question/réponse) ── */
+        .usage-block { margin: 1.75rem 0; }
+        .usage-block h3 {
+            font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; color: var(--bordeaux);
+            margin-bottom: 0.75rem; line-height: 1.3;
+        }
+        .usage-block p { font-size: 1rem; line-height: 1.8; color: var(--texte); margin-bottom: 0.85rem; }
+
+        /* ── FAQ accordéon ── */
+        .faq-list { margin-top: 2rem; }
+        .faq-item { border-bottom: 1px solid var(--border); }
+        .faq-item:first-child { border-top: 1px solid var(--border); }
+        .faq-q { width: 100%; background: none; border: none; padding: 1.2rem 2.5rem 1.2rem 0; text-align: left; cursor: pointer; font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; color: var(--bordeaux); line-height: 1.35; position: relative; }
+        .faq-q::after { content: '+'; position: absolute; right: 0.1rem; top: 50%; transform: translateY(-50%); font-size: 1.6rem; font-weight: 400; color: var(--or); line-height: 1; }
+        .faq-item.open .faq-q::after { content: '\2212'; }
+        .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+        .faq-a p { font-size: 1rem; line-height: 1.75; color: var(--texte); margin: 0 0 1.2rem; }
+
+        .bon-a-savoir {
+            background: var(--or-pale); border-radius: 6px; padding: 1.5rem 1.75rem; margin: 2rem 0 0;
+            font-size: 0.98rem; line-height: 1.7; color: var(--texte);
+        }
+
+        /* ── SECTION PROFIL (fond bordeaux) ── */
+        .profil-section { background: var(--bordeaux); color: var(--blanc); }
+        .profil-section h2 { color: var(--blanc); }
+        .profil-section h2 em { color: var(--or); font-style: italic; font-weight: 400; }
+        .profil p { font-size: 1rem; line-height: 1.85; color: var(--blanc); margin-bottom: 1.5rem; text-align: center; }
+        .profil-link {
+            display: inline-block; margin-top: 0.5rem; color: var(--or) !important; font-weight: 500;
+            text-decoration: none !important; border-bottom: 1px solid transparent; transition: border-color 0.25s ease;
+        }
+        .profil-link:hover { border-bottom-color: var(--or); }
+
+        /* ── CTA FINAL (upsell audit, discret) ── */
+        .cta-final { padding: 5rem 0; background: var(--bordeaux); color: var(--blanc); text-align: center; }
+        .cta-final h2 { color: var(--blanc); margin-bottom: 1rem; }
+        .cta-final .lead {
+            font-size: 1.05rem; line-height: 1.7; color: var(--blanc); opacity: 0.9;
+            max-width: 620px; margin: 0 auto 2rem;
+        }
+        .cta-final .subtext {
+            font-size: 0.9rem; color: var(--blanc); opacity: 0.7; max-width: 560px; margin: 1.5rem auto 0; line-height: 1.6;
+        }
+
+        /* ── ANCRES ── */
+        #estimation-offerte, #comment { scroll-margin-top: 90px; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) { .pains-grid { grid-template-columns: 1fr; gap: 1.25rem; } }
+        @media (max-width: 600px) {
+            .container, .container-mid, .container-narrow, .container-tight { padding: 0 1.25rem; }
+            .hero { padding: 7rem 0 2.5rem; }
+            .section { padding: 3rem 0; }
+            .cta-final { padding: 3.5rem 0; }
+            .pain-card { padding: 1.5rem; }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Estimation gratuite d'une bouteille de vin",
+      "provider": { "@type": "Person", "name": "Fanny — estimationcave.com", "url": "https://estimationcave.com" },
+      "areaServed": ["FR", "BE", "CH", "LU"],
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"L'estimation d'une bouteille est-elle vraiment gratuite ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Vous indiquez une bouteille et votre email, un expert indépendant vous renvoie sa cote sous 24 h — sans carte bancaire et sans engagement. C'est une estimation offerte, pas un devis."}},
+        {"@type":"Question","name":"Comment la cote de ma bouteille est-elle calculée ?","acceptedAnswer":{"@type":"Answer","text":"À la main, en croisant les résultats de ventes aux enchères et les prix du marché de la fine wine pour votre domaine, appellation, millésime et format. Ce n'est pas un prix automatique de scanner : c'est le regard d'un expert indépendant."}},
+        {"@type":"Question","name":"Et si j'ai toute une cave à estimer ?","acceptedAnswer":{"@type":"Answer","text":"L'estimation offerte porte sur une bouteille. Pour une cave entière — succession, assurance, vente — l'audit complet chiffre chaque bouteille et vous dit quoi garder, quoi vendre, à qui et quand, pour 199 € tout compris, livré sous 5 jours ouvrés."}}
+      ]
+    }
+    </script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Aller au contenu</a>
+
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo"><img width="160" height="160" src="grappe-doree.webp" alt="" class="nav-logo-img"><span class="nav-logo-text">estimation<span>cave</span>.com</span></a>
+            <div class="nav-right">
+                <a href="/" class="nav-back">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    Retour au site
+                </a>
+                <a href="apropos.html" class="nav-back" style="text-decoration:none;">Qui suis-je</a>
+                <a href="#estimation-offerte" class="btn-gold">Estimer ma bouteille</a>
+            </div>
+            <button class="hamburger" aria-label="Menu" aria-expanded="false">
+                <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+        </div>
+    </nav>
+    <div class="nav-overlay"></div>
+
+    <main id="main">
+
+        <!-- ── SECTION 1 — HERO ── -->
+        <header class="hero">
+            <div class="container hero-grid">
+                <div class="hero-visual">
+                    <img src="caisse-bouteilles.webp" width="468" height="315" alt="Caisse en bois de bouteilles de vin" fetchpriority="high">
+                </div>
+                <div class="hero-text">
+                    <p class="eyebrow reveal">Estimation offerte · sans engagement</p>
+                    <h1 class="reveal">Quelle est la <em>valeur</em> de votre bouteille&nbsp;de vin&nbsp;?</h1>
+                    <p class="lead reveal">Indiquez une bouteille de votre cave&nbsp;: un expert indépendant vous renvoie gratuitement sa cote du moment, sa tendance et une recommandation claire : la garder ou la vendre. Sous 24&nbsp;h, sans carte bancaire.</p>
+                    <div class="hero-ctas reveal">
+                        <a href="#estimation-offerte" class="btn-primary">Estimer ma bouteille gratuitement</a>
+                    </div>
+                    <span class="hero-mention reveal">Réponse d'un expert sous 24&nbsp;h <span>·</span> 100&nbsp;% gratuit <span>·</span> Sans engagement</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- ── SECTION 2 — ENCART ESTIMATION OFFERTE (cœur de conversion) ── -->
+        <section class="eo-section" id="estimation-offerte">
+          <style>
+            .eo-section{background:rgba(197,162,88,0.06);border-top:1px solid rgba(197,162,88,0.25);border-bottom:1px solid rgba(197,162,88,0.25);padding:3.5rem 1.25rem;margin:0;}
+            .eo-wrap{max-width:620px;margin:0 auto;}
+            .eo-eyebrow{font-family:var(--font-body);font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--or);font-weight:600;text-align:center;margin:0 0 0.6rem;}
+            .eo-title{font-family:var(--font-display);font-size:1.9rem;line-height:1.15;color:var(--bordeaux);text-align:center;margin:0 0 0.8rem;}
+            .eo-sub{font-family:var(--font-body);font-size:0.98rem;line-height:1.6;color:var(--texte-light);text-align:center;margin:0 auto 2rem;max-width:520px;}
+            .eo-form{background:var(--blanc);border:1px solid rgba(45,27,46,0.10);box-shadow:inset 0 0 0 1px rgba(197,162,88,0.10);padding:1.8rem;position:relative;}
+            .eo-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;}
+            .eo-field{display:flex;flex-direction:column;}
+            .eo-field.eo-full{grid-column:1/-1;}
+            .eo-field label{font-family:var(--font-body);font-size:0.8rem;font-weight:600;color:var(--bordeaux);margin-bottom:0.35rem;}
+            .eo-req{color:var(--or);}
+            .eo-field input,.eo-field select{font-family:var(--font-body);font-size:0.95rem;padding:0.7rem 0.8rem;border:1px solid rgba(45,27,46,0.18);background:var(--fond);color:var(--texte);border-radius:4px;width:100%;box-sizing:border-box;height:44px;}
+            .eo-field select{-webkit-appearance:none;-moz-appearance:none;appearance:none;padding-right:2rem;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%232D1B2E' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 0.75rem center;background-size:0.7rem;}
+            .eo-field input:focus,.eo-field select:focus{outline:2px solid var(--or);outline-offset:1px;}
+            .eo-check{display:flex;gap:0.6rem;align-items:flex-start;margin:0.4rem 0 1.2rem;font-family:var(--font-body);font-size:0.82rem;line-height:1.5;color:var(--texte-light);cursor:pointer;}
+            .eo-check input{margin-top:0.2rem;flex-shrink:0;}
+            .eo-check a{color:var(--or);}
+            .eo-btn{display:block;width:100%;background:var(--bordeaux);color:var(--fond);font-family:var(--font-body);font-size:1rem;font-weight:600;letter-spacing:0.02em;border:none;padding:0.95rem;cursor:pointer;transition:background .25s;}
+            .eo-btn:hover{background:#3d2840;}
+            .eo-btn:disabled{opacity:.6;cursor:default;}
+            .eo-reassurance{font-family:var(--font-body);font-size:0.78rem;line-height:1.5;color:var(--texte-light);text-align:center;margin:1rem 0 0;}
+            .eo-feedback{display:none;font-family:var(--font-body);font-size:0.9rem;line-height:1.5;padding:0.9rem 1rem;border-radius:4px;margin-bottom:1.2rem;}
+            .eo-feedback.is-success{display:block;background:var(--bordeaux);border:1px solid var(--bordeaux);color:var(--fond);}
+            .eo-feedback.is-error{display:block;background:rgba(180,40,40,0.08);border:1px solid #b42828;color:#8a2020;}
+            .eo-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
+            @media(max-width:560px){.eo-row{grid-template-columns:1fr;}.eo-title{font-size:1.55rem;}.eo-form{padding:1.4rem;}}
+          </style>
+
+          <div class="eo-wrap">
+            <h2 class="eo-title">Estimez une bouteille de votre cave</h2>
+
+            <form class="eo-form" id="eo-form" novalidate>
+              <div class="eo-hp" aria-hidden="true">
+                <label for="eo-website">Site web (laissez vide)</label>
+                <input type="text" id="eo-website" name="website" tabindex="-1" autocomplete="off">
+              </div>
+
+              <div class="eo-feedback" id="eo-feedback" role="status" aria-live="polite"></div>
+
+              <div class="eo-row">
+                <div class="eo-field eo-full">
+                  <label for="eo-domaine">Domaine / Château <span class="eo-req">*</span></label>
+                  <input type="text" id="eo-domaine" name="domaine" required autocomplete="off">
+                </div>
+              </div>
+
+              <div class="eo-row">
+                <div class="eo-field">
+                  <label for="eo-appellation">Appellation <span class="eo-req">*</span></label>
+                  <input type="text" id="eo-appellation" name="appellation" required autocomplete="off">
+                </div>
+                <div class="eo-field">
+                  <label for="eo-millesime">Millésime <span class="eo-req">*</span></label>
+                  <input type="text" id="eo-millesime" name="millesime" required autocomplete="off" inputmode="numeric">
+                </div>
+              </div>
+
+              <div class="eo-row">
+                <div class="eo-field">
+                  <label for="eo-format">Format <span class="eo-req">*</span></label>
+                  <select id="eo-format" name="format" required>
+                    <option value="">Choisir</option>
+                    <option value="Bouteille (75 cl)">Bouteille (75 cl)</option>
+                    <option value="Magnum (1,5 L)">Magnum (1,5 L)</option>
+                    <option value="Autre format">Autre format</option>
+                  </select>
+                </div>
+                <div class="eo-field">
+                  <label for="eo-quantite">Quantité <span class="eo-req">*</span></label>
+                  <input type="number" id="eo-quantite" name="quantite" required min="1" value="1">
+                </div>
+              </div>
+
+              <div class="eo-row">
+                <div class="eo-field eo-full">
+                  <label for="eo-nb-references">Combien de références environ dans votre cave&nbsp;?</label>
+                  <select id="eo-nb-references" name="nb_references">
+                    <option value="">Choisir</option>
+                    <option value="1 à 10">1 à 10</option>
+                    <option value="10 à 50">10 à 50</option>
+                    <option value="50 à 200">50 à 200</option>
+                    <option value="200 et plus">200 et plus</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="eo-row">
+                <div class="eo-field eo-full">
+                  <label for="eo-email">Votre email <span class="eo-req">*</span></label>
+                  <input type="email" id="eo-email" name="email" required autocomplete="email">
+                </div>
+              </div>
+
+              <label class="eo-check" for="eo-consentement">
+                <input type="checkbox" id="eo-consentement" name="consentement_rgpd" required>
+                <span>J'accepte de recevoir mon estimation et des conseils d'estimation par email. Mes informations ne sont transmises à aucun tiers et sont supprimées sur simple demande à <a href="mailto:contact@estimationcave.com">contact@estimationcave.com</a>. <span class="eo-req">*</span></span>
+              </label>
+
+              <button type="submit" class="eo-btn" id="eo-btn">Recevoir mon estimation</button>
+              <p class="eo-reassurance">Réponse d'un expert indépendant sous 24&nbsp;h · Une estimation offerte par adresse mail · Sans carte bancaire, sans engagement.</p>
+            </form>
+          </div>
+
+          <script>
+            (function(){
+              var form=document.getElementById('eo-form');
+              if(!form)return;
+              var btn=document.getElementById('eo-btn');
+              var feedback=document.getElementById('eo-feedback');
+              function setFeedback(type,msg){feedback.className='eo-feedback';if(!msg)return;feedback.classList.add(type==='success'?'is-success':'is-error');feedback.textContent=msg;}
+              form.addEventListener('submit',async function(e){
+                e.preventDefault();
+                setFeedback(null,'');
+                var original=btn.textContent;
+                btn.disabled=true;btn.textContent='Envoi en cours…';
+                try{
+                  var params=new URLSearchParams(new FormData(form));
+                  var res=await fetch('/api/estimation-offerte',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:params});
+                  var payload={};try{payload=await res.json();}catch(_){}
+                  if(res.ok&&payload.success){
+                    try{
+                      var ecEmail='';try{var ef=document.getElementById('eo-email');ecEmail=ef&&ef.value?ef.value.trim().toLowerCase():'';}catch(_){}
+                      window.dataLayer=window.dataLayer||[];
+                      window.dataLayer.push({event:'generate_lead',lead_type:'estimation_offerte',form_location:'lp_estimation_bouteille',value:0,currency:'EUR',user_data:{email:ecEmail}});
+                    }catch(_){}
+                    setFeedback('success',"Merci, j'ai bien reçu votre demande. Vous recevez votre estimation par email sous 24 h.");
+                    form.reset();
+                    feedback.scrollIntoView({behavior:'smooth',block:'center'});
+                  }else{
+                    setFeedback('error',payload.error||"Une erreur est survenue, merci de réessayer ou d'écrire à contact@estimationcave.com.");
+                  }
+                }catch(err){
+                  setFeedback('error',"Connexion impossible, merci de réessayer ou d'écrire à contact@estimationcave.com.");
+                }finally{
+                  btn.disabled=false;btn.textContent=original;
+                }
+              });
+            })();
+          </script>
+        </section>
+
+        <!-- ── SECTION 3 — COMMENT ÇA MARCHE ── -->
+        <section class="section section-dark" id="comment">
+            <div class="container">
+                <h2>Comment ça marche&nbsp;?</h2>
+                <p class="section-intro">Trois minutes pour vous, 24&nbsp;h pour moi. Pas de scanner automatique&nbsp;: une vraie estimation, à la main.</p>
+                <span class="ornament-long"></span>
+                <div class="pains-grid">
+                    <article class="pain-card reveal">
+                        <div class="pain-number">1</div>
+                        <h3>Vous décrivez une bouteille</h3>
+                        <p>Domaine, appellation, millésime, format. Le formulaire ci-dessus suffit — pas besoin d'être expert, ni de photo obligatoire.</p>
+                    </article>
+                    <article class="pain-card reveal">
+                        <div class="pain-number">2</div>
+                        <h3>Je cherche sa cote</h3>
+                        <p>Je croise les <strong>résultats de ventes aux enchères</strong> et les <strong>prix du marché</strong> pour votre référence précise. Le regard d'un expert indépendant, pas un prix automatique.</p>
+                    </article>
+                    <article class="pain-card reveal">
+                        <div class="pain-number">3</div>
+                        <h3>Vous recevez sous 24&nbsp;h</h3>
+                        <p>Par email&nbsp;: sa <strong>cote du moment</strong>, sa <strong>tendance</strong> (en hausse, stable, en baisse) et une <strong>recommandation</strong> claire : la garder ou la vendre. Gratuitement.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── SECTION 4 — POURQUOI C'EST GRATUIT / SANS PIÈGE ── -->
+        <section class="section section-alt">
+            <div class="container-tight">
+                <h2>Pourquoi c'est gratuit&nbsp;— et sans piège</h2>
+                <span class="ornament-long"></span>
+                <div class="usage-block">
+                    <h3>Je ne rachète pas vos bouteilles</h3>
+                    <p>La plupart des estimations « gratuites » viennent de négociants qui espèrent racheter votre vin&nbsp;: leur intérêt est de le sous-évaluer. Moi, je ne rachète rien, je ne touche aucune commission. Mon estimation est <strong>neutre</strong>, dans votre seul intérêt.</p>
+                </div>
+                <div class="usage-block">
+                    <h3>Une bouteille offerte, pour vous montrer mon travail</h3>
+                    <p>C'est ma façon de vous faire découvrir ma méthode sans rien vous demander. Si le sérieux du travail vous convainc et que vous avez une cave entière à estimer, vous saurez où me trouver.</p>
+                </div>
+                <div class="bon-a-savoir">
+                    Aucune carte bancaire, aucun engagement. Vous recevez votre estimation par email, un point c'est tout. Vos informations ne sont transmises à personne et sont supprimées sur simple demande.
+                </div>
+            </div>
+        </section>
+
+        <!-- ── SECTION 5 — QUI ESTIME VOTRE BOUTEILLE ── -->
+        <section class="section profil-section">
+            <div class="container-tight profil">
+                <h2>Qui estime <em>votre bouteille</em>&nbsp;?</h2>
+                <span class="ornament-diamond"></span>
+                <p>Je m'appelle Fanny. Pendant 6&nbsp;ans, j'ai été responsable des ventes aux enchères de vin, et j'ai estimé plusieurs milliers de bouteilles dans tous les contextes. Certifiée WSET niveau 3 avec distinction. Experte indépendante&nbsp;: aucun rachat, aucune commission, aucun conflit d'intérêt.</p>
+                <p style="text-align:center;">
+                    <a href="apropos.html" class="profil-link">En savoir plus sur mon parcours →</a>
+                </p>
+            </div>
+        </section>
+
+        <!-- ── SECTION 6 — FAQ ── -->
+        <section class="section">
+            <div class="container-tight">
+                <h2>Questions fréquentes</h2>
+                <span class="ornament-long"></span>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <button class="faq-q" type="button" aria-expanded="false">C'est vraiment gratuit&nbsp;?</button>
+                        <div class="faq-a">
+                            <p>Oui. Vous indiquez une bouteille et votre email, je vous renvoie sa cote sous 24&nbsp;h — sans carte bancaire et sans engagement. C'est une estimation offerte, pas un devis.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" type="button" aria-expanded="false">Comment la cote est-elle calculée&nbsp;?</button>
+                        <div class="faq-a">
+                            <p>À la main, en croisant les résultats de ventes aux enchères et les prix du marché de la fine wine pour votre domaine, appellation, millésime et format. Ce n'est pas un prix automatique de scanner&nbsp;: c'est le regard d'un expert indépendant.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" type="button" aria-expanded="false">Et si j'ai plusieurs bouteilles, voire toute une cave&nbsp;?</button>
+                        <div class="faq-a">
+                            <p>L'estimation offerte porte sur une bouteille, pour vous donner un aperçu. Pour une cave entière — succession, assurance, vente — l'audit complet chiffre chaque bouteille et vous dit quoi garder et quoi vendre. Voir juste en dessous.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── SECTION 7 — CTA FINAL : UPSELL AUDIT (discret) ── -->
+        <section class="cta-final">
+            <div class="container-narrow">
+                <h2>Vous avez <em style="color: var(--or);">toute une cave</em> à estimer&nbsp;?</h2>
+                <p class="lead">Une estimation ponctuelle suffit pour une bouteille. Mais si vous avez hérité d'une cave, devez la déclarer à une assurance ou à un notaire, ou souhaitez la vendre, l'audit complet chiffre <strong style="color:var(--blanc);">chaque</strong> bouteille et vous dit quoi garder, quoi vendre, à qui et quand.</p>
+                <a href="/#formulaire" class="btn-gold">Découvrir l'audit complet — 199&nbsp;€</a>
+                <p class="subtext">Inventaire détaillé, valeur de marché bouteille par bouteille, recommandations et plan d'action personnalisé. Livré sous 5 jours ouvrés, 100&nbsp;% à distance.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="footer-logo">estimation<span>cave</span>.com</div>
+                <p class="footer-tagline">Audit et estimation indépendante de cave à vins à distance.</p>
+                <a href="mailto:contact@estimationcave.com" class="footer-email">contact@estimationcave.com</a>
+                <p class="footer-siren" style="font-size:.78rem;opacity:.7;margin-top:.6rem;">SIREN 823&nbsp;021&nbsp;738</p>
+            </div>
+            <div class="footer-col">
+                <div class="footer-heading">Navigation</div>
+                <ul class="footer-links">
+                    <li><a href="/">Accueil</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="apropos.html">Qui suis-je</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <div class="footer-heading">Guides</div>
+                <ul class="footer-links">
+                    <li><a href="estimation.html">Estimer sa cave</a></li>
+                    <li><a href="article-cotes-pilier.html">Cotes &amp; marché</a></li>
+                    <li><a href="article-heritage-cave.html">Héritage &amp; Succession</a></li>
+                    <li><a href="vendre.html">Vendre ses vins</a></li>
+                    <li><a href="gestion.html">Gérer sa cave</a></li>
+                    <li><a href="cave-investissement.html">Cave d'investissement</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <div class="footer-heading">Informations</div>
+                <ul class="footer-links">
+                    <li><a href="mentions-legales.html">Mentions légales</a></li>
+                    <li><a href="confidentialite.html">Confidentialité</a></li><li><a href="cgv.html">Conditions générales de vente</a></li>
+                    </ul>
+        <div class="footer-heading" style="margin-top:1.5rem;">Professionnels</div>
+        <ul class="footer-links">
+          <li><a href="/professionnels.html">Professionnels</a></li>
+          <li><a href="/assureurs.html">Pour les assureurs</a></li><li><a href="/notaires.html">Pour les notaires</a></li><li><a href="/conseillers-patrimoine.html">Pour les conseils en gestion de patrimoine</a></li><li><a href="/cabinets-cession.html">Pour les cabinets de cession (CHR)</a></li>
+        </ul>
+                <p class="footer-copy">© 2026 estimationcave.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="btt" aria-label="Retour en haut" style="position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:#2D1B2E;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s cubic-bezier(.33,1,.68,1),visibility .3s cubic-bezier(.33,1,.68,1),transform .3s cubic-bezier(.33,1,.68,1);z-index:999;box-shadow:0 4px 16px rgba(45,27,46,.25);">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C5A258" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+    </button>
+    <script>
+        (function(){var b=document.getElementById('btt');window.addEventListener('scroll',function(){if(window.scrollY>300){b.style.opacity='1';b.style.visibility='visible'}else{b.style.opacity='0';b.style.visibility='hidden'}});b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})})})();
+    </script>
+
+    <script>
+    (function(){
+        var hamburger = document.querySelector('.hamburger');
+        var navRight = document.querySelector('.nav-right');
+        var overlay = document.querySelector('.nav-overlay');
+        if (!hamburger) return;
+        function toggleMenu() {
+            var isOpen = navRight.classList.toggle('open');
+            hamburger.classList.toggle('active');
+            overlay.classList.toggle('active');
+            hamburger.setAttribute('aria-expanded', isOpen);
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+        }
+        function closeMenu() {
+            navRight.classList.remove('open');
+            hamburger.classList.remove('active');
+            overlay.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        }
+        hamburger.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', closeMenu);
+        navRight.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', closeMenu);
+        });
+    })();
+    </script>
+
+    <script>
+    (function(){
+        document.querySelectorAll('.faq-q').forEach(function(btn){
+            btn.addEventListener('click', function(){
+                var item = btn.closest('.faq-item');
+                var a = item.querySelector('.faq-a');
+                var open = item.classList.toggle('open');
+                btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+                a.style.maxHeight = open ? (a.scrollHeight + 'px') : null;
+            });
+        });
+    })();
+    </script>
+
+    <script>
+    (function(){
+        var targets = document.querySelectorAll('.hero .eyebrow, .hero h1, .hero .lead, .hero-ctas, .hero-mention, .pain-card, .usage-block, .bon-a-savoir, .profil p, .cta-final h2, .cta-final .lead, .section-intro');
+        targets.forEach(function(el){ if(!el.classList.contains('reveal')) el.classList.add('reveal'); });
+
+        document.querySelectorAll('.ornament, .ornament-double, .ornament-dots, .ornament-diamond, .ornament-long, .section-divider').forEach(function(el){ el.classList.add('ornament-reveal'); });
+
+        var allReveal = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .ornament-reveal');
+        var observer = new IntersectionObserver(function(entries){
+            entries.forEach(function(entry){
+                if(entry.isIntersecting){
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {threshold: 0.1, rootMargin: '0px 0px -40px 0px'});
+        allReveal.forEach(function(el){ observer.observe(el); });
+    })();
+    </script>
+</body>
+</html>
