@@ -195,6 +195,12 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
         /* ── ANCRES ── */
         #estimation-offerte, #comment { scroll-margin-top: 90px; }
 
+        /* ── CTA COLLANT MOBILE ── */
+        .sticky-cta { position: fixed; left: 0; right: 0; bottom: 0; z-index: 900; display: none; background: var(--bordeaux); color: var(--fond); text-align: center; font-family: var(--font-body); font-weight: 600; font-size: 0.98rem; letter-spacing: 0.01em; padding: 1.05rem 1.25rem; text-decoration: none; box-shadow: 0 -4px 20px rgba(45,27,46,0.18); }
+        .sticky-cta.visible { display: block; }
+        @media (min-width: 761px) { .sticky-cta { display: none !important; } }
+        @media (max-width: 760px) { #btt { display: none !important; } }
+
         /* ── RESPONSIVE ── */
         @media (max-width: 900px) { .pains-grid { grid-template-columns: 1fr; gap: 1.25rem; } }
         @media (max-width: 600px) {
@@ -555,11 +561,31 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
         </div>
     </footer>
 
+    <a href="#estimation-offerte" class="sticky-cta" data-cta="sticky-mobile" aria-label="Estimer ma bouteille gratuitement">Estimer ma bouteille gratuitement</a>
+
     <button id="btt" aria-label="Retour en haut" style="position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:#2D1B2E;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s cubic-bezier(.33,1,.68,1),visibility .3s cubic-bezier(.33,1,.68,1),transform .3s cubic-bezier(.33,1,.68,1);z-index:999;box-shadow:0 4px 16px rgba(45,27,46,.25);">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C5A258" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
     </button>
     <script>
         (function(){var b=document.getElementById('btt');window.addEventListener('scroll',function(){if(window.scrollY>300){b.style.opacity='1';b.style.visibility='visible'}else{b.style.opacity='0';b.style.visibility='hidden'}});b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})})})();
+    </script>
+
+    <script>
+        (function(){
+            var cta = document.querySelector('.sticky-cta');
+            var form = document.getElementById('estimation-offerte');
+            if(!cta || !form) return;
+            function update(){
+                if (window.innerWidth > 760){ cta.classList.remove('visible'); return; }
+                var r = form.getBoundingClientRect();
+                var formVisible = r.top < window.innerHeight && r.bottom > 0;
+                if (window.scrollY > 500 && !formVisible) cta.classList.add('visible');
+                else cta.classList.remove('visible');
+            }
+            window.addEventListener('scroll', update, {passive:true});
+            window.addEventListener('resize', update);
+            update();
+        })();
     </script>
 
     <script>
