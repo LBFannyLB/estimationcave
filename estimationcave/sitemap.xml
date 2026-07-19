@@ -500,13 +500,19 @@
   </url>
   <url>
     <loc>https://estimationcave.com/cotes/bourgogne/cote-de-beaune/</loc>
-    <lastmod>2026-07-13</lastmod>
+    <lastmod>2026-07-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://estimationcave.com/cotes/bourgogne/cote-de-beaune/meursault/</loc>
     <lastmod>2026-07-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://estimationcave.com/cotes/bourgogne/cote-de-beaune/puligny-montrachet/</loc>
+    <lastmod>2026-07-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
