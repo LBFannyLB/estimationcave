@@ -32,11 +32,33 @@ arrondi au **multiple de 5 € inférieur**.
 
 ## Protocole de remplissage d'un tableau
 
-1. Lister les entités (domaines / cuvées / millésimes) à coter.
+1. **Lister les entités à coter — en vérifiant d'abord le découpage en cuvées du domaine** (voir la règle « une ligne = une cuvée » ci-dessous).
 2. Pour chacune : relever la **cote iDealwine** (page cote directe, ou dernier rapport d'enchères) **et** un **prix Wine-Searcher** (average, ex-tax, 750 ml).
-3. Croiser → retenir une **fourchette défendable** (pas un point unique), calée sur la cote enchères, bornée par les millésimes/formats extrêmes.
-4. **Dater** le relevé (alimente le « Page mise à jour le {date} »).
-5. Ordre de grandeur douteux ou source unique ? Re-vérifier sur une 2ᵉ requête avant de publier. Ne jamais extrapoler « au feeling ».
+3. **Deux points de relevé minimum par ligne** (voir la règle ci-dessous).
+4. Croiser → retenir une **fourchette défendable** (pas un point unique), calée sur la cote enchères, bornée par les millésimes/formats extrêmes.
+5. **Dater** le relevé (alimente le « Page mise à jour le {date} »).
+6. Ordre de grandeur douteux ou source unique ? Re-vérifier sur une 2ᵉ requête avant de publier. Ne jamais extrapoler « au feeling ».
+
+### Règle — deux points de relevé minimum par ligne
+
+Une fourchette bâtie sur **un seul millésime** est fausse la moitié du temps. Relever systématiquement **au moins deux points par ligne** : un **millésime récent** (qui donne le plancher) et un **millésime ancien** (qui donne le plafond). Sur les vins de garde, l'écart entre les deux est précisément ce que la fourchette doit exprimer.
+
+Cette règle vient de deux relectures clientes qui ont trouvé, à elles seules, douze fourchettes fausses :
+
+- **Desvignes (Morgon)** plafonné à 60 € sur le seul Javernières 2019 (28 €) — la cuvée Les Impénitents 2010 est cotée **82 €**.
+- **Mee Godard (Morgon)** plafonnée à 55 € sans point haut — le maximum réellement relevé est **37 €**.
+- **Weinbach (riesling)** planchée à 65 € sur les seuls 2004 et 2014 — l'Inédit 1998 est coté **50 €**, sous le plancher publié.
+
+Corollaire : le **plafond publié ne doit jamais dépasser le point le plus haut réellement relevé**, sauf s'il est justifié par une **adjudication constatée** (qui est, elle, une donnée de marché secondaire parfaitement valable).
+
+### Règle — une ligne = une cuvée, pas un domaine
+
+Avant de coter un producteur, **vérifier s'il décline plusieurs cuvées** (parcellaires, vieilles vignes, cuvées d'exception des grands millésimes). Coter « le domaine » revient sinon à publier une moyenne qui ne correspond à **aucune bouteille réelle**, et à écraser l'écart qui fait justement la valeur.
+
+- **Albert Boxler (riesling)** : « Sommerberg » n'est pas un vin mais une gamme, découpée par **initiale cadastrale** — D (Dudenstein), E (Eckberg), V (Vanne), M, plus Brand K. Du Riesling Réserve (coté **44 €**) au Sommerberg Vanne (**adjugé 95 €**), la ligne va du simple au double.
+- **Jean Foillard (Morgon)** : Morgon Corcelette 25-55 €, Côte du Py 30-75 €, cuvée 3.14 90-185 €. Trois lignes distinctes, un seul domaine.
+
+En pratique : une **lettre isolée**, un lieu-dit, ou une mention « Vieilles Vignes » sur l'étiquette signalent presque toujours une cuvée à coter séparément.
 
 ## Ce qu'on ne fait jamais
 
