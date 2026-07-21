@@ -19,7 +19,13 @@ const escapeHtml = (s) =>
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#39;');
 
-function buildEmailHtml(d) {
+function buildEmailHtml(d, sourcePage) {
+  // sourcePage = en-tête Referer (page qui hébergeait le formulaire). Valeur
+  // fournie par le client → on borne la longueur puis on échappe (escapeHtml).
+  const pageOrigine = sourcePage
+    ? escapeHtml(String(sourcePage).slice(0, 500))
+    : '— (non transmise)';
+
   const row = (label, value) => `
     <tr>
       <td style="padding:8px 12px;background:#FAF6F0;font-weight:600;color:#2D1B2E;border-bottom:1px solid #eee;width:38%;">${escapeHtml(label)}</td>
@@ -59,6 +65,7 @@ function buildEmailHtml(d) {
           </table>
 
           <p style="margin-top:28px;font-size:12px;color:#888;border-top:1px solid #eee;padding-top:14px;">
+            Page d'origine : <strong>${pageOrigine}</strong><br>
             Consentement RGPD : ✅ accepté.<br>
             Reply-To configuré sur <strong>${escapeHtml(d.email)}</strong>.<br>
             Réponse à envoyer sous 48 h via <strong>envoyer_estimation.py</strong>.
@@ -108,7 +115,8 @@ export default async function handler(req, res) {
 
   // ── Envoi via Resend ──
   const subject = `[Estimation offerte] ${data.domaine} ${data.millesime}`;
-  const html = buildEmailHtml(data);
+  const sourcePage = req.headers.referer || req.headers.referrer || '';
+  const html = buildEmailHtml(data, sourcePage);
   const resend = new Resend(process.env.RESEND_API_KEY);
 
   try {
