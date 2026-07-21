@@ -225,20 +225,20 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
                         <div class="fiche-spec"><div class="fiche-spec-k">Ce que ça mesure</div><div class="fiche-spec-v">L'impact de l'<strong>année de récolte</strong> sur la valeur d'un vin</div></div>
                         <div class="fiche-spec"><div class="fiche-spec-k">Barème</div><div class="fiche-spec-v">Grand · Très bon · Correct · Difficile</div></div>
                         <div class="fiche-spec"><div class="fiche-spec-k">Couverture</div><div class="fiche-spec-v">8 régions · 1990 → 2023 (+ légendes)</div></div>
-                        <div class="fiche-spec"><div class="fiche-spec-k">Méthode</div><div class="fiche-spec-v">Synthèse de <strong>5 sources</strong> croisées</div></div>
+                        <div class="fiche-spec"><div class="fiche-spec-k">Méthode</div><div class="fiche-spec-v">Synthèse de <strong>6 sources</strong> croisées</div></div>
                         <div class="fiche-spec"><div class="fiche-spec-k">Règle d'or</div><div class="fiche-spec-v">Le millésime module, le <strong>domaine</strong> fait le prix</div></div>
                         <div class="fiche-spec"><div class="fiche-spec-k">Outil</div><div class="fiche-spec-v"><a href="#outil">Testez votre bouteille →</a></div></div>
                     </div>
                 </div>
                 <div class="fiche-figs">
-                    <span class="eyebrow">Les chiffres clés</span>
+                    <span class="eyebrow">Ce qu'il faut retenir</span>
                     <div class="bigfig">
-                        <div class="bigfig-num">6</div>
-                        <div class="bigfig-label">Sources critiques croisées — françaises et anglo-saxonnes</div>
+                        <div class="bigfig-num">1990 → 2023</div>
+                        <div class="bigfig-label">Votre bouteille y est : chaque millésime noté, région par région</div>
                     </div>
                     <div class="bigfig">
-                        <div class="bigfig-num">272</div>
-                        <div class="bigfig-label">Verdicts millésime (8 régions × 34 ans), en paliers de consensus</div>
+                        <div class="bigfig-num">±</div>
+                        <div class="bigfig-label">Le bon millésime valorise votre bouteille ; l'année faible la fait décoter</div>
                     </div>
                     <div class="bigfig">
                         <div class="bigfig-num">≠</div>
@@ -896,7 +896,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             if((r==='bgnB'||r==='bdxB') && Number(y)<=2010 && (t==='G'||t==='TB')) notes+='<div class="mz-note"><strong>Piège premox.</strong> Un blanc des millésimes ~1996-2010, même en bonne année, peut être oxydé prématurément : l’état réel de la bouteille prime sur le millésime.</div>';
             box.innerHTML='<span class="mz-badge '+m.c+'">'+m.l+'</span>'+
                 '<p class="mz-impact"><strong>'+REG[r]+' '+y+'</strong> — '+m.i+'</p>'+notes+
-                '<a href="/#formulaire" class="btn-gold">Estimer une bouteille de ce millésime</a>';
+                '<a href="#estimation-offerte" class="btn-gold">Estimer cette bouteille gratuitement</a>';
             box.classList.add('show');
         }
         rSel.addEventListener('change',render); ySel.addEventListener('change',render);
