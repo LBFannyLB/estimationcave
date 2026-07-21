@@ -67,7 +67,7 @@
     +   '<div class="eos-teaser">'
     +     '<p class="eos-eyebrow">Avant de partir</p>'
     +     '<h2 class="eos-title">Une estimation offerte, sans engagement</h2>'
-    +     '<p class="eos-sub">Choisissez une bouteille de votre cave : un expert indépendant vous renvoie sa cote du moment, sa tendance et une indication garder ou vendre. Gratuitement, sous 48&nbsp;h.</p>'
+    +     '<p class="eos-sub">Choisissez une bouteille de votre cave : un expert indépendant vous renvoie sa cote du moment, sa tendance et une indication garder ou vendre. Gratuitement, sous 24&nbsp;h.</p>'
     +     '<button class="eos-btn" type="button" id="eos-go">Estimer une bouteille gratuitement</button>'
     +     '<button class="eos-link" type="button" id="eos-no">Non merci</button>'
     +   '</div>'
@@ -86,7 +86,7 @@
     +     '<div class="eos-field"><label>Votre email <span class="eos-req">*</span></label><input type="email" name="email" required autocomplete="email"></div>'
     +     '<label class="eos-check"><input type="checkbox" name="consentement_rgpd" required><span>J\'accepte de recevoir mon estimation et des conseils d\'estimation par email (supprimés sur demande). <span class="eos-req">*</span></span></label>'
     +     '<button type="submit" class="eos-btn" id="eos-submit">Recevoir mon estimation</button>'
-    +     '<p class="eos-reassure">Réponse d\'un expert sous 48&nbsp;h · Sans engagement</p>'
+    +     '<p class="eos-reassure">Réponse d\'un expert sous 24&nbsp;h · Sans engagement</p>'
     +   '</form>'
     + '</div>';
 
@@ -166,7 +166,7 @@
             });
           } catch (_) {}
           try { localStorage.setItem(DONE_KEY, "1"); } catch (_) {}
-          setFb("ok", "Merci, j'ai bien reçu votre demande. Vous recevez votre estimation par email sous 48 h.");
+          setFb("ok", "Merci, j'ai bien reçu votre demande. Vous recevez votre estimation par email sous 24 h.");
           form.reset();
         } else {
           setFb("err", payload.error || "Une erreur est survenue, merci de réessayer ou d'écrire à contact@estimationcave.com.");

@@ -20,7 +20,7 @@
   /* ── wording contextualisé ── */
   var title = contexte ? ('Une estimation offerte pour votre ' + contexte) : 'Une estimation offerte, sans engagement';
   var sub = 'Faites estimer une bouteille ' + (contexte ? ('de ' + contexte) : 'de votre cave') +
-            ' : un expert indépendant vous en renvoie la cote du moment, la tendance et une indication garder ou vendre. Gratuitement, sous 48 h.';
+            ' : un expert indépendant vous en renvoie la cote du moment, la tendance et une indication garder ou vendre. Gratuitement, sous 24 h.';
 
   /* ── CSS (scopé .eoc-, injecté une fois) ── */
   if (!document.getElementById('eoc-styles')) {
@@ -83,7 +83,7 @@
         '<label class="eoc-check" for="eoc-consentement"><input type="checkbox" id="eoc-consentement" name="consentement_rgpd" required>' +
           '<span>J\'accepte de recevoir mon estimation et des conseils d\'estimation par email. Mes informations ne sont transmises à aucun tiers et sont supprimées sur simple demande à <a href="mailto:contact@estimationcave.com">contact@estimationcave.com</a>. <span class="eoc-req">*</span></span></label>' +
         '<button type="submit" class="eoc-submit" id="eoc-submit">Recevoir mon estimation</button>' +
-        '<p class="eoc-reassurance">Réponse d\'un expert indépendant sous 48&nbsp;h · Une estimation offerte par adresse mail · Sans carte bancaire, sans engagement.</p>' +
+        '<p class="eoc-reassurance">Réponse d\'un expert indépendant sous 24&nbsp;h · Une estimation offerte par adresse mail · Sans carte bancaire, sans engagement.</p>' +
       '</form>' +
     '</div>';
 
@@ -122,7 +122,7 @@
           window.dataLayer = window.dataLayer || [];
           window.dataLayer.push({ event: 'generate_lead', lead_type: 'estimation_offerte', form_location: formLocation, value: 0, currency: 'EUR', user_data: { email: ecEmail } });
         } catch (_) {}
-        setFeedback('success', "Merci, j'ai bien reçu votre demande. Vous recevez votre estimation par email sous 48 h.");
+        setFeedback('success', "Merci, j'ai bien reçu votre demande. Vous recevez votre estimation par email sous 24 h.");
         form.reset();
         feedback.scrollIntoView({ behavior: 'smooth', block: 'center' });
       } else {

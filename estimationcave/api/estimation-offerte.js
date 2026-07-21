@@ -68,7 +68,7 @@ function buildEmailHtml(d, sourcePage) {
             Page d'origine : <strong>${pageOrigine}</strong><br>
             Consentement RGPD : ✅ accepté.<br>
             Reply-To configuré sur <strong>${escapeHtml(d.email)}</strong>.<br>
-            Réponse à envoyer sous 48 h via <strong>envoyer_estimation.py</strong>.
+            Réponse à envoyer sous 24 h via <strong>envoyer_estimation.py</strong>.
           </p>
         </td></tr>
       </table>
