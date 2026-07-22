@@ -1,0 +1,19 @@
+# Documents de travail internes (non destinés au site déployé)
+carte-prospection.html
+carte-prospection.pdf
+
+# Notes de travail internes (audit, litige, stratégie) — jamais déployées
+_*.md
+
+# Aperçus locaux (espace cave de démo, maquettes) — jamais déployés
+_*.html
+
+# Dépendances Node (réinstallées par Vercel au build)
+node_modules/
+
+# Secrets / variables d'environnement — ne JAMAIS committer
+.env
+.env.*
+
+# Dossiers clients & leads — contiennent des données personnelles (emails prospects)
+rapports/

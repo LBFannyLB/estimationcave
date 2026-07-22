@@ -1,4 +1,5 @@
 import { Resend } from 'resend';
+import { insertLead } from '../lib/db.js';
 
 // ─── Constantes ─────────────────────────────────────────────
 const REQUIRED_FIELDS = [
@@ -113,9 +114,27 @@ export default async function handler(req, res) {
     });
   }
 
+  const sourcePage = req.headers.referer || req.headers.referrer || '';
+
+  // ── Persistance best-effort (dashboard) — ne JAMAIS bloquer la capture ──
+  // Si la base est indisponible, on logge et on continue : l'email de lead part quand même.
+  try {
+    await insertLead({
+      domaine: data.domaine,
+      appellation: data.appellation,
+      millesime: data.millesime,
+      format: data.format,
+      quantite: data.quantite,
+      email: data.email,
+      nb_references: data.nb_references,
+      source_page: sourcePage,
+    });
+  } catch (err) {
+    console.error('[estimation-offerte] persistance DB échouée (non bloquant) :', err);
+  }
+
   // ── Envoi via Resend ──
   const subject = `[Estimation offerte] ${data.domaine} ${data.millesime}`;
-  const sourcePage = req.headers.referer || req.headers.referrer || '';
   const html = buildEmailHtml(data, sourcePage);
   const resend = new Resend(process.env.RESEND_API_KEY);
 
