@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr"><body style="margin:0;padding:0;background:#FAF6F0;font-family:Georgia,'Times New Roman',serif;">
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body style="margin:0;padding:0;background:#FAF6F0;font-family:Georgia,'Times New Roman',serif;">
   <table width="100%" cellpadding="0" cellspacing="0" style="padding:24px 0;background:#FAF6F0;">
     <tr><td align="center">
       <table width="560" cellpadding="0" cellspacing="0" style="max-width:560px;width:100%;background:#FAF6F0;border:1px solid #e8e0d0;">
@@ -26,7 +26,7 @@
                 </td>
                 <td style="vertical-align:top;text-align:right;white-space:nowrap;">
                   <div style="font-size:23px;color:#2D1B2E;font-weight:bold;">{{ cote }}</div>
-                  <div style="font-family:Arial,sans-serif;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#8a7d86;">la bouteille</div>
+                  {% set _cote_label = cote_label if cote_label is defined else 'la bouteille' %}{% if _cote_label %}<div style="font-family:Arial,sans-serif;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#8a7d86;">{{ _cote_label }}</div>{% endif %}
                 </td>
               </tr></table>
 
@@ -58,19 +58,33 @@
         </td></tr>
 
         <tr><td style="padding:16px 30px 4px;">
-          <table width="100%" cellpadding="0" cellspacing="0" style="background:#fff;"><tr>
-            <td style="border-left:3px solid #C5A258;padding:16px 18px;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:1.6;color:#4a3f48;">
-              <span style="color:#2D1B2E;font-weight:bold;">La limite d'une bouteille isolée.</span> Prise seule, cette estimation vous donne un repère fiable. Mais le bon arbitrage &mdash; quoi vendre en premier, quoi garder, sur quel canal et à quel moment &mdash; se décide sur l'ensemble de votre cave et selon vos objectifs. C'est précisément ce que couvre l'audit complet : une recommandation bouteille par bouteille et un plan d'action personnalisé, pour 199&nbsp;€.
+          <table width="100%" cellpadding="0" cellspacing="0" style="background:#C5A258;"><tr>
+            <td style="padding:18px 20px;font-family:Arial,Helvetica,sans-serif;font-size:12.5px;line-height:1.65;color:#2D1B2E;">
+              <span style="font-weight:bold;">Une bouteille estimée, c'est un aperçu.</span> Le vrai sujet, c'est votre cave entière : lesquelles ouvrir avant que leur apogée ne passe, lesquelles vendre tant que la cote est haute. L'audit complet chiffre <span style="font-weight:bold;">chaque</span> bouteille et vous remet un plan d'action personnalisé clair &mdash; quoi garder, quoi boire, quoi vendre, à qui et quand &mdash; pour 199&nbsp;€, livré sous 5 jours.
             </td>
           </tr></table>
         </td></tr>
 
-        <tr><td style="padding:18px 30px 24px;text-align:center;">
+        <tr><td style="padding:18px 30px 6px;text-align:center;">
           <a href="https://estimationcave.com/#formulaire" style="display:inline-block;background:#2D1B2E;color:#FAF6F0;font-family:Arial,sans-serif;font-size:13px;letter-spacing:0.04em;text-decoration:none;padding:13px 26px;">Demander un audit complet de votre cave — 199&nbsp;€</a>
         </td></tr>
 
+        <tr><td style="padding:18px 30px 8px;font-family:Arial,Helvetica,sans-serif;font-size:12.5px;line-height:1.6;color:#4a3f48;">
+          Je reste à votre disposition pour toute question sur cette estimation.<br><br>
+          <span style="color:#2D1B2E;font-weight:bold;">Fanny Lonqueu-Brochard</span><br>
+          <span style="color:#8a7d86;">Experte indépendante en estimation de cave</span><br>
+          <a href="mailto:contact@estimationcave.com" style="color:#2D1B2E;text-decoration:none;">contact@estimationcave.com</a>
+        </td></tr>
+
         <tr><td style="padding:16px 30px 22px;border-top:1px solid #e8e0d0;font-family:Arial,sans-serif;font-size:10.5px;line-height:1.6;color:#9a8f96;background:#fff;">
-          estimationcave.com — expertise indépendante en estimation de cave. Aucune activité d'achat, de revente ni de courtage. Estimation établie à partir des adjudications récentes, pour une bouteille en bon état et provenance standard.
+          estimationcave.com &mdash; expertise indépendante en estimation de cave. Aucune activité d'achat, de revente ni de courtage. Estimation établie à partir des adjudications récentes, pour des bouteilles en bon état et provenance standard.
+          <div style="margin-top:8px;color:#b3a9af;">Fanny Lonqueu-Brochard &middot; Entrepreneur individuel (micro-entreprise) &middot; SIREN 823&nbsp;021&nbsp;738 &middot; contact@estimationcave.com</div>
+        </td></tr>
+
+        <tr><td style="padding:6px 30px 30px;text-align:center;background:#fff;">
+          <img src="https://estimationcave.com/grappe-doree.webp" alt="estimationcave.com" width="44" height="44" style="display:block;margin:0 auto 6px;border:0;">
+          <div style="font-family:Georgia,'Times New Roman',serif;font-size:21px;color:#2D1B2E;">estimation<span style="color:#C5A258;font-style:italic;">cave</span>.com</div>
+          <div style="font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:13px;color:#8a7d86;margin-top:3px;">Audit indépendant et estimation de cave à vin</div>
         </td></tr>
 
       </table>
