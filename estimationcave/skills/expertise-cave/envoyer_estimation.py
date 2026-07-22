@@ -88,6 +88,63 @@ def send_via_resend(to_email: str, subject: str, html: str) -> None:
         sys.exit(f"✗ Erreur Resend ({e.code}) : {detail}")
 
 
+def mark_lead_repondu(data: dict) -> None:
+    """Après un envoi réussi : passe le lead correspondant à « repondu » (+ cote) dans le dashboard.
+
+    Non bloquant : toute erreur est seulement signalée (l'email est déjà parti).
+    Recherche le lead par 'lead_id' (si présent dans le JSON), sinon par email parmi les
+    leads « à traiter ». Nécessite ADMIN_TOKEN dans l'environnement ; sinon on saute.
+    """
+    token = os.environ.get("ADMIN_TOKEN")
+    base = os.environ.get("LEADS_API_BASE", "https://estimationcave.com").rstrip("/")
+    if not token:
+        print("• (dashboard) ADMIN_TOKEN absent → statut non mis à jour. "
+              "Exportez ADMIN_TOKEN pour l'auto-passage à « répondu ».")
+        return
+
+    def api(method: str, path: str, payload=None):
+        url = f"{base}/api/leads{path}"
+        body = json.dumps(payload).encode("utf-8") if payload is not None else None
+        headers = {"Authorization": f"Bearer {token}", "User-Agent": "estimationcave-mailer/1.0"}
+        if body is not None:
+            headers["Content-Type"] = "application/json"
+        req = urllib.request.Request(url, data=body, headers=headers, method=method)
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            return json.loads(resp.read().decode("utf-8"))
+
+    try:
+        lead_id = data.get("lead_id")
+        if not lead_id:
+            listing = api("GET", "?statut=a_traiter")
+            leads = listing.get("leads", []) if isinstance(listing, dict) else []
+            email = (data.get("prospect_email") or "").strip().lower()
+            dom = (data.get("domaine") or "").strip().lower()
+            mil = str(data.get("millesime") or "").strip().lower()
+            candidates = [l for l in leads if (l.get("email") or "").strip().lower() == email]
+            precise = [l for l in candidates
+                       if (l.get("domaine") or "").strip().lower() == dom
+                       and str(l.get("millesime") or "").strip().lower() == mil]
+            chosen = precise or candidates
+            if not chosen:
+                print(f"• (dashboard) aucun lead « à traiter » pour {email} → statut non mis à jour "
+                      "(lead pré-dashboard ou déjà traité ?).")
+                return
+            if len(chosen) > 1:
+                print(f"• (dashboard) {len(chosen)} leads pour {email} → mise à jour du plus récent.")
+            lead_id = chosen[0]["id"]  # GET renvoie déjà par date décroissante
+
+        updated = api("POST", "", {"id": lead_id, "statut": "repondu", "cote": data.get("cote", "")})
+        if isinstance(updated, dict) and updated.get("success"):
+            print(f"✓ Dashboard : lead #{lead_id} passé à « répondu » (cote {data.get('cote', '—')}).")
+        else:
+            print(f"• (dashboard) réponse inattendue de l'API : {updated}")
+    except urllib.error.HTTPError as e:
+        detail = e.read().decode("utf-8", "replace")[:200]
+        print(f"• (dashboard) statut non mis à jour (HTTP {e.code}) : {detail}")
+    except Exception as e:  # noqa: BLE001 — best-effort, on ne casse jamais l'envoi
+        print(f"• (dashboard) statut non mis à jour : {e}")
+
+
 def main() -> None:
     args = [a for a in sys.argv[1:]]
     dry_run = "--dry-run" in args
@@ -118,6 +175,7 @@ def main() -> None:
         return
 
     send_via_resend(to_email, subject, html)
+    mark_lead_repondu(data)
 
 
 if __name__ == "__main__":
