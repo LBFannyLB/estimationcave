@@ -542,9 +542,15 @@
   </url>
   <url>
     <loc>https://estimationcave.com/cotes/rhone/</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-07-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://estimationcave.com/cotes/rhone/cotes-du-rhone/</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://estimationcave.com/cotes/rhone/cote-rotie/</loc>
