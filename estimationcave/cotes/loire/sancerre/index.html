@@ -57,7 +57,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
     <meta property="og:locale" content="fr_FR">
     <meta property="og:image" content="https://estimationcave.com/og-image.png">
     <link rel="canonical" href="https://estimationcave.com/cotes/loire/sancerre/">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Sancerre : cote et tendance du marché","datePublished":"2026-07-11","dateModified":"2026-07-11","author":{"@type":"Person","name":"Fanny Lonqueu-Brochard","url":"https://estimationcave.com/apropos.html"},"publisher":{"@type":"Organization","name":"estimationcave.com","url":"https://estimationcave.com","logo":{"@type":"ImageObject","url":"https://estimationcave.com/grappe-doree.png"},"sameAs":["https://www.linkedin.com/company/estimationcave-com","https://www.google.com/maps?cid=972588023304097020"]},"url":"https://estimationcave.com/cotes/loire/sancerre/","description":"Sancerre : cote et valeur par domaine, ce qui fait le prix et tendance du marché secondaire.","mainEntityOfPage":{"@type":"WebPage","@id":"https://estimationcave.com/cotes/loire/sancerre/"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Sancerre : cote et tendance du marché","datePublished":"2026-07-11","dateModified":"2026-07-23","author":{"@type":"Person","name":"Fanny Lonqueu-Brochard","url":"https://estimationcave.com/apropos.html"},"publisher":{"@type":"Organization","name":"estimationcave.com","url":"https://estimationcave.com","logo":{"@type":"ImageObject","url":"https://estimationcave.com/grappe-doree.png"},"sameAs":["https://www.linkedin.com/company/estimationcave-com","https://www.google.com/maps?cid=972588023304097020"]},"url":"https://estimationcave.com/cotes/loire/sancerre/","description":"Sancerre : cote et valeur par domaine, ce qui fait le prix et tendance du marché secondaire.","mainEntityOfPage":{"@type":"WebPage","@id":"https://estimationcave.com/cotes/loire/sancerre/"}}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Quel est le Sancerre le plus cher ?","acceptedAnswer":{"@type":"Answer","text":"Le Sancerre le plus cher est le Clos La Néore d'Edmond Vatan, à Chavignol : produit en quantités infimes, il se négocie le plus souvent entre 220 et 450 € la bouteille sur le marché secondaire. Viennent ensuite les grands blancs de garde de Chavignol — François et Pascal Cotat, Gérard Boulay — puis les cuvées parcellaires de vignerons comme Vacheron, Alphonse Mellot, Vincent Pinard ou Lucien Crochet. L'immense majorité de l'appellation, produite en volume par le négoce, reste en revanche sans valeur de revente."}},{"@type":"Question","name":"Un Sancerre, ça se garde combien de temps ?","acceptedAnswer":{"@type":"Answer","text":"La plupart des Sancerre blancs sont à boire jeunes, dans les deux à quatre ans, pour leur fraîcheur. Mais les grands terroirs — les marnes kimméridgiennes de Chavignol (« terres blanches »), les silex — donnent des vins de garde qui gagnent en complexité pendant dix à vingt ans, développant des notes de truffe, de miel et de fumée. Les rouges de pinot noir des meilleurs domaines vieillissent cinq à dix ans. La capacité de garde dépend donc étroitement du domaine, du terroir et de la cuvée."}},{"@type":"Question","name":"Pourquoi mon Sancerre de supermarché ne vaut-il rien à la revente ?","acceptedAnswer":{"@type":"Answer","text":"Parce que l'essentiel de l'appellation est produit en grand volume et vendu sous des étiquettes de négoce ou de marque. Ce sont d'excellents vins de plaisir, mais sans rareté : il n'existe aucune demande sur le marché secondaire pour un Sancerre générique. La valeur de revente se concentre sur une poignée de vignerons identifiés (Vatan, Cotat, Vacheron, Mellot, Pinard, Crochet, Boulay…) dont les cuvées parcellaires sont produites en petites quantités."}},{"@type":"Question","name":"Sancerre blanc, rouge ou rosé : lequel a le plus de valeur ?","acceptedAnswer":{"@type":"Answer","text":"Le blanc, issu du sauvignon, concentre l'essentiel de la cote — c'est lui qui fait la réputation et la valeur de garde de l'appellation, à commencer par les grands Chavignol. Quelques rouges de pinot noir des meilleurs domaines (Vacheron, Pinard, Vatan) sont recherchés, mais sur un marché plus étroit. Le rosé, lui, reste un vin de plaisir sans marché secondaire."}}]}</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -178,6 +178,13 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
         .back-to-blog a { font-size: 0.92rem; font-weight: 500; color: var(--or); display: inline-flex; align-items: center; gap: 0.4rem; }
         .back-to-blog a:hover { color: var(--bordeaux); }
         .back-to-blog svg { width: 14px; height: 14px; }
+
+        /* ── MAILLAGE (sœurs) ── */
+        .article-related { margin: 2.5rem 0 0; padding: 1.6rem 1.9rem; background: var(--blanc); border: 1px solid var(--border); border-radius: 6px; }
+        .article-related-title { font-family: var(--font-body); font-size: .72rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--or); margin: 0 0 .9rem; }
+        .article-related ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .65rem; }
+        .article-related a { color: var(--bordeaux); font-weight: 600; text-decoration: none; }
+        .article-related a:hover { color: var(--or); }
 
         /* ── RESPONSIVE ── */
         @media (max-width: 820px) {
@@ -530,14 +537,16 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
                 </div>
             </div>
 
-            <!-- ══ MAILLAGE (sœurs / enfants) ══
-                 Bloc « Continuer en Loire » retiré tant qu'aucune page sœur ou enfant n'existe.
-                 À RÉINTRODUIRE quand on construira :
-                   · les appellations SŒURS de Loire (Vouvray, Pouilly-Fumé, Saumur-Champigny, Savennières…)
-                   · et/ou les fiches domaines ENFANTS N4 (Edmond Vatan, François Cotat, Domaine Vacheron…)
-                 Ne JAMAIS y remettre de liens PARENTS (gérés par le champ Région de la carte + l'intro + le BreadcrumbList). -->
+            <!-- ══ MAILLAGE (sœurs — autres appellations de Loire en ligne) ══ -->
+            <aside class="article-related">
+                <p class="article-related-title">Continuer en Loire</p>
+                <ul>
+                    <li><a href="/cotes/loire/">Vins de Loire : la cote, de Nantes au Sancerrois →</a></li>
+                    <li><a href="/cotes/loire/saint-nicolas-de-bourgueil/">Saint-Nicolas-de-Bourgueil : cote et valeur par domaine →</a></li>
+                </ul>
+            </aside>
 
-            <p class="updated-foot">Page mise à jour le 11 juillet 2026.</p>
+            <p class="updated-foot">Page mise à jour le 23 juillet 2026.</p>
 
             </div>
         </div>

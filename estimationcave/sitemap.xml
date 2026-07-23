@@ -680,9 +680,15 @@
   </url>
   <url>
     <loc>https://estimationcave.com/cotes/loire/</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://estimationcave.com/cotes/loire/saint-nicolas-de-bourgueil/</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://estimationcave.com/cotes/sud-ouest/</loc>
@@ -746,7 +752,7 @@
   </url>
   <url>
     <loc>https://estimationcave.com/cotes/loire/sancerre/</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
