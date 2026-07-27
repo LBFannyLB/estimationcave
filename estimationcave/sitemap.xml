@@ -728,9 +728,15 @@
   </url>
   <url>
     <loc>https://estimationcave.com/cotes/languedoc-roussillon/</loc>
-    <lastmod>2026-07-16</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://estimationcave.com/cotes/languedoc-roussillon/terrasses-du-larzac/</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://estimationcave.com/cotes/provence/</loc>
