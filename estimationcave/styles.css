@@ -729,3 +729,63 @@ a:hover { color: var(--bordeaux); }
 @media (max-width: 600px) {
     .answer-lead { font-size: 1.2rem; padding: 1.25rem 1.25rem; }
 }
+
+/* ══════════════════════════════════════════════════
+   NAV CONTEXTUELLE /cotes/ — puces appellations / crus sœurs
+   (remplace le fil d'Ariane : remontée + circulation latérale,
+   placée sous le H1 dans le hero, maillage interne dense)
+   ══════════════════════════════════════════════════ */
+.fiche-nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.45rem;
+    margin: 1.4rem 0 0;
+}
+.fiche-nav-up {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--bordeaux);
+    text-decoration: none;
+    padding: 0.34rem 0.75rem 0.34rem 0.6rem;
+    border-radius: 999px;
+    border: 1px solid var(--bordeaux);
+    transition: background 0.25s ease, color 0.25s ease;
+}
+.fiche-nav-up svg { width: 14px; height: 14px; }
+.fiche-nav-up:hover { background: var(--bordeaux); color: #fff; }
+.fiche-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.fiche-chips a {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--bordeaux);
+    text-decoration: none;
+    padding: 0.34rem 0.8rem;
+    border-radius: 999px;
+    border: 1px solid rgba(197, 162, 88, 0.4);
+    background: var(--blanc);
+    transition: border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+}
+.fiche-chips a:hover {
+    border-color: var(--or);
+    color: var(--or);
+    box-shadow: 0 2px 10px rgba(45, 27, 46, 0.06);
+}
+@media (max-width: 600px) {
+    .fiche-nav { gap: 0.4rem; }
+    .fiche-chips { gap: 0.4rem; }
+    .fiche-chips a, .fiche-nav-up { font-size: 0.78rem; }
+}
