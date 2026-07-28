@@ -789,3 +789,25 @@ a:hover { color: var(--bordeaux); }
     .fiche-chips { gap: 0.4rem; }
     .fiche-chips a, .fiche-nav-up { font-size: 0.78rem; }
 }
+
+/* Renvoi contextuel article -> hub /cotes/ (maillage vers les fiches de cote) */
+.cotes-renvoi {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--texte);
+    background: var(--or-pale);
+    border-left: 3px solid var(--or);
+    border-radius: 0 6px 6px 0;
+    padding: 0.9rem 1.15rem;
+    margin: 1.7rem 0;
+}
+.cotes-renvoi strong { color: var(--bordeaux); }
+.cotes-renvoi a {
+    color: var(--bordeaux);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: rgba(197, 162, 88, 0.5);
+    text-underline-offset: 2px;
+}
+.cotes-renvoi a:hover { color: var(--or); }
