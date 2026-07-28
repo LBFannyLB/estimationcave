@@ -16,7 +16,7 @@ Pour le référentiel complet (design system, roadmap, inventaire, historique), 
 | Silo | Page pilier | Emoji onglet blog |
 |---|---|---|
 | Estimer sa cave | `estimation.html` | 🔎 |
-| Cotes & marché | `article-cotes-pilier.html` | 📊 |
+| Cotes & marché | `/cotes/` (arbre `cotes/index.html`) | 📊 |
 | Héritage & Succession | `article-heritage-cave.html` | 📜 |
 | Vendre ses vins | `vendre.html` | 💰 |
 | Gérer sa cave | `gestion.html` | 🗂️ |

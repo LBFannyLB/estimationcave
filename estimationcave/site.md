@@ -73,7 +73,7 @@ Configuré dans `vercel.json` :
 | # | Silo | Page pilier | Fichier | Onglet blog | Articles satellites |
 |---|---|---|---|---|---|
 | 1 | Estimer sa cave | Guide estimation | `estimation.html` | 🔎 | 5 |
-| 2 | Cotes & marché | Guide cotes | `article-cotes-pilier.html` | 📊 | 6 |
+| 2 | Cotes & marché | Arbre cotes | `/cotes/` (`cotes/index.html`) | 📊 | 6 |
 | 3 | Héritage & Succession | Guide héritage | `article-heritage-cave.html` | 📜 | 4 |
 | 4 | Vendre ses vins | Guide vente | `vendre.html` | 💰 | 6 |
 | 5 | Gérer sa cave | Guide gestion | `gestion.html` | 🗂️ | 7 |

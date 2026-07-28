@@ -48,6 +48,16 @@
       "statusCode": 301
     },
     {
+      "source": "/article-cotes-pilier.html",
+      "destination": "/cotes/",
+      "statusCode": 301
+    },
+    {
+      "source": "/article-cotes-pilier",
+      "destination": "/cotes/",
+      "statusCode": 301
+    },
+    {
       "source": "/index.html",
       "destination": "/",
       "permanent": true
