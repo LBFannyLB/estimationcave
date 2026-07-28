@@ -28,6 +28,26 @@
       "permanent": true
     },
     {
+      "source": "/article-vins-jura-cote-valeur.html",
+      "destination": "/cotes/jura/",
+      "statusCode": 301
+    },
+    {
+      "source": "/article-vins-jura-cote-valeur",
+      "destination": "/cotes/jura/",
+      "statusCode": 301
+    },
+    {
+      "source": "/article-vins-loire-cote-valeur.html",
+      "destination": "/cotes/loire/",
+      "statusCode": 301
+    },
+    {
+      "source": "/article-vins-loire-cote-valeur",
+      "destination": "/cotes/loire/",
+      "statusCode": 301
+    },
+    {
       "source": "/index.html",
       "destination": "/",
       "permanent": true
