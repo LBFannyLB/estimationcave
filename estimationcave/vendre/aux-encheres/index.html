@@ -136,6 +136,21 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             .breadcrumb { padding: 5rem 0 0; }
             .article-cta { padding: 2rem 1.25rem; }
         }
+    
+        /* formatting façon fiches /cotes/ */
+        .article-body h2 { display: flex; align-items: center; gap: 0.65rem; }
+        .article-body h2::before { content: ''; width: 8px; height: 8px; background: var(--or); transform: rotate(45deg); flex-shrink: 0; }
+        .article-cta h2 { display: block; }
+        .article-cta h2::before { display: none; }
+        .article-body table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 0; font-size: 0.88rem; background: var(--blanc); border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(45,27,46,0.04); border: 1px solid var(--border); }
+        .article-body table thead th { background: var(--bordeaux); color: var(--blanc); font-family: var(--font-display); font-size: 0.84rem; font-weight: 600; padding: 0.8rem 0.8rem; text-align: left; border: none; line-height: 1.3; }
+        .article-body table tbody td { padding: 0.7rem 0.8rem; border-top: 1px solid var(--border); vertical-align: top; line-height: 1.5; color: var(--texte); font-size: 0.86rem; }
+        .article-body table tbody tr:nth-child(even) td { background: var(--fond); }
+        .article-body table tbody td:first-child { font-family: var(--font-display); font-weight: 600; color: var(--bordeaux); border-left: 3px solid var(--or); }
+        .table-scroll { overflow-x: auto; margin: 1.75rem 0; }
+        .table-scroll table { margin: 0; }
+        .step-card a { color: var(--or); text-decoration: none; border-bottom: 1px solid rgba(197,162,88,0.4); }
+        .step-card a:hover { color: var(--bordeaux); }
     </style>
 </head>
 <body>
@@ -172,7 +187,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
         <div class="container">
             <p class="article-meta">Avril 2026 · Vendre ses vins</p>
             <h1>Vendre ses vins aux enchères : comment ça marche ?</h1>
-            <span class="ornament-long"></span>
             <p class="article-intro">Vous avez des bouteilles de valeur et vous vous demandez si la vente aux enchères est la bonne option. C'est souvent le canal le plus visible et le plus valorisant pour les grands crus — mais aussi l'un des plus opaques pour qui n'a jamais mis de vin à l'adjudication. Ce guide vous explique étape par étape comment fonctionne une vente aux enchères de vin, ce qu'elle coûte, combien de temps elle prend, et quelles bouteilles en tirent réellement le meilleur profit.</p>
         </div>
     </header>
@@ -238,8 +252,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             <h3>Un cadre sécurisé et tracé</h3>
 
             <p>L'authenticité des bouteilles est vérifiée par des experts avant la mise en vente. Les paiements sont garantis, les transactions tracées, les lots assurés pendant toute la durée du processus. Pour le vendeur, c'est une sécurité précieuse : vous ne courez ni le risque d'un acheteur défaillant, ni celui d'une contestation après la transaction.</p>
-
-            <div class="ornament-dots"><span></span></div>
 
             <!-- ══ SECTION 2 ══ -->
             <h2 id="etapes">Les étapes d'une vente aux enchères de vin</h2>
@@ -311,8 +323,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
 
             <p>Une fois la vente clôturée et les acheteurs ayant réglé leurs lots, la maison de vente encaisse les fonds et vous verse votre part, déduction faite des frais vendeur. Les délais varient de 30 à 90 jours selon les opérateurs — certaines plateformes en ligne garantissent un règlement sous 35 jours, les ventes en salle peuvent être plus longues.</p>
 
-            <div class="ornament-dots"><span></span></div>
-
             <!-- ══ SECTION 3 ══ -->
             <h2 id="salle-ligne">Enchères en salle ou en ligne : quelle formule choisir</h2>
 
@@ -368,8 +378,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
                 <p>Pour une cave d'héritage contenant un mélange de bouteilles très valorisables et de vins plus courants, les enchères en ligne sont souvent la meilleure porte d'entrée. Elles acceptent des lots plus variés que les ventes en salle, qui tendent à se concentrer sur les pièces de prestige.</p>
             </div>
 
-            <div class="ornament-dots"><span></span></div>
-
             <!-- ══ SECTION 4 ══ -->
             <h2 id="frais">Frais, commissions et montant net perçu</h2>
 
@@ -386,8 +394,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             <h3>Ce que vous touchez réellement</h3>
 
             <p>Sur une bouteille adjugée 100 €, après une commission vendeur de 15 % HT (18 % TTC environ), vous percevez autour de <strong>82 €</strong>. Mais il faut aussi raisonner par rapport à la valeur de marché : si la cote de référence est 100 € et que l'effet de la commission acheteur fait descendre l'adjudication à 85 €, votre part nette descend à <strong>70 € environ</strong>. Pour une comparaison détaillée de ces calculs entre les différents canaux de vente, consultez notre article dédié : <a href="/vendre/fixer-le-prix/">À quel prix vendre mes bouteilles de vin ?</a></p>
-
-            <div class="ornament-dots"><span></span></div>
 
             <!-- ══ SECTION 5 ══ -->
             <h2 id="bouteilles">Quelles bouteilles sont adaptées aux enchères</h2>
@@ -419,8 +425,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
 
             <p>Pour ces bouteilles, d'autres circuits sont plus adaptés : vente directe à un caviste, rachat par un négociant, vente entre particuliers. Cela n'enlève rien à leur qualité de dégustation — seulement, le marché secondaire n'est pas leur canal naturel.</p>
 
-            <div class="ornament-dots"><span></span></div>
-
             <!-- ══ SECTION 6 ══ -->
             <h2 id="erreurs">Les erreurs à éviter avant de confier ses bouteilles</h2>
 
@@ -435,8 +439,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             <p><strong>Mal fixer le prix de réserve.</strong> Le prix de réserve est le montant minimum en dessous duquel le lot ne sera pas adjugé. S'il est trop élevé, le lot est retiré faute d'enchère ; trop bas, il peut être bradé. Le juste niveau se négocie avec l'expert en tenant compte du contexte de la vente et de l'historique des cotes récentes.</p>
 
             <p><strong>Vendre sans avoir fait estimer sa cave au préalable.</strong> C'est le plus gros risque. Sans connaître la valeur réelle de vos bouteilles, vous acceptez par défaut la proposition de la maison de vente, sans point de repère. Le risque est particulièrement élevé pour les caves héritées, dont le propriétaire ne connaît pas l'historique. Pour cette raison, si vous avez récemment <a href="/article-heritage-cave.html">hérité d'une cave à vins</a>, un rapport d'estimation indépendant est vivement recommandé avant toute démarche de vente.</p>
-
-            <div class="ornament-dots"><span></span></div>
 
             <!-- ══ FAQ ══ -->
             <div class="inline-faq" id="faq">

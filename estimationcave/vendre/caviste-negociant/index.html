@@ -317,6 +317,21 @@
             .breadcrumb { padding: 5rem 0 0; }
             .article-cta { padding: 2rem 1.25rem; }
         }
+    
+        /* formatting façon fiches /cotes/ */
+        .article-body h2 { display: flex; align-items: center; gap: 0.65rem; }
+        .article-body h2::before { content: ''; width: 8px; height: 8px; background: var(--or); transform: rotate(45deg); flex-shrink: 0; }
+        .article-cta h2 { display: block; }
+        .article-cta h2::before { display: none; }
+        .article-body table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 0; font-size: 0.88rem; background: var(--blanc); border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(45,27,46,0.04); border: 1px solid var(--border); }
+        .article-body table thead th { background: var(--bordeaux); color: var(--blanc); font-family: var(--font-display); font-size: 0.84rem; font-weight: 600; padding: 0.8rem 0.8rem; text-align: left; border: none; line-height: 1.3; }
+        .article-body table tbody td { padding: 0.7rem 0.8rem; border-top: 1px solid var(--border); vertical-align: top; line-height: 1.5; color: var(--texte); font-size: 0.86rem; }
+        .article-body table tbody tr:nth-child(even) td { background: var(--fond); }
+        .article-body table tbody td:first-child { font-family: var(--font-display); font-weight: 600; color: var(--bordeaux); border-left: 3px solid var(--or); }
+        .table-scroll { overflow-x: auto; margin: 1.75rem 0; }
+        .table-scroll table { margin: 0; }
+        .step-card a { color: var(--or); text-decoration: none; border-bottom: 1px solid rgba(197,162,88,0.4); }
+        .step-card a:hover { color: var(--bordeaux); }
     </style>
 </head>
 <body>
@@ -353,7 +368,6 @@
         <div class="container">
             <p class="article-meta">Avril 2026 · Vendre ses vins</p>
             <h1>Vendre sa cave à un caviste ou négociant : avantages et limites</h1>
-            <span class="ornament-long"></span>
             <p class="article-intro">C'est souvent la première idée qui vient : proposer ses bouteilles au caviste du quartier ou contacter un négociant en vins fins. Rapide, simple, sans formalités — mais à quel prix ? Voici comment fonctionne la vente à un professionnel, ce qu'elle rapporte réellement, et quand elle est (ou non) la meilleure option.</p>
         </div>
     </header>
@@ -420,8 +434,6 @@
 
             <p>Pour un panorama complet de tous les canaux de vente, consultez notre <a href="/vendre/">guide complet pour vendre ses bouteilles de vin</a>.</p>
 
-            <span class="ornament-diamond"></span>
-
             <!-- ══ SECTION 2 ══ -->
             <h2 id="fonctionnement">Comment se passe un rachat de cave en pratique</h2>
 
@@ -440,8 +452,6 @@
                 <p>Vous n'êtes pas obligé d'accepter l'offre, ni de vendre l'intégralité de votre cave. Vous pouvez <strong>faire jouer la concurrence</strong> en sollicitant plusieurs professionnels et ne retenir que la meilleure offre — ou combiner les canaux en vendant certains lots au négociant et d'autres aux enchères.</p>
             </div>
 
-            <div class="ornament-dots"><span></span></div>
-
             <!-- ══ SECTION 3 ══ -->
             <h2 id="prix">Quel prix attendre d'un rachat professionnel</h2>
 
@@ -458,8 +468,6 @@
 
             <p>Pour comprendre en détail comment se forme le prix d'une bouteille et les critères qui influencent la valorisation, consultez notre article <a href="/vendre/fixer-le-prix/">à quel prix vendre mes bouteilles de vin</a>.</p>
 
-            <span class="ornament-diamond"></span>
-
             <!-- ══ SECTION 4 ══ -->
             <h2 id="avantages">Les avantages de vendre à un professionnel</h2>
 
@@ -472,8 +480,6 @@
             <p><strong>La discrétion.</strong> La vente se fait de gré à gré, sans publicité ni catalogue. Pour les caves provenant de successions ou de divorces, cette confidentialité est souvent appréciée.</p>
 
             <p><strong>La prise en charge logistique.</strong> L'enlèvement, l'emballage et le transport sont généralement organisés et financés par le professionnel pour les caves d'une certaine taille. Vous n'avez rien à déplacer ni à expédier.</p>
-
-            <div class="ornament-dots"><span></span></div>
 
             <!-- ══ SECTION 5 ══ -->
             <h2 id="limites">Les limites à connaître avant de s'engager</h2>
@@ -547,8 +553,6 @@
                 </svg>
             </div>
 
-            <span class="ornament-diamond"></span>
-
             <!-- ══ SECTION 6 ══ -->
             <h2 id="comparer">Négociant, enchères ou vente directe : comment choisir</h2>
 
@@ -566,8 +570,6 @@
                 <p class="bon-a-savoir-title">Bon à savoir</p>
                 <p>Quel que soit le canal choisi, connaître la valeur de vos bouteilles <em>avant</em> de solliciter des offres change radicalement votre position. Un rapport d'estimation indépendant vous donne un <strong>prix de référence objectif</strong> pour évaluer chaque offre — et négocier en position de force au lieu d'accepter la première proposition venue.</p>
             </div>
-
-            <span class="ornament-diamond"></span>
 
             <!-- ══ FAQ ══ -->
             <div class="inline-faq" id="faq">

@@ -326,6 +326,21 @@
             .breadcrumb { padding: 5rem 0 0; }
             .article-cta { padding: 2rem 1.25rem; }
         }
+    
+        /* formatting façon fiches /cotes/ */
+        .article-body h2 { display: flex; align-items: center; gap: 0.65rem; }
+        .article-body h2::before { content: ''; width: 8px; height: 8px; background: var(--or); transform: rotate(45deg); flex-shrink: 0; }
+        .article-cta h2 { display: block; }
+        .article-cta h2::before { display: none; }
+        .article-body table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 0; font-size: 0.88rem; background: var(--blanc); border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(45,27,46,0.04); border: 1px solid var(--border); }
+        .article-body table thead th { background: var(--bordeaux); color: var(--blanc); font-family: var(--font-display); font-size: 0.84rem; font-weight: 600; padding: 0.8rem 0.8rem; text-align: left; border: none; line-height: 1.3; }
+        .article-body table tbody td { padding: 0.7rem 0.8rem; border-top: 1px solid var(--border); vertical-align: top; line-height: 1.5; color: var(--texte); font-size: 0.86rem; }
+        .article-body table tbody tr:nth-child(even) td { background: var(--fond); }
+        .article-body table tbody td:first-child { font-family: var(--font-display); font-weight: 600; color: var(--bordeaux); border-left: 3px solid var(--or); }
+        .table-scroll { overflow-x: auto; margin: 1.75rem 0; }
+        .table-scroll table { margin: 0; }
+        .step-card a { color: var(--or); text-decoration: none; border-bottom: 1px solid rgba(197,162,88,0.4); }
+        .step-card a:hover { color: var(--bordeaux); }
     </style>
 </head>
 <body>
@@ -362,7 +377,6 @@
         <div class="container">
             <p class="article-meta">Avril 2026 · Vendre ses vins</p>
             <h1>Vendre du vin entre particuliers : plateformes et précautions</h1>
-            <span class="ornament-long"></span>
             <p class="article-intro">Vendre ses bouteilles directement à un autre amateur, sans passer par un professionnel : l'idée est séduisante, mais le cadre légal, les risques et les pièges sont souvent méconnus. Voici ce qu'il faut savoir avant de publier votre première annonce.</p>
         </div>
     </header>
@@ -425,8 +439,6 @@
             </div>
 
             <p>Pour un panorama complet de tous les canaux de vente disponibles (enchères, négociants, cavistes, entre particuliers), consultez notre <a href="/vendre/">guide complet pour vendre ses bouteilles de vin</a>.</p>
-
-            <span class="ornament-diamond"></span>
 
             <!-- ══ SECTION 2 ══ -->
             <h2 id="plateformes">Les plateformes pour vendre du vin entre particuliers</h2>
@@ -510,8 +522,6 @@
                 </svg>
             </div>
 
-            <div class="ornament-dots"><span></span></div>
-
             <!-- ══ SECTION 3 ══ -->
             <h2 id="risques">Les risques de la vente directe entre particuliers</h2>
 
@@ -524,8 +534,6 @@
             <p><strong>La sous-estimation de vos bouteilles.</strong> Sans connaissance du marché, vous risquez de vendre des vins à un prix bien inférieur à leur valeur réelle. Les acheteurs avertis sur Le Bon Coin ou Facebook savent repérer les bonnes affaires — et c'est souvent au détriment du vendeur qui ne connaît pas la cote de ses bouteilles. Pour comprendre les mécanismes de prix, consultez notre article <a href="/vendre/fixer-le-prix/">à quel prix vendre mes bouteilles de vin</a>.</p>
 
             <p><strong>Le transport.</strong> Expédier des bouteilles de vin par colis classique est risqué : casse, variations de température, chocs. Le remboursement par le transporteur est souvent plafonné et ne couvre pas la valeur réelle des bouteilles. La remise en main propre reste la solution la plus sûre pour les ventes entre particuliers.</p>
-
-            <span class="ornament-diamond"></span>
 
             <!-- ══ SECTION 4 ══ -->
             <h2 id="prix">Comment fixer le bon prix de vente</h2>
@@ -544,8 +552,6 @@
                 <p class="bon-a-savoir-title">Bon à savoir</p>
                 <p>Méfiez-vous des prix affichés sur les sites de vente au détail : ils incluent la marge du caviste ou du négociant (souvent 30 à 50 %). Si vous fixez vos prix à ce niveau, vos bouteilles resteront invendues. À l'inverse, vendre au prix d'achat d'il y a dix ans peut vous faire perdre des centaines d'euros si le vin a pris de la valeur entre-temps.</p>
             </div>
-
-            <div class="ornament-dots"><span></span></div>
 
             <!-- ══ SECTION 5 ══ -->
             <h2 id="precautions">Les précautions indispensables pour le vendeur</h2>
@@ -596,8 +602,6 @@
 
             <p><strong>Documentez la transaction.</strong> Un simple échange de messages confirmant la vente (description des bouteilles, prix, date) constitue une preuve en cas de litige. Pour les ventes importantes, un reçu signé par les deux parties est recommandé.</p>
 
-            <span class="ornament-diamond"></span>
-
             <!-- ══ SECTION 6 ══ -->
             <h2 id="professionnel">Quand privilégier un canal professionnel</h2>
 
@@ -614,8 +618,6 @@
             </ul>
 
             <p>Pour comparer les différents canaux de vente professionnels et choisir le plus adapté, consultez notre article sur la <a href="/vendre/aux-encheres/">vente de vins aux enchères</a>. Et si vous hésitez encore sur la valeur de votre cave, un <a href="/article-criteres-prix-bouteille.html">audit professionnel</a> vous donnera la réponse avant de décider comment vendre.</p>
-
-            <span class="ornament-diamond"></span>
 
             <!-- ══ FAQ ══ -->
             <div class="inline-faq" id="faq">

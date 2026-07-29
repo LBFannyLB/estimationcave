@@ -136,6 +136,21 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             .breadcrumb { padding: 5rem 0 0; }
             .article-cta { padding: 2rem 1.25rem; }
         }
+    
+        /* formatting façon fiches /cotes/ */
+        .article-body h2 { display: flex; align-items: center; gap: 0.65rem; }
+        .article-body h2::before { content: ''; width: 8px; height: 8px; background: var(--or); transform: rotate(45deg); flex-shrink: 0; }
+        .article-cta h2 { display: block; }
+        .article-cta h2::before { display: none; }
+        .article-body table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 0; font-size: 0.88rem; background: var(--blanc); border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(45,27,46,0.04); border: 1px solid var(--border); }
+        .article-body table thead th { background: var(--bordeaux); color: var(--blanc); font-family: var(--font-display); font-size: 0.84rem; font-weight: 600; padding: 0.8rem 0.8rem; text-align: left; border: none; line-height: 1.3; }
+        .article-body table tbody td { padding: 0.7rem 0.8rem; border-top: 1px solid var(--border); vertical-align: top; line-height: 1.5; color: var(--texte); font-size: 0.86rem; }
+        .article-body table tbody tr:nth-child(even) td { background: var(--fond); }
+        .article-body table tbody td:first-child { font-family: var(--font-display); font-weight: 600; color: var(--bordeaux); border-left: 3px solid var(--or); }
+        .table-scroll { overflow-x: auto; margin: 1.75rem 0; }
+        .table-scroll table { margin: 0; }
+        .step-card a { color: var(--or); text-decoration: none; border-bottom: 1px solid rgba(197,162,88,0.4); }
+        .step-card a:hover { color: var(--bordeaux); }
     </style>
 </head>
 <body>
@@ -172,7 +187,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
         <div class="container">
             <p class="article-meta">Mai 2026 · Vendre ses vins</p>
             <h1>Frais de vente aux enchères de vin : à quoi s'attendre</h1>
-            <span class="ornament-long"></span>
             <p class="article-intro">Entre le prix payé par l'acheteur et le virement reçu sur le compte du vendeur, l'écart peut atteindre 30 à 40 %. Les frais d'une vente aux enchères de vin se déclinent en trois couches superposées — commission vendeur, frais acheteur, frais annexes — auxquelles s'ajoute une fiscalité spécifique au-delà d'un certain seuil. Ce guide détaille chaque ligne, avec des exemples chiffrés concrets, pour que vous sachiez exactement ce que vous toucherez avant de signer un mandat de vente.</p>
         </div>
     </header>
@@ -235,8 +249,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             </ul>
 
             <p>À ces frais commerciaux s'ajoute, dans certains cas, une <strong>fiscalité spécifique</strong> sur la vente de meubles meublants — catégorie dont relèvent les bouteilles de vin selon la doctrine fiscale française. Nous détaillons chaque ligne ci-dessous, avec les barèmes pratiqués par les principales maisons de vente françaises et étrangères.</p>
-
-            <div class="ornament-dots"><span></span></div>
 
             <!-- ══ SECTION 2 ══ -->
             <h2 id="commission-vendeur">La commission vendeur : barèmes par maison de vente</h2>
@@ -303,8 +315,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
 
             <p>Lisez attentivement le contrat : un taux annoncé à 13 % HT devient 15,6 % TTC après application de la TVA à 20 %. L'écart paraît mineur sur le papier mais représente plusieurs dizaines d'euros sur un lot à 1 000 € et plusieurs centaines sur une cave à 50 000 €. Les maisons sérieuses indiquent toujours les deux taux ; certaines études moins transparentes ne mentionnent que le HT, ce qui peut tromper un vendeur peu averti.</p>
 
-            <div class="ornament-dots"><span></span></div>
-
             <!-- ══ SECTION 3 ══ -->
             <h2 id="commission-acheteur">La commission acheteur : pourquoi elle vous concerne aussi</h2>
 
@@ -323,8 +333,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             <h3>Le cas particulier des ventes judiciaires</h3>
 
             <p>Quand la vente est ordonnée par un tribunal — succession contentieuse, liquidation, saisie, partage judiciaire — les frais acheteur sont fixés par la loi et nettement plus bas qu'en vente volontaire. L'article L321-4 du Code de commerce et l'arrêté tarifaire des commissaires-priseurs judiciaires plafonnent les frais à <strong>environ 12 % HT, soit 14,4 % TTC</strong>. Ce barème réglementé s'applique de manière uniforme, sans négociation possible. Conséquence directe pour le vendeur (ou plus exactement pour la masse à partager) : les acheteurs intègrent une commission deux fois moins lourde dans leur calcul, ce qui remonte mécaniquement le prix d'adjudication. Mais ce cadre judiciaire reste exceptionnel : il suppose une décision de justice et concerne principalement les successions conflictuelles ou les ventes forcées.</p>
-
-            <div class="ornament-dots"><span></span></div>
 
             <!-- ══ SECTION 4 ══ -->
             <h2 id="frais-annexes">Les frais annexes : transport, assurance, photos</h2>
@@ -352,8 +360,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
                 <p>Les frais annexes représentent en pratique 0 à 3 % du produit total de la vente pour une cave standard. Sur une cave estimée à 20 000 €, comptez donc 200 à 600 € de frais annexes, en plus des 2 600 à 4 000 € de commission vendeur. Ces lignes sont rarement déterminantes dans le choix d'une maison de vente, mais elles méritent d'être anticipées.</p>
             </div>
 
-            <div class="ornament-dots"><span></span></div>
-
             <!-- ══ SECTION 5 ══ -->
             <h2 id="exemples">Combien vous touchez vraiment : exemples chiffrés</h2>
 
@@ -374,8 +380,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             <p>Vous confiez une cave entière à une maison de vente. Le total des adjudications atteint 30 000 €. Commission vendeur négociée à 12 % HT (14,4 % TTC) = 4 320 €. Frais annexes (transport, photographies, assurance) : 400 €. Net commercial perçu : <strong>25 280 €</strong>, soit environ 84,3 % du prix total d'adjudication. Sur le plan fiscal, supposons que trois lots dépassent individuellement 5 000 € pour un produit total de 18 000 €, avec une plus-value cumulée de 6 000 € : la plus-value est imposée à 36,2 % = 2 172 €, à déclarer et payer dans le mois via le formulaire 2048-M. Net après impôt : <strong>23 108 €</strong>.</p>
 
             <p>Pour comparer ce niveau de rendement avec d'autres canaux (négociant, vente entre particuliers), notre article dédié à <a href="/vendre/fixer-le-prix/">quel prix vendre ses bouteilles</a> détaille les écarts par canal sur les mêmes bouteilles.</p>
-
-            <div class="ornament-dots"><span></span></div>
 
             <!-- ══ SECTION 6 ══ -->
             <h2 id="fiscalite">La fiscalité sur la vente de bouteilles</h2>
@@ -423,8 +427,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
 
             <p>Pour les bouteilles reçues par succession ou donation, la valeur retenue comme prix d'acquisition est celle déclarée dans l'inventaire successoral. Si la cave avait été correctement valorisée à l'ouverture de la succession, le calcul de plus-value peut être très favorable — voire nul si le prix de vente reste proche de la valeur déclarée. Pour cette raison, faire <a href="/article-cave-vins-succession-demarches.html">estimer une cave reçue en héritage</a> avant toute revente reste une étape clé sur le plan fiscal comme commercial.</p>
 
-            <div class="ornament-dots"><span></span></div>
-
             <!-- ══ SECTION 7 ══ -->
             <h2 id="negocier">Comment négocier les frais</h2>
 
@@ -448,8 +450,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             <p>La commission acheteur est intangible : elle figure dans les conditions générales de la vente, identique pour tous. Côté fiscalité, le régime par défaut est celui des <strong>plus-values sur biens meubles</strong> (art. 150 UA CGI) — exonération sous 5 000 € par lot, abattement de 5 %/an au-delà de la 2e année, exonération totale après 22 ans ; la <strong>taxe forfaitaire de 6,5 %</strong> n'est qu'une option, réservée au cas où les bouteilles sont qualifiées d'objets de collection (appréciation au cas par cas). Les frais de transport sont au tarif transporteur. La seule variable réelle reste la commission vendeur, et plus marginalement les frais annexes.</p>
 
             <p>Avant de négocier, un préalable indispensable : connaître la valeur réelle de votre cave. Sans repère indépendant, vous discutez à l'aveugle. Un <a href="/article-estimation-gratuite-vs-professionnelle.html">rapport d'estimation professionnel</a> donne une base solide pour comparer les propositions des maisons de vente et identifier celles qui sous-estiment vos bouteilles pour fixer un mandat attractif à l'enchère.</p>
-
-            <div class="ornament-dots"><span></span></div>
 
             <!-- ══ FAQ ══ -->
             <div class="inline-faq" id="faq">

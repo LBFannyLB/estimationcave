@@ -187,6 +187,21 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             .breadcrumb { padding: 5rem 0 0; }
             .article-cta { padding: 2rem 1.25rem; }
         }
+    
+        /* formatting façon fiches /cotes/ */
+        .article-body h2 { display: flex; align-items: center; gap: 0.65rem; }
+        .article-body h2::before { content: ''; width: 8px; height: 8px; background: var(--or); transform: rotate(45deg); flex-shrink: 0; }
+        .article-cta h2 { display: block; }
+        .article-cta h2::before { display: none; }
+        .article-body table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 0; font-size: 0.88rem; background: var(--blanc); border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(45,27,46,0.04); border: 1px solid var(--border); }
+        .article-body table thead th { background: var(--bordeaux); color: var(--blanc); font-family: var(--font-display); font-size: 0.84rem; font-weight: 600; padding: 0.8rem 0.8rem; text-align: left; border: none; line-height: 1.3; }
+        .article-body table tbody td { padding: 0.7rem 0.8rem; border-top: 1px solid var(--border); vertical-align: top; line-height: 1.5; color: var(--texte); font-size: 0.86rem; }
+        .article-body table tbody tr:nth-child(even) td { background: var(--fond); }
+        .article-body table tbody td:first-child { font-family: var(--font-display); font-weight: 600; color: var(--bordeaux); border-left: 3px solid var(--or); }
+        .table-scroll { overflow-x: auto; margin: 1.75rem 0; }
+        .table-scroll table { margin: 0; }
+        .step-card a { color: var(--or); text-decoration: none; border-bottom: 1px solid rgba(197,162,88,0.4); }
+        .step-card a:hover { color: var(--bordeaux); }
     </style>
     <script type="application/ld+json">
     {
@@ -235,7 +250,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
         <div class="container">
             <p class="article-meta">Avril 2026 · Vendre ses vins</p>
             <h1>Vente aux enchères ou conservation : comment décider ?</h1>
-            <span class="ornament-long"></span>
             <p class="article-intro">Vendre maintenant, attendre, ou ouvrir la bouteille ? La question revient pour toute cave qui commence à avoir de la valeur. Il n'existe pas de réponse universelle — mais il existe des critères clairs pour trancher.</p>
         </div>
     </header>
@@ -289,8 +303,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
 
             <p>Cet article propose une méthode de décision structurée, organisée autour des quatre facteurs qui comptent vraiment. L'objectif n'est pas de vous dire quoi faire — c'est de vous donner les clés pour trancher vous-même, en connaissance de cause. Pour un cadre plus large sur la vente, consultez le guide pilier <a href="/vendre/">Vendre ses vins : toutes les options</a>.</p>
 
-            <span class="ornament-diamond"></span>
-
             <!-- ══ SECTION 1 ══ -->
             <h2 id="pas-universel">Il n'y a pas de bonne réponse universelle</h2>
 
@@ -306,8 +318,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             </ul>
 
             <p>Une bonne décision combine ces quatre dimensions. Une mauvaise décision n'en regarde qu'une seule — typiquement le prix de marché, sans tenir compte de l'état de la bouteille ou du fait qu'elle est stockée dans un placard à 25°C.</p>
-
-            <span class="ornament-diamond"></span>
 
             <!-- ══ SECTION 2 ══ -->
             <h2 id="trois-scenarios">Les trois scénarios possibles</h2>
@@ -334,8 +344,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
 
             <p>Le scénario C est systématiquement sous-estimé. Il faut se rappeler qu'un vin est d'abord <strong>un produit de consommation</strong> : même les plus grands crus perdent leur raison d'être s'ils vieillissent au-delà de leur fenêtre d'apogée. Garder une bouteille « au cas où elle prendrait de la valeur » alors qu'elle serait magnifique à boire dans les deux ans est une forme d'erreur d'arbitrage.</p>
 
-            <span class="ornament-diamond"></span>
-
             <!-- ══ SECTION 3 ══ -->
             <h2 id="bouteille">Les critères propres à la bouteille</h2>
 
@@ -357,8 +365,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
                 <p class="bon-a-savoir-title">Bon à savoir — la dégradation est un coût caché</p>
                 <p>Conserver une bouteille dans de mauvaises conditions, c'est payer un loyer invisible : chaque année passée dégrade la cote finale, quels que soient les mouvements de marché. Pour des bouteilles de valeur, l'absence de cave adaptée doit peser plus lourd dans la décision que les prévisions de hausse à long terme.</p>
             </div>
-
-            <span class="ornament-diamond"></span>
 
             <!-- ══ SECTION 4 ══ -->
             <h2 id="marche">Les critères de marché</h2>
@@ -432,8 +438,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
 
             <p>Le choix entre les deux formats dépend surtout de vos bouteilles. Les <strong>pièces exceptionnelles</strong> — grands crus classés de Bordeaux, Grands Crus bourguignons de domaines d'exception, bouteilles anciennes rares — bénéficient davantage des ventes physiques de prestige, qui attirent une clientèle internationale sensible à la mise en scène d'un catalogue. Les <strong>lots plus standards</strong> — grands crus courants, millésimes classiques, lots homogènes — se valorisent très bien en ligne, avec des adjudications efficaces et des délais réduits.</p>
 
-            <span class="ornament-diamond"></span>
-
             <!-- ══ SECTION 5 ══ -->
             <h2 id="personnels">Les critères personnels</h2>
 
@@ -453,8 +457,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
 
             <h3>Quel est le contexte global ?</h3>
             <p>Une succession, un partage, un divorce, un déménagement, un départ à l'étranger, une entrée en maison de retraite — tous ces contextes orientent généralement vers la vente, parce qu'ils créent une <strong>contrainte de temps ou de lieu</strong> qui rend la conservation impraticable. Le contexte n'est pas un critère accessoire : il est souvent le critère décisif.</p>
-
-            <span class="ornament-diamond"></span>
 
             <!-- ══ SECTION 6 ══ -->
             <h2 id="arbre">Arbre de décision pratique</h2>
@@ -560,8 +562,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
 
             <p>Cet arbre simplifie volontairement — il existe des cas intermédiaires, des bouteilles qui cochent des cases contradictoires. Mais dans la plupart des situations rencontrées, ces quatre questions suffisent à orienter la décision.</p>
 
-            <span class="ornament-diamond"></span>
-
             <!-- ══ SECTION 7 ══ -->
             <h2 id="quand-vendre">Quand vendre aux enchères précisément</h2>
 
@@ -577,8 +577,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             </ul>
 
             <p>Pour comprendre comment se construit le prix de vente final d'une bouteille, notre guide <a href="/vendre/fixer-le-prix/">À quel prix vendre ses bouteilles ?</a> détaille les mécanismes.</p>
-
-            <span class="ornament-diamond"></span>
 
             <!-- ══ SECTION 8 ══ -->
             <h2 id="quand-garder">Quand la conservation est la bonne décision</h2>
@@ -600,8 +598,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             </div>
 
             <p>Si vous hésitez pour l'une de vos bouteilles, la façon la plus fiable de trancher est d'obtenir un <strong>diagnostic indépendant</strong>. Pour comprendre ce qu'un rapport d'estimation apporte précisément par rapport à une estimation gratuite de racheteur, consultez <a href="/article-estimation-gratuite-vs-professionnelle.html">Estimation gratuite vs estimation professionnelle : quelle différence ?</a>.</p>
-
-            <span class="ornament-diamond"></span>
 
             <!-- ══ FAQ ══ -->
             <div class="inline-faq" id="faq">

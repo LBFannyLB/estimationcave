@@ -133,6 +133,21 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             .breadcrumb { padding: 5rem 0 0; }
             .article-cta { padding: 2rem 1.25rem; }
         }
+    
+        /* formatting façon fiches /cotes/ */
+        .article-body h2 { display: flex; align-items: center; gap: 0.65rem; }
+        .article-body h2::before { content: ''; width: 8px; height: 8px; background: var(--or); transform: rotate(45deg); flex-shrink: 0; }
+        .article-cta h2 { display: block; }
+        .article-cta h2::before { display: none; }
+        .article-body table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 0; font-size: 0.88rem; background: var(--blanc); border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(45,27,46,0.04); border: 1px solid var(--border); }
+        .article-body table thead th { background: var(--bordeaux); color: var(--blanc); font-family: var(--font-display); font-size: 0.84rem; font-weight: 600; padding: 0.8rem 0.8rem; text-align: left; border: none; line-height: 1.3; }
+        .article-body table tbody td { padding: 0.7rem 0.8rem; border-top: 1px solid var(--border); vertical-align: top; line-height: 1.5; color: var(--texte); font-size: 0.86rem; }
+        .article-body table tbody tr:nth-child(even) td { background: var(--fond); }
+        .article-body table tbody td:first-child { font-family: var(--font-display); font-weight: 600; color: var(--bordeaux); border-left: 3px solid var(--or); }
+        .table-scroll { overflow-x: auto; margin: 1.75rem 0; }
+        .table-scroll table { margin: 0; }
+        .step-card a { color: var(--or); text-decoration: none; border-bottom: 1px solid rgba(197,162,88,0.4); }
+        .step-card a:hover { color: var(--bordeaux); }
     </style>
 </head>
 <body>
@@ -169,7 +184,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
         <div class="container">
             <p class="article-meta">Avril 2026 · Vendre ses vins</p>
             <h1>Quels vins se revendent le mieux en France ?</h1>
-            <span class="ornament-long"></span>
             <p class="article-intro">Vous avez des bouteilles et vous vous demandez si elles ont de la valeur sur le marché secondaire. Toutes les régions ne se valent pas, tous les millésimes non plus. Voici ce qui se vend — et ce qui ne se vend pas — sur le marché français de la revente.</p>
         </div>
     </header>
@@ -256,8 +270,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
                 </svg>
             </div>
 
-            <span class="ornament-diamond"></span>
-
             <!-- ══ SECTION 2 ══ -->
             <h2 id="appellations">Les appellations les plus recherchées</h2>
 
@@ -303,8 +315,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
                 <li><strong>Côte-Rôtie, Hermitage</strong> : Guigal et Jaboulet en tête</li>
             </ul>
 
-            <div class="ornament-dots"><span></span></div>
-
             <!-- ══ SECTION 3 ══ -->
             <h2 id="millesimes">Les millésimes qui font la différence</h2>
 
@@ -322,8 +332,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
                 <p class="bon-a-savoir-title">Bon à savoir</p>
                 <p>Un millésime moyen dans un grand domaine se vendra souvent mieux qu'un grand millésime dans un domaine peu connu. La <strong>notoriété du producteur</strong> reste le premier critère de liquidité sur le marché secondaire.</p>
             </div>
-
-            <span class="ornament-diamond"></span>
 
             <!-- ══ SECTION 4 ══ -->
             <h2 id="emergents">Les vins émergents à surveiller</h2>
@@ -351,8 +359,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
                 <p style="margin-top:0.75rem;">Règle simple : devant une bouteille marquée « Vin de France », <strong>regardez d'abord le nom du producteur</strong>, pas la mention d'appellation. C'est le domaine qui fait la valeur, pas l'étiquette administrative.</p>
             </div>
 
-            <div class="ornament-dots"><span></span></div>
-
             <!-- ══ SECTION 5 ══ -->
             <h2 id="criteres">Ce qui fait qu'une bouteille se revend (ou non)</h2>
 
@@ -367,8 +373,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             <p><strong>Le format.</strong> Les magnums (1,5 L) se revendent proportionnellement plus cher que les bouteilles standard. Les grands formats (jéroboam, mathusalem) sont très recherchés mais plus difficiles à vendre en raison d'un marché plus restreint.</p>
 
             <p><strong>La demande actuelle.</strong> Certains vins sont "à la mode" et se vendent rapidement. D'autres, même de qualité, n'ont pas de marché actif. Un rapport d'estimation permet de distinguer les deux.</p>
-
-            <span class="ornament-diamond"></span>
 
             <!-- ══ FAQ ══ -->
             <div class="inline-faq" id="faq">

@@ -136,6 +136,21 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             .breadcrumb { padding: 5rem 0 0; }
             .article-cta { padding: 2rem 1.25rem; }
         }
+    
+        /* formatting façon fiches /cotes/ */
+        .article-body h2 { display: flex; align-items: center; gap: 0.65rem; }
+        .article-body h2::before { content: ''; width: 8px; height: 8px; background: var(--or); transform: rotate(45deg); flex-shrink: 0; }
+        .article-cta h2 { display: block; }
+        .article-cta h2::before { display: none; }
+        .article-body table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 0; font-size: 0.88rem; background: var(--blanc); border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(45,27,46,0.04); border: 1px solid var(--border); }
+        .article-body table thead th { background: var(--bordeaux); color: var(--blanc); font-family: var(--font-display); font-size: 0.84rem; font-weight: 600; padding: 0.8rem 0.8rem; text-align: left; border: none; line-height: 1.3; }
+        .article-body table tbody td { padding: 0.7rem 0.8rem; border-top: 1px solid var(--border); vertical-align: top; line-height: 1.5; color: var(--texte); font-size: 0.86rem; }
+        .article-body table tbody tr:nth-child(even) td { background: var(--fond); }
+        .article-body table tbody td:first-child { font-family: var(--font-display); font-weight: 600; color: var(--bordeaux); border-left: 3px solid var(--or); }
+        .table-scroll { overflow-x: auto; margin: 1.75rem 0; }
+        .table-scroll table { margin: 0; }
+        .step-card a { color: var(--or); text-decoration: none; border-bottom: 1px solid rgba(197,162,88,0.4); }
+        .step-card a:hover { color: var(--bordeaux); }
     </style>
 </head>
 <body>
@@ -172,7 +187,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
         <div class="container">
             <p class="article-meta">Juin 2026 · Vendre ses vins</p>
             <h1>Vendre ses vins en période de baisse du marché : stratégie et timing</h1>
-            <span class="ornament-long"></span>
             <p class="article-intro">Le marché des grands vins recule, et vous vous demandez s'il faut vendre maintenant, attendre, ou changer d'approche. Vendre dans une phase de baisse n'est pas une erreur en soi — à condition de savoir ce qui se négocie bien, ce qui peut attendre, et comment éviter de brader. Ce guide vous donne la méthode.</p>
         </div>
     </header>
@@ -258,8 +272,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
                 </svg>
             </div>
 
-            <span class="ornament-diamond"></span>
-
             <!-- ══ SECTION 2 ══ -->
             <h2 id="faut-il-vendre">Faut-il vendre quand le marché baisse ?</h2>
 
@@ -277,8 +289,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
                 <p class="bon-a-savoir-title">Bon à savoir</p>
                 <p>Un marché baissier reste un marché de prix : les acheteurs sont présents, mais ils attendent des offres attractives plutôt que de courir après les bouteilles. Concrètement, une bouteille correctement positionnée se vend ; une bouteille surévaluée reste invendue, quelle que soit sa qualité. La justesse du prix prime sur l'attente d'un rebond.</p>
             </div>
-
-            <div class="ornament-dots"><span></span></div>
 
             <!-- ══ SECTION 3 ══ -->
             <h2 id="quels-vins">Quels vins résistent, lesquels souffrent</h2>
@@ -319,8 +329,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
 
             <p>En clair : pendant une baisse, la demande se concentre sur le haut du panier. Les grands crus classés de Bordeaux dans les millésimes reconnus, les grands domaines de Bourgogne et les champagnes de prestige continuent de trouver preneur. À l'inverse, les vins sans véritable marché secondaire deviennent encore plus difficiles à vendre — leur faible liquidité de départ s'accentue. Pour savoir où se situent vos bouteilles, consultez notre guide sur <a href="/vendre/revente-en-france/">quels vins se revendent le mieux en France</a>.</p>
 
-            <span class="ornament-diamond"></span>
-
             <!-- ══ SECTION 4 ══ -->
             <h2 id="strategie">Adapter sa stratégie de vente en marché baissier</h2>
 
@@ -342,8 +350,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
                 <p class="bon-a-savoir-title">Bon à savoir</p>
                 <p>Faire estimer sa cave a encore plus de valeur quand le marché bouge. Une estimation à jour vous indique la cote actuelle — et non celle d'il y a deux ans — bouteille par bouteille, et identifie celles qui se vendent bien aujourd'hui. C'est ce qui vous évite de brader une pièce solide ou de vous accrocher à une bouteille devenue invendable. Notre audit va plus loin : vous n'avez pas à trancher seul ce qu'il faut vendre ou conserver — chaque bouteille reçoit une recommandation claire et argumentée, pour décider sans hésiter.</p>
             </div>
-
-            <div class="ornament-dots"><span></span></div>
 
             <!-- ══ SECTION 5 ══ -->
             <h2 id="timing">Le timing : attendre ou vendre maintenant ?</h2>
@@ -392,8 +398,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
                 </svg>
             </div>
 
-            <span class="ornament-diamond"></span>
-
             <!-- ══ SECTION 5 bis ══ -->
             <h2 id="apogee">Vins à l'apogée pendant la crise : garder ou vendre ?</h2>
 
@@ -415,8 +419,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
                 <p>Si le vin peut attendre sans se dégrader, laissez passer le creux de marché. S'il ne peut pas — plateau court, conservation imparfaite, apogée déjà entamée — ne le sacrifiez pas à un rebond hypothétique : vendez-le ou buvez-le pendant qu'il est à son meilleur.</p>
             </div>
 
-            <span class="ornament-diamond"></span>
-
             <!-- ══ SECTION 6 ══ -->
             <h2 id="erreurs">Les erreurs à éviter en période de baisse</h2>
 
@@ -429,8 +431,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             <p><strong>Vendre les bonnes bouteilles au mauvais moment.</strong> Les pièces rares sont précisément celles qui récupèrent le mieux. Les sacrifier au creux du cycle pour solder rapidement, c'est renoncer à la part de la cave qui méritait le plus d'attendre.</p>
 
             <p><strong>Tout passer par un seul canal.</strong> Une baisse accentue les écarts entre canaux. Un négociant pressé d'acheter à bas prix, des enchères mal calées en saison creuse : la même bouteille peut rapporter du simple au double selon le circuit. Comparez systématiquement.</p>
-
-            <span class="ornament-diamond"></span>
 
             <!-- ══ FAQ ══ -->
             <div class="inline-faq" id="faq">
