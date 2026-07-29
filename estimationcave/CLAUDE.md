@@ -18,7 +18,7 @@ Pour le référentiel complet (design system, roadmap, inventaire, historique), 
 | Estimer sa cave | `estimation.html` | 🔎 |
 | Cotes & marché | `/cotes/` (arbre `cotes/index.html`) | 📊 |
 | Héritage & Succession | `article-heritage-cave.html` | 📜 |
-| Vendre ses vins | `vendre.html` | 💰 |
+| Vendre ses vins | `/vendre/` (arbre `vendre/index.html`) | 💰 |
 | Gérer sa cave | `gestion.html` | 🗂️ |
 | Professionnels | `professionnels.html` | ⚖️ |
 

@@ -58,6 +58,106 @@
       "statusCode": 301
     },
     {
+      "source": "/vendre.html",
+      "destination": "/vendre/",
+      "statusCode": 301
+    },
+    {
+      "source": "/vendre",
+      "destination": "/vendre/",
+      "statusCode": 301
+    },
+    {
+      "source": "/article-vendre-vin-encheres.html",
+      "destination": "/vendre/aux-encheres/",
+      "statusCode": 301
+    },
+    {
+      "source": "/article-vendre-vin-encheres",
+      "destination": "/vendre/aux-encheres/",
+      "statusCode": 301
+    },
+    {
+      "source": "/article-vendre-cave-caviste-negociant.html",
+      "destination": "/vendre/caviste-negociant/",
+      "statusCode": 301
+    },
+    {
+      "source": "/article-vendre-cave-caviste-negociant",
+      "destination": "/vendre/caviste-negociant/",
+      "statusCode": 301
+    },
+    {
+      "source": "/article-vendre-vin-entre-particuliers.html",
+      "destination": "/vendre/entre-particuliers/",
+      "statusCode": 301
+    },
+    {
+      "source": "/article-vendre-vin-entre-particuliers",
+      "destination": "/vendre/entre-particuliers/",
+      "statusCode": 301
+    },
+    {
+      "source": "/article-prix-vendre-bouteilles.html",
+      "destination": "/vendre/fixer-le-prix/",
+      "statusCode": 301
+    },
+    {
+      "source": "/article-prix-vendre-bouteilles",
+      "destination": "/vendre/fixer-le-prix/",
+      "statusCode": 301
+    },
+    {
+      "source": "/article-vendre-vin-baisse-marche.html",
+      "destination": "/vendre/vendre-en-baisse-de-marche/",
+      "statusCode": 301
+    },
+    {
+      "source": "/article-vendre-vin-baisse-marche",
+      "destination": "/vendre/vendre-en-baisse-de-marche/",
+      "statusCode": 301
+    },
+    {
+      "source": "/article-vins-revente-france.html",
+      "destination": "/vendre/revente-en-france/",
+      "statusCode": 301
+    },
+    {
+      "source": "/article-vins-revente-france",
+      "destination": "/vendre/revente-en-france/",
+      "statusCode": 301
+    },
+    {
+      "source": "/article-encheres-ou-conservation.html",
+      "destination": "/vendre/encheres-ou-conserver/",
+      "statusCode": 301
+    },
+    {
+      "source": "/article-encheres-ou-conservation",
+      "destination": "/vendre/encheres-ou-conserver/",
+      "statusCode": 301
+    },
+    {
+      "source": "/article-frais-vente-encheres-vin.html",
+      "destination": "/vendre/frais-encheres/",
+      "statusCode": 301
+    },
+    {
+      "source": "/article-frais-vente-encheres-vin",
+      "destination": "/vendre/frais-encheres/",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog-vendre.html",
+      "destination": "/vendre/",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog-vendre",
+      "destination": "/vendre/",
+      "statusCode": 301
+    },
+    {
       "source": "/index.html",
       "destination": "/",
       "permanent": true

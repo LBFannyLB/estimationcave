@@ -75,7 +75,7 @@ Configuré dans `vercel.json` :
 | 1 | Estimer sa cave | Guide estimation | `estimation.html` | 🔎 | 5 |
 | 2 | Cotes & marché | Arbre cotes | `/cotes/` (`cotes/index.html`) | 📊 | 6 |
 | 3 | Héritage & Succession | Guide héritage | `article-heritage-cave.html` | 📜 | 4 |
-| 4 | Vendre ses vins | Guide vente | `vendre.html` | 💰 | 6 |
+| 4 | Vendre ses vins | Arbre vendre | `/vendre/` (`vendre/index.html`) | 💰 | 8 |
 | 5 | Gérer sa cave | Guide gestion | `gestion.html` | 🗂️ | 7 |
 | 6 | Professionnels | Guide pro | `professionnels.html` | ⚖️ | 2 |
 
