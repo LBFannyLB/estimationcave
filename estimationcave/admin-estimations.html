@@ -78,7 +78,15 @@
   .badge{display:inline-block;font-size:10.5px;font-weight:600;padding:2px 8px;border-radius:20px;white-space:nowrap;}
   .badge.hot{background:#f7e4c4;color:#8a5a12;}
   .badge.warm{background:var(--or-pale);color:#7a6a3a;}
+  .badge.type-audit{background:var(--bordeaux);color:var(--fond);}
+  .badge.type-offerte{background:var(--or-pale);color:#7a6a3a;border:1px solid var(--border);}
   .cave-txt{font-size:12px;color:var(--gris);display:block;margin-top:2px;}
+  .c-prospect strong{color:var(--bordeaux);font-weight:600;display:block;}
+  .c-prospect .tel{color:var(--gris);font-size:12px;display:block;margin-top:2px;}
+  .c-prospect a{color:var(--bordeaux);text-decoration:none;font-size:13px;word-break:break-all;}
+  .c-prospect a:hover{text-decoration:underline;}
+  .detail-note{color:var(--gris);font-size:12px;display:block;margin-top:3px;font-style:italic;}
+  .attach{display:inline-block;margin-top:4px;font-size:11px;font-weight:600;color:#7a6a3a;background:var(--or-pale);padding:1px 8px;border-radius:20px;}
   input.f-cote,input.f-notes{border:1px solid #e0d6c6;border-radius:6px;padding:7px 8px;font-size:12.5px;
     font-family:inherit;background:#fffdfa;color:var(--texte);width:100%;}
   input.f-cote{width:78px;text-align:center;}
@@ -102,7 +110,7 @@
     <form class="login-card" id="login-form" autocomplete="off">
       <div class="marque">estimationcave.com</div>
       <h1>Dashboard leads</h1>
-      <p>Estimations offertes — accès réservé.</p>
+      <p>Estimations &amp; demandes d'audit — accès réservé.</p>
       <label for="token">Mot de passe</label>
       <input type="password" id="token" name="token" autocomplete="current-password" autofocus>
       <button type="submit">Se connecter</button>
@@ -116,7 +124,7 @@
       <div class="wrap">
         <div class="brand">
           <div class="marque">estimationcave.com</div>
-          <h1>Leads — estimations offertes</h1>
+          <h1>Leads — estimations &amp; audits</h1>
         </div>
         <div class="actions">
           <button class="btn" id="refresh" type="button">↻ Actualiser</button>
@@ -126,14 +134,15 @@
     </div>
 
     <div class="wrap">
+      <div class="filters" id="type-filters"></div>
       <div class="filters" id="filters"></div>
       <div class="meta" id="meta"></div>
       <div class="table-wrap">
         <table>
           <thead>
             <tr>
-              <th>Reçu</th><th>Prospect</th><th>Bouteille</th><th>Source</th>
-              <th>Cave</th><th>Cote</th><th>Statut</th><th>Notes</th><th></th>
+              <th>Reçu</th><th>Type</th><th>Prospect</th><th>Demande</th><th>Source</th>
+              <th>Taille</th><th>Cote</th><th>Statut</th><th>Notes</th><th></th>
             </tr>
           </thead>
           <tbody id="tbody"></tbody>
@@ -154,8 +163,13 @@
     {v:'converti',  l:'Converti'},
     {v:'perdu',     l:'Perdu'}
   ];
+  var TYPES = [
+    {v:'demande', l:'Audits 199€'},
+    {v:'offerte', l:'Offertes'}
+  ];
   var all = [];
   var filter = '';
+  var typeFilter = '';
 
   function token(){ return localStorage.getItem(TKEY) || ''; }
   function headers(){ return { 'Authorization':'Bearer '+token() }; }
@@ -174,11 +188,48 @@
     try { var u=new URL(src); var p=u.pathname.replace(/^\//,'').replace(/\.html$/,''); return p||u.hostname; }
     catch(_){ return 'lien'; }
   }
-  function caveBadge(nb){
+  function typeBadge(t){
+    return (t==='demande')
+      ? '<span class="badge type-audit">Audit 199€</span>'
+      : '<span class="badge type-offerte">Offerte</span>';
+  }
+  // Cellule « taille » : nb de références (offerte) ou volume estimé (demande d'audit).
+  function sizeCell(l){
+    var demande = (l.type==='demande');
+    var v = demande ? l.volume : l.nb_references;
     var b='';
-    if(nb==='200 et plus') b='<span class="badge hot">🔥 chaud</span>';
-    else if(nb==='50 à 200') b='<span class="badge warm">tiède</span>';
-    return b + '<span class="cave-txt">'+esc(nb||'—')+'</span>';
+    if(demande){
+      if(v==='Plus de 300') b='<span class="badge hot">🔥 chaud</span>';
+      else if(v==='100 à 300') b='<span class="badge warm">tiède</span>';
+    } else {
+      if(v==='200 et plus') b='<span class="badge hot">🔥 chaud</span>';
+      else if(v==='50 à 200') b='<span class="badge warm">tiède</span>';
+    }
+    return b + '<span class="cave-txt">'+esc(v||'—')+'</span>';
+  }
+  function prospectCell(l){
+    var mail = '<a href="mailto:'+esc(l.email)+'">'+esc(l.email)+'</a>';
+    if(l.type!=='demande') return mail;
+    var name = [l.prenom,l.nom].filter(Boolean).map(esc).join(' ');
+    var tel = l.telephone ? '<span class="tel">'+esc(l.telephone)+'</span>' : '';
+    return (name?'<strong>'+name+'</strong>':'') + mail + tel;
+  }
+  // Cellule « demande » : la bouteille (offerte) ou le contexte + format + situation (audit).
+  function demandeCell(l){
+    if(l.type==='demande'){
+      var meta = [l.format].filter(Boolean).map(esc).join(' · ');
+      var n = Number(l.nb_fichiers)||0;
+      var files = n>0 ? '<span class="attach">📎 '+n+' fichier'+(n>1?'s':'')+'</span>' : '';
+      var sit = '';
+      if(l.situation){
+        var s = String(l.situation);
+        var short = s.length>90 ? s.slice(0,90)+'…' : s;
+        sit = '<span class="detail-note" title="'+esc(s)+'">'+esc(short)+'</span>';
+      }
+      return '<strong>'+esc(l.contexte||'—')+'</strong>'+(meta?'<span>'+meta+'</span>':'')+sit+files;
+    }
+    return '<strong>'+esc(l.domaine||'—')+'</strong><span>'+
+      [l.appellation,l.millesime,l.format,l.quantite].filter(Boolean).map(esc).join(' · ')+'</span>';
   }
   function statutOptions(cur){
     return STATUTS.map(function(s){
@@ -189,11 +240,11 @@
   function rowHtml(l){
     return '<tr data-id="'+l.id+'">'+
       '<td class="c-date">'+fmtDate(l.created_at)+'</td>'+
-      '<td class="c-email"><a href="mailto:'+esc(l.email)+'">'+esc(l.email)+'</a></td>'+
-      '<td class="c-bottle"><strong>'+esc(l.domaine||'—')+'</strong><span>'+
-        [l.appellation,l.millesime,l.format,l.quantite].filter(Boolean).map(esc).join(' · ')+'</span></td>'+
+      '<td>'+typeBadge(l.type)+'</td>'+
+      '<td class="c-prospect">'+prospectCell(l)+'</td>'+
+      '<td class="c-bottle">'+demandeCell(l)+'</td>'+
       '<td class="c-src">'+esc(sourceLabel(l.source_page))+'</td>'+
-      '<td class="c-cave">'+caveBadge(l.nb_references)+'</td>'+
+      '<td class="c-cave">'+sizeCell(l)+'</td>'+
       '<td><input type="text" class="f-cote" value="'+esc(l.cote)+'" placeholder="—"></td>'+
       '<td><select class="f-statut">'+statutOptions(l.statut)+'</select></td>'+
       '<td class="c-notes"><input type="text" class="f-notes" value="'+esc(l.notes)+'" placeholder="…"></td>'+
@@ -202,17 +253,30 @@
   }
 
   function render(){
-    var list = filter ? all.filter(function(l){return l.statut===filter;}) : all;
+    // Filtre combiné : type (offerte / demande) PUIS statut.
+    var base = typeFilter ? all.filter(function(l){return (l.type||'offerte')===typeFilter;}) : all;
+    var list = filter ? base.filter(function(l){return l.statut===filter;}) : base;
     document.getElementById('tbody').innerHTML = list.map(rowHtml).join('');
     document.getElementById('empty').hidden = list.length>0;
-    // compteurs par statut
-    var counts = {}; all.forEach(function(l){ counts[l.statut]=(counts[l.statut]||0)+1; });
-    var chips = '<button class="chip'+(filter===''?' active':'')+'" data-f="">Tous <span class="n">'+all.length+'</span></button>';
+
+    // Chips « type » — compteurs sur l'ensemble des leads.
+    var tCounts = {}; all.forEach(function(l){ var t=l.type||'offerte'; tCounts[t]=(tCounts[t]||0)+1; });
+    var tChips = '<button class="chip'+(typeFilter===''?' active':'')+'" data-t="">Tous types <span class="n">'+all.length+'</span></button>';
+    tChips += TYPES.map(function(t){
+      return '<button class="chip'+(typeFilter===t.v?' active':'')+'" data-t="'+t.v+'">'+t.l+' <span class="n">'+(tCounts[t.v]||0)+'</span></button>';
+    }).join('');
+    document.getElementById('type-filters').innerHTML = tChips;
+
+    // Chips « statut » — compteurs dans le périmètre du type sélectionné.
+    var counts = {}; base.forEach(function(l){ counts[l.statut]=(counts[l.statut]||0)+1; });
+    var chips = '<button class="chip'+(filter===''?' active':'')+'" data-f="">Tous <span class="n">'+base.length+'</span></button>';
     chips += STATUTS.map(function(s){
       return '<button class="chip'+(filter===s.v?' active':'')+'" data-f="'+s.v+'">'+s.l+' <span class="n">'+(counts[s.v]||0)+'</span></button>';
     }).join('');
     document.getElementById('filters').innerHTML = chips;
-    document.getElementById('meta').textContent = all.length+' lead'+(all.length>1?'s':'')+' au total';
+
+    document.getElementById('meta').textContent =
+      list.length+' lead'+(list.length>1?'s':'')+' affiché'+(list.length>1?'s':'')+' · '+all.length+' au total';
   }
 
   function showApp(){ document.getElementById('login').hidden=true; document.getElementById('app').hidden=false; }
@@ -224,17 +288,17 @@
   }
 
   function load(){
-    document.getElementById('tbody').innerHTML='<tr><td colspan="9" class="loading">Chargement…</td></tr>';
+    document.getElementById('tbody').innerHTML='<tr><td colspan="10" class="loading">Chargement…</td></tr>';
     fetch(API,{headers:headers()}).then(function(r){
       if(r.status===401){ localStorage.removeItem(TKEY); showLogin('Mot de passe incorrect.'); return null; }
       return r.json();
     }).then(function(data){
       if(!data) return;
-      if(!data.success){ document.getElementById('tbody').innerHTML='<tr><td colspan="9" class="loading">Erreur : '+esc(data.error||'')+'</td></tr>'; return; }
+      if(!data.success){ document.getElementById('tbody').innerHTML='<tr><td colspan="10" class="loading">Erreur : '+esc(data.error||'')+'</td></tr>'; return; }
       all = data.leads||[];
       showApp(); render();
     }).catch(function(){
-      document.getElementById('tbody').innerHTML='<tr><td colspan="9" class="loading">Connexion impossible.</td></tr>';
+      document.getElementById('tbody').innerHTML='<tr><td colspan="10" class="loading">Connexion impossible.</td></tr>';
     });
   }
 
@@ -275,6 +339,9 @@
   document.getElementById('logout').addEventListener('click',function(){ localStorage.removeItem(TKEY); showLogin(''); });
   document.getElementById('filters').addEventListener('click',function(e){
     var c=e.target.closest('.chip'); if(!c) return; filter=c.getAttribute('data-f'); render();
+  });
+  document.getElementById('type-filters').addEventListener('click',function(e){
+    var c=e.target.closest('.chip'); if(!c) return; typeFilter=c.getAttribute('data-t'); render();
   });
   document.getElementById('tbody').addEventListener('click',function(e){
     var b=e.target.closest('.btn-save'); if(!b) return; saveRow(b.closest('tr'), b);

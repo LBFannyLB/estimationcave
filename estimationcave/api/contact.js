@@ -1,6 +1,7 @@
 import formidable, { errors as formidableErrors } from 'formidable';
 import fs from 'node:fs/promises';
 import { Resend } from 'resend';
+import { insertDemande } from '../lib/db.js';
 
 export const config = {
   api: { bodyParser: false },
@@ -35,7 +36,14 @@ const escapeHtml = (s) =>
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#39;');
 
-function buildEmailHtml(d, files) {
+function buildEmailHtml(d, files, sourcePage) {
+  // sourcePage = en-tête Referer (page qui hébergeait le formulaire, avec ses
+  // éventuels paramètres UTM / gclid). Valeur fournie par le client → on borne la
+  // longueur puis on échappe (escapeHtml).
+  const pageOrigine = sourcePage
+    ? escapeHtml(String(sourcePage).slice(0, 500))
+    : '— (non transmise)';
+
   const row = (label, value) => `
     <tr>
       <td style="padding:8px 12px;background:#FAF6F0;font-weight:600;color:#2D1B2E;border-bottom:1px solid #eee;width:35%;">${escapeHtml(label)}</td>
@@ -90,6 +98,7 @@ function buildEmailHtml(d, files) {
           ${filesHtml}
 
           <p style="margin-top:28px;font-size:12px;color:#888;border-top:1px solid #eee;padding-top:14px;">
+            Page d'origine : <strong>${pageOrigine}</strong><br>
             Consentement RGPD : ✅ accepté.<br>
             Reply-To configuré sur <strong>${escapeHtml(d.email)}</strong> — répondez directement à cet email pour contacter le client.
           </p>
@@ -220,9 +229,33 @@ export default async function handler(req, res) {
     return res.status(500).json({ success: false, error: GENERIC_ERROR });
   }
 
+  // Page d'origine = en-tête Referer (URL du formulaire + éventuels paramètres
+  // UTM / gclid, la politique strict-origin-when-cross-origin conservant la query
+  // en same-origin). Sert à l'attribution (canal d'acquisition) dans le dashboard.
+  const sourcePage = req.headers.referer || req.headers.referrer || '';
+
+  // ── Persistance best-effort (dashboard) — ne JAMAIS bloquer la capture ──
+  // Si la base est indisponible, on logge et on continue : l'email de lead part quand même.
+  try {
+    await insertDemande({
+      prenom: data.prenom,
+      nom: data.nom,
+      email: data.email,
+      telephone: data.telephone,
+      contexte: data.contexte,
+      volume: data.volume,
+      format: data.format,
+      situation: data.situation,
+      nb_fichiers: realFiles.length,
+      source_page: sourcePage,
+    });
+  } catch (err) {
+    console.error('[contact] persistance DB échouée (non bloquant) :', err);
+  }
+
   // ── Envoi via Resend ──
   const subject = `[Demande estimation] ${data.nom || data.prenom || 'Contact'} - ${data.volume} bouteilles - ${data.contexte}`;
-  const html = buildEmailHtml(data, realFiles);
+  const html = buildEmailHtml(data, realFiles, sourcePage);
   const resend = new Resend(process.env.RESEND_API_KEY);
 
   try {
