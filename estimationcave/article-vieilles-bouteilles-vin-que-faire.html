@@ -214,19 +214,26 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
               .quick-answer h2{font-family:var(--font-display);font-size:1.4rem;font-weight:600;color:var(--bordeaux);margin:0 0 0.7rem;line-height:1.25;}
               .quick-answer p{font-size:1rem;line-height:1.8;color:var(--texte);margin:0;text-align:left;}
               .triage{margin:0 0 2.25rem;}
-              .triage-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;}
-              .triage-card{display:flex;gap:0.9rem;padding:1.4rem 1.5rem;border-radius:8px;border:1px solid var(--border);background:var(--blanc);}
-              .triage-yes{border-left:3px solid var(--or);}
-              .triage-no{border-left:3px solid rgba(45,27,46,0.22);}
-              .triage-doubt{border-left:3px solid rgba(45,27,46,0.14);background:var(--fond);}
-              .triage .triage-num{flex-shrink:0;font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--or);line-height:1.1;}
-              .triage .triage-q{font-family:var(--font-display);font-size:1.05rem;font-weight:600;color:var(--bordeaux);margin:0 0 0.5rem;line-height:1.3;text-align:left;}
-              .triage .triage-a{font-size:0.92rem;line-height:1.7;color:var(--texte-light);margin:0;text-align:left;}
-              .triage .triage-cta{display:inline-block;margin-top:0.8rem;font-family:var(--font-body);font-size:0.9rem;font-weight:600;color:var(--or);text-decoration:none;border-bottom:1px solid rgba(197,162,88,0.4);}
-              .triage .triage-cta:hover{color:var(--bordeaux);border-bottom-color:var(--bordeaux);}
-              .triage .triage-note{background:var(--or-pale);border-radius:6px;padding:0.95rem 1.2rem;margin:0 0 1rem;font-size:0.9rem;line-height:1.65;color:var(--texte);text-align:left;}
+              .triage-table{width:100%;border-collapse:separate;border-spacing:0;margin:0 0 1rem;background:var(--blanc);border:1px solid var(--border);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(45,27,46,0.04);}
+              .triage-table thead th{background:var(--bordeaux);color:var(--blanc);font-family:var(--font-display);font-size:0.98rem;font-weight:600;padding:0.85rem 1.1rem;text-align:left;}
+              .triage-table thead th:first-child{width:38%;}
+              .triage-table tbody td{padding:0.95rem 1.1rem;border-top:1px solid var(--border);vertical-align:top;line-height:1.65;color:var(--texte);text-align:left;font-size:0.92rem;}
+              .triage-table tbody tr:nth-child(even) td{background:var(--fond);}
+              .triage-table tbody td:first-child{font-family:var(--font-display);font-size:1.02rem;font-weight:600;color:var(--bordeaux);border-left:3px solid var(--or);}
+              .triage-table tbody td a{color:var(--or);text-decoration:none;border-bottom:1px solid rgba(197,162,88,0.4);}
+              .triage-table tbody td a:hover{color:var(--bordeaux);border-bottom-color:var(--bordeaux);}
+              .triage .triage-note{background:var(--or-pale);border-radius:6px;padding:0.95rem 1.2rem;margin:0;font-size:0.9rem;line-height:1.65;color:var(--texte);text-align:left;}
               .triage .triage-note strong{color:var(--bordeaux);}
-              @media(max-width:640px){.triage-grid{grid-template-columns:1fr;}}
+              @media(max-width:640px){
+                .triage-table,.triage-table thead,.triage-table tbody,.triage-table tr,.triage-table th,.triage-table td{display:block;width:100%;}
+                .triage-table thead{display:none;}
+                .triage-table{border:none;box-shadow:none;background:transparent;overflow:visible;}
+                .triage-table tbody tr{background:var(--blanc);border:1px solid var(--border);border-radius:8px;margin-bottom:1rem;padding:1rem 1.1rem;}
+                .triage-table tbody tr:nth-child(even) td{background:transparent;}
+                .triage-table tbody td{border:none;padding:0.25rem 0;}
+                .triage-table tbody td:first-child{font-size:1.05rem;color:var(--bordeaux);border-left:none;padding-bottom:0.5rem;margin-bottom:0.5rem;border-bottom:1px solid var(--or);}
+                .triage-table tbody td:not(:first-child)::before{content:attr(data-label);display:block;font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--or);margin-bottom:0.2rem;}
+              }
             </style>
 
             <div class="quick-answer">
@@ -235,31 +242,26 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             </div>
 
             <div class="triage">
-                <div class="triage-grid">
-                    <div class="triage-card triage-yes">
-                        <span class="triage-num">①</span>
-                        <div>
-                            <p class="triage-q">L'étiquette est signée d'un producteur recherché — château classé, domaine de Bourgogne coté, maison de champagne de prestige, ou vigneron culte (y compris en «&nbsp;Vin de France&nbsp;» ou IGP)&nbsp;?</p>
-                            <p class="triage-a">Ne l'ouvrez pas et ne la cédez pas à un brocanteur : c'est le profil qui peut avoir une vraie valeur. Photographiez-la et faites-la estimer pour connaître sa cote réelle — et savoir s'il faut la garder ou la vendre.</p>
-                            <a href="#estimation-offerte" class="triage-cta">Faire estimer une bouteille, gratuitement →</a>
-                        </div>
-                    </div>
-                    <div class="triage-card triage-no">
-                        <span class="triage-num">②</span>
-                        <div>
-                            <p class="triage-q">Aucun producteur identifiable — marque de supermarché, bouteille de négoce générique, étiquette «&nbsp;Cave de…&nbsp;» anonyme&nbsp;?</p>
-                            <p class="triage-a">Pas de marché de revente, quel que soit l'âge. Si elle a été bien conservée, ouvrez-la pour le plaisir ; sinon, elle rendra encore service en cuisine. Inutile de payer une estimation.</p>
-                        </div>
-                    </div>
-                </div>
+                <table class="triage-table">
+                    <thead>
+                        <tr><th>Ce que vous avez</th><th>Ce qu'il faut faire</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Un producteur recherché — château classé, domaine de Bourgogne coté, champagne de prestige, ou vigneron culte (y compris en «&nbsp;Vin de France&nbsp;» ou IGP)</td>
+                            <td data-label="Ce qu'il faut faire">Ne l'ouvrez pas, ne la bradez pas à un brocanteur : c'est le profil qui peut avoir une vraie valeur. Photographiez-la et <a href="#estimation-offerte">faites-la estimer gratuitement</a> pour connaître sa cote — et savoir s'il faut la garder ou la vendre.</td>
+                        </tr>
+                        <tr>
+                            <td>Aucun producteur identifiable — marque de supermarché, négoce générique, étiquette «&nbsp;Cave de…&nbsp;» anonyme</td>
+                            <td data-label="Ce qu'il faut faire">Pas de marché de revente, quel que soit l'âge. Bien conservée, ouvrez-la pour le plaisir ; sinon, elle rendra encore service en cuisine. Inutile de payer une estimation.</td>
+                        </tr>
+                        <tr>
+                            <td>Étiquette illisible, ou vous hésitez</td>
+                            <td data-label="Ce qu'il faut faire">Ne jetez rien. La capsule, la forme de la bouteille et les marquages gravés dans le verre suffisent souvent à identifier un vin. Photographiez sous tous les angles et faites vérifier avant toute décision.</td>
+                        </tr>
+                    </tbody>
+                </table>
                 <p class="triage-note">⚠️ <strong>L'appellation ne décide pas de la valeur — le producteur, oui.</strong> Un «&nbsp;Vin de France&nbsp;» ou un IGP signé d'un vigneron recherché peut valoir cher, tandis qu'un «&nbsp;Bordeaux&nbsp;» AOC générique de supermarché ne vaut rien. Dans le doute sur un nom, faites vérifier plutôt que de trancher au classement.</p>
-                <div class="triage-card triage-doubt">
-                    <span class="triage-num">③</span>
-                    <div>
-                        <p class="triage-q">Étiquette illisible, ou vous hésitez&nbsp;?</p>
-                        <p class="triage-a">Ne jetez rien. La capsule, la forme de la bouteille et les marquages gravés dans le verre suffisent souvent à identifier un vin. Photographiez sous tous les angles et faites vérifier avant toute décision.</p>
-                    </div>
-                </div>
             </div>
 
             <div class="key-points">
