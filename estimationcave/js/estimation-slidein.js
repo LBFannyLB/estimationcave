@@ -125,6 +125,17 @@
     var form = root.querySelector("#eos-form");
     var submit = root.querySelector("#eos-submit");
 
+    // form_start : 1er focus d'un champ (mesure « a commencé à remplir »)
+    var fsStarted = false;
+    form.addEventListener("focusin", function () {
+      if (fsStarted) return;
+      fsStarted = true;
+      try {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: "form_start", form_location: "estimation_offerte_popup" });
+      } catch (e) {}
+    });
+
     root.querySelector(".eos-close").addEventListener("click", function () { hide(root); });
     root.querySelector("#eos-no").addEventListener("click", function () { hide(root); });
     root.querySelector("#eos-go").addEventListener("click", function () {

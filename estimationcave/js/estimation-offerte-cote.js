@@ -91,6 +91,15 @@
   var card = slot.querySelector('.eoc-card');
   var cta = slot.querySelector('#eoc-cta');
   var form = slot.querySelector('#eoc-form');
+
+  /* form_start : 1er focus d'un champ (mesure « a commencé à remplir ») */
+  var fsStarted = false;
+  form.addEventListener('focusin', function () {
+    if (fsStarted) return;
+    fsStarted = true;
+    try { window.dataLayer = window.dataLayer || []; window.dataLayer.push({ event: 'form_start', form_location: formLocation }); } catch (_) {}
+  });
+
   cta.addEventListener('click', function () {
     card.classList.add('is-open');
     form.classList.add('is-open');

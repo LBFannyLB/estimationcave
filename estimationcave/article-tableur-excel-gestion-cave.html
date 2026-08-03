@@ -801,6 +801,11 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
         var btns = document.querySelectorAll(".download-box a.btn-download");
         btns.forEach(function (b) {
           b.addEventListener("click", function () {
+            try {
+              var href = b.getAttribute("href") || "";
+              window.dataLayer = window.dataLayer || [];
+              window.dataLayer.push({ event: "template_download", format: href.indexOf("docs.google") >= 0 ? "google_sheets" : "xlsx", form_location: "estimation_offerte_tableur", link_url: href });
+            } catch (_) {}
             setTimeout(function () {
               if (window.estimationOfferte && typeof window.estimationOfferte.open === "function") {
                 window.estimationOfferte.open({
