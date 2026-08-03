@@ -197,6 +197,9 @@
         if (opts.title)   { var tt = root.querySelector(".eos-title");   if (tt) tt.textContent = opts.title; }
         if (opts.sub)     { var sb = root.querySelector(".eos-sub");     if (sb) sb.innerHTML = opts.sub; }
       }
+      // Ouverture explicite (clic CTA) : prend le pas sur un déclencheur passif déjà tiré
+      shown = false;
+      root.classList.remove("eos-expanded");
       show(root);
     };
 
