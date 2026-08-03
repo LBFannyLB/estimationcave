@@ -793,5 +793,27 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
     })();
     </script>
   <script src="/js/estimation-slidein.js" defer></script>
+
+  <!-- Déclencheur au téléchargement : ouvre l'estimation offerte au pic d'intention (juste après le download) -->
+  <script>
+    (function () {
+      document.addEventListener("DOMContentLoaded", function () {
+        var btns = document.querySelectorAll(".download-box a.btn-download");
+        btns.forEach(function (b) {
+          b.addEventListener("click", function () {
+            setTimeout(function () {
+              if (window.estimationOfferte && typeof window.estimationOfferte.open === "function") {
+                window.estimationOfferte.open({
+                  eyebrow: "Votre modèle est téléchargé",
+                  title: "Il vous manque les 6 colonnes grisées ?",
+                  sub: "Valeur, garder ou vendre, apogée : ce sont les seules que le tableur ne remplit pas seul. Faites estimer une bouteille gratuitement pour voir comment on les complète — sous 24 h, sans engagement."
+                });
+              }
+            }, 600);
+          });
+        });
+      });
+    })();
+  </script>
 </body>
 </html>

@@ -13,15 +13,19 @@
   var path = location.pathname.replace(/\/+$/, "") || "/";
   if (path === "/" || path === "/index.html" || /\/index\.html$/.test(path)) return;
 
-  // ── Garde : déjà vu (30 j) ou déjà converti ──
+  // ── Suppression des déclencheurs PASSIFS : déjà vu (30 j) ou déjà converti ──
+  // N'empêche PAS l'ouverture explicite via window.estimationOfferte.open() (ex. clic « Télécharger »).
   var SEEN_KEY = "eo_slidein_seen";
   var DONE_KEY = "eo_converted";
   var THIRTY_DAYS = 30 * 24 * 60 * 60 * 1000;
-  try {
-    if (localStorage.getItem(DONE_KEY)) return;
-    var seen = parseInt(localStorage.getItem(SEEN_KEY) || "0", 10);
-    if (seen && Date.now() - seen < THIRTY_DAYS) return;
-  } catch (e) { /* localStorage indispo : on continue sans persistance */ }
+  function passiveSuppressed() {
+    try {
+      if (localStorage.getItem(DONE_KEY)) return true;
+      var seen = parseInt(localStorage.getItem(SEEN_KEY) || "0", 10);
+      if (seen && Date.now() - seen < THIRTY_DAYS) return true;
+    } catch (e) { /* localStorage indispo */ }
+    return false;
+  }
 
   var shown = false;
 
@@ -183,6 +187,21 @@
   function init() {
     var root = mount();
     wire(root);
+
+    // Hook global : ouvrir l'estimation offerte depuis un CTA (ex. clic « Télécharger »).
+    // Action explicite de l'utilisateur → ignore volontairement la suppression passive.
+    window.estimationOfferte = window.estimationOfferte || {};
+    window.estimationOfferte.open = function (opts) {
+      if (opts) {
+        if (opts.eyebrow) { var eb = root.querySelector(".eos-eyebrow"); if (eb) eb.textContent = opts.eyebrow; }
+        if (opts.title)   { var tt = root.querySelector(".eos-title");   if (tt) tt.textContent = opts.title; }
+        if (opts.sub)     { var sb = root.querySelector(".eos-sub");     if (sb) sb.innerHTML = opts.sub; }
+      }
+      show(root);
+    };
+
+    // Déclencheurs PASSIFS (exit-intent + scroll 60 %) — seulement si pas déjà vu / converti.
+    if (passiveSuppressed()) return;
 
     // Déclencheur 1 : exit-intent (desktop) — souris qui sort par le haut
     document.addEventListener("mouseout", function (e) {
