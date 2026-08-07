@@ -476,13 +476,19 @@
   </url>
   <url>
     <loc>https://estimationcave.com/cotes/champagne/</loc>
-    <lastmod>2026-07-28</lastmod>
+    <lastmod>2026-08-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://estimationcave.com/cotes/champagne/dom-perignon/</loc>
-    <lastmod>2026-07-28</lastmod>
+    <lastmod>2026-08-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://estimationcave.com/cotes/champagne/cristal/</loc>
+    <lastmod>2026-08-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
