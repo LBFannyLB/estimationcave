@@ -608,13 +608,19 @@
   </url>
   <url>
     <loc>https://estimationcave.com/cotes/bourgogne/cote-de-nuits/</loc>
-    <lastmod>2026-07-28</lastmod>
+    <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://estimationcave.com/cotes/bourgogne/cote-de-nuits/gevrey-chambertin/</loc>
     <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://estimationcave.com/cotes/bourgogne/cote-de-nuits/vosne-romanee/</loc>
+    <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
