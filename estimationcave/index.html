@@ -2429,7 +2429,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
         <div class="apercu-content">
           <div class="apercu-header">
             <p class="section-label">Ce que vous recevez</p>
-            <h2>Un rapport complet,<br><em>personnalisé et opposable.</em></h2>
+            <h2>Un rapport complet,<br><em>personnalisé et documenté.</em></h2>
             <div class="ornament-dots"><span></span></div>
             <p class="section-subtitle">Cliquez sur chaque section pour découvrir ce qu'elle contient.</p>
           </div>
@@ -2875,7 +2875,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
         <div class="step">
           <div class="step-number">3</div>
           <h3>Vous réglez et je démarre l'analyse</h3>
-          <p>Vous recevez votre rapport sous 5 jours ouvrés après paiement.</p>
+          <p>Vous recevez votre rapport sous 5 jours ouvrés après paiement et réception de votre liste.</p>
         </div>
       </div>
 
@@ -3705,7 +3705,8 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             } catch (_) {}
             setFeedback('success', "Merci, j'ai bien reçu votre demande. Je reviens vers vous sous 48h ouvrées pour confirmer la mission.");
             form.reset(); syncRappel();
-            feedback.scrollIntoView({behavior:'smooth', block:'center'});
+            // Page de confirmation (laisse le temps à l'événement de conversion de partir).
+            setTimeout(function(){ window.location.href = '/merci.html?type=audit'; }, 700);
           } else {
             setFeedback('error', payload.error || "Une erreur est survenue, merci de réessayer ou d'écrire à contact@estimationcave.com.");
             feedback.scrollIntoView({behavior:'smooth', block:'center'});

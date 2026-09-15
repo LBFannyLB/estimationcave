@@ -434,7 +434,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
                     }catch(_){}
                     setFeedback('success',"Merci, j'ai bien reçu vos bouteilles. Vous recevez votre aperçu par email sous 48 h ouvrées.");
                     form.reset();
-                    feedback.scrollIntoView({behavior:'smooth',block:'center'});
+                    setTimeout(function(){window.location.href='/merci.html?type=apercu';},700);
                   }else{
                     setFeedback('error',payload.error||"Une erreur est survenue, merci de réessayer ou d'écrire à contact@estimationcave.com.");
                   }

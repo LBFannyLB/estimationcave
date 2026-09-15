@@ -12,6 +12,9 @@
   // ── Garde : homepage exclue ──
   var path = location.pathname.replace(/\/+$/, "") || "/";
   if (path === "/" || path === "/index.html" || /\/index\.html$/.test(path)) return;
+  // Pages B2B, légales et de confirmation : pas de pop-up grand public.
+  var EXCLUDED = /^\/(notaires|assureurs|conseillers-patrimoine|cabinets-cession|professionnels|cgv|mentions-legales|confidentialite|merci|estimation-bouteille|admin-estimations)(\.html)?$/;
+  if (EXCLUDED.test(path)) return;
 
   // ── Suppression des déclencheurs PASSIFS : déjà vu (30 j) ou déjà converti ──
   // N'empêche PAS l'ouverture explicite via window.estimationOfferte.open() (ex. clic « Télécharger »).

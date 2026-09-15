@@ -132,13 +132,31 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
     <div class="nav-overlay"></div>
 
     <main id="main">
-        <div class="merci-content">
-            <h1>Merci pour votre confiance</h1>
+        <div class="merci-content" id="merci-audit">
+            <h1>Merci, votre demande est bien arrivée</h1>
             <span class="ornament-diamond"></span>
-            <p>Votre demande a bien été enregistrée. Vous recevrez votre rapport sous 5 jours ouvrés à l'adresse e-mail indiquée dans le formulaire.</p>
-            <p>Pour toute question : <a href="mailto:contact@estimationcave.com" class="contact-link">contact@estimationcave.com</a></p>
+            <p>Je vous réponds <strong>sous 48&nbsp;h ouvrées</strong> pour confirmer la mission et vous transmettre le lien de paiement sécurisé. Le rapport vous est ensuite livré sous 5 jours ouvrés, après paiement et réception de votre liste.</p>
+            <p>En attendant, deux choses utiles&nbsp;: préparez votre liste avec le <a href="article-tableur-excel-gestion-cave.html" class="contact-link">modèle Excel gratuit</a>, ou, si vous préférez voir le travail avant de décider, recevez un <a href="estimation-bouteille.html" class="contact-link">aperçu offert sur trois bouteilles</a>.</p>
+            <p>Une question d'ici là&nbsp;: <a href="mailto:contact@estimationcave.com" class="contact-link">contact@estimationcave.com</a></p>
             <a href="/" class="btn-primary">Retourner à l'accueil</a>
         </div>
+        <div class="merci-content" id="merci-apercu" hidden>
+            <h1>Merci, vos bouteilles sont bien arrivées</h1>
+            <span class="ornament-diamond"></span>
+            <p>Vous recevez votre aperçu d'une page <strong>sous 48&nbsp;h ouvrées</strong>, à l'adresse indiquée. Un accusé de réception vient de vous être envoyé&nbsp;: si vous avez une liste ou des photos de votre cave, répondez-y simplement, cela m'aide à situer vos bouteilles.</p>
+            <p>Vous avez toute une cave à estimer&nbsp;? L'<a href="/#formulaire" class="contact-link">audit complet</a> chiffre chaque bouteille et vous dit quoi garder, quoi vendre, à qui et quand.</p>
+            <p>Une question d'ici là&nbsp;: <a href="mailto:contact@estimationcave.com" class="contact-link">contact@estimationcave.com</a></p>
+            <a href="/" class="btn-primary">Retourner à l'accueil</a>
+        </div>
+        <script>
+        (function(){
+            var type = new URLSearchParams(location.search).get('type');
+            if (type === 'apercu') {
+                document.getElementById('merci-audit').hidden = true;
+                document.getElementById('merci-apercu').hidden = false;
+            }
+        })();
+        </script>
     </main>
 
     <footer class="footer">
