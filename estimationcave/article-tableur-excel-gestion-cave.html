@@ -462,12 +462,12 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             <!-- ══ SECTION 4 ══ -->
             <h2 id="telecharger">Télécharger le template gratuit</h2>
 
-            <p>Le template existe en deux formats : Google Sheets (accessible en ligne) et Excel (.xlsx pour une utilisation locale). Je vous envoie les deux par email, avec les quatre erreurs de remplissage décrites plus bas. Ils contiennent exactement les 18 colonnes décrites plus haut — 12 à remplir par vos soins, 6 à compléter par un audit professionnel.</p>
+            <p>Le template est un fichier Excel (.xlsx) qui s'ouvre aussi bien dans Google Sheets, Numbers ou LibreOffice. Je vous l'envoie par email, avec les quatre erreurs de remplissage décrites plus bas. Il contient les 18 colonnes décrites plus haut — 12 à remplir par vos soins, 6 à compléter par un audit professionnel.</p>
 
 
             <div class="download-box">
                 <p class="download-box-title">Recevoir le tableur</p>
-                <p>Le fichier arrive tout de suite dans votre boîte — Excel en pièce jointe, Google Sheets en lien — avec les 4 erreurs qui bloquent une estimation. Gratuit.</p>
+                <p>Le fichier arrive tout de suite dans votre boîte, en pièce jointe (Excel, s'ouvre aussi dans Google Sheets), avec les 4 erreurs qui bloquent une estimation. Gratuit.</p>
                 <form id="tableur-form" class="tableur-form" novalidate>
                     <div class="hp-field" aria-hidden="true">
                         <label for="tableur-website">Site web (laissez vide)</label>
@@ -733,7 +733,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
           if (res.ok && payload.success) {
             try { window.dataLayer = window.dataLayer || []; window.dataLayer.push({ event: "template_download", format: "email", form_location: "tableur_email" }); } catch (_) {}
             form.classList.add("is-sent");
-            setFeedback("success", "C'est envoyé ! Regardez votre boîte (et les indésirables, au cas où) : le fichier Excel est en pièce jointe, le lien Google Sheets dans le message.");
+            setFeedback("success", "C'est envoyé ! Regardez votre boîte (et les indésirables, au cas où) : le fichier est en pièce jointe.");
           } else {
             setFeedback("error", payload.error || "Une erreur est survenue, merci de réessayer ou d'écrire à contact@estimationcave.com.");
           }

@@ -5,16 +5,18 @@ import { parseParcours } from '../lib/parcours.js';
 // ─── Tableur d'inventaire contre une adresse email ───────────────────────────
 // Formulaire : article-tableur-excel-gestion-cave.html (#tableur-form).
 // Flux : validation → persistance dashboard (best-effort, une ligne par adresse)
-//        → UN SEUL email au visiteur : le .xlsx en pièce jointe, le lien Google
-//        Sheets, les 4 erreurs de remplissage tirées de l'article, et l'aperçu
+//        → UN SEUL email au visiteur : le .xlsx en pièce jointe (+ lien Google
+//        Sheets si SHEETS_COPY_URL est renseigné), les 4 erreurs de l'article, l'aperçu
 //        offert pour les colonnes grisées. Pas de séquence, pas de relance.
 // Aucun email interne : la demande apparaît dans le dashboard (type « tableur »).
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const GENERIC_ERROR =
   "Une erreur est survenue, merci de réessayer ou d'écrire à contact@estimationcave.com.";
-const SHEETS_COPY_URL =
-  'https://docs.google.com/spreadsheets/d/1nLKXI-xhbkwy3WyHRRiRj9quLnHzESoiHhivAKyo2Yw/copy';
+// Lien « faire une copie » d'une version Google Sheets du modèle. Vide tant que la
+// feuille publique n'est pas recréée (l'ancienne a été supprimée du Drive) : l'email
+// renvoie alors vers la pièce jointe, qui s'ouvre dans Sheets depuis Gmail.
+const SHEETS_COPY_URL = '';
 const XLSX_PATH = '/inventaire-cave-template.xlsx';
 const APERCU_URL =
   'https://estimationcave.com/estimation-bouteille.html?utm_source=tableur&utm_medium=email&utm_campaign=guide';
@@ -52,7 +54,9 @@ function buildEmailHtml() {
         <tr><td style="padding:22px 30px;border-bottom:3px solid #C5A258;font-family:Georgia,'Times New Roman',serif;color:#2D1B2E;font-size:20px;">estimation<span style="color:#C5A258;font-style:italic;">cave</span>.com</td></tr>
         <tr><td style="padding:26px 30px;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.6;color:#3A3035;">
           ${p('Bonjour,')}
-          ${p(`Voici le tableur d'inventaire&nbsp;: la version Excel est en pièce jointe, et la version Google Sheets s'ouvre ici — <a href="${SHEETS_COPY_URL}" style="color:#2D1B2E;font-weight:bold;">faire une copie dans mon Google Sheets</a>.`)}
+          ${p(SHEETS_COPY_URL
+            ? `Voici le tableur d'inventaire&nbsp;: la version Excel est en pièce jointe, et la version Google Sheets s'ouvre ici — <a href="${SHEETS_COPY_URL}" style="color:#2D1B2E;font-weight:bold;">faire une copie dans mon Google Sheets</a>.`
+            : `Voici le tableur d'inventaire, en pièce jointe. Vous travaillez plutôt dans Google Sheets&nbsp;? Ouvrez la pièce jointe depuis Gmail (icône Sheets), elle s'importe telle quelle, avec ses onglets et ses listes déroulantes.`)}
           ${p(`Il contient 18 colonnes&nbsp;: <strong>12 à remplir par vous</strong>, à partir des étiquettes, et <strong>6 grisées</strong> dont je vous reparle plus bas.`)}
 
           <h2 style="font-family:Georgia,serif;font-size:17px;font-weight:normal;color:#2D1B2E;margin:22px 0 10px;">Avant de commencer — les 4 erreurs que je vois dans presque tous les inventaires</h2>
