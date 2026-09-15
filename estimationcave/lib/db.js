@@ -72,6 +72,8 @@ export function ensureSchema() {
       await s`ALTER TABLE estimation_leads ADD COLUMN IF NOT EXISTS landing_page TEXT`;
       await s`ALTER TABLE estimation_leads ADD COLUMN IF NOT EXISTS referrer     TEXT`;
       await s`ALTER TABLE estimation_leads ADD COLUMN IF NOT EXISTS parcours     TEXT`;
+      // Migration 2026-09-15 (ter) : date du dernier changement de statut (relances J+7 / J+21).
+      await s`ALTER TABLE estimation_leads ADD COLUMN IF NOT EXISTS statut_at TIMESTAMPTZ`;
     })().catch((e) => { _schemaReady = null; throw e; });
   }
   return _schemaReady;
@@ -182,7 +184,8 @@ export async function updateLead(id, { statut = null, cote = null, notes = null 
   await ensureSchema();
   const rows = await sql()`
     UPDATE estimation_leads
-       SET statut     = COALESCE(${statut}, statut),
+       SET statut_at  = CASE WHEN ${statut}::text IS NOT NULL AND ${statut}::text IS DISTINCT FROM statut THEN now() ELSE statut_at END,
+           statut     = COALESCE(${statut}, statut),
            cote       = COALESCE(${cote}, cote),
            notes      = COALESCE(${notes}, notes),
            updated_at = now()

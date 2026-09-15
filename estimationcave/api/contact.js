@@ -120,6 +120,57 @@ function buildEmailHtml(d, files, sourcePage, parcours = {}) {
 </body></html>`;
 }
 
+// ── Accusé de réception J0 au prospect (transactionnel, best-effort) ──
+// Trois cas selon ce que la demande contient : fichiers joints / liste ou photos
+// existantes mais non jointes / rien d'existant. Lignes conditionnelles rappel + échéance.
+function buildAckHtml(d, nbFiles) {
+  const p = (s) => `<p style="margin:0 0 14px;">${s}</p>`;
+  const contexte = d.contexte ? String(d.contexte).toLowerCase() : '';
+  const vol = d.volume ? String(d.volume).charAt(0).toLowerCase() + String(d.volume).slice(1) : '';
+  const cave = [vol ? `${escapeHtml(vol)} bouteilles` : '', contexte ? escapeHtml(contexte) : '']
+    .filter(Boolean).join(', ');
+  const caveTxt = cave ? ` concernant votre cave (${cave})` : ' concernant votre cave';
+
+  const suite = 'Je vous réponds <strong>sous 48&nbsp;h ouvrées</strong> pour confirmer que votre cave entre dans le cadre du service et vous transmettre le lien de paiement sécurisé. Aucun paiement n\'est demandé d\'ici là.';
+
+  let corps;
+  if (nbFiles > 0) {
+    corps = p(`J'ai bien reçu votre demande et vos ${nbFiles} fichier${nbFiles > 1 ? 's' : ''}${caveTxt}. Je les regarde et ${suite.charAt(0).toLowerCase()}${suite.slice(1)}`)
+      + p('Si d\'autres éléments vous reviennent, répondez simplement à cet email.');
+  } else {
+    const fmt = String(d.format || '');
+    const aDejaQuelqueChose = /excel|liste|photo|les deux/i.test(fmt);
+    corps = p(`J'ai bien reçu votre demande${caveTxt}. ${suite}`);
+    if (aDejaQuelqueChose) {
+      corps += p('Votre liste ou vos photos existent déjà&nbsp;: inutile de les mettre au propre, vous pourrez me les envoyer en réponse à mon prochain message, ou dès maintenant en réponse à celui-ci.');
+    } else {
+      corps += p('En attendant, deux façons simples de me décrire votre cave, au choix ou combinées&nbsp;: une liste, sous la forme qui vous arrange (un fichier, un document, un message tapé, ou les pages d\'un cahier de cave photographiées), ou des photos des casiers par lots, en cadrant pour que les étiquettes restent lisibles. Inutile de mettre au propre ni de sortir les bouteilles une à une&nbsp;: je reconstitue l\'inventaire à partir de ce que vous m\'envoyez.');
+    }
+  }
+  if (d.rappel) {
+    corps += p(`Vous avez demandé à être rappelé(e)&nbsp;: je vous appelle ${escapeHtml((d.creneau || 'au créneau indiqué').toLowerCase().replace(/^(matin|midi|après-midi|fin de journée)/, (m) => ({ 'matin': 'le matin', 'midi': 'à midi', 'après-midi': "l'après-midi", 'fin de journée': 'en fin de journée' }[m] || m)))} au ${escapeHtml(d.telephone || 'numéro indiqué')}.`);
+  }
+  if (d.echeance && String(d.echeance).trim()) {
+    corps += p(`Vous m'indiquez une échéance (${escapeHtml(String(d.echeance).trim().slice(0, 300))})&nbsp;: j'en tiens compte pour vous répondre en priorité.`);
+  }
+
+  return `<!doctype html>
+<html><body style="margin:0;padding:0;background:#FAF6F0;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="padding:24px 0;">
+    <tr><td align="center">
+      <table width="600" cellpadding="0" cellspacing="0" style="background:#fff;border:1px solid #e8e0d0;max-width:600px;">
+        <tr><td style="padding:22px 30px;border-bottom:3px solid #C5A258;font-family:Georgia,'Times New Roman',serif;color:#2D1B2E;font-size:20px;">estimation<span style="color:#C5A258;font-style:italic;">cave</span>.com</td></tr>
+        <tr><td style="padding:26px 30px;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.6;color:#3A3035;">
+          ${p(`Bonjour ${escapeHtml(d.prenom || '')},`)}
+          ${corps}
+          <p style="margin:0;">À très vite,<br>Fanny<br><span style="color:#6B5F65;font-size:13px;">Experte indépendante en estimation de cave · estimationcave.com</span></p>
+        </td></tr>
+      </table>
+    </td></tr>
+  </table>
+</body></html>`;
+}
+
 // ─── Handler ────────────────────────────────────────────────
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -307,6 +358,19 @@ export default async function handler(req, res) {
     await Promise.all(
       fileList.map((f) => fs.unlink(f.filepath).catch(() => {})),
     );
+  }
+
+  // ── Accusé de réception J0 au prospect (best-effort : n'échoue jamais la demande) ──
+  try {
+    await resend.emails.send({
+      from: process.env.RESEND_FROM_EMAIL,
+      to: data.email,
+      replyTo: process.env.CONTACT_EMAIL,
+      subject: 'Votre demande est bien reçue, voici la suite',
+      html: buildAckHtml(data, realFiles.length),
+    });
+  } catch (err) {
+    console.error('[contact] accusé de réception non envoyé (non bloquant) :', err);
   }
 
   return res.status(200).json({ success: true, message: 'Demande reçue' });

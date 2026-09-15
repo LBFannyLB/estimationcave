@@ -92,6 +92,14 @@
   .badge.type-tableur{background:#eef2ec;color:var(--vert);border:1px solid #cfdccb;}
   .rappel{display:inline-block;margin-top:4px;font-size:11px;font-weight:600;color:#fff;background:var(--vert);padding:1px 8px;border-radius:20px;}
   .echeance{display:block;margin-top:3px;font-size:12px;color:var(--rouge);font-weight:500;}
+  .suivi{display:inline-block;font-size:11px;font-weight:600;padding:3px 9px;border-radius:20px;white-space:nowrap;}
+  .suivi.due{background:#fde7e7;color:var(--rouge);}
+  .suivi.soon{background:var(--or-pale);color:#7a6a3a;}
+  .suivi.ok{background:#e6f2ea;color:var(--vert);}
+  .suivi.none{color:var(--gris);font-weight:500;}
+  .suivi-d{display:block;font-size:11px;color:var(--gris);margin-top:3px;}
+  .chip.due{border-color:var(--rouge);color:var(--rouge);}
+  .chip.due.active{background:var(--rouge);border-color:var(--rouge);color:#fff;}
   .cave-txt{font-size:12px;color:var(--gris);display:block;margin-top:2px;}
   .c-prospect strong{color:var(--bordeaux);font-weight:600;display:block;}
   .c-prospect .tel{color:var(--gris);font-size:12px;display:block;margin-top:2px;}
@@ -155,7 +163,7 @@
           <thead>
             <tr>
               <th>Reçu</th><th>Type</th><th>Prospect</th><th>Demande</th><th>Source</th>
-              <th>Taille</th><th>Cote</th><th>Statut</th><th>Notes</th><th></th>
+              <th>Taille</th><th>Suivi</th><th>Cote</th><th>Statut</th><th>Notes</th><th></th>
             </tr>
           </thead>
           <tbody id="tbody"></tbody>
@@ -296,6 +304,42 @@
     }).join('');
   }
 
+  // ── Suivi : ce qu'il y a à faire, calculé sur la date du dernier changement de statut ──
+  // (statut_at, posé côté serveur ; à défaut created_at pour les anciens leads).
+  var JOUR = 24*60*60*1000;
+  function joursOuvres(from, to){
+    var d=new Date(from); d.setHours(0,0,0,0); var end=new Date(to); end.setHours(0,0,0,0); var n=0;
+    while(d<end){ d.setDate(d.getDate()+1); var wd=d.getDay(); if(wd!==0&&wd!==6) n++; }
+    return n;
+  }
+  function suivi(l){
+    var s=l.statut||'a_traiter';
+    if(s==='converti'||s==='paye'||s==='perdu') return null;
+    if(l.type==='tableur'||l.type==='offerte') return null;
+    var ref=new Date(l.statut_at||l.created_at); if(isNaN(ref)) return null;
+    var now=new Date(); var jours=Math.floor((now-ref)/JOUR);
+    if(s==='a_traiter'){
+      var jo=joursOuvres(ref, now);
+      if(jo>=2) return {cls:'due', txt:'réponse en retard', sub:'reçu il y a '+jours+' j'};
+      return {cls:'soon', txt:'à répondre', sub:'reçu il y a '+jours+' j'};
+    }
+    if(s==='repondu'){
+      if(jours>=7) return {cls:'due', txt:'relance J+7 due', sub:'répondu il y a '+jours+' j'};
+      return {cls:'ok', txt:'attente réponse', sub:'J+7 dans '+(7-jours)+' j'};
+    }
+    if(s==='relance'){
+      if(jours>=14) return {cls:'due', txt:'clôture J+21 due', sub:'relancé il y a '+jours+' j'};
+      return {cls:'ok', txt:'relancé', sub:'clôture dans '+(14-jours)+' j'};
+    }
+    return null;
+  }
+  function isDue(l){ var v=suivi(l); return !!(v&&v.cls==='due'); }
+  function suiviCell(l){
+    var v=suivi(l);
+    if(!v) return '<span class="suivi none">—</span>';
+    return '<span class="suivi '+v.cls+'">'+esc(v.txt)+'</span><span class="suivi-d">'+esc(v.sub)+'</span>';
+  }
+
   function rowHtml(l){
     return '<tr data-id="'+l.id+'">'+
       '<td class="c-date">'+fmtDate(l.created_at)+'</td>'+
@@ -304,6 +348,7 @@
       '<td class="c-bottle">'+demandeCell(l)+'</td>'+
       '<td class="c-src">'+originCell(l)+'</td>'+
       '<td class="c-cave">'+sizeCell(l)+'</td>'+
+      '<td class="c-suivi">'+suiviCell(l)+'</td>'+
       '<td><input type="text" class="f-cote" value="'+esc(l.cote)+'" placeholder="—"></td>'+
       '<td><select class="f-statut">'+statutOptions(l.statut)+'</select></td>'+
       '<td class="c-notes"><input type="text" class="f-notes" value="'+esc(l.notes)+'" placeholder="…"></td>'+
@@ -314,7 +359,7 @@
   function render(){
     // Filtre combiné : type (offerte / demande) PUIS statut.
     var base = typeFilter ? all.filter(function(l){return (l.type||'offerte')===typeFilter;}) : all;
-    var list = filter ? base.filter(function(l){return l.statut===filter;}) : base;
+    var list = filter==='_due' ? base.filter(isDue) : (filter ? base.filter(function(l){return l.statut===filter;}) : base);
     document.getElementById('tbody').innerHTML = list.map(rowHtml).join('');
     document.getElementById('empty').hidden = list.length>0;
 
@@ -332,6 +377,8 @@
     chips += STATUTS.map(function(s){
       return '<button class="chip'+(filter===s.v?' active':'')+'" data-f="'+s.v+'">'+s.l+' <span class="n">'+(counts[s.v]||0)+'</span></button>';
     }).join('');
+    var nDue = base.filter(isDue).length;
+    chips += '<button class="chip due'+(filter==='_due'?' active':'')+'" data-f="_due">⏰ À relancer <span class="n">'+nDue+'</span></button>';
     document.getElementById('filters').innerHTML = chips;
 
     document.getElementById('meta').textContent =
@@ -362,17 +409,17 @@
   }
 
   function load(){
-    document.getElementById('tbody').innerHTML='<tr><td colspan="10" class="loading">Chargement…</td></tr>';
+    document.getElementById('tbody').innerHTML='<tr><td colspan="11" class="loading">Chargement…</td></tr>';
     fetch(API,{headers:headers()}).then(function(r){
       if(r.status===401){ localStorage.removeItem(TKEY); showLogin('Mot de passe incorrect.'); return null; }
       return r.json();
     }).then(function(data){
       if(!data) return;
-      if(!data.success){ document.getElementById('tbody').innerHTML='<tr><td colspan="10" class="loading">Erreur : '+esc(data.error||'')+'</td></tr>'; return; }
+      if(!data.success){ document.getElementById('tbody').innerHTML='<tr><td colspan="11" class="loading">Erreur : '+esc(data.error||'')+'</td></tr>'; return; }
       all = data.leads||[];
       showApp(); render();
     }).catch(function(){
-      document.getElementById('tbody').innerHTML='<tr><td colspan="10" class="loading">Connexion impossible.</td></tr>';
+      document.getElementById('tbody').innerHTML='<tr><td colspan="11" class="loading">Connexion impossible.</td></tr>';
     });
   }
 
