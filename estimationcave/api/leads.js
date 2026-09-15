@@ -5,7 +5,8 @@
 import { timingSafeEqual } from 'node:crypto';
 import { listLeads, updateLead } from '../lib/db.js';
 
-const STATUTS = ['a_traiter', 'repondu', 'relance', 'converti', 'perdu'];
+// 'converti' = mission confirmée par écrit ; 'paye' = 199 € encaissés (ferme la boucle clic → lead → client).
+const STATUTS = ['a_traiter', 'repondu', 'relance', 'converti', 'paye', 'perdu'];
 
 function authorized(req) {
   const expected = process.env.ADMIN_TOKEN || '';

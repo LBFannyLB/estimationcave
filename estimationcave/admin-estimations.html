@@ -75,6 +75,14 @@
   .c-email a{color:var(--bordeaux);text-decoration:none;font-size:13px;word-break:break-all;}
   .c-email a:hover{text-decoration:underline;}
   .c-src{font-size:12px;color:var(--texte);white-space:nowrap;}
+  .c-src .canal{font-weight:600;color:var(--bordeaux);display:block;}
+  .c-src .entree{color:var(--gris);display:block;margin-top:2px;}
+  .c-src .chemin{color:var(--gris);display:block;margin-top:2px;font-size:11px;cursor:help;border-bottom:1px dotted var(--border);width:max-content;}
+  .funnel{display:flex;gap:10px;flex-wrap:wrap;padding:14px 0 4px;}
+  .funnel .kpi{background:var(--blanc);border:1px solid var(--border);border-radius:8px;padding:9px 14px;min-width:120px;}
+  .funnel .kpi .v{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;color:var(--bordeaux);line-height:1;}
+  .funnel .kpi .l{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--gris);margin-top:4px;font-weight:600;}
+  .funnel .kpi.paye .v{color:var(--vert);}
   .badge{display:inline-block;font-size:10.5px;font-weight:600;padding:2px 8px;border-radius:20px;white-space:nowrap;}
   .badge.hot{background:#f7e4c4;color:#8a5a12;}
   .badge.warm{background:var(--or-pale);color:#7a6a3a;}
@@ -137,6 +145,7 @@
     </div>
 
     <div class="wrap">
+      <div class="funnel" id="funnel"></div>
       <div class="filters" id="type-filters"></div>
       <div class="filters" id="filters"></div>
       <div class="meta" id="meta"></div>
@@ -164,6 +173,7 @@
     {v:'repondu',   l:'Répondu'},
     {v:'relance',   l:'Relancé'},
     {v:'converti',  l:'Converti'},
+    {v:'paye',      l:'Payé'},
     {v:'perdu',     l:'Perdu'}
   ];
   var TYPES = [
@@ -186,11 +196,39 @@
     return d.toLocaleDateString('fr-FR',{day:'2-digit',month:'2-digit'})+' '+
            d.toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});
   }
-  function sourceLabel(src){
-    if(!src) return 'directe';
-    if(/gclid|gad_source|gbraid|gadid/i.test(src)) return 'Google Ads';
-    try { var u=new URL(src); var p=u.pathname.replace(/^\//,'').replace(/\.html$/,''); return p||u.hostname; }
-    catch(_){ return 'lien'; }
+  function pageShort(p){
+    if(!p) return '';
+    var s=String(p).replace(/^https?:\/\/[^\/]+/,'').split('?')[0].replace(/^\//,'').replace(/\/$/,'').replace(/\.html$/,'').replace(/\/index$/,'');
+    return s||'accueil';
+  }
+  // Canal d'acquisition : parcours joint par le navigateur (referrer/UTM) en priorité,
+  // sinon l'en-tête Referer de la page du formulaire (anciens leads).
+  function canalLabel(l){
+    var utm={}; try{ utm=(l.parcours&&JSON.parse(l.parcours).utm)||{}; }catch(_){ utm={}; }
+    if(utm.gclid || /gclid|gad_source|gbraid|wbraid|gadid/i.test(l.source_page||'')) return 'Google Ads';
+    if(utm.utm_source) return utm.utm_source+(utm.utm_medium?' / '+utm.utm_medium:'');
+    var ref=l.referrer||'';
+    if(!ref) return l.landing_page ? 'directe' : (l.source_page ? 'directe / inconnue' : 'directe');
+    try{
+      var h=new URL(ref).hostname.replace(/^www\./,'');
+      if(/(^|\.)google\./.test(h)) return 'Google';
+      if(/(^|\.)bing\.com$/.test(h)) return 'Bing';
+      if(/chatgpt|openai/.test(h)) return 'ChatGPT';
+      if(/perplexity/.test(h)) return 'Perplexity';
+      if(/claude\.ai|anthropic/.test(h)) return 'Claude';
+      return h;
+    }catch(_){ return 'lien'; }
+  }
+  function originCell(l){
+    var canal='<span class="canal">'+esc(canalLabel(l))+'</span>';
+    var entree=l.landing_page ? l.landing_page : l.source_page;   // anciens leads : page du formulaire
+    var entreeHtml=entree ? '<span class="entree">↳ '+esc(pageShort(entree))+'</span>' : '';
+    var pages=[]; try{ pages=(l.parcours&&JSON.parse(l.parcours).pages)||[]; }catch(_){ pages=[]; }
+    var chemin='';
+    if(pages.length>1){
+      chemin='<span class="chemin" title="'+esc(pages.map(pageShort).join(' → '))+'">'+pages.length+' pages vues</span>';
+    }
+    return canal+entreeHtml+chemin;
   }
   function typeBadge(t){
     if(t==='demande') return '<span class="badge type-audit">Audit 199€</span>';
@@ -257,7 +295,7 @@
       '<td>'+typeBadge(l.type)+'</td>'+
       '<td class="c-prospect">'+prospectCell(l)+'</td>'+
       '<td class="c-bottle">'+demandeCell(l)+'</td>'+
-      '<td class="c-src">'+esc(sourceLabel(l.source_page))+'</td>'+
+      '<td class="c-src">'+originCell(l)+'</td>'+
       '<td class="c-cave">'+sizeCell(l)+'</td>'+
       '<td><input type="text" class="f-cote" value="'+esc(l.cote)+'" placeholder="—"></td>'+
       '<td><select class="f-statut">'+statutOptions(l.statut)+'</select></td>'+
@@ -291,6 +329,21 @@
 
     document.getElementById('meta').textContent =
       list.length+' lead'+(list.length>1?'s':'')+' affiché'+(list.length>1?'s':'')+' · '+all.length+' au total';
+
+    // Boucle clic → lead → client : audits + aperçus (les « offertes » 1 bouteille sont hors périmètre).
+    var pool = all.filter(function(l){ return l.type==='demande' || l.type==='apercu'; });
+    var nPay = pool.filter(function(l){ return l.statut==='paye'; }).length;
+    var nConv = pool.filter(function(l){ return l.statut==='converti'; }).length;
+    var nPerdu = pool.filter(function(l){ return l.statut==='perdu'; }).length;
+    var nOuverts = pool.length - nPay - nPerdu;
+    var taux = pool.length ? Math.round(100*nPay/pool.length) : 0;
+    function kpi(v,l,cls){ return '<div class="kpi'+(cls?' '+cls:'')+'"><div class="v">'+v+'</div><div class="l">'+l+'</div></div>'; }
+    document.getElementById('funnel').innerHTML =
+      kpi(pool.length,'leads audit + aperçu') +
+      kpi(nOuverts,'en cours') +
+      kpi(nConv,'mission confirmée') +
+      kpi(nPay,'payés · '+taux+' %','paye') +
+      kpi(nPerdu,'perdus');
   }
 
   function showApp(){ document.getElementById('login').hidden=true; document.getElementById('app').hidden=false; }

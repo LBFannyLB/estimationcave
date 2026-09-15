@@ -1,5 +1,6 @@
 import { Resend } from 'resend';
 import { insertApercu, findApercuByEmail } from '../lib/db.js';
+import { parseParcours, describeProvenance } from '../lib/parcours.js';
 
 // ─── Aperçu offert : trois bouteilles, un PDF d'une page sous 48 h ouvrées ───
 // Formulaire : estimation-bouteille.html (#estimation-offerte).
@@ -30,7 +31,14 @@ function dateFr() {
 }
 
 // ── Email interne (Fanny) ──
-function buildInternalHtml(d, bottles, sourcePage) {
+function buildInternalHtml(d, bottles, sourcePage, parcours = {}) {
+  // Chemin des pages vues (parcours joint par le navigateur), pour situer la demande.
+  let parcoursPages = '';
+  try {
+    const pages = parcours.parcours ? JSON.parse(parcours.parcours).pages : [];
+    if (Array.isArray(pages) && pages.length) parcoursPages = pages.map((p) => escapeHtml(p)).join(' → ');
+  } catch { parcoursPages = ''; }
+
   const pageOrigine = sourcePage ? escapeHtml(String(sourcePage).slice(0, 500)) : '— (non transmise)';
   const row = (label, value) => `
     <tr>
@@ -68,6 +76,7 @@ function buildInternalHtml(d, bottles, sourcePage) {
 
           <p style="margin-top:28px;font-size:12px;color:#888;border-top:1px solid #eee;padding-top:14px;">
             Page d'origine : <strong>${pageOrigine}</strong><br>
+            Provenance : <strong>${escapeHtml(describeProvenance(parcours, sourcePage))}</strong>${parcours.landing_page ? ` · entrée par <strong>${escapeHtml(parcours.landing_page)}</strong>` : ''}${parcoursPages ? `<br>Chemin : ${parcoursPages}` : ''}<br>
             Consentement RGPD : ✅ accepté.<br>
             Reply-To configuré sur <strong>${escapeHtml(d.email)}</strong>.<br>
             Livrable : PDF d'une page via <strong>generate_apercu.py</strong>, puis passer le lead à « répondu » dans le dashboard.
@@ -138,6 +147,9 @@ export default async function handler(req, res) {
   const bottles = [raw.bouteille_1, raw.bouteille_2, raw.bouteille_3].map(clean).filter(Boolean);
 
   const sourcePage = req.headers.referer || req.headers.referrer || '';
+  // Parcours de visite joint par le navigateur (page d'entrée, provenance, pages vues) :
+  // survit au refus des cookies, contrairement à GA4. Champ optionnel, borné et filtré.
+  const parcours = parseParcours(raw.parcours);
 
   // ── Un seul aperçu offert par adresse email (best-effort : si la base est
   //    indisponible, on laisse passer plutôt que de bloquer un vrai prospect) ──
@@ -157,6 +169,7 @@ export default async function handler(req, res) {
   // ── Persistance best-effort (dashboard) ──
   try {
     await insertApercu({
+      ...parcours,
       prenom: d.prenom,
       email: d.email,
       contexte: d.contexte,
@@ -177,7 +190,7 @@ export default async function handler(req, res) {
       to: process.env.CONTACT_EMAIL,
       replyTo: d.email,
       subject: `[Aperçu offert] ${d.prenom} — ${d.contexte} — ${d.volume} btl`,
-      html: buildInternalHtml(d, bottles, sourcePage),
+      html: buildInternalHtml(d, bottles, sourcePage, parcours),
     });
     if (error) {
       console.error('[apercu] resend error:', error);

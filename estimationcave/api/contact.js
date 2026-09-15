@@ -2,6 +2,7 @@ import formidable, { errors as formidableErrors } from 'formidable';
 import fs from 'node:fs/promises';
 import { Resend } from 'resend';
 import { insertDemande } from '../lib/db.js';
+import { parseParcours, describeProvenance } from '../lib/parcours.js';
 
 export const config = {
   api: { bodyParser: false },
@@ -36,7 +37,14 @@ const escapeHtml = (s) =>
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#39;');
 
-function buildEmailHtml(d, files, sourcePage) {
+function buildEmailHtml(d, files, sourcePage, parcours = {}) {
+  // Chemin des pages vues (parcours joint par le navigateur), pour situer la demande.
+  let parcoursPages = '';
+  try {
+    const pages = parcours.parcours ? JSON.parse(parcours.parcours).pages : [];
+    if (Array.isArray(pages) && pages.length) parcoursPages = pages.map((p) => escapeHtml(p)).join(' → ');
+  } catch { parcoursPages = ''; }
+
   // sourcePage = en-tête Referer (page qui hébergeait le formulaire, avec ses
   // éventuels paramètres UTM / gclid). Valeur fournie par le client → on borne la
   // longueur puis on échappe (escapeHtml).
@@ -101,6 +109,7 @@ function buildEmailHtml(d, files, sourcePage) {
 
           <p style="margin-top:28px;font-size:12px;color:#888;border-top:1px solid #eee;padding-top:14px;">
             Page d'origine : <strong>${pageOrigine}</strong><br>
+            Provenance : <strong>${escapeHtml(describeProvenance(parcours, sourcePage))}</strong>${parcours.landing_page ? ` · entrée par <strong>${escapeHtml(parcours.landing_page)}</strong>` : ''}${parcoursPages ? `<br>Chemin : ${parcoursPages}` : ''}<br>
             Consentement RGPD : ✅ accepté.<br>
             Reply-To configuré sur <strong>${escapeHtml(d.email)}</strong> — répondez directement à cet email pour contacter le client.
           </p>
@@ -246,11 +255,15 @@ export default async function handler(req, res) {
   // UTM / gclid, la politique strict-origin-when-cross-origin conservant la query
   // en same-origin). Sert à l'attribution (canal d'acquisition) dans le dashboard.
   const sourcePage = req.headers.referer || req.headers.referrer || '';
+  // Parcours de visite joint par le navigateur (page d'entrée, provenance, pages vues) :
+  // survit au refus des cookies, contrairement à GA4. Champ optionnel, borné et filtré.
+  const parcours = parseParcours(data.parcours);
 
   // ── Persistance best-effort (dashboard) — ne JAMAIS bloquer la capture ──
   // Si la base est indisponible, on logge et on continue : l'email de lead part quand même.
   try {
     await insertDemande({
+      ...parcours,
       prenom: data.prenom,
       nom: data.nom,
       email: data.email,
@@ -270,7 +283,7 @@ export default async function handler(req, res) {
 
   // ── Envoi via Resend ──
   const subject = `[Demande estimation] ${data.nom || data.prenom || 'Contact'} - ${data.volume} bouteilles - ${data.contexte}${data.rappel ? ' - RAPPEL ' + (data.creneau || '') : ''}`;
-  const html = buildEmailHtml(data, realFiles, sourcePage);
+  const html = buildEmailHtml(data, realFiles, sourcePage, parcours);
   const resend = new Resend(process.env.RESEND_API_KEY);
 
   try {

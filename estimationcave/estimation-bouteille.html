@@ -251,6 +251,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       ]
     }
     </script>
+<script src="/js/parcours.js" defer></script>
 </head>
 <body>
     <a href="#main" class="skip-link">Aller au contenu</a>
@@ -424,6 +425,8 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
                 btn.disabled=true;btn.textContent='Envoi en cours…';
                 try{
                   var params=new URLSearchParams(new FormData(form));
+                  // Parcours de visite mémorisé par /js/parcours.js (attribution sans cookie).
+                  try{ var pc=sessionStorage.getItem('ec_parcours'); if(pc) params.append('parcours',pc); }catch(_){}
                   var res=await fetch('/api/apercu',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:params});
                   var payload={};try{payload=await res.json();}catch(_){}
                   if(res.ok&&payload.success){

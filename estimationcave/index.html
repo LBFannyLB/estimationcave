@@ -1546,6 +1546,14 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       max-width: 900px;
       margin: 0 auto 2.5rem;
     }
+    /* Depuis le 15/09/2026 les étapes et le tarif suivent le formulaire : on capture d'abord. */
+    .formulaire-suite-label {
+      text-align: center;
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      color: var(--bordeaux);
+      margin: 3.5rem 0 2rem;
+    }
     .formulaire-steps.steps::before {
       background: linear-gradient(90deg, var(--or), rgba(197,162,88,0.4), var(--or));
     }
@@ -1555,7 +1563,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
     /* ── Bandeau de réassurance avant le formulaire ── */
     .formulaire-reassurance {
       max-width: 720px;
-      margin: 0 auto 1.75rem;
+      margin: 0 auto;
       padding: 1.1rem 1.5rem;
       background: var(--or-pale);
       border-left: 3px solid var(--or);
@@ -2215,6 +2223,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       "publisher": {"@id": "https://estimationcave.com/#organization"}
     }
     </script>
+<script src="/js/parcours.js" defer></script>
 </head>
 <body>
   <a href="#main" class="skip-link">Aller au contenu</a>
@@ -2858,29 +2867,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
         <h2>Prêt à connaître la valeur de votre cave&nbsp;?</h2>
         <div class="formulaire-illustration"><img width="600" height="625" src="caissebois.webp" alt="Illustration caisse de vins" loading="lazy"></div>
         <span class="ornament-long"></span>
-        <p class="section-subtitle">Voici les prochaines étapes.</p>
-      </div>
-
-      <div class="steps formulaire-steps">
-        <div class="step">
-          <div class="step-number">1</div>
-          <h3>Vous envoyez votre demande via le formulaire ci-dessous</h3>
-          <p>Sans engagement, sans paiement.</p>
-        </div>
-        <div class="step">
-          <div class="step-number">2</div>
-          <h3>Je vous réponds sous 48h ouvrées</h3>
-          <p>Je confirme la mission par écrit et je vous transmets le lien de paiement sécurisé.</p>
-        </div>
-        <div class="step">
-          <div class="step-number">3</div>
-          <h3>Vous réglez et je démarre l'analyse</h3>
-          <p>Vous recevez votre rapport sous 5 jours ouvrés après paiement et réception de votre liste.</p>
-        </div>
-      </div>
-
-      <div class="formulaire-reassurance">
-        <p>Tarif unique&nbsp;: <strong>199&nbsp;€</strong> · Aucun paiement n'est demandé à ce stade · Le paiement intervient uniquement après confirmation écrite de la mission.</p>
+        <p class="section-subtitle">Décrivez votre cave en quelques lignes — sans engagement, sans paiement à ce stade.</p>
       </div>
 
       <div class="form-card">
@@ -2994,6 +2981,29 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             <p style="font-size:0.82rem;color:var(--texte-light);margin-top:1.2rem;">Pour toute question, écrivez directement à <a href="mailto:contact@estimationcave.com" style="color:var(--or);">contact@estimationcave.com</a></p>
           </div>
         </form>
+      </div>
+
+      <p class="formulaire-suite-label">Et ensuite&nbsp;?</p>
+      <div class="steps formulaire-steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Vous envoyez votre demande</h3>
+          <p>Sans engagement, sans paiement.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Je vous réponds sous 48h ouvrées</h3>
+          <p>Je confirme la mission par écrit et je vous transmets le lien de paiement sécurisé.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Vous réglez et je démarre l'analyse</h3>
+          <p>Vous recevez votre rapport sous 5 jours ouvrés après paiement et réception de votre liste.</p>
+        </div>
+      </div>
+
+      <div class="formulaire-reassurance">
+        <p>Tarif unique&nbsp;: <strong>199&nbsp;€</strong> · Aucun paiement n'est demandé à ce stade · Le paiement intervient uniquement après confirmation écrite de la mission.</p>
       </div>
     </div>
   </section>
@@ -3675,6 +3685,9 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
 
         try {
           var fd = new FormData(form);
+          // Parcours de visite (page d'entrée, provenance, pages vues) mémorisé par
+          // /js/parcours.js : joint à la demande pour l'attribution, sans cookie.
+          try { var pc = sessionStorage.getItem('ec_parcours'); if (pc) fd.append('parcours', pc); } catch (_) {}
           var res = await fetch('/api/contact', { method: 'POST', body: fd });
           var payload = {};
           try { payload = await res.json(); } catch(_){}

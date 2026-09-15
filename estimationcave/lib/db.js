@@ -27,7 +27,7 @@ function sql() {
 // La table héberge DEUX types de leads distingués par la colonne `type` :
 //   • 'offerte'  → estimation offerte (1 bouteille)  : domaine/appellation/millesime/quantite/nb_references
 //   • 'demande'  → demande d'audit 199 € (formulaire): prenom/nom/telephone/contexte/volume/situation
-// Colonnes communes : format, email, source_page, statut, cote, notes.
+// Colonnes communes : format, email, source_page, landing_page, referrer, parcours, statut, cote, notes.
 let _schemaReady = null;
 export function ensureSchema() {
   if (!_schemaReady) {
@@ -65,6 +65,11 @@ export function ensureSchema() {
       await s`ALTER TABLE estimation_leads ADD COLUMN IF NOT EXISTS bouteilles TEXT`;
       await s`ALTER TABLE estimation_leads ADD COLUMN IF NOT EXISTS echeance   TEXT`;
       await s`ALTER TABLE estimation_leads ADD COLUMN IF NOT EXISTS rappel     TEXT`;
+      // Migration 2026-09-15 (bis) : parcours de visite joint par le formulaire
+      // (indépendant des cookies) — page d'entrée, provenance externe, pages vues + UTM.
+      await s`ALTER TABLE estimation_leads ADD COLUMN IF NOT EXISTS landing_page TEXT`;
+      await s`ALTER TABLE estimation_leads ADD COLUMN IF NOT EXISTS referrer     TEXT`;
+      await s`ALTER TABLE estimation_leads ADD COLUMN IF NOT EXISTS parcours     TEXT`;
     })().catch((e) => { _schemaReady = null; throw e; });
   }
   return _schemaReady;
@@ -75,11 +80,13 @@ export async function insertLead(d) {
   await ensureSchema();
   const rows = await sql()`
     INSERT INTO estimation_leads
-      (type, domaine, appellation, millesime, format, quantite, email, nb_references, source_page)
+      (type, domaine, appellation, millesime, format, quantite, email, nb_references, source_page,
+       landing_page, referrer, parcours)
     VALUES
       ('offerte', ${d.domaine ?? null}, ${d.appellation ?? null}, ${d.millesime ?? null},
        ${d.format ?? null}, ${d.quantite ?? null}, ${d.email ?? null},
-       ${d.nb_references ?? null}, ${d.source_page ?? null})
+       ${d.nb_references ?? null}, ${d.source_page ?? null},
+       ${d.landing_page || null}, ${d.referrer || null}, ${d.parcours ?? null})
     RETURNING id
   `;
   return rows[0];
@@ -90,12 +97,14 @@ export async function insertDemande(d) {
   await ensureSchema();
   const rows = await sql()`
     INSERT INTO estimation_leads
-      (type, prenom, nom, email, telephone, contexte, volume, format, situation, nb_fichiers, source_page, rappel, echeance)
+      (type, prenom, nom, email, telephone, contexte, volume, format, situation, nb_fichiers, source_page, rappel, echeance,
+       landing_page, referrer, parcours)
     VALUES
       ('demande', ${d.prenom ?? null}, ${d.nom ?? null}, ${d.email ?? null},
        ${d.telephone ?? null}, ${d.contexte ?? null}, ${d.volume ?? null},
        ${d.format ?? null}, ${d.situation ?? null}, ${Number.isFinite(d.nb_fichiers) ? d.nb_fichiers : 0},
-       ${d.source_page ?? null}, ${d.rappel ?? null}, ${d.echeance ?? null})
+       ${d.source_page ?? null}, ${d.rappel ?? null}, ${d.echeance ?? null},
+       ${d.landing_page || null}, ${d.referrer || null}, ${d.parcours ?? null})
     RETURNING id
   `;
   return rows[0];
@@ -118,11 +127,13 @@ export async function insertApercu(d) {
   await ensureSchema();
   const rows = await sql()`
     INSERT INTO estimation_leads
-      (type, prenom, email, telephone, contexte, volume, bouteilles, echeance, rappel, source_page)
+      (type, prenom, email, telephone, contexte, volume, bouteilles, echeance, rappel, source_page,
+       landing_page, referrer, parcours)
     VALUES
       ('apercu', ${d.prenom ?? null}, ${d.email ?? null}, ${d.telephone ?? null},
        ${d.contexte ?? null}, ${d.volume ?? null}, ${d.bouteilles ?? null},
-       ${d.echeance ?? null}, ${d.rappel ?? null}, ${d.source_page ?? null})
+       ${d.echeance ?? null}, ${d.rappel ?? null}, ${d.source_page ?? null},
+       ${d.landing_page || null}, ${d.referrer || null}, ${d.parcours ?? null})
     RETURNING id
   `;
   return rows[0];
