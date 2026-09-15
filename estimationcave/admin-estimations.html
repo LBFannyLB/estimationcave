@@ -120,6 +120,28 @@
   .btn-save.ok{background:var(--vert);border-color:var(--vert);}
   .empty{text-align:center;color:var(--gris);padding:60px 20px;font-size:14px;}
   .loading{text-align:center;color:var(--gris);padding:40px;font-size:13px;}
+  /* ── Volet « Relancer » ── */
+  .btn-mail{border:1px solid var(--or);background:var(--or-pale);color:#7a6a3a;border-radius:6px;padding:7px 9px;font-size:12px;font-weight:600;font-family:inherit;cursor:pointer;white-space:nowrap;margin-left:6px;}
+  .btn-mail:hover{background:var(--or);color:var(--bordeaux);}
+  .c-actions{white-space:nowrap;}
+  #panel{position:fixed;top:0;right:0;bottom:0;width:min(640px,100vw);background:var(--blanc);border-left:3px solid var(--or);box-shadow:-12px 0 40px rgba(45,27,46,.18);z-index:50;display:flex;flex-direction:column;transform:translateX(105%);transition:transform .3s ease;}
+  #panel.open{transform:translateX(0);}
+  #panel-bg{position:fixed;inset:0;background:rgba(45,27,46,.25);z-index:49;display:none;}
+  #panel-bg.open{display:block;}
+  .p-head{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:10px;}
+  .p-head h2{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--bordeaux);margin:0;}
+  .p-head .who{font-size:12px;color:var(--gris);margin-top:2px;}
+  .p-close{border:none;background:transparent;font-size:22px;color:var(--gris);cursor:pointer;line-height:1;}
+  .p-body{padding:14px 20px;overflow:auto;flex:1;}
+  .p-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;}
+  .p-grid .full{grid-column:1/-1;}
+  .p-body label{display:block;font-size:11px;font-weight:600;color:var(--bordeaux);margin-bottom:4px;letter-spacing:.04em;}
+  .p-body input,.p-body select{width:100%;border:1px solid #e0d6c6;border-radius:6px;padding:8px 9px;font-size:13px;font-family:inherit;background:#fffdfa;color:var(--texte);}
+  .p-body textarea{width:100%;min-height:300px;border:1px solid #e0d6c6;border-radius:6px;padding:12px;font-size:13.5px;line-height:1.55;font-family:Georgia,'Times New Roman',serif;background:#FAF6F0;color:var(--texte);resize:vertical;}
+  .p-hint{font-size:11.5px;color:var(--gris);margin:6px 0 12px;line-height:1.45;}
+  .p-foot{padding:12px 20px;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+  .p-foot .spacer{flex:1;}
+  .p-status{font-size:12px;color:var(--vert);font-weight:600;}
   @media(max-width:600px){.topbar .brand h1{font-size:20px;}}
 </style>
 </head>
@@ -172,6 +194,43 @@
       <div class="empty" id="empty" hidden>Aucun lead pour ce filtre.</div>
     </div>
   </div>
+
+
+  <!-- ── Volet « Relancer » : gabarits pré-remplis ── -->
+  <div id="panel-bg"></div>
+  <aside id="panel" aria-label="Relancer ce lead">
+    <div class="p-head">
+      <div><h2 id="p-title">Relancer</h2><div class="who" id="p-who"></div></div>
+      <button class="p-close" id="p-close" type="button" aria-label="Fermer">×</button>
+    </div>
+    <div class="p-body">
+      <div class="p-grid">
+        <div class="full"><label for="p-gabarit">Gabarit</label>
+          <select id="p-gabarit">
+            <option value="j2">Confirmation de mission + lien de paiement (J+2, audit)</option>
+            <option value="apercu">Aperçu livré (J+2, aperçu)</option>
+            <option value="j7">Relance courte (J+7)</option>
+            <option value="j21">Clôture, porte ouverte (J+21)</option>
+          </select></div>
+        <div><label for="p-prenom">Prénom</label><input id="p-prenom"></div>
+        <div><label for="p-ctx">Contexte</label>
+          <select id="p-ctx"><option value="succession">Succession</option><option value="assurance">Assurance</option><option value="vente">Vente</option><option value="inventaire">Inventaire / patrimoine</option></select></div>
+        <div class="full"><label for="p-bouteilles">Bouteilles (aperçu livré) — une par ligne</label><input id="p-bouteilles"></div>
+        <div class="full"><label for="p-lien">Lien de paiement</label><input id="p-lien" value="https://buy.stripe.com/00wfZaednfAyeVV7dl4Rq02"></div>
+        <div class="full"><label for="p-objet">Objet</label><input id="p-objet"></div>
+      </div>
+      <label for="p-text">Texte (modifiable avant copie)</label>
+      <textarea id="p-text"></textarea>
+      <p class="p-hint" id="p-hint">À coller dans le fil Gmail existant. Pour la confirmation de mission en version habillée, le générateur local reste disponible.</p>
+    </div>
+    <div class="p-foot">
+      <button class="btn btn-primary" id="p-copy" type="button">📋 Copier le texte</button>
+      <button class="btn" id="p-gmail" type="button">Ouvrir dans Gmail</button>
+      <span class="spacer"></span>
+      <span class="p-status" id="p-status"></span>
+      <button class="btn" id="p-sent" type="button">✓ Envoyé → statut suivant</button>
+    </div>
+  </aside>
 
 <script>
 (function(){
@@ -352,7 +411,7 @@
       '<td><input type="text" class="f-cote" value="'+esc(l.cote)+'" placeholder="—"></td>'+
       '<td><select class="f-statut">'+statutOptions(l.statut)+'</select></td>'+
       '<td class="c-notes"><input type="text" class="f-notes" value="'+esc(l.notes)+'" placeholder="…"></td>'+
-      '<td><button class="btn-save" type="button">Enregistrer</button></td>'+
+      '<td class="c-actions"><button class="btn-save" type="button">Enregistrer</button>'+((l.type==='demande'||l.type==='apercu')?'<button class="btn-mail" type="button" title="Relancer avec un gabarit">✉ Relancer</button>':'')+'</td>'+
     '</tr>';
   }
 
@@ -448,6 +507,78 @@
       }).catch(function(){ btn.disabled=false; btn.textContent=orig; alert('Connexion impossible.'); });
   }
 
+  // ── Volet « Relancer » : gabarits pré-remplis à partir du lead ──
+  var SIGN = "\n\nBien à vous,\n\nFanny Lonqueu-Brochard\nExperte indépendante en estimation de cave\nestimationcave.com — contact@estimationcave.com";
+  var NEXT = { a_traiter:'repondu', repondu:'relance', relance:'perdu' };
+  var TPL = {
+    j2: { obj:"Votre demande d'estimation — c'est dans mon périmètre", txt:function(p,ctx,b,lien){
+      var assur = ctx==='assurance' ? "\n\nPour votre assureur, le rapport comporte une version dédiée, en valeur de remplacement, sans supplément." : "";
+      return "Bonjour "+p+",\n\nMerci pour votre demande. Bonne nouvelle : votre cave entre dans le cadre du service.\n\nL'audit complet chiffre chaque bouteille — valeur, tendance, liquidité — avec une recommandation par ligne, garder, vendre ou déguster, et un plan d'action : quel canal, à quel moment. Il est à 199 €, tout compris, et vous le recevez en PDF sous cinq jours ouvrés après paiement et réception de votre liste.\n\nVous pouvez régler ici :\n"+lien+"\n\nSi vous préférez voir le travail avant de décider, nommez-moi trois bouteilles de votre cave, celles qui comptent ou celles dont vous doutez : je vous envoie sous 48 h ouvrées un aperçu d'une page, offert. C'est exactement la forme qu'auront les lignes de votre rapport."+assur+"\n\nRien ne bloque le démarrage : vous pouvez régler dès maintenant et m'envoyer liste et photos en réponse à cet email."+SIGN; } },
+    apercu: { obj:"Vos bouteilles — l'aperçu du document", txt:function(p,ctx,b,lien){
+      var list = String(b||'').split('\n').map(function(x){return x.trim();}).filter(Boolean).map(function(x){return '- '+x;}).join('\n');
+      var intro = "Bonjour "+p+",\n\nMerci de votre patience. Voici en pièce jointe l'aperçu sur vos bouteilles :\n"+list+"\n\nC'est exactement la forme qu'auront les lignes de votre inventaire complet.\n\n";
+      var corps = (ctx==='assurance')
+        ? "Deux remarques sur ce que vous y verrez.\n\nChaque bouteille porte deux chiffres. Le premier, celui qui compte pour votre assurance, est la valeur de remplacement : le prix auquel vous rachèteriez le flacon chez un marchand aujourd'hui. Le second, plus discret, est le prix qu'atteindrait la bouteille en vente aux enchères, avant frais de vente. L'écart entre les deux est important, et c'est précisément la confusion entre les deux qui laisse tant de caves sous-déclarées : en assurance, c'est bien le prix de rachat qu'il faut déclarer.\n\nChaque valeur est donnée avec sa source : la date du relevé, le nombre d'offres retenues et leur fourchette. C'est ce qui distingue un document que votre assureur peut recevoir d'une simple estimation, et c'est ce que vous retrouverez sur chacune des lignes de votre cave."
+        : "Deux remarques sur ce que vous y verrez.\n\nChaque bouteille porte sa valeur du moment : le prix qu'elle atteindrait aujourd'hui en vente publique, avant frais de vente. C'est le chiffre qui compte pour "+(ctx==='succession'?"une déclaration ou un partage":ctx==='vente'?"décider quoi vendre, à qui et quand":"connaître ce que vaut réellement votre cave")+", et il est donné avec sa source : la date du relevé et les ventes retenues.\n\nSous chaque valeur, la recommandation, garder, vendre ou surveiller, tient compte de la fenêtre d'apogée du vin et de l'état du marché pour ce millésime. C'est ce que vous retrouverez sur chacune des lignes de votre cave, avec un plan d'action en fin de rapport.";
+      return intro+corps+"\n\nLa suite est simple : envoyez-moi votre liste ou vos photos quand vous le souhaitez, et vous recevez le rapport complet sous cinq jours ouvrés à compter de leur réception. L'audit est à 199 €, et vous pouvez le régler ici :\n\n"+lien+"\n\nJe reste à votre disposition si une question vous vient d'ici là."+SIGN; } },
+    j7: { obj:"", txt:function(p){ return "Bonjour "+p+",\n\nUn mot pour m'assurer que mon message de la semaine dernière vous est bien parvenu. La proposition tient toujours : le lien de paiement reste valable, et si vous préférez juger sur pièce, trois bouteilles de votre cave estimées d'abord, sans engagement.\n\nSi le moment n'est pas le bon, dites-le moi d'une ligne et je vous laisse tranquille."+SIGN; } },
+    j21: { obj:"", txt:function(p,ctx){ var util=(ctx==='assurance')?"\n\nSi votre contrat est renouvelé entre-temps, vérifiez que la cave y figure en valeur de remplacement, pas en prix d'enchères : c'est l'écart qui laisse tant de caves sous-déclarées.":""; return "Bonjour "+p+",\n\nSans nouvelle de votre part, je classe votre dossier, sans le fermer : un mot suffit pour reprendre là où nous en étions, et les éléments que vous m'avez transmis restent entre mes mains."+util+"\n\nBon courage pour la suite,"+SIGN.replace(/^\n\nBien à vous,\n/,"\n"); } }
+  };
+  var panelLead = null;
+  function ctxKey(c){ c=String(c||'').toLowerCase(); if(/succ|hérit|herit/.test(c)) return 'succession'; if(/assur/.test(c)) return 'assurance'; if(/vente|vendre/.test(c)) return 'vente'; return 'inventaire'; }
+  function defaultTpl(l){
+    var s=l.statut||'a_traiter';
+    if(s==='repondu') return 'j7';
+    if(s==='relance') return 'j21';
+    return (l.type==='apercu') ? 'apercu' : 'j2';
+  }
+  function openPanel(l){
+    panelLead = l;
+    var prenom = String(l.prenom||'').trim().split(/\s+/)[0] || '';
+    document.getElementById('p-who').textContent = [l.prenom, l.nom].filter(Boolean).join(' ') + ' · ' + (l.email||'') + ' · ' + (STATUTS.filter(function(s){return s.v===l.statut;})[0]||{l:l.statut}).l;
+    document.getElementById('p-gabarit').value = defaultTpl(l);
+    document.getElementById('p-prenom').value = prenom;
+    document.getElementById('p-ctx').value = ctxKey(l.contexte);
+    document.getElementById('p-bouteilles').value = String(l.bouteilles||'').split(' | ').filter(Boolean).join('\n');
+    renderPanel();
+    document.getElementById('p-sent').textContent = NEXT[l.statut||'a_traiter'] ? '✓ Envoyé → « '+(STATUTS.filter(function(s){return s.v===NEXT[l.statut||'a_traiter'];})[0]||{l:''}).l+' »' : '✓ Envoyé';
+    document.getElementById('p-sent').disabled = !NEXT[l.statut||'a_traiter'];
+    document.getElementById('panel').classList.add('open');
+    document.getElementById('panel-bg').classList.add('open');
+  }
+  function closePanel(){ document.getElementById('panel').classList.remove('open'); document.getElementById('panel-bg').classList.remove('open'); panelLead=null; }
+  function renderPanel(){
+    var k=document.getElementById('p-gabarit').value, t=TPL[k];
+    var p=document.getElementById('p-prenom').value.trim()||'Prénom';
+    var ctx=document.getElementById('p-ctx').value;
+    var b=document.getElementById('p-bouteilles').value;
+    var lien=document.getElementById('p-lien').value.trim();
+    document.getElementById('p-objet').value = t.obj || ('Re: votre demande d\u2019estimation');
+    document.getElementById('p-text').value = t.txt(p,ctx,b,lien);
+    document.getElementById('p-hint').textContent = (k==='j7'||k==='j21') ? "À coller dans le fil Gmail existant (l'objet passe en « Re: »)." : (k==='apercu' ? "Joindre le PDF d'une page. À envoyer depuis votre boîte." : "Version texte de la confirmation. Le générateur local propose la version habillée.");
+  }
+  function pFlash(msg){ var s=document.getElementById('p-status'); s.textContent=msg; clearTimeout(window._pt); window._pt=setTimeout(function(){s.textContent='';},3500); }
+  function copyStr(t){ var ta=document.createElement('textarea'); ta.value=t; ta.style.cssText='position:fixed;left:-99999px;top:0;'; document.body.appendChild(ta); ta.select(); var ok=false; try{ ok=document.execCommand('copy'); }catch(e){} document.body.removeChild(ta); return ok; }
+  ['p-gabarit','p-prenom','p-ctx','p-bouteilles','p-lien'].forEach(function(id){ var el=document.getElementById(id); el.addEventListener('input',renderPanel); el.addEventListener('change',renderPanel); });
+  document.getElementById('p-close').addEventListener('click',closePanel);
+  document.getElementById('panel-bg').addEventListener('click',closePanel);
+  document.getElementById('p-copy').addEventListener('click',function(){ pFlash(copyStr(document.getElementById('p-text').value)?'✓ Texte copié':'Échec de la copie'); });
+  document.getElementById('p-gmail').addEventListener('click',function(){
+    if(!panelLead) return;
+    var u='https://mail.google.com/mail/?view=cm&fs=1&to='+encodeURIComponent(panelLead.email||'')+'&su='+encodeURIComponent(document.getElementById('p-objet').value)+'&body='+encodeURIComponent(document.getElementById('p-text').value);
+    window.open(u,'_blank');
+  });
+  document.getElementById('p-sent').addEventListener('click',function(){
+    if(!panelLead) return; var next=NEXT[panelLead.statut||'a_traiter']; if(!next) return;
+    var btn=this; btn.disabled=true;
+    fetch(API,{method:'POST',headers:Object.assign({'Content-Type':'application/json'},headers()),body:JSON.stringify({id:panelLead.id,statut:next})})
+      .then(function(r){ return r.json(); }).then(function(data){
+        btn.disabled=false;
+        if(data&&data.success){ for(var i=0;i<all.length;i++){ if(String(all[i].id)===String(panelLead.id)){ all[i]=data.lead; break; } } render(); pFlash('✓ Statut mis à jour'); setTimeout(closePanel,900); }
+        else pFlash((data&&data.error)||'Erreur');
+      }).catch(function(){ btn.disabled=false; pFlash('Connexion impossible.'); });
+  });
+
   // ── événements ──
   document.getElementById('login-form').addEventListener('submit',function(e){
     e.preventDefault();
@@ -465,6 +596,8 @@
     var c=e.target.closest('.chip'); if(!c) return; typeFilter=c.getAttribute('data-t'); render();
   });
   document.getElementById('tbody').addEventListener('click',function(e){
+    var m=e.target.closest('.btn-mail');
+    if(m){ var id=m.closest('tr').getAttribute('data-id'); var l=all.filter(function(x){return String(x.id)===String(id);})[0]; if(l) openPanel(l); return; }
     var b=e.target.closest('.btn-save'); if(!b) return; saveRow(b.closest('tr'), b);
   });
 
