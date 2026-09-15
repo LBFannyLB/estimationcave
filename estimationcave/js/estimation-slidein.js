@@ -1,22 +1,27 @@
-/* Estimation offerte — slide-in discret (capture au départ / scroll).
+/* Aperçu offert — slide-in discret (accroche au départ / scroll).
    Autonome : injecte son CSS + HTML + comportement. À inclure via
    <script src="/js/estimation-slidein.js" defer></script> sur les pages hors homepage.
 
+   Ce slide-in ne contient PLUS de formulaire : il renvoie vers la page « Aperçu offert »
+   (/estimation-bouteille.html), seul formulaire de l'offre gratuite (3 bouteilles, PDF sous 48 h ouvrées).
+
    Déclencheurs : exit-intent (souris vers le haut, desktop) OU scroll >= 60 %.
    Affiché 1 seule fois par visiteur (localStorage, 30 j). Jamais sur la homepage,
-   ni si le visiteur a déjà soumis le formulaire (estimation inline ou pop-up).
-   Poste vers /api/estimation-offerte avec form_location: estimation_offerte_popup. */
+   les pages B2B/légales, ni la page aperçu elle-même.
+   Hook : window.estimationOfferte.open({eyebrow,title,sub}) ouvre le slide-in avec un message contextuel. */
 (function () {
   "use strict";
 
   // ── Garde : homepage exclue ──
   var path = location.pathname.replace(/\/+$/, "") || "/";
   if (path === "/" || path === "/index.html" || /\/index\.html$/.test(path)) return;
-  // Pages B2B, légales et de confirmation : pas de pop-up grand public.
+  // Pages B2B, légales, de confirmation et page aperçu : pas de pop-up.
   var EXCLUDED = /^\/(notaires|assureurs|conseillers-patrimoine|cabinets-cession|professionnels|cgv|mentions-legales|confidentialite|merci|estimation-bouteille|admin-estimations)(\.html)?$/;
   if (EXCLUDED.test(path)) return;
 
-  // ── Suppression des déclencheurs PASSIFS : déjà vu (30 j) ou déjà converti ──
+  var APERCU_URL = "/estimation-bouteille.html";
+
+  // ── Suppression des déclencheurs PASSIFS : déjà vu (30 j) ou déjà cliqué ──
   // N'empêche PAS l'ouverture explicite via window.estimationOfferte.open() (ex. clic « Télécharger »).
   var SEEN_KEY = "eo_slidein_seen";
   var DONE_KEY = "eo_converted";
@@ -45,25 +50,10 @@
     + '.eos-eyebrow{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--or,#C5A258);font-weight:600;margin:0 0 .4rem;}'
     + '.eos-title{font-family:var(--font-display,Georgia,serif);font-size:1.35rem;line-height:1.2;color:var(--bordeaux,#2D1B2E);margin:0 0 .4rem;}'
     + '.eos-sub{font-size:.83rem;line-height:1.5;color:var(--texte-light,#6B5F65);margin:0 0 .9rem;}'
-    + '.eos-btn{display:block;width:100%;background:var(--bordeaux,#2D1B2E);color:var(--fond,#FAF6F0);font-family:inherit;font-size:.92rem;font-weight:600;border:none;padding:.8rem;cursor:pointer;transition:background .25s;}'
-    + '.eos-btn:hover{background:#3d2840;}'
-    + '.eos-btn:disabled{opacity:.6;cursor:default;}'
+    + '.eos-btn{display:block;width:100%;box-sizing:border-box;text-align:center;text-decoration:none;background:var(--bordeaux,#2D1B2E);color:var(--fond,#FAF6F0);font-family:inherit;font-size:.92rem;font-weight:600;border:none;padding:.8rem;cursor:pointer;transition:background .25s;}'
+    + '.eos-btn:hover{background:#3d2840;color:var(--fond,#FAF6F0);}'
     + '.eos-link{display:block;width:100%;margin-top:.5rem;background:transparent;border:none;color:var(--texte-light,#6B5F65);font-family:inherit;font-size:.76rem;cursor:pointer;text-decoration:underline;}'
-    + '.eos-form{display:none;}'
-    + '.eos-root.eos-expanded .eos-form{display:block;}'
-    + '.eos-root.eos-expanded .eos-teaser{display:none;}'
-    + '.eos-field{margin-bottom:.6rem;}'
-    + '.eos-field label{display:block;font-size:.72rem;font-weight:600;color:var(--bordeaux,#2D1B2E);margin-bottom:.2rem;}'
-    + '.eos-field input,.eos-field select{width:100%;box-sizing:border-box;font-family:inherit;font-size:.88rem;padding:.5rem .6rem;border:1px solid rgba(45,27,46,0.18);background:var(--fond,#FAF6F0);color:var(--texte,#3A3035);border-radius:4px;}'
-    + '.eos-2{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;}'
-    + '.eos-check{display:flex;gap:.5rem;align-items:flex-start;font-size:.7rem;line-height:1.4;color:var(--texte-light,#6B5F65);margin:.3rem 0 .8rem;cursor:pointer;}'
-    + '.eos-check input{margin-top:.15rem;flex-shrink:0;}'
-    + '.eos-req{color:var(--or,#C5A258);}'
-    + '.eos-fb{display:none;font-size:.8rem;line-height:1.45;padding:.7rem .8rem;border-radius:4px;margin-bottom:.7rem;}'
-    + '.eos-fb.ok{display:block;background:var(--bordeaux,#2D1B2E);color:var(--fond,#FAF6F0);}'
-    + '.eos-fb.err{display:block;background:rgba(180,40,40,.08);border:1px solid #b42828;color:#8a2020;}'
     + '.eos-reassure{font-size:.68rem;color:var(--texte-light,#6B5F65);text-align:center;margin:.6rem 0 0;}'
-    + '.eos-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}'
     + '@media(max-width:480px){.eos-root{right:0;left:0;bottom:0;width:100%;max-width:100%;}}';
 
   // ── HTML ──
@@ -71,30 +61,12 @@
     + '<div class="eos-top"></div>'
     + '<button class="eos-close" type="button" aria-label="Fermer">×</button>'
     + '<div class="eos-pad">'
-    +   '<div class="eos-teaser">'
-    +     '<p class="eos-eyebrow">Avant de partir</p>'
-    +     '<h2 class="eos-title">Une estimation offerte, sans engagement</h2>'
-    +     '<p class="eos-sub">Choisissez une bouteille de votre cave : un expert indépendant vous renvoie sa cote du moment, sa tendance et une indication garder ou vendre. Gratuitement, sous 24&nbsp;h.</p>'
-    +     '<button class="eos-btn" type="button" id="eos-go">Estimer une bouteille gratuitement</button>'
-    +     '<button class="eos-link" type="button" id="eos-no">Non merci</button>'
-    +   '</div>'
-    +   '<form class="eos-form" id="eos-form" novalidate>'
-    +     '<div class="eos-hp" aria-hidden="true"><label>Site web<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>'
-    +     '<div class="eos-fb" id="eos-fb" role="status" aria-live="polite"></div>'
-    +     '<div class="eos-field"><label>Domaine / Château <span class="eos-req">*</span></label><input type="text" name="domaine" required autocomplete="off"></div>'
-    +     '<div class="eos-2">'
-    +       '<div class="eos-field"><label>Appellation <span class="eos-req">*</span></label><input type="text" name="appellation" required autocomplete="off"></div>'
-    +       '<div class="eos-field"><label>Millésime <span class="eos-req">*</span></label><input type="text" name="millesime" required inputmode="numeric" autocomplete="off"></div>'
-    +     '</div>'
-    +     '<div class="eos-2">'
-    +       '<div class="eos-field"><label>Format <span class="eos-req">*</span></label><select name="format" required><option value="">Choisir</option><option value="Bouteille (75 cl)">Bouteille (75 cl)</option><option value="Magnum (1,5 L)">Magnum (1,5 L)</option><option value="Autre format">Autre format</option></select></div>'
-    +       '<div class="eos-field"><label>Quantité <span class="eos-req">*</span></label><input type="number" name="quantite" required min="1" value="1"></div>'
-    +     '</div>'
-    +     '<div class="eos-field"><label>Votre email <span class="eos-req">*</span></label><input type="email" name="email" required autocomplete="email"></div>'
-    +     '<label class="eos-check"><input type="checkbox" name="consentement_rgpd" required><span>J\'accepte de recevoir mon estimation et des conseils d\'estimation par email (supprimés sur demande). <span class="eos-req">*</span></span></label>'
-    +     '<button type="submit" class="eos-btn" id="eos-submit">Recevoir mon estimation</button>'
-    +     '<p class="eos-reassure">Réponse d\'un expert sous 24&nbsp;h · Sans engagement</p>'
-    +   '</form>'
+    +   '<p class="eos-eyebrow">Avant de partir</p>'
+    +   '<h2 class="eos-title">Un aperçu offert sur trois bouteilles</h2>'
+    +   '<p class="eos-sub">Nommez trois bouteilles de votre cave : une experte indépendante vous renvoie sous 48&nbsp;h ouvrées leur valeur, leur tendance et un conseil garder ou vendre. Sans engagement.</p>'
+    +   '<a class="eos-btn" id="eos-go" href="' + APERCU_URL + '" data-cta="slidein_apercu">Recevoir mon aperçu offert</a>'
+    +   '<button class="eos-link" type="button" id="eos-no">Non merci</button>'
+    +   '<p class="eos-reassure">Un PDF d\'une page · Une seule estimation offerte par adresse email</p>'
     + '</div>';
 
   function mount() {
@@ -105,7 +77,7 @@
     var root = document.createElement("div");
     root.className = "eos-root";
     root.setAttribute("role", "complementary");
-    root.setAttribute("aria-label", "Estimation offerte");
+    root.setAttribute("aria-label", "Aperçu offert");
     root.innerHTML = html;
     document.body.appendChild(root);
     return root;
@@ -124,77 +96,15 @@
   }
 
   function wire(root) {
-    var fb = root.querySelector("#eos-fb");
-    var form = root.querySelector("#eos-form");
-    var submit = root.querySelector("#eos-submit");
-
-    // form_start : 1er focus d'un champ (mesure « a commencé à remplir »)
-    var fsStarted = false;
-    form.addEventListener("focusin", function () {
-      if (fsStarted) return;
-      fsStarted = true;
-      try {
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({ event: "form_start", form_location: "estimation_offerte_popup" });
-      } catch (e) {}
-    });
-
     root.querySelector(".eos-close").addEventListener("click", function () { hide(root); });
     root.querySelector("#eos-no").addEventListener("click", function () { hide(root); });
     root.querySelector("#eos-go").addEventListener("click", function () {
-      root.classList.add("eos-expanded");
-      var f = root.querySelector('input[name="domaine"]');
-      if (f) f.focus();
-    });
-
-    function setFb(type, msg) {
-      fb.className = "eos-fb";
-      if (!msg) return;
-      fb.classList.add(type === "ok" ? "ok" : "err");
-      fb.textContent = msg;
-    }
-
-    form.addEventListener("submit", async function (e) {
-      e.preventDefault();
-      setFb(null, "");
-      var original = submit.textContent;
-      submit.disabled = true;
-      submit.textContent = "Envoi en cours…";
+      // Clic vers la page aperçu : on ne réaffichera plus le slide-in passif.
+      try { localStorage.setItem(DONE_KEY, "1"); } catch (_) {}
       try {
-        var params = new URLSearchParams(new FormData(form));
-        var res = await fetch("/api/estimation-offerte", {
-          method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: params
-        });
-        var payload = {};
-        try { payload = await res.json(); } catch (_) {}
-        if (res.ok && payload.success) {
-          try {
-            var ef = form.querySelector('input[name="email"]');
-            var ecEmail = ef && ef.value ? ef.value.trim().toLowerCase() : "";
-            window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({
-              event: "generate_lead",
-              lead_type: "estimation_offerte",
-              form_location: "estimation_offerte_popup",
-              value: 0,
-              currency: "EUR",
-              user_data: { email: ecEmail }
-            });
-          } catch (_) {}
-          try { localStorage.setItem(DONE_KEY, "1"); } catch (_) {}
-          setFb("ok", "Merci, j'ai bien reçu votre demande. Vous recevez votre estimation par email sous 24 h.");
-          form.reset();
-        } else {
-          setFb("err", payload.error || "Une erreur est survenue, merci de réessayer ou d'écrire à contact@estimationcave.com.");
-        }
-      } catch (err) {
-        setFb("err", "Connexion impossible, merci de réessayer ou d'écrire à contact@estimationcave.com.");
-      } finally {
-        submit.disabled = false;
-        submit.textContent = original;
-      }
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: "cta_click", cta_location: "slidein_apercu" });
+      } catch (_) {}
     });
   }
 
@@ -202,7 +112,7 @@
     var root = mount();
     wire(root);
 
-    // Hook global : ouvrir l'estimation offerte depuis un CTA (ex. clic « Télécharger »).
+    // Hook global : ouvrir le slide-in depuis un CTA (ex. clic « Télécharger » du tableur).
     // Action explicite de l'utilisateur → ignore volontairement la suppression passive.
     window.estimationOfferte = window.estimationOfferte || {};
     window.estimationOfferte.open = function (opts) {
@@ -211,13 +121,11 @@
         if (opts.title)   { var tt = root.querySelector(".eos-title");   if (tt) tt.textContent = opts.title; }
         if (opts.sub)     { var sb = root.querySelector(".eos-sub");     if (sb) sb.innerHTML = opts.sub; }
       }
-      // Ouverture explicite (clic CTA) : prend le pas sur un déclencheur passif déjà tiré
       shown = false;
-      root.classList.remove("eos-expanded");
       show(root);
     };
 
-    // Déclencheurs PASSIFS (exit-intent + scroll 60 %) — seulement si pas déjà vu / converti.
+    // Déclencheurs PASSIFS (exit-intent + scroll 60 %) — seulement si pas déjà vu / cliqué.
     if (passiveSuppressed()) return;
 
     // Déclencheur 1 : exit-intent (desktop) — souris qui sort par le haut
