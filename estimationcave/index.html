@@ -446,6 +446,8 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       line-height: 1.85;
     }
 
+    .hero-alt { display:block; margin-top:0.9rem; font-size:0.92rem; color:var(--bordeaux); text-decoration:underline; text-decoration-color:var(--or); text-underline-offset:4px; }
+    .hero-alt:hover { color:var(--or); }
     .hero-mention {
       display: block;
       margin-top: 1.2rem;
@@ -2269,6 +2271,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
           <h1>Que vaut <em>réellement</em> votre cave à vins&nbsp;?</h1>
           <p class="hero-subtitle">Valeur réelle de chaque bouteille, recommandations garder ou vendre et plan d'action concret — par une experte indépendante, sans lien avec un acheteur de votre cave.</p>
           <a href="#formulaire" class="btn btn-primary" data-cta="hero">Demander un audit — 199&thinsp;€</a>
+          <a href="estimation-bouteille.html" class="hero-alt" data-cta="hero-apercu">ou recevez d'abord un aperçu offert sur trois bouteilles →</a>
           <span class="hero-mention">
             Livraison sous 5 jours ouvrés <span>·</span> 100% à distance <span>·</span> Strictement confidentiel
           </span>
@@ -2909,6 +2912,21 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             </div>
           </div>
 
+          <div class="form-field form-checkbox">
+            <input type="checkbox" id="rappel" name="rappel">
+            <label for="rappel">Je préfère être rappelé(e) pour en parler <span style="font-weight:400;color:var(--texte-light);font-size:0.85em;">(je vous appelle au créneau choisi)</span></label>
+          </div>
+          <div class="form-field" id="rappel-extra" hidden>
+            <label for="creneau">Créneau qui vous arrange <span class="req">*</span></label>
+            <select id="creneau" name="creneau">
+              <option value="">Choisir</option>
+              <option value="Matin (9h-12h)">Matin (9h-12h)</option>
+              <option value="Midi (12h-14h)">Midi (12h-14h)</option>
+              <option value="Après-midi (14h-17h)">Après-midi (14h-17h)</option>
+              <option value="Fin de journée (17h-19h)">Fin de journée (17h-19h)</option>
+            </select>
+          </div>
+
           <div class="form-row form-row-2">
             <div class="form-field">
               <label for="contexte">Contexte de votre demande <span class="req">*</span></label>
@@ -2932,6 +2950,11 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
                 <option value="Plus de 300">Plus de 300 bouteilles</option>
               </select>
             </div>
+          </div>
+
+          <div class="form-field">
+            <label for="echeance">Avez-vous une échéance&nbsp;? <span style="font-weight:400;color:var(--texte-light);font-size:0.85em;">(optionnel — rendez-vous notaire, déclaration à l'assureur…)</span></label>
+            <input type="text" id="echeance" name="echeance" autocomplete="off" placeholder="Ex. rendez-vous chez le notaire le 3 octobre">
           </div>
 
           <div class="form-field">
@@ -3606,6 +3629,17 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       var feedback = document.getElementById('form-feedback');
       var filesInput = document.getElementById('fichiers');
       var MAX_TOTAL = 4 * 1024 * 1024;
+      var rappel = document.getElementById('rappel');
+      var rappelExtra = document.getElementById('rappel-extra');
+      var telInput = document.getElementById('telephone');
+      var creneauInput = document.getElementById('creneau');
+      function syncRappel(){
+        var on = !!(rappel && rappel.checked);
+        if (rappelExtra) rappelExtra.hidden = !on;
+        if (telInput) telInput.required = on;
+        if (creneauInput) creneauInput.required = on;
+      }
+      if (rappel){ rappel.addEventListener('change', syncRappel); syncRappel(); }
 
       function setFeedback(type, msg){
         feedback.className = 'form-feedback';
@@ -3617,6 +3651,12 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       form.addEventListener('submit', async function(e){
         e.preventDefault();
         setFeedback(null, '');
+
+        if (rappel && rappel.checked && (!telInput.value.trim() || !creneauInput.value)){
+          setFeedback('error', "Pour être rappelé(e), indiquez un numéro de téléphone et un créneau — ou décochez la case.");
+          feedback.scrollIntoView({behavior:'smooth', block:'center'});
+          return;
+        }
 
         if (filesInput && filesInput.files && filesInput.files.length){
           var total = 0;
@@ -3663,7 +3703,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
               });
             } catch (_) {}
             setFeedback('success', "Merci, j'ai bien reçu votre demande. Je reviens vers vous sous 48h ouvrées pour confirmer la mission.");
-            form.reset();
+            form.reset(); syncRappel();
             feedback.scrollIntoView({behavior:'smooth', block:'center'});
           } else {
             setFeedback('error', payload.error || "Une erreur est survenue, merci de réessayer ou d'écrire à contact@estimationcave.com.");

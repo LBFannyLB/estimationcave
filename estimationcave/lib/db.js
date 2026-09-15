@@ -61,6 +61,10 @@ export function ensureSchema() {
       await s`ALTER TABLE estimation_leads ADD COLUMN IF NOT EXISTS volume     TEXT`;
       await s`ALTER TABLE estimation_leads ADD COLUMN IF NOT EXISTS situation  TEXT`;
       await s`ALTER TABLE estimation_leads ADD COLUMN IF NOT EXISTS nb_fichiers INTEGER NOT NULL DEFAULT 0`;
+      // Migration 2026-09-15 : aperçu offert (3 bouteilles) + rappel téléphonique + échéance.
+      await s`ALTER TABLE estimation_leads ADD COLUMN IF NOT EXISTS bouteilles TEXT`;
+      await s`ALTER TABLE estimation_leads ADD COLUMN IF NOT EXISTS echeance   TEXT`;
+      await s`ALTER TABLE estimation_leads ADD COLUMN IF NOT EXISTS rappel     TEXT`;
     })().catch((e) => { _schemaReady = null; throw e; });
   }
   return _schemaReady;
@@ -86,12 +90,39 @@ export async function insertDemande(d) {
   await ensureSchema();
   const rows = await sql()`
     INSERT INTO estimation_leads
-      (type, prenom, nom, email, telephone, contexte, volume, format, situation, nb_fichiers, source_page)
+      (type, prenom, nom, email, telephone, contexte, volume, format, situation, nb_fichiers, source_page, rappel, echeance)
     VALUES
       ('demande', ${d.prenom ?? null}, ${d.nom ?? null}, ${d.email ?? null},
        ${d.telephone ?? null}, ${d.contexte ?? null}, ${d.volume ?? null},
        ${d.format ?? null}, ${d.situation ?? null}, ${Number.isFinite(d.nb_fichiers) ? d.nb_fichiers : 0},
-       ${d.source_page ?? null})
+       ${d.source_page ?? null}, ${d.rappel ?? null}, ${d.echeance ?? null})
+    RETURNING id
+  `;
+  return rows[0];
+}
+
+// Un aperçu offert a-t-il déjà été demandé pour cet email ? (règle : un seul par adresse)
+export async function findApercuByEmail(email) {
+  await ensureSchema();
+  const rows = await sql()`
+    SELECT id, created_at FROM estimation_leads
+     WHERE type = 'apercu' AND lower(email) = lower(${email})
+     ORDER BY created_at ASC LIMIT 1
+  `;
+  return rows[0] || null;
+}
+
+// Insère un lead « aperçu offert » (3 bouteilles, PDF d'une page). Retourne { id }.
+// `bouteilles` = libellés joints par ' | ' ; `rappel` = créneau demandé (ou null).
+export async function insertApercu(d) {
+  await ensureSchema();
+  const rows = await sql()`
+    INSERT INTO estimation_leads
+      (type, prenom, email, telephone, contexte, volume, bouteilles, echeance, rappel, source_page)
+    VALUES
+      ('apercu', ${d.prenom ?? null}, ${d.email ?? null}, ${d.telephone ?? null},
+       ${d.contexte ?? null}, ${d.volume ?? null}, ${d.bouteilles ?? null},
+       ${d.echeance ?? null}, ${d.rappel ?? null}, ${d.source_page ?? null})
     RETURNING id
   `;
   return rows[0];

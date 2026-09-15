@@ -45,20 +45,20 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
     <link rel="manifest" href="site.webmanifest">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Estimation gratuite d'une bouteille de vin — cote sous 24 h</title>
-    <meta name="description" content="La valeur de votre bouteille de vin ? Un expert indépendant vous renvoie gratuitement sa cote, sa tendance et un conseil : garder ou vendre, sous 24 h.">
+    <title>Aperçu offert : trois bouteilles de votre cave estimées</title>
+    <meta name="description" content="Trois bouteilles de votre cave estimées par une experte indépendante : valeur, tendance, garder ou vendre. Un PDF d'une page sous 48 h ouvrées, offert, sans engagement.">
     <link rel="canonical" href="https://estimationcave.com/estimation-bouteille.html">
 
-    <meta property="og:title" content="Estimation gratuite d'une bouteille de vin — cote sous 24 h">
-    <meta property="og:description" content="Indiquez une bouteille de votre cave : un expert indépendant vous renvoie gratuitement sa cote, sa tendance et une recommandation claire : la garder ou la vendre. Sous 24 h, sans engagement.">
+    <meta property="og:title" content="Aperçu offert : trois bouteilles de votre cave estimées">
+    <meta property="og:description" content="Nommez trois bouteilles de votre cave : vous recevez sous 48 h ouvrées un aperçu d'une page avec leur valeur, leur tendance et un conseil garder ou vendre. Offert, sans engagement.">
     <meta property="og:url" content="https://estimationcave.com/estimation-bouteille.html">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="fr_FR">
     <meta property="og:image" content="https://estimationcave.com/og-image.png">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Estimation gratuite d'une bouteille de vin — cote sous 24 h">
-    <meta name="twitter:description" content="Indiquez une bouteille de votre cave : un expert indépendant vous renvoie gratuitement sa cote, sa tendance et une recommandation claire : la garder ou la vendre. Sous 24 h, sans engagement.">
+    <meta name="twitter:title" content="Aperçu offert : trois bouteilles de votre cave estimées">
+    <meta name="twitter:description" content="Nommez trois bouteilles de votre cave : vous recevez sous 48 h ouvrées un aperçu d'une page avec leur valeur, leur tendance et un conseil garder ou vendre. Offert, sans engagement.">
     <meta name="twitter:image" content="https://estimationcave.com/og-image.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -210,13 +210,30 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             .cta-final { padding: 3.5rem 0; }
             .pain-card { padding: 1.5rem; }
         }
-    </style>
 
+        /* ── APERÇU : ce que vous recevez ── */
+        .apercu-mock { background: var(--blanc); border: 1px solid var(--border); border-top: 3px solid var(--or); padding: 1.75rem 2rem; margin: 2rem auto 0; max-width: 720px; }
+        .apercu-mock .am-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; border-bottom: 1px solid var(--border); padding-bottom: 0.9rem; margin-bottom: 1.1rem; }
+        .apercu-mock .am-eyebrow { font-family: var(--font-body); font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--or); font-weight: 600; }
+        .apercu-mock .am-date { font-size: 0.8rem; color: var(--texte-light); }
+        .apercu-mock .am-line { display: grid; grid-template-columns: 1fr auto; gap: 0.6rem 1.5rem; padding: 0.9rem 0; border-bottom: 1px dashed var(--border); align-items: start; }
+        .apercu-mock .am-line:last-of-type { border-bottom: none; }
+        .apercu-mock .am-name { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; color: var(--bordeaux); }
+        .apercu-mock .am-sub { font-size: 0.85rem; color: var(--texte-light); margin-top: 0.15rem; }
+        .apercu-mock .am-val { font-family: var(--font-display); font-size: 1.4rem; color: var(--bordeaux); text-align: right; white-space: nowrap; }
+        .apercu-mock .am-val small { display: block; font-family: var(--font-body); font-size: 0.72rem; color: var(--texte-light); }
+        .apercu-mock .am-reco { grid-column: 1 / -1; font-size: 0.92rem; line-height: 1.6; color: var(--texte); }
+        .apercu-mock .am-reco b { color: var(--bordeaux); font-weight: 600; }
+        .apercu-mock .am-tag { display: inline-block; font-family: var(--font-body); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.15rem 0.55rem; border: 1px solid var(--or); color: var(--or); margin-right: 0.5rem; vertical-align: middle; }
+        .apercu-mock .am-foot { font-size: 0.8rem; color: var(--texte-light); margin-top: 1rem; line-height: 1.5; }
+        @media (max-width: 560px) { .apercu-mock { padding: 1.25rem; } .apercu-mock .am-line { grid-template-columns: 1fr; } .apercu-mock .am-val { text-align: left; } }
+    </style>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Service",
-      "serviceType": "Estimation gratuite d'une bouteille de vin",
+      "serviceType": "Aperçu offert : estimation de trois bouteilles de vin",
+      "description": "Estimation offerte de trois bouteilles d'une cave à vins par une experte indépendante : valeur, tendance et recommandation garder ou vendre, sous 48 h ouvrées.",
       "provider": { "@type": "Person", "name": "Fanny — estimationcave.com", "url": "https://estimationcave.com" },
       "areaServed": ["FR", "BE", "CH", "LU"],
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
@@ -227,9 +244,10 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type":"Question","name":"L'estimation d'une bouteille est-elle vraiment gratuite ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Vous indiquez une bouteille et votre email, un expert indépendant vous renvoie sa cote sous 24 h — sans carte bancaire et sans engagement. C'est une estimation offerte, pas un devis."}},
-        {"@type":"Question","name":"Comment la cote de ma bouteille est-elle calculée ?","acceptedAnswer":{"@type":"Answer","text":"À la main, en croisant les résultats de ventes aux enchères et les prix du marché de la fine wine pour votre domaine, appellation, millésime et format. Ce n'est pas un prix automatique de scanner : c'est le regard d'un expert indépendant."}},
-        {"@type":"Question","name":"Et si j'ai toute une cave à estimer ?","acceptedAnswer":{"@type":"Answer","text":"L'estimation offerte porte sur une bouteille. Pour une cave entière — succession, assurance, vente — l'audit complet chiffre chaque bouteille et vous dit quoi garder, quoi vendre, à qui et quand, pour 199 € tout compris, livré sous 5 jours ouvrés."}}
+        {"@type":"Question","name":"L'aperçu est-il vraiment offert ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Vous nommez jusqu'à trois bouteilles de votre cave et votre email ; vous recevez sous 48 h ouvrées un PDF d'une page avec leur valeur, leur tendance et un conseil garder ou vendre. Sans carte bancaire et sans engagement. Une seule estimation offerte par adresse email : au-delà de trois bouteilles, c'est l'audit complet qui prend le relais."}},
+        {"@type":"Question","name":"Quelles bouteilles choisir pour l'aperçu ?","acceptedAnswer":{"@type":"Answer","text":"Celles qui comptent : les plus anciennes, les plus prestigieuses, ou celles dont vous doutez. Un grand cru, un vieux millésime et une bouteille que vous n'arrivez pas à situer donnent un aperçu très représentatif de ce que l'audit complet dira de toute la cave."}},
+        {"@type":"Question","name":"Et si je n'ai qu'une ou deux bouteilles à faire estimer ?","acceptedAnswer":{"@type":"Answer","text":"Une seule suffit. Les champs 2 et 3 sont facultatifs. Si votre cave est petite, l'aperçu vous donnera déjà l'essentiel et je vous dirai honnêtement si un audit complet se justifie."}},
+        {"@type":"Question","name":"Quelle différence avec l'audit complet à 199 € ?","acceptedAnswer":{"@type":"Answer","text":"La même méthode, appliquée à toute la cave : chaque bouteille est chiffrée, avec son apogée, sa liquidité et une recommandation, puis un plan d'action indique quoi garder, quoi vendre, à qui et quand. Pour une succession ou une assurance, le rapport constitue la pièce documentée à présenter au notaire ou à l'assureur. L'aperçu est un extrait de ce rapport, sur trois flacons."}}
       ]
     }
     </script>
@@ -246,7 +264,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
                     Retour au site
                 </a>
                 <a href="apropos.html" class="nav-back" style="text-decoration:none;">Qui suis-je</a>
-                <a href="#estimation-offerte" class="btn-gold">Estimer ma bouteille</a>
+                <a href="#estimation-offerte" class="btn-gold">Recevoir mon aperçu offert</a>
             </div>
             <button class="hamburger" aria-label="Menu" aria-expanded="false">
                 <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -265,18 +283,18 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
                     <img src="caisse-bouteilles.webp" width="468" height="315" alt="Caisse en bois de bouteilles de vin" fetchpriority="high">
                 </div>
                 <div class="hero-text">
-                    <p class="eyebrow reveal">Estimation offerte · sans engagement</p>
-                    <h1 class="reveal">Quelle est la <em>valeur</em> de votre bouteille&nbsp;de vin&nbsp;?</h1>
-                    <p class="lead reveal">Indiquez une bouteille de votre cave&nbsp;: un expert indépendant vous renvoie gratuitement sa cote du moment, sa tendance et une recommandation claire : la garder ou la vendre. Sous 24&nbsp;h, sans carte bancaire.</p>
+                    <p class="eyebrow reveal">Aperçu offert · trois bouteilles · sans engagement</p>
+                    <h1 class="reveal">Trois bouteilles de votre cave, <em>estimées</em> par une experte indépendante</h1>
+                    <p class="lead reveal">Nommez trois bouteilles de votre cave. Sous 48&nbsp;h ouvrées, vous recevez un aperçu d'une page&nbsp;: leur valeur réelle, leur tendance et un conseil clair, garder ou vendre. C'est un extrait du rapport complet, pour voir le travail avant de décider quoi que ce soit.</p>
                     <div class="hero-ctas reveal">
-                        <a href="#estimation-offerte" class="btn-primary">Estimer ma bouteille gratuitement</a>
+                        <a href="#estimation-offerte" class="btn-primary">Recevoir mon aperçu offert</a>
                     </div>
-                    <span class="hero-mention reveal">Réponse d'un expert sous 24&nbsp;h <span>·</span> 100&nbsp;% gratuit <span>·</span> Sans engagement</span>
+                    <span class="hero-mention reveal">Sous 48&nbsp;h ouvrées <span>·</span> Sans carte bancaire <span>·</span> Sans lien avec un acheteur</span>
                 </div>
             </div>
         </header>
 
-        <!-- ── SECTION 2 — ENCART ESTIMATION OFFERTE (cœur de conversion) ── -->
+        <!-- ── SECTION 2 — FORMULAIRE APERÇU OFFERT (cœur de conversion) ── -->
         <section class="eo-section" id="estimation-offerte">
           <style>
             .eo-section{background:rgba(197,162,88,0.06);border-top:1px solid rgba(197,162,88,0.25);border-bottom:1px solid rgba(197,162,88,0.25);padding:3.5rem 1.25rem;margin:0;}
@@ -289,10 +307,13 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             .eo-field{display:flex;flex-direction:column;}
             .eo-field.eo-full{grid-column:1/-1;}
             .eo-field label{font-family:var(--font-body);font-size:0.8rem;font-weight:600;color:var(--bordeaux);margin-bottom:0.35rem;}
+            .eo-field label .eo-opt{font-weight:400;color:var(--texte-light);}
             .eo-req{color:var(--or);}
             .eo-field input,.eo-field select{font-family:var(--font-body);font-size:0.95rem;padding:0.7rem 0.8rem;border:1px solid rgba(45,27,46,0.18);background:var(--fond);color:var(--texte);border-radius:4px;width:100%;box-sizing:border-box;height:44px;}
+            .eo-field input::placeholder{color:rgba(58,48,53,0.45);}
             .eo-field select{-webkit-appearance:none;-moz-appearance:none;appearance:none;padding-right:2rem;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%232D1B2E' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 0.75rem center;background-size:0.7rem;}
             .eo-field input:focus,.eo-field select:focus{outline:2px solid var(--or);outline-offset:1px;}
+            .eo-group{font-family:var(--font-body);font-size:0.7rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--or);font-weight:600;margin:0.4rem 0 0.7rem;}
             .eo-check{display:flex;gap:0.6rem;align-items:flex-start;margin:0.4rem 0 1.2rem;font-family:var(--font-body);font-size:0.82rem;line-height:1.5;color:var(--texte-light);cursor:pointer;}
             .eo-check input{margin-top:0.2rem;flex-shrink:0;}
             .eo-check a{color:var(--or);}
@@ -308,7 +329,9 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
           </style>
 
           <div class="eo-wrap">
-            <h2 class="eo-title">Estimez une bouteille de votre cave</h2>
+            <p class="eo-eyebrow">Aperçu offert</p>
+            <h2 class="eo-title">Trois bouteilles de votre cave</h2>
+            <p class="eo-sub">Nommez-les comme vous pouvez&nbsp;: domaine ou château, appellation, millésime. Une seule suffit pour commencer.</p>
 
             <form class="eo-form" id="eo-form" novalidate>
               <div class="eo-hp" aria-hidden="true">
@@ -318,67 +341,71 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
 
               <div class="eo-feedback" id="eo-feedback" role="status" aria-live="polite"></div>
 
+              <p class="eo-group">Vos bouteilles</p>
               <div class="eo-row">
                 <div class="eo-field eo-full">
-                  <label for="eo-domaine">Domaine / Château <span class="eo-req">*</span></label>
-                  <input type="text" id="eo-domaine" name="domaine" required autocomplete="off">
+                  <label for="eo-b1">Bouteille 1 <span class="eo-req">*</span></label>
+                  <input type="text" id="eo-b1" name="bouteille_1" required autocomplete="off" placeholder="Ex. Château Lynch-Bages, Pauillac, 2005">
+                </div>
+              </div>
+              <div class="eo-row">
+                <div class="eo-field eo-full">
+                  <label for="eo-b2">Bouteille 2 <span class="eo-opt">(facultatif)</span></label>
+                  <input type="text" id="eo-b2" name="bouteille_2" autocomplete="off" placeholder="Ex. Domaine Leflaive, Puligny-Montrachet 1er cru, 2017">
+                </div>
+              </div>
+              <div class="eo-row">
+                <div class="eo-field eo-full">
+                  <label for="eo-b3">Bouteille 3 <span class="eo-opt">(facultatif)</span></label>
+                  <input type="text" id="eo-b3" name="bouteille_3" autocomplete="off" placeholder="Ex. Guigal, Côte-Rôtie La Mouline, 1999">
                 </div>
               </div>
 
+              <p class="eo-group">Votre cave</p>
               <div class="eo-row">
                 <div class="eo-field">
-                  <label for="eo-appellation">Appellation <span class="eo-req">*</span></label>
-                  <input type="text" id="eo-appellation" name="appellation" required autocomplete="off">
-                </div>
-                <div class="eo-field">
-                  <label for="eo-millesime">Millésime <span class="eo-req">*</span></label>
-                  <input type="text" id="eo-millesime" name="millesime" required autocomplete="off" inputmode="numeric">
-                </div>
-              </div>
-
-              <div class="eo-row">
-                <div class="eo-field">
-                  <label for="eo-format">Format <span class="eo-req">*</span></label>
-                  <select id="eo-format" name="format" required>
+                  <label for="eo-contexte">Votre situation <span class="eo-req">*</span></label>
+                  <select id="eo-contexte" name="contexte" required>
                     <option value="">Choisir</option>
-                    <option value="Bouteille (75 cl)">Bouteille (75 cl)</option>
-                    <option value="Magnum (1,5 L)">Magnum (1,5 L)</option>
-                    <option value="Autre format">Autre format</option>
+                    <option value="Succession">Succession / héritage</option>
+                    <option value="Assurance">Assurance / déclaration de valeur</option>
+                    <option value="Vente">Vente d'une cave</option>
+                    <option value="Inventaire">Inventaire / patrimoine</option>
+                    <option value="Autre">Autre</option>
                   </select>
                 </div>
                 <div class="eo-field">
-                  <label for="eo-quantite">Quantité <span class="eo-req">*</span></label>
-                  <input type="number" id="eo-quantite" name="quantite" required min="1" value="1">
-                </div>
-              </div>
-
-              <div class="eo-row">
-                <div class="eo-field eo-full">
-                  <label for="eo-nb-references">Combien de références environ dans votre cave&nbsp;?</label>
-                  <select id="eo-nb-references" name="nb_references">
+                  <label for="eo-volume">Taille de la cave <span class="eo-req">*</span></label>
+                  <select id="eo-volume" name="volume" required>
                     <option value="">Choisir</option>
-                    <option value="1 à 10">1 à 10</option>
-                    <option value="10 à 50">10 à 50</option>
-                    <option value="50 à 200">50 à 200</option>
-                    <option value="200 et plus">200 et plus</option>
+                    <option value="Moins de 20">Moins de 20 bouteilles</option>
+                    <option value="20 à 50">20 à 50 bouteilles</option>
+                    <option value="50 à 100">50 à 100 bouteilles</option>
+                    <option value="100 à 300">100 à 300 bouteilles</option>
+                    <option value="Plus de 300">Plus de 300 bouteilles</option>
                   </select>
                 </div>
               </div>
 
+              <p class="eo-group">Vous</p>
               <div class="eo-row">
-                <div class="eo-field eo-full">
-                  <label for="eo-email">Votre email <span class="eo-req">*</span></label>
+                <div class="eo-field">
+                  <label for="eo-prenom">Prénom et nom <span class="eo-req">*</span></label>
+                  <input type="text" id="eo-prenom" name="prenom" required autocomplete="name">
+                </div>
+                <div class="eo-field">
+                  <label for="eo-email">Email <span class="eo-req">*</span></label>
                   <input type="email" id="eo-email" name="email" required autocomplete="email">
                 </div>
               </div>
 
               <label class="eo-check" for="eo-consentement">
                 <input type="checkbox" id="eo-consentement" name="consentement_rgpd" required>
-                <span>J'accepte de recevoir mon estimation et des conseils d'estimation par email. Mes informations ne sont transmises à aucun tiers et sont supprimées sur simple demande à <a href="mailto:contact@estimationcave.com">contact@estimationcave.com</a>. <span class="eo-req">*</span></span>
+                <span>J'accepte que mes informations soient utilisées pour répondre à ma demande. Elles ne sont transmises à aucun tiers et sont supprimées sur simple demande à <a href="mailto:contact@estimationcave.com">contact@estimationcave.com</a>. <span class="eo-req">*</span></span>
               </label>
 
-              <button type="submit" class="eo-btn" id="eo-btn">Recevoir mon estimation</button>
-              <p class="eo-reassurance">Réponse d'un expert indépendant sous 24&nbsp;h · Une estimation offerte par adresse mail · Sans carte bancaire, sans engagement.</p>
+              <button type="submit" class="eo-btn" id="eo-btn">Recevoir mon aperçu offert</button>
+              <p class="eo-reassurance">Réponse sous 48&nbsp;h ouvrées · Un PDF d'une page · Une seule estimation offerte par adresse email · Sans carte bancaire, sans engagement.</p>
             </form>
           </div>
 
@@ -386,7 +413,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             (function(){
               var form=document.getElementById('eo-form');
               if(!form)return;
-              var __fsStarted=false;form.addEventListener('focusin',function(){if(__fsStarted)return;__fsStarted=true;try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'form_start',form_location:'lp_estimation_bouteille'});}catch(_){}});
+              var __fsStarted=false;form.addEventListener('focusin',function(){if(__fsStarted)return;__fsStarted=true;try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'form_start',form_location:'lp_apercu'});}catch(_){}});
               var btn=document.getElementById('eo-btn');
               var feedback=document.getElementById('eo-feedback');
               function setFeedback(type,msg){feedback.className='eo-feedback';if(!msg)return;feedback.classList.add(type==='success'?'is-success':'is-error');feedback.textContent=msg;}
@@ -397,15 +424,15 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
                 btn.disabled=true;btn.textContent='Envoi en cours…';
                 try{
                   var params=new URLSearchParams(new FormData(form));
-                  var res=await fetch('/api/estimation-offerte',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:params});
+                  var res=await fetch('/api/apercu',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:params});
                   var payload={};try{payload=await res.json();}catch(_){}
                   if(res.ok&&payload.success){
                     try{
                       var ecEmail='';try{var ef=document.getElementById('eo-email');ecEmail=ef&&ef.value?ef.value.trim().toLowerCase():'';}catch(_){}
                       window.dataLayer=window.dataLayer||[];
-                      window.dataLayer.push({event:'generate_lead',lead_type:'estimation_offerte',form_location:'lp_estimation_bouteille',value:0,currency:'EUR',user_data:{email:ecEmail}});
+                      window.dataLayer.push({event:'generate_lead',lead_type:'apercu_offert',form_location:'lp_apercu',value:0,currency:'EUR',user_data:{email:ecEmail}});
                     }catch(_){}
-                    setFeedback('success',"Merci, j'ai bien reçu votre demande. Vous recevez votre estimation par email sous 24 h.");
+                    setFeedback('success',"Merci, j'ai bien reçu vos bouteilles. Vous recevez votre aperçu par email sous 48 h ouvrées.");
                     form.reset();
                     feedback.scrollIntoView({behavior:'smooth',block:'center'});
                   }else{
@@ -425,94 +452,135 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
         <section class="section section-dark" id="comment">
             <div class="container">
                 <h2>Comment ça marche&nbsp;?</h2>
-                <p class="section-intro">Trois minutes pour vous, 24&nbsp;h pour moi. Pas de scanner automatique&nbsp;: une vraie estimation, à la main.</p>
+                <p class="section-intro">Trois minutes pour vous, 48&nbsp;h ouvrées pour moi. Pas d'outil automatique&nbsp;: chaque bouteille est relevée à la main.</p>
                 <span class="ornament-long"></span>
                 <div class="pains-grid">
                     <article class="pain-card reveal">
                         <div class="pain-number">1</div>
-                        <h3>Vous décrivez une bouteille</h3>
-                        <p>Domaine, appellation, millésime, format. Le formulaire ci-dessus suffit — pas besoin d'être expert, ni de photo obligatoire.</p>
+                        <h3>Vous nommez trois bouteilles</h3>
+                        <p>Celles qui comptent&nbsp;: les plus anciennes, les plus prestigieuses, ou celles dont vous doutez. Domaine, appellation, millésime suffisent — pas besoin de photo, pas besoin d'être connaisseur.</p>
                     </article>
                     <article class="pain-card reveal">
                         <div class="pain-number">2</div>
-                        <h3>Je cherche sa cote</h3>
-                        <p>Je croise les <strong>résultats de ventes aux enchères</strong> et les <strong>prix du marché</strong> pour votre référence précise. Le regard d'un expert indépendant, pas un prix automatique.</p>
+                        <h3>Je relève leur valeur réelle</h3>
+                        <p>Pour chaque flacon, je relève les <strong>ventes récentes</strong> et les <strong>offres marchandes</strong> du millésime et du format exacts. Le regard d'une experte indépendante, <strong>sans lien avec un acheteur</strong>.</p>
                     </article>
                     <article class="pain-card reveal">
                         <div class="pain-number">3</div>
-                        <h3>Vous recevez sous 24&nbsp;h</h3>
-                        <p>Par email&nbsp;: sa <strong>cote du moment</strong>, sa <strong>tendance</strong> (en hausse, stable, en baisse) et une <strong>recommandation</strong> claire : la garder ou la vendre. Gratuitement.</p>
+                        <h3>Vous recevez un aperçu d'une page</h3>
+                        <p>Sous 48&nbsp;h ouvrées, par email&nbsp;: la <strong>valeur</strong> de chaque bouteille avec sa source, sa <strong>tendance</strong>, sa fenêtre d'apogée et une <strong>recommandation</strong> argumentée. Offert.</p>
                     </article>
                 </div>
             </div>
         </section>
 
-        <!-- ── SECTION 4 — POURQUOI C'EST GRATUIT / SANS PIÈGE ── -->
-        <section class="section section-alt">
-            <div class="container-tight">
-                <h2>Pourquoi c'est gratuit&nbsp;— et sans piège</h2>
+        <!-- ── SECTION 4 — CE QUE VOUS RECEVEZ ── -->
+        <section class="section section-alt" id="apercu">
+            <div class="container-mid">
+                <h2>Ce que contient <em>l'aperçu</em></h2>
+                <p class="section-intro">Un extrait du rapport complet, à l'échelle de trois flacons&nbsp;: la même méthode, la même présentation, les mêmes recommandations.</p>
                 <span class="ornament-long"></span>
-                <div class="usage-block">
-                    <h3>Je ne rachète pas vos bouteilles</h3>
-                    <p>La plupart des estimations « gratuites » viennent de négociants qui espèrent racheter votre vin&nbsp;: leur intérêt est de le sous-évaluer. Moi, je ne rachète rien, je ne touche aucune commission. Mon estimation est <strong>neutre</strong>, dans votre seul intérêt.</p>
-                </div>
-                <div class="usage-block">
-                    <h3>Une bouteille offerte, pour vous montrer mon travail</h3>
-                    <p>C'est ma façon de vous faire découvrir ma méthode sans rien vous demander. Si le sérieux du travail vous convainc et que vous avez une cave entière à estimer, vous saurez où me trouver.</p>
-                </div>
-                <div class="bon-a-savoir">
-                    Aucune carte bancaire, aucun engagement. Vous recevez votre estimation par email, un point c'est tout. Vos informations ne sont transmises à personne et sont supprimées sur simple demande.
+                <div class="apercu-mock reveal" aria-label="Structure de l'aperçu d'une page">
+                    <div class="am-head">
+                        <span class="am-eyebrow">Extrait du rapport complet</span>
+                        <span class="am-date">Aperçu offert · daté et signé</span>
+                    </div>
+                    <div class="am-line">
+                        <div><div class="am-name">Votre bouteille 1</div><div class="am-sub">Appellation · classement · format</div></div>
+                        <div class="am-val">Valeur<small>avec sa source et sa date de relevé</small></div>
+                        <div class="am-reco"><span class="am-tag">À conserver</span> <b>Pourquoi</b> — la fenêtre d'apogée, ce que fait le marché de ce millésime, et ce que vous perdriez à vendre maintenant.</div>
+                    </div>
+                    <div class="am-line">
+                        <div><div class="am-name">Votre bouteille 2</div><div class="am-sub">Appellation · classement · format</div></div>
+                        <div class="am-val">Valeur<small>tendance sur les dernières années</small></div>
+                        <div class="am-reco"><span class="am-tag">À vendre</span> <b>Quand et par quel canal</b> — le moment du cycle, le canal adapté à ce flacon, l'ordre de grandeur net pour vous.</div>
+                    </div>
+                    <div class="am-line">
+                        <div><div class="am-name">Votre bouteille 3</div><div class="am-sub">Appellation · classement · format</div></div>
+                        <div class="am-val">Valeur<small>liquidité du marché</small></div>
+                        <div class="am-reco"><span class="am-tag">À surveiller</span> <b>Quand réexaminer</b> — ce qui doit changer sur le marché avant de décider, et à quelle date revoir la question.</div>
+                    </div>
+                    <p class="am-foot">Selon votre situation, la valeur retenue est la <strong>valeur de remplacement</strong> (ce que coûterait le flacon chez un marchand, base d'une déclaration d'assurance) ou le <strong>prix attendu en vente publique</strong> (succession, vente). Dites-le-moi dans le formulaire, l'aperçu s'adapte.</p>
                 </div>
             </div>
         </section>
 
-        <!-- ── SECTION 5 — QUI ESTIME VOTRE BOUTEILLE ── -->
+        <!-- ── SECTION 5 — POURQUOI C'EST OFFERT ── -->
+        <section class="section">
+            <div class="container-tight">
+                <h2>Pourquoi c'est offert&nbsp;— et sans piège</h2>
+                <span class="ornament-long"></span>
+                <div class="usage-block">
+                    <h3>Je ne rachète pas vos bouteilles</h3>
+                    <p>La plupart des estimations « gratuites » viennent de négociants ou de maisons de vente qui espèrent récupérer votre vin&nbsp;: leur intérêt est de le sous-évaluer. Moi, je ne rachète rien et je ne touche aucune commission. Mon estimation est <strong>neutre</strong>, dans votre seul intérêt.</p>
+                </div>
+                <div class="usage-block">
+                    <h3>Pour vous montrer le travail avant que vous ne payiez quoi que ce soit</h3>
+                    <p>Un audit complet se commande sur la foi d'une page web. Je préfère que vous jugiez sur pièce&nbsp;: trois bouteilles traitées exactement comme le seront les lignes de votre inventaire. Si le sérieux du travail vous convainc et que vous avez une cave entière à estimer, vous saurez à quoi vous attendre.</p>
+                </div>
+                <div class="usage-block">
+                    <h3>Et si votre cave est petite&nbsp;?</h3>
+                    <p>L'aperçu vous donnera déjà l'essentiel. Je vous dirai honnêtement si un audit complet se justifie — pour une vingtaine de bouteilles courantes, souvent non.</p>
+                </div>
+                <div class="bon-a-savoir">
+                    Aucune carte bancaire, aucun engagement. Vous recevez votre aperçu par email, un point c'est tout. Une seule estimation offerte par adresse email. Vos informations ne sont transmises à personne et sont supprimées sur simple demande.
+                </div>
+            </div>
+        </section>
+
+        <!-- ── SECTION 6 — QUI ESTIME VOS BOUTEILLES ── -->
         <section class="section profil-section">
             <div class="container-tight profil">
-                <h2>Qui estime <em>votre bouteille</em>&nbsp;?</h2>
+                <h2>Qui estime <em>vos bouteilles</em>&nbsp;?</h2>
                 <span class="ornament-diamond"></span>
-                <p>Je m'appelle Fanny. Pendant 6&nbsp;ans, j'ai été responsable des ventes aux enchères de vin, et j'ai estimé plusieurs milliers de bouteilles dans tous les contextes. Certifiée WSET niveau 3 avec distinction. Experte indépendante&nbsp;: aucun rachat, aucune commission, aucun conflit d'intérêt.</p>
+                <p>Je m'appelle Fanny. Pendant 6&nbsp;ans, j'ai été responsable des ventes aux enchères de vin, et j'ai estimé plusieurs milliers de bouteilles dans tous les contextes&nbsp;: successions, assurances, ventes. Certifiée WSET niveau 3 avec distinction. Experte indépendante&nbsp;: aucun rachat, aucune commission, aucun conflit d'intérêt.</p>
                 <p style="text-align:center;">
                     <a href="apropos.html" class="profil-link">En savoir plus sur mon parcours →</a>
                 </p>
             </div>
         </section>
 
-        <!-- ── SECTION 6 — FAQ ── -->
-        <section class="section">
+        <!-- ── SECTION 7 — FAQ ── -->
+        <section class="section section-alt">
             <div class="container-tight">
                 <h2>Questions fréquentes</h2>
                 <span class="ornament-long"></span>
                 <div class="faq-list">
                     <div class="faq-item">
-                        <button class="faq-q" type="button" aria-expanded="false">C'est vraiment gratuit&nbsp;?</button>
+                        <button class="faq-q" type="button" aria-expanded="false">C'est vraiment offert&nbsp;?</button>
                         <div class="faq-a">
-                            <p>Oui. Vous indiquez une bouteille et votre email, je vous renvoie sa cote sous 24&nbsp;h — sans carte bancaire et sans engagement. C'est une estimation offerte, pas un devis.</p>
+                            <p>Oui. Vous nommez jusqu'à trois bouteilles et votre email&nbsp;; vous recevez sous 48&nbsp;h ouvrées un PDF d'une page avec leur valeur, leur tendance et un conseil garder ou vendre. Sans carte bancaire et sans engagement. Une seule estimation offerte par adresse email&nbsp;: au-delà de trois bouteilles, c'est l'audit complet qui prend le relais.</p>
                         </div>
                     </div>
                     <div class="faq-item">
-                        <button class="faq-q" type="button" aria-expanded="false">Comment la cote est-elle calculée&nbsp;?</button>
+                        <button class="faq-q" type="button" aria-expanded="false">Quelles bouteilles choisir&nbsp;?</button>
                         <div class="faq-a">
-                            <p>À la main, en croisant les résultats de ventes aux enchères et les prix du marché de la fine wine pour votre domaine, appellation, millésime et format. Ce n'est pas un prix automatique de scanner&nbsp;: c'est le regard d'un expert indépendant.</p>
+                            <p>Celles qui comptent&nbsp;: les plus anciennes, les plus prestigieuses, ou celles dont vous doutez. Un grand cru, un vieux millésime et une bouteille que vous n'arrivez pas à situer donnent un aperçu très représentatif de ce que l'audit complet dira de toute la cave.</p>
                         </div>
                     </div>
                     <div class="faq-item">
-                        <button class="faq-q" type="button" aria-expanded="false">Et si j'ai plusieurs bouteilles, voire toute une cave&nbsp;?</button>
+                        <button class="faq-q" type="button" aria-expanded="false">Et si je n'ai qu'une ou deux bouteilles&nbsp;?</button>
                         <div class="faq-a">
-                            <p>L'estimation offerte porte sur une bouteille, pour vous donner un aperçu. Pour une cave entière — succession, assurance, vente — l'audit complet chiffre chaque bouteille et vous dit quoi garder et quoi vendre. Voir juste en dessous.</p>
+                            <p>Une seule suffit, les champs 2 et 3 sont facultatifs. Si votre cave est petite, l'aperçu vous donnera déjà l'essentiel et je vous dirai honnêtement si un audit complet se justifie.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" type="button" aria-expanded="false">Quelle différence avec l'audit complet à 199&nbsp;€&nbsp;?</button>
+                        <div class="faq-a">
+                            <p>La même méthode, appliquée à toute la cave&nbsp;: chaque bouteille est chiffrée, avec son apogée, sa liquidité et une recommandation, puis un plan d'action indique quoi garder, quoi vendre, à qui et quand. Pour une succession ou une assurance, le rapport constitue la pièce documentée à présenter au notaire ou à l'assureur. L'aperçu en est un extrait, sur trois flacons.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ── SECTION 7 — CTA FINAL : UPSELL AUDIT (discret) ── -->
+        <!-- ── SECTION 8 — CTA FINAL : AUDIT COMPLET ── -->
         <section class="cta-final">
             <div class="container-narrow">
                 <h2>Vous avez <em style="color: var(--or);">toute une cave</em> à estimer&nbsp;?</h2>
-                <p class="lead">Une estimation ponctuelle suffit pour une bouteille. Mais si vous avez hérité d'une cave, devez la déclarer à une assurance ou à un notaire, ou souhaitez la vendre, l'audit complet chiffre <strong style="color:var(--blanc);">chaque</strong> bouteille et vous dit quoi garder, quoi vendre, à qui et quand.</p>
+                <p class="lead">Si vous avez hérité d'une cave, devez la déclarer à votre assureur ou à un notaire, ou souhaitez la vendre, l'audit complet chiffre <strong style="color:var(--blanc);">chaque</strong> bouteille et vous dit quoi garder, quoi vendre, à qui et quand.</p>
                 <a href="/#formulaire" class="btn-gold">Découvrir l'audit complet — 199&nbsp;€</a>
-                <p class="subtext">Inventaire détaillé, valeur de marché bouteille par bouteille, recommandations et plan d'action personnalisé. Livré sous 5 jours ouvrés, 100&nbsp;% à distance.</p>
+                <p class="subtext">Inventaire détaillé, valeur bouteille par bouteille, recommandations et plan d'action personnalisé. Livré sous 5 jours ouvrés, 100&nbsp;% à distance.</p>
             </div>
         </section>
 
@@ -562,7 +630,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
         </div>
     </footer>
 
-    <a href="#estimation-offerte" class="sticky-cta" data-cta="sticky-mobile" aria-label="Estimer ma bouteille gratuitement">Estimer ma bouteille gratuitement</a>
+    <a href="#estimation-offerte" class="sticky-cta" data-cta="sticky-mobile" aria-label="Recevoir mon aperçu offert">Recevoir mon aperçu offert</a>
 
     <button id="btt" aria-label="Retour en haut" style="position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:#2D1B2E;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s cubic-bezier(.33,1,.68,1),visibility .3s cubic-bezier(.33,1,.68,1),transform .3s cubic-bezier(.33,1,.68,1);z-index:999;box-shadow:0 4px 16px rgba(45,27,46,.25);">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C5A258" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>

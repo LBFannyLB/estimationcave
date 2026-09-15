@@ -82,12 +82,14 @@ function buildEmailHtml(d, files, sourcePage) {
             ${row('Nom', d.nom)}
             ${row('Email', d.email)}
             ${row('Téléphone', d.telephone)}
+            ${row('Rappel souhaité', d.rappel ? `${d.creneau || 'créneau non précisé'}` : 'Non demandé')}
           </table>
 
           <h2 style="font-family:Georgia,serif;color:#2D1B2E;font-size:16px;margin:0 0 12px;">Demande</h2>
           <table width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #eee;margin-bottom:24px;border-collapse:collapse;">
             ${row('Contexte', d.contexte)}
             ${row('Volume estimé', d.volume ? `${d.volume} bouteilles` : '')}
+            ${row('Échéance', d.echeance)}
             ${row('Format disponible', d.format)}
           </table>
 
@@ -180,6 +182,17 @@ export default async function handler(req, res) {
     });
   }
 
+  // ── Rappel téléphonique (optionnel) : créneau + numéro obligatoires si coché ──
+  data.rappel = ['on', 'true', '1'].includes(String(data.rappel ?? '').toLowerCase());
+  data.creneau = String(data.creneau ?? '').trim().slice(0, 60);
+  if (data.rappel && !String(data.telephone ?? '').trim()) {
+    return res.status(400).json({
+      success: false,
+      error: 'Pour être rappelé(e), merci d’indiquer un numéro de téléphone.',
+      field: 'telephone',
+    });
+  }
+
   // ── Validation fichiers ──
   const fileList = files.fichiers
     ? Array.isArray(files.fichiers)
@@ -248,13 +261,15 @@ export default async function handler(req, res) {
       situation: data.situation,
       nb_fichiers: realFiles.length,
       source_page: sourcePage,
+      rappel: data.rappel ? (data.creneau || 'oui') : null,
+      echeance: data.echeance ? String(data.echeance).trim().slice(0, 300) : null,
     });
   } catch (err) {
     console.error('[contact] persistance DB échouée (non bloquant) :', err);
   }
 
   // ── Envoi via Resend ──
-  const subject = `[Demande estimation] ${data.nom || data.prenom || 'Contact'} - ${data.volume} bouteilles - ${data.contexte}`;
+  const subject = `[Demande estimation] ${data.nom || data.prenom || 'Contact'} - ${data.volume} bouteilles - ${data.contexte}${data.rappel ? ' - RAPPEL ' + (data.creneau || '') : ''}`;
   const html = buildEmailHtml(data, realFiles, sourcePage);
   const resend = new Resend(process.env.RESEND_API_KEY);
 

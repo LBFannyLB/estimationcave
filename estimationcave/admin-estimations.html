@@ -80,6 +80,9 @@
   .badge.warm{background:var(--or-pale);color:#7a6a3a;}
   .badge.type-audit{background:var(--bordeaux);color:var(--fond);}
   .badge.type-offerte{background:var(--or-pale);color:#7a6a3a;border:1px solid var(--border);}
+  .badge.type-apercu{background:var(--or);color:var(--bordeaux);}
+  .rappel{display:inline-block;margin-top:4px;font-size:11px;font-weight:600;color:#fff;background:var(--vert);padding:1px 8px;border-radius:20px;}
+  .echeance{display:block;margin-top:3px;font-size:12px;color:var(--rouge);font-weight:500;}
   .cave-txt{font-size:12px;color:var(--gris);display:block;margin-top:2px;}
   .c-prospect strong{color:var(--bordeaux);font-weight:600;display:block;}
   .c-prospect .tel{color:var(--gris);font-size:12px;display:block;margin-top:2px;}
@@ -165,6 +168,7 @@
   ];
   var TYPES = [
     {v:'demande', l:'Audits 199€'},
+    {v:'apercu',  l:'Aperçus 3 btl'},
     {v:'offerte', l:'Offertes'}
   ];
   var all = [];
@@ -189,13 +193,19 @@
     catch(_){ return 'lien'; }
   }
   function typeBadge(t){
-    return (t==='demande')
-      ? '<span class="badge type-audit">Audit 199€</span>'
-      : '<span class="badge type-offerte">Offerte</span>';
+    if(t==='demande') return '<span class="badge type-audit">Audit 199€</span>';
+    if(t==='apercu')  return '<span class="badge type-apercu">Aperçu 3 btl</span>';
+    return '<span class="badge type-offerte">Offerte</span>';
+  }
+  function rappelBadge(l){
+    return l.rappel ? '<span class="rappel">☎ rappel · '+esc(l.rappel)+'</span>' : '';
+  }
+  function echeanceLine(l){
+    return l.echeance ? '<span class="echeance">⏱ '+esc(l.echeance)+'</span>' : '';
   }
   // Cellule « taille » : nb de références (offerte) ou volume estimé (demande d'audit).
   function sizeCell(l){
-    var demande = (l.type==='demande');
+    var demande = (l.type==='demande' || l.type==='apercu');
     var v = demande ? l.volume : l.nb_references;
     var b='';
     if(demande){
@@ -209,13 +219,17 @@
   }
   function prospectCell(l){
     var mail = '<a href="mailto:'+esc(l.email)+'">'+esc(l.email)+'</a>';
-    if(l.type!=='demande') return mail;
+    if(l.type==='offerte' || !l.type) return mail;
     var name = [l.prenom,l.nom].filter(Boolean).map(esc).join(' ');
     var tel = l.telephone ? '<span class="tel">'+esc(l.telephone)+'</span>' : '';
-    return (name?'<strong>'+name+'</strong>':'') + mail + tel;
+    return (name?'<strong>'+name+'</strong>':'') + mail + tel + rappelBadge(l);
   }
   // Cellule « demande » : la bouteille (offerte) ou le contexte + format + situation (audit).
   function demandeCell(l){
+    if(l.type==='apercu'){
+      var bt = String(l.bouteilles||'').split(' | ').filter(Boolean).map(function(b){return '<span>'+esc(b)+'</span>';}).join('<br>');
+      return '<strong>'+esc(l.contexte||'—')+'</strong>'+bt+echeanceLine(l);
+    }
     if(l.type==='demande'){
       var meta = [l.format].filter(Boolean).map(esc).join(' · ');
       var n = Number(l.nb_fichiers)||0;
@@ -226,7 +240,7 @@
         var short = s.length>90 ? s.slice(0,90)+'…' : s;
         sit = '<span class="detail-note" title="'+esc(s)+'">'+esc(short)+'</span>';
       }
-      return '<strong>'+esc(l.contexte||'—')+'</strong>'+(meta?'<span>'+meta+'</span>':'')+sit+files;
+      return '<strong>'+esc(l.contexte||'—')+'</strong>'+(meta?'<span>'+meta+'</span>':'')+sit+files+echeanceLine(l);
     }
     return '<strong>'+esc(l.domaine||'—')+'</strong><span>'+
       [l.appellation,l.millesime,l.format,l.quantite].filter(Boolean).map(esc).join(' · ')+'</span>';
