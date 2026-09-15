@@ -89,6 +89,7 @@
   .badge.type-audit{background:var(--bordeaux);color:var(--fond);}
   .badge.type-offerte{background:var(--or-pale);color:#7a6a3a;border:1px solid var(--border);}
   .badge.type-apercu{background:var(--or);color:var(--bordeaux);}
+  .badge.type-tableur{background:#eef2ec;color:var(--vert);border:1px solid #cfdccb;}
   .rappel{display:inline-block;margin-top:4px;font-size:11px;font-weight:600;color:#fff;background:var(--vert);padding:1px 8px;border-radius:20px;}
   .echeance{display:block;margin-top:3px;font-size:12px;color:var(--rouge);font-weight:500;}
   .cave-txt{font-size:12px;color:var(--gris);display:block;margin-top:2px;}
@@ -179,7 +180,8 @@
   var TYPES = [
     {v:'demande', l:'Audits 199€'},
     {v:'apercu',  l:'Aperçus 3 btl'},
-    {v:'offerte', l:'Offertes'}
+    {v:'offerte', l:'Offertes'},
+    {v:'tableur', l:'Tableur'}
   ];
   var all = [];
   var filter = '';
@@ -233,6 +235,7 @@
   function typeBadge(t){
     if(t==='demande') return '<span class="badge type-audit">Audit 199€</span>';
     if(t==='apercu')  return '<span class="badge type-apercu">Aperçu 3 btl</span>';
+    if(t==='tableur') return '<span class="badge type-tableur">Tableur</span>';
     return '<span class="badge type-offerte">Offerte</span>';
   }
   function rappelBadge(l){
@@ -243,6 +246,7 @@
   }
   // Cellule « taille » : nb de références (offerte) ou volume estimé (demande d'audit).
   function sizeCell(l){
+    if(l.type==='tableur') return '<span class="cave-txt">—</span>';
     var demande = (l.type==='demande' || l.type==='apercu');
     var v = demande ? l.volume : l.nb_references;
     var b='';
@@ -257,13 +261,16 @@
   }
   function prospectCell(l){
     var mail = '<a href="mailto:'+esc(l.email)+'">'+esc(l.email)+'</a>';
-    if(l.type==='offerte' || !l.type) return mail;
+    if(l.type==='offerte' || l.type==='tableur' || !l.type) return mail;
     var name = [l.prenom,l.nom].filter(Boolean).map(esc).join(' ');
     var tel = l.telephone ? '<span class="tel">'+esc(l.telephone)+'</span>' : '';
     return (name?'<strong>'+name+'</strong>':'') + mail + tel + rappelBadge(l);
   }
   // Cellule « demande » : la bouteille (offerte) ou le contexte + format + situation (audit).
   function demandeCell(l){
+    if(l.type==='tableur'){
+      return '<strong>Tableur envoyé</strong><span>Fichier + guide de remplissage par email</span>';
+    }
     if(l.type==='apercu'){
       var bt = String(l.bouteilles||'').split(' | ').filter(Boolean).map(function(b){return '<span>'+esc(b)+'</span>';}).join('<br>');
       return '<strong>'+esc(l.contexte||'—')+'</strong>'+bt+echeanceLine(l);

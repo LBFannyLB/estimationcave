@@ -57,7 +57,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
     <meta property="og:locale" content="fr_FR">
     <meta property="og:image" content="https://estimationcave.com/og-image.png">
     <link rel="canonical" href="https://estimationcave.com/article-tableur-excel-gestion-cave.html">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Tableur Excel pour gérer sa cave à vins : template gratuit","datePublished":"2026-04-20","dateModified":"2026-08-03","author":{"@type":"Person","name":"Fanny Lonqueu-Brochard","url":"https://estimationcave.com/apropos.html"},"publisher":{"@type":"Organization","name":"estimationcave.com","url":"https://estimationcave.com","logo":{"@type":"ImageObject","url":"https://estimationcave.com/grappe-doree.png"},"sameAs":["https://www.linkedin.com/company/estimationcave-com","https://www.google.com/maps?cid=972588023304097020"]},"url":"https://estimationcave.com/article-tableur-excel-gestion-cave.html","description":"Un template Excel et Google Sheets gratuit pour gérer sa cave à vins — les 12 colonnes essentielles, la méthode pour bien remplir et les erreurs à éviter.","mainEntityOfPage":{"@type":"WebPage","@id":"https://estimationcave.com/article-tableur-excel-gestion-cave.html"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Tableur Excel pour gérer sa cave à vins : template gratuit","datePublished":"2026-04-20","dateModified":"2026-09-15","author":{"@type":"Person","name":"Fanny Lonqueu-Brochard","url":"https://estimationcave.com/apropos.html"},"publisher":{"@type":"Organization","name":"estimationcave.com","url":"https://estimationcave.com","logo":{"@type":"ImageObject","url":"https://estimationcave.com/grappe-doree.png"},"sameAs":["https://www.linkedin.com/company/estimationcave-com","https://www.google.com/maps?cid=972588023304097020"]},"url":"https://estimationcave.com/article-tableur-excel-gestion-cave.html","description":"Un template Excel et Google Sheets gratuit pour gérer sa cave à vins — les 12 colonnes essentielles, la méthode pour bien remplir et les erreurs à éviter.","mainEntityOfPage":{"@type":"WebPage","@id":"https://estimationcave.com/article-tableur-excel-gestion-cave.html"}}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Existe-t-il un logiciel gratuit pour gérer sa cave ?","acceptedAnswer":{"@type":"Answer","text":"Plusieurs outils existent. Les applications mobiles (Vivino, CellarTracker en version gratuite limitée, Vinocell) permettent de scanner une étiquette et de créer un inventaire simple. Leurs limites : pas de colonne valeur de marché fiable, pas d'export exploitable pour un notaire ou un assureur, peu de flexibilité pour personnaliser les colonnes. Un tableur (Excel ou Google Sheets) reste la solution la plus flexible et gratuite pour une vraie gestion patrimoniale — à condition de partir sur les bonnes colonnes dès le départ."}},{"@type":"Question","name":"Peut-on utiliser Google Sheets au lieu d'Excel ?","acceptedAnswer":{"@type":"Answer","text":"Oui, sans aucune difficulté. Google Sheets a l'avantage d'être gratuit, accessible depuis n'importe quel appareil, et partageable en un clic avec un notaire, un cohéritier ou un expert. Le template est disponible dans les deux formats — Google Sheets avec un lien « Faire une copie », et fichier .xlsx pour ceux qui préfèrent Excel en local. Les formules et la structure sont identiques."}},{"@type":"Question","name":"Faut-il connaître le vin pour remplir un inventaire ?","acceptedAnswer":{"@type":"Answer","text":"Non. Les 12 colonnes à remplir ne demandent aucune expertise technique : nom du domaine, appellation, millésime, quantité, couleur, format, état visible de la bouteille. Ces informations se lisent sur l'étiquette ou s'observent directement. En revanche, les colonnes d'analyse — valeur de marché, recommandation, apogée — exigent un croisement de sources et une connaissance des tendances par région. C'est la raison pour laquelle notre rapport d'audit complète le tableur sur cette partie."}},{"@type":"Question","name":"Comment calculer la valeur d'une cave depuis un tableur ?","acceptedAnswer":{"@type":"Answer","text":"Une fois les colonnes « valeur unitaire » et « quantité » renseignées, une simple formule SOMMEPROD (=SOMMEPROD(quantité;valeur_unitaire)) calcule la valeur totale de la cave. Le template intègre cette formule par défaut. La difficulté n'est pas le calcul — c'est l'obtention d'une valeur unitaire fiable par bouteille. Une recherche Google rapide donne un chiffre, mais rarement le bon : il faut croiser plusieurs sources (Wine-Searcher, iDealwine, Vinous, enchères récentes) et tenir compte de l'état et du millésime."}}]}</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -147,6 +147,21 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             justify-content: center;
             flex-wrap: wrap;
         }
+        /* Formulaire « tableur contre email » (15/09/2026) */
+        .tableur-form { max-width: 560px; margin: 0 auto; text-align: left; }
+        .tableur-form .hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+        .tableur-form .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+        .tableur-row { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+        .tableur-row input[type="email"] { flex: 1 1 220px; padding: 0.8rem 0.95rem; border: 1px solid var(--border); border-radius: 4px; font-family: var(--font-body); font-size: 0.98rem; color: var(--texte); background: var(--blanc); }
+        .tableur-row input[type="email"]:focus { outline: none; border-color: var(--or); box-shadow: 0 0 0 3px rgba(197,162,88,0.18); }
+        .tableur-row .btn-download { border: none; cursor: pointer; font-family: var(--font-body); }
+        .tableur-consent { display: flex; gap: 0.55rem; align-items: flex-start; font-size: 0.8rem; line-height: 1.45; color: var(--texte-light); margin: 0.8rem 0 0; cursor: pointer; }
+        .tableur-consent input { margin-top: 0.2rem; accent-color: var(--or); flex: none; }
+        .tableur-feedback { display: none; margin: 0.9rem 0 0; padding: 0.85rem 1rem; border-radius: 4px; font-size: 0.92rem; line-height: 1.5; text-align: left; }
+        .tableur-feedback.is-success { display: block; background: var(--bordeaux); color: var(--fond); }
+        .tableur-feedback.is-error { display: block; background: rgba(180,40,40,0.08); border: 1px solid #b42828; color: #8a2020; }
+        .tableur-form.is-sent .tableur-row, .tableur-form.is-sent .tableur-consent { display: none; }
+        @media (max-width: 560px) { .tableur-row .btn-download { width: 100%; justify-content: center; } }
         .btn-download {
             display: inline-flex;
             align-items: center;
@@ -447,22 +462,28 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             <!-- ══ SECTION 4 ══ -->
             <h2 id="telecharger">Télécharger le template gratuit</h2>
 
-            <p>Le template est disponible en deux formats : Google Sheets (accessible en ligne) et Excel (.xlsx pour une utilisation locale). Les deux contiennent exactement les 18 colonnes décrites plus haut — 12 à remplir par vos soins, 6 à compléter par un audit professionnel.</p>
+            <p>Le template existe en deux formats : Google Sheets (accessible en ligne) et Excel (.xlsx pour une utilisation locale). Je vous envoie les deux par email, avec les quatre erreurs de remplissage décrites plus bas. Ils contiennent exactement les 18 colonnes décrites plus haut — 12 à remplir par vos soins, 6 à compléter par un audit professionnel.</p>
 
 
             <div class="download-box">
-                <p class="download-box-title">Télécharger le template</p>
-                <p>Version Google Sheets (le lien ouvre automatiquement une copie dans votre compte) ou Excel local (.xlsx). Gratuit, sans inscription.</p>
-                <div class="download-buttons">
-                    <a href="https://docs.google.com/spreadsheets/d/1nLKXI-xhbkwy3WyHRRiRj9quLnHzESoiHhivAKyo2Yw/copy" class="btn-download" target="_blank" rel="noopener" aria-label="Télécharger le template Google Sheets">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                        Google Sheets — Faire une copie
-                    </a>
-                    <a href="/inventaire-cave-template.xlsx" class="btn-download btn-download-secondary" download aria-label="Télécharger le template Excel XLSX">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                        Excel .xlsx
-                    </a>
-                </div>
+                <p class="download-box-title">Recevoir le tableur</p>
+                <p>Le fichier arrive tout de suite dans votre boîte — Excel en pièce jointe, Google Sheets en lien — avec les 4 erreurs qui bloquent une estimation. Gratuit.</p>
+                <form id="tableur-form" class="tableur-form" novalidate>
+                    <div class="hp-field" aria-hidden="true">
+                        <label for="tableur-website">Site web (laissez vide)</label>
+                        <input type="text" id="tableur-website" name="website" tabindex="-1" autocomplete="off">
+                    </div>
+                    <div class="tableur-row">
+                        <label for="tableur-email" class="sr-only">Votre email</label>
+                        <input type="email" id="tableur-email" name="email" required autocomplete="email" placeholder="votre@email.fr">
+                        <button type="submit" class="btn-download" id="tableur-submit">Recevoir le tableur →</button>
+                    </div>
+                    <label class="tableur-consent">
+                        <input type="checkbox" id="tableur-consent" name="consentement_rgpd" required>
+                        <span>J'accepte de recevoir le tableur et le guide de remplissage par email (un seul envoi). Aucune transmission à des tiers.</span>
+                    </label>
+                    <div class="tableur-feedback" id="tableur-feedback" role="status" aria-live="polite"></div>
+                </form>
                 <p class="download-note">Ce template utilise le même format que nos rapports professionnels — si vous nous envoyez votre inventaire rempli, nous pouvons directement compléter les colonnes manquantes.</p>
             </div>
 
@@ -556,7 +577,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
         @media(max-width:560px){.ao-title{font-size:1.5rem;}.ao-section{padding:2.4rem 1.25rem;}}
       </style>
       <div class="ao-wrap">
-        <p class="ao-eyebrow">Vous venez de télécharger le modèle&nbsp;?</p>
+        <p class="ao-eyebrow">Vous avez demandé le modèle&nbsp;?</p>
         <h2 class="ao-title">Il vous manque les colonnes grisées&nbsp;?</h2>
         <p class="ao-sub">Valeur, garder ou vendre, apogée&nbsp;: ce sont les colonnes que le tableur ne remplit pas seul. L'aperçu offert les complète pour trois bouteilles de votre choix, sous 48&nbsp;h ouvrées, sans engagement.</p>
         <a class="ao-btn" href="/estimation-bouteille.html" data-cta="apercu_tableur">Recevoir mon aperçu offert</a>
@@ -674,29 +695,53 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
     </script>
   <script src="/js/estimation-slidein.js" defer></script>
 
-  <!-- Déclencheur au téléchargement : ouvre l'estimation offerte au pic d'intention (juste après le download) -->
+  <!-- Tableur contre email : envoi du fichier par /api/tableur, puis message de confirmation -->
   <script>
     (function () {
-      document.addEventListener("DOMContentLoaded", function () {
-        var btns = document.querySelectorAll(".download-box a.btn-download");
-        btns.forEach(function (b) {
-          b.addEventListener("click", function () {
-            try {
-              var href = b.getAttribute("href") || "";
-              window.dataLayer = window.dataLayer || [];
-              window.dataLayer.push({ event: "template_download", format: href.indexOf("docs.google") >= 0 ? "google_sheets" : "xlsx", form_location: "estimation_offerte_tableur", link_url: href });
-            } catch (_) {}
-            setTimeout(function () {
-              if (window.estimationOfferte && typeof window.estimationOfferte.open === "function") {
-                window.estimationOfferte.open({
-                  eyebrow: "Votre modèle est téléchargé",
-                  title: "Il vous manque les colonnes grisées ?",
-                  sub: "Valeur, garder ou vendre, apogée : ce sont les colonnes que le tableur ne remplit pas seul. L'aperçu offert les complète pour trois bouteilles de votre choix — sous 48 h ouvrées, sans engagement."
-                });
-              }
-            }, 600);
-          });
-        });
+      var form = document.getElementById("tableur-form");
+      if (!form) return;
+      var btn = document.getElementById("tableur-submit");
+      var feedback = document.getElementById("tableur-feedback");
+      var started = false;
+      function setFeedback(type, msg) {
+        feedback.className = "tableur-feedback";
+        if (!msg) return;
+        feedback.classList.add(type === "success" ? "is-success" : "is-error");
+        feedback.textContent = msg;
+      }
+      form.addEventListener("focusin", function () {
+        if (started) return; started = true;
+        try { window.dataLayer = window.dataLayer || []; window.dataLayer.push({ event: "form_start", form_location: "tableur_email" }); } catch (_) {}
+      });
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        setFeedback(null, "");
+        var email = form.querySelector("#tableur-email");
+        var consent = form.querySelector("#tableur-consent");
+        if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+          setFeedback("error", "Indiquez une adresse email valide pour recevoir le fichier."); email.focus(); return;
+        }
+        if (!consent.checked) {
+          setFeedback("error", "Cochez la case pour que je puisse vous envoyer le fichier."); return;
+        }
+        var original = btn.textContent; btn.disabled = true; btn.textContent = "Envoi en cours…";
+        try {
+          var params = new URLSearchParams(new FormData(form));
+          try { var pc = sessionStorage.getItem("ec_parcours"); if (pc) params.append("parcours", pc); } catch (_) {}
+          var res = await fetch("/api/tableur", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: params });
+          var payload = {}; try { payload = await res.json(); } catch (_) {}
+          if (res.ok && payload.success) {
+            try { window.dataLayer = window.dataLayer || []; window.dataLayer.push({ event: "template_download", format: "email", form_location: "tableur_email" }); } catch (_) {}
+            form.classList.add("is-sent");
+            setFeedback("success", "C'est envoyé ! Regardez votre boîte (et les indésirables, au cas où) : le fichier Excel est en pièce jointe, le lien Google Sheets dans le message.");
+          } else {
+            setFeedback("error", payload.error || "Une erreur est survenue, merci de réessayer ou d'écrire à contact@estimationcave.com.");
+          }
+        } catch (_) {
+          setFeedback("error", "Connexion impossible. Réessayez dans un instant, ou écrivez à contact@estimationcave.com.");
+        } finally {
+          btn.disabled = false; btn.textContent = original;
+        }
       });
     })();
   </script>

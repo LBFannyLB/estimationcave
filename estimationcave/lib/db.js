@@ -27,6 +27,8 @@ function sql() {
 // La table héberge DEUX types de leads distingués par la colonne `type` :
 //   • 'offerte'  → estimation offerte (1 bouteille)  : domaine/appellation/millesime/quantite/nb_references
 //   • 'demande'  → demande d'audit 199 € (formulaire): prenom/nom/telephone/contexte/volume/situation
+//   • 'apercu'   → aperçu offert (3 bouteilles)        : prenom/contexte/volume/bouteilles/echeance/rappel
+//   • 'tableur'  → tableur d'inventaire contre email  : email seul (fichier envoyé par email)
 // Colonnes communes : format, email, source_page, landing_page, referrer, parcours, statut, cote, notes.
 let _schemaReady = null;
 export function ensureSchema() {
@@ -133,6 +135,31 @@ export async function insertApercu(d) {
       ('apercu', ${d.prenom ?? null}, ${d.email ?? null}, ${d.telephone ?? null},
        ${d.contexte ?? null}, ${d.volume ?? null}, ${d.bouteilles ?? null},
        ${d.echeance ?? null}, ${d.rappel ?? null}, ${d.source_page ?? null},
+       ${d.landing_page || null}, ${d.referrer || null}, ${d.parcours ?? null})
+    RETURNING id
+  `;
+  return rows[0];
+}
+
+// Le tableur d'inventaire a-t-il déjà été envoyé à cette adresse ? (une ligne par adresse)
+export async function findTableurByEmail(email) {
+  await ensureSchema();
+  const rows = await sql()`
+    SELECT id, created_at FROM estimation_leads
+     WHERE type = 'tableur' AND lower(email) = lower(${email})
+     ORDER BY created_at ASC LIMIT 1
+  `;
+  return rows[0] || null;
+}
+
+// Insère une demande de tableur d'inventaire (email contre fichier). Retourne { id }.
+export async function insertTableur(d) {
+  await ensureSchema();
+  const rows = await sql()`
+    INSERT INTO estimation_leads
+      (type, email, source_page, landing_page, referrer, parcours)
+    VALUES
+      ('tableur', ${d.email ?? null}, ${d.source_page ?? null},
        ${d.landing_page || null}, ${d.referrer || null}, ${d.parcours ?? null})
     RETURNING id
   `;
