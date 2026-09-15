@@ -46,6 +46,9 @@ function buildEmailHtml() {
   const p = (t) => `<p style="margin:0 0 14px;">${t}</p>`;
   const li = (title, body) =>
     `<li style="margin:0 0 10px;"><strong style="color:#2D1B2E;">${title}</strong> ${body}</li>`;
+  // Intertitres dans la police du corps, précédés du losange doré du site.
+  const h2 = (t) =>
+    `<p style="margin:22px 0 10px;font-size:15px;font-weight:bold;color:#2D1B2E;"><span style="color:#C5A258;font-size:11px;vertical-align:1px;">&#9670;</span>&nbsp; ${t}</p>`;
   return `<!doctype html>
 <html><body style="margin:0;padding:0;background:#FAF6F0;">
   <table width="100%" cellpadding="0" cellspacing="0" style="padding:24px 0;">
@@ -59,7 +62,7 @@ function buildEmailHtml() {
             : `Voici le tableur d'inventaire, en pièce jointe. Vous travaillez plutôt dans Google Sheets&nbsp;? Ouvrez la pièce jointe depuis Gmail (icône Sheets), elle s'importe telle quelle, avec ses onglets et ses listes déroulantes.`)}
           ${p(`Il contient 18 colonnes&nbsp;: <strong>12 à remplir par vous</strong>, à partir des étiquettes, et <strong>6 grisées</strong> dont je vous reparle plus bas.`)}
 
-          <h2 style="font-family:Georgia,serif;font-size:17px;font-weight:normal;color:#2D1B2E;margin:22px 0 10px;">Avant de commencer — les 4 erreurs que je vois dans presque tous les inventaires</h2>
+          ${h2('Avant de commencer — les 4 erreurs que je vois dans presque tous les inventaires')}
           <ol style="margin:0 0 18px;padding-left:20px;">
             ${li('Le millésime oublié.', `Sans lui, pas d'estimation possible&nbsp;: le même château vaut 150&nbsp;€ sur un millésime modeste et 400&nbsp;€ sur un grand. Illisible&nbsp;? Écrivez «&nbsp;illisible&nbsp;», c'est déjà une information.`)}
             ${li(`L'appellation à la place du domaine.`, `«&nbsp;Pauillac&nbsp;» ou «&nbsp;Gevrey-Chambertin&nbsp;» sont des appellations&nbsp;; le domaine, c'est «&nbsp;Château Lynch-Bages&nbsp;» ou «&nbsp;Armand Rousseau&nbsp;». C'est le domaine qui fait la valeur.`)}
@@ -67,7 +70,7 @@ function buildEmailHtml() {
             ${li('Le niveau non vérifié.', `Sur les bouteilles de plus de dix ans, le niveau dans le goulot est le premier indicateur de l'état&nbsp;; un niveau bas peut décoter de 50 à 70&nbsp;%.`)}
           </ol>
 
-          <h2 style="font-family:Georgia,serif;font-size:17px;font-weight:normal;color:#2D1B2E;margin:22px 0 10px;">Les 6 colonnes grisées</h2>
+          ${h2('Les 6 colonnes grisées')}
           ${p(`Valeur, garder ou vendre, apogée, garde résiduelle, canal de vente, date de réexamen&nbsp;: elles ne se lisent pas sur l'étiquette, elles demandent un relevé de marché. Si vous voulez voir ce que ça donne sur votre cave, l'aperçu offert les remplit pour <strong>trois bouteilles de votre choix</strong> — un PDF d'une page, sous 48&nbsp;h ouvrées, sans engagement.`)}
           <p style="margin:0 0 22px;"><a href="${APERCU_URL}" style="display:inline-block;background:#2D1B2E;color:#FAF6F0;text-decoration:none;font-weight:bold;padding:11px 22px;">Demander mon aperçu offert</a></p>
 
