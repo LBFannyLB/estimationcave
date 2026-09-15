@@ -684,6 +684,12 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
+    .apercu-usage { max-width: 720px; margin: 2rem auto 0; text-align: center; font-size: 0.95rem; line-height: 1.7; color: var(--texte-light); }
+    .kpi-engagements { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 900px; margin: 2.5rem auto 0; }
+    .kpi-engagement { padding: 1.5rem 1.75rem; border-left: 3px solid var(--or); background: var(--blanc); }
+    .kpi-engagement h3 { font-family: var(--font-display); font-size: 1.2rem; color: var(--bordeaux); margin: 0 0 0.5rem; }
+    .kpi-engagement p { font-size: 0.93rem; line-height: 1.7; color: var(--texte); margin: 0; }
+    @media (max-width: 700px) { .kpi-engagements { grid-template-columns: 1fr; gap: 1rem; } }
     .kpi-item {
       text-align: center;
       padding: 3rem 1.5rem;
@@ -2315,21 +2321,20 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
           <div class="situation-narr-content">
             <h3>Succession ou héritage</h3>
             <p class="situation-narr-quote">«&nbsp;Mon père nous a laissé sa cave. On ignore tout de sa valeur.&nbsp;»</p>
-            <p>Vous avez hérité d'une cave et vous ne savez pas précisément ce qu'elle contient, ni quelle valeur elle représente.</p>
+            <p>Vous avez hérité d'une cave et vous ne savez ni ce qu'elle contient, ni quelle valeur déclarer ou partager. Le rapport chiffre chaque bouteille et se joint au dossier du notaire.</p>
           </div>
         </div>
         <div class="situation-narr">
           <div class="situation-narr-icon">
             <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="4" y="8" width="28" height="22" rx="2" stroke="#C5A258" stroke-width="1.2"/>
-              <path d="M10 24l6-8 5 5 5-7" stroke="#C5A258" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
-              <circle cx="26" cy="14" r="2" stroke="#C5A258" stroke-width="1.2"/>
+              <path d="M18 4L6 9v9c0 7.2 5.1 13.6 12 16 6.9-2.4 12-8.8 12-16V9L18 4z" stroke="#C5A258" stroke-width="1.2" stroke-linejoin="round"/>
+              <path d="M13 18l3.5 3.5L23 15" stroke="#C5A258" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
           <div class="situation-narr-content">
-            <h3>Vente partielle ou totale</h3>
-            <p class="situation-narr-quote">«&nbsp;J'aimerais vendre quelques bouteilles, mais je ne veux pas brader.&nbsp;»</p>
-            <p>Vous voulez vendre au bon prix, au bon moment, sans sous-estimer vos bouteilles ni passer à côté d'une opportunité.</p>
+            <h3>Assurance</h3>
+            <p class="situation-narr-quote">«&nbsp;Mon assureur me demande une valeur pour ma cave.&nbsp;»</p>
+            <p>Votre contrat plafonne les vins à quelques milliers d'euros, ou votre assureur réclame une pièce datée. Le rapport donne la valeur de remplacement de chaque bouteille, dans une version conçue pour lui.</p>
           </div>
         </div>
         <div class="situation-narr">
@@ -2349,14 +2354,15 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
         <div class="situation-narr">
           <div class="situation-narr-icon">
             <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M18 4L6 9v9c0 7.2 5.1 13.6 12 16 6.9-2.4 12-8.8 12-16V9L18 4z" stroke="#C5A258" stroke-width="1.2" stroke-linejoin="round"/>
-              <path d="M13 18l3.5 3.5L23 15" stroke="#C5A258" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="4" y="8" width="28" height="22" rx="2" stroke="#C5A258" stroke-width="1.2"/>
+              <path d="M10 24l6-8 5 5 5-7" stroke="#C5A258" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="26" cy="14" r="2" stroke="#C5A258" stroke-width="1.2"/>
             </svg>
           </div>
           <div class="situation-narr-content">
-            <h3>Assurance</h3>
-            <p class="situation-narr-quote">«&nbsp;Mon assureur me demande un justificatif de valeur.&nbsp;»</p>
-            <p>Vous connaissez votre cave, mais vous souhaitez un regard neutre pour valider une valeur d'assurance ou un second avis.</p>
+            <h3>Vente partielle ou totale</h3>
+            <p class="situation-narr-quote">«&nbsp;J'aimerais vendre quelques bouteilles, mais je ne veux pas brader.&nbsp;»</p>
+            <p>Vous voulez vendre au bon prix, au bon moment, sans brader. Le rapport vous dit quoi vendre, quand, et par quel canal.</p>
           </div>
         </div>
       </div>
@@ -2397,7 +2403,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
 
 
   <!-- ════════════ 5. POURQUOI NOUS FAIRE CONFIANCE ════════════ -->
-  <section class="probleme confiance confiance-kpi">
+  <section class="probleme confiance confiance-kpi" id="engagements">
     <div class="container">
       <div class="probleme-header">
         <p class="section-label">Pourquoi me faire confiance</p>
@@ -2425,6 +2431,16 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
           <div class="kpi-number">5<span class="kpi-unit">jours</span></div>
           <div class="kpi-label">100&nbsp;% à distance</div>
           <p class="kpi-desc">Un smartphone suffit. Pas de rendez-vous, pas de déplacement. Rapport livré par email.</p>
+        </div>
+      </div>
+      <div class="kpi-engagements">
+        <div class="kpi-engagement">
+          <h3>Confidentialité absolue</h3>
+          <p>Vos informations ne servent qu'à votre mission d'estimation. Elles ne sont jamais partagées ni revendues, et la confidentialité est réciproque, garantie par contrat.</p>
+        </div>
+        <div class="kpi-engagement">
+          <h3>Indépendance garantie</h3>
+          <p>Je ne rachète pas de vins et je ne travaille pour aucune maison de ventes. Je n'ai aucun intérêt dans les décisions que vous prendrez après le rapport&nbsp;: mes recommandations sont établies dans votre seul intérêt.</p>
         </div>
       </div>
     </div>
@@ -2580,6 +2596,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
         </aside>
       </div>
 
+      <p class="apercu-usage">Pour une succession, le rapport se joint au dossier du notaire. Pour une assurance, une version en valeur de remplacement, datée et signée, est fournie sans supplément.</p>
       <div class="apercu-cta">
         <a href="#formulaire" class="btn btn-primary" data-cta="apercu">Recevoir ce rapport — 199&thinsp;€</a>
       </div>
@@ -2835,28 +2852,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
   </section>
 
 
-  <!-- ════════════ 8b. ENGAGEMENTS ════════════ -->
-  <section class="confidentialite" id="engagements">
-    <div class="container">
-      <div class="confidentialite-inner">
-        <p class="section-label" style="color: var(--or);">Mes engagements</p>
-        <h2>Un rapport de confiance,<br><em>sans conflit d'intérêt.</em></h2>
-        <span class="ornament-long"></span>
-      </div>
-      <div class="engagements-grid">
-        <div class="engagement-block">
-          <div class="engagement-icon"><svg width="28" height="28" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 4L6 10v8c0 7.2 5.1 13.9 12 16 6.9-2.1 12-8.8 12-16v-8L18 4z" stroke="#C5A258" stroke-width="1.5" stroke-linejoin="round"/><path d="M13 18l3.5 3.5L23 15" stroke="#C5A258" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <h3>Confidentialité absolue</h3>
-          <p>Toutes les informations transmises sont traitées avec une confidentialité absolue. Vos données ne sont jamais partagées, revendues ou utilisées à d'autres fins que votre mission d'estimation. Confidentialité réciproque garantie par contrat.</p>
-        </div>
-        <div class="engagement-block">
-          <div class="engagement-icon"><svg width="28" height="28" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 5v26" stroke="#C5A258" stroke-width="1.5" stroke-linecap="round"/><path d="M8 10h20" stroke="#C5A258" stroke-width="1.5" stroke-linecap="round"/><path d="M8 10l-3 10h6l-3-10zM28 10l-3 10h6l-3-10z" stroke="#C5A258" stroke-width="1.5" stroke-linejoin="round"/><path d="M13 31h10" stroke="#C5A258" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-          <h3>Indépendance garantie</h3>
-          <p>Estimation Cave est un service d'expertise indépendant. Je ne rachète pas de vins, je ne travaille pas pour une maison de ventes, et je n'ai aucun intérêt financier dans les décisions que vous prendrez après réception du rapport. Mes recommandations sont établies dans votre seul intérêt.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
 
   <!-- ════════════ 9. FORMULAIRE ════════════ -->
@@ -2921,9 +2916,9 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
               <select id="contexte" name="contexte" required>
                 <option value="">Choisir</option>
                 <option value="Succession">Succession / héritage</option>
-                <option value="Vente">Vente d'une cave</option>
-                <option value="Inventaire">Inventaire / patrimoine</option>
                 <option value="Assurance">Assurance / déclaration de valeur</option>
+                <option value="Inventaire">Inventaire / patrimoine</option>
+                <option value="Vente">Vente d'une cave</option>
                 <option value="Autre">Autre</option>
               </select>
             </div>
@@ -3004,6 +2999,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
 
       <div class="formulaire-reassurance">
         <p>Tarif unique&nbsp;: <strong>199&nbsp;€</strong> · Aucun paiement n'est demandé à ce stade · Le paiement intervient uniquement après confirmation écrite de la mission.</p>
+        <p>Une échéance, un rendez-vous chez le notaire&nbsp;? Indiquez-le dans le formulaire, je m'organise.</p>
       </div>
     </div>
   </section>
@@ -3054,9 +3050,33 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       </div>
       <div class="carousel-wrapper" id="guides-carousel">
         <div class="carousel-track">
-          <a href="/vendre/" class="guide-card">
-            <p class="guide-label">Vendre</p>
-            <h3>Vendre sa cave à vins&nbsp;: les 4 canaux, les frais, le bon prix</h3>
+          <a href="/article-vins-parents-valeur-guide.html" class="guide-card">
+            <p class="guide-label">Découvrir</p>
+            <h3>Les vins de mon père valent-ils quelque chose&nbsp;?</h3>
+            <span class="guide-read">
+              Lire le guide
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </span>
+          </a>
+          <a href="/article-assurer-cave-vins.html" class="guide-card">
+            <p class="guide-label">Assurance</p>
+            <h3>Assurer sa cave à vins&nbsp;: contrat, couverture, déclaration</h3>
+            <span class="guide-read">
+              Lire le guide
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </span>
+          </a>
+          <a href="/article-cave-sous-assuree.html" class="guide-card">
+            <p class="guide-label">Sous-assurance</p>
+            <h3>Cave à vins sous-assurée&nbsp;: le risque que personne ne calcule</h3>
+            <span class="guide-read">
+              Lire le guide
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </span>
+          </a>
+          <a href="/article-vendre-cave-heritee-erreurs.html" class="guide-card">
+            <p class="guide-label">Éviter les pièges</p>
+            <h3>Vendre une cave héritée&nbsp;: les 7 erreurs à éviter</h3>
             <span class="guide-read">
               Lire le guide
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
@@ -3094,33 +3114,9 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
             </span>
           </a>
-          <a href="/article-vins-parents-valeur-guide.html" class="guide-card">
-            <p class="guide-label">Découvrir</p>
-            <h3>Les vins de mon père valent-ils quelque chose&nbsp;?</h3>
-            <span class="guide-read">
-              Lire le guide
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-            </span>
-          </a>
-          <a href="/article-assurer-cave-vins.html" class="guide-card">
-            <p class="guide-label">Assurance</p>
-            <h3>Assurer sa cave à vins&nbsp;: contrat, couverture, déclaration</h3>
-            <span class="guide-read">
-              Lire le guide
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-            </span>
-          </a>
-          <a href="/article-cave-sous-assuree.html" class="guide-card">
-            <p class="guide-label">Sous-assurance</p>
-            <h3>Cave à vins sous-assurée&nbsp;: le risque que personne ne calcule</h3>
-            <span class="guide-read">
-              Lire le guide
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-            </span>
-          </a>
-          <a href="/article-vendre-cave-heritee-erreurs.html" class="guide-card">
-            <p class="guide-label">Éviter les pièges</p>
-            <h3>Vendre une cave héritée&nbsp;: les 7 erreurs à éviter</h3>
+          <a href="/vendre/" class="guide-card">
+            <p class="guide-label">Vendre</p>
+            <h3>Vendre sa cave à vins&nbsp;: les 4 canaux, les frais, le bon prix</h3>
             <span class="guide-read">
               Lire le guide
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
@@ -3162,16 +3158,16 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       </div>
       <div class="missions-list">
         <div class="mission-item">
-          <p class="mission-name">Inspection physique des flacons</p>
-          <p class="mission-desc">Examen approfondi en cave, avec déplacement ou recours à un mandataire local. Permet de confirmer l'état réel des bouteilles et d'affiner l'estimation.</p>
-        </div>
-        <div class="mission-item">
           <p class="mission-name">Accompagnement à la vente</p>
           <p class="mission-desc">Sélection de la plateforme adaptée, constitution du dossier de présentation des lots et suivi des adjudications jusqu'au résultat.</p>
         </div>
         <div class="mission-item">
-          <p class="mission-name">Réévaluation périodique</p>
-          <p class="mission-desc">Mise à jour annuelle ou semestrielle de l'estimation, intégrant les évolutions du marché et l'état de conservation de la cave.</p>
+          <p class="mission-name">Réévaluation annuelle</p>
+          <p class="mission-desc">Mise à jour annuelle de l'estimation, intégrant les évolutions du marché et l'état de conservation de la cave.</p>
+        </div>
+        <div class="mission-item">
+          <p class="mission-name">Inspection physique des flacons</p>
+          <p class="mission-desc">Examen approfondi en cave, avec déplacement ou recours à un mandataire local. Permet de confirmer l'état réel des bouteilles et d'affiner l'estimation.</p>
         </div>
         <div class="mission-item">
           <p class="mission-name">Conseil à l'achat</p>
