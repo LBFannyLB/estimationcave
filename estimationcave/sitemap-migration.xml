@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Sitemap temporaire de migration : anciennes URL redirigées en 301 (silo Vendre du 29/07/2026, piliers Cotes/Loire).
+     Objectif : faire repasser Googlebot sur ces URL pour qu'il prenne en compte les redirections.
+     À retirer (fichier + Search Console) une fois que ces URL ne sont plus dans l'index. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://estimationcave.com/vendre.html</loc><lastmod>2026-09-17</lastmod></url>
+  <url><loc>https://estimationcave.com/blog-vendre.html</loc><lastmod>2026-09-17</lastmod></url>
+  <url><loc>https://estimationcave.com/article-prix-vendre-bouteilles.html</loc><lastmod>2026-09-17</lastmod></url>
+  <url><loc>https://estimationcave.com/article-vendre-vin-baisse-marche.html</loc><lastmod>2026-09-17</lastmod></url>
+  <url><loc>https://estimationcave.com/article-vins-revente-france.html</loc><lastmod>2026-09-17</lastmod></url>
+  <url><loc>https://estimationcave.com/article-vendre-vin-encheres.html</loc><lastmod>2026-09-17</lastmod></url>
+  <url><loc>https://estimationcave.com/article-vendre-cave-caviste-negociant.html</loc><lastmod>2026-09-17</lastmod></url>
+  <url><loc>https://estimationcave.com/article-cotes-pilier.html</loc><lastmod>2026-09-17</lastmod></url>
+  <url><loc>https://estimationcave.com/article-vins-loire-cote-valeur.html</loc><lastmod>2026-09-17</lastmod></url>
+</urlset>
