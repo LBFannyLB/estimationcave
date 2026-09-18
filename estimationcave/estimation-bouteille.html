@@ -67,166 +67,268 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
     <link rel="stylesheet" href="styles.css">
 
     <style>
-        a { text-decoration: none; color: inherit; }
+/* ── Nav : collante, fond plein, sans flou ── */
+.nav { position: sticky; background: var(--fond); backdrop-filter: none; -webkit-backdrop-filter: none; }
+.nav .btn-gold { padding: 0.65rem 1.5rem; font-size: 0.85rem; }
+.nav-back { font-size: 0.85rem; font-weight: 500; color: var(--bordeaux); }
+.nav-back:hover { color: var(--vin); }
 
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
-        .container-mid { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
-        .container-narrow { max-width: 800px; margin: 0 auto; padding: 0 2rem; }
-        .container-tight { max-width: 700px; margin: 0 auto; padding: 0 2rem; }
 
-        /* ── SECTIONS GÉNÉRIQUES ── */
-        .section { padding: 4rem 0; }
-        .section-alt { background: var(--blanc); }
-        .section-dark { background: var(--bordeaux); color: var(--blanc); }
-        .section-dark h2 { color: var(--blanc); }
-        .section-dark .section-intro { color: var(--blanc); }
+/* ═══════════════════════════════════════════════════════════
+   MAQUETTE — vocabulaire « catalogue de vente »
+   Tokens inchangés : bordeaux, or, fond, Cormorant + DM Sans.
+   Ajouts : rouge vin (celui des graphiques du rapport), crème 2.
+   Retirés : grain, pulsation, scroll-reveal, ombres 30 px, coins arrondis.
+   ═══════════════════════════════════════════════════════════ */
+:root {
+  --bordeaux: #2D1B2E;
+  --or: #C5A258;
+  --or-pale: rgba(197, 162, 88, 0.14);
+  --fond: #FAF6F0;
+  --creme: #F3EBDD;
+  --vin: #8B3A3A;
+  --texte: #3A3035;
+  --texte-light: #6B5F65;
+  --blanc: #FFFFFF;
+  --filet: rgba(45, 27, 46, 0.16);
+  --filet-fort: rgba(45, 27, 46, 0.45);
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'DM Sans', -apple-system, sans-serif;
+  --mesure: 1120px;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-padding-top: 88px; }
+body {
+  font-family: var(--font-body);
+  background: var(--fond);
+  color: var(--texte);
+  line-height: 1.65;
+  font-size: 1rem;
+  -webkit-font-smoothing: antialiased;
+  font-variant-numeric: oldstyle-nums;
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--bordeaux); text-decoration: none; }
+p a { text-decoration: underline; text-decoration-color: var(--or); text-underline-offset: 3px; }
+*:focus-visible { outline: 2px solid var(--or); outline-offset: 2px; }
 
-        /* ── HERO ── */
-        .hero { padding: 8.5rem 0 4rem; }
-        .hero-grid { display: grid; grid-template-columns: 256px 1fr; gap: 3.5rem; align-items: center; }
-        .hero-text { text-align: center; }
-        .hero .eyebrow {
-            font-family: var(--font-body); font-size: 0.78rem; font-weight: 600;
-            letter-spacing: 0.22em; text-transform: uppercase; color: var(--or); margin-bottom: 1.25rem;
-        }
-        .hero h1 {
-            font-family: var(--font-display); font-size: clamp(2.4rem, 4.5vw, 3.2rem); font-weight: 600;
-            color: var(--bordeaux); line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 1.5rem;
-        }
-        .hero h1 em { font-style: italic; font-weight: 400; }
-        h2 em { font-style: italic; font-weight: 400; }
-        .hero .lead {
-            font-family: var(--font-body); font-size: 1.15rem; line-height: 1.65;
-            color: var(--texte); margin: 0 auto; max-width: 560px;
-        }
-        .hero-ctas { display: flex; justify-content: center; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
-        .hero-ctas .btn-primary { padding: 0.95rem 2rem; font-size: 1rem; }
-        .hero-mention {
-            display: block; margin-top: 1.5rem; font-size: 0.85rem; color: var(--texte-light); letter-spacing: 0.01em;
-        }
-        .hero-mention span { color: var(--or); margin: 0 0.35rem; }
-        .hero-visual { width: 100%; }
-        .hero-visual img { width: 100%; height: auto; display: block; }
-        @media (max-width: 760px) {
-            .hero { text-align: center; }
-            .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
-            .hero-text { order: 1; }
-            .hero-visual { order: 2; max-width: 176px; margin: 0.5rem auto 0; }
-            .hero .lead { margin: 0 auto; }
-            .hero-ctas { justify-content: center; }
-        }
+.container { max-width: var(--mesure); margin: 0 auto; padding: 0 2rem; }
+section { padding: 5.5rem 0; }
+@media (max-width: 768px) { section { padding: 3.5rem 0; } .container { padding: 0 1.25rem; } }
 
-        /* ── H2 commun ── */
-        h2 {
-            font-family: var(--font-display); font-size: clamp(1.7rem, 3vw, 2.1rem); font-weight: 600;
-            color: var(--bordeaux); line-height: 1.25; text-align: center; margin: 0 0 1.25rem;
-        }
-        .section-intro {
-            font-size: 1.02rem; line-height: 1.7; color: var(--texte); text-align: center;
-            max-width: 680px; margin: 0 auto 2rem;
-        }
+/* ── Typographie ── */
+blockquote { text-wrap: pretty; }
+h1, h2, h3, .display { font-family: var(--font-display); font-weight: 500; color: var(--bordeaux); line-height: 1.1; letter-spacing: -0.005em; }
+h1 { font-size: clamp(2.6rem, 5.2vw, 4.2rem); font-weight: 500; }
+h2 { font-size: clamp(2rem, 3.6vw, 2.8rem); }
+h3 { font-size: 1.45rem; font-weight: 600; }
+.lead { font-size: 1.12rem; color: var(--texte-light); line-height: 1.65; }
 
-        /* ── STEPS / PAIN CARDS ── */
-        .pains-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2rem; }
-        .pain-card {
-            background: var(--blanc); border: 1px solid var(--border); border-radius: 8px; padding: 2rem;
-            transition: all 0.3s cubic-bezier(0.33, 1, 0.68, 1);
-        }
-        @media (hover: hover) {
-            .pain-card:hover { border-color: rgba(197, 162, 88, 0.4); box-shadow: 0 8px 24px rgba(45, 27, 46, 0.05); }
-        }
-        .pain-number {
-            width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--or);
-            display: flex; align-items: center; justify-content: center; margin: 0 0 1.25rem;
-            font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; color: var(--or);
-        }
-        .pain-card h3 {
-            font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; color: var(--bordeaux);
-            margin-bottom: 0.85rem; line-height: 1.3;
-        }
-        .pain-card p { font-size: 0.95rem; color: var(--texte); line-height: 1.7; margin: 0; }
-        .pain-card strong { color: var(--bordeaux); font-weight: 600; }
+/* Le label de section : petites capitales Cormorant en bordeaux,
+   à la place du DM Sans majuscules doré espacé. */
+.sc {
+  font-family: var(--font-display);
+  font-variant: small-caps;
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  color: var(--bordeaux);
+  display: flex; align-items: center; gap: 0.75rem;
+  margin-bottom: 1.2rem;
+}
+.sc::before { content: ''; width: 2.25rem; height: 1px; background: var(--or); }
+.sc.center { justify-content: center; }
+.sc.center::after { content: ''; width: 2.25rem; height: 1px; background: var(--or); }
+.sc.on-dark { color: var(--or); }
 
-        /* ── FAQ (blocs question/réponse) ── */
-        .usage-block { margin: 1.75rem 0; }
-        .usage-block h3 {
-            font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; color: var(--bordeaux);
-            margin-bottom: 0.75rem; line-height: 1.3;
-        }
-        .usage-block p { font-size: 1rem; line-height: 1.8; color: var(--texte); margin-bottom: 0.85rem; }
+/* Filets « catalogue » */
+.filet-double { height: 5px; border-top: 1px solid var(--filet-fort); border-bottom: 1px solid var(--filet-fort); }
+.filet { height: 1px; background: var(--filet); }
+.fleuron { display: flex; align-items: center; justify-content: center; gap: 1rem; margin: 2.5rem 0; }
+.fleuron::before, .fleuron::after { content: ''; flex: 0 0 4rem; height: 1px; background: var(--or); }
+.fleuron img { width: 26px; height: 26px; opacity: 0.85; }
 
-        /* ── FAQ accordéon ── */
-        .faq-list { margin-top: 2rem; }
-        .faq-item { border-bottom: 1px solid var(--border); }
-        .faq-item:first-child { border-top: 1px solid var(--border); }
-        .faq-q { width: 100%; background: none; border: none; padding: 1.2rem 2.5rem 1.2rem 0; text-align: left; cursor: pointer; font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; color: var(--bordeaux); line-height: 1.35; position: relative; }
-        .faq-q::after { content: '+'; position: absolute; right: 0.1rem; top: 50%; transform: translateY(-50%); font-size: 1.6rem; font-weight: 400; color: var(--or); line-height: 1; }
-        .faq-item.open .faq-q::after { content: '\2212'; }
-        .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
-        .faq-a p { font-size: 1rem; line-height: 1.75; color: var(--texte); margin: 0 0 1.2rem; }
+/* Boutons : coins vifs, aucune animation */
+.btn { display: inline-block; font-family: var(--font-body); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.02em; padding: 0.85rem 1.7rem; border: 1px solid var(--bordeaux); background: var(--bordeaux); color: var(--fond); cursor: pointer; transition: background 0.2s, color 0.2s; }
+.btn:hover { background: #3D2940; }
+.btn-gold { background: var(--or); border-color: var(--or); color: var(--bordeaux); }
+.btn-gold:hover { background: #B8944C; }
+.btn-outline { background: transparent; color: var(--bordeaux); }
+.btn-outline:hover { background: var(--bordeaux); color: var(--fond); }
+.btn-outline.on-dark { color: var(--fond); border-color: var(--or); }
+.btn-outline.on-dark:hover { background: var(--or); color: var(--bordeaux); }
+.lien-suite { font-family: var(--font-display); font-style: italic; font-size: 1.15rem; color: var(--bordeaux); border-bottom: 1px solid var(--or); }
 
-        .bon-a-savoir {
-            background: var(--or-pale); border-radius: 6px; padding: 1.5rem 1.75rem; margin: 2rem 0 0;
-            font-size: 0.98rem; line-height: 1.7; color: var(--texte);
-        }
+/* Cartouche technique : remplace le bandeau à 4 KPI */
+.fiche-technique { border-top: 1px solid var(--or); border-bottom: 1px solid var(--filet); margin-top: 3rem; }
+.fiche-technique ul { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); }
+.fiche-technique li { padding: 1.1rem 1.4rem; border-right: 1px solid var(--filet); font-size: 0.86rem; color: var(--texte-light); line-height: 1.45; }
+.fiche-technique li:last-child { border-right: 0; }
+.fiche-technique li b { display: block; font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--bordeaux); line-height: 1.2; margin-bottom: 0.15rem; }
+.fiche-technique li a { border-bottom: 1px solid var(--or); color: var(--bordeaux); }
+@media (max-width: 860px) {
+  .fiche-technique ul { grid-template-columns: 1fr 1fr; }
+  .fiche-technique li:nth-child(2) { border-right: 0; }
+  .fiche-technique li:nth-child(-n+2) { border-bottom: 1px solid var(--filet); }
+}
 
-        /* ── SECTION PROFIL (fond bordeaux) ── */
-        .profil-section { background: var(--bordeaux); color: var(--blanc); }
-        .profil-section h2 { color: var(--blanc); }
-        .profil-section h2 em { color: var(--or); font-style: italic; font-weight: 400; }
-        .profil p { font-size: 1rem; line-height: 1.85; color: var(--blanc); margin-bottom: 1.5rem; text-align: center; }
-        .profil-link {
-            display: inline-block; margin-top: 0.5rem; color: var(--or) !important; font-weight: 500;
-            text-decoration: none !important; border-bottom: 1px solid transparent; transition: border-color 0.25s ease;
-        }
-        .profil-link:hover { border-bottom-color: var(--or); }
+/* ── Fanny : la personne, haut dans la page ── */
+.experte-grid { display: grid; grid-template-columns: 3fr 7fr; gap: 4rem; align-items: center; }
+.cadre-double { position: relative; padding: 10px; border: 1px solid var(--filet-fort); }
+.cadre-double::after { content: ''; position: absolute; inset: 3px; border: 1px solid var(--filet-fort); pointer-events: none; }
+.cadre-double img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 20%; filter: saturate(0.85); }
+.experte h2 { margin-bottom: 1.4rem; }
+.experte p { margin-bottom: 1rem; font-size: 1.02rem; }
+.bulle { width: 100%; max-width: 16.5rem; aspect-ratio: 4 / 5; border-radius: 50%; overflow: hidden; margin: 0 auto; box-shadow: 0 0 0 1px var(--filet-fort), 0 0 0 6px var(--fond), 0 0 0 7px var(--or); }
+.bulle img { width: 100%; height: 100%; object-fit: cover; object-position: 58% 22%; transform: scale(1.15); transform-origin: 58% 30%; filter: saturate(0.92); }
+.experte .signature { font-family: var(--font-display); font-style: italic; font-size: 1.9rem; color: var(--bordeaux); margin: 1.4rem 0 0.2rem; }
+.experte .signature-sub { font-size: 0.85rem; color: var(--texte-light); margin-bottom: 1.4rem; }
+@media (max-width: 860px) { .experte-grid { grid-template-columns: 1fr; gap: 2rem; } .bulle { max-width: 16rem; } }
 
-        /* ── CTA FINAL (upsell audit, discret) ── */
-        .cta-final { padding: 5rem 0; background: var(--bordeaux); color: var(--blanc); text-align: center; }
-        .cta-final h2 { color: var(--blanc); margin-bottom: 1rem; }
-        .cta-final .lead {
-            font-size: 1.05rem; line-height: 1.7; color: var(--blanc); opacity: 0.9;
-            max-width: 620px; margin: 0 auto 2rem;
-        }
-        .cta-final .subtext {
-            font-size: 0.9rem; color: var(--blanc); opacity: 0.7; max-width: 560px; margin: 1.5rem auto 0; line-height: 1.6;
-        }
+/* ── Comment ça marche : bandeau bordeaux, 3 lignes sur filet ── */
+.process { background: var(--bordeaux); color: var(--fond); }
+.process h2 { color: var(--fond); margin-bottom: 3rem; }
+.etapes { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(250,246,240,0.35); }
+.etapes li { padding: 1.6rem 1.6rem 1.6rem 0; border-top: 3px double rgba(197,162,88,0.6); margin-top: -1px; }
+.etapes .num { font-family: var(--font-display); font-size: 1rem; font-variant: small-caps; letter-spacing: 0.1em; color: var(--or); margin-bottom: 0.4rem; }
+.etapes h3 { color: var(--fond); font-weight: 500; margin-bottom: 0.4rem; }
+.etapes p { font-size: 0.92rem; color: rgba(250,246,240,0.75); }
+.process-suite { margin-top: 2.5rem; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+.process-suite p { font-size: 0.92rem; color: rgba(250,246,240,0.8); max-width: 40rem; }
+@media (max-width: 860px) { .etapes { grid-template-columns: 1fr; } .etapes li { padding-right: 0; } }
 
-        /* ── ANCRES ── */
-        #estimation-offerte, #comment { scroll-margin-top: 90px; }
+/* ── Engagements : deux colonnes + cartouche (comme la couverture du rapport) ── */
+.engagements { background: var(--bordeaux); color: var(--fond); }
+.engagements .sc { color: var(--or); }
+.engagements h3 { color: var(--fond); }
+.engagements .cartouche { border-color: rgba(197,162,88,0.6); outline-color: rgba(197,162,88,0.6); }
+.engagements .cartouche div { border-right-color: rgba(250,246,240,0.18); color: rgba(250,246,240,0.7); }
+.engagements .cartouche b { color: var(--fond); }
+.engagements .cartouche .sc { color: var(--or); }
+.engagements-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-bottom: 3rem; }
+.engagements-grid h3 { margin-bottom: 0.6rem; }
+.engagements-grid p { color: rgba(250,246,240,0.78); font-size: 0.98rem; text-align: justify; hyphens: auto; }
+.cartouche { border: 1px solid var(--filet-fort); outline: 1px solid var(--filet-fort); outline-offset: 3px; display: grid; grid-template-columns: repeat(3, 1fr); }
+.cartouche div { padding: 1.4rem 1.6rem; border-right: 1px solid var(--filet); text-align: center; font-size: 0.85rem; color: var(--texte-light); }
+.cartouche div:last-child { border-right: 0; }
+.cartouche .sc { justify-content: center; margin-bottom: 0.4rem; font-size: 0.95rem; }
+.cartouche .sc::before { display: none; }
+.cartouche b { display: block; font-family: var(--font-display); font-size: 1.35rem; font-weight: 600; color: var(--bordeaux); margin-bottom: 0.2rem; }
+@media (max-width: 860px) { .engagements-grid { grid-template-columns: 1fr; gap: 2rem; } .cartouche { grid-template-columns: 1fr; } .cartouche div { border-right: 0; border-bottom: 1px solid rgba(250,246,240,0.18); } .cartouche div:last-child { border-bottom: 0; } }
 
+/* Bandeau maquette */
+/* ═══ Page « aperçu offert » ═══ */
+.hero { padding: 4.5rem 0 3.5rem; overflow: hidden; }
+.hero-grid { display: grid; grid-template-columns: 7fr 5fr; gap: 3rem; align-items: center; }
+.hero h1 { margin: 0.6rem 0 1.4rem; max-width: 19ch; font-size: clamp(2.4rem, 4.4vw, 3.5rem); }
+.hero .lead { max-width: 34rem; margin-bottom: 2rem; }
+.hero-actions { margin-bottom: 1.6rem; }
+.hero-mention { font-size: 0.85rem; color: var(--texte-light); }
+.hero-mention span { color: var(--or); margin: 0 0.5rem; }
+.hero-illus { width: 78%; margin-left: auto; opacity: 0.95; }
+@media (max-width: 860px) { .hero { padding: 2.5rem 0 2rem; } .hero-grid { grid-template-columns: 1fr; gap: 1.5rem; } .hero h1 { max-width: none; } .hero-illus { width: 62%; margin: 0.5rem auto 0; } }
+
+/* Bordereau de dépôt : section à part, centrée, aérée */
+.depot-section { background: var(--creme); }
+.depot-head-section { text-align: center; max-width: 36rem; margin: 0 auto 2.5rem; }
+.depot-head-section .lead { margin-top: 0.8rem; }
+.depot { max-width: 40rem; margin: 4px auto; background: var(--fond); border: 1px solid var(--filet-fort); outline: 1px solid var(--filet-fort); outline-offset: 4px; padding: 2.4rem 2.6rem 2.2rem; }
+.depot-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; border-bottom: 1px solid var(--filet-fort); padding-bottom: 1rem; margin-bottom: 1.6rem; }
+.depot-head .sc { margin: 0; }
+.depot-head small { font-size: 0.78rem; color: var(--texte-light); }
+.lot { display: grid; grid-template-columns: 3.6rem 1fr; align-items: center; gap: 0.8rem; margin-bottom: 1rem; }
+.lot .num { font-family: var(--font-display); font-variant: small-caps; font-weight: 600; letter-spacing: 0.06em; font-size: 1.05rem; color: var(--vin); }
+.lot .num small { display: block; font-family: var(--font-body); font-variant: normal; font-weight: 400; letter-spacing: 0; font-size: 0.68rem; color: var(--texte-light); }
+.lot input { width: 100%; font-family: var(--font-body); font-size: 0.95rem; color: var(--texte); background: var(--blanc); border: 1px solid var(--filet-fort); padding: 0.8rem 0.9rem; }
+.lot input::placeholder { color: rgba(58,48,53,0.45); }
+.depot .sc.groupe { margin: 1.8rem 0 0.9rem; font-size: 0.95rem; }
+.depot .row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+.depot .field label { display: block; font-size: 0.85rem; font-weight: 500; color: var(--bordeaux); margin-bottom: 0.4rem; }
+.depot .field label small { font-weight: 400; color: var(--texte-light); }
+.depot .field input, .depot .field select { width: 100%; font-family: var(--font-body); font-size: 0.95rem; color: var(--texte); background: var(--blanc); border: 1px solid var(--filet-fort); padding: 0.8rem 0.9rem; border-radius: 0; }
+.depot .req { color: var(--vin); }
+.depot .check { display: flex; gap: 0.6rem; align-items: flex-start; font-size: 0.82rem; color: var(--texte-light); margin: 1.6rem 0 1.4rem; padding: 0.9rem 1rem; border-left: 2px solid var(--or); background: var(--or-pale); }
+.depot .check input { margin-top: 0.2rem; flex: 0 0 auto; accent-color: var(--bordeaux); }
+.depot .btn { display: block; width: 100%; text-align: center; padding: 1rem; font-size: 0.95rem; }
+.depot-foot { font-size: 0.78rem; color: var(--texte-light); text-align: center; margin-top: 1rem; line-height: 1.5; }
+@media (max-width: 560px) { .depot { padding: 1.4rem 1.1rem; } .depot-head { flex-direction: column; align-items: flex-start; gap: 0.2rem; } .depot .row { grid-template-columns: 1fr; gap: 0; } .depot .field { margin-bottom: 0.9rem; } .nav-logo span { display: none; } }
+
+/* Comment ça marche (bandeau) */
+.process { background: var(--bordeaux); color: var(--fond); }
+.process h2 { color: var(--fond); margin-bottom: 0.8rem; }
+.process .lead { color: rgba(250,246,240,0.78); max-width: 40rem; margin-bottom: 2.5rem; }
+.etapes { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(250,246,240,0.35); }
+.etapes li { padding: 1.6rem 1.6rem 1.6rem 0; border-top: 3px double rgba(197,162,88,0.6); margin-top: -1px; }
+.etapes .num { font-family: var(--font-display); font-size: 1rem; font-variant: small-caps; letter-spacing: 0.1em; color: var(--or); margin-bottom: 0.4rem; }
+.etapes h3 { color: var(--fond); font-weight: 500; margin-bottom: 0.4rem; }
+.etapes p { font-size: 0.92rem; color: rgba(250,246,240,0.75); }
+.etapes strong { color: var(--fond); font-weight: 500; }
+@media (max-width: 860px) { .etapes { grid-template-columns: 1fr; } .etapes li { padding-right: 0; } }
+
+/* L'extrait : trois lots dans un cadre double */
+.extrait { background: var(--creme); }
+.extrait-head { max-width: 42rem; margin-bottom: 2.5rem; }
+.extrait-head .lead { margin-top: 1rem; }
+.planche-lots { background: var(--fond); border: 1px solid var(--filet-fort); outline: 1px solid var(--filet-fort); outline-offset: 4px; margin: 4px; padding: 1.6rem 2.2rem 1.4rem; }
+.pl-head { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid var(--filet-fort); padding-bottom: 0.8rem; margin-bottom: 0.4rem; }
+.pl-head .sc { margin: 0; }
+.pl-head small { font-size: 0.78rem; color: var(--texte-light); }
+.pl-lot { display: grid; grid-template-columns: 3rem 1fr auto; grid-template-areas: "num nom val" "num reco reco"; column-gap: 1rem; row-gap: 0.4rem; padding: 1.1rem 0; border-bottom: 1px solid var(--filet); }
+.pl-lot:last-of-type { border-bottom: 0; }
+.pl-lot .num { grid-area: num; font-family: var(--font-display); font-size: 1.6rem; color: var(--vin); line-height: 1; padding-top: 0.15rem; }
+.pl-lot .nom { grid-area: nom; }
+.pl-lot .nom b { display: block; font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--bordeaux); }
+.pl-lot .nom small { font-size: 0.82rem; color: var(--texte-light); }
+.pl-lot .val { grid-area: val; text-align: right; font-family: var(--font-display); font-size: 1.25rem; color: var(--bordeaux); }
+.pl-lot .val small { display: block; font-family: var(--font-body); font-size: 0.72rem; color: var(--texte-light); }
+.pl-lot .reco { grid-area: reco; font-size: 0.9rem; color: var(--texte-light); }
+.pl-lot .reco b { color: var(--bordeaux); font-weight: 500; }
+.tag { display: inline-block; font-family: var(--font-display); font-variant: small-caps; font-weight: 600; letter-spacing: 0.06em; font-size: 0.95rem; color: var(--vin); border: 1px solid var(--vin); padding: 0 0.5rem; margin-right: 0.4rem; line-height: 1.35; vertical-align: 1px; }
+.pl-foot { font-size: 0.85rem; color: var(--texte-light); border-top: 1px solid var(--filet-fort); padding-top: 0.9rem; margin-top: 0.4rem; }
+.pl-foot b { color: var(--bordeaux); font-weight: 500; }
+@media (max-width: 640px) { .planche-lots { padding: 1.2rem 1rem; } .pl-lot { grid-template-columns: 2.2rem 1fr; grid-template-areas: "num nom" "num val" "num reco"; } .pl-lot .val { text-align: left; } }
+
+/* Pourquoi c'est offert : colonne éditoriale + cartouche */
+.pourquoi-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 4rem; align-items: start; }
+.raisons { list-style: none; border-top: 1px solid var(--filet-fort); }
+.raisons li { display: grid; grid-template-columns: 2.6rem 1fr; padding: 1.4rem 0; border-bottom: 1px solid var(--filet); }
+.raisons .num { font-family: var(--font-display); font-size: 1.6rem; color: var(--vin); line-height: 1; }
+.raisons h3 { margin-bottom: 0.4rem; }
+.raisons p { font-size: 0.95rem; color: var(--texte-light); }
+.raisons strong { color: var(--bordeaux); font-weight: 500; }
+.bon-a-savoir { margin-top: 1.8rem; padding: 1.2rem 1.4rem; border: 1px solid var(--filet-fort); outline: 1px solid var(--filet-fort); outline-offset: 3px; font-size: 0.9rem; color: var(--texte-light); }
+@media (max-width: 860px) { .pourquoi-grid { grid-template-columns: 1fr; gap: 2rem; } }
+
+/* FAQ en liste sur filets */
+.faq { background: var(--creme); }
+.faq-list { max-width: 46rem; margin: 0 auto; border-top: 1px solid var(--filet-fort); }
+.faq-list details { border-bottom: 1px solid var(--filet); }
+.faq-list summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: 1.1rem 0; font-family: var(--font-display); font-size: 1.3rem; font-weight: 500; color: var(--bordeaux); }
+.faq-list summary::-webkit-details-marker { display: none; }
+.faq-list summary::after { content: '+'; color: var(--or); font-size: 1.4rem; }
+.faq-list details[open] summary::after { content: '–'; }
+.faq-list details p { padding: 0 0 1.2rem; font-size: 0.95rem; color: var(--texte-light); max-width: 42rem; }
+
+/* CTA final : audit complet */
+.cta-final { background: var(--bordeaux); color: var(--fond); text-align: center; }
+.cta-final h2 { color: var(--fond); margin-bottom: 1rem; }
+.cta-final .lead { color: rgba(250,246,240,0.8); max-width: 40rem; margin: 0 auto 2rem; }
+.cta-final .lead strong { color: var(--fond); font-weight: 500; }
+.cta-final .subtext { font-size: 0.85rem; color: rgba(250,246,240,0.6); margin-top: 1.2rem; }
+
+
+/* Formulaire : retours d'envoi et anti-spam (script d'origine) */
+.eo-feedback { display: none; font-size: 0.9rem; line-height: 1.5; padding: 0.9rem 1rem; margin-bottom: 1.2rem; }
+.eo-feedback.is-success { display: block; background: var(--bordeaux); color: var(--fond); }
+.eo-feedback.is-error { display: block; background: rgba(139,58,58,0.08); border-left: 2px solid var(--vin); color: var(--vin); }
+.eo-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.depot .btn:disabled { opacity: 0.6; cursor: default; }
+.footer .fleuron { margin: 0 auto 2.5rem; }
         /* ── CTA COLLANT MOBILE ── */
         .sticky-cta { position: fixed; left: 0; right: 0; bottom: 0; z-index: 900; display: none; background: var(--bordeaux); color: var(--fond); text-align: center; font-family: var(--font-body); font-weight: 600; font-size: 0.98rem; letter-spacing: 0.01em; padding: 1.05rem 1.25rem; text-decoration: none; box-shadow: 0 -4px 20px rgba(45,27,46,0.18); }
         .sticky-cta.visible { display: block; }
         @media (min-width: 761px) { .sticky-cta { display: none !important; } }
         @media (max-width: 760px) { #btt { display: none !important; } }
-
-        /* ── RESPONSIVE ── */
-        @media (max-width: 900px) { .pains-grid { grid-template-columns: 1fr; gap: 1.25rem; } }
-        @media (max-width: 600px) {
-            .container, .container-mid, .container-narrow, .container-tight { padding: 0 1.25rem; }
-            .hero { padding: 7rem 0 2.5rem; }
-            .section { padding: 3rem 0; }
-            .cta-final { padding: 3.5rem 0; }
-            .pain-card { padding: 1.5rem; }
-        }
-
-        /* ── APERÇU : ce que vous recevez ── */
-        .apercu-mock { background: var(--blanc); border: 1px solid var(--border); border-top: 3px solid var(--or); padding: 1.75rem 2rem; margin: 2rem auto 0; max-width: 720px; }
-        .apercu-mock .am-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; border-bottom: 1px solid var(--border); padding-bottom: 0.9rem; margin-bottom: 1.1rem; }
-        .apercu-mock .am-eyebrow { font-family: var(--font-body); font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--or); font-weight: 600; }
-        .apercu-mock .am-date { font-size: 0.8rem; color: var(--texte-light); }
-        .apercu-mock .am-line { display: grid; grid-template-columns: 1fr auto; gap: 0.6rem 1.5rem; padding: 0.9rem 0; border-bottom: 1px dashed var(--border); align-items: start; }
-        .apercu-mock .am-line:last-of-type { border-bottom: none; }
-        .apercu-mock .am-name { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; color: var(--bordeaux); }
-        .apercu-mock .am-sub { font-size: 0.85rem; color: var(--texte-light); margin-top: 0.15rem; }
-        .apercu-mock .am-val { font-family: var(--font-display); font-size: 1.4rem; color: var(--bordeaux); text-align: right; white-space: nowrap; }
-        .apercu-mock .am-val small { display: block; font-family: var(--font-body); font-size: 0.72rem; color: var(--texte-light); }
-        .apercu-mock .am-reco { grid-column: 1 / -1; font-size: 0.92rem; line-height: 1.6; color: var(--texte); }
-        .apercu-mock .am-reco b { color: var(--bordeaux); font-weight: 600; }
-        .apercu-mock .am-tag { display: inline-block; font-family: var(--font-body); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.15rem 0.55rem; border: 1px solid var(--or); color: var(--or); margin-right: 0.5rem; vertical-align: middle; }
-        .apercu-mock .am-foot { font-size: 0.8rem; color: var(--texte-light); margin-top: 1rem; line-height: 1.5; }
-        @media (max-width: 560px) { .apercu-mock { padding: 1.25rem; } .apercu-mock .am-line { grid-template-columns: 1fr; } .apercu-mock .am-val { text-align: left; } }
     </style>
     <script type="application/ld+json">
     {
@@ -275,142 +377,73 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
     </nav>
     <div class="nav-overlay"></div>
 
-    <main id="main">
+<main id="main">
 
-        <!-- ── SECTION 1 — HERO ── -->
-        <header class="hero">
-            <div class="container hero-grid">
-                <div class="hero-visual">
-                    <img src="caisse-bouteilles.webp" width="468" height="315" alt="Caisse en bois de bouteilles de vin" fetchpriority="high">
-                </div>
-                <div class="hero-text">
-                    <p class="eyebrow reveal">Aperçu offert · trois bouteilles · sans engagement</p>
-                    <h1 class="reveal">Trois bouteilles de votre cave, <em>estimées</em> par une experte indépendante</h1>
-                    <p class="lead reveal">Nommez trois bouteilles de votre cave. Sous 48&nbsp;h ouvrées, vous recevez un aperçu d'une page&nbsp;: leur valeur réelle, leur tendance et un conseil clair, garder ou vendre. C'est un extrait du rapport complet, pour voir le travail avant de décider quoi que ce soit.</p>
-                    <div class="hero-ctas reveal">
-                        <a href="#estimation-offerte" class="btn-primary">Recevoir mon aperçu offert</a>
-                    </div>
-                    <span class="hero-mention reveal">Sous 48&nbsp;h ouvrées <span>·</span> Sans carte bancaire <span>·</span> Sans lien avec un acheteur</span>
-                </div>
-            </div>
-        </header>
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <p class="sc">Aperçu offert · trois bouteilles · sans engagement</p>
+        <h1>Trois bouteilles de votre cave, estimées gratuitement par une experte indépendante</h1>
+        <p class="lead">Nommez trois bouteilles de votre cave. Sous 48&nbsp;h ouvrées, vous recevez un aperçu d'une page&nbsp;: leur valeur réelle, leur tendance et un conseil clair, garder ou vendre. C'est un extrait du rapport complet, pour voir le travail avant de décider quoi que ce soit.</p>
+        <div class="hero-actions"><a href="#estimation-offerte" class="btn" data-cta="hero">Recevoir mon aperçu offert</a></div>
+        <p class="hero-mention">Sous 48&nbsp;h ouvrées<span>·</span>Sans carte bancaire<span>·</span>Sans lien avec un acheteur</p>
+      </div>
+      <div><img class="hero-illus" src="caisse-bouteilles.webp" width="468" height="315" alt=""></div>
+    </div>
+  </div>
+</section>
 
-        <!-- ── SECTION 2 — FORMULAIRE APERÇU OFFERT (cœur de conversion) ── -->
-        <section class="eo-section" id="estimation-offerte">
-          <style>
-            .eo-section{background:rgba(197,162,88,0.06);border-top:1px solid rgba(197,162,88,0.25);border-bottom:1px solid rgba(197,162,88,0.25);padding:3.5rem 1.25rem;margin:0;}
-            .eo-wrap{max-width:620px;margin:0 auto;}
-            .eo-eyebrow{font-family:var(--font-body);font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--or);font-weight:600;text-align:center;margin:0 0 0.6rem;}
-            .eo-title{font-family:var(--font-display);font-size:1.9rem;line-height:1.15;color:var(--bordeaux);text-align:center;margin:0 0 0.8rem;}
-            .eo-sub{font-family:var(--font-body);font-size:0.98rem;line-height:1.6;color:var(--texte-light);text-align:center;margin:0 auto 2rem;max-width:520px;}
-            .eo-form{background:var(--blanc);border:1px solid rgba(45,27,46,0.10);box-shadow:inset 0 0 0 1px rgba(197,162,88,0.10);padding:1.8rem;position:relative;}
-            .eo-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;}
-            .eo-field{display:flex;flex-direction:column;}
-            .eo-field.eo-full{grid-column:1/-1;}
-            .eo-field label{font-family:var(--font-body);font-size:0.8rem;font-weight:600;color:var(--bordeaux);margin-bottom:0.35rem;}
-            .eo-field label .eo-opt{font-weight:400;color:var(--texte-light);}
-            .eo-req{color:var(--or);}
-            .eo-field input,.eo-field select{font-family:var(--font-body);font-size:0.95rem;padding:0.7rem 0.8rem;border:1px solid rgba(45,27,46,0.18);background:var(--fond);color:var(--texte);border-radius:4px;width:100%;box-sizing:border-box;height:44px;}
-            .eo-field input::placeholder{color:rgba(58,48,53,0.45);}
-            .eo-field select{-webkit-appearance:none;-moz-appearance:none;appearance:none;padding-right:2rem;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%232D1B2E' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 0.75rem center;background-size:0.7rem;}
-            .eo-field input:focus,.eo-field select:focus{outline:2px solid var(--or);outline-offset:1px;}
-            .eo-group{font-family:var(--font-body);font-size:0.7rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--or);font-weight:600;margin:0.4rem 0 0.7rem;}
-            .eo-check{display:flex;gap:0.6rem;align-items:flex-start;margin:0.4rem 0 1.2rem;font-family:var(--font-body);font-size:0.82rem;line-height:1.5;color:var(--texte-light);cursor:pointer;}
-            .eo-check input{margin-top:0.2rem;flex-shrink:0;}
-            .eo-check a{color:var(--or);}
-            .eo-btn{display:block;width:100%;background:var(--bordeaux);color:var(--fond);font-family:var(--font-body);font-size:1rem;font-weight:600;letter-spacing:0.02em;border:none;padding:0.95rem;cursor:pointer;transition:background .25s;}
-            .eo-btn:hover{background:#3d2840;}
-            .eo-btn:disabled{opacity:.6;cursor:default;}
-            .eo-reassurance{font-family:var(--font-body);font-size:0.78rem;line-height:1.5;color:var(--texte-light);text-align:center;margin:1rem 0 0;}
-            .eo-feedback{display:none;font-family:var(--font-body);font-size:0.9rem;line-height:1.5;padding:0.9rem 1rem;border-radius:4px;margin-bottom:1.2rem;}
-            .eo-feedback.is-success{display:block;background:var(--bordeaux);border:1px solid var(--bordeaux);color:var(--fond);}
-            .eo-feedback.is-error{display:block;background:rgba(180,40,40,0.08);border:1px solid #b42828;color:#8a2020;}
-            .eo-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
-            @media(max-width:560px){.eo-row{grid-template-columns:1fr;}.eo-title{font-size:1.55rem;}.eo-form{padding:1.4rem;}}
-          </style>
-
-          <div class="eo-wrap">
-            <p class="eo-eyebrow">Aperçu offert</p>
-            <h2 class="eo-title">Trois bouteilles de votre cave</h2>
-            <p class="eo-sub">Nommez-les comme vous pouvez&nbsp;: domaine ou château, appellation, millésime. Une seule suffit pour commencer.</p>
-
-            <form class="eo-form" id="eo-form" novalidate>
-              <div class="eo-hp" aria-hidden="true">
-                <label for="eo-website">Site web (laissez vide)</label>
-                <input type="text" id="eo-website" name="website" tabindex="-1" autocomplete="off">
-              </div>
-
-              <div class="eo-feedback" id="eo-feedback" role="status" aria-live="polite"></div>
-
-              <p class="eo-group">Vos bouteilles</p>
-              <div class="eo-row">
-                <div class="eo-field eo-full">
-                  <label for="eo-b1">Bouteille 1 <span class="eo-req">*</span></label>
-                  <input type="text" id="eo-b1" name="bouteille_1" required autocomplete="off" placeholder="Ex. Château Lynch-Bages, Pauillac, 2005">
-                </div>
-              </div>
-              <div class="eo-row">
-                <div class="eo-field eo-full">
-                  <label for="eo-b2">Bouteille 2 <span class="eo-opt">(facultatif)</span></label>
-                  <input type="text" id="eo-b2" name="bouteille_2" autocomplete="off" placeholder="Ex. Domaine Leflaive, Puligny-Montrachet 1er cru, 2017">
-                </div>
-              </div>
-              <div class="eo-row">
-                <div class="eo-field eo-full">
-                  <label for="eo-b3">Bouteille 3 <span class="eo-opt">(facultatif)</span></label>
-                  <input type="text" id="eo-b3" name="bouteille_3" autocomplete="off" placeholder="Ex. Guigal, Côte-Rôtie La Mouline, 1999">
-                </div>
-              </div>
-
-              <p class="eo-group">Votre cave</p>
-              <div class="eo-row">
-                <div class="eo-field">
-                  <label for="eo-contexte">Votre situation <span class="eo-req">*</span></label>
-                  <select id="eo-contexte" name="contexte" required>
-                    <option value="">Choisir</option>
-                    <option value="Succession">Succession / héritage</option>
-                    <option value="Assurance">Assurance / déclaration de valeur</option>
-                    <option value="Vente">Vente d'une cave</option>
-                    <option value="Inventaire">Inventaire / patrimoine</option>
-                    <option value="Autre">Autre</option>
-                  </select>
-                </div>
-                <div class="eo-field">
-                  <label for="eo-volume">Taille de la cave <span class="eo-req">*</span></label>
-                  <select id="eo-volume" name="volume" required>
-                    <option value="">Choisir</option>
-                    <option value="Moins de 20">Moins de 20 bouteilles</option>
-                    <option value="20 à 50">20 à 50 bouteilles</option>
-                    <option value="50 à 100">50 à 100 bouteilles</option>
-                    <option value="100 à 300">100 à 300 bouteilles</option>
-                    <option value="Plus de 300">Plus de 300 bouteilles</option>
-                  </select>
-                </div>
-              </div>
-
-              <p class="eo-group">Vous</p>
-              <div class="eo-row">
-                <div class="eo-field">
-                  <label for="eo-prenom">Prénom et nom <span class="eo-req">*</span></label>
-                  <input type="text" id="eo-prenom" name="prenom" required autocomplete="name">
-                </div>
-                <div class="eo-field">
-                  <label for="eo-email">Email <span class="eo-req">*</span></label>
-                  <input type="email" id="eo-email" name="email" required autocomplete="email">
-                </div>
-              </div>
-
-              <label class="eo-check" for="eo-consentement">
-                <input type="checkbox" id="eo-consentement" name="consentement_rgpd" required>
-                <span>J'accepte que mes informations soient utilisées pour répondre à ma demande. Elles ne sont transmises à aucun tiers et sont supprimées sur simple demande à <a href="mailto:contact@estimationcave.com">contact@estimationcave.com</a>. <span class="eo-req">*</span></span>
-              </label>
-
-              <button type="submit" class="eo-btn" id="eo-btn">Recevoir mon aperçu offert</button>
-              <p class="eo-reassurance">Réponse sous 48&nbsp;h ouvrées · Un PDF d'une page · Une seule estimation offerte par adresse email · Sans carte bancaire, sans engagement.</p>
-            </form>
-          </div>
-
-          <script>
+<!-- ═══ BORDEREAU DE DÉPÔT ═══ -->
+<section class="depot-section" id="estimation-offerte">
+  <div class="container">
+    <div class="depot-head-section">
+      <p class="sc center">Aperçu offert</p>
+      <h2>Trois bouteilles de votre cave</h2>
+      <p class="lead">Nommez-les comme vous pouvez&nbsp;: domaine ou château, appellation, millésime. Une seule suffit pour commencer.</p>
+    </div>
+    <form class="depot" id="eo-form" novalidate>
+      <div class="eo-hp" aria-hidden="true">
+        <label for="eo-website">Site web (laissez vide)</label>
+        <input type="text" id="eo-website" name="website" tabindex="-1" autocomplete="off">
+      </div>
+      <div class="depot-head"><p class="sc">Bordereau de dépôt</p><small>Sans carte bancaire</small></div>
+      <div class="eo-feedback" id="eo-feedback" role="status" aria-live="polite"></div>
+      <div class="lot"><label class="num" for="eo-b1">Lot i</label><input type="text" id="eo-b1" name="bouteille_1" required autocomplete="off" placeholder="Ex. Château Lynch-Bages, Pauillac, 2005"></div>
+      <div class="lot"><label class="num" for="eo-b2">Lot ii<small>facultatif</small></label><input type="text" id="eo-b2" name="bouteille_2" autocomplete="off" placeholder="Ex. Domaine Leflaive, Puligny-Montrachet 1er cru, 2017"></div>
+      <div class="lot"><label class="num" for="eo-b3">Lot iii<small>facultatif</small></label><input type="text" id="eo-b3" name="bouteille_3" autocomplete="off" placeholder="Ex. Guigal, Côte-Rôtie La Mouline, 1999"></div>
+      <p class="sc groupe">Votre cave</p>
+      <div class="row">
+        <div class="field"><label for="eo-contexte">Votre situation <span class="req">*</span></label>
+          <select id="eo-contexte" name="contexte" required>
+            <option value="">Choisir</option>
+            <option value="Succession">Succession / héritage</option>
+            <option value="Assurance">Assurance / déclaration de valeur</option>
+            <option value="Vente">Vente d'une cave</option>
+            <option value="Inventaire">Inventaire / patrimoine</option>
+            <option value="Autre">Autre</option>
+          </select></div>
+        <div class="field"><label for="eo-volume">Taille de la cave <span class="req">*</span></label>
+          <select id="eo-volume" name="volume" required>
+            <option value="">Choisir</option>
+            <option value="Moins de 20">Moins de 20 bouteilles</option>
+            <option value="20 à 50">20 à 50 bouteilles</option>
+            <option value="50 à 100">50 à 100 bouteilles</option>
+            <option value="100 à 300">100 à 300 bouteilles</option>
+            <option value="Plus de 300">Plus de 300 bouteilles</option>
+          </select></div>
+      </div>
+      <p class="sc groupe">Vous</p>
+      <div class="row">
+        <div class="field"><label for="eo-prenom">Prénom et nom <span class="req">*</span></label><input type="text" id="eo-prenom" name="prenom" required autocomplete="name"></div>
+        <div class="field"><label for="eo-email">Email <span class="req">*</span></label><input type="email" id="eo-email" name="email" required autocomplete="email"></div>
+      </div>
+      <label class="check" for="eo-consentement"><input type="checkbox" id="eo-consentement" name="consentement_rgpd" required><span>J'accepte que mes informations soient utilisées pour répondre à ma demande. Elles ne sont transmises à aucun tiers et sont supprimées sur simple demande à <a href="mailto:contact@estimationcave.com">contact@estimationcave.com</a>. <span class="req">*</span></span></label>
+      <button type="submit" class="btn" id="eo-btn">Recevoir mon aperçu offert</button>
+      <p class="depot-foot">Réponse sous 48&nbsp;h ouvrées · Un PDF d'une page · Une seule estimation offerte par adresse email · Sans carte bancaire, sans engagement.</p>
+    </form>
+              <script>
             (function(){
               var form=document.getElementById('eo-form');
               if(!form)return;
@@ -449,147 +482,104 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
               });
             })();
           </script>
-        </section>
+  </div>
+</section>
 
-        <!-- ── SECTION 3 — COMMENT ÇA MARCHE ── -->
-        <section class="section section-dark" id="comment">
-            <div class="container">
-                <h2>Comment ça marche&nbsp;?</h2>
-                <p class="section-intro">Trois minutes pour vous, 48&nbsp;h ouvrées pour moi. Pas d'outil automatique&nbsp;: chaque bouteille est relevée à la main.</p>
-                <span class="ornament-long"></span>
-                <div class="pains-grid">
-                    <article class="pain-card reveal">
-                        <div class="pain-number">1</div>
-                        <h3>Vous nommez trois bouteilles</h3>
-                        <p>Celles qui comptent&nbsp;: les plus anciennes, les plus prestigieuses, ou celles dont vous doutez. Domaine, appellation, millésime suffisent — pas besoin de photo, pas besoin d'être connaisseur.</p>
-                    </article>
-                    <article class="pain-card reveal">
-                        <div class="pain-number">2</div>
-                        <h3>Je relève leur valeur réelle</h3>
-                        <p>Pour chaque flacon, je relève les <strong>ventes récentes</strong> et les <strong>offres marchandes</strong> du millésime et du format exacts. Le regard d'une experte indépendante, <strong>sans lien avec un acheteur</strong>.</p>
-                    </article>
-                    <article class="pain-card reveal">
-                        <div class="pain-number">3</div>
-                        <h3>Vous recevez un aperçu d'une page</h3>
-                        <p>Sous 48&nbsp;h ouvrées, par email&nbsp;: la <strong>valeur</strong> de chaque bouteille avec sa source, sa <strong>tendance</strong>, sa fenêtre d'apogée et une <strong>recommandation</strong> argumentée. Offert.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
+<!-- ═══ COMMENT ÇA MARCHE ═══ -->
+<section class="process" id="comment">
+  <div class="container">
+    <p class="sc on-dark">Comment ça marche</p>
+    <h2>Trois minutes pour vous, 48&nbsp;h ouvrées pour moi.</h2>
+    <p class="lead">Pas d'outil automatique&nbsp;: chaque bouteille est relevée à la main.</p>
+    <ol class="etapes">
+      <li><p class="num">Étape une</p><h3>Vous nommez trois bouteilles</h3><p>Celles qui comptent&nbsp;: les plus anciennes, les plus prestigieuses, ou celles dont vous doutez. Domaine, appellation, millésime suffisent. Pas besoin de photo, pas besoin d'être connaisseur.</p></li>
+      <li><p class="num">Étape deux</p><h3>Je relève leur valeur réelle</h3><p>Pour chaque flacon, je relève les <strong>ventes récentes</strong> et les <strong>offres marchandes</strong> du millésime et du format exacts. Le regard d'une experte indépendante, <strong>sans lien avec un acheteur</strong>.</p></li>
+      <li><p class="num">Étape trois</p><h3>Vous recevez un aperçu d'une page</h3><p>Sous 48&nbsp;h ouvrées, par email&nbsp;: la <strong>valeur</strong> de chaque bouteille avec sa source, sa <strong>tendance</strong>, sa fenêtre d'apogée et une <strong>recommandation</strong> argumentée. Offert.</p></li>
+    </ol>
+  </div>
+</section>
 
-        <!-- ── SECTION 4 — CE QUE VOUS RECEVEZ ── -->
-        <section class="section section-alt" id="apercu">
-            <div class="container-mid">
-                <h2>Ce que contient <em>l'aperçu</em></h2>
-                <p class="section-intro">Un extrait du rapport complet, à l'échelle de trois flacons&nbsp;: la même méthode, la même présentation, les mêmes recommandations.</p>
-                <span class="ornament-long"></span>
-                <div class="apercu-mock reveal" aria-label="Structure de l'aperçu d'une page">
-                    <div class="am-head">
-                        <span class="am-eyebrow">Extrait du rapport complet</span>
-                        <span class="am-date">Aperçu offert · daté et signé</span>
-                    </div>
-                    <div class="am-line">
-                        <div><div class="am-name">Votre bouteille 1</div><div class="am-sub">Appellation · classement · format</div></div>
-                        <div class="am-val">Valeur<small>avec sa source et sa date de relevé</small></div>
-                        <div class="am-reco"><span class="am-tag">À conserver</span> <b>Pourquoi</b> — la fenêtre d'apogée, ce que fait le marché de ce millésime, et ce que vous perdriez à vendre maintenant.</div>
-                    </div>
-                    <div class="am-line">
-                        <div><div class="am-name">Votre bouteille 2</div><div class="am-sub">Appellation · classement · format</div></div>
-                        <div class="am-val">Valeur<small>tendance sur les dernières années</small></div>
-                        <div class="am-reco"><span class="am-tag">À vendre</span> <b>Quand et par quel canal</b> — le moment du cycle, le canal adapté à ce flacon, l'ordre de grandeur net pour vous.</div>
-                    </div>
-                    <div class="am-line">
-                        <div><div class="am-name">Votre bouteille 3</div><div class="am-sub">Appellation · classement · format</div></div>
-                        <div class="am-val">Valeur<small>liquidité du marché</small></div>
-                        <div class="am-reco"><span class="am-tag">À surveiller</span> <b>Quand réexaminer</b> — ce qui doit changer sur le marché avant de décider, et à quelle date revoir la question.</div>
-                    </div>
-                    <p class="am-foot">Selon votre situation, la valeur retenue est la <strong>valeur de remplacement</strong> (ce que coûterait le flacon chez un marchand, base d'une déclaration d'assurance) ou le <strong>prix attendu en vente publique</strong> (succession, vente). Dites-le-moi dans le formulaire, l'aperçu s'adapte.</p>
-                </div>
-            </div>
-        </section>
+<!-- ═══ CE QUE CONTIENT L'APERÇU ═══ -->
+<section class="extrait" id="apercu">
+  <div class="container">
+    <div class="extrait-head">
+      <p class="sc">Ce que vous recevez</p>
+      <h2>Ce que contient l'aperçu</h2>
+      <p class="lead">Un extrait du rapport complet, à l'échelle de trois flacons&nbsp;: la même méthode, la même présentation, les mêmes recommandations.</p>
+    </div>
+    <div class="planche-lots" aria-label="Structure de l'aperçu d'une page">
+      <div class="pl-head"><p class="sc">Extrait du rapport complet</p><small>Aperçu offert · daté et signé</small></div>
+      <div class="pl-lot"><span class="num">I</span><div class="nom"><b>Votre bouteille 1</b><small>Appellation · classement · format</small></div><div class="val">Valeur<small>avec sa source et sa date de relevé</small></div><p class="reco"><span class="tag">À conserver</span><b>Pourquoi</b> — la fenêtre d'apogée, ce que fait le marché de ce millésime, et ce que vous perdriez à vendre maintenant.</p></div>
+      <div class="pl-lot"><span class="num">II</span><div class="nom"><b>Votre bouteille 2</b><small>Appellation · classement · format</small></div><div class="val">Valeur<small>tendance sur les dernières années</small></div><p class="reco"><span class="tag">À vendre</span><b>Quand et par quel canal</b> — le moment du cycle, le canal adapté à ce flacon, l'ordre de grandeur net pour vous.</p></div>
+      <div class="pl-lot"><span class="num">III</span><div class="nom"><b>Votre bouteille 3</b><small>Appellation · classement · format</small></div><div class="val">Valeur<small>liquidité du marché</small></div><p class="reco"><span class="tag">À surveiller</span><b>Quand réexaminer</b> — ce qui doit changer sur le marché avant de décider, et à quelle date revoir la question.</p></div>
+      <p class="pl-foot">Selon votre situation, la valeur retenue est la <b>valeur de remplacement</b> (ce que coûterait le flacon chez un marchand, base d'une déclaration d'assurance) ou le <b>prix attendu en vente publique</b> (succession, vente). Dites-le-moi dans le formulaire, l'aperçu s'adapte.</p>
+    </div>
+  </div>
+</section>
 
-        <!-- ── SECTION 5 — POURQUOI C'EST OFFERT ── -->
-        <section class="section">
-            <div class="container-tight">
-                <h2>Pourquoi c'est offert&nbsp;— et sans piège</h2>
-                <span class="ornament-long"></span>
-                <div class="usage-block">
-                    <h3>Je ne rachète pas vos bouteilles</h3>
-                    <p>La plupart des estimations « gratuites » viennent de négociants ou de maisons de vente qui espèrent récupérer votre vin&nbsp;: leur intérêt est de le sous-évaluer. Moi, je ne rachète rien et je ne touche aucune commission. Mon estimation est <strong>neutre</strong>, dans votre seul intérêt.</p>
-                </div>
-                <div class="usage-block">
-                    <h3>Pour vous montrer le travail avant que vous ne payiez quoi que ce soit</h3>
-                    <p>Un audit complet se commande sur la foi d'une page web. Je préfère que vous jugiez sur pièce&nbsp;: trois bouteilles traitées exactement comme le seront les lignes de votre inventaire. Si le sérieux du travail vous convainc et que vous avez une cave entière à estimer, vous saurez à quoi vous attendre.</p>
-                </div>
-                <div class="usage-block">
-                    <h3>Et si votre cave est petite&nbsp;?</h3>
-                    <p>L'aperçu vous donnera déjà l'essentiel. Je vous dirai honnêtement si un audit complet se justifie — pour une vingtaine de bouteilles courantes, souvent non.</p>
-                </div>
-                <div class="bon-a-savoir">
-                    Aucune carte bancaire, aucun engagement. Vous recevez votre aperçu par email, un point c'est tout. Une seule estimation offerte par adresse email. Vos informations ne sont transmises à personne et sont supprimées sur simple demande.
-                </div>
-            </div>
-        </section>
+<!-- ═══ POURQUOI C'EST OFFERT ═══ -->
+<section class="pourquoi">
+  <div class="container">
+    <div class="pourquoi-grid">
+      <div>
+        <p class="sc">Sans piège</p>
+        <h2>Pourquoi c'est offert</h2>
+        <p class="lead" style="margin-top:1rem">Aucune carte bancaire, aucun engagement. Vous recevez votre aperçu par email, un point c'est tout. Une seule estimation offerte par adresse email. Vos informations ne sont transmises à personne et sont supprimées sur simple demande.</p>
+      </div>
+      <ol class="raisons">
+        <li><span class="num">I</span><div><h3>Je ne rachète pas vos bouteilles</h3><p>La plupart des estimations « gratuites » viennent de négociants ou de maisons de vente qui espèrent récupérer votre vin&nbsp;: leur intérêt est de le sous-évaluer. Moi, je ne rachète rien et je ne touche aucune commission. Mon estimation est <strong>neutre</strong>, dans votre seul intérêt.</p></div></li>
+        <li><span class="num">II</span><div><h3>Pour vous montrer le travail avant que vous ne payiez quoi que ce soit</h3><p>Un audit complet se commande sur la foi d'une page web. Je préfère que vous jugiez sur pièce&nbsp;: trois bouteilles traitées exactement comme le seront les lignes de votre inventaire. Si le sérieux du travail vous convainc et que vous avez une cave entière à estimer, vous saurez à quoi vous attendre.</p></div></li>
+        <li><span class="num">III</span><div><h3>Et si votre cave est petite&nbsp;?</h3><p>L'aperçu vous donnera déjà l'essentiel. Je vous dirai honnêtement si un audit complet se justifie. Pour une vingtaine de bouteilles courantes, souvent non.</p></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
 
-        <!-- ── SECTION 6 — QUI ESTIME VOS BOUTEILLES ── -->
-        <section class="section profil-section">
-            <div class="container-tight profil">
-                <h2>Qui estime <em>vos bouteilles</em>&nbsp;?</h2>
-                <span class="ornament-diamond"></span>
-                <p>Je m'appelle Fanny. Pendant 6&nbsp;ans, j'ai été responsable des ventes aux enchères de vin, et j'ai estimé plusieurs milliers de bouteilles dans tous les contextes&nbsp;: successions, assurances, ventes. Certifiée WSET niveau 3 avec distinction. Experte indépendante&nbsp;: aucun rachat, aucune commission, aucun conflit d'intérêt.</p>
-                <p style="text-align:center;">
-                    <a href="apropos.html" class="profil-link">En savoir plus sur mon parcours →</a>
-                </p>
-            </div>
-        </section>
+<!-- ═══ QUI ESTIME ═══ -->
+<section class="experte">
+  <div class="container">
+    <div class="experte-grid">
+      <div class="bulle"><img src="fanny-terrasse.webp" width="1086" height="1448" alt="Fanny, experte indépendante en estimation de cave"></div>
+      <div>
+        <p class="sc">Qui estime vos bouteilles</p>
+        <h2>Une experte indépendante, sans conflit d'intérêt.</h2>
+        <p>Je m'appelle Fanny. Pendant six ans, j'ai été responsable des ventes aux enchères de vin, et j'ai estimé plusieurs milliers de bouteilles dans tous les contextes&nbsp;: successions, assurances, ventes. Certifiée WSET niveau 3 avec distinction. Aucun rachat, aucune commission.</p>
+        <p class="signature">Fanny</p>
+        <p class="signature-sub">Experte indépendante en estimation de cave · WSET 3</p>
+        <a href="apropos.html" class="lien-suite">En savoir plus sur mon parcours</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <!-- ── SECTION 7 — FAQ ── -->
-        <section class="section section-alt">
-            <div class="container-tight">
-                <h2>Questions fréquentes</h2>
-                <span class="ornament-long"></span>
-                <div class="faq-list">
-                    <div class="faq-item">
-                        <button class="faq-q" type="button" aria-expanded="false">C'est vraiment offert&nbsp;?</button>
-                        <div class="faq-a">
-                            <p>Oui. Vous nommez jusqu'à trois bouteilles et votre email&nbsp;; vous recevez sous 48&nbsp;h ouvrées un PDF d'une page avec leur valeur, leur tendance et un conseil garder ou vendre. Sans carte bancaire et sans engagement. Une seule estimation offerte par adresse email&nbsp;: au-delà de trois bouteilles, c'est l'audit complet qui prend le relais.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-q" type="button" aria-expanded="false">Quelles bouteilles choisir&nbsp;?</button>
-                        <div class="faq-a">
-                            <p>Celles qui comptent&nbsp;: les plus anciennes, les plus prestigieuses, ou celles dont vous doutez. Un grand cru, un vieux millésime et une bouteille que vous n'arrivez pas à situer donnent un aperçu très représentatif de ce que l'audit complet dira de toute la cave.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-q" type="button" aria-expanded="false">Et si je n'ai qu'une ou deux bouteilles&nbsp;?</button>
-                        <div class="faq-a">
-                            <p>Une seule suffit, les champs 2 et 3 sont facultatifs. Si votre cave est petite, l'aperçu vous donnera déjà l'essentiel et je vous dirai honnêtement si un audit complet se justifie.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-q" type="button" aria-expanded="false">Quelle différence avec l'audit complet à 199&nbsp;€&nbsp;?</button>
-                        <div class="faq-a">
-                            <p>La même méthode, appliquée à toute la cave&nbsp;: chaque bouteille est chiffrée, avec son apogée, sa liquidité et une recommandation, puis un plan d'action indique quoi garder, quoi vendre, à qui et quand. Pour une succession ou une assurance, le rapport constitue la pièce documentée à présenter au notaire ou à l'assureur. L'aperçu en est un extrait, sur trois flacons.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- ═══ FAQ ═══ -->
+<section class="faq">
+  <div class="container">
+    <h2 class="sc center" style="font-size:1.05rem">Questions fréquentes</h2>
+    <div class="faq-list">
+      <details><summary>C'est vraiment offert&nbsp;?</summary><p>Oui. Vous nommez jusqu'à trois bouteilles et votre email&nbsp;; vous recevez sous 48&nbsp;h ouvrées un PDF d'une page avec leur valeur, leur tendance et un conseil garder ou vendre. Sans carte bancaire et sans engagement. Une seule estimation offerte par adresse email&nbsp;: au-delà de trois bouteilles, c'est l'audit complet qui prend le relais.</p></details>
+      <details><summary>Quelles bouteilles choisir&nbsp;?</summary><p>Celles qui comptent&nbsp;: les plus anciennes, les plus prestigieuses, ou celles dont vous doutez. Un grand cru, un vieux millésime et une bouteille que vous n'arrivez pas à situer donnent un aperçu très représentatif de ce que l'audit complet dira de toute la cave.</p></details>
+      <details><summary>Et si je n'ai qu'une ou deux bouteilles&nbsp;?</summary><p>Une seule suffit, les lots 2 et 3 sont facultatifs. Si votre cave est petite, l'aperçu vous donnera déjà l'essentiel et je vous dirai honnêtement si un audit complet se justifie.</p></details>
+      <details><summary>Quelle différence avec l'audit complet à 199&nbsp;€&nbsp;?</summary><p>La même méthode, appliquée à toute la cave&nbsp;: chaque bouteille est chiffrée, avec son apogée, sa liquidité et une recommandation, puis un plan d'action indique quoi garder, quoi vendre, à qui et quand. Pour une succession ou une assurance, le rapport constitue la pièce documentée à présenter au notaire ou à l'assureur. L'aperçu en est un extrait, sur trois flacons.</p></details>
+    </div>
+  </div>
+</section>
 
-        <!-- ── SECTION 8 — CTA FINAL : AUDIT COMPLET ── -->
-        <section class="cta-final">
-            <div class="container-narrow">
-                <h2>Vous avez <em style="color: var(--or);">toute une cave</em> à estimer&nbsp;?</h2>
-                <p class="lead">Si vous avez hérité d'une cave, devez la déclarer à votre assureur ou à un notaire, ou souhaitez la vendre, l'audit complet chiffre <strong style="color:var(--blanc);">chaque</strong> bouteille et vous dit quoi garder, quoi vendre, à qui et quand.</p>
-                <a href="/#formulaire" class="btn-gold">Découvrir l'audit complet — 199&nbsp;€</a>
-                <p class="subtext">Inventaire détaillé, valeur bouteille par bouteille, recommandations et plan d'action personnalisé. Livré sous 5 jours ouvrés, 100&nbsp;% à distance.</p>
-            </div>
-        </section>
+<!-- ═══ CTA FINAL ═══ -->
+<section class="cta-final">
+  <div class="container">
+    <p class="sc on-dark center">L'audit complet</p>
+    <h2>Vous avez toute une cave à estimer&nbsp;?</h2>
+    <p class="lead">Si vous avez hérité d'une cave, devez la déclarer à votre assureur ou à un notaire, ou souhaitez la vendre, l'audit complet chiffre <strong>chaque</strong> bouteille et vous dit quoi garder, quoi vendre, à qui et quand.</p>
+    <a href="/#formulaire" class="btn btn-gold" data-cta="audit-complet">Découvrir l'audit complet — 199&thinsp;€</a>
+    <p class="subtext">Inventaire détaillé, valeur bouteille par bouteille, recommandations et plan d'action personnalisé. Livré sous 5 jours ouvrés, 100&nbsp;% à distance.</p>
+  </div>
+</section>
 
-    </main>
+</main>
 
     <footer class="footer">
+        <div class="fleuron"><img src="grappe-doree.webp" width="160" height="160" alt=""></div>
         <div class="footer-grid">
             <div class="footer-col">
                 <div class="footer-logo">estimation<span>cave</span>.com</div>
@@ -685,40 +675,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
         navRight.querySelectorAll('a').forEach(function(link) {
             link.addEventListener('click', closeMenu);
         });
-    })();
-    </script>
-
-    <script>
-    (function(){
-        document.querySelectorAll('.faq-q').forEach(function(btn){
-            btn.addEventListener('click', function(){
-                var item = btn.closest('.faq-item');
-                var a = item.querySelector('.faq-a');
-                var open = item.classList.toggle('open');
-                btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-                a.style.maxHeight = open ? (a.scrollHeight + 'px') : null;
-            });
-        });
-    })();
-    </script>
-
-    <script>
-    (function(){
-        var targets = document.querySelectorAll('.hero .eyebrow, .hero h1, .hero .lead, .hero-ctas, .hero-mention, .pain-card, .usage-block, .bon-a-savoir, .profil p, .cta-final h2, .cta-final .lead, .section-intro');
-        targets.forEach(function(el){ if(!el.classList.contains('reveal')) el.classList.add('reveal'); });
-
-        document.querySelectorAll('.ornament, .ornament-double, .ornament-dots, .ornament-diamond, .ornament-long, .section-divider').forEach(function(el){ el.classList.add('ornament-reveal'); });
-
-        var allReveal = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .ornament-reveal');
-        var observer = new IntersectionObserver(function(entries){
-            entries.forEach(function(entry){
-                if(entry.isIntersecting){
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {threshold: 0.1, rootMargin: '0px 0px -40px 0px'});
-        allReveal.forEach(function(el){ observer.observe(el); });
     })();
     </script>
 </body>
