@@ -29,19 +29,6 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* ── GRAIN TEXTURE ── */
-body::after {
-    content: '';
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    pointer-events: none;
-    z-index: 9999;
-    opacity: 0.07;
-    background-image: url('noise.png');
-    background-repeat: repeat;
-}
-
 /* ── FOCUS VISIBLE ── */
 *:focus-visible { outline: 2px solid var(--or); outline-offset: 2px; border-radius: 2px; }
 *:focus:not(:focus-visible) { outline: none; }
@@ -147,7 +134,7 @@ a:hover { color: var(--bordeaux); }
     background: var(--or);
     color: var(--bordeaux);
     padding: 0.65rem 1.5rem;
-    border-radius: 4px;
+    border-radius: 0;
     border: none;
     cursor: pointer;
     text-decoration: none;
@@ -157,8 +144,6 @@ a:hover { color: var(--bordeaux); }
     .btn-gold:hover {
         background: var(--or-light);
         color: var(--bordeaux);
-        transform: translateY(-1px);
-        box-shadow: 0 8px 30px rgba(197, 162, 88, 0.3);
     }
 }
 .btn-gold:active {
@@ -175,7 +160,7 @@ a:hover { color: var(--bordeaux); }
     background: var(--bordeaux);
     color: var(--fond);
     padding: 0.65rem 1.5rem;
-    border-radius: 4px;
+    border-radius: 0;
     border: none;
     cursor: pointer;
     text-decoration: none;
@@ -185,25 +170,11 @@ a:hover { color: var(--bordeaux); }
     .btn-primary:hover {
         background: #3D2940;
         color: var(--fond);
-        transform: translateY(-1px);
-        box-shadow: 0 8px 30px rgba(45, 27, 46, 0.2);
     }
 }
 .btn-primary:active {
     transform: translateY(0);
     box-shadow: none;
-}
-
-/* ── PULSE BORDER CTA ── */
-.btn-gold,
-.btn-primary {
-    animation: pulse-border 7s cubic-bezier(0.33, 1, 0.68, 1) infinite;
-}
-.btn-gold { --pulse-color: rgba(197, 162, 88, 0.35); }
-.btn-primary { --pulse-color: rgba(45, 27, 46, 0.25); }
-@keyframes pulse-border {
-    0%, 85%, 100% { box-shadow: 0 0 0 0 var(--pulse-color); }
-    92% { box-shadow: 0 0 0 6px transparent; }
 }
 
 /* ── ORNAMENTS ── */
@@ -371,78 +342,18 @@ a:hover { color: var(--bordeaux); }
     opacity: 1;
 }
 
-/* ── DOUBLE-BEZEL ── */
+/* ── CTA article : cadre simple, sans ombre ── */
 .article-cta {
-    box-shadow: inset 0 0 0 1px rgba(197, 162, 88, 0.1), 0 12px 40px rgba(45, 27, 46, 0.05);
+    box-shadow: none;
+    border: 1px solid var(--border);
 }
 
-/* ── SCROLL REVEAL ── */
-.reveal {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.reveal-left {
-    opacity: 0;
-    transform: translateX(-32px);
-    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.reveal-right {
-    opacity: 0;
-    transform: translateX(32px);
-    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.reveal-scale {
-    opacity: 0;
-    transform: scale(0.95);
-    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.reveal.visible,
-.reveal-left.visible,
-.reveal-right.visible,
-.reveal-scale.visible {
-    opacity: 1;
-    transform: translateY(0) translateX(0) scale(1);
-}
-
-/* ── ORNAMENT REVEAL ── */
-.ornament.ornament-reveal {
-    width: 0;
-    transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.ornament.ornament-reveal.visible {
-    width: 48px;
-}
-.ornament-long.ornament-reveal {
-    width: 0;
-    transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.ornament-long.ornament-reveal.visible {
-    width: 120px;
-}
-.ornament-double.ornament-reveal {
-    width: 0;
-    transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.ornament-double.ornament-reveal.visible {
-    width: 24px;
-}
-.ornament-diamond.ornament-reveal {
-    opacity: 0;
-    transform: scale(0) rotate(45deg);
-    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.ornament-diamond.ornament-reveal.visible {
-    opacity: 1;
-    transform: scale(1) rotate(45deg);
-}
-.ornament-dots.ornament-reveal {
-    opacity: 0;
-    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.ornament-dots.ornament-reveal.visible {
-    opacity: 1;
-}
+/* ── SCROLL REVEAL — désactivé le 18/09/2026 : tout est visible d'emblée ── */
+.reveal, .reveal-left, .reveal-right, .reveal-scale, .ornament-reveal { opacity: 1; transform: none; transition: none; }
+.ornament.ornament-reveal { width: 48px; }
+.ornament-long.ornament-reveal { width: 120px; }
+.ornament-double.ornament-reveal { width: 24px; }
+.ornament-diamond.ornament-reveal { transform: rotate(45deg); }
 
 /* ── BTT HOVER ── */
 @media (hover: hover) {
@@ -722,7 +633,7 @@ a:hover { color: var(--bordeaux); }
     color: var(--bordeaux);
     background: var(--or-pale);
     border-left: 3px solid var(--or);
-    border-radius: 0 6px 6px 0;
+    border-radius: 0;
     padding: 1.5rem 1.75rem;
     margin: 1.5rem 0;
 }
@@ -752,7 +663,7 @@ a:hover { color: var(--bordeaux); }
     color: var(--bordeaux);
     text-decoration: none;
     padding: 0.34rem 0.75rem 0.34rem 0.6rem;
-    border-radius: 999px;
+    border-radius: 0;
     border: 1px solid var(--bordeaux);
     transition: background 0.25s ease, color 0.25s ease;
 }
@@ -774,7 +685,7 @@ a:hover { color: var(--bordeaux); }
     color: var(--bordeaux);
     text-decoration: none;
     padding: 0.34rem 0.8rem;
-    border-radius: 999px;
+    border-radius: 0;
     border: 1px solid rgba(197, 162, 88, 0.4);
     background: var(--blanc);
     transition: border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
@@ -782,7 +693,6 @@ a:hover { color: var(--bordeaux); }
 .fiche-chips a:hover {
     border-color: var(--or);
     color: var(--or);
-    box-shadow: 0 2px 10px rgba(45, 27, 46, 0.06);
 }
 @media (max-width: 600px) {
     .fiche-nav { gap: 0.4rem; }
@@ -798,7 +708,7 @@ a:hover { color: var(--bordeaux); }
     color: var(--texte);
     background: var(--or-pale);
     border-left: 3px solid var(--or);
-    border-radius: 0 6px 6px 0;
+    border-radius: 0;
     padding: 0.9rem 1.15rem;
     margin: 1.7rem 0;
 }
@@ -813,8 +723,27 @@ a:hover { color: var(--bordeaux); }
 .cotes-renvoi a:hover { color: var(--or); }
 
 /* Renvoi « autres grands crus » — maillage entre fiches domaine (/cotes/) ; ici en global pour couvrir les fiches sans <style> local */
-.article-related { margin: 2.5rem 0 0; padding: 1.6rem 1.9rem; background: var(--blanc); border: 1px solid var(--border); border-radius: 6px; }
+.article-related { margin: 2.5rem 0 0; padding: 1.6rem 1.9rem; background: var(--blanc); border: 1px solid var(--border); border-radius: 0; }
 .article-related-title { font-family: var(--font-body); font-size: .72rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--or); margin: 0 0 .9rem; }
 .article-related ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .65rem; }
 .article-related a { color: var(--bordeaux); font-weight: 600; text-decoration: none; }
 .article-related a:hover { color: var(--or); }
+
+/* ══════════════════════════════════════════════════
+   LOT 1 — 18/09/2026 : hygiène visuelle sitewide
+   ══════════════════════════════════════════════════ */
+/* Labels de section : petites capitales Cormorant à la place des majuscules
+   DM Sans espacées. La couleur reste celle de chaque page (or par défaut). */
+body .section-label, body .article-meta {
+    font-family: var(--font-display) !important;
+    font-variant: small-caps !important;
+    text-transform: none !important;
+    font-size: 1.05rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.08em !important;
+}
+/* Texte justifié uniquement avec césure : évite les rivières dans les colonnes étroites */
+.article-body p, .usage-block p, .profil p, .pain-card p, .fiche__note {
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}

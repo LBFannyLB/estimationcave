@@ -191,104 +191,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <style>
-    /* ── INDEX OVERRIDES ── */
-    :root { --fond-alt: #F4EDE3; }
-    html { scroll-behavior: smooth; font-size: 16px; }
-    img { max-width: 100%; display: block; }
-    a { text-decoration: none; color: inherit; }
-
-    .container {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    /* ── TYPOGRAPHY ── */
-    h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(--bordeaux); line-height: 1.2; }
-
-    h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); letter-spacing: -0.02em; }
-    h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); letter-spacing: -0.01em; }
-    h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); }
-
-    .section-subtitle {
-      font-family: var(--font-body);
-      font-size: 1.05rem;
-      color: var(--texte-light);
-      font-weight: 400;
-      max-width: 600px;
-      margin: 1rem auto 0;
-      line-height: 1.8;
-    }
-
-    /* ── BUTTONS ── */
-    .btn {
-      display: inline-block;
-      font-family: var(--font-body);
-      font-weight: 500;
-      font-size: 0.95rem;
-      letter-spacing: 0.03em;
-      border: none;
-      cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.33, 1, 0.68, 1);
-    }
-
-    .btn-primary {
-      background: var(--bordeaux);
-      color: var(--fond);
-      padding: 1rem 2.4rem;
-      border-radius: 4px;
-    }
-    .btn-primary:hover {
-      background: #3D2940;
-      transform: translateY(-1px);
-      box-shadow: 0 8px 30px rgba(45, 27, 46, 0.2);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--bordeaux);
-      padding: 0.85rem 2rem;
-      border: 1.5px solid var(--bordeaux);
-      border-radius: 4px;
-    }
-    .btn-outline:hover {
-      background: var(--bordeaux);
-      color: var(--fond);
-    }
-
-    .btn-gold {
-      background: var(--or);
-      color: var(--bordeaux);
-      padding: 1.1rem 2.6rem;
-      border-radius: 4px;
-      font-weight: 600;
-      font-size: 1rem;
-    }
-    .btn-gold:hover {
-      background: var(--or-light);
-      transform: translateY(-1px);
-      box-shadow: 0 8px 30px rgba(197, 162, 88, 0.3);
-    }
-
-    /* ── ORNAMENTS ── */
-    .ornament {
-      display: block;
-      width: 48px;
-      height: 2px;
-      background: var(--or);
-      margin: 1.5rem auto;
-    }
-
-    .section-label {
-      font-family: var(--font-body);
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--or);
-      margin-bottom: 0.75rem;
-    }
-
     /* ══════════════════════════════════
        1. NAVIGATION (surcharges index)
     ══════════════════════════════════ */
@@ -339,23 +241,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       border-top: 1px solid var(--border); border-radius: 0; padding-top: 0.6rem;
     }
 
-    /* ── Section « Prix des vins » (home) ── */
-    .cotes-home { padding: 5rem 0; }
-    .cotes-home-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 2.5rem; }
-    .cotes-home-card { display: flex; flex-direction: column; background: var(--blanc); border: 1px solid var(--border); border-radius: 8px; padding: 1.6rem 1.6rem 1.4rem; text-decoration: none; transition: border-color 0.3s cubic-bezier(0.33,1,0.68,1), box-shadow 0.3s cubic-bezier(0.33,1,0.68,1), transform 0.3s cubic-bezier(0.33,1,0.68,1); }
-    .cotes-home-card:hover { border-color: rgba(197,162,88,0.5); box-shadow: 0 12px 30px rgba(45,27,46,0.08); transform: translateY(-2px); }
-    .cotes-home-kicker { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--or); margin: 0 0 0.5rem; }
-    .cotes-home-card h3 { font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--bordeaux); line-height: 1.25; margin: 0 0 0.5rem; }
-    .cotes-home-teaser { font-size: 0.9rem; color: var(--texte-light); line-height: 1.6; margin: 0 0 1rem; }
-    .cotes-home-read { margin-top: auto; font-size: 0.85rem; font-weight: 600; color: var(--or); }
-    .cotes-home-region { border-top: 3px solid var(--or); }
-    .cotes-home-all { background: var(--bordeaux); border-color: var(--bordeaux); }
-    .cotes-home-all .cotes-home-kicker { color: var(--or-light); }
-    .cotes-home-all h3 { color: var(--fond); }
-    .cotes-home-all .cotes-home-read { color: var(--or-light); }
-    @media (max-width: 900px) { .cotes-home-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 560px) { .cotes-home-grid { grid-template-columns: 1fr; } }
-
     /* Nav → menu hamburger dès la tablette (le 5e item « Prix des vins » tasse trop la barre) */
     @media (max-width: 880px) {
       .hamburger { display: block; }
@@ -382,1367 +267,339 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       .nav-dropdown-menu .nav-dropdown-all { border-top: none; margin-top: 0; padding-top: 0.7rem; color: var(--or); }
     }
 
-    /* ══════════════════════════════════
-       2. HERO
-    ══════════════════════════════════ */
-    .hero {
-      padding: 10rem 0 3.5rem;
-      position: relative;
-      overflow: hidden;
-    }
 
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(197,162,88,0.06) 0%, transparent 70%);
-      pointer-events: none;
-    }
 
-    .hero-layout {
-      display: flex;
-      align-items: center;
-      gap: 4rem;
-    }
+/* ═══════════════════════════════════════════════════════════
+   MAQUETTE — vocabulaire « catalogue de vente »
+   Tokens inchangés : bordeaux, or, fond, Cormorant + DM Sans.
+   Ajouts : rouge vin (celui des graphiques du rapport), crème 2.
+   Retirés : grain, pulsation, scroll-reveal, ombres 30 px, coins arrondis.
+   ═══════════════════════════════════════════════════════════ */
+:root {
+  --bordeaux: #2D1B2E;
+  --or: #C5A258;
+  --or-pale: rgba(197, 162, 88, 0.14);
+  --fond: #FAF6F0;
+  --creme: #F3EBDD;
+  --vin: #8B3A3A;
+  --texte: #3A3035;
+  --texte-light: #6B5F65;
+  --blanc: #FFFFFF;
+  --filet: rgba(45, 27, 46, 0.16);
+  --filet-fort: rgba(45, 27, 46, 0.45);
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'DM Sans', -apple-system, sans-serif;
+  --mesure: 1120px;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-padding-top: 88px; }
+body {
+  font-family: var(--font-body);
+  background: var(--fond);
+  color: var(--texte);
+  line-height: 1.65;
+  font-size: 1rem;
+  -webkit-font-smoothing: antialiased;
+  font-variant-numeric: oldstyle-nums;
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--bordeaux); text-decoration: none; }
+p a { text-decoration: underline; text-decoration-color: var(--or); text-underline-offset: 3px; }
+*:focus-visible { outline: 2px solid var(--or); outline-offset: 2px; }
+
+.container { max-width: var(--mesure); margin: 0 auto; padding: 0 2rem; }
+section { padding: 5.5rem 0; }
+@media (max-width: 768px) { section { padding: 3.5rem 0; } .container { padding: 0 1.25rem; } }
+
+/* ── Typographie ── */
+blockquote { text-wrap: pretty; }
+h1, h2, h3, .display { font-family: var(--font-display); font-weight: 500; color: var(--bordeaux); line-height: 1.1; letter-spacing: -0.005em; }
+h1 { font-size: clamp(2.6rem, 5.2vw, 4.2rem); font-weight: 500; }
+h2 { font-size: clamp(2rem, 3.6vw, 2.8rem); }
+h3 { font-size: 1.45rem; font-weight: 600; }
+.lead { font-size: 1.12rem; color: var(--texte-light); line-height: 1.65; }
+
+/* Le label de section : petites capitales Cormorant en bordeaux,
+   à la place du DM Sans majuscules doré espacé. */
+.sc {
+  font-family: var(--font-display);
+  font-variant: small-caps;
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  color: var(--bordeaux);
+  display: flex; align-items: center; gap: 0.75rem;
+  margin-bottom: 1.2rem;
+}
+.sc::before { content: ''; width: 2.25rem; height: 1px; background: var(--or); }
+.sc.center { justify-content: center; }
+.sc.center::after { content: ''; width: 2.25rem; height: 1px; background: var(--or); }
+.sc.on-dark { color: var(--or); }
+
+/* Filets « catalogue » */
+.filet-double { height: 5px; border-top: 1px solid var(--filet-fort); border-bottom: 1px solid var(--filet-fort); }
+.filet { height: 1px; background: var(--filet); }
+.fleuron { display: flex; align-items: center; justify-content: center; gap: 1rem; margin: 2.5rem 0; }
+.fleuron::before, .fleuron::after { content: ''; flex: 0 0 4rem; height: 1px; background: var(--or); }
+.fleuron img { width: 26px; height: 26px; opacity: 0.85; }
+
+/* Boutons : coins vifs, aucune animation */
+.btn { display: inline-block; font-family: var(--font-body); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.02em; padding: 0.85rem 1.7rem; border: 1px solid var(--bordeaux); background: var(--bordeaux); color: var(--fond); cursor: pointer; transition: background 0.2s, color 0.2s; }
+.btn:hover { background: #3D2940; }
+.btn-gold { background: var(--or); border-color: var(--or); color: var(--bordeaux); }
+.btn-gold:hover { background: #B8944C; }
+.btn-outline { background: transparent; color: var(--bordeaux); }
+.btn-outline:hover { background: var(--bordeaux); color: var(--fond); }
+.btn-outline.on-dark { color: var(--fond); border-color: var(--or); }
+.btn-outline.on-dark:hover { background: var(--or); color: var(--bordeaux); }
+.lien-suite { font-family: var(--font-display); font-style: italic; font-size: 1.15rem; color: var(--bordeaux); border-bottom: 1px solid var(--or); }
+
+/* ── Nav : collante, fond plein, sans flou ── */
+.nav { position: sticky; background: var(--fond); backdrop-filter: none; -webkit-backdrop-filter: none; }
+.nav .btn-gold { border-radius: 0; }
+.nav-dropdown-menu { border-radius: 0; box-shadow: 0 6px 20px rgba(45,27,46,0.10); }
+.nav-dropdown-menu a { border-radius: 0; }
+
+/* ── Hero asymétrique ── */
+.hero { padding: 4.5rem 0 3.5rem; overflow: hidden; }
+.hero-grid { display: grid; grid-template-columns: 7fr 5fr; gap: 3rem; align-items: center; }
+.hero h1 { margin: 0.6rem 0 1.4rem; max-width: 16ch; }
+.hero .lead { max-width: 34rem; margin-bottom: 2rem; }
+.hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1.2rem 1.8rem; margin-bottom: 1.6rem; }
+.hero-mention { font-size: 0.85rem; color: var(--texte-light); }
+.hero-mention span { color: var(--or); margin: 0 0.5rem; }
+.hero-visual { position: relative; margin-right: -6vw; }
+.hero-visual img { width: 69%; max-width: none; margin-left: auto; }
+/* Cartouche « lot » posé sur l'image : fiche de lot de catalogue */
+.cartouche-lot { position: absolute; left: -1rem; bottom: 1.5rem; background: var(--fond); border: 1px solid var(--filet-fort); outline: 1px solid var(--filet-fort); outline-offset: 3px; padding: 0.9rem 1.2rem; font-size: 0.8rem; line-height: 1.45; min-width: 15rem; }
+.cartouche-lot .sc { margin: 0 0 0.35rem; font-size: 0.95rem; }
+.cartouche-lot .sc::before { display: none; }
+.cartouche-lot b { font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; color: var(--bordeaux); display: block; line-height: 1.1; }
+.cartouche-lot small { color: var(--texte-light); }
+@media (max-width: 860px) {
+  .hero { padding: 2.5rem 0 2rem; }
+  .hero-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .hero h1 { max-width: none; }
+  .hero-visual { margin: 0 -1.25rem 0 0; }
+  .hero-visual img { width: 92%; margin-left: auto; }
+  .cartouche-lot { left: 0; bottom: 0; }
+}
+
+/* Cartouche technique : remplace le bandeau à 4 KPI */
+.fiche-technique { border-top: 1px solid var(--or); border-bottom: 1px solid var(--filet); margin-top: 3rem; }
+.fiche-technique ul { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); }
+.fiche-technique li { padding: 1.1rem 1.4rem; border-right: 1px solid var(--filet); font-size: 0.86rem; color: var(--texte-light); line-height: 1.45; }
+.fiche-technique li:last-child { border-right: 0; }
+.fiche-technique li b { display: block; font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--bordeaux); line-height: 1.2; margin-bottom: 0.15rem; }
+.fiche-technique li a { border-bottom: 1px solid var(--or); color: var(--bordeaux); }
+@media (max-width: 860px) {
+  .fiche-technique ul { grid-template-columns: 1fr 1fr; }
+  .fiche-technique li:nth-child(2) { border-right: 0; }
+  .fiche-technique li:nth-child(-n+2) { border-bottom: 1px solid var(--filet); }
+}
+
+/* ── Situations : liste éditoriale, pas de cartes ── */
+.situations { background: var(--creme); }
+.situations-head { max-width: 40rem; margin-bottom: 3rem; }
+.situations-grid { display: grid; grid-template-columns: 1fr 1fr; }
+.situation { display: grid; grid-template-columns: 3.2rem 1fr; padding: 2rem 2.5rem; border-top: 1px solid var(--filet-fort); }
+.situation:nth-child(odd) { border-right: 1px solid var(--filet-fort); padding-left: 0; }
+.situation:nth-child(even) { padding-right: 0; }
+.situation:nth-child(-n+2) { border-top: 0; padding-top: 0; }
+.situation .num { font-family: var(--font-display); font-size: 2rem; font-weight: 500; color: var(--vin); line-height: 1; padding-top: 0.15rem; }
+.situation h3 { margin-bottom: 0.5rem; }
+.situation blockquote { font-family: var(--font-display); font-style: italic; font-size: 1.35rem; color: var(--bordeaux); line-height: 1.3; margin-bottom: 0.7rem; }
+.situation p { font-size: 0.95rem; color: var(--texte-light); }
+@media (max-width: 860px) {
+  .situations-grid { grid-template-columns: 1fr; }
+  .situation { padding: 1.8rem 0; border-right: 0 !important; }
+  .situation:nth-child(2) { border-top: 1px solid var(--filet-fort); padding-top: 1.8rem; }
+}
+
+/* ── Fanny : la personne, haut dans la page ── */
+.experte-grid { display: grid; grid-template-columns: 3fr 7fr; gap: 4rem; align-items: center; }
+.cadre-double { position: relative; padding: 10px; border: 1px solid var(--filet-fort); }
+.cadre-double::after { content: ''; position: absolute; inset: 3px; border: 1px solid var(--filet-fort); pointer-events: none; }
+.cadre-double img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 20%; filter: saturate(0.85); }
+.experte h2 { margin-bottom: 1.4rem; }
+.experte p { margin-bottom: 1rem; font-size: 1.02rem; }
+.bulle { width: 100%; max-width: 16.5rem; aspect-ratio: 4 / 5; border-radius: 50%; overflow: hidden; margin: 0 auto; box-shadow: 0 0 0 1px var(--filet-fort), 0 0 0 6px var(--fond), 0 0 0 7px var(--or); }
+.bulle img { width: 100%; height: 100%; object-fit: cover; object-position: 58% 22%; transform: scale(1.15); transform-origin: 58% 30%; filter: saturate(0.92); }
+.experte .signature { font-family: var(--font-display); font-style: italic; font-size: 1.9rem; color: var(--bordeaux); margin: 1.4rem 0 0.2rem; }
+.experte .signature-sub { font-size: 0.85rem; color: var(--texte-light); margin-bottom: 1.4rem; }
+@media (max-width: 860px) { .experte-grid { grid-template-columns: 1fr; gap: 2rem; } .bulle { max-width: 16rem; } }
+
+/* ── Comment ça marche : bandeau bordeaux, 3 lignes sur filet ── */
+.process { background: var(--bordeaux); color: var(--fond); }
+.process h2 { color: var(--fond); margin-bottom: 3rem; }
+.etapes { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(250,246,240,0.35); }
+.etapes li { padding: 1.6rem 1.6rem 1.6rem 0; border-top: 3px double rgba(197,162,88,0.6); margin-top: -1px; }
+.etapes .num { font-family: var(--font-display); font-size: 1rem; font-variant: small-caps; letter-spacing: 0.1em; color: var(--or); margin-bottom: 0.4rem; }
+.etapes h3 { color: var(--fond); font-weight: 500; margin-bottom: 0.4rem; }
+.etapes p { font-size: 0.92rem; color: rgba(250,246,240,0.75); }
+.process-suite { margin-top: 2.5rem; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+.process-suite p { font-size: 0.92rem; color: rgba(250,246,240,0.8); max-width: 40rem; }
+@media (max-width: 860px) { .etapes { grid-template-columns: 1fr; } .etapes li { padding-right: 0; } }
+
+/* ── Ce que vous recevez : sommaire de catalogue + planche ── */
+.recevez-grid { display: grid; grid-template-columns: 6fr 5fr; gap: 4rem; align-items: start; }
+.sommaire { list-style: none; border-top: 1px solid var(--filet-fort); margin-top: 2rem; }
+.sommaire li { border-bottom: 1px solid var(--filet); }
+.sommaire button { all: unset; display: grid; grid-template-columns: 2.4rem 1fr; align-items: baseline; gap: 0.75rem; width: 100%; padding: 0.95rem 0; cursor: pointer; font-family: var(--font-display); font-size: 1.3rem; color: var(--bordeaux); }
+.sommaire button .n { font-variant: small-caps; font-size: 1rem; letter-spacing: 0.05em; color: var(--vin); }
+.sommaire button .pts { flex: 1; border-bottom: 1px dotted var(--filet-fort); margin: 0 0.5rem; align-self: end; height: 0.9em; }
+.sommaire li.active button { color: var(--vin); }
+.sommaire .detail { display: none; padding: 0 0 1.1rem 3.15rem; font-size: 0.93rem; color: var(--texte-light); }
+.sommaire li.active .detail { display: block; }
+.planche { position: sticky; top: 96px; }
+.planche .cadre-double img { aspect-ratio: 660 / 934; object-position: top; filter: none; }
+.planche figcaption { display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--texte-light); margin-top: 0.8rem; font-family: var(--font-display); font-variant: small-caps; letter-spacing: 0.06em; font-size: 0.95rem; }
+.recevez-usage { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--filet-fort); display: flex; gap: 2rem; align-items: center; flex-wrap: wrap; justify-content: space-between; }
+.recevez-usage p { max-width: 36rem; font-size: 0.95rem; color: var(--texte-light); }
+@media (max-width: 860px) { .recevez-grid { grid-template-columns: 1fr; gap: 2rem; } .planche { position: static; max-width: 24rem; } }
+
+/* ── Témoignage en lettre, pas en avis ── */
+.lettre { background: var(--creme); }
+.lettre-main { max-width: 46rem; margin: 0 auto; text-align: center; }
+.lettre-main blockquote { font-family: var(--font-display); font-size: clamp(1.25rem, 1.9vw, 1.5rem); font-weight: 400; line-height: 1.4; color: var(--bordeaux); }
+.lettre-main blockquote::before { content: '«'; display: block; font-size: 4rem; line-height: 0.6; color: var(--vin); margin-bottom: 1rem; }
+.lettre-meta { margin-top: 1.6rem; font-size: 0.85rem; color: var(--texte-light); }
+.lettre-meta b { font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--bordeaux); display: block; margin-bottom: 0.15rem; }
+.lettres-courtes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; margin-top: 3.5rem; padding-top: 2.5rem; border-top: 1px solid var(--filet-fort); }
+.lettres-courtes blockquote { font-family: var(--font-display); font-size: 1.15rem; line-height: 1.4; color: var(--bordeaux); margin-bottom: 0.7rem; }
+.lettres-courtes cite { font-style: normal; font-size: 0.82rem; color: var(--texte-light); }
+.lettres-courtes cite b { color: var(--bordeaux); font-weight: 500; }
+@media (max-width: 860px) { .lettres-courtes { grid-template-columns: 1fr; gap: 2rem; } }
+
+/* ── Engagements : deux colonnes + cartouche (comme la couverture du rapport) ── */
+.engagements { background: var(--bordeaux); color: var(--fond); }
+.engagements .sc { color: var(--or); }
+.engagements h3 { color: var(--fond); }
+.engagements .cartouche { border-color: rgba(197,162,88,0.6); outline-color: rgba(197,162,88,0.6); }
+.engagements .cartouche div { border-right-color: rgba(250,246,240,0.18); color: rgba(250,246,240,0.7); }
+.engagements .cartouche b { color: var(--fond); }
+.engagements .cartouche .sc { color: var(--or); }
+.engagements-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-bottom: 3rem; }
+.engagements-grid h3 { margin-bottom: 0.6rem; }
+.engagements-grid p { color: rgba(250,246,240,0.78); font-size: 0.98rem; text-align: justify; hyphens: auto; }
+.cartouche { border: 1px solid var(--filet-fort); outline: 1px solid var(--filet-fort); outline-offset: 3px; display: grid; grid-template-columns: repeat(3, 1fr); }
+.cartouche div { padding: 1.4rem 1.6rem; border-right: 1px solid var(--filet); text-align: center; font-size: 0.85rem; color: var(--texte-light); }
+.cartouche div:last-child { border-right: 0; }
+.cartouche .sc { justify-content: center; margin-bottom: 0.4rem; font-size: 0.95rem; }
+.cartouche .sc::before { display: none; }
+.cartouche b { display: block; font-family: var(--font-display); font-size: 1.35rem; font-weight: 600; color: var(--bordeaux); margin-bottom: 0.2rem; }
+@media (max-width: 860px) { .engagements-grid { grid-template-columns: 1fr; gap: 2rem; } .cartouche { grid-template-columns: 1fr; } .cartouche div { border-right: 0; border-bottom: 1px solid rgba(250,246,240,0.18); } .cartouche div:last-child { border-bottom: 0; } }
+
+/* ── Formulaire ── */
+.formulaire { background: var(--creme); }
+.formulaire-head { max-width: 40rem; margin-bottom: 2.5rem; }
+.formulaire-grid { display: grid; grid-template-columns: 7fr 4fr; gap: 4rem; align-items: start; }
+.contact-form { background: var(--fond); border: 1px solid var(--filet-fort); padding: 2.2rem; }
+.form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+.form-field { margin-bottom: 1.2rem; min-width: 0; }
+.form-field[hidden] { display: none; }
+.form-field label { display: block; font-size: 0.88rem; font-weight: 500; color: var(--bordeaux); margin-bottom: 0.4rem; }
+.form-field label small { font-weight: 400; color: var(--texte-light); }
+.form-field .req { color: var(--vin); }
+.form-field input, .form-field select, .form-field textarea { width: 100%; font-family: var(--font-body); font-size: 0.95rem; color: var(--texte); background: var(--blanc); border: 1px solid var(--filet-fort); padding: 0.7rem 0.85rem; border-radius: 0; }
+.form-field textarea { min-height: 7rem; resize: vertical; }
+.form-field input:focus, .form-field select:focus, .form-field textarea:focus { outline: none; border-color: var(--bordeaux); }
+.form-field.form-checkbox { display: flex; gap: 0.7rem; align-items: flex-start; font-size: 0.88rem; margin-bottom: 1.2rem; cursor: pointer; padding: 0.9rem 1rem; border-left: 2px solid var(--or); background: var(--or-pale); }
+.form-field.form-checkbox input { width: auto; flex: 0 0 auto; margin-top: 0.25rem; accent-color: var(--bordeaux); }
+.form-hint { font-size: 0.82rem; color: var(--texte-light); font-style: italic; margin: 0.5rem 0 0; }
+.form-checkbox label { margin: 0; font-weight: 400; cursor: pointer; min-width: 0; overflow-wrap: anywhere; }
+.form-checkbox label a { text-decoration: underline; text-decoration-color: var(--or); }
+.form-submit { text-align: center; }
+.form-submit p { font-size: 0.85rem; color: var(--texte-light); margin-top: 1rem; }
+.form-feedback { display: none; font-size: 0.9rem; margin: 1rem 0; padding: 0.9rem 1rem; }
+.form-feedback.is-error { display: block; background: rgba(139,58,58,0.08); border-left: 2px solid var(--vin); color: var(--vin); }
+.form-feedback.is-success { display: block; background: var(--or-pale); border-left: 2px solid var(--or); color: var(--bordeaux); }
+.hp-field { position: absolute !important; left: -9999px !important; top: auto; width: 1px; height: 1px; overflow: hidden; }
+.aside-suite h3 { margin-bottom: 1.2rem; }
+.aside-suite ol { list-style: none; counter-reset: s; border-top: 1px solid var(--filet-fort); }
+.aside-suite li { counter-increment: s; display: grid; grid-template-columns: 2rem 1fr; gap: 0.5rem; padding: 1rem 0; border-bottom: 1px solid var(--filet); font-size: 0.92rem; color: var(--texte-light); }
+.aside-suite li::before { content: counter(s, upper-roman); font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; color: var(--vin); }
+.aside-suite li b { display: block; font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; color: var(--bordeaux); }
+.aside-illus { width: 70%; max-width: 17rem; margin: 0 auto 2.5rem; opacity: 0.92; }
+.aside-suite .tarif { margin-top: 1.5rem; padding: 1.2rem 1.4rem; border: 1px solid var(--filet-fort); outline: 1px solid var(--filet-fort); outline-offset: 3px; font-size: 0.9rem; }
+.aside-suite .tarif b { font-family: var(--font-display); font-size: 1.6rem; font-weight: 600; color: var(--bordeaux); display: block; }
+@media (max-width: 860px) { .formulaire-grid { grid-template-columns: 1fr; gap: 2.5rem; } .form-row-2 { grid-template-columns: 1fr; gap: 0; } .contact-form { padding: 1.4rem; } }
+
+/* ── Les guides : une de journal + grille intérieure ── */
+.guides-head { display: flex; justify-content: space-between; align-items: end; gap: 2rem; margin-bottom: 2.5rem; }
+.guides-grid { display: grid; grid-template-columns: 5fr 4fr 4fr; border-top: 1px solid var(--filet-fort); }
+.guide-une { grid-row: span 3; padding: 2rem 2.5rem 2rem 0; border-right: 1px solid var(--filet-fort); display: flex; flex-direction: column; }
+.guide-une img { width: 150px; margin: 0 auto 1.2rem; opacity: 0.9; }
+.guide-une .sc { margin-bottom: 0.8rem; }
+.guide-une h3 { font-size: 2rem; font-weight: 500; line-height: 1.15; margin-bottom: 0.9rem; }
+.guide-une p { color: var(--texte-light); font-size: 0.98rem; margin-bottom: 1.4rem; }
+.guide-une .lien-suite { margin-top: auto; align-self: flex-start; }
+.guide-cell { display: block; padding: 1.5rem 2rem; border-bottom: 1px solid var(--filet); border-right: 1px solid var(--filet); }
+.guide-cell:nth-child(odd) { border-right: 0; }
+.guide-cell:nth-last-child(-n+2) { border-bottom: 0; }
+.guide-cell .rub { font-family: var(--font-display); font-variant: small-caps; font-weight: 600; letter-spacing: 0.08em; font-size: 0.95rem; color: var(--vin); display: block; margin-bottom: 0.4rem; }
+.guide-cell h3 { font-size: 1.35rem; font-weight: 500; line-height: 1.2; }
+.guide-cell:hover h3 { color: var(--vin); }
+@media (max-width: 860px) {
+  .guides-head { flex-direction: column; align-items: start; gap: 1rem; }
+  .guides-grid { grid-template-columns: 1fr; }
+  .guide-une { grid-row: auto; border-right: 0; border-bottom: 1px solid var(--filet-fort); padding: 1.5rem 0; }
+  .guide-une h3 { font-size: 1.6rem; }
+  .guide-cell { padding: 1.2rem 0; border-right: 0 !important; border-bottom: 1px solid var(--filet) !important; }
+  .guide-cell:last-child { border-bottom: 0 !important; }
+}
+
+/* ── Prix des vins : grille de régions, un mot par case ── */
+.prix { background: var(--creme); }
+.prix-head { max-width: 40rem; margin-bottom: 2.5rem; }
+.prix-head .lead { margin-top: 1rem; }
+.regions-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--filet-fort); border-bottom: 1px solid var(--filet-fort); }
+.region-cell { display: block; padding: 1.8rem 1.6rem 1.8rem 0; border-right: 1px solid var(--filet-fort); border-bottom: 1px solid var(--filet-fort); }
+.region-cell:nth-child(4n) { border-right: 0; }
+.region-cell:nth-child(n+5) { border-bottom: 0; padding-left: 0; }
+.region-cell:not(:nth-child(4n+1)) { padding-left: 1.6rem; }
+.region-cell b { display: block; font-family: var(--font-display); font-size: 1.9rem; font-weight: 500; line-height: 1.1; color: var(--or); margin-bottom: 0.5rem; }
+.region-cell:hover b { color: var(--bordeaux); }
+.region-cell p { font-size: 0.88rem; color: var(--texte-light); line-height: 1.5; }
+.region-cell.all b { font-style: italic; font-weight: 400; }
+@media (max-width: 860px) {
+  .regions-grid { grid-template-columns: 1fr 1fr; }
+  .region-cell { padding: 1.2rem 1rem 1.2rem 0 !important; border-right: 1px solid var(--filet-fort) !important; border-bottom: 1px solid var(--filet-fort) !important; }
+  .region-cell:nth-child(2n) { border-right: 0 !important; padding-left: 1rem !important; }
+  .region-cell:nth-last-child(-n+2) { border-bottom: 0 !important; }
+  .region-cell b { font-size: 1.5rem; }
+  .region-cell p { display: none; }
+}
+
+/* ── Missions ── */
+.missions { background: var(--fond); }
+.missions-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 4rem; align-items: start; }
+.missions-list { list-style: none; border-top: 1px solid var(--filet-fort); }
+.missions-list li { display: grid; grid-template-columns: 2.2rem 1fr; padding: 1.2rem 0; border-bottom: 1px solid var(--filet); }
+.missions-list li::before { content: '◆'; color: var(--or); font-size: 0.6rem; padding-top: 0.55rem; }
+.missions-list b { font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--bordeaux); display: block; margin-bottom: 0.2rem; }
+.missions-list p { font-size: 0.92rem; color: var(--texte-light); }
+@media (max-width: 860px) { .missions-grid { grid-template-columns: 1fr; gap: 2rem; } }
+
+
+/* ── Transmettre ── */
+.referral { background: var(--bordeaux); color: var(--fond); padding: 4rem 0; }
+.referral-inner { max-width: var(--mesure); margin: 0 auto; padding: 0 2rem; display: grid; grid-template-columns: 1fr auto; grid-template-areas: "title actions" "text actions"; column-gap: 3rem; align-items: center; }
+.referral-title { grid-area: title; }
+.referral-text { grid-area: text; }
+.referral-actions { grid-area: actions; }
+.referral-title { color: var(--fond); font-size: 1.9rem; margin-bottom: 0.5rem; }
+.referral-title em { font-style: normal; }
+.referral-text { color: rgba(250,246,240,0.8); max-width: 36rem; font-size: 0.95rem; }
+.referral-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+.referral-btn { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-body); font-weight: 500; font-size: 0.9rem; padding: 0.85rem 1.4rem; border: 1px solid var(--or); color: var(--fond); }
+.referral-btn svg { width: 16px; height: 16px; }
+.referral-btn:hover { background: var(--or); color: var(--bordeaux); }
+@media (max-width: 860px) { .referral-inner { grid-template-columns: 1fr; grid-template-areas: "title" "text" "actions"; row-gap: 1rem; padding: 0 1.25rem; } .referral-actions { margin-top: 0.5rem; } }
+
+/* ── Footer : fleuron au-dessus ── */
+.footer .fleuron { margin: 0 auto 2.5rem; }
 
-    .hero-text {
-      flex: 1;
-      text-align: left;
-    }
-
-    .hero-visual {
-      flex-shrink: 0;
-      width: 360px;
-      opacity: 0.88;
-    }
-
-    .hero-visual img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .hero h1 {
-      max-width: 600px;
-      margin: 0;
-      font-weight: 500;
-    }
-
-    .hero h1 em {
-      font-style: italic;
-      font-weight: 500;
-    }
-
-    .hero-subtitle {
-      font-size: 1.1rem;
-      font-weight: 400;
-      color: var(--texte-light);
-      max-width: 540px;
-      margin: 1.5rem 0 2.5rem;
-      line-height: 1.85;
-    }
-
-    .hero-alt { display:block; margin-top:0.9rem; font-size:0.92rem; color:var(--bordeaux); text-decoration:underline; text-decoration-color:var(--or); text-underline-offset:4px; }
-    .hero-alt:hover { color:var(--or); }
-    .hero-mention {
-      display: block;
-      margin-top: 1.2rem;
-      font-size: 0.82rem;
-      color: var(--texte-light);
-      letter-spacing: 0.02em;
-    }
-
-    .hero-mention span {
-      margin: 0 0.5rem;
-      color: var(--or);
-    }
-
-    /* ══════════════════════════════════
-       3. PROBLÈME
-    ══════════════════════════════════ */
-    .probleme {
-      padding: 4rem 0 5rem;
-    }
-
-    .probleme-header {
-      text-align: left;
-      margin-bottom: 4rem;
-    }
-
-    .probleme-header h2 {
-      max-width: 720px;
-    }
-
-    .probleme .probleme-header h2 {
-      font-weight: 500;
-      line-height: 1.15;
-      letter-spacing: -0.01em;
-    }
-
-    .probleme .probleme-header h2 em {
-      font-style: italic;
-      font-weight: 500;
-    }
-
-    .probleme-header .ornament-long {
-      margin: 1.5rem 0;
-    }
-
-    .situations {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-    }
-
-    .situations-4 {
-      grid-template-columns: repeat(4, 1fr);
-    }
-
-    @media (max-width: 1100px) {
-      .situations-4 {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    /* Section "Pourquoi nous faire confiance" — fond blanc, cartes beiges */
-    .confiance {
-      background: var(--fond);
-    }
-
-    .confiance .situation-card {
-      background: var(--blanc);
-    }
-
-    .confiance .probleme-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 3rem;
-    }
-
-    .confiance-header-text {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .confiance-header-illustration {
-      flex: 0 0 auto;
-      width: 192px;
-      max-width: 24%;
-    }
-
-    .confiance-header-illustration img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    @media (max-width: 800px) {
-      .confiance .probleme-header {
-        flex-direction: column;
-        gap: 2rem;
-      }
-      .confiance-header-illustration {
-        width: 144px;
-        max-width: 50%;
-        align-self: center;
-      }
-    }
-
-    .situation-card {
-      background: var(--blanc);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 2.5rem 2rem;
-      transition: all 0.3s cubic-bezier(0.33, 1, 0.68, 1);
-      position: relative;
-    }
-
-    .situation-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 2rem;
-      right: 2rem;
-      height: 2px;
-      background: var(--or);
-      opacity: 0;
-      transition: opacity 0.3s cubic-bezier(0.33, 1, 0.68, 1);
-    }
-
-    @media (hover: hover) {
-      .situation-card:hover {
-        border-color: rgba(197, 162, 88, 0.4);
-        box-shadow: inset 0 0 0 1px rgba(197, 162, 88, 0.15), 0 8px 24px rgba(45, 27, 46, 0.05);
-      }
-      .situation-card:hover::before { opacity: 1; }
-    }
-
-    .situation-icon {
-      width: 44px;
-      height: 44px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.5rem;
-    }
-
-    .situation-icon svg {
-      width: 36px;
-      height: 36px;
-    }
-
-    .situation-card h3 {
-      margin-bottom: 0.75rem;
-      font-size: 1.25rem;
-    }
-
-    .situation-card p {
-      font-size: 0.92rem;
-      color: var(--texte-light);
-      line-height: 1.75;
-    }
-
-    /* ── Variante grille narratif (section .probleme) ── inspirée landing CGP */
-    .situations-narratif {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      margin-top: 3rem;
-    }
-    .situation-narr {
-      display: flex;
-      align-items: flex-start;
-      gap: 1.25rem;
-      padding: 2rem 1.85rem;
-      background: var(--fond);
-      transition: background 0.3s cubic-bezier(0.33, 1, 0.68, 1);
-    }
-    @media (hover: hover) {
-      .situation-narr:hover { background: var(--blanc); }
-    }
-    .situation-narr-icon {
-      flex: 0 0 48px;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: var(--blanc);
-      border: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .situation-narr-icon svg { width: 24px; height: 24px; }
-    .situation-narr-content { flex: 1; min-width: 0; }
-    .situation-narr h3 {
-      margin-bottom: 0.5rem;
-      font-size: 1.25rem;
-      color: var(--bordeaux);
-    }
-    .situation-narr-quote {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      color: var(--bordeaux);
-      font-size: 1.02rem;
-      line-height: 1.5;
-      margin-bottom: 0.55rem;
-      opacity: 0.85;
-    }
-    .situation-narr p {
-      font-size: 0.9rem;
-      color: var(--texte-light);
-      line-height: 1.7;
-    }
-    @media (max-width: 800px) {
-      .situations-narratif { grid-template-columns: 1fr; }
-      .situation-narr { padding: 1.75rem 1.5rem; }
-    }
-
-    /* ── Variante KPI chiffres-clés (section .confiance.confiance-kpi) ── */
-    .confiance-kpi .probleme-header {
-      display: block;
-      text-align: center;
-    }
-    .confiance-kpi .probleme-header h2 {
-      max-width: 720px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .confiance-kpi .probleme-header .ornament-long {
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .kpi-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-    .apercu-usage { max-width: 720px; margin: 2rem auto 0; text-align: center; font-size: 0.95rem; line-height: 1.7; color: var(--texte-light); }
-    .kpi-engagements { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 900px; margin: 2.5rem auto 0; }
-    .kpi-engagement { padding: 1.5rem 1.75rem; border-left: 3px solid var(--or); background: var(--blanc); }
-    .kpi-engagement h3 { font-family: var(--font-display); font-size: 1.2rem; color: var(--bordeaux); margin: 0 0 0.5rem; }
-    .kpi-engagement p { font-size: 0.93rem; line-height: 1.7; color: var(--texte); margin: 0; }
-    @media (max-width: 700px) { .kpi-engagements { grid-template-columns: 1fr; gap: 1rem; } }
-    .kpi-item {
-      text-align: center;
-      padding: 3rem 1.5rem;
-      border-right: 1px solid var(--border);
-      transition: background 0.3s ease;
-    }
-    .kpi-item:last-child { border-right: none; }
-    @media (hover: hover) {
-      .kpi-item:hover { background: var(--fond); }
-    }
-    .kpi-item-link {
-      display: block;
-      text-decoration: none;
-      color: inherit;
-    }
-    .kpi-link-arrow {
-      display: inline-block;
-      margin-top: 0.9rem;
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      color: var(--or);
-      transition: transform 0.25s ease;
-    }
-    @media (hover: hover) {
-      .kpi-item-link:hover .kpi-link-arrow { transform: translateX(4px); }
-    }
-    .kpi-number {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 4.5rem;
-      font-weight: 500;
-      line-height: 1;
-      color: var(--or);
-      margin-bottom: 0.5rem;
-      letter-spacing: -0.02em;
-    }
-    .kpi-number .kpi-unit {
-      font-size: 1.8rem;
-      margin-left: 0.15em;
-      font-weight: 400;
-    }
-    .kpi-label {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 1.15rem;
-      color: var(--bordeaux);
-      margin-bottom: 0.75rem;
-    }
-    .kpi-desc {
-      font-size: 0.85rem;
-      color: var(--texte-light);
-      line-height: 1.6;
-      max-width: 220px;
-      margin: 0 auto;
-    }
-    @media (max-width: 1100px) {
-      .kpi-grid { grid-template-columns: repeat(2, 1fr); }
-      .kpi-item:nth-child(1), .kpi-item:nth-child(2) { border-bottom: 1px solid var(--border); }
-      .kpi-item:nth-child(2) { border-right: none; }
-      .kpi-item:nth-child(3) { border-right: 1px solid var(--border); }
-    }
-    @media (max-width: 600px) {
-      .kpi-grid { grid-template-columns: 1fr; }
-      .kpi-item { border-right: none !important; border-bottom: 1px solid var(--border); padding: 2rem 1rem; }
-      .kpi-item:last-child { border-bottom: none; }
-      .kpi-number { font-size: 3.5rem; }
-    }
-
-    /* ══════════════════════════════════
-       4. CE QUE VOUS RECEVEZ — APERÇU INTERACTIF
-    ══════════════════════════════════ */
-    .apercu {
-      padding: 6rem 0;
-      background: var(--blanc);
-    }
-
-    .apercu-header {
-      text-align: left;
-      margin-bottom: 3rem;
-    }
-
-    .apercu-header h2 {
-      font-weight: 500;
-      line-height: 1.15;
-      letter-spacing: -0.01em;
-    }
-
-    .apercu-header h2 em {
-      font-style: italic;
-      font-weight: 500;
-    }
-
-    .apercu-header .ornament-dots {
-      margin: 1.5rem 0;
-    }
-
-    .apercu-header .section-subtitle {
-      margin: 1rem 0 0;
-    }
-
-    .apercu-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 1fr;
-      gap: 3.5rem;
-      max-width: 1060px;
-      margin: 0 auto;
-      align-items: start;
-    }
-
-    .apercu-content {
-      min-width: 0;
-    }
-
-    .apercu-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      border-top: 1px solid var(--border);
-    }
-
-    .apercu-item {
-      border-bottom: 1px solid var(--border);
-    }
-
-    .apercu-tab {
-      width: 100%;
-      display: flex;
-      align-items: baseline;
-      gap: 0.4rem;
-      background: transparent;
-      border: none;
-      padding: 1.4rem 0.5rem 1.4rem 1rem;
-      margin-left: -1rem;
-      text-align: left;
-      cursor: pointer;
-      font-family: var(--font-body);
-      border-left: 2px solid transparent;
-      transition: border-color 0.25s cubic-bezier(0.33, 1, 0.68, 1);
-    }
-
-    .apercu-tab:focus-visible {
-      outline: 2px solid var(--or);
-      outline-offset: 2px;
-      border-radius: 2px;
-    }
-
-    .apercu-page-num {
-      flex-shrink: 0;
-      width: 1.75rem;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      align-self: center;
-    }
-
-    .apercu-page-num::before {
-      content: '';
-      display: block;
-      width: 7px;
-      height: 7px;
-      background: var(--or);
-      transform: rotate(45deg);
-      transition: background 0.25s cubic-bezier(0.33, 1, 0.68, 1), transform 0.25s cubic-bezier(0.33, 1, 0.68, 1);
-    }
-
-    .apercu-item.active .apercu-page-num::before {
-      background: var(--bordeaux);
-      transform: rotate(45deg) scale(1.15);
-    }
-
-    .apercu-page-title {
-      font-family: var(--font-display);
-      font-size: 1.15rem;
-      font-weight: 500;
-      color: var(--bordeaux);
-      line-height: 1.3;
-      flex-grow: 1;
-      transition: color 0.25s cubic-bezier(0.33, 1, 0.68, 1), font-weight 0.2s;
-    }
-
-    .apercu-item.active .apercu-tab {
-      border-left-color: var(--bordeaux);
-    }
-    .apercu-item.active .apercu-page-title {
-      font-weight: 600;
-    }
-
-    @media (hover: hover) {
-      .apercu-tab:hover .apercu-page-title {
-        color: var(--or);
-      }
-    }
-
-    .apercu-panel {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.25s cubic-bezier(0.33, 1, 0.68, 1);
-    }
-
-    .apercu-item.active .apercu-panel {
-      max-height: 600px;
-    }
-
-    .apercu-panel-inner {
-      padding: 0 0.5rem 1.5rem 2.6rem;
-      font-family: var(--font-body);
-      font-size: 0.92rem;
-      line-height: 1.7;
-      color: var(--texte-light);
-    }
-
-    /* Mobile inline preview (hidden on desktop) */
-    .apercu-mobile-image {
-      display: none;
-    }
-
-    /* Right column : preview card — décalé pour s'aligner sur le sous-titre */
-    .apercu-preview {
-      position: sticky;
-      top: 6rem;
-      /* aligne le haut de la carte avec la ligne du sous-titre (≈ section-label + h2 + ornement) */
-      margin-top: calc(0.7rem + 4.5rem + 1px + 1.5rem);
-    }
-
-    @media (max-width: 1100px) {
-      .apercu-preview {
-        margin-top: calc(0.7rem + 4rem + 1px + 1.5rem);
-      }
-    }
-
-    .apercu-preview-card {
-      background: var(--blanc);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
-      cursor: pointer;
-      box-shadow: 0 12px 40px rgba(45, 27, 46, 0.06);
-      transition: box-shadow 0.3s cubic-bezier(0.33, 1, 0.68, 1);
-    }
-
-    .apercu-preview-card:focus-visible {
-      outline: 2px solid var(--or);
-      outline-offset: 4px;
-    }
-
-    @media (hover: hover) {
-      .apercu-preview-card:hover {
-        box-shadow: 0 20px 56px rgba(45, 27, 46, 0.12);
-      }
-    }
-
-    .apercu-preview-image {
-      position: relative;
-      aspect-ratio: 3 / 4;
-      background: var(--fond-alt);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    .apercu-preview-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top;
-      display: block;
-      transition: opacity 0.2s ease;
-    }
-
-    .apercu-placeholder {
-      font-family: var(--font-body);
-      font-size: 0.85rem;
-      color: var(--texte-light);
-      letter-spacing: 0.04em;
-      text-align: center;
-      padding: 0 1.5rem;
-      transition: opacity 0.2s ease;
-    }
-
-    .apercu-preview-badge {
-      position: absolute;
-      top: 1rem;
-      left: 1rem;
-      background: rgba(255, 255, 255, 0.92);
-      color: var(--bordeaux);
-      font-family: var(--font-body);
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      padding: 0.3rem 0.6rem;
-      border-radius: 3px;
-      z-index: 2;
-    }
-
-    .apercu-preview-caption {
-      padding: 1rem 1.25rem 1.25rem;
-      font-family: var(--font-display);
-      font-size: 1.05rem;
-      font-weight: 500;
-      color: var(--bordeaux);
-      border-top: 1px solid var(--border);
-    }
-
-    .apercu-preview-nav {
-      display: flex;
-      justify-content: center;
-      gap: 0.55rem;
-      margin-top: 1.25rem;
-    }
-
-    .apercu-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      border: none;
-      padding: 0;
-      background: var(--border);
-      cursor: pointer;
-      transition: background 0.25s cubic-bezier(0.33, 1, 0.68, 1), transform 0.25s cubic-bezier(0.33, 1, 0.68, 1);
-    }
-
-    .apercu-dot:hover {
-      background: var(--or);
-    }
-
-    .apercu-dot.active {
-      background: var(--bordeaux);
-      transform: scale(1.25);
-    }
-
-    .apercu-dot:focus-visible {
-      outline: 2px solid var(--or);
-      outline-offset: 3px;
-    }
-
-    .apercu-preview-credit {
-      margin-top: 0.85rem;
-      text-align: center;
-      font-family: var(--font-body);
-      font-size: 0.78rem;
-      color: var(--texte-light);
-      letter-spacing: 0.02em;
-    }
-
-    .apercu-cta {
-      text-align: center;
-      margin-top: 4rem;
-    }
-
-    @media (max-width: 900px) {
-      .apercu-grid {
-        grid-template-columns: 1fr;
-        gap: 0;
-      }
-      .apercu-preview {
-        display: none;
-      }
-      .apercu-header {
-        margin-bottom: 2.5rem;
-      }
-      .apercu-mobile-image {
-        display: block;
-        margin-top: 1.25rem;
-        max-width: 320px;
-        aspect-ratio: 3 / 4;
-        border: 1px solid var(--border);
-        border-radius: 6px;
-        overflow: hidden;
-        background: var(--fond-alt);
-      }
-      .apercu-mobile-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: top;
-        display: block;
-      }
-      .apercu-panel-inner {
-        padding-left: 2.6rem;
-        padding-right: 0;
-      }
-    }
-
-    @media (max-width: 500px) {
-      .apercu-page-num {
-        width: 1.5rem;
-      }
-      .apercu-page-title {
-        font-size: 1.02rem;
-      }
-      .apercu-panel-inner {
-        padding-left: 2rem;
-        font-size: 0.88rem;
-      }
-      .apercu-mobile-image {
-        max-width: none;
-      }
-    }
-
-    /* ── CAROUSEL (partagé avec la section Guides) ── */
-    .carousel-wrapper {
-      position: relative;
-      max-width: 1060px;
-      margin: 0 auto;
-      overflow: hidden;
-    }
-
-    .carousel-track {
-      display: flex;
-      gap: 1.25rem;
-      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-      cursor: grab;
-      user-select: none;
-    }
-    .carousel-track.dragging {
-      transition: none;
-      cursor: grabbing;
-    }
-
-    .carousel-controls {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .carousel-btn {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      border: 1.5px solid var(--or);
-      background: transparent;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.25s cubic-bezier(0.33, 1, 0.68, 1);
-      flex-shrink: 0;
-    }
-    .carousel-btn:hover {
-      background: var(--or);
-    }
-    .carousel-btn:hover svg { stroke: var(--bordeaux); }
-    .carousel-btn:disabled {
-      opacity: 0.3;
-      cursor: default;
-    }
-    .carousel-btn:disabled:hover { background: transparent; }
-    .carousel-btn:disabled:hover svg { stroke: var(--or); }
-    .carousel-btn svg {
-      width: 18px;
-      height: 18px;
-      stroke: var(--or);
-      stroke-width: 2;
-      fill: none;
-    }
-
-    .carousel-dots {
-      display: flex;
-      gap: 0.5rem;
-      align-items: center;
-    }
-
-    .carousel-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      border: none;
-      background: var(--border);
-      cursor: pointer;
-      transition: all 0.25s cubic-bezier(0.33, 1, 0.68, 1);
-      padding: 0;
-    }
-    .carousel-dot.active {
-      background: var(--or);
-      transform: scale(1.2);
-    }
-
-    /* ── LIGHTBOX ── */
-    .lightbox {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(45, 27, 46, 0.92);
-      z-index: 2000;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      padding: 2rem;
-    }
-
-    .lightbox.active {
-      display: flex;
-    }
-
-    .lightbox img {
-      max-width: 90%;
-      max-height: 90vh;
-      border-radius: 6px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-    }
-
-    .lightbox-close {
-      position: absolute;
-      top: 1.5rem;
-      right: 2rem;
-      font-size: 2rem;
-      color: var(--or);
-      cursor: pointer;
-      line-height: 1;
-      font-weight: 300;
-    }
-
-    /* ══════════════════════════════════
-       5. COMMENT ÇA MARCHE
-    ══════════════════════════════════ */
-    .process {
-      padding: 5rem 0;
-      background: var(--bordeaux);
-      color: rgba(250, 246, 240, 0.85);
-    }
-
-    .process-header {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-
-    .process-header .section-label {
-      color: var(--or);
-    }
-
-    .process-header h2 {
-      color: var(--fond);
-      font-weight: 500;
-      line-height: 1.15;
-      letter-spacing: -0.01em;
-    }
-
-    .process-header h2 em {
-      font-style: italic;
-      font-weight: 500;
-    }
-
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2.5rem;
-      position: relative;
-    }
-
-    .steps::before {
-      content: '';
-      position: absolute;
-      top: 32px;
-      left: calc(16.66% + 1.25rem);
-      right: calc(16.66% + 1.25rem);
-      height: 1px;
-      background: linear-gradient(90deg, var(--or), rgba(197,162,88,0.2), var(--or));
-    }
-
-    .step {
-      text-align: center;
-      position: relative;
-    }
-
-    .step-number {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      background: var(--bordeaux);
-      border: 2px solid var(--or);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1.5rem;
-      font-family: var(--font-display);
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: var(--or);
-      position: relative;
-      z-index: 2;
-    }
-
-    .step h3 {
-      margin-bottom: 0.75rem;
-      font-size: 1.15rem;
-      color: var(--fond);
-    }
-
-    .step p {
-      font-size: 0.9rem;
-      color: rgba(250, 246, 240, 0.7);
-      line-height: 1.75;
-      max-width: 280px;
-      margin: 0 auto;
-    }
-
-    /* CTA secondaire en sortie de bloc — variante outline adaptée au fond bordeaux */
-    .process-cta {
-      text-align: center;
-      margin-top: 2.25rem;
-    }
-    .process .btn-outline { border-color: var(--or); color: var(--fond); }
-    .process .btn-outline:hover { background: var(--or); color: var(--bordeaux); }
-
-    /* ══════════════════════════════════
-       8. CONFIDENTIALITÉ
-    ══════════════════════════════════ */
-    .confidentialite {
-      padding: 4rem 0;
-      background: var(--bordeaux);
-      color: rgba(250, 246, 240, 0.85);
-    }
-
-    .confidentialite-inner {
-      max-width: 720px;
-      margin: 0;
-      text-align: left;
-    }
-
-    .confidentialite-inner .ornament-long {
-      margin: 1.5rem 0;
-    }
-
-    .confidentialite h2 {
-      color: var(--fond);
-      margin-bottom: 0.5rem;
-      font-weight: 500;
-      line-height: 1.15;
-      letter-spacing: -0.01em;
-    }
-
-    .confidentialite h2 em {
-      font-style: italic;
-      font-weight: 500;
-    }
-
-    .confidentialite .ornament {
-      background: var(--or);
-      margin: 1.5rem auto;
-    }
-
-    .confidentialite p {
-      font-size: 1rem;
-      line-height: 1.85;
-      font-weight: 300;
-    }
-
-    .confidentialite-icon {
-      width: 56px;
-      height: 56px;
-      border: 1.5px solid rgba(197, 162, 88, 0.4);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1.5rem;
-      font-size: 1.4rem;
-    }
-
-    .engagements-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2.5rem;
-      max-width: 1000px;
-      margin: 2.5rem auto 0;
-    }
-
-    .engagement-block {
-      text-align: center;
-      padding: 2rem 1.5rem;
-      border: 1px solid rgba(197, 162, 88, 0.25);
-      border-radius: 6px;
-      background: rgba(250, 246, 240, 0.03);
-    }
-
-    .engagement-block h3 {
-      color: var(--fond);
-      font-size: 1.25rem;
-      margin-bottom: 1rem;
-    }
-
-    .engagement-block p {
-      font-size: 0.95rem;
-      line-height: 1.8;
-      font-weight: 300;
-    }
-
-    .engagement-icon {
-      width: 48px;
-      height: 48px;
-      border: 1.5px solid rgba(197, 162, 88, 0.4);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1.25rem;
-    }
-
-    @media (max-width: 800px) {
-      .engagements-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-    }
-
-    /* ══════════════════════════════════
-       8b. GARANTIES
-    ══════════════════════════════════ */
-    .garanties {
-      padding: 3rem 0;
-      background: var(--bordeaux);
-      color: rgba(250, 246, 240, 0.85);
-    }
-
-    .garanties-grid {
-      display: flex;
-      justify-content: center;
-      gap: 4rem;
-    }
-
-    .garantie-item {
-      text-align: center;
-      max-width: 220px;
-    }
-
-    .garantie-item svg {
-      margin: 0 auto 1rem;
-      display: block;
-    }
-
-    .garantie-titre {
-      font-family: var(--font-display);
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--fond);
-      margin-bottom: 0.35rem;
-    }
-
-    .garantie-desc {
-      font-size: 0.82rem;
-      color: rgba(250, 246, 240, 0.7);
-      line-height: 1.55;
-    }
-
-    @media (max-width: 600px) {
-      .garanties-grid {
-        flex-direction: column;
-        align-items: center;
-        gap: 2.5rem;
-      }
-    }
-
-    /* ══════════════════════════════════
-       8b. TÉMOIGNAGES
-    ══════════════════════════════════ */
-    .temoignages {
-      padding: 3rem 0;
-      background: var(--fond-alt);
-    }
-
-    .temoignages-header {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .temoignages-list {
-      max-width: 700px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-
-    .temoignage {
-      position: relative;
-      background: var(--blanc);
-      border-left: 3px solid var(--or);
-      border-radius: 4px;
-      padding: 3rem 2.5rem 2rem;
-      box-shadow: 0 4px 20px rgba(45, 27, 46, 0.04);
-    }
-
-    .temoignage::before {
-      content: '\00AB';
-      position: absolute;
-      top: 0.5rem;
-      left: 1.5rem;
-      font-family: var(--font-display);
-      font-size: 4.5rem;
-      line-height: 1;
-      color: var(--or);
-      opacity: 0.25;
-      pointer-events: none;
-    }
-
-    .temoignage-citation {
-      font-family: var(--font-display);
-      font-style: italic;
-      font-size: 1.15rem;
-      line-height: 1.7;
-      color: var(--texte);
-      margin: 0 0 1.25rem;
-      padding-left: 2.5rem;
-    }
-
-    .temoignage-attribution {
-      font-family: var(--font-body);
-      font-style: normal;
-      font-size: 0.9rem;
-      color: var(--texte-light);
-      margin: 0;
-      padding-left: 2.5rem;
-    }
-
-    @media (max-width: 600px) {
-      .temoignage {
-        padding: 2.5rem 1.5rem 1.75rem;
-      }
-      .temoignage::before {
-        font-size: 3.5rem;
-        left: 1rem;
-      }
-      .temoignage-citation {
-        font-size: 1.05rem;
-        padding-left: 1.75rem;
-      }
-      .temoignage-attribution {
-        padding-left: 1.75rem;
-      }
-    }
-
-    /* ══════════════════════════════════
-       9. FORMULAIRE
-    ══════════════════════════════════ */
-    .formulaire {
-      padding: 6rem 0 3rem;
-    }
-
-    .formulaire-header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    .formulaire-illustration {
-      text-align: center;
-      margin: 1.5rem auto 0.5rem;
-      display: flex;
-      justify-content: center;
-    }
-    .formulaire-illustration img {
-      height: 264px;
-      width: auto;
-    }
-
-    /* ── Steps "claires" pour la section formulaire (override .step sur fond beige) ── */
-    .formulaire-steps {
-      max-width: 900px;
-      margin: 0 auto 2.5rem;
-    }
-    /* Depuis le 15/09/2026 les étapes et le tarif suivent le formulaire : on capture d'abord. */
-    .formulaire-suite-label {
-      text-align: center;
-      font-family: var(--font-display);
-      font-size: 1.6rem;
-      color: var(--bordeaux);
-      margin: 3.5rem 0 2rem;
-    }
-    .formulaire-steps.steps::before {
-      background: linear-gradient(90deg, var(--or), rgba(197,162,88,0.4), var(--or));
-    }
-    .formulaire-steps .step h3 { color: var(--bordeaux); }
-    .formulaire-steps .step p { color: var(--texte-light); }
-
-    /* ── Bandeau de réassurance avant le formulaire ── */
-    .formulaire-reassurance {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 1.1rem 1.5rem;
-      background: var(--or-pale);
-      border-left: 3px solid var(--or);
-      border-radius: 4px;
-      text-align: center;
-    }
-    .formulaire-reassurance p {
-      font-size: 0.92rem;
-      color: var(--bordeaux);
-      margin: 0;
-      line-height: 1.65;
-    }
-    .formulaire-reassurance strong { font-weight: 600; color: var(--bordeaux); }
-
-    .form-card {
-      max-width: 720px;
-      margin: 0 auto;
-      background: var(--blanc);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 3rem 2.5rem;
-      text-align: left;
-      box-shadow: inset 0 0 0 1px rgba(197, 162, 88, 0.08), 0 12px 40px rgba(45, 27, 46, 0.05);
-    }
-
-    /* ── FORMULAIRE NATIF (remplace Tally) ── */
-    .contact-form .form-row {
-      display: grid;
-      gap: 1.25rem;
-      margin-bottom: 1.25rem;
-    }
-    .contact-form .form-row-2 { grid-template-columns: 1fr 1fr; }
-    .contact-form .form-row-3 { grid-template-columns: 0.7fr 1fr 1fr; }
-
-    .contact-form .form-field {
-      display: flex;
-      flex-direction: column;
-      margin-bottom: 1.25rem;
-    }
-    .contact-form .form-row .form-field { margin-bottom: 0; }
-    .contact-form .form-field[hidden] { display: none !important; }
-
-    .contact-form label {
-      font-family: var(--font-body);
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--bordeaux);
-      margin-bottom: 0.4rem;
-    }
-    .contact-form .req { color: var(--or); }
-
-    .contact-form input[type="text"],
-    .contact-form input[type="email"],
-    .contact-form input[type="tel"],
-    .contact-form select,
-    .contact-form textarea {
-      font-family: var(--font-body);
-      font-size: 0.95rem;
-      line-height: 1.5;
-      color: var(--texte);
-      background: var(--fond);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 0.75rem 0.9rem;
-      transition: border-color 0.2s ease, background 0.2s ease;
-      width: 100%;
-      box-sizing: border-box;
-    }
-    .contact-form input[type="text"],
-    .contact-form input[type="email"],
-    .contact-form input[type="tel"],
-    .contact-form select {
-      height: 46px;
-    }
-    .contact-form input:focus,
-    .contact-form select:focus,
-    .contact-form textarea:focus {
-      outline: none;
-      border-color: var(--or);
-      background: var(--blanc);
-    }
-
-    .contact-form textarea {
-      resize: vertical;
-      min-height: 110px;
-      line-height: 1.6;
-    }
-
-    .contact-form input[type="file"] {
-      font-family: var(--font-body);
-      font-size: 0.88rem;
-      color: var(--texte);
-      padding: 0.5rem 0;
-    }
-
-    .contact-form .form-hint {
-      font-size: 0.8rem;
-      color: var(--texte-light);
-      margin-top: 0.4rem;
-      font-style: italic;
-    }
-
-    .contact-form .form-checkbox {
-      flex-direction: row;
-      align-items: flex-start;
-      gap: 0.7rem;
-      background: var(--or-pale);
-      padding: 1rem 1.1rem;
-      border-radius: 4px;
-      border-left: 3px solid var(--or);
-    }
-    .contact-form .form-checkbox input[type="checkbox"] {
-      flex-shrink: 0;
-      width: 18px;
-      height: 18px;
-      margin-top: 0.15rem;
-      accent-color: var(--bordeaux);
-      cursor: pointer;
-    }
-    .contact-form .form-checkbox label {
-      font-size: 0.85rem;
-      font-weight: 400;
-      color: var(--texte);
-      line-height: 1.5;
-      cursor: pointer;
-      margin-bottom: 0;
-    }
-
-    .contact-form .form-feedback {
-      font-size: 0.9rem;
-      margin: 1rem 0;
-      display: none;
-    }
-    .contact-form .form-feedback.is-error {
-      display: block;
-      background: rgba(180, 50, 50, 0.08);
-      border-left: 3px solid #b43232;
-      color: #8a2424;
-      padding: 0.75rem 1rem;
-      border-radius: 4px;
-    }
-    .contact-form .form-feedback.is-success {
-      display: block;
-      background: var(--bordeaux);
-      border-left: 3px solid var(--or);
-      color: #FAF6F0;
-      padding: 0.85rem 1.1rem;
-      border-radius: 4px;
-      font-weight: 500;
-    }
-
-    .contact-form .form-submit {
-      text-align: center;
-      margin-top: 1.5rem;
-    }
-    .contact-form button[disabled] {
-      opacity: 0.55;
-      cursor: not-allowed;
-    }
-
-    /* Honeypot — hors écran, hors tab order, hors lecteur d'écran, hors autofill */
-    .hp-field {
-      position: absolute !important;
-      left: -9999px !important;
-      top: auto;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    /* CTA sticky mobile */
     .cta-sticky {
       display: none;
     }
@@ -1765,7 +622,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
         font-weight: 600;
         letter-spacing: 0.02em;
         text-decoration: none;
-        border-radius: 999px;
+        border-radius: 0;
         box-shadow: 0 8px 24px rgba(45, 27, 46, 0.25);
         opacity: 0;
         transform: translateY(120%);
@@ -1783,381 +640,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       }
     }
 
-    /* Bloc Partager / Référer */
-    .referral {
-      background: #2D1B2E;
-      padding: 64px 24px;
-      border-top: 1px solid rgba(197, 162, 88, 0.18);
-    }
-    .referral-inner {
-      max-width: 720px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .referral-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.6rem, 3vw, 2.1rem);
-      font-weight: 500;
-      color: #FAF6F0;
-      line-height: 1.25;
-      margin: 0 0 16px;
-    }
-    .referral-title em {
-      font-style: italic;
-      color: #C5A258;
-    }
-    .referral-text {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 1rem;
-      color: rgba(250, 246, 240, 0.78);
-      line-height: 1.65;
-      margin: 0 0 28px;
-    }
-    .referral-actions {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .referral-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 22px;
-      border: 1px solid #C5A258;
-      border-radius: 999px;
-      color: #FAF6F0;
-      background: transparent;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.88rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      text-decoration: none;
-      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-    }
-    .referral-btn svg {
-      width: 18px;
-      height: 18px;
-      flex-shrink: 0;
-      color: #C5A258;
-      transition: color 0.2s ease;
-    }
-    .referral-btn:hover {
-      background: #C5A258;
-      color: #2D1B2E;
-      border-color: #C5A258;
-    }
-    .referral-btn:hover svg {
-      color: #2D1B2E;
-    }
-    @media (max-width: 600px) {
-      .referral { padding: 48px 20px; }
-      .referral-actions { flex-direction: column; align-items: stretch; }
-      .referral-btn { justify-content: center; }
-    }
-
-    /* ══════════════════════════════════
-       9b-bis. GUIDES & RESSOURCES
-    ══════════════════════════════════ */
-    .guides {
-      padding: 5rem 0;
-      background: var(--fond);
-    }
-
-    .guides-header {
-      text-align: center;
-      margin-bottom: 3.5rem;
-    }
-
-    .guides-header h2 {
-      font-weight: 500;
-      line-height: 1.15;
-      letter-spacing: -0.01em;
-    }
-
-    .guides-header h2 em {
-      font-style: italic;
-      font-weight: 500;
-    }
-
-    .guides-header .ornament-dots {
-      margin: 1.5rem auto;
-    }
-
-    .guides-header .section-subtitle {
-      margin: 1rem auto 0;
-    }
-
-    /* Carrousel — réutilise .carousel-wrapper / .carousel-track / .carousel-controls */
-    .guides .carousel-wrapper {
-      padding: 4px 0; /* évite le clipping du liseré et du box-shadow au hover */
-    }
-
-    .guide-card {
-      flex: 0 0 calc(33.333% - 0.84rem);
-      background: var(--blanc);
-      border: 1px solid rgba(197, 162, 88, 0.2);
-      border-radius: 6px;
-      padding: 2.25rem 1.75rem;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      transition: border-color 0.3s cubic-bezier(0.33, 1, 0.68, 1), box-shadow 0.3s cubic-bezier(0.33, 1, 0.68, 1);
-    }
-
-    .guide-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 1.75rem;
-      right: 1.75rem;
-      height: 2px;
-      background: var(--or);
-      opacity: 0;
-      transition: opacity 0.3s cubic-bezier(0.33, 1, 0.68, 1);
-    }
-
-    @media (hover: hover) {
-      .guide-card:hover {
-        border-color: rgba(197, 162, 88, 0.5);
-        box-shadow: inset 0 0 0 1px rgba(197, 162, 88, 0.15), 0 12px 32px rgba(45, 27, 46, 0.07);
-      }
-      .guide-card:hover::before { opacity: 1; }
-      .guide-card:hover h3 { color: var(--or); }
-      .guide-card:hover .guide-read { gap: 0.7rem; }
-    }
-
-    .guide-label {
-      font-family: var(--font-body);
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--or);
-      margin-bottom: 0.85rem;
-    }
-
-    .guide-card h3 {
-      font-family: var(--font-display);
-      font-weight: 600;
-      color: var(--bordeaux);
-      font-size: 1.35rem;
-      line-height: 1.25;
-      margin-bottom: 1.25rem;
-      flex-grow: 1;
-      transition: color 0.25s cubic-bezier(0.33, 1, 0.68, 1);
-    }
-
-    .guide-read {
-      font-family: var(--font-body);
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--or);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      margin-top: auto;
-      transition: gap 0.25s cubic-bezier(0.33, 1, 0.68, 1);
-    }
-
-    .guide-read svg { width: 14px; height: 14px; }
-
-    @media (max-width: 900px) {
-      .guide-card { flex: 0 0 calc(50% - 0.625rem); }
-    }
-
-    @media (max-width: 600px) {
-      .guides { padding: 4rem 0; }
-      .guide-card {
-        flex: 0 0 85%;
-        padding: 2rem 1.5rem;
-      }
-      .guide-card h3 { font-size: 1.2rem; }
-    }
-
-    /* ══════════════════════════════════
-       9b. MISSIONS COMPLÉMENTAIRES
-    ══════════════════════════════════ */
-    .missions {
-      padding: 5rem 0;
-      background: var(--blanc);
-    }
-
-    .missions-header {
-      text-align: left;
-      margin-bottom: 3.5rem;
-      display: flex;
-      align-items: center;
-      gap: 3rem;
-    }
-
-    .missions-header-text {
-      flex: 1;
-    }
-
-    .missions-header-illustration img {
-      height: 300px;
-      width: auto;
-      flex-shrink: 0;
-    }
-
-    .missions-header .ornament-dots {
-      margin: 1.5rem 0;
-      justify-content: flex-start;
-    }
-
-    .missions-header .section-subtitle {
-      margin: 1rem 0 0;
-    }
-
-    @media (max-width: 600px) {
-      .missions-header {
-        flex-direction: column;
-        text-align: center;
-      }
-      .missions-header .ornament-dots {
-        justify-content: center;
-      }
-      .missions-header-illustration img {
-        height: 180px;
-      }
-    }
-
-    .missions-list {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      column-gap: 3rem;
-      max-width: 880px;
-      margin: 0 auto;
-      border-top: 1px solid rgba(197, 162, 88, 0.25);
-    }
-
-    .missions-header h2 {
-      font-weight: 500;
-      line-height: 1.15;
-      letter-spacing: -0.01em;
-    }
-
-    .missions-header h2 em {
-      font-style: italic;
-      font-weight: 500;
-    }
-
-    .mission-item {
-      padding: 1.75rem 0;
-      border-bottom: 1px solid rgba(197, 162, 88, 0.25);
-    }
-
-    @media (max-width: 700px) {
-      .missions-list {
-        grid-template-columns: 1fr;
-        column-gap: 0;
-      }
-    }
-
-    .mission-name {
-      font-family: var(--font-display);
-      font-size: 1.15rem;
-      font-weight: 600;
-      color: var(--bordeaux);
-      margin-bottom: 0.4rem;
-      display: flex;
-      align-items: baseline;
-      gap: 0.75rem;
-    }
-
-    .mission-name::before {
-      content: '';
-      flex-shrink: 0;
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--or);
-      margin-top: 0.15rem;
-    }
-
-    .mission-desc {
-      font-size: 0.92rem;
-      color: var(--texte-light);
-      line-height: 1.75;
-      padding-left: calc(7px + 0.75rem);
-    }
-
-    .missions-footer {
-      text-align: center;
-      margin-top: 2.5rem;
-    }
-
-    .missions-footer p {
-      font-family: var(--font-display);
-      font-size: 1.05rem;
-      color: var(--texte-light);
-      font-style: italic;
-      margin-bottom: 1.5rem;
-    }
-
-    /* ══════════════════════════════════
-       RESPONSIVE
-    ══════════════════════════════════ */
-    @media (max-width: 900px) {
-      .situations,
-      .steps {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-
-      .steps::before { display: none; }
-
-      .hero { padding: 6.5rem 0 3.5rem; }
-
-      .hero-layout {
-        flex-direction: column;
-        text-align: center;
-        gap: 2rem;
-      }
-
-      .hero-text { text-align: center; }
-      .hero h1 { margin: 0 auto; }
-      .hero-subtitle { margin: 1.25rem auto 1.75rem; }
-
-      /* Option 1 — illustration placée SOUS le CTA pour faire remonter titre + bouton
-         au-dessus de la ligne de flottaison sur mobile (le visiteur Ads voit une action d'emblée) */
-      .hero-visual { width: 200px; order: 1; }
-    }
-
-    @media (max-width: 600px) {
-      .container { padding: 0 1.25rem; }
-      .nav .btn-gold { padding: 0.45rem 0.6rem; font-size: 0.7rem; text-align: center; white-space: nowrap; }
-      .nav-right { gap: 0.6rem; }
-      .nav-link { font-size: 0.7rem; white-space: nowrap; }
-      .hero { padding: 7rem 0 3.5rem; }
-      .hero-subtitle { font-size: 1rem; }
-      .btn-primary { padding: 0.95rem 2rem; font-size: 0.92rem; }
-      .form-card { padding: 2rem 1.25rem; }
-      .contact-form .form-row-2,
-      .contact-form .form-row-3 { grid-template-columns: 1fr; }
-
-      .probleme, .apercu, .process, .formulaire {
-        padding: 4rem 0;
-      }
-    }
-
-    /* ── ANIMATIONS ── */
-    @media (prefers-reduced-motion: no-preference) {
-      .situation-card,
-      .step {
-        opacity: 0;
-        transform: translateY(20px);
-        animation: fadeUp 0.6s ease forwards;
-      }
-      .situation-card:nth-child(1), .step:nth-child(1) { animation-delay: 0.1s; }
-      .situation-card:nth-child(2), .step:nth-child(2) { animation-delay: 0.2s; }
-      .situation-card:nth-child(3), .step:nth-child(3) { animation-delay: 0.3s; }
-    }
-
-    @keyframes fadeUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
   </style>
     <script type="application/ld+json">
     {
@@ -2234,8 +716,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
 <body>
   <a href="#main" class="skip-link">Aller au contenu</a>
 
-
-  <!-- ════════════ 1. NAVIGATION ════════════ -->
   <nav class="nav">
     <div class="nav-inner">
       <a href="#" class="nav-logo"><img width="160" height="160" src="grappe-doree.webp" alt="" class="nav-logo-img"><span class="nav-logo-text">estimation<span>cave</span>.com</span></a>
@@ -2275,598 +755,190 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
   </nav>
     <div class="nav-overlay"></div>
 
+<main id="main">
 
-  <main id="main">
-
-  <!-- ════════════ 2. HERO ════════════ -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-layout">
-        <div class="hero-text">
-          <p class="section-label">Audit &amp; estimation de cave à vins</p>
-          <h1>Que vaut <em>réellement</em> votre cave à vins&nbsp;?</h1>
-          <p class="hero-subtitle">Valeur réelle de chaque bouteille, recommandations garder ou vendre et plan d'action concret — par une experte indépendante, sans lien avec un acheteur de votre cave.</p>
-          <a href="#formulaire" class="btn btn-primary" data-cta="hero">Demander un audit — 199&thinsp;€</a>
-          <a href="estimation-bouteille.html" class="hero-alt" data-cta="hero-apercu">ou recevez d'abord un aperçu offert sur trois bouteilles →</a>
-          <span class="hero-mention">
-            Livraison sous 5 jours ouvrés <span>·</span> 100% à distance <span>·</span> Strictement confidentiel
-          </span>
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <p class="sc">Audit &amp; estimation de cave à vins</p>
+        <h1>Que vaut réellement votre cave à vins&nbsp;?</h1>
+        <p class="lead">Le prix réel de chaque bouteille, et pour chacune une réponse nette&nbsp;: la garder ou la vendre, quand, et par quel canal. Établi par une experte indépendante qui ne rachète pas de vin.</p>
+        <div class="hero-actions">
+          <a href="#formulaire" class="btn" data-cta="hero">Demander un audit — 199&thinsp;€</a>
+          <a href="estimation-bouteille.html" class="lien-suite" data-cta="hero-apercu">ou recevez d'abord un aperçu offert sur trois bouteilles</a>
         </div>
-        <div class="hero-visual">
-          <img width="600" height="564" src="empilementcaisse.webp" alt="Illustration caisses de vins empilées">
-        </div>
+        <p class="hero-mention">Livraison sous 5 jours ouvrés<span>·</span>100 % à distance<span>·</span>Strictement confidentiel</p>
+      </div>
+      <div class="hero-visual">
+        <img src="empilementcaisse.webp" width="600" height="564" alt="Caisses de vins empilées">
       </div>
     </div>
-  </section>
 
+    <div class="fiche-technique">
+      <ul>
+        <li><b>10 ans dans le vin</b>6 ans en ventes aux enchères. Certification WSET 3 avec distinction.</li>
+        <li><b>199&thinsp;€, prix fixe</b>Un rapport complet. Pas de devis opaque, pas de frais cachés.</li>
+        <li><b>Aucune commission</b>Je ne rachète pas vos bouteilles. Mon estimation est neutre.</li>
+        <li><b>5 jours ouvrés, à distance</b>Un smartphone suffit. Rapport livré par e-mail.</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-  <!-- ════════════ 3. PROBLÈME ════════════ -->
-  <section class="probleme" id="situations">
-    <div class="container">
-      <div class="probleme-header">
-        <p class="section-label">Le problème</p>
-        <h2>Quatre situations, <em>une même question</em>&nbsp;: combien vaut cette cave&nbsp;?</h2>
-        <span class="ornament-long"></span>
+<!-- ═══ SITUATIONS ═══ -->
+<section class="situations">
+  <div class="container">
+    <div class="situations-head">
+      <p class="sc">Le problème</p>
+      <h2>Quatre situations, une même question&nbsp;: combien vaut cette cave&nbsp;?</h2>
+    </div>
+    <div class="situations-grid">
+      <article class="situation">
+        <span class="num">I</span>
+        <div>
+          <h3>Succession ou héritage</h3>
+          <blockquote>« Mon père nous a laissé sa cave. On ignore tout de sa valeur. »</blockquote>
+          <p>Vous avez hérité d'une cave et vous ne savez ni ce qu'elle contient, ni quelle valeur déclarer ou partager. Le rapport chiffre chaque bouteille et se joint au dossier du notaire.</p>
+        </div>
+      </article>
+      <article class="situation">
+        <span class="num">II</span>
+        <div>
+          <h3>Assurance</h3>
+          <blockquote>« Mon assureur me demande une valeur pour ma cave. »</blockquote>
+          <p>Votre contrat plafonne les vins à quelques milliers d'euros, ou votre assureur réclame une pièce datée. Le rapport donne la valeur de remplacement de chaque bouteille, dans une version conçue pour lui.</p>
+        </div>
+      </article>
+      <article class="situation">
+        <span class="num">III</span>
+        <div>
+          <h3>Inventaire personnel</h3>
+          <blockquote>« J'ai constitué ma cave pendant 20 ans. Il est temps d'y voir clair. »</blockquote>
+          <p>Vous possédez une cave constituée au fil du temps et vous souhaitez faire un point sur sa valeur et les meilleures décisions à prendre.</p>
+        </div>
+      </article>
+      <article class="situation">
+        <span class="num">IV</span>
+        <div>
+          <h3>Vente partielle ou totale</h3>
+          <blockquote>« J'aimerais vendre quelques bouteilles, mais je ne veux pas brader. »</blockquote>
+          <p>Vous voulez vendre au bon prix, au bon moment, sans brader. Le rapport vous dit quoi vendre, quand, et par quel canal.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ L'EXPERTE ═══ -->
+<section class="experte">
+  <div class="container">
+    <div class="experte-grid">
+      <div class="bulle">
+        <img src="fanny-terrasse.webp" width="1086" height="1448" alt="Fanny, experte indépendante en estimation de cave">
       </div>
-      <div class="situations-narratif">
-        <div class="situation-narr">
-          <div class="situation-narr-icon">
-            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M6 30V12l12-8 12 8v18H6z" stroke="#C5A258" stroke-width="1.2" stroke-linejoin="round"/>
-              <rect x="14" y="20" width="8" height="10" stroke="#C5A258" stroke-width="1.2"/>
-              <path d="M18 4v4" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round"/>
-              <circle cx="18" cy="16" r="2" stroke="#C5A258" stroke-width="1.2"/>
-            </svg>
-          </div>
-          <div class="situation-narr-content">
-            <h3>Succession ou héritage</h3>
-            <p class="situation-narr-quote">«&nbsp;Mon père nous a laissé sa cave. On ignore tout de sa valeur.&nbsp;»</p>
-            <p>Vous avez hérité d'une cave et vous ne savez ni ce qu'elle contient, ni quelle valeur déclarer ou partager. Le rapport chiffre chaque bouteille et se joint au dossier du notaire.</p>
-          </div>
-        </div>
-        <div class="situation-narr">
-          <div class="situation-narr-icon">
-            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M18 4L6 9v9c0 7.2 5.1 13.6 12 16 6.9-2.4 12-8.8 12-16V9L18 4z" stroke="#C5A258" stroke-width="1.2" stroke-linejoin="round"/>
-              <path d="M13 18l3.5 3.5L23 15" stroke="#C5A258" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <div class="situation-narr-content">
-            <h3>Assurance</h3>
-            <p class="situation-narr-quote">«&nbsp;Mon assureur me demande une valeur pour ma cave.&nbsp;»</p>
-            <p>Votre contrat plafonne les vins à quelques milliers d'euros, ou votre assureur réclame une pièce datée. Le rapport donne la valeur de remplacement de chaque bouteille, dans une version conçue pour lui.</p>
-          </div>
-        </div>
-        <div class="situation-narr">
-          <div class="situation-narr-icon">
-            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M8 6h20v28H8z" stroke="#C5A258" stroke-width="1.2" stroke-linejoin="round"/>
-              <path d="M12 12h12M12 17h12M12 22h8" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round"/>
-              <path d="M14 6V4h8v2" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <div class="situation-narr-content">
-            <h3>Inventaire personnel</h3>
-            <p class="situation-narr-quote">«&nbsp;J'ai constitué ma cave pendant 20 ans. Il est temps d'y voir clair.&nbsp;»</p>
-            <p>Vous possédez une cave constituée au fil du temps et vous souhaitez faire un point sur sa valeur et les meilleures décisions à prendre.</p>
-          </div>
-        </div>
-        <div class="situation-narr">
-          <div class="situation-narr-icon">
-            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="4" y="8" width="28" height="22" rx="2" stroke="#C5A258" stroke-width="1.2"/>
-              <path d="M10 24l6-8 5 5 5-7" stroke="#C5A258" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
-              <circle cx="26" cy="14" r="2" stroke="#C5A258" stroke-width="1.2"/>
-            </svg>
-          </div>
-          <div class="situation-narr-content">
-            <h3>Vente partielle ou totale</h3>
-            <p class="situation-narr-quote">«&nbsp;J'aimerais vendre quelques bouteilles, mais je ne veux pas brader.&nbsp;»</p>
-            <p>Vous voulez vendre au bon prix, au bon moment, sans brader. Le rapport vous dit quoi vendre, quand, et par quel canal.</p>
-          </div>
-        </div>
+      <div>
+        <p class="sc">Qui estime votre cave</p>
+        <h2>Une estimation neutre, dans votre seul intérêt.</h2>
+        <p>Je m'appelle Fanny. Pendant six ans, j'ai été responsable des ventes aux enchères de vins d'une grande maison de vente en ligne&nbsp;: des milliers de caves passées entre mes mains, dans tous les contextes, succession, divorce, vente volontaire. J'ai ensuite exercé deux ans comme acheteuse vin, et obtenu en 2024 le WSET&nbsp;3 avec distinction.</p>
+        <p>Je ne rachète pas de vins et je ne travaille pour aucune maison de ventes. Je n'ai aucun intérêt dans les décisions que vous prendrez après le rapport&nbsp;: mes recommandations sont établies dans votre seul intérêt, et vos informations ne servent qu'à votre mission, confidentialité garantie par contrat.</p>
+        <p class="signature">Fanny</p>
+        <p class="signature-sub">Experte indépendante en estimation de cave · WSET 3</p>
+        <a href="apropos.html" class="lien-suite">Mon parcours en détail</a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-
-  <!-- ════════════ 3b. COMMENT ÇA MARCHE ════════════ -->
-  <section class="process" id="comment-ca-marche">
-    <div class="container">
-      <div class="process-header">
-        <p class="section-label">Comment ça marche</p>
-        <h2>Simple. Rapide. <em>À distance.</em></h2>
-        <span class="ornament-diamond"></span>
-      </div>
-      <div class="steps">
-        <div class="step">
-          <div class="step-number">1</div>
-          <h3>Décrivez votre cave</h3>
-          <p>Remplissez le formulaire en ligne et décrivez votre cave en 5 minutes.</p>
-        </div>
-        <div class="step">
-          <div class="step-number">2</div>
-          <h3>Envoyez vos photos</h3>
-          <p>Ajoutez vos photos directement via le formulaire ou partagez un lien Drive.</p>
-        </div>
-        <div class="step">
-          <div class="step-number">3</div>
-          <h3>Recevez votre rapport</h3>
-          <p>Vous recevez votre rapport PDF complet sous 5 jours ouvrés par e-mail.</p>
-        </div>
-      </div>
-      <div class="process-cta">
-        <a href="#formulaire" class="btn btn-outline" data-cta="process">Démarrer ma demande</a>
-      </div>
+<!-- ═══ COMMENT ÇA MARCHE ═══ -->
+<section class="process" id="comment-ca-marche">
+  <div class="container">
+    <p class="sc on-dark">Comment ça marche</p>
+    <h2>Simple. Rapide. À distance.</h2>
+    <ol class="etapes">
+      <li><p class="num">Étape une</p><h3>Décrivez votre cave</h3><p>Remplissez le formulaire en ligne et décrivez votre cave en 5 minutes. Sans engagement, sans paiement.</p></li>
+      <li><p class="num">Étape deux</p><h3>Transmettez votre liste</h3><p>Une liste de vos bouteilles suffit, tableur ou simple texte. Les photos sont facultatives&nbsp;: elles m'aident à préciser l'état des flacons. Je vous réponds sous 48 h ouvrées et confirme la mission par écrit.</p></li>
+      <li><p class="num">Étape trois</p><h3>Recevez votre rapport</h3><p>Vous réglez, je démarre l'analyse. Rapport PDF complet sous 5 jours ouvrés par e-mail.</p></li>
+    </ol>
+    <div class="process-suite">
+      <a href="#formulaire" class="btn btn-outline on-dark" data-cta="process">Démarrer ma demande</a>
+      <p>Une échéance, un rendez-vous chez le notaire&nbsp;? Indiquez-le dans le formulaire, je m'organise.</p>
     </div>
-  </section>
+  </div>
+</section>
 
-
-  <!-- ════════════ 5. POURQUOI NOUS FAIRE CONFIANCE ════════════ -->
-  <section class="probleme confiance confiance-kpi" id="engagements">
-    <div class="container">
-      <div class="probleme-header">
-        <p class="section-label">Pourquoi me faire confiance</p>
-        <h2>Une estimation neutre,<br><em>dans votre seul intérêt.</em></h2>
-        <span class="ornament-long"></span>
+<!-- ═══ CE QUE VOUS RECEVEZ ═══ -->
+<section class="recevez" id="exemple-rapport">
+  <div class="container">
+    <div class="recevez-grid">
+      <div>
+        <p class="sc">Ce que vous recevez</p>
+        <h2>Un rapport complet, personnalisé et documenté.</h2>
+        <ol class="sommaire" id="sommaire">
+          <li class="active" data-img="rapport-synthese.webp"><button type="button"><span class="n">i</span><span>Synthèse exécutive</span></button><p class="detail">Une vue d'ensemble immédiate&nbsp;: valeur totale estimée, répartition par recommandation (à vendre / à conserver / à surveiller), points d'attention prioritaires. La page que vous lirez en premier.</p></li>
+          <li data-img="rapport-inventaire.webp"><button type="button"><span class="n">ii</span><span>Inventaire détaillé</span></button><p class="detail">Chaque référence identifiée et documentée&nbsp;: appellation, domaine, millésime, format, état observé, valeur estimée. Le tableau complet de votre cave, lot par lot.</p></li>
+          <li data-img="rapport-repartition.webp"><button type="button"><span class="n">iii</span><span>Répartition par format, région, couleur</span></button><p class="detail">Votre cave en visualisations&nbsp;: graphiques de répartition par région, couleur, format et potentiel. Pour comprendre d'un coup d'œil la composition de votre patrimoine liquide.</p></li>
+          <li data-img="rapport-contexte-marche.webp"><button type="button"><span class="n">iv</span><span>Contexte de marché</span></button><p class="detail">L'état actuel des enchères et du négoce pour vos références&nbsp;: tendances, liquidité, dynamique sur les douze derniers mois. Le marché derrière les chiffres de votre cave.</p></li>
+          <li data-img="rapport-recommandations.webp"><button type="button"><span class="n">v</span><span>Recommandations lot par lot</span></button><p class="detail">Pour chaque référence&nbsp;: à vendre, à conserver ou à surveiller — avec une justification claire fondée sur la cote, l'apogée du vin et la dynamique de marché actuelle.</p></li>
+          <li data-img="rapport-garde.webp"><button type="button"><span class="n">vi</span><span>Potentiel de garde</span></button><p class="detail">Fenêtre d'apogée pour chaque lot. Quatre horizons&nbsp;: à boire maintenant, proche apogée, en développement, garde longue. Pour savoir quoi ouvrir et quand.</p></li>
+          <li data-img="rapport-plan-action.webp"><button type="button"><span class="n">vii</span><span>Plan d'action</span></button><p class="detail">Des étapes concrètes adaptées à votre situation et vos objectifs — succession, vente, partage familial, conservation. Un calendrier opérationnel pour passer à l'action sans hésiter.</p></li>
+        </ol>
       </div>
-      <div class="kpi-grid">
-        <a href="apropos.html" class="kpi-item kpi-item-link">
-          <div class="kpi-number">10<span class="kpi-unit">ans</span></div>
-          <div class="kpi-label">d'expertise</div>
-          <p class="kpi-desc">Dont 6 ans en ventes aux enchères de vin. Certification WSET 3 avec distinction.</p>
-          <span class="kpi-link-arrow">Qui suis-je ?&nbsp;→</span>
-        </a>
-        <div class="kpi-item">
-          <div class="kpi-number">199<span class="kpi-unit">€</span></div>
-          <div class="kpi-label">prix fixe et transparent</div>
-          <p class="kpi-desc">Un rapport complet. Pas de devis opaque, pas de frais cachés, pas de surprise.</p>
-        </div>
-        <div class="kpi-item">
-          <div class="kpi-number">0<span class="kpi-unit">%</span></div>
-          <div class="kpi-label">commission, jamais</div>
-          <p class="kpi-desc">Je ne rachète pas vos bouteilles, je ne touche aucune commission. Mon estimation est neutre.</p>
-        </div>
-        <div class="kpi-item">
-          <div class="kpi-number">5<span class="kpi-unit">jours</span></div>
-          <div class="kpi-label">100&nbsp;% à distance</div>
-          <p class="kpi-desc">Un smartphone suffit. Pas de rendez-vous, pas de déplacement. Rapport livré par email.</p>
-        </div>
-      </div>
-      <div class="kpi-engagements">
-        <div class="kpi-engagement">
-          <h3>Confidentialité absolue</h3>
-          <p>Vos informations ne servent qu'à votre mission d'estimation. Elles ne sont jamais partagées ni revendues, et la confidentialité est réciproque, garantie par contrat.</p>
-        </div>
-        <div class="kpi-engagement">
-          <h3>Indépendance garantie</h3>
-          <p>Je ne rachète pas de vins et je ne travaille pour aucune maison de ventes. Je n'ai aucun intérêt dans les décisions que vous prendrez après le rapport&nbsp;: mes recommandations sont établies dans votre seul intérêt.</p>
-        </div>
-      </div>
+      <figure class="planche">
+        <div class="cadre-double"><img id="planche-img" src="rapport-synthese.webp" width="660" height="934" alt="Page du rapport d'exemple"></div>
+        <figcaption><span id="planche-cap">Synthèse exécutive</span><span>Rapport d'exemple</span></figcaption>
+      </figure>
     </div>
-  </section>
-
-
-  <!-- ════════════ 4. CE QUE VOUS RECEVEZ — APERÇU INTERACTIF ════════════ -->
-  <section class="apercu" id="exemple-rapport">
-    <div class="container">
-      <div class="apercu-grid">
-        <div class="apercu-content">
-          <div class="apercu-header">
-            <p class="section-label">Ce que vous recevez</p>
-            <h2>Un rapport complet,<br><em>personnalisé et documenté.</em></h2>
-            <div class="ornament-dots"><span></span></div>
-            <p class="section-subtitle">Cliquez sur chaque section pour découvrir ce qu'elle contient.</p>
-          </div>
-
-          <ul class="apercu-list" role="tablist" aria-label="Sommaire du rapport">
-          <li class="apercu-item active"
-              data-page="2"
-              data-title="Synthèse exécutive"
-              data-img="rapport-synthese.jpg">
-            <button class="apercu-tab" role="tab" aria-selected="true" aria-expanded="true" tabindex="0" id="apercu-tab-1" aria-controls="apercu-panel-1">
-              <span class="apercu-page-num" aria-hidden="true"></span>
-              <span class="apercu-page-title">Synthèse exécutive</span>
-            </button>
-            <div class="apercu-panel" id="apercu-panel-1" role="region" aria-labelledby="apercu-tab-1">
-              <div class="apercu-panel-inner">
-                Une vue d'ensemble immédiate : valeur totale estimée, répartition par recommandation (à vendre / à conserver / à surveiller), points d'attention prioritaires. La page que vous lirez en premier.
-                <div class="apercu-mobile-image"><img width="660" height="934" src="rapport-synthese.webp" alt="Aperçu p. 2 — Synthèse exécutive" loading="lazy"></div>
-              </div>
-            </div>
-          </li>
-
-          <li class="apercu-item"
-              data-page="4"
-              data-title="Inventaire détaillé"
-              data-img="rapport-inventaire.jpg">
-            <button class="apercu-tab" role="tab" aria-selected="false" aria-expanded="false" tabindex="-1" id="apercu-tab-2" aria-controls="apercu-panel-2">
-              <span class="apercu-page-num" aria-hidden="true"></span>
-              <span class="apercu-page-title">Inventaire détaillé</span>
-            </button>
-            <div class="apercu-panel" id="apercu-panel-2" role="region" aria-labelledby="apercu-tab-2">
-              <div class="apercu-panel-inner">
-                Chaque référence identifiée et documentée : appellation, domaine, millésime, format, état observé, valeur estimée. Le tableau complet de votre cave, lot par lot.
-                <div class="apercu-mobile-image"><img width="660" height="934" src="rapport-inventaire.webp" alt="Aperçu p. 4 — Inventaire détaillé" loading="lazy"></div>
-              </div>
-            </div>
-          </li>
-
-          <li class="apercu-item"
-              data-page="5"
-              data-title="Répartition par format, région, couleur"
-              data-img="rapport-repartition.jpg">
-            <button class="apercu-tab" role="tab" aria-selected="false" aria-expanded="false" tabindex="-1" id="apercu-tab-3" aria-controls="apercu-panel-3">
-              <span class="apercu-page-num" aria-hidden="true"></span>
-              <span class="apercu-page-title">Répartition par format, région, couleur</span>
-            </button>
-            <div class="apercu-panel" id="apercu-panel-3" role="region" aria-labelledby="apercu-tab-3">
-              <div class="apercu-panel-inner">
-                Votre cave en visualisations : graphiques de répartition par région, couleur, format et potentiel. Pour comprendre d'un coup d'œil la composition de votre patrimoine liquide.
-                <div class="apercu-mobile-image"><img width="660" height="934" src="rapport-repartition.webp" alt="Aperçu p. 5 — Répartition" loading="lazy"></div>
-              </div>
-            </div>
-          </li>
-
-          <li class="apercu-item"
-              data-page="6"
-              data-title="Contexte de marché"
-              data-img="rapport-contexte-marche.jpg">
-            <button class="apercu-tab" role="tab" aria-selected="false" aria-expanded="false" tabindex="-1" id="apercu-tab-4" aria-controls="apercu-panel-4">
-              <span class="apercu-page-num" aria-hidden="true"></span>
-              <span class="apercu-page-title">Contexte de marché</span>
-            </button>
-            <div class="apercu-panel" id="apercu-panel-4" role="region" aria-labelledby="apercu-tab-4">
-              <div class="apercu-panel-inner">
-                L'état actuel des enchères et du négoce pour vos références : tendances, liquidité, dynamique sur les douze derniers mois. Le marché derrière les chiffres de votre cave.
-                <div class="apercu-mobile-image"><img width="660" height="934" src="rapport-contexte-marche.webp" alt="Aperçu p. 6 — Contexte de marché" loading="lazy"></div>
-              </div>
-            </div>
-          </li>
-
-          <li class="apercu-item"
-              data-page="10"
-              data-title="Recommandations lot par lot"
-              data-img="rapport-recommandations.jpg">
-            <button class="apercu-tab" role="tab" aria-selected="false" aria-expanded="false" tabindex="-1" id="apercu-tab-5" aria-controls="apercu-panel-5">
-              <span class="apercu-page-num" aria-hidden="true"></span>
-              <span class="apercu-page-title">Recommandations lot par lot</span>
-            </button>
-            <div class="apercu-panel" id="apercu-panel-5" role="region" aria-labelledby="apercu-tab-5">
-              <div class="apercu-panel-inner">
-                Pour chaque référence : à vendre, à conserver ou à surveiller — avec une justification claire fondée sur la cote, l'apogée du vin et la dynamique de marché actuelle.
-                <div class="apercu-mobile-image"><img width="660" height="934" src="rapport-recommandations.webp" alt="Aperçu p. 10 — Recommandations" loading="lazy"></div>
-              </div>
-            </div>
-          </li>
-
-          <li class="apercu-item"
-              data-page="12"
-              data-title="Potentiel de garde"
-              data-img="rapport-garde.jpg">
-            <button class="apercu-tab" role="tab" aria-selected="false" aria-expanded="false" tabindex="-1" id="apercu-tab-6" aria-controls="apercu-panel-6">
-              <span class="apercu-page-num" aria-hidden="true"></span>
-              <span class="apercu-page-title">Potentiel de garde</span>
-            </button>
-            <div class="apercu-panel" id="apercu-panel-6" role="region" aria-labelledby="apercu-tab-6">
-              <div class="apercu-panel-inner">
-                Fenêtre d'apogée pour chaque lot. Quatre horizons : à boire maintenant, proche apogée, en développement, garde longue. Pour savoir quoi ouvrir et quand.
-                <div class="apercu-mobile-image"><img width="660" height="934" src="rapport-garde.webp" alt="Aperçu p. 12 — Potentiel de garde" loading="lazy"></div>
-              </div>
-            </div>
-          </li>
-
-          <li class="apercu-item"
-              data-page="14"
-              data-title="Plan d'action"
-              data-img="rapport-plan-action.jpg">
-            <button class="apercu-tab" role="tab" aria-selected="false" aria-expanded="false" tabindex="-1" id="apercu-tab-7" aria-controls="apercu-panel-7">
-              <span class="apercu-page-num" aria-hidden="true"></span>
-              <span class="apercu-page-title">Plan d'action</span>
-            </button>
-            <div class="apercu-panel" id="apercu-panel-7" role="region" aria-labelledby="apercu-tab-7">
-              <div class="apercu-panel-inner">
-                Des étapes concrètes adaptées à votre situation et vos objectifs — succession, vente, partage familial, conservation. Un calendrier opérationnel pour passer à l'action sans hésiter.
-                <div class="apercu-mobile-image"><img width="660" height="934" src="rapport-plan-action.webp" alt="Aperçu p. 14 — Plan d'action" loading="lazy"></div>
-              </div>
-            </div>
-          </li>
-        </ul>
-        </div><!-- /.apercu-content -->
-
-        <aside class="apercu-preview" aria-label="Aperçu de la page sélectionnée">
-          <div class="apercu-preview-card" role="button" tabindex="0" aria-label="Agrandir l'aperçu">
-            <div class="apercu-preview-image">
-              <span class="apercu-preview-badge" id="apercu-preview-badge">p. 2</span>
-              <img width="660" height="934" id="apercu-preview-img" src="rapport-synthese.webp" alt="Synthèse exécutive" loading="lazy">
-              <span class="apercu-placeholder" id="apercu-preview-placeholder" style="display:none;">Aperçu p. 2 — Synthèse exécutive</span>
-            </div>
-            <div class="apercu-preview-caption" id="apercu-preview-caption">Synthèse exécutive</div>
-          </div>
-          <div class="apercu-preview-nav" role="tablist" aria-label="Navigation rapide entre les pages">
-            <button class="apercu-dot active" type="button" aria-label="Aller à la page 2 — Synthèse exécutive" data-target="0"></button>
-            <button class="apercu-dot" type="button" aria-label="Aller à la page 4 — Inventaire détaillé" data-target="1"></button>
-            <button class="apercu-dot" type="button" aria-label="Aller à la page 5 — Répartition" data-target="2"></button>
-            <button class="apercu-dot" type="button" aria-label="Aller à la page 6 — Contexte de marché" data-target="3"></button>
-            <button class="apercu-dot" type="button" aria-label="Aller à la page 10 — Recommandations" data-target="4"></button>
-            <button class="apercu-dot" type="button" aria-label="Aller à la page 12 — Potentiel de garde" data-target="5"></button>
-            <button class="apercu-dot" type="button" aria-label="Aller à la page 14 — Plan d'action" data-target="6"></button>
-          </div>
-          <p class="apercu-preview-credit">Rapport d'exemple</p>
-        </aside>
-      </div>
-
-      <p class="apercu-usage">Pour une succession, le rapport se joint au dossier du notaire. Pour une assurance, une version en valeur de remplacement, datée et signée, est fournie sans supplément.</p>
-      <div class="apercu-cta">
-        <a href="#formulaire" class="btn btn-primary" data-cta="apercu">Recevoir ce rapport — 199&thinsp;€</a>
-      </div>
+    <div class="recevez-usage">
+      <p>Pour une succession, le rapport se joint au dossier du notaire. Pour une assurance, une version en valeur de remplacement, datée et signée, est fournie sans supplément.</p>
+      <a href="#formulaire" class="btn" data-cta="apercu">Recevoir ce rapport — 199&thinsp;€</a>
     </div>
-  </section>
+  </div>
+</section>
 
-
-  <!-- ════════════ 8. TÉMOIGNAGES ════════════ -->
-  <section class="temoignages">
-    <div class="container">
-      <div class="temoignages-header">
-        <p class="section-label">Témoignages</p>
-        <h2>Ce qu'en pensent mes clients</h2>
-        <span class="ornament-diamond"></span>
-      </div>
-      <style>
-      .testimonial-carousel {
-        position: relative;
-        max-width: 700px;
-        margin: 0 auto;
-        min-height: 320px;
-        overflow: hidden;
-      }
-
-      .testimonial-card {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background: #FAF6F0;
-        border-left: 4px solid #C5A258;
-        border-radius: 6px;
-        padding: 2rem 2.5rem;
-        opacity: 0;
-        transform: translateX(60px);
-        transition: all 0.5s ease;
-        pointer-events: none;
-        box-shadow: 0 2px 12px rgba(45, 27, 46, 0.06);
-      }
-
-      .testimonial-card.active {
-        opacity: 1;
-        transform: translateX(0);
-        pointer-events: auto;
-      }
-
-      .testimonial-card.exit-left {
-        opacity: 0;
-        transform: translateX(-60px);
-      }
-
-      .testimonial-stars {
-        color: #C5A258;
-        font-size: 1.3rem;
-        margin-bottom: 0.75rem;
-        letter-spacing: 2px;
-      }
-
-      .testimonial-quote {
-        font-style: italic;
-        color: #2D1B2E;
-        line-height: 1.7;
-        font-size: 0.95rem;
-        margin-bottom: 1.25rem;
-        position: relative;
-        padding-left: 0;
-      }
-
-      .testimonial-quote::before {
-        content: "«";
-        color: #C5A258;
-        font-size: 2.5rem;
-        font-family: 'Cormorant Garamond', Georgia, serif;
-        position: absolute;
-        left: -0.1rem;
-        top: -1.2rem;
-        opacity: 0.3;
-      }
-
-      .testimonial-author {
-        color: #2D1B2E;
-        font-weight: 600;
-        font-size: 1rem;
-        margin: 0;
-      }
-
-      .testimonial-detail {
-        color: #888;
-        font-size: 0.88rem;
-        margin: 0.2rem 0 0 0;
-      }
-
-      .testimonial-nav {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 1rem;
-        margin-top: 0.5rem;
-      }
-
-      .testimonial-btn {
-        width: 44px;
-        height: 44px;
-        border: 2px solid #C5A258;
-        background: transparent;
-        color: #C5A258;
-        border-radius: 50%;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.2rem;
-        transition: all 0.25s ease;
-      }
-
-      .testimonial-btn:hover {
-        background: #C5A258;
-        color: #FAF6F0;
-      }
-
-      .testimonial-dots {
-        display: flex;
-        gap: 8px;
-      }
-
-      .testimonial-dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: #D4B76E;
-        opacity: 0.3;
-        transition: all 0.3s ease;
-        cursor: pointer;
-        border: none;
-        padding: 0;
-      }
-
-      .testimonial-dot.active {
-        opacity: 1;
-        transform: scale(1.3);
-        background: #C5A258;
-      }
-
-      @media (max-width: 640px) {
-        .testimonial-card {
-          padding: 1.5rem 1.25rem;
-        }
-        .testimonial-quote {
-          font-size: 0.9rem;
-        }
-        .testimonial-carousel {
-          min-height: 480px;
-        }
-      }
-      </style>
-
-      <div class="testimonial-carousel" id="testimonialCarousel">
-
-        <!-- Témoignage 1 — Richard -->
-        <div class="testimonial-card active" data-index="0">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-quote">
-            J'ai particulièrement apprécié la richesse et la qualité de votre analyse, qui va bien au-delà d'un simple inventaire. Le document offre une vision très claire du contenu de ma cave, de sa structuration et de son positionnement par rapport aux tendances du marché. J'ai vraiment apprécié la pertinence des recommandations par bouteille, qui apportent un éclairage très concret pour orienter mes futures décisions. Cela pourrait devenir vraiment un bon livre de chevet !&nbsp;»
-          </p>
-          <p class="testimonial-author">— Richard</p>
-          <p class="testimonial-detail">600 bouteilles</p>
-        </div>
-
-        <!-- Témoignage 2 — Lionel -->
-        <div class="testimonial-card" data-index="1">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-quote">
-            Le rapport m'a permis de segmenter ma cave en bénéficiant d'avis en matière de garde, valorisation et tendances du marché. Le rapport très complet a l'avantage de comporter plusieurs parties pour une meilleure connaissance de ma cave. Cet exercice, fort utile, m'a permis d'optimiser ma cave et de bénéficier des conseils d'une professionnelle avisée. Un grand merci.&nbsp;»
-          </p>
-          <p class="testimonial-author">— Lionel</p>
-          <p class="testimonial-detail">51 bouteilles</p>
-        </div>
-
-        <!-- Témoignage 3 — Simon -->
-        <div class="testimonial-card" data-index="2">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-quote">
-            C'est une belle analyse, le document est bien complet autant sur la particularité de chaque bouteille que sur la tendance de marché actuelle. N'ayant pas une grande expérience dans la vente, ce document met en avant les points forts de la cave et offre un visuel plus précis sur la meilleure stratégie à adopter pour optimiser la vente. Je vais adapter les conseils sur les mises en ventes de mes bouteilles et mettre en vente en priorité les bouteilles les plus sensibles au vu des millésimes.&nbsp;»
-          </p>
-          <p class="testimonial-author">— Simon</p>
-          <p class="testimonial-detail">33 bouteilles</p>
-        </div>
-
-        <!-- Témoignage 4 — Guillaume -->
-        <div class="testimonial-card" data-index="3">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-quote">
-            Super diagnostic avec des conseils très précis et un rapport très complet qui donne des indications claires pour la suite : vendre ou garder notamment. Cela donne clairement une orientation sur ce que je dois faire des vins de ma cave.&nbsp;»
-          </p>
-          <p class="testimonial-author">— Guillaume</p>
-          <p class="testimonial-detail">122 bouteilles</p>
-        </div>
-
-      </div>
-
-      <!-- Navigation -->
-      <div class="testimonial-nav">
-        <button class="testimonial-btn" onclick="moveTestimonial(-1)" aria-label="Témoignage précédent">‹</button>
-        <div class="testimonial-dots">
-          <button class="testimonial-dot active" data-dot="0" onclick="goToTestimonial(0)"></button>
-          <button class="testimonial-dot" data-dot="1" onclick="goToTestimonial(1)"></button>
-          <button class="testimonial-dot" data-dot="2" onclick="goToTestimonial(2)"></button>
-          <button class="testimonial-dot" data-dot="3" onclick="goToTestimonial(3)"></button>
-        </div>
-        <button class="testimonial-btn" onclick="moveTestimonial(1)" aria-label="Témoignage suivant">›</button>
-      </div>
-
-      <script>
-      (function() {
-        let current = 0;
-        const cards = document.querySelectorAll('.testimonial-card');
-        const dots = document.querySelectorAll('.testimonial-dot');
-        const total = cards.length;
-
-        function showCard(index, direction) {
-          cards.forEach(c => {
-            c.classList.remove('active', 'exit-left');
-          });
-          dots.forEach(d => d.classList.remove('active'));
-
-          if (direction === 'left') {
-            cards[current]?.classList.add('exit-left');
-          }
-
-          setTimeout(() => {
-            cards.forEach(c => c.classList.remove('active', 'exit-left'));
-            cards[index].classList.add('active');
-            dots[index].classList.add('active');
-            current = index;
-          }, direction ? 150 : 0);
-        }
-
-        window.moveTestimonial = function(step) {
-          let next = (current + step + total) % total;
-          showCard(next, step > 0 ? 'left' : 'right');
-        };
-
-        window.goToTestimonial = function(index) {
-          if (index === current) return;
-          showCard(index, index > current ? 'left' : 'right');
-        };
-
-        // Auto-rotation toutes les 13 secondes
-        setInterval(() => moveTestimonial(1), 13000);
-      })();
-      </script>
+<!-- ═══ TÉMOIGNAGES EN LETTRE ═══ -->
+<section class="lettre">
+  <div class="container">
+    <h2 class="sc center" style="font-size:1.05rem">Ce qu'en pensent mes clients</h2>
+    <div class="lettre-main">
+      <blockquote>J'ai particulièrement apprécié la richesse et la qualité de votre analyse, qui va bien au-delà d'un simple inventaire. Le document offre une vision très claire du contenu de ma cave, de sa structuration et de son positionnement par rapport aux tendances du marché. J'ai vraiment apprécié la pertinence des recommandations par bouteille, qui apportent un éclairage très concret pour orienter mes futures décisions. Cela pourrait devenir vraiment un bon livre de chevet&nbsp;!&nbsp;»</blockquote>
+      <p class="lettre-meta"><b>Richard</b>600 bouteilles</p>
     </div>
-  </section>
+    <div class="lettres-courtes">
+      <div><blockquote>« Le rapport m'a permis de segmenter ma cave en bénéficiant d'avis en matière de garde, valorisation et tendances du marché. »</blockquote><cite><b>Lionel</b> · 51 bouteilles</cite></div>
+      <div><blockquote>« Une belle analyse, complète autant sur la particularité de chaque bouteille que sur la tendance de marché actuelle. »</blockquote><cite><b>Simon</b> · 33 bouteilles</cite></div>
+      <div><blockquote>« Des conseils très précis et des indications claires pour la suite&nbsp;: vendre ou garder notamment. »</blockquote><cite><b>Guillaume</b> · 122 bouteilles</cite></div>
+    </div>
+  </div>
+</section>
 
+<!-- ═══ ENGAGEMENTS ═══ -->
+<section class="engagements" id="engagements">
+  <div class="container">
+    <p class="sc">Mes engagements</p>
+    <div class="engagements-grid">
+      <div><h3>Confidentialité absolue</h3><p>Vos informations ne servent qu'à votre mission d'estimation. Elles ne sont jamais partagées ni revendues, et la confidentialité est réciproque, garantie par contrat. Vos données et photos sont supprimées après livraison du rapport.</p></div>
+      <div><h3>Indépendance garantie</h3><p>Je ne rachète pas de vins et je ne travaille pour aucune maison de ventes. Je n'ai aucun intérêt dans les décisions que vous prendrez après le rapport&nbsp;: mes recommandations sont établies dans votre seul intérêt.</p></div>
+    </div>
+    <div class="cartouche">
+      <div><p class="sc">Délai</p><b>5 jours ouvrés</b>Rapport garanti ou remboursement intégral</div>
+      <div><p class="sc">Paiement</p><b>Sécurisé, après confirmation</b>Transaction chiffrée via Stripe, aucune donnée bancaire stockée</div>
+      <div><p class="sc">Tarif</p><b>199&thinsp;€, unique</b>Aucun frais caché</div>
+    </div>
+  </div>
+</section>
 
-
-
-  <!-- ════════════ 9. FORMULAIRE ════════════ -->
-  <section class="formulaire" id="formulaire">
-    <div class="container">
-      <div class="formulaire-header">
-        <p class="section-label">Commencer</p>
-        <h2>Prêt à connaître la valeur de votre cave&nbsp;?</h2>
-        <div class="formulaire-illustration"><img width="600" height="625" src="caissebois.webp" alt="Illustration caisse de vins" loading="lazy"></div>
-        <span class="ornament-long"></span>
-        <p class="section-subtitle">Décrivez votre cave en quelques lignes — sans engagement, sans paiement à ce stade.</p>
-      </div>
-
-      <div class="form-card">
-        <form id="contact-form" class="contact-form" novalidate>
+<!-- ═══ FORMULAIRE ═══ -->
+<section class="formulaire" id="formulaire">
+  <div class="container">
+    <div class="formulaire-head">
+      <p class="sc">Commencer</p>
+      <h2>Prêt à connaître la valeur de votre cave&nbsp;?</h2>
+      <p class="lead" style="margin-top:1rem">Décrivez votre cave en quelques lignes — sans engagement, sans paiement à ce stade.</p>
+    </div>
+    <div class="formulaire-grid">
+      <form id="contact-form" class="contact-form" novalidate>
           <!-- Honeypot anti-bot : invisible utilisateur + clavier + lecteur d'écran -->
           <div class="hp-field" aria-hidden="true">
             <label for="hp-website">Site web (laissez vide)</label>
@@ -2976,275 +1048,88 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             <p style="font-size:0.82rem;color:var(--texte-light);margin-top:1.2rem;">Pour toute question, écrivez directement à <a href="mailto:contact@estimationcave.com" style="color:var(--or);">contact@estimationcave.com</a></p>
           </div>
         </form>
-      </div>
-
-      <p class="formulaire-suite-label">Et ensuite&nbsp;?</p>
-      <div class="steps formulaire-steps">
-        <div class="step">
-          <div class="step-number">1</div>
-          <h3>Vous envoyez votre demande</h3>
-          <p>Sans engagement, sans paiement.</p>
-        </div>
-        <div class="step">
-          <div class="step-number">2</div>
-          <h3>Je vous réponds sous 48h ouvrées</h3>
-          <p>Je confirme la mission par écrit et je vous transmets le lien de paiement sécurisé.</p>
-        </div>
-        <div class="step">
-          <div class="step-number">3</div>
-          <h3>Vous réglez et je démarre l'analyse</h3>
-          <p>Vous recevez votre rapport sous 5 jours ouvrés après paiement et réception de votre liste.</p>
-        </div>
-      </div>
-
-      <div class="formulaire-reassurance">
-        <p>Tarif unique&nbsp;: <strong>199&nbsp;€</strong> · Aucun paiement n'est demandé à ce stade · Le paiement intervient uniquement après confirmation écrite de la mission.</p>
-        <p>Une échéance, un rendez-vous chez le notaire&nbsp;? Indiquez-le dans le formulaire, je m'organise.</p>
-      </div>
+      <aside class="aside-suite">
+        <img class="aside-illus" src="caissebois.webp" width="600" height="625" alt="">
+        <h3>Et ensuite&nbsp;?</h3>
+        <ol>
+          <li><div><b>Vous envoyez votre demande</b>Sans engagement, sans paiement.</div></li>
+          <li><div><b>Je vous réponds sous 48 h ouvrées</b>Je confirme la mission par écrit et je vous transmets le lien de paiement sécurisé.</div></li>
+          <li><div><b>Vous réglez et je démarre l'analyse</b>Vous recevez votre rapport sous 5 jours ouvrés après paiement et réception de votre liste.</div></li>
+        </ol>
+      </aside>
     </div>
-  </section>
+  </div>
+</section>
 
-
-  <!-- ════════════ 9b. GARANTIES ════════════ -->
-  <section class="garanties">
-    <div class="container">
-      <div class="garanties-grid">
-        <div class="garantie-item">
-          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="18" cy="18" r="17" stroke="#C5A258" stroke-width="1.2"/>
-            <path d="M18 8v10l6 4" stroke="#C5A258" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <p class="garantie-titre">Livraison sous 5 jours</p>
-          <p class="garantie-desc">Rapport garanti sous 5 jours ouvrés ou remboursement intégral</p>
-        </div>
-        <div class="garantie-item">
-          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="6" y="14" width="24" height="16" rx="2" stroke="#C5A258" stroke-width="1.2"/>
-            <path d="M6 20h24" stroke="#C5A258" stroke-width="1.2"/>
-            <circle cx="12" cy="26" r="1.5" fill="#C5A258"/>
-            <path d="M10 14V10a8 8 0 0 1 16 0v4" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round"/>
-          </svg>
-          <p class="garantie-titre">Paiement 100% sécurisé</p>
-          <p class="garantie-desc">Transaction chiffrée via Stripe — aucune donnée bancaire stockée</p>
-        </div>
-        <div class="garantie-item">
-          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M18 4L6 10v8c0 7.2 5.1 13.9 12 16 6.9-2.1 12-8.8 12-16v-8L18 4z" stroke="#C5A258" stroke-width="1.2" stroke-linejoin="round"/>
-            <path d="M13 18l3.5 3.5L23 15" stroke="#C5A258" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <p class="garantie-titre">Confidentialité totale</p>
-          <p class="garantie-desc">Vos données et photos sont supprimées après livraison du rapport</p>
-        </div>
+<!-- ═══ LES GUIDES ═══ -->
+<section class="guides">
+  <div class="container">
+    <div class="guides-head">
+      <div>
+        <p class="sc">Les guides</p>
+        <h2>À lire avant de vous décider.</h2>
       </div>
+      <a href="blog.html" class="lien-suite">Tous les guides</a>
     </div>
-  </section>
-
-  <!-- ════════════ 9b-bis. GUIDES & RESSOURCES ════════════ -->
-  <section class="guides">
-    <div class="container">
-      <div class="guides-header">
-        <p class="section-label">Les guides</p>
-        <h2>À lire avant de <em>vous décider.</em></h2>
-        <div class="ornament-dots"><span></span></div>
-        <p class="section-subtitle">Les réponses aux questions que vous vous posez probablement.</p>
-      </div>
-      <div class="carousel-wrapper" id="guides-carousel">
-        <div class="carousel-track">
-          <a href="/article-vins-parents-valeur-guide.html" class="guide-card">
-            <p class="guide-label">Découvrir</p>
-            <h3>Les vins de mon père valent-ils quelque chose&nbsp;?</h3>
-            <span class="guide-read">
-              Lire le guide
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-            </span>
-          </a>
-          <a href="/article-assurer-cave-vins.html" class="guide-card">
-            <p class="guide-label">Assurance</p>
-            <h3>Assurer sa cave à vins&nbsp;: contrat, couverture, déclaration</h3>
-            <span class="guide-read">
-              Lire le guide
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-            </span>
-          </a>
-          <a href="/article-cave-sous-assuree.html" class="guide-card">
-            <p class="guide-label">Sous-assurance</p>
-            <h3>Cave à vins sous-assurée&nbsp;: le risque que personne ne calcule</h3>
-            <span class="guide-read">
-              Lire le guide
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-            </span>
-          </a>
-          <a href="/article-vendre-cave-heritee-erreurs.html" class="guide-card">
-            <p class="guide-label">Éviter les pièges</p>
-            <h3>Vendre une cave héritée&nbsp;: les 7 erreurs à éviter</h3>
-            <span class="guide-read">
-              Lire le guide
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-            </span>
-          </a>
-          <a href="/article-estimation-gratuite-vs-professionnelle.html" class="guide-card">
-            <p class="guide-label">Comprendre</p>
-            <h3>Estimation gratuite vs professionnelle&nbsp;: quelle différence&nbsp;?</h3>
-            <span class="guide-read">
-              Lire le guide
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-            </span>
-          </a>
-          <a href="/estimation.html" class="guide-card">
-            <p class="guide-label">Le guide</p>
-            <h3>Comment estimer sa cave à vins&nbsp;: méthodes et critères</h3>
-            <span class="guide-read">
-              Lire le guide
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-            </span>
-          </a>
-          <a href="/article-estimation-distance.html" class="guide-card">
-            <p class="guide-label">Le service</p>
-            <h3>Estimation de cave à distance&nbsp;: comment ça fonctionne&nbsp;?</h3>
-            <span class="guide-read">
-              Lire le guide
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-            </span>
-          </a>
-          <a href="/article-quand-cave-merite-audit.html" class="guide-card">
-            <p class="guide-label">Décider</p>
-            <h3>Quand une cave à vins mérite un audit complet</h3>
-            <span class="guide-read">
-              Lire le guide
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-            </span>
-          </a>
-          <a href="/vendre/" class="guide-card">
-            <p class="guide-label">Vendre</p>
-            <h3>Vendre sa cave à vins&nbsp;: les 4 canaux, les frais, le bon prix</h3>
-            <span class="guide-read">
-              Lire le guide
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-            </span>
-          </a>
-          <a href="/cave-investissement.html" class="guide-card">
-            <p class="guide-label">Investir</p>
-            <h3>Cave d'investissement&nbsp;: que vaut vraiment la vôtre&nbsp;?</h3>
-            <span class="guide-read">
-              Lire le guide
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-            </span>
-          </a>
-        </div>
-        <div class="carousel-controls">
-          <button class="carousel-btn" id="guides-prev" aria-label="Guides précédents">
-            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-          </button>
-          <div class="carousel-dots" id="guides-dots"></div>
-          <button class="carousel-btn" id="guides-next" aria-label="Guides suivants">
-            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-          </button>
-        </div>
-      </div>
+    <div class="guides-grid">
+      <a href="/estimation.html" class="guide-une">
+        <img src="bouchonsliege.webp" width="600" height="573" alt="">
+        <p class="sc">Le guide</p>
+        <h3>Comment estimer sa cave à vins&nbsp;: méthodes et critères</h3>
+        <p>Ce qui fait la valeur d'une bouteille, les méthodes qui existent du comparateur en ligne à l'audit professionnel, et les erreurs qui coûtent cher. Le point de départ.</p>
+        <span class="lien-suite">Lire le guide</span>
+      </a>
+      <a href="/article-vins-parents-valeur-guide.html" class="guide-cell"><span class="rub">Découvrir</span><h3>Les vins de mon père valent-ils quelque chose&nbsp;?</h3></a>
+      <a href="/article-assurer-cave-vins.html" class="guide-cell"><span class="rub">Assurance</span><h3>Assurer sa cave à vins&nbsp;: contrat, couverture, déclaration</h3></a>
+      <a href="/article-cave-sous-assuree.html" class="guide-cell"><span class="rub">Sous-assurance</span><h3>Cave à vins sous-assurée&nbsp;: le risque que personne ne calcule</h3></a>
+      <a href="/article-vendre-cave-heritee-erreurs.html" class="guide-cell"><span class="rub">Éviter les pièges</span><h3>Vendre une cave héritée&nbsp;: les 7 erreurs à éviter</h3></a>
+      <a href="/article-estimation-gratuite-vs-professionnelle.html" class="guide-cell"><span class="rub">Comprendre</span><h3>Estimation gratuite vs professionnelle&nbsp;: quelle différence&nbsp;?</h3></a>
+      <a href="/article-quand-cave-merite-audit.html" class="guide-cell"><span class="rub">Décider</span><h3>Quand une cave à vins mérite un audit complet</h3></a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ════════════ 9c. MISSIONS COMPLÉMENTAIRES ════════════ -->
-  <section class="missions">
-    <div class="container">
-      <div class="missions-header">
-        <div class="missions-header-text">
-          <p class="section-label">Aller plus loin</p>
-          <h2>Missions <em>complémentaires.</em></h2>
-          <div class="ornament-dots"><span></span></div>
-          <p class="section-subtitle">Ce rapport peut être complété par des missions d'accompagnement sur mesure, selon vos besoins et l'évolution de votre projet, sur devis personnalisé.</p>
-        </div>
-        <div class="missions-header-illustration"><img width="446" height="600" src="route-grand-cru.webp" alt="Illustration route des grands crus" loading="lazy"></div>
-      </div>
-      <div class="missions-list">
-        <div class="mission-item">
-          <p class="mission-name">Accompagnement à la vente</p>
-          <p class="mission-desc">Sélection de la plateforme adaptée, constitution du dossier de présentation des lots et suivi des adjudications jusqu'au résultat.</p>
-        </div>
-        <div class="mission-item">
-          <p class="mission-name">Réévaluation annuelle</p>
-          <p class="mission-desc">Mise à jour annuelle de l'estimation, intégrant les évolutions du marché et l'état de conservation de la cave.</p>
-        </div>
-        <div class="mission-item">
-          <p class="mission-name">Inspection physique des flacons</p>
-          <p class="mission-desc">Examen approfondi en cave, avec déplacement ou recours à un mandataire local. Permet de confirmer l'état réel des bouteilles et d'affiner l'estimation.</p>
-        </div>
-        <div class="mission-item">
-          <p class="mission-name">Conseil à l'achat</p>
-          <p class="mission-desc">Identification de références à acquérir pour compléter, rééquilibrer ou valoriser la cave, selon un budget et des objectifs définis.</p>
-        </div>
-      </div>
-      <div class="missions-footer">
+<!-- ═══ PRIX DES VINS ═══ -->
+<section class="prix" id="prix-des-vins">
+  <div class="container">
+    <div class="prix-head">
+      <p class="sc">Prix &amp; valeur</p>
+      <h2>Le prix des vins, région par région.</h2>
+      <p class="lead">Combien vaut une bouteille&nbsp;? Nos repères de prix par région, par appellation et par domaine.</p>
+    </div>
+    <div class="regions-grid">
+      <a href="/cotes/bordeaux/" class="region-cell"><b>Bordeaux</b><p>Premiers crus, Pomerol, Pauillac… la valeur des grands crus classés.</p></a>
+      <a href="/cotes/bourgogne/" class="region-cell"><b>Bourgogne</b><p>Romanée-Conti, grands crus, climats… la région reine du marché mondial.</p></a>
+      <a href="/cotes/rhone/" class="region-cell"><b>Rhône</b><p>Côte-Rôtie, Hermitage, Châteauneuf-du-Pape… les crus du Nord et du Sud.</p></a>
+      <a href="/cotes/champagne/" class="region-cell"><b>Champagne</b><p>Dom Pérignon, Krug, Cristal, Salon, vignerons cultes… les cuvées qui ont une vraie cote.</p></a>
+      <a href="/cotes/loire/" class="region-cell"><b>Loire</b><p>Clos Rougeard, Dagueneau, Huet, Vatan… les signatures qui ont une vraie cote.</p></a>
+      <a href="/cotes/alsace/" class="region-cell"><b>Alsace</b><p>Riesling de grand cru, liquoreux, Clos Sainte-Hune… une niche liquide sur ses références.</p></a>
+      <a href="/cotes/millesimes/" class="region-cell"><b>Millésimes</b><p>Les meilleures années, région par région — et lesquelles gardent de la valeur.</p></a>
+      <a href="/cotes/" class="region-cell all"><b>Toutes les régions</b><p>Jura, Sud-Ouest, Beaujolais, Languedoc, Provence, Corse, Savoie…</p></a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MISSIONS ═══ -->
+<section class="missions">
+  <div class="container">
+    <div class="missions-grid">
+      <div>
+        <p class="sc">Aller plus loin</p>
+        <h2>Missions complémentaires.</h2>
+        <p class="lead" style="margin:1rem 0 1.5rem">Ce rapport peut être complété par des missions d'accompagnement sur mesure, selon vos besoins et l'évolution de votre projet, sur devis personnalisé.</p>
         <a href="mailto:contact@estimationcave.com" class="btn btn-outline">Me contacter</a>
       </div>
+      <ul class="missions-list">
+        <li><div><b>Accompagnement à la vente</b><p>Sélection de la plateforme adaptée, constitution du dossier de présentation des lots et suivi des adjudications jusqu'au résultat.</p></div></li>
+        <li><div><b>Réévaluation annuelle</b><p>Mise à jour annuelle de l'estimation, intégrant les évolutions du marché et l'état de conservation de la cave.</p></div></li>
+        <li><div><b>Inspection physique des flacons</b><p>Examen approfondi en cave, avec déplacement ou recours à un mandataire local. Permet de confirmer l'état réel des bouteilles et d'affiner l'estimation.</p></div></li>
+        <li><div><b>Conseil à l'achat</b><p>Identification de références à acquérir pour compléter, rééquilibrer ou valoriser la cave, selon un budget et des objectifs définis.</p></div></li>
+      </ul>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ════════════ 9y. PRIX DES VINS ════════════ -->
-  <section class="cotes-home" id="prix-des-vins">
-    <div class="container">
-      <div class="guides-header">
-        <p class="section-label">Prix &amp; valeur</p>
-        <h2>Le prix des vins, <em>région par région.</em></h2>
-        <div class="ornament-dots"><span></span></div>
-        <p class="section-subtitle">Combien vaut une bouteille&nbsp;? Nos repères de prix par région, par appellation et par domaine.</p>
-      </div>
-      <div class="cotes-home-grid">
-        <a href="/cotes/bordeaux/" class="cotes-home-card cotes-home-region">
-          <p class="cotes-home-kicker">Région</p>
-          <h3>Prix des vins de Bordeaux</h3>
-          <p class="cotes-home-teaser">Premiers crus, Pomerol, Pauillac… la valeur des grands crus classés.</p>
-          <span class="cotes-home-read">Découvrir →</span>
-        </a>
-        <a href="/cotes/bourgogne/" class="cotes-home-card cotes-home-region">
-          <p class="cotes-home-kicker">Région</p>
-          <h3>Prix des vins de Bourgogne</h3>
-          <p class="cotes-home-teaser">Romanée-Conti, grands crus, climats… la région reine du marché mondial.</p>
-          <span class="cotes-home-read">Découvrir →</span>
-        </a>
-        <a href="/cotes/rhone/" class="cotes-home-card cotes-home-region">
-          <p class="cotes-home-kicker">Région</p>
-          <h3>Prix des vins du Rhône</h3>
-          <p class="cotes-home-teaser">Côte-Rôtie, Hermitage, Châteauneuf-du-Pape… la valeur des crus du Nord et du Sud.</p>
-          <span class="cotes-home-read">Découvrir →</span>
-        </a>
-        <a href="/cotes/champagne/" class="cotes-home-card cotes-home-region">
-          <p class="cotes-home-kicker">Région</p>
-          <h3>Prix des champagnes</h3>
-          <p class="cotes-home-teaser">Dom Pérignon, Krug, Cristal, Salon, vignerons cultes… les cuvées qui ont une vraie cote.</p>
-          <span class="cotes-home-read">Découvrir →</span>
-        </a>
-        <a href="/cotes/loire/" class="cotes-home-card cotes-home-region">
-          <p class="cotes-home-kicker">Région</p>
-          <h3>Prix des vins de Loire</h3>
-          <p class="cotes-home-teaser">Clos Rougeard, Dagueneau, Huet, Vatan… les signatures qui ont une vraie cote.</p>
-          <span class="cotes-home-read">Découvrir →</span>
-        </a>
-        <a href="/cotes/alsace/" class="cotes-home-card cotes-home-region">
-          <p class="cotes-home-kicker">Région</p>
-          <h3>Prix des vins d'Alsace</h3>
-          <p class="cotes-home-teaser">Riesling de grand cru, liquoreux (VT, SGN), Clos Sainte-Hune… une niche liquide sur ses références.</p>
-          <span class="cotes-home-read">Découvrir →</span>
-        </a>
-        <a href="/cotes/millesimes/" class="cotes-home-card">
-          <p class="cotes-home-kicker">Millésimes</p>
-          <h3>Tableau des millésimes par région</h3>
-          <p class="cotes-home-teaser">Les meilleures années, région par région — et lesquelles gardent de la valeur.</p>
-          <span class="cotes-home-read">Voir le tableau →</span>
-        </a>
-        <a href="/cotes/" class="cotes-home-card cotes-home-all">
-          <p class="cotes-home-kicker">Tout voir</p>
-          <h3>Le prix des vins, par région</h3>
-          <span class="cotes-home-read">Toutes les pages →</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-
-  </main>
-
-  <!-- ════════════ 9z. PARTAGER / RÉFÉRER ════════════ -->
   <section class="referral" aria-labelledby="referral-title">
     <div class="referral-inner">
       <h2 id="referral-title" class="referral-title">Quelqu'un dans votre entourage <em>pourrait être concerné&nbsp;?</em></h2>
@@ -3266,8 +1151,10 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
     </div>
   </section>
 
-  <!-- ════════════ 10. FOOTER ════════════ -->
+</main>
+
   <footer class="footer">
+    <div class="fleuron"><img src="grappe-doree.webp" width="160" height="160" alt=""></div>
     <div class="footer-grid">
       <div class="footer-col">
         <div class="footer-logo">estimation<span>cave</span>.com</div>
@@ -3317,48 +1204,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
     (function(){var b=document.getElementById('btt');window.addEventListener('scroll',function(){if(window.scrollY>300){b.style.opacity='1';b.style.visibility='visible'}else{b.style.opacity='0';b.style.visibility='hidden'}});b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})})})();
   </script>
 
-  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Aperçu du rapport">
-    <span class="lightbox-close" role="button" aria-label="Fermer l'aperçu" tabindex="0">&times;</span>
-    <img src="" alt="" id="lightbox-img">
-  </div>
-  <script>
-    (function(){
-      var lb=document.getElementById('lightbox');
-      var lbImg=document.getElementById('lightbox-img');
-      var lbClose=lb.querySelector('.lightbox-close');
-      var lastFocused=null;
-
-      function openLightbox(src, alt){
-        lastFocused=document.activeElement;
-        lbImg.src=src;
-        lbImg.alt=alt;
-        lb.classList.add('active');
-        lbClose.focus();
-      }
-
-      function closeLightbox(){
-        lb.classList.remove('active');
-        lbImg.src='';
-        if(lastFocused) lastFocused.focus();
-      }
-
-      // Exposed for the apercu interactive section
-      window.openApercuLightbox = openLightbox;
-
-      lb.addEventListener('click',function(e){
-        if(e.target===lb||e.target===lbClose) closeLightbox();
-      });
-
-      lbClose.addEventListener('keydown',function(e){
-        if(e.key==='Enter'||e.key===' '){e.preventDefault();closeLightbox();}
-      });
-
-      document.addEventListener('keydown',function(e){
-        if(e.key==='Escape'&&lb.classList.contains('active')) closeLightbox();
-      });
-    })();
-  </script>
-
     <script>
     (function(){
         var hamburger = document.querySelector('.hamburger');
@@ -3387,245 +1232,17 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
     })();
     </script>
 
-    <script>
-    (function(){
-      var items = document.querySelectorAll('.apercu-item');
-      if (!items.length) return;
-      var previewImg = document.getElementById('apercu-preview-img');
-      var previewPh = document.getElementById('apercu-preview-placeholder');
-      var previewBadge = document.getElementById('apercu-preview-badge');
-      var previewCaption = document.getElementById('apercu-preview-caption');
-      var previewCard = document.querySelector('.apercu-preview-card');
-      var dots = document.querySelectorAll('.apercu-dot');
-
-      function setPreview(item){
-        var page = item.dataset.page;
-        var title = item.dataset.title;
-        var src = item.dataset.img;
-        if (previewBadge) previewBadge.textContent = 'p. ' + page;
-        if (previewCaption) previewCaption.textContent = title;
-        if (!previewImg || !previewPh) return;
-        previewImg.style.opacity = '0';
-        setTimeout(function(){
-          if (src) {
-            previewImg.src = src;
-            previewImg.alt = title;
-            previewImg.style.display = 'block';
-            previewPh.style.display = 'none';
-          } else {
-            previewImg.removeAttribute('src');
-            previewImg.style.display = 'none';
-            previewPh.textContent = 'Aperçu p. ' + page + ' — ' + title;
-            previewPh.style.display = 'flex';
-          }
-          previewImg.style.opacity = '1';
-        }, 100);
-      }
-
-      function activate(target){
-        var activeIdx = -1;
-        items.forEach(function(item, idx){
-          var tab = item.querySelector('.apercu-tab');
-          var isActive = item === target;
-          if (isActive) activeIdx = idx;
-          item.classList.toggle('active', isActive);
-          tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
-          tab.setAttribute('aria-expanded', isActive ? 'true' : 'false');
-          tab.setAttribute('tabindex', isActive ? '0' : '-1');
-        });
-        dots.forEach(function(dot, idx){
-          dot.classList.toggle('active', idx === activeIdx);
-          dot.setAttribute('aria-current', idx === activeIdx ? 'true' : 'false');
-        });
-        setPreview(target);
-      }
-
-      dots.forEach(function(dot, idx){
-        dot.addEventListener('click', function(){
-          if (items[idx]) activate(items[idx]);
-        });
-      });
-
-      items.forEach(function(item, idx){
-        var tab = item.querySelector('.apercu-tab');
-        tab.addEventListener('click', function(){ activate(item); });
-        tab.addEventListener('keydown', function(e){
-          var next = null;
-          if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
-            next = items[(idx + 1) % items.length];
-          } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
-            next = items[(idx - 1 + items.length) % items.length];
-          } else if (e.key === 'Home') {
-            next = items[0];
-          } else if (e.key === 'End') {
-            next = items[items.length - 1];
-          } else if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            activate(item);
-            return;
-          } else {
-            return;
-          }
-          e.preventDefault();
-          activate(next);
-          next.querySelector('.apercu-tab').focus();
-        });
-      });
-
-      if (previewCard) {
-        previewCard.addEventListener('click', function(){
-          var active = document.querySelector('.apercu-item.active');
-          if (!active) return;
-          var src = active.dataset.img;
-          if (src && typeof window.openApercuLightbox === 'function') {
-            window.openApercuLightbox(src, active.dataset.title || '');
-          }
-        });
-      }
-
-      // Init: first item active by default (already has .active in HTML, but ensure preview state)
-      var initial = document.querySelector('.apercu-item.active') || items[0];
-      setPreview(initial);
-    })();
-    </script>
-
-    <script>
-    (function(){
-      var wrapper = document.getElementById('guides-carousel');
-      if (!wrapper) return;
-      var track = wrapper.querySelector('.carousel-track');
-      var cards = wrapper.querySelectorAll('.guide-card');
-      var prevBtn = document.getElementById('guides-prev');
-      var nextBtn = document.getElementById('guides-next');
-      var dotsContainer = document.getElementById('guides-dots');
-      var currentIndex = 0;
-      var cardsPerView = 3;
-      var gap = 20;
-      var wasDragging = false;
-
-      function getCardsPerView() {
-        if (window.innerWidth <= 600) return 1;
-        if (window.innerWidth <= 900) return 2;
-        return 3;
-      }
-
-      function getTotalPages() {
-        return Math.ceil(cards.length / cardsPerView);
-      }
-
-      function buildDots() {
-        dotsContainer.innerHTML = '';
-        var total = getTotalPages();
-        for (var i = 0; i < total; i++) {
-          var dot = document.createElement('button');
-          dot.className = 'carousel-dot' + (i === currentIndex ? ' active' : '');
-          dot.setAttribute('aria-label', 'Page ' + (i + 1));
-          dot.addEventListener('click', (function(idx){ return function(){ goTo(idx); }; })(i));
-          dotsContainer.appendChild(dot);
-        }
-      }
-
-      function updateButtons() {
-        prevBtn.disabled = currentIndex === 0;
-        nextBtn.disabled = currentIndex >= getTotalPages() - 1;
-        var dots = dotsContainer.querySelectorAll('.carousel-dot');
-        dots.forEach(function(d, i){ d.className = 'carousel-dot' + (i === currentIndex ? ' active' : ''); });
-      }
-
-      function goTo(index) {
-        var maxIndex = getTotalPages() - 1;
-        currentIndex = Math.max(0, Math.min(index, maxIndex));
-        var card = cards[0];
-        var cardWidth = card.offsetWidth + gap;
-        var offset = currentIndex * cardsPerView * cardWidth;
-        var maxOffset = Math.max(0, track.scrollWidth - wrapper.offsetWidth);
-        offset = Math.min(offset, maxOffset);
-        track.style.transform = 'translateX(-' + offset + 'px)';
-        updateButtons();
-      }
-
-      prevBtn.addEventListener('click', function(){ goTo(currentIndex - 1); });
-      nextBtn.addEventListener('click', function(){ goTo(currentIndex + 1); });
-
-      // Drag/swipe
-      var startX = 0, currentX = 0, isDragging = false, startTranslate = 0;
-      function getTranslate() {
-        var st = window.getComputedStyle(track);
-        var matrix = new DOMMatrixReadOnly(st.transform);
-        return matrix.m41;
-      }
-      track.addEventListener('mousedown', function(e){ isDragging = true; startX = e.clientX; currentX = e.clientX; startTranslate = getTranslate(); track.classList.add('dragging'); });
-      track.addEventListener('touchstart', function(e){ isDragging = true; startX = e.touches[0].clientX; currentX = startX; startTranslate = getTranslate(); track.classList.add('dragging'); }, {passive:true});
-      window.addEventListener('mousemove', function(e){ if(!isDragging) return; currentX = e.clientX; track.style.transform = 'translateX(' + (startTranslate + currentX - startX) + 'px)'; });
-      window.addEventListener('touchmove', function(e){ if(!isDragging) return; currentX = e.touches[0].clientX; track.style.transform = 'translateX(' + (startTranslate + currentX - startX) + 'px)'; }, {passive:true});
-      function endDrag() {
-        if (!isDragging) return;
-        isDragging = false;
-        track.classList.remove('dragging');
-        var diff = currentX - startX;
-        if (Math.abs(diff) > 5) wasDragging = true;
-        if (Math.abs(diff) > 60) {
-          if (diff < 0) goTo(currentIndex + 1);
-          else goTo(currentIndex - 1);
-        } else { goTo(currentIndex); }
-      }
-      window.addEventListener('mouseup', endDrag);
-      window.addEventListener('touchend', endDrag);
-
-      // Empêche la navigation du lien <a> à la fin d'un vrai drag
-      cards.forEach(function(card){
-        card.addEventListener('click', function(e){
-          if (wasDragging) {
-            e.preventDefault();
-            wasDragging = false;
-          }
-        });
-      });
-
-      // Resize
-      var resizeTimer;
-      window.addEventListener('resize', function(){
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(function(){
-          cardsPerView = getCardsPerView();
-          currentIndex = Math.min(currentIndex, getTotalPages() - 1);
-          buildDots();
-          goTo(currentIndex);
-        }, 150);
-      });
-
-      // Init
-      cardsPerView = getCardsPerView();
-      buildDots();
-      updateButtons();
-    })();
-    </script>
-
-    <script>
-    (function(){
-        // Standard reveals (up)
-        var targets = document.querySelectorAll('section > .container, .article-header, .toc, .key-points, .article-cta, .inline-faq, .silo-section, .garantie-item, .page-header');
-        targets.forEach(function(el){ el.classList.add('reveal'); });
-
-        // Left reveals
-        document.querySelectorAll('.probleme-header, .missions-header').forEach(function(el){ el.classList.add('reveal-left'); });
-
-        // Ornament reveals
-        document.querySelectorAll('.ornament, .ornament-double, .ornament-dots, .ornament-diamond, .ornament-long').forEach(function(el){ el.classList.add('ornament-reveal'); });
-
-        // Single observer for all
-        var allReveal = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .ornament-reveal');
-        var observer = new IntersectionObserver(function(entries){
-            entries.forEach(function(entry){
-                if(entry.isIntersecting){
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {threshold: 0.1, rootMargin: '0px 0px -40px 0px'});
-        allReveal.forEach(function(el){ observer.observe(el); });
-    })();
-    </script>
+  <script>
+  // Sommaire du rapport : un clic change la planche.
+  document.querySelectorAll('#sommaire li').forEach(function (li) {
+    li.querySelector('button').addEventListener('click', function () {
+      document.querySelectorAll('#sommaire li').forEach(function (o) { o.classList.remove('active'); });
+      li.classList.add('active');
+      document.getElementById('planche-img').src = li.dataset.img;
+      document.getElementById('planche-cap').textContent = li.querySelector('button span:nth-child(2)').textContent;
+    });
+  });
+  </script>
 
     <script>
     // ── Soumission formulaire de contact ──
@@ -3773,44 +1390,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       }, { passive: true });
       window.addEventListener('resize', update);
       update();
-    })();
-  </script>
-
-  <!-- ── Tracking micro-conversions (clics CTA + début de formulaire) ──
-       Pousse des événements dans le dataLayer, consommés par GTM (GTM-PZ7XM58P)
-       UNIQUEMENT après consentement cookies. Aucune donnée personnelle transmise.
-       Ce sont des signaux d'analyse de tunnel, PAS des conversions Google Ads. -->
-  <script>
-    (function(){
-      window.dataLayer = window.dataLayer || [];
-
-      // 1) Clic sur un CTA vers le formulaire (nav / hero / process / apercu / sticky-mobile)
-      document.addEventListener('click', function(e){
-        var el = e.target.closest ? e.target.closest('[data-cta]') : null;
-        if (!el) return;
-        try {
-          window.dataLayer.push({
-            event: 'cta_click',
-            cta_location: el.getAttribute('data-cta')
-          });
-        } catch (_) {}
-      }, true);
-
-      // 2) Début de remplissage du formulaire (1re interaction, une seule fois)
-      var form = document.getElementById('contact-form');
-      if (form) {
-        var started = false;
-        form.addEventListener('focusin', function(){
-          if (started) return;
-          started = true;
-          try {
-            window.dataLayer.push({
-              event: 'form_start',
-              form_location: 'index_formulaire'
-            });
-          } catch (_) {}
-        });
-      }
     })();
   </script>
 </body>
