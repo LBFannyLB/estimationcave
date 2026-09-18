@@ -742,6 +742,19 @@ body .section-label, body .article-meta {
     font-weight: 600 !important;
     letter-spacing: 0.08em !important;
 }
+/* Chapeau des fiches /cotes/ et /vendre/ (.eyebrow) : mêmes petites capitales ;
+   en tête de fiche, bordeaux avec un filet doré devant ; en panneau sombre
+   (« Les chiffres clés ») et sur les landings, la couleur de la page est conservée. */
+body .eyebrow {
+    font-family: var(--font-display) !important;
+    font-variant: small-caps !important;
+    text-transform: none !important;
+    font-size: 1.05rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.08em !important;
+}
+.fiche-head > .eyebrow { display: inline-flex; align-items: center; gap: 0.75rem; color: var(--bordeaux); }
+.fiche-head > .eyebrow::before { content: ''; width: 2.25rem; height: 1px; background: var(--or); }
 /* Texte justifié uniquement avec césure : évite les rivières dans les colonnes étroites */
 .article-body p, .usage-block p, .profil p, .pain-card p, .fiche__note {
     -webkit-hyphens: auto;
