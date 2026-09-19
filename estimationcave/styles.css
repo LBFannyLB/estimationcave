@@ -760,3 +760,176 @@ body .eyebrow {
     -webkit-hyphens: auto;
     hyphens: auto;
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   LOT 3 — 19/09/2026 : harmonisation « catalogue » des gabarits
+   article, piliers, /vendre/ et /cotes/ (composants dont la CSS en
+   ligne est identique d'une page à l'autre). Préfixe `body` pour
+   passer devant le <style> de chaque page, chargé après ce fichier.
+   ═══════════════════════════════════════════════════════════════ */
+:root {
+    --creme: #F3EBDD;
+    --vin: #8B3A3A;
+    --filet: rgba(45, 27, 46, 0.16);
+    --filet-fort: rgba(45, 27, 46, 0.45);
+}
+
+/* Rubriques des encarts : petites capitales Cormorant, rouge vin */
+body .key-points-title, body .bon-a-savoir-title, body .article-related-title,
+body .fiche-spec-k, body .eoc-eyebrow {
+    font-family: var(--font-display);
+    font-variant: small-caps;
+    text-transform: none;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    font-size: 1.05rem;
+    line-height: 1.2;
+    color: var(--vin);
+}
+
+/* Sommaire : plus de carte, un filet doré et un index sur deux colonnes */
+body .toc-box {
+    background: transparent;
+    border: 0;
+    border-top: 1px solid var(--or);
+    border-radius: 0;
+    padding: 1.1rem 0 0.4rem;
+}
+body .toc-title {
+    font-family: var(--font-display);
+    font-variant: small-caps;
+    font-size: 1.1rem;
+    letter-spacing: 0.08em;
+    color: var(--bordeaux);
+    margin-bottom: 0.4rem;
+}
+body .toc-box ul { columns: 2; column-gap: 2.5rem; }
+body .toc-box li { break-inside: avoid; margin: 0; padding: 0.4rem 0; border-bottom: 1px solid var(--filet); }
+body .toc-dot { width: 7px; height: 7px; border-radius: 0; transform: none; clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); margin-top: 0.4rem; }
+@media (max-width: 600px) { body .toc-box ul { columns: 1; } }
+
+/* Points clés : fond crème sous un filet doré, coins vifs */
+body .key-points {
+    background: var(--creme);
+    border: 0;
+    border-top: 1px solid var(--or);
+    border-radius: 0;
+    padding: 1.4rem 1.6rem 1.3rem;
+}
+body .key-point-dot { width: 7px; height: 7px; border-radius: 0; transform: none; clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); margin-top: 0.55rem; }
+
+/* Bon à savoir : fond crème, coins vifs */
+body .bon-a-savoir { background: var(--creme); border-radius: 0; padding: 1.3rem 1.6rem; }
+body .bon-a-savoir-title { margin-bottom: 0.45rem; }
+
+/* Blocs visuels (SVG à fond blanc) : coins vifs */
+body .visual-block svg > rect:first-of-type { rx: 0; ry: 0; }
+
+/* Étapes en trois cartes → quadrillage intérieur, numéros romains rouge vin */
+body .steps-grid { gap: 0; border-top: 1px solid var(--or); counter-reset: etape; }
+body .step-card {
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    padding: 1.4rem 1.4rem 1.2rem;
+    text-align: left;
+    counter-increment: etape;
+    transition: none;
+}
+body .step-card + .step-card { border-left: 1px solid var(--filet); }
+body .step-card:hover { box-shadow: none; border-color: var(--filet); }
+body .step-number {
+    display: block;
+    width: auto;
+    height: auto;
+    border: 0;
+    border-radius: 0;
+    margin: 0 0 0.6rem;
+    font-size: 0;
+    color: var(--vin);
+}
+body .step-number::before {
+    content: counter(etape, upper-roman);
+    font-family: var(--font-display);
+    font-size: 1.45rem;
+    font-weight: 600;
+    line-height: 1;
+}
+body .step-card h3, body .step-card p { text-align: left; }
+@media (max-width: 600px) {
+    body .step-card + .step-card { border-left: 0; border-top: 1px solid var(--filet); }
+    body .step-card { padding: 1.2rem 0 1rem; }
+}
+
+/* Encadré de fin d'article : cadre à double filet, sans fond */
+body .article-cta {
+    background: transparent;
+    border: 1px solid var(--filet-fort);
+    outline: 1px solid var(--filet-fort);
+    outline-offset: 4px;
+    border-radius: 0;
+    margin: 3.5rem 5px 0.5rem;
+    overflow: visible;
+}
+body .article-cta::before { display: none; }
+
+/* Articles liés : plus de carte blanche, un filet doré */
+body .article-related { background: transparent; border: 0; border-top: 1px solid var(--or); padding: 1.2rem 0 0; }
+body .article-related-title { margin-bottom: 0.7rem; }
+
+/* Tableaux : en-tête en petites capitales sur filet doré, lignes sur filets fins */
+body .article-body table {
+    background: transparent;
+    border: 0;
+    border-top: 1px solid var(--or);
+    border-radius: 0;
+    box-shadow: none;
+    overflow: visible;
+}
+body .article-body table thead th {
+    background: transparent;
+    color: var(--bordeaux);
+    font-family: var(--font-display);
+    font-variant: small-caps;
+    text-transform: none;
+    letter-spacing: 0.06em;
+    font-size: 1.02rem;
+    font-weight: 600;
+    border: 0;
+    border-bottom: 1px solid var(--or);
+    padding: 0.7rem 0.9rem;
+}
+/* Tableau des millésimes (9 colonnes) : garder sa taille d'en-tête d'origine pour ne pas l'élargir */
+body .article-body table.mz-table thead th { font-size: 0.86rem; letter-spacing: 0.03em; padding: 0.55rem 0.4rem; text-align: center; vertical-align: bottom; }
+body .article-body table.mz-table thead th:first-child { text-align: left; padding-left: 0.9rem; }
+body .article-body table tbody td { border-top: 0; border-bottom: 1px solid var(--filet); }
+body .article-body table tbody td:first-child { border-left: 0; }
+body .article-body table tbody tr:nth-child(even) td:not([class]),
+body .article-body table tbody tr:hover td:not([class]) { background: transparent; }
+@media (max-width: 600px) {
+    /* En-tête compact, et les tableaux larges défilent dans leur cadre au lieu de faire déborder la page */
+    body .article-body table thead th { font-size: 0.9rem; padding: 0.55rem 0.6rem; }
+    body .article-body table:not(.mz-table) { display: block; max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    body .article-body table tbody tr, body .article-body table tbody td { border-radius: 0; box-shadow: none; }
+}
+
+/* Fiches /cotes/ : la carte « en bref » garde son fond et son relief (retour de Fanny, 19/09) ;
+   seulement des coins vifs, et les libellés en petites capitales. */
+body .fiche-card { border-radius: 0; }
+body .fiche-spec-k { color: var(--or); }
+
+/* Ornements : un seul motif, le losange */
+body .ornament-dots::before, body .ornament-dots::after, body .ornament-dots span + span { display: none; }
+body .ornament-dots span { width: 7px; height: 7px; border-radius: 0; transform: rotate(45deg); }
+
+/* Encart « aperçu offert » injecté sous les fiches : cadre à double filet, sans ombre */
+body .eoc-card {
+    background: transparent;
+    border: 1px solid var(--filet-fort);
+    outline: 1px solid var(--filet-fort);
+    outline-offset: 4px;
+    box-shadow: none;
+    border-radius: 0;
+}
+body .eoc-cta { border-radius: 0; }
+body .eoc-cta:hover { transform: none; }
