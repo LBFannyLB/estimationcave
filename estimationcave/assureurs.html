@@ -67,452 +67,252 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
     <link rel="stylesheet" href="styles.css">
 
     <style>
-        a { text-decoration: none; color: inherit; }
 
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        .container-narrow {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        .container-mid {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        .container-tight {
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
+/* ═══════════════════════════════════════════════════════════
+   LANDING ASSUREURS — vocabulaire « catalogue de vente » (19/09/2026)
+   Tokens inchangés : bordeaux, or, fond, Cormorant + DM Sans.
+   Ajouts : rouge vin (celui des graphiques du rapport), crème 2.
+   Retirés : grain, pulsation, scroll-reveal, ombres 30 px, coins arrondis.
+   ═══════════════════════════════════════════════════════════ */
+:root {
+  --bordeaux: #2D1B2E;
+  --or: #C5A258;
+  --or-pale: rgba(197, 162, 88, 0.14);
+  --fond: #FAF6F0;
+  --creme: #F3EBDD;
+  --vin: #8B3A3A;
+  --texte: #3A3035;
+  --texte-light: #6B5F65;
+  --blanc: #FFFFFF;
+  --filet: rgba(45, 27, 46, 0.16);
+  --filet-fort: rgba(45, 27, 46, 0.45);
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'DM Sans', -apple-system, sans-serif;
+  --mesure: 1120px;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-padding-top: 88px; }
+body {
+  font-family: var(--font-body);
+  background: var(--fond);
+  color: var(--texte);
+  line-height: 1.65;
+  font-size: 1rem;
+  -webkit-font-smoothing: antialiased;
+  font-variant-numeric: oldstyle-nums;
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--bordeaux); text-decoration: none; }
+p a { text-decoration: underline; text-decoration-color: var(--or); text-underline-offset: 3px; }
+*:focus-visible { outline: 2px solid var(--or); outline-offset: 2px; }
 
-        /* ── SECTIONS GÉNÉRIQUES ── */
-        .section {
-            padding: 4rem 0;
-        }
-        .section-alt {
-            background: var(--blanc);
-        }
-        .section-dark {
-            background: var(--bordeaux);
-            color: var(--blanc);
-        }
+.container { max-width: var(--mesure); margin: 0 auto; padding: 0 2rem; }
+section { padding: 5.5rem 0; }
+@media (max-width: 768px) { section { padding: 3.5rem 0; } .container { padding: 0 1.25rem; } }
 
-        /* ── HERO ── */
-        .hero {
-            padding: 9rem 0 4rem;
-            text-align: center;
-        }
-        .hero .eyebrow {
-            font-family: var(--font-body);
-            font-size: 0.78rem;
-            font-weight: 600;
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
-            color: var(--or);
-            margin-bottom: 1.25rem;
-        }
-        .hero h1 {
-            font-family: var(--font-display);
-            font-size: clamp(2.4rem, 4.5vw, 3.2rem);
-            font-weight: 600;
-            color: var(--bordeaux);
-            line-height: 1.15;
-            letter-spacing: -0.02em;
-            margin-bottom: 1.5rem;
-        }
-        .hero h1 em { font-style: italic; font-weight: 400; }
-        h2 em { font-style: italic; font-weight: 400; }
-        .hero .lead {
-            font-family: var(--font-body);
-            font-size: 1.15rem;
-            line-height: 1.65;
-            color: var(--texte);
-            margin: 0 auto;
-            max-width: 720px;
-        }
-        .hero-ctas {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-        .hero-ctas .btn-primary,
-        .hero-ctas .btn-outline {
-            padding: 0.9rem 1.8rem;
-            font-size: 0.95rem;
-        }
-        .btn-outline {
-            display: inline-block;
-            font-family: var(--font-body);
-            font-weight: 500;
-            font-size: 0.85rem;
-            letter-spacing: 0.03em;
-            background: transparent;
-            color: var(--bordeaux);
-            padding: 0.65rem 1.5rem;
-            border-radius: 4px;
-            border: 1.5px solid var(--bordeaux);
-            cursor: pointer;
-            text-decoration: none;
-            transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-        }
-        .btn-outline:hover,
-        .btn-outline:focus,
-        .btn-outline:active {
-            background: var(--or);
-            color: var(--bordeaux);
-            border-color: var(--or);
-        }
+/* ── Typographie ── */
+blockquote { text-wrap: pretty; }
+h1, h2, h3, .display { font-family: var(--font-display); font-weight: 500; color: var(--bordeaux); line-height: 1.1; letter-spacing: -0.005em; }
+h1 { font-size: clamp(2.6rem, 5.2vw, 4.2rem); font-weight: 500; }
+h2 { font-size: clamp(2rem, 3.6vw, 2.8rem); }
+h3 { font-size: 1.45rem; font-weight: 600; }
+.lead { font-size: 1.12rem; color: var(--texte-light); line-height: 1.65; }
 
-        /* ── H2 commun ── */
-        h2 {
-            font-family: var(--font-display);
-            font-size: clamp(1.7rem, 3vw, 2.1rem);
-            font-weight: 600;
-            color: var(--bordeaux);
-            line-height: 1.25;
-            text-align: center;
-            margin: 0 0 1.25rem;
-        }
-        .section-dark h2 { color: var(--blanc); }
+/* Le label de section : petites capitales Cormorant en bordeaux,
+   à la place du DM Sans majuscules doré espacé. */
+.sc {
+  font-family: var(--font-display);
+  font-variant: small-caps;
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  color: var(--bordeaux);
+  display: flex; align-items: center; gap: 0.75rem;
+  margin-bottom: 1.2rem;
+}
+.sc::before { content: ''; width: 2.25rem; height: 1px; background: var(--or); }
+.sc.center { justify-content: center; }
+.sc.center::after { content: ''; width: 2.25rem; height: 1px; background: var(--or); }
+.sc.on-dark { color: var(--or); }
 
-        .section-intro {
-            font-size: 1.02rem;
-            line-height: 1.7;
-            color: var(--texte);
-            text-align: center;
-            max-width: 720px;
-            margin: 0 auto 2rem;
-        }
+/* Filets « catalogue » */
+.filet-double { height: 5px; border-top: 1px solid var(--filet-fort); border-bottom: 1px solid var(--filet-fort); }
+.filet { height: 1px; background: var(--filet); }
+.fleuron { display: flex; align-items: center; justify-content: center; gap: 1rem; margin: 2.5rem 0; }
+.fleuron::before, .fleuron::after { content: ''; flex: 0 0 4rem; height: 1px; background: var(--or); }
+.fleuron img { width: 26px; height: 26px; opacity: 0.85; }
 
-        /* ── SECTION 2 — PAIN POINTS ── */
-        .pains-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        .pain-card {
-            background: var(--blanc);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 2rem;
-            transition: all 0.3s cubic-bezier(0.33, 1, 0.68, 1);
-        }
-        @media (hover: hover) {
-            .pain-card:hover {
-                border-color: rgba(197, 162, 88, 0.4);
-                box-shadow: 0 8px 24px rgba(45, 27, 46, 0.05);
-            }
-        }
-        .pain-number {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            border: 2px solid var(--or);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 0 1.25rem;
-            font-family: var(--font-display);
-            font-size: 1.15rem;
-            font-weight: 600;
-            color: var(--or);
-        }
-        .pain-card h3 {
-            font-family: var(--font-display);
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--bordeaux);
-            margin-bottom: 0.85rem;
-            line-height: 1.3;
-        }
-        .pain-card p {
-            font-size: 0.95rem;
-            color: var(--texte);
-            line-height: 1.7;
-            margin: 0;
-            text-align: justify;
-        }
-        .pain-card strong { color: var(--bordeaux); font-weight: 600; }
+/* Boutons : coins vifs, aucune animation */
+.btn { display: inline-block; font-family: var(--font-body); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.02em; padding: 0.85rem 1.7rem; border: 1px solid var(--bordeaux); background: var(--bordeaux); color: var(--fond); cursor: pointer; transition: background 0.2s, color 0.2s; }
+.btn:hover { background: #3D2940; }
+.btn-gold { background: var(--or); border-color: var(--or); color: var(--bordeaux); }
+.btn-gold:hover { background: #B8944C; }
+.btn-outline { background: transparent; color: var(--bordeaux); }
+.btn-outline:hover { background: var(--bordeaux); color: var(--fond); }
+.btn-outline.on-dark { color: var(--fond); border-color: var(--or); }
+.btn-outline.on-dark:hover { background: var(--or); color: var(--bordeaux); }
+.lien-suite { font-family: var(--font-display); font-style: italic; font-size: 1.15rem; color: var(--bordeaux); border-bottom: 1px solid var(--or); }
 
-        /* ── SECTION 3 — USAGES ── */
-        .usage-block {
-            margin: 2rem 0;
-        }
-        .usage-block h3 {
-            font-family: var(--font-display);
-            font-size: 1.35rem;
-            font-weight: 600;
-            color: var(--bordeaux);
-            margin-bottom: 1rem;
-            line-height: 1.3;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        .usage-block h3 .pain-number {
-            margin: 0;
-            flex-shrink: 0;
-        }
-        .usage-block p {
-            font-size: 1rem;
-            line-height: 1.8;
-            color: var(--texte);
-            margin-bottom: 0.85rem;
-        }
-        .usage-block .livrable {
-            font-style: italic;
-            font-size: 0.95rem;
-            color: var(--texte-light);
-            border-left: 2px solid var(--or);
-            padding-left: 1rem;
-            margin-top: 1rem;
-        }
+/* Cartouche technique : remplace le bandeau à 4 KPI */
+.fiche-technique { border-top: 1px solid var(--or); border-bottom: 1px solid var(--filet); margin-top: 3rem; }
+.fiche-technique ul { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); }
+.fiche-technique li { padding: 1.1rem 1.4rem; border-right: 1px solid var(--filet); font-size: 0.86rem; color: var(--texte-light); line-height: 1.45; }
+.fiche-technique li:last-child { border-right: 0; }
+.fiche-technique li b { display: block; font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--bordeaux); line-height: 1.2; margin-bottom: 0.15rem; }
+.fiche-technique li a { border-bottom: 1px solid var(--or); color: var(--bordeaux); }
+@media (max-width: 860px) {
+  .fiche-technique ul { grid-template-columns: 1fr 1fr; }
+  .fiche-technique li:nth-child(2) { border-right: 0; }
+  .fiche-technique li:nth-child(-n+2) { border-bottom: 1px solid var(--filet); }
+}
 
-        /* ── SECTION 4 — MATRICE ── */
-        .matrix-wrap { margin-top: 2rem; }
-        .matrix {
-            width: 100%;
-            border-collapse: collapse;
-            background: var(--blanc);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 16px rgba(45, 27, 46, 0.04);
-            font-size: 0.92rem;
-        }
-        .matrix thead th {
-            background: var(--bordeaux);
-            color: var(--blanc);
-            font-family: var(--font-body);
-            font-weight: 600;
-            padding: 1rem 0.9rem;
-            text-align: left;
-            font-size: 0.88rem;
-        }
-        .matrix tbody td {
-            padding: 0.95rem 0.9rem;
-            border-bottom: 1px solid var(--or);
-            color: var(--texte);
-            vertical-align: top;
-        }
-        .matrix tbody tr:last-child td { border-bottom: none; }
-        .matrix tbody td:first-child {
-            font-weight: 600;
-            color: var(--bordeaux);
-            background: rgba(45, 27, 46, 0.02);
-        }
-        .matrix .col-ec {
-            background: var(--or-pale);
-            font-weight: 600;
-            color: var(--bordeaux);
-        }
-        .matrix thead .col-ec {
-            background: #8B6B2E;
-            color: var(--blanc);
-        }
-        .bon-a-savoir {
-            background: var(--or-pale);
-            border-radius: 6px;
-            padding: 1.5rem 1.75rem;
-            margin: 2rem 0 0;
-            font-size: 0.98rem;
-            line-height: 1.7;
-            color: var(--texte);
-        }
+/* ── Fanny : la personne, haut dans la page ── */
+.experte-grid { display: grid; grid-template-columns: 3fr 7fr; gap: 4rem; align-items: center; }
+.cadre-double { position: relative; padding: 10px; border: 1px solid var(--filet-fort); }
+.cadre-double::after { content: ''; position: absolute; inset: 3px; border: 1px solid var(--filet-fort); pointer-events: none; }
+.cadre-double img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 20%; filter: saturate(0.85); }
+.experte h2 { margin-bottom: 1.4rem; }
+.experte p { margin-bottom: 1rem; font-size: 1.02rem; }
+.bulle { width: 100%; max-width: 16.5rem; aspect-ratio: 4 / 5; border-radius: 50%; overflow: hidden; margin: 0 auto; box-shadow: 0 0 0 1px var(--filet-fort), 0 0 0 6px var(--fond), 0 0 0 7px var(--or); }
+.bulle img { width: 100%; height: 100%; object-fit: cover; object-position: 58% 22%; transform: scale(1.15); transform-origin: 58% 30%; filter: saturate(0.92); }
+.experte .signature { font-family: var(--font-display); font-style: italic; font-size: 1.9rem; color: var(--bordeaux); margin: 1.4rem 0 0.2rem; }
+.experte .signature-sub { font-size: 0.85rem; color: var(--texte-light); margin-bottom: 1.4rem; }
+@media (max-width: 860px) { .experte-grid { grid-template-columns: 1fr; gap: 2rem; } .bulle { max-width: 16rem; } }
 
-        /* ── SECTION PROFIL (fond bordeaux) ── */
-        .profil-section {
-            background: var(--bordeaux);
-            color: var(--blanc);
-        }
-        .profil-section h2 { color: var(--blanc); }
-        .profil-section h2 em { color: var(--or); font-style: italic; font-weight: 400; }
-        .profil p {
-            font-size: 1rem;
-            line-height: 1.85;
-            color: var(--blanc);
-            margin-bottom: 1.5rem;
-            text-align: justify;
-        }
-        .profil-link {
-            display: inline-block;
-            margin-top: 0.5rem;
-            color: var(--or) !important;
-            font-weight: 500;
-            text-decoration: none !important;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.25s ease;
-        }
-        .profil-link:hover { border-bottom-color: var(--or); }
+/* ── Comment ça marche : bandeau bordeaux, 3 lignes sur filet ── */
+.process { background: var(--bordeaux); color: var(--fond); }
+.process h2 { color: var(--fond); margin-bottom: 3rem; }
+.etapes { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(250,246,240,0.35); }
+.etapes li { padding: 1.6rem 1.6rem 1.6rem 0; border-top: 3px double rgba(197,162,88,0.6); margin-top: -1px; }
+.etapes .num { font-family: var(--font-display); font-size: 1rem; font-variant: small-caps; letter-spacing: 0.1em; color: var(--or); margin-bottom: 0.4rem; }
+.etapes h3 { color: var(--fond); font-weight: 500; margin-bottom: 0.4rem; }
+.etapes p { font-size: 0.92rem; color: rgba(250,246,240,0.75); }
+.process-suite { margin-top: 2.5rem; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+.process-suite p { font-size: 0.92rem; color: rgba(250,246,240,0.8); max-width: 40rem; }
+@media (max-width: 860px) { .etapes { grid-template-columns: 1fr; } .etapes li { padding-right: 0; } }
 
-        /* ── SECTION 6 — PARTENARIATS ── */
-        .partner-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 2rem;
-            align-items: stretch;
-        }
-        .partner-card {
-            background: var(--blanc);
-            border: 2px solid var(--border);
-            border-radius: 8px;
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
-        }
-        .partner-card:hover {
-            border-color: var(--or);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(45, 27, 46, 0.08);
-        }
-        .partner-card .eyebrow {
-            font-family: var(--font-body);
-            font-size: 0.72rem;
-            font-weight: 600;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--or);
-            margin-bottom: 0.85rem;
-        }
-        .partner-card h3 {
-            font-family: var(--font-display);
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--bordeaux);
-            margin-bottom: 1rem;
-            line-height: 1.3;
-        }
-        .partner-card p {
-            font-size: 0.95rem;
-            color: var(--texte);
-            line-height: 1.7;
-            margin: 0;
-            text-align: justify;
-        }
-        .partner-cta {
-            text-align: center;
-            margin-top: 2.5rem;
-            font-size: 1rem;
-            color: var(--texte);
-        }
-        .partner-cta a {
-            font-family: var(--font-display);
-            font-size: 1.35rem;
-            color: var(--or) !important;
-            font-weight: 600;
-            text-decoration: none !important;
-            display: inline-block;
-            margin-top: 0.5rem;
-        }
-        .partner-cta a:hover { color: var(--bordeaux) !important; }
+/* ── Engagements : deux colonnes + cartouche (comme la couverture du rapport) ── */
+.engagements { background: var(--bordeaux); color: var(--fond); }
+.engagements .sc { color: var(--or); }
+.engagements h3 { color: var(--fond); }
+.engagements .cartouche { border-color: rgba(197,162,88,0.6); outline-color: rgba(197,162,88,0.6); }
+.engagements .cartouche div { border-right-color: rgba(250,246,240,0.18); color: rgba(250,246,240,0.7); }
+.engagements .cartouche b { color: var(--fond); }
+.engagements .cartouche .sc { color: var(--or); }
+.engagements-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-bottom: 3rem; }
+.engagements-grid h3 { margin-bottom: 0.6rem; }
+.engagements-grid p { color: rgba(250,246,240,0.78); font-size: 0.98rem; text-align: justify; hyphens: auto; }
+.cartouche { border: 1px solid var(--filet-fort); outline: 1px solid var(--filet-fort); outline-offset: 3px; display: grid; grid-template-columns: repeat(3, 1fr); }
+.cartouche div { padding: 1.4rem 1.6rem; border-right: 1px solid var(--filet); text-align: center; font-size: 0.85rem; color: var(--texte-light); }
+.cartouche div:last-child { border-right: 0; }
+.cartouche .sc { justify-content: center; margin-bottom: 0.4rem; font-size: 0.95rem; }
+.cartouche .sc::before { display: none; }
+.cartouche b { display: block; font-family: var(--font-display); font-size: 1.35rem; font-weight: 600; color: var(--bordeaux); margin-bottom: 0.2rem; }
+@media (max-width: 860px) { .engagements-grid { grid-template-columns: 1fr; gap: 2rem; } .cartouche { grid-template-columns: 1fr; } .cartouche div { border-right: 0; border-bottom: 1px solid rgba(250,246,240,0.18); } .cartouche div:last-child { border-bottom: 0; } }
 
-        /* ── SECTION 7 — RAPPORT EXEMPLE ── */
-        .rapport-block { text-align: center; }
-        .rapport-block p {
-            font-size: 1rem;
-            line-height: 1.8;
-            color: var(--texte);
-            margin-bottom: 2rem;
-        }
-        .btn-download {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            font-family: var(--font-body);
-            font-weight: 500;
-            font-size: 0.95rem;
-            background: var(--bordeaux);
-            color: var(--fond);
-            padding: 0.9rem 1.8rem;
-            border-radius: 4px;
-            border: none;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.33, 1, 0.68, 1);
-        }
-        @media (hover: hover) {
-            .btn-download:hover {
-                background: #3D2940;
-                color: var(--fond);
-                transform: translateY(-1px);
-                box-shadow: 0 8px 30px rgba(45, 27, 46, 0.2);
-            }
-        }
-        .btn-download svg { width: 18px; height: 18px; }
+/* ═══ Page « assureurs » ═══ */
+.hero { padding: 4.5rem 0 3.5rem; overflow: hidden; }
+.hero-grid { display: grid; grid-template-columns: 7fr 5fr; gap: 3rem; align-items: center; }
+.hero h1 { margin: 0.6rem 0 1.4rem; max-width: 20ch; font-size: clamp(2.3rem, 4.2vw, 3.4rem); }
+.hero h1 em { font-style: italic; font-weight: 400; }
+.hero .lead { max-width: 36rem; margin-bottom: 2rem; }
+.hero-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+.hero-illus { width: 83%; margin-left: auto; opacity: 0.9; }
+@media (max-width: 860px) { .hero { padding: 2.5rem 0 2rem; } .hero-grid { grid-template-columns: 1fr; gap: 1.5rem; } .hero h1 { max-width: none; } .hero-illus { width: 67%; margin: 0.5rem auto 0; } }
 
-        /* ── SECTION 8 — CTA FINAL ── */
-        .cta-final {
-            padding: 5rem 0;
-            background: var(--bordeaux);
-            color: var(--blanc);
-            text-align: center;
-        }
-        .cta-final h2 { color: var(--blanc); margin-bottom: 1rem; }
-        .cta-final .lead {
-            font-size: 1.05rem;
-            line-height: 1.7;
-            color: var(--blanc);
-            opacity: 0.9;
-            max-width: 640px;
-            margin: 0 auto 2rem;
-        }
-        .cta-mailto {
-            font-family: var(--font-display);
-            font-size: clamp(1.5rem, 3.5vw, 2rem);
-            font-weight: 600;
-            color: var(--or) !important;
-            text-decoration: none !important;
-            display: inline-block;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.01em;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.25s ease;
-        }
-        .cta-mailto:hover { border-bottom-color: var(--or); }
-        .cta-final .subtext {
-            font-size: 0.92rem;
-            color: var(--blanc);
-            opacity: 0.7;
-            max-width: 580px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
+/* Le constat : trois douleurs en quadrillage */
+.constat-head { max-width: 44rem; margin-bottom: 2.5rem; }
+.constat-head .lead { margin-top: 1rem; }
+.douleurs { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--or); }
+.douleurs li { padding: 1.6rem 1.6rem 1.6rem 0; border-right: 1px solid var(--filet); }
+.douleurs li + li { padding-left: 1.6rem; }
+.douleurs li:last-child { border-right: 0; padding-right: 0; }
+.douleurs .num { font-family: var(--font-display); font-size: 1.6rem; color: var(--vin); line-height: 1; margin-bottom: 0.7rem; }
+.douleurs h3 { font-size: 1.3rem; margin-bottom: 0.6rem; min-height: 2.6em; }
+.douleurs p { font-size: 0.93rem; color: var(--texte-light); text-align: justify; hyphens: auto; }
+.douleurs strong { color: var(--bordeaux); font-weight: 500; }
+@media (max-width: 860px) { .douleurs { grid-template-columns: 1fr; } .douleurs li, .douleurs li + li { padding: 1.3rem 0; border-right: 0; border-bottom: 1px solid var(--filet); } .douleurs li:last-child { border-bottom: 0; } .douleurs h3 { min-height: 0; } }
 
-        /* ── ANCHOR OFFSET ── */
-        #rapport-exemple { scroll-margin-top: 96px; }
+/* Fanny + les deux valorisations */
+.experte-grid { align-items: start; }
+.experte .bulle { margin-top: 0.6rem; }
+.valorisations { margin-top: 2.2rem; border-top: 1px solid var(--or); border-bottom: 1px solid var(--filet); display: grid; grid-template-columns: 1fr 1fr; }
+.valorisations div { padding: 1.2rem 1.4rem 1.2rem 0; border-right: 1px solid var(--filet); font-size: 0.92rem; color: var(--texte-light); }
+.valorisations div + div { padding-left: 1.4rem; border-right: 0; padding-right: 0; }
+.valorisations .sc { margin-bottom: 0.4rem; font-size: 1rem; }
+.valorisations .sc::before { display: none; }
+.valorisations b { display: block; font-family: var(--font-display); font-size: 1.35rem; font-weight: 600; color: var(--bordeaux); margin-bottom: 0.3rem; line-height: 1.15; }
+.valorisations-note { font-size: 0.9rem; color: var(--texte-light); border-top: 1px solid var(--filet); padding-top: 0.9rem; font-style: italic; }
+@media (max-width: 640px) { .valorisations { grid-template-columns: 1fr; } .valorisations div, .valorisations div + div { padding: 1rem 0; border-right: 0; border-bottom: 1px solid var(--filet); } }
 
-        /* ── RESPONSIVE ── */
-        @media (max-width: 900px) {
-            .pains-grid,
-            .partner-grid { grid-template-columns: 1fr; gap: 1.25rem; }
-        }
-        @media (max-width: 700px) {
-            .matrix { font-size: 0.82rem; }
-            .matrix thead th,
-            .matrix tbody td { padding: 0.7rem 0.55rem; }
-        }
-        @media (max-width: 600px) {
-            .container,
-            .container-narrow,
-            .container-mid,
-            .container-tight { padding: 0 1.25rem; }
-            .hero { padding: 7.5rem 0 3rem; }
-            .section { padding: 3rem 0; }
-            .cta-final { padding: 3.5rem 0; }
-            .matrix-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-            .matrix { min-width: 560px; }
-            .pain-card,
-            .partner-card { padding: 1.5rem; }
-        }
+/* Cas d'usage : lignes numérotées sur filets */
+.usages { background: var(--creme); }
+.usages-head { max-width: 44rem; margin-bottom: 2rem; }
+.cas { list-style: none; border-top: 1px solid var(--filet-fort); }
+.cas li { display: grid; grid-template-columns: 3.2rem 1fr; padding: 1.8rem 0; border-bottom: 1px solid var(--filet); }
+.cas .num { font-family: var(--font-display); font-size: 1.9rem; color: var(--vin); line-height: 1; padding-top: 0.2rem; }
+.cas h3 { margin-bottom: 0.6rem; }
+.cas p { font-size: 0.97rem; margin-bottom: 0.7rem; max-width: 46rem; }
+.cas .livrable { font-family: var(--font-display); font-style: italic; font-size: 1.1rem; color: var(--bordeaux); border-left: 1px solid var(--or); padding-left: 1rem; margin: 0.9rem 0 0; }
+.cas .livrable b { font-style: normal; font-variant: small-caps; letter-spacing: 0.06em; font-weight: 600; color: var(--vin); margin-right: 0.3rem; }
+
+/* Méthodologie : bandeau bordeaux, quatre étapes en 2×2 */
+.process .etapes { grid-template-columns: 1fr 1fr; }
+.process .etapes li { padding: 1.6rem 2.4rem 1.6rem 0; }
+.process .etapes li:nth-child(even) { padding-left: 2.4rem; padding-right: 0; border-left: 1px solid rgba(250,246,240,0.18); }
+.process .etapes p { text-align: justify; hyphens: auto; }
+@media (max-width: 860px) { .process .etapes { grid-template-columns: 1fr; } .process .etapes li, .process .etapes li:nth-child(even) { padding: 1.4rem 0; border-left: 0; } }
+
+/* Comparatif : tableau catalogue */
+.comparatif h2 { max-width: 30ch; margin-bottom: 2rem; }
+.comparatif h2 em { font-style: italic; font-weight: 400; }
+.matrix-wrap { overflow-x: auto; }
+.matrix { width: 100%; border-collapse: collapse; font-size: 0.92rem; border-top: 1px solid var(--or); }
+.matrix th { font-family: var(--font-display); font-variant: small-caps; letter-spacing: 0.06em; font-size: 1.05rem; font-weight: 600; color: var(--bordeaux); text-align: left; padding: 0.8rem 0.9rem; border-bottom: 1px solid var(--or); vertical-align: bottom; }
+.matrix td { padding: 0.85rem 0.9rem; border-bottom: 1px solid var(--filet); vertical-align: top; color: var(--texte-light); }
+.matrix td:first-child { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; color: var(--bordeaux); }
+.matrix .col-ec { background: var(--creme); color: var(--bordeaux); font-weight: 500; }
+.matrix th.col-ec { color: var(--vin); }
+.matrix .col-ec:not(th) { border-left: 1px solid var(--filet-fort); border-right: 1px solid var(--filet-fort); }
+.argument { max-width: 48rem; margin: 2.5rem auto 0; text-align: center; font-family: var(--font-display); font-style: italic; font-size: 1.45rem; line-height: 1.4; color: var(--bordeaux); }
+.argument::before { content: ''; display: block; width: 4rem; height: 1px; background: var(--or); margin: 0 auto 1.2rem; }
+@media (max-width: 640px) { .matrix { min-width: 640px; font-size: 0.85rem; } }
+
+/* Rapport exemple : planche dans un cadre double */
+.rapport { background: var(--creme); }
+.rapport-cadre { background: var(--fond); border: 1px solid var(--filet-fort); outline: 1px solid var(--filet-fort); outline-offset: 4px; margin: 4px; padding: 2.2rem 2.4rem; display: grid; grid-template-columns: 4fr 7fr; gap: 2.5rem; align-items: center; }
+.rapport-cadre img { width: 100%; max-width: 18rem; margin: 0 auto; border: 1px solid var(--filet); }
+.rapport-cadre h2 { margin-bottom: 1rem; font-size: clamp(1.8rem, 3vw, 2.3rem); }
+.rapport-cadre p { margin-bottom: 1.4rem; font-size: 0.98rem; }
+.rapport-cadre .btn svg { width: 15px; height: 15px; vertical-align: -2px; margin-right: 0.4rem; }
+@media (max-width: 860px) { .rapport-cadre { grid-template-columns: 1fr; padding: 1.5rem 1.2rem; } .rapport-cadre img { max-width: 13rem; } }
+
+/* Trois niveaux d'engagement : quadrillage */
+.niveaux-head { max-width: 44rem; margin-bottom: 2.5rem; }
+.niveaux { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--or); border-bottom: 1px solid var(--filet); }
+.niveaux li { padding: 1.6rem 1.6rem 1.6rem 0; border-right: 1px solid var(--filet); }
+.niveaux li + li { padding-left: 1.6rem; }
+.niveaux li:last-child { border-right: 0; padding-right: 0; }
+.niveaux .sc { font-size: 0.95rem; color: var(--vin); margin-bottom: 0.5rem; min-height: 2.4em; align-items: flex-start; }
+.niveaux .sc::before { display: none; }
+.niveaux h3 { margin-bottom: 0.6rem; }
+.niveaux p { font-size: 0.93rem; color: var(--texte-light); }
+.niveaux-cta { text-align: center; margin-top: 2rem; font-size: 0.98rem; color: var(--texte-light); }
+.niveaux-cta a { font-family: var(--font-display); font-size: 1.3rem; color: var(--bordeaux); border-bottom: 1px solid var(--or); }
+@media (max-width: 860px) { .niveaux { grid-template-columns: 1fr; } .niveaux li, .niveaux li + li { padding: 1.3rem 0; border-right: 0; border-bottom: 1px solid var(--filet); } .niveaux li:last-child { border-bottom: 0; } .niveaux .sc { min-height: 0; } }
+
+/* CTA final : bandeau bordeaux */
+.cta-final { background: var(--bordeaux); color: var(--fond); text-align: center; }
+.cta-final h2 { color: var(--fond); margin-bottom: 1rem; }
+.cta-final .lead { color: rgba(250,246,240,0.8); max-width: 40rem; margin: 0 auto 2rem; }
+.cta-final .subtext { font-size: 0.85rem; color: rgba(250,246,240,0.6); max-width: 40rem; margin: 1.2rem auto 0; }
+.cta-final .mail { display: inline-block; font-family: var(--font-display); font-size: clamp(1.4rem, 3vw, 2rem); color: var(--or); border-bottom: 1px solid var(--or); margin-bottom: 0.4rem; }
+
+
+
+/* Nav du site (styles.css) : collante et opaque, comme sur l'accueil */
+.nav { position: sticky; background: var(--fond); backdrop-filter: none; -webkit-backdrop-filter: none; }
+.nav-right .btn-gold { border-radius: 0; }
     </style>
 
     <script type="application/ld+json">
@@ -560,259 +360,168 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
     </nav>
     <div class="nav-overlay"></div>
 
-    <main id="main">
+<main id="main">
 
-        <!-- ── SECTION 1 — HERO ── -->
-        <header class="hero">
-            <div class="container-narrow">
-                <p class="eyebrow reveal">POUR LES ASSUREURS ET COURTIERS</p>
-                <h1 class="reveal">Pour vos clients propriétaires de cave, un <em>expert indépendant</em> qui sécurise vos contrats</h1>
-                <p class="lead reveal">De nombreuses caves de vos clients sont sous-assurées sans qu'ils le sachent : la valeur déclarée repose souvent sur le prix d'achat et n'a jamais été réévaluée, alors que la cote des grands crus, elle, évolue. Je réalise pour vos assurés des audits d'estimation de cave structurés, indépendants et défendables en cas de contestation, livrés sous 5 jours ouvrés au tarif unique de 199 €.</p>
-                <span class="ornament-diamond"></span>
-                <div class="hero-ctas reveal">
-                    <a href="mailto:contact@estimationcave.com?subject=Cas%20concret%20assureur" class="btn-primary">Échanger sur un cas concret</a>
-                    <a href="#rapport-exemple" class="btn-outline">Télécharger le rapport exemple</a>
-                </div>
-            </div>
-        </header>
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <p class="sc">Pour les assureurs et courtiers</p>
+        <h1>Pour vos clients propriétaires de cave, un <em>expert indépendant</em> qui sécurise vos contrats</h1>
+        <p class="lead">De nombreuses caves de vos clients sont sous-assurées sans qu'ils le sachent&nbsp;: la valeur déclarée repose souvent sur le prix d'achat et n'a jamais été réévaluée, alors que la cote des grands crus, elle, évolue. Je réalise pour vos assurés des audits d'estimation de cave structurés, indépendants et défendables en cas de contestation, livrés sous 5&nbsp;jours ouvrés au tarif unique de 199&nbsp;€.</p>
+        <div class="hero-actions">
+          <a href="mailto:contact@estimationcave.com?subject=Cas%20concret%20assureur" class="btn">Échanger sur un cas concret</a>
+          <a href="#rapport-exemple" class="btn btn-outline">Voir le rapport exemple</a>
+        </div>
+      </div>
+      <img class="hero-illus" src="cavevin.webp" width="900" height="900" alt="">
+    </div>
+    <div class="fiche-technique">
+      <ul>
+        <li><b>199&nbsp;€, tarif unique</b>Par cave, quel que soit le nombre de bouteilles. Aucune commission.</li>
+        <li><b>5 jours ouvrés</b>Rapport PDF livré à votre assuré, transmissible à vos équipes.</li>
+        <li><b>100&nbsp;% à distance</b>Couverture nationale, sans déplacement ni frais annexes.</li>
+        <li><b>Valeur de remplacement</b>Assiette par défaut pour le capital assuré, sur demande la valeur de marché.</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-        <!-- ── SECTION 2 — LE CONSTAT ── -->
-        <section class="section section-alt">
-            <div class="container">
-                <h2>Trois douleurs structurelles dans la gestion des polices "cave à vin"</h2>
-                <p class="section-intro">La cote des grands crus évolue avec le temps. Vos clients ne réévaluent jamais leur cave. Et un expert habitation généraliste ne dispose pas, par construction, de la compétence pour évaluer un Pétrus. Voilà ce que cela produit concrètement.</p>
-                <span class="ornament-long"></span>
-                <div class="pains-grid">
-                    <article class="pain-card reveal">
-                        <div class="pain-number">1</div>
-                        <h3>Le frein à la souscription</h3>
-                        <p>Pour les contrats au-delà de 10 000 €, vos partenaires experts actuels — commissaires-priseurs principalement — facturent <strong>500 à 1 200 €</strong> avec déplacement physique obligatoire. Pour les caves de <strong>10 000 à 50 000 €</strong>, ce coût est dissuasif pour vos clients. Résultat : vous perdez la souscription, ou vous souscrivez sans documenter la valeur, en accumulant un <strong>risque non quantifié</strong>.</p>
-                    </article>
-                    <article class="pain-card reveal">
-                        <div class="pain-number">2</div>
-                        <h3>La règle proportionnelle, bombe à retardement</h3>
-                        <p><strong>Article L121-5 du Code des assurances</strong> : si la valeur réelle dépasse la somme garantie, l'indemnisation est réduite au prorata. Une cave réellement à 100 000 € mais assurée 60 000 € sera indemnisée à <strong>60 % du préjudice</strong>. Vous appliquez la loi, vous perdez un client, vous récoltez une médiation et un avis Trustpilot à une étoile.</p>
-                    </article>
-                    <article class="pain-card reveal">
-                        <div class="pain-number">3</div>
-                        <h3>Le devoir de conseil DDA, exposé</h3>
-                        <p>La <strong>Directive sur la Distribution d'Assurances</strong> impose un <strong>conseil adapté</strong>. Recommander un contrat "cave à vin" sans vérifier la valeur réelle expose le réseau à une <strong>mise en cause</strong>. Un rapport d'expertise indépendant documente le conseil et <strong>transfère la responsabilité de l'évaluation à un tiers expert</strong>.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
+<!-- ═══ LE CONSTAT ═══ -->
+<section class="constat">
+  <div class="container">
+    <div class="constat-head">
+      <p class="sc">Le constat</p>
+      <h2>Trois douleurs structurelles dans la gestion des polices «&nbsp;cave à vin&nbsp;»</h2>
+      <p class="lead">La cote des grands crus évolue avec le temps. Vos clients ne réévaluent jamais leur cave. Et un expert habitation généraliste ne dispose pas, par construction, de la compétence pour évaluer un Pétrus. Voilà ce que cela produit concrètement.</p>
+    </div>
+    <ol class="douleurs">
+      <li><p class="num">I</p><h3>Le frein à la souscription</h3><p>Pour les contrats au-delà de 10&nbsp;000&nbsp;€, vos partenaires experts actuels, commissaires-priseurs principalement, facturent <strong>500 à 1&nbsp;200&nbsp;€</strong> avec déplacement physique obligatoire. Pour les caves de <strong>10&nbsp;000 à 50&nbsp;000&nbsp;€</strong>, ce coût est dissuasif pour vos clients. Résultat&nbsp;: vous perdez la souscription, ou vous souscrivez sans documenter la valeur, en accumulant un <strong>risque non quantifié</strong>.</p></li>
+      <li><p class="num">II</p><h3>La règle proportionnelle, bombe à retardement</h3><p><strong>Article L121-5 du Code des assurances</strong>&nbsp;: si la valeur réelle dépasse la somme garantie, l'indemnisation est réduite au prorata. Une cave réellement à 100&nbsp;000&nbsp;€ mais assurée 60&nbsp;000&nbsp;€ sera indemnisée à <strong>60&nbsp;% du préjudice</strong>. Vous appliquez la loi, vous perdez un client, vous récoltez une médiation et un avis Trustpilot à une étoile.</p></li>
+      <li><p class="num">III</p><h3>Le devoir de conseil DDA, exposé</h3><p>La <strong>Directive sur la Distribution d'Assurances</strong> impose un <strong>conseil adapté</strong>. Recommander un contrat «&nbsp;cave à vin&nbsp;» sans vérifier la valeur réelle expose le réseau à une <strong>mise en cause</strong>. Un rapport d'expertise indépendant documente le conseil et <strong>transfère la responsabilité de l'évaluation à un tiers expert</strong>.</p></li>
+    </ol>
+  </div>
+</section>
 
-        <!-- ── SECTION PROFIL (déplacée entre Constat et Cas d'usage) ── -->
-        <section class="section profil-section">
-            <div class="container-tight profil">
-                <h2><em>L'expertise</em> qui sous-tend chaque rapport</h2>
-                <span class="ornament-diamond"></span>
-                <p>Je m'appelle Fanny Lonqueu-Brochard. Pendant 6 ans, j'ai été responsable des ventes aux enchères. J'ai estimé plusieurs milliers de caves dans tous les contextes patrimoniaux — successions, divorces, liquidations, ventes volontaires. WSET niveau 3 avec distinction (2024).</p>
-                <p>Depuis estimationcave.com, je propose la même méthodologie d'expertise — indépendante et structurée — à une échelle plus accessible, en 100 % distanciel. Aucun rachat, aucune mise en vente, aucun conflit d'intérêt.</p>
-                <p style="text-align: center;">
-                    <a href="/apropos.html" class="profil-link">En savoir plus sur mon parcours →</a>
-                </p>
+<!-- ═══ L'EXPERTE ═══ -->
+<section class="experte" style="padding-top:0">
+  <div class="container">
+    <div class="experte-grid">
+      <div class="bulle"><img src="fanny-terrasse.webp" width="1086" height="1448" alt="Fanny Lonqueu-Brochard, experte indépendante en estimation de cave"></div>
+      <div>
+        <p class="sc">L'expertise qui sous-tend chaque rapport</p>
+        <h2>Six ans de ventes aux enchères, aucun conflit d'intérêt.</h2>
+        <p>Je m'appelle Fanny Lonqueu-Brochard. Pendant 6&nbsp;ans, j'ai été responsable des ventes aux enchères. J'ai estimé plusieurs milliers de caves dans tous les contextes patrimoniaux&nbsp;: successions, divorces, liquidations, ventes volontaires. WSET niveau&nbsp;3 avec distinction (2024).</p>
+        <p>Depuis estimationcave.com, je propose la même méthodologie d'expertise, indépendante et structurée, à une échelle plus accessible, en 100&nbsp;% distanciel. Aucun rachat, aucune mise en vente, aucun conflit d'intérêt.</p>
+        <p class="signature">Fanny</p>
+        <p class="signature-sub">Experte indépendante en estimation de cave · WSET&nbsp;3 · <a href="apropos.html" class="lien-suite" style="font-size:1rem">mon parcours</a></p>
+        <div class="valorisations">
+          <div><p class="sc">Pour une cession</p><b>Valeur de marché secondaire</b>Croisement des résultats d'enchères majeures et des offres marchandes. Sert de référence patrimoniale et de support à la décision de cession.</div>
+          <div><p class="sc">Pour l'assurance</p><b>Valeur de remplacement</b>Prix actuel sur le marché de la fine wine, hors enchères et hors commissions. Sert d'assiette à la déclaration d'assurance et à l'indemnisation post-sinistre.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-                <div style="margin: 2.5rem 0 0.5rem; padding: 1.75rem 2rem; background: var(--fond); border-left: 3px solid var(--or); border-radius: 6px; text-align: left;">
-                    <h3 style="font-family: var(--font-display); font-size: 1.45rem; font-weight: 500; color: var(--bordeaux); margin: 0 0 0.85rem; line-height: 1.3;">Deux valorisations selon usage</h3>
-                    <p style="color: var(--texte); font-size: 1rem; line-height: 1.75; margin: 0 0 0.85rem;">Pour chaque référence, je peux produire :</p>
-                    <ul style="color: var(--texte); font-size: 1rem; line-height: 1.75; margin: 0 0 0.85rem; padding-left: 1.25rem;">
-                        <li style="margin-bottom: 0.65rem;">La <strong style="color: var(--bordeaux);">valeur de marché secondaire</strong> (croisement des résultats d'enchères majeures et Wine-Searcher), qui sert de référence patrimoniale et de support à la décision de cession.</li>
-                        <li>La <strong style="color: var(--bordeaux);">valeur de remplacement</strong> (prix actuel sur le marché de la fine wine, hors enchères et hors commissions), qui sert d'assiette à la déclaration d'assurance et à l'indemnisation post-sinistre.</li>
-                    </ul>
-                    <p style="color: var(--texte); font-size: 1rem; line-height: 1.75; margin: 0;">Selon l'usage que vous ou votre client souhaitez faire du rapport, j'ajuste la valorisation produite. Par défaut pour les contextes assurantiels : valeur de remplacement.</p>
-                </div>
+<!-- ═══ CAS D'USAGE ═══ -->
+<section class="usages">
+  <div class="container">
+    <div class="usages-head">
+      <p class="sc">Ce que j'apporte</p>
+      <h2>Trois cas d'usage où je fais gagner du temps à vos équipes</h2>
+    </div>
+    <ol class="cas">
+      <li><p class="num">I</p><div><h3>À la souscription&nbsp;: pour les caves de 10 à 50&nbsp;K€</h3><p>Le segment où l'expertise commissaire-priseur n'est pas rentable pour vos clients. Mon rapport à 199&nbsp;€ rend la friction tarifaire acceptable et débloque vos souscriptions sur ce segment aujourd'hui mal couvert. Délai 5&nbsp;jours ouvrés, 100&nbsp;% distanciel, couverture nationale sans frais cachés.</p><p class="livrable"><b>Livrable</b> PDF d'audit complet (20 à 40&nbsp;pages)&nbsp;: inventaire valorisé bouteille par bouteille, fourchette d'estimation ±15&nbsp;%, identification des concentrations de risque, top valeurs.</p></div></li>
+      <li><p class="num">II</p><div><h3>Sur votre portefeuille existant&nbsp;: la réévaluation périodique</h3><p>Les contrats «&nbsp;cave&nbsp;» souscrits il y a 3 à 5&nbsp;ans et jamais réévalués sont les plus exposés à la règle proportionnelle. Je réalise des audits actualisés qui détectent la sous-assurance avant le sinistre. Activable en recommandation individuelle au fil de l'eau, ou en campagne dédiée sur un segment de portefeuille ciblé.</p><p class="livrable"><b>Livrable</b> Même rapport qu'en souscription, avec un volet «&nbsp;évolution depuis dernière déclaration&nbsp;» si vous me transmettez l'historique.</p></div></li>
+      <li><p class="num">III</p><div><h3>Quand le sinistre est déclaré&nbsp;: l'expertise post-sinistre</h3><p>Votre expert habitation n'a pas la compétence vin pour évaluer les pertes&nbsp;: risque systématique de sous-évaluation, d'expertise contradictoire, et de litige. J'interviens en expertise spécialisée pour fournir une évaluation argumentée et limiter le coût de gestion sinistre.</p><p>J'interviens sur les quatre sinistres-types qui touchent les caves&nbsp;: effraction et vol, dégât des eaux, dégradation thermique (panne climatisation, choc thermique de stockage), bris de bouteilles. Chaque type appelle une méthodologie d'évaluation différente&nbsp;: perte totale au prix de remplacement, perte de millésime spécifique, ou perte de potentiel de garde pour les vins encore en évolution.</p><p class="livrable"><b>Livrable</b> Rapport d'expertise sinistre formaté pour le dossier d'indemnisation. Tarif sur devis selon volume.</p></div></li>
+    </ol>
+  </div>
+</section>
 
-                <span class="ornament-diamond"></span>
-            </div>
-        </section>
+<!-- ═══ MÉTHODOLOGIE ═══ -->
+<section class="process">
+  <div class="container">
+    <p class="sc on-dark">La méthodologie</p>
+    <h2>Quatre étapes, sans déplacement.</h2>
+    <p class="lead">Une question légitime quand on découvre un service distanciel à 199&nbsp;€ livré en 5&nbsp;jours&nbsp;: comment garantir une évaluation sérieuse sans déplacement physique&nbsp;? Voici comment.</p>
+    <ol class="etapes">
+      <li><p class="num">Étape une</p><h3>Inventaire photographique structuré</h3><p>Le propriétaire transmet des photos calibrées selon un protocole défini&nbsp;: étiquette, contre-étiquette, niveau d'épaule, capsule, conditions de stockage. L'identification d'un vin se fait à 99&nbsp;% par l'étiquette et l'état apparent, pas par dégustation. Le déplacement physique n'apporte une information décisive que dans des cas très particuliers (vérification de bouchage exceptionnel, doute sur l'authenticité d'une bouteille rare).</p></li>
+      <li><p class="num">Étape deux</p><h3>Identification et croisement multi-sources</h3><p>Pour chaque référence&nbsp;: appellation, domaine, millésime, format, niveau, état apparent. Recoupement systématique sur deux familles de sources&nbsp;: les résultats des grandes maisons de ventes aux enchères (Sotheby's, Christie's, Baghera/wines, Acker, Hart Davis Hart, Zachys) et les offres marchandes pour le marché de remplacement.</p></li>
+      <li><p class="num">Étape trois</p><h3>Valorisation pondérée</h3><p>Application d'une grille de coefficients prenant en compte le millésime, l'état de la bouteille, la rotation marché, la liquidité de la référence et le contexte de cession envisagé. Distinction systématique valeur de marché secondaire / valeur de remplacement selon l'usage du rapport.</p></li>
+      <li><p class="num">Étape quatre</p><h3>Rapport structuré et livrable</h3><p>Document PDF de 20 à 40&nbsp;pages comprenant&nbsp;: inventaire valorisé bouteille par bouteille, fourchette d'estimation ±15&nbsp;%, identification des concentrations de risque, top valeurs, contexte marché par région. Format pensé pour transmission au service de souscription ou d'indemnisation.</p></li>
+    </ol>
+  </div>
+</section>
 
-        <!-- ── SECTION 3 — CE QUE J'APPORTE ── -->
-        <section class="section" style="background: var(--fond);">
-            <div class="container-mid">
-                <h2>Trois cas d'usage où je fais <em>gagner du temps</em> à vos équipes</h2>
-                <span class="ornament-long"></span>
+<!-- ═══ COMPARATIF ═══ -->
+<section class="comparatif">
+  <div class="container">
+    <p class="sc">Pourquoi recommander mon service</p>
+    <h2>Face aux options existantes</h2>
+    <div class="matrix-wrap">
+      <table class="matrix">
+        <thead><tr><th></th><th>Commissaire-priseur</th><th>Sommelier / caviste</th><th>Maison de ventes</th><th class="col-ec">estimationcave.com</th></tr></thead>
+        <tbody>
+          <tr><td>Tarif</td><td>500 à 1&nbsp;200&nbsp;€ + déplacement</td><td>300 à 800&nbsp;€ + déplacement</td><td>«&nbsp;Gratuit&nbsp;» si mise en vente</td><td class="col-ec">199&nbsp;€</td></tr>
+          <tr><td>Délai</td><td>3 à 6 semaines</td><td>Variable</td><td>Variable</td><td class="col-ec">5 jours ouvrés</td></tr>
+          <tr><td>Indépendance</td><td>Conflit&nbsp;: vend aux enchères</td><td>Conflit&nbsp;: rachat possible</td><td>Conflit&nbsp;: cherche la mise en vente</td><td class="col-ec">Aucun conflit</td></tr>
+          <tr><td>100&nbsp;% distanciel</td><td>Non</td><td>Non</td><td>Partiel</td><td class="col-ec">Oui</td></tr>
+          <tr><td>Rapport structuré argumenté</td><td>Variable</td><td>Rarement</td><td>Orienté vente</td><td class="col-ec">Oui, PDF 15 à 50 pages</td></tr>
+          <tr><td>Couverture nationale</td><td>Limitée</td><td>Limitée</td><td>Concentrée Paris</td><td class="col-ec">Totale</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="argument">Je n'ai aucun intérêt à minorer une cave pour la racheter, ni à orienter une recommandation vers une mise en vente. Pour vous comme pour vos clients, c'est la garantie d'une évaluation neutre, documentée et défendable en cas de contestation.</p>
+  </div>
+</section>
 
-                <div class="usage-block">
-                    <h3><span class="pain-number">1</span>À la souscription : pour les caves de 10 à 50 K€</h3>
-                    <p>Le segment où l'expertise commissaire-priseur n'est pas rentable pour vos clients. Mon rapport à 199 € rend la friction tarifaire acceptable et débloque vos souscriptions sur ce segment aujourd'hui mal couvert. Délai 5 jours ouvrés, 100 % distanciel, couverture nationale sans frais cachés.</p>
-                    <p class="livrable">Livrable : PDF d'audit complet (20 à 40 pages) — inventaire valorisé bouteille par bouteille, fourchette d'estimation ±15 %, identification des concentrations de risque, top valeurs.</p>
-                </div>
+<!-- ═══ RAPPORT EXEMPLE ═══ -->
+<section class="rapport" id="rapport-exemple">
+  <div class="container">
+    <div class="rapport-cadre">
+      <img src="rapport-synthese.webp" width="660" height="934" alt="Page de synthèse d'un rapport d'estimation">
+      <div>
+        <p class="sc">À quoi ressemble un rapport</p>
+        <h2>Lisez un audit complet, anonymisé.</h2>
+        <p>Le meilleur moyen d'évaluer si je peux être utile à vos clients&nbsp;: lire un rapport complet. Voici un exemple anonymisé d'un audit récent à usage assurantiel&nbsp;: cave de 51&nbsp;bouteilles structurée autour de la Bourgogne (49&nbsp;%), valeur de marché 1&nbsp;882&nbsp;€, valeur de remplacement 2&nbsp;229&nbsp;€ (assiette recommandée pour le capital assuré), avec recommandations de souscription et points de vigilance pour le contrat.</p>
+        <a href="/exemples/rapport-anonymise-assureur.pdf" class="btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Télécharger le rapport exemple (PDF, 2,4&nbsp;Mo)</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-                <div class="ornament-dots"><span></span></div>
+<!-- ═══ TROIS NIVEAUX D'ENGAGEMENT ═══ -->
+<section class="niveaux-section">
+  <div class="container">
+    <div class="niveaux-head">
+      <p class="sc">Travailler ensemble</p>
+      <h2>Trois niveaux d'engagement, à vous de choisir</h2>
+      <p class="lead">Je travaille avec des assureurs et courtiers selon trois modalités, du plus simple au plus engageant. Vous restez maître du périmètre.</p>
+    </div>
+    <ol class="niveaux">
+      <li><p class="sc">Le plus simple, sans engagement</p><h3>Référencement passif</h3><p>Vous me mentionnez dans votre onboarding client, votre extranet ou vos communications comme «&nbsp;expert recommandé pour l'estimation de cave à vins&nbsp;». Aucun engagement, aucune commission. Vos clients me trouvent quand ils en ont besoin, je leur livre un rapport qu'ils transmettent à votre équipe.</p></li>
+      <li><p class="sc">Avec code de réduction pour vos clients</p><h3>Recommandation active</h3><p>Vous me recommandez nominativement avec un code de réduction. Je trace les conversions venant de votre réseau, vous pouvez mesurer votre apport, et nous formalisons éventuellement un partenariat structuré.</p></li>
+      <li><p class="sc">Pour les expertises sinistre et réévaluations</p><h3>Mandat direct</h3><p>Vous me mandatez directement sur des dossiers spécifiques&nbsp;: expertise post-sinistre, réévaluation périodique d'un portefeuille, audit pour souscription d'un contrat haut de gamme. Tarif sur devis selon volume et complexité.</p></li>
+    </ol>
+  </div>
+</section>
 
-                <div class="usage-block">
-                    <h3><span class="pain-number">2</span>Sur votre portefeuille existant : la réévaluation périodique</h3>
-                    <p>Les contrats "cave" souscrits il y a 3 à 5 ans et jamais réévalués sont les plus exposés à la règle proportionnelle. Je réalise des audits actualisés qui détectent la sous-assurance avant le sinistre. Activable en recommandation individuelle au fil de l'eau, ou en campagne dédiée sur un segment de portefeuille ciblé.</p>
-                    <p class="livrable">Livrable : Même rapport qu'en souscription, avec un volet "évolution depuis dernière déclaration" si vous me transmettez l'historique.</p>
-                </div>
+<!-- ═══ CTA FINAL ═══ -->
+<section class="cta-final">
+  <div class="container">
+    <p class="sc on-dark center">Parlons-en</p>
+    <h2>Un cas concret, un portefeuille, un sinistre&nbsp;?</h2>
+    <p class="lead">Si l'un des trois scénarios résonne avec votre structure, ou si vous voulez simplement explorer la pertinence d'un partenariat, écrivez-moi. Je réponds sous 24 à 48&nbsp;heures ouvrées.</p>
+    <a href="mailto:contact@estimationcave.com?subject=Cas%20concret%20assureur" class="mail">contact@estimationcave.com</a>
+    <p class="subtext">Mentionnez votre structure (assureur, courtier, agent général), votre périmètre d'intervention et le scénario qui vous intéresse&nbsp;: cela me permettra de vous répondre de manière ciblée.</p>
+  </div>
+</section>
 
-                <div class="ornament-dots"><span></span></div>
 
-                <div class="usage-block">
-                    <h3><span class="pain-number">3</span>Quand le sinistre est déclaré : l'expertise post-sinistre</h3>
-                    <p>Votre expert habitation n'a pas la compétence vin pour évaluer les pertes — risque systématique de sous-évaluation, d'expertise contradictoire, et de litige. J'interviens en expertise spécialisée pour fournir une évaluation argumentée et limiter le coût de gestion sinistre.</p>
-                    <p>J'interviens sur les quatre sinistres-types qui touchent les caves : effraction et vol, dégât des eaux, dégradation thermique (panne climatisation, choc thermique de stockage), bris de bouteilles. Chaque type appelle une méthodologie d'évaluation différente — perte totale au prix de remplacement vs perte de millésime spécifique vs perte de potentiel de garde pour les vins encore en évolution.</p>
-                    <p class="livrable">Livrable : Rapport d'expertise sinistre formaté pour le dossier d'indemnisation. Tarif sur devis selon volume.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- ── SECTION MÉTHODOLOGIE ── -->
-        <section class="section section-alt">
-            <div class="container-mid">
-                <h2>La <em>méthodologie</em> en 4 étapes</h2>
-                <span class="ornament-long"></span>
-                <p class="section-intro">Une question légitime quand on découvre un service distanciel à 199 € livré en 5 jours : comment garantir une évaluation sérieuse sans déplacement physique ? Voici comment.</p>
-
-                <div class="usage-block">
-                    <h3><span class="pain-number">1</span>Inventaire photographique structuré</h3>
-                    <p style="text-align: justify;">Le propriétaire transmet des photos calibrées selon un protocole défini : étiquette, contre-étiquette, niveau d'épaule, capsule, conditions de stockage. L'identification d'un vin se fait à 99 % par l'étiquette et l'état apparent — pas par dégustation. Le déplacement physique n'apporte une information décisive que dans des cas très particuliers (vérification de bouchage exceptionnel, doute sur authenticité d'une bouteille rare).</p>
-                </div>
-
-                <div class="ornament-dots"><span></span></div>
-
-                <div class="usage-block">
-                    <h3><span class="pain-number">2</span>Identification et croisement multi-sources</h3>
-                    <p style="text-align: justify;">Pour chaque référence : appellation, domaine, millésime, format, niveau, état apparent. Recoupement systématique sur 2 sources de référence : résultats d'enchères majeures (Sotheby's, Christie's, Baghera/wines, Acker, Hart Davis Hart, Zachys, iDealwine), Wine-Searcher pour le marché de remplacement.</p>
-                </div>
-
-                <div class="ornament-dots"><span></span></div>
-
-                <div class="usage-block">
-                    <h3><span class="pain-number">3</span>Valorisation pondérée</h3>
-                    <p style="text-align: justify;">Application d'une grille de coefficients prenant en compte le millésime, l'état de la bouteille, la rotation marché, la liquidité de la référence et le contexte de cession envisagé. Distinction systématique valeur de marché secondaire / valeur de remplacement selon l'usage du rapport.</p>
-                </div>
-
-                <div class="ornament-dots"><span></span></div>
-
-                <div class="usage-block">
-                    <h3><span class="pain-number">4</span>Rapport structuré et livrable</h3>
-                    <p style="text-align: justify;">Document PDF de 20 à 40 pages comprenant : inventaire valorisé bouteille par bouteille, fourchette d'estimation ±15 %, identification des concentrations de risque, top valeurs, contexte marché par région. Format pensé pour transmission au service de souscription ou d'indemnisation.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- ── SECTION 4 — POURQUOI MOI ── -->
-        <section class="section section-dark">
-            <div class="container">
-                <h2>Pourquoi recommander <em style="color: var(--or);">mon service</em> plutôt que les options existantes</h2>
-                <div class="matrix-wrap">
-                    <table class="matrix">
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th>Commissaire-priseur</th>
-                                <th>Sommelier / caviste</th>
-                                <th>Maison de ventes</th>
-                                <th class="col-ec">estimationcave.com</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Tarif</td>
-                                <td>500 - 1 200 € + déplacement</td>
-                                <td>300 - 800 € + déplacement</td>
-                                <td>"Gratuit" si mise en vente</td>
-                                <td class="col-ec">199 €</td>
-                            </tr>
-                            <tr>
-                                <td>Délai</td>
-                                <td>3 à 6 semaines</td>
-                                <td>Variable</td>
-                                <td>Variable</td>
-                                <td class="col-ec">5 jours ouvrés</td>
-                            </tr>
-                            <tr>
-                                <td>Indépendance</td>
-                                <td>⚠️ Conflit (vend aux enchères)</td>
-                                <td>⚠️ Conflit (rachat possible)</td>
-                                <td>⚠️ Conflit (cherche la mise en vente)</td>
-                                <td class="col-ec">Aucun conflit</td>
-                            </tr>
-                            <tr>
-                                <td>100 % distanciel</td>
-                                <td>Non</td>
-                                <td>Non</td>
-                                <td>Partiel</td>
-                                <td class="col-ec">Oui</td>
-                            </tr>
-                            <tr>
-                                <td>Rapport structuré argumenté</td>
-                                <td>Variable</td>
-                                <td>Rarement</td>
-                                <td>Orienté vente</td>
-                                <td class="col-ec">Oui (PDF 15-50 pages)</td>
-                            </tr>
-                            <tr>
-                                <td>Couverture nationale</td>
-                                <td>Limitée</td>
-                                <td>Limitée</td>
-                                <td>Concentrée Paris</td>
-                                <td class="col-ec">Totale</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="bon-a-savoir" style="background: var(--fond); border-left: 3px solid var(--or);">
-                    Mon argument central : je n'ai aucun intérêt à minorer une cave pour la racheter, ni à orienter une recommandation vers une mise en vente. Pour vous comme pour vos clients, c'est la garantie d'une évaluation neutre, documentée et défendable en cas de contestation.
-                </div>
-            </div>
-        </section>
-
-        <!-- ── SECTION 6 — RAPPORT EXEMPLE ── -->
-        <section class="section section-alt" id="rapport-exemple">
-            <div class="container-tight rapport-block">
-                <h2>À quoi ressemble un rapport</h2>
-                <span class="ornament-long"></span>
-                <p>Le meilleur moyen d'évaluer si je peux être utile à vos clients : lire un rapport complet. Voici un exemple anonymisé d'un audit récent à usage assurantiel — cave de 51 bouteilles structurée autour de la Bourgogne (49&nbsp;%), valeur de marché 1&nbsp;882&nbsp;€, valeur de remplacement 2&nbsp;229&nbsp;€ (assiette recommandée pour le capital assuré), avec recommandations de souscription et points de vigilance pour le contrat.</p>
-                <a href="/exemples/rapport-anonymise-assureur.pdf" class="btn-download">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                    Télécharger le rapport exemple (PDF, 2,4&nbsp;Mo)
-                </a>
-            </div>
-        </section>
-
-        <!-- ── SECTION 7 — PARTENARIATS ── -->
-        <section class="section">
-            <div class="container">
-                <h2>Trois niveaux d'engagement, <em>à vous de choisir</em></h2>
-                <p class="section-intro">Je travaille avec des assureurs et courtiers selon trois modalités, du plus simple au plus engageant. Vous restez maître du périmètre.</p>
-                <div class="partner-grid">
-                    <article class="partner-card reveal">
-                        <p class="eyebrow">LE PLUS SIMPLE, SANS ENGAGEMENT</p>
-                        <h3>Référencement passif</h3>
-                        <p>Vous me mentionnez dans votre onboarding client, votre extranet ou vos communications comme "expert recommandé pour l'estimation de cave à vins". Aucun engagement, aucune commission. Vos clients me trouvent quand ils en ont besoin, je leur livre un rapport qu'ils transmettent à votre équipe.</p>
-                    </article>
-                    <article class="partner-card reveal">
-                        <p class="eyebrow">AVEC CODE DE RÉDUCTION POUR VOS CLIENTS</p>
-                        <h3>Recommandation active</h3>
-                        <p>Vous me recommandez nominativement avec un code de réduction (par exemple -10 %, soit 179 € au lieu de 199 €). Je trace les conversions venant de votre réseau, vous pouvez mesurer votre apport, et nous formalisons éventuellement un partenariat structuré.</p>
-                    </article>
-                    <article class="partner-card reveal">
-                        <p class="eyebrow">POUR LES EXPERTISES SINISTRE ET RÉÉVALUATIONS</p>
-                        <h3>Mandat direct</h3>
-                        <p>Vous me mandatez directement sur des dossiers spécifiques — expertise post-sinistre, réévaluation périodique d'un portefeuille, audit pour souscription d'un contrat haut de gamme. Tarif sur devis selon volume et complexité.</p>
-                    </article>
-                </div>
-                <p class="partner-cta">
-                    Pour discuter du scénario adapté à votre structure :<br>
-                    <a href="mailto:contact@estimationcave.com?subject=Cas%20concret%20assureur">contact@estimationcave.com</a>
-                </p>
-            </div>
-        </section>
-
-        <!-- ── SECTION 8 — CTA FINAL ── -->
-        <section class="cta-final">
-            <div class="container-narrow">
-                <h2>Parlons-en</h2>
-                <p class="lead">Si l'un des trois scénarios résonne avec votre structure, ou si vous voulez simplement explorer la pertinence d'un partenariat, écrivez-moi. Je réponds sous 24 à 48 heures ouvrées.</p>
-                <a href="mailto:contact@estimationcave.com?subject=Cas%20concret%20assureur" class="cta-mailto">contact@estimationcave.com</a>
-                <p class="subtext">Mentionnez votre structure (assureur, courtier, agent général), votre périmètre d'intervention, et le scénario qui vous intéresse — ça me permettra de vous répondre de manière ciblée.</p>
-            </div>
-        </section>
-
-    </main>
+<div class="container"><div class="fleuron"><img src="grappe-doree.webp" alt=""></div></div>
+</main>
 
     <footer class="footer">
         <div class="footer-grid">
@@ -861,6 +570,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
     <button id="btt" aria-label="Retour en haut" style="position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:#2D1B2E;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s cubic-bezier(.33,1,.68,1),visibility .3s cubic-bezier(.33,1,.68,1),transform .3s cubic-bezier(.33,1,.68,1);z-index:999;box-shadow:0 4px 16px rgba(45,27,46,.25);">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C5A258" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
     </button>
+
     <script>
         (function(){var b=document.getElementById('btt');window.addEventListener('scroll',function(){if(window.scrollY>300){b.style.opacity='1';b.style.visibility='visible'}else{b.style.opacity='0';b.style.visibility='hidden'}});b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})})})();
     </script>
@@ -893,25 +603,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
     })();
     </script>
 
-    <script>
-    (function(){
-        var targets = document.querySelectorAll('.hero .eyebrow, .hero h1, .lead, .hero-ctas, .pain-card, .partner-card, .usage-block, .matrix-wrap, .bon-a-savoir, .profil p, .rapport-block, .cta-final h2, .cta-final .lead, .cta-mailto, .section-intro');
-        targets.forEach(function(el){ if(!el.classList.contains('reveal')) el.classList.add('reveal'); });
-
-        document.querySelectorAll('.ornament, .ornament-double, .ornament-dots, .ornament-diamond, .ornament-long, .section-divider').forEach(function(el){ el.classList.add('ornament-reveal'); });
-
-        var allReveal = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .ornament-reveal');
-        var observer = new IntersectionObserver(function(entries){
-            entries.forEach(function(entry){
-                if(entry.isIntersecting){
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {threshold: 0.1, rootMargin: '0px 0px -40px 0px'});
-        allReveal.forEach(function(el){ observer.observe(el); });
-    })();
-    </script>
   <script src="/js/estimation-slidein.js" defer></script>
 </body>
 </html>
