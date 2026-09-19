@@ -48,18 +48,18 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="À propos — estimationcave.com">
     <meta name="twitter:description" content="À propos de Fanny Lonqueu-Brochard — experte indépendante en estimation de cave à vins, certifiée WSET 3 avec distinction.">
-    <meta name="twitter:image" content="https://estimationcave.com/fanny-lonqueu-brochard.jpg">
+    <meta name="twitter:image" content="https://estimationcave.com/fanny-terrasse.jpg">
     <title>Qui suis-je — Experte estimation de vins</title>
     <meta property="og:title" content="À propos — estimationcave.com">
     <meta property="og:description" content="Experte indépendante en estimation de cave à vins, certifiée WSET 3 avec distinction. J'accompagne les particuliers dans l'audit et l'estimation de leur cave à vins.">
     <meta property="og:url" content="https://estimationcave.com/apropos.html">
     <meta property="og:type" content="profile">
     <meta property="og:locale" content="fr_FR">
-    <meta property="og:image" content="https://estimationcave.com/fanny-lonqueu-brochard.jpg">
+    <meta property="og:image" content="https://estimationcave.com/fanny-terrasse.jpg">
     <meta property="og:image:width" content="800">
     <meta property="og:image:height" content="1201">
     <meta property="og:image:alt" content="Fanny Lonqueu-Brochard, fondatrice d'estimationcave.com">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Fanny Lonqueu-Brochard","jobTitle":"Experte en estimation de cave à vins","image":"https://estimationcave.com/fanny-lonqueu-brochard.jpg","url":"https://estimationcave.com/apropos.html","worksFor":{"@type":"Organization","name":"estimationcave.com","url":"https://estimationcave.com"},"knowsAbout":["Wine valuation","Wine auctions","Wine cellar estimation","WSET 3"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Fanny Lonqueu-Brochard","jobTitle":"Experte en estimation de cave à vins","image":"https://estimationcave.com/fanny-terrasse.jpg","url":"https://estimationcave.com/apropos.html","worksFor":{"@type":"Organization","name":"estimationcave.com","url":"https://estimationcave.com"},"knowsAbout":["Wine valuation","Wine auctions","Wine cellar estimation","WSET 3"]}</script>
     <link rel="canonical" href="https://estimationcave.com/apropos.html">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -100,22 +100,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             letter-spacing: -0.02em;
         }
 
-        /* ── PHOTO PLACEHOLDER ── */
-        .photo-placeholder {
-            display: none;
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            border: 2px solid var(--or);
-            margin: 0 auto 2rem;
-            overflow: hidden;
-        }
-        .photo-placeholder img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
         .about-illustration {
             text-align: center;
             margin: 0 auto 2.5rem;
@@ -130,29 +114,39 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             .about-illustration img { max-width: 200px; }
         }
 
-        /* ── PORTRAIT FANNY ── */
-        .about-portrait {
-            display: block;
-            max-width: 218px;
+        /* ── PORTRAIT FANNY (bulle, comme sur l'accueil) ── */
+        .bulle {
+            width: 13.5rem;
+            aspect-ratio: 4 / 5;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 0 0 1px rgba(45, 27, 46, 0.45), 0 0 0 6px var(--fond), 0 0 0 7px var(--or);
+        }
+        .bulle img {
             width: 100%;
-            height: auto;
-            border-radius: 12px;
-            box-shadow: 0 14px 36px rgba(45, 27, 46, 0.18);
+            height: 100%;
             object-fit: cover;
+            object-position: 58% 22%;
+            transform: scale(1.15);
+            transform-origin: 58% 30%;
+            filter: saturate(0.92);
+            display: block;
         }
         .parcours-wrap {
             overflow: hidden; /* contient le float */
         }
-        .parcours-wrap .about-portrait {
+        .parcours-wrap .bulle {
             float: right;
-            margin: 2.5rem 0 1.25rem 2rem;
-            shape-outside: inset(0 round 12px);
+            margin: 1.25rem 0.5rem 1.5rem 2.5rem;
+            shape-outside: ellipse(50% 50% at 50% 50%);
+            shape-margin: 1.5rem;
         }
         @media (max-width: 600px) {
-            .parcours-wrap .about-portrait {
+            .parcours-wrap .bulle {
                 float: none;
-                margin: 0 auto 1.5rem;
-                max-width: 176px;
+                margin: 0.5rem auto 2rem;
+                width: 11.5rem;
+                shape-outside: none;
             }
         }
 
@@ -175,6 +169,8 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             color: var(--texte);
             margin-bottom: 1.5rem;
             text-align: justify;
+            -webkit-hyphens: auto;
+            hyphens: auto;
         }
 
         .about-body .section-divider {
@@ -190,12 +186,13 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
             background: var(--blanc);
             border: 1px solid var(--border);
             border-left: 3px solid var(--or);
-            border-radius: 0 6px 6px 0;
+            border-radius: 0;
             padding: 1.5rem 2rem;
             margin: 2rem 0;
         }
 
         .highlight-box p {
+            text-align: left;
             font-size: 0.95rem;
             color: var(--texte);
             margin-bottom: 0.5rem;
@@ -237,7 +234,7 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       "@type": "Person",
       "name": "Fanny",
       "jobTitle": "Experte en estimation de vins",
-      "image": "https://estimationcave.com/fanny-lonqueu-brochard.jpg",
+      "image": "https://estimationcave.com/fanny-terrasse.jpg",
       "description": "Experte indépendante en estimation de cave à vins, certification WSET 3 avec distinction",
       "worksFor": {
         "@type": "ProfessionalService",
@@ -289,7 +286,9 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
         <div class="container">
 
             <div class="parcours-wrap">
-                <img class="about-portrait" src="fanny-lonqueu-brochard.webp" alt="Fanny Lonqueu-Brochard, experte indépendante en estimation de cave à vins et fondatrice d'estimationcave.com" width="800" height="1201" loading="eager">
+                <div class="bulle">
+                    <img src="fanny-terrasse.webp" width="1086" height="1448" alt="Fanny Lonqueu-Brochard, experte indépendante en estimation de cave à vins et fondatrice d'estimationcave.com" loading="eager">
+                </div>
 
                 <p>Je m'appelle Fanny, et j'accompagne les particuliers dans l'audit, l'estimation et l'arbitrage de leur cave à vins.</p>
 

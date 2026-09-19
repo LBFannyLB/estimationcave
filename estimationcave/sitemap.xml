@@ -131,7 +131,7 @@
   </url>
   <url>
     <loc>https://estimationcave.com/article-vider-cave-apres-deces.html</loc>
-    <lastmod>2026-06-25</lastmod>
+    <lastmod>2026-09-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -209,7 +209,7 @@
   </url>
   <url>
     <loc>https://estimationcave.com/article-heritage-cave.html</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-09-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -251,13 +251,7 @@
   </url>
   <url>
     <loc>https://estimationcave.com/article-vins-parents-valeur-guide.html</loc>
-    <lastmod>2026-09-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://estimationcave.com/article-spiritueux-herites-valeur.html</loc>
-    <lastmod>2026-06-25</lastmod>
+    <lastmod>2026-09-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -335,7 +329,7 @@
   </url>
   <url>
     <loc>https://estimationcave.com/article-vieilles-bouteilles-vin-que-faire.html</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-09-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -366,7 +360,7 @@
   </url>
   <url>
     <loc>https://estimationcave.com/apropos.html</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -422,7 +416,7 @@
   <!-- Cotes & marché — arbre /cotes/ -->
   <url>
     <loc>https://estimationcave.com/cotes/</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -840,7 +834,19 @@
   </url>
   <url>
     <loc>https://estimationcave.com/cotes/savoie/</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://estimationcave.com/cotes/spiritueux/</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://estimationcave.com/cotes/spiritueux/chartreuse/</loc>
+    <lastmod>2026-09-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
