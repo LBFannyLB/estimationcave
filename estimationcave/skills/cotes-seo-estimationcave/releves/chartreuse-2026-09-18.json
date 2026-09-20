@@ -1,0 +1,5024 @@
+{
+ "releve_date": "2026-09-18",
+ "source": "Fine Spirits Auction — cote des spiritueux (frais acheteur inclus, algorithme FSA 2020) ; adjudications = 4 dernières affichées par la page (plafond de l'histogramme)",
+ "nb": 175,
+ "lignes": [
+  {
+   "id": "182451",
+   "famille": "Tarragone",
+   "produit": "Chartreuse Tarragone 1944-1957",
+   "cote_2026": 4130.0,
+   "serie_2021_2026": [
+    4130.0,
+    4130.0,
+    4130.0,
+    4130.0,
+    4130.0
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2022-02-11",
+   "adj_min": 4130.0,
+   "adj_max": 4130.0,
+   "adjudications": [
+    {
+     "date": "2022-02-11",
+     "prix": 4130.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/182451"
+  },
+  {
+   "id": "178590",
+   "famille": "Tarragone",
+   "produit": "Chartreuse Tarragone Jaune 1973-1983 75cl.",
+   "cote_2026": 1043.0,
+   "serie_2021_2026": [
+    1475.0,
+    1539.13,
+    1681.5,
+    834.4,
+    1043.0,
+    1043.0
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2025-10-03",
+   "adj_min": 834.0,
+   "adj_max": 1132.0,
+   "adjudications": [
+    {
+     "date": "2024-08-02",
+     "prix": 834.0
+    },
+    {
+     "date": "2024-08-02",
+     "prix": 834.0
+    },
+    {
+     "date": "2025-04-18",
+     "prix": 954.0
+    },
+    {
+     "date": "2025-10-03",
+     "prix": 1132.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/178590"
+  },
+  {
+   "id": "178591",
+   "famille": "Tarragone",
+   "produit": "Chartreuse Tarragone Jaune 1982-1989",
+   "cote_2026": 1072.8,
+   "serie_2021_2026": [
+    1357.0,
+    1416.0,
+    1416.0,
+    1072.8,
+    1072.8,
+    1072.8
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2024-03-08",
+   "adj_min": 834.0,
+   "adj_max": 1416.0,
+   "adjudications": [
+    {
+     "date": "2022-07-22",
+     "prix": 1416.0
+    },
+    {
+     "date": "2024-01-19",
+     "prix": 834.0
+    },
+    {
+     "date": "2024-03-08",
+     "prix": 1073.0
+    },
+    {
+     "date": "2024-03-08",
+     "prix": 1192.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/178591"
+  },
+  {
+   "id": "211290",
+   "famille": "Tarragone",
+   "produit": "Chartreuse Tarragone Jaune El Cumbre 1951-1960",
+   "cote_2026": 2622.4,
+   "serie_2021_2026": [
+    3422.0,
+    3422.0,
+    3422.0,
+    2622.4
+   ],
+   "nb_adj_affichees": 2,
+   "derniere_vente": "2026-03-13",
+   "adj_min": 2622.0,
+   "adj_max": 3422.0,
+   "adjudications": [
+    {
+     "date": "2023-02-03",
+     "prix": 3422.0
+    },
+    {
+     "date": "2026-03-13",
+     "prix": 2622.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/211290"
+  },
+  {
+   "id": "211291",
+   "famille": "Tarragone",
+   "produit": "Chartreuse Tarragone Jaune El Cumbre 1951-1960 50cl",
+   "cote_2026": 1370.8,
+   "serie_2021_2026": [
+    1370.8,
+    1370.8,
+    1370.8,
+    1370.8
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2025-07-18",
+   "adj_min": 954.0,
+   "adj_max": 1609.0,
+   "adjudications": [
+    {
+     "date": "2023-03-17",
+     "prix": 1593.0
+    },
+    {
+     "date": "2023-04-28",
+     "prix": 1371.0
+    },
+    {
+     "date": "2023-04-28",
+     "prix": 1609.0
+    },
+    {
+     "date": "2025-07-18",
+     "prix": 954.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/211291"
+  },
+  {
+   "id": "231111",
+   "famille": "Tarragone",
+   "produit": "Chartreuse Tarragone Jaune El Gruño 1965-1966",
+   "cote_2026": 1072.8,
+   "serie_2021_2026": [
+    1072.8,
+    1072.8,
+    1072.8
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2024-01-19",
+   "adj_min": 1073.0,
+   "adj_max": 1073.0,
+   "adjudications": [
+    {
+     "date": "2024-01-19",
+     "prix": 1073.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/231111"
+  },
+  {
+   "id": "212270",
+   "famille": "Tarragone",
+   "produit": "Chartreuse Tarragone Jaune La Fabiola 1972-1973",
+   "cote_2026": 2124.0,
+   "serie_2021_2026": [
+    2124.0,
+    2124.0,
+    2124.0,
+    2124.0
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2023-02-03",
+   "adj_min": 2124.0,
+   "adj_max": 2124.0,
+   "adjudications": [
+    {
+     "date": "2023-02-03",
+     "prix": 2124.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/212270"
+  },
+  {
+   "id": "211630",
+   "famille": "Tarragone",
+   "produit": "Chartreuse Tarragone Jaune La Seisenta 1960-1965",
+   "cote_2026": 2301.0,
+   "serie_2021_2026": [
+    2301.0,
+    2301.0,
+    2301.0,
+    2301.0
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2023-02-03",
+   "adj_min": 2301.0,
+   "adj_max": 2301.0,
+   "adjudications": [
+    {
+     "date": "2023-02-03",
+     "prix": 2301.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/211630"
+  },
+  {
+   "id": "231181",
+   "famille": "Tarragone",
+   "produit": "Chartreuse Tarragone Jaune mise 1968",
+   "cote_2026": 1251.6,
+   "serie_2021_2026": [
+    1251.6,
+    1251.6,
+    1251.6
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2024-03-08",
+   "adj_min": 1252.0,
+   "adj_max": 1252.0,
+   "adjudications": [
+    {
+     "date": "2024-03-08",
+     "prix": 1252.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/231181"
+  },
+  {
+   "id": "178589",
+   "famille": "Tarragone",
+   "produit": "Chartreuse Tarragone Verte 1973-1983",
+   "cote_2026": 1370.8,
+   "serie_2021_2026": [
+    1475.0,
+    1239.0,
+    1239.0,
+    882.08,
+    1132.4,
+    1370.8
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2026-07-17",
+   "adj_min": 894.0,
+   "adj_max": 1371.0,
+   "adjudications": [
+    {
+     "date": "2024-10-04",
+     "prix": 894.0
+    },
+    {
+     "date": "2025-01-24",
+     "prix": 954.0
+    },
+    {
+     "date": "2025-03-14",
+     "prix": 1311.0
+    },
+    {
+     "date": "2026-07-17",
+     "prix": 1371.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/178589"
+  },
+  {
+   "id": "231109",
+   "famille": "Tarragone",
+   "produit": "Chartreuse Tarragone Verte 3cl.",
+   "cote_2026": 33.38,
+   "serie_2021_2026": [
+    33.38,
+    33.38,
+    33.38
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2024-01-19",
+   "adj_min": 33.0,
+   "adj_max": 37.0,
+   "adjudications": [
+    {
+     "date": "2024-01-19",
+     "prix": 33.0
+    },
+    {
+     "date": "2024-01-19",
+     "prix": 33.0
+    },
+    {
+     "date": "2024-01-19",
+     "prix": 37.0
+    },
+    {
+     "date": "2024-01-19",
+     "prix": 37.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/231109"
+  },
+  {
+   "id": "211629",
+   "famille": "Tarragone",
+   "produit": "Chartreuse Une Tarragone Jaune 1936-1941",
+   "cote_2026": 3703.74,
+   "serie_2021_2026": [
+    3422.0,
+    2962.97,
+    3063.54,
+    3703.74
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2023-02-03",
+   "adj_min": 3422.0,
+   "adj_max": 3422.0,
+   "adjudications": [
+    {
+     "date": "2023-02-03",
+     "prix": 3422.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/211629"
+  },
+  {
+   "id": "235139",
+   "famille": "Tarragone",
+   "produit": "Chartreuse Une Tarragone Jaune Jadis 1932-1941 75cl.",
+   "cote_2026": 3602.74,
+   "serie_2021_2026": [
+    2980.0,
+    3602.74
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2025-07-18",
+   "adj_min": 2980.0,
+   "adj_max": 2980.0,
+   "adjudications": [
+    {
+     "date": "2025-07-18",
+     "prix": 2980.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/235139"
+  },
+  {
+   "id": "230666",
+   "famille": "Tarragone",
+   "produit": "Chartreuse Une Tarragone Verte 1936-1941",
+   "cote_2026": 5960.04,
+   "serie_2021_2026": [
+    4768.0,
+    4929.83,
+    5960.04
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2024-01-19",
+   "adj_min": 4768.0,
+   "adj_max": 4768.0,
+   "adjudications": [
+    {
+     "date": "2024-01-19",
+     "prix": 4768.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/230666"
+  },
+  {
+   "id": "185809",
+   "famille": "Voiron (périodes anciennes)",
+   "produit": "Chartreuse 10 years 1940 Vieillissement Exceptionnel One of 800",
+   "cote_2026": 7740.83,
+   "serie_2021_2026": [
+    7080.0,
+    7152.0,
+    6192.63,
+    6402.81,
+    7740.83
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2022-04-08",
+   "adj_min": 7080.0,
+   "adj_max": 7080.0,
+   "adjudications": [
+    {
+     "date": "2022-04-08",
+     "prix": 7080.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/185809"
+  },
+  {
+   "id": "211649",
+   "famille": "Voiron (périodes anciennes)",
+   "produit": "Chartreuse Jaune 1941-1951",
+   "cote_2026": 3065.16,
+   "serie_2021_2026": [
+    2832.0,
+    2452.11,
+    2535.34,
+    3065.16
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2023-02-03",
+   "adj_min": 2832.0,
+   "adj_max": 2832.0,
+   "adjudications": [
+    {
+     "date": "2023-02-03",
+     "prix": 2832.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/211649"
+  },
+  {
+   "id": "174993",
+   "famille": "Voiron (périodes anciennes)",
+   "produit": "Chartreuse Jaune 1941-1951 50cl.",
+   "cote_2026": 3354.36,
+   "serie_2021_2026": [
+    3068.0,
+    3068.0,
+    3099.2,
+    2683.47,
+    2774.55,
+    3354.36
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2021-10-22",
+   "adj_min": 3068.0,
+   "adj_max": 3068.0,
+   "adjudications": [
+    {
+     "date": "2021-10-22",
+     "prix": 3068.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/174993"
+  },
+  {
+   "id": "208529",
+   "famille": "Voiron (périodes anciennes)",
+   "produit": "Chartreuse Jaune 1951-1956",
+   "cote_2026": 1192.0,
+   "serie_2021_2026": [
+    1829.0,
+    1847.6,
+    1599.76,
+    1430.4,
+    1192.0
+   ],
+   "nb_adj_affichees": 3,
+   "derniere_vente": "2026-01-30",
+   "adj_min": 1192.0,
+   "adj_max": 1829.0,
+   "adjudications": [
+    {
+     "date": "2022-12-09",
+     "prix": 1829.0
+    },
+    {
+     "date": "2025-01-24",
+     "prix": 1430.0
+    },
+    {
+     "date": "2026-01-30",
+     "prix": 1192.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/208529"
+  },
+  {
+   "id": "207889",
+   "famille": "Voiron (périodes anciennes)",
+   "produit": "Chartreuse Jaune 1956-1962",
+   "cote_2026": 1935.22,
+   "serie_2021_2026": [
+    1770.0,
+    1788.0,
+    1548.16,
+    1600.71,
+    1935.22
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2022-12-09",
+   "adj_min": 1770.0,
+   "adj_max": 1770.0,
+   "adjudications": [
+    {
+     "date": "2022-12-09",
+     "prix": 1770.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/207889"
+  },
+  {
+   "id": "180536",
+   "famille": "Voiron (périodes anciennes)",
+   "produit": "Chartreuse Jaune 1972-1982",
+   "cote_2026": 720.55,
+   "serie_2021_2026": [
+    672.6,
+    679.44,
+    588.3,
+    596.0,
+    720.55
+   ],
+   "nb_adj_affichees": 3,
+   "derniere_vente": "2025-04-18",
+   "adj_min": 401.0,
+   "adj_max": 944.0,
+   "adjudications": [
+    {
+     "date": "2022-02-11",
+     "prix": 944.0
+    },
+    {
+     "date": "2022-02-11",
+     "prix": 401.0
+    },
+    {
+     "date": "2025-04-18",
+     "prix": 596.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/180536"
+  },
+  {
+   "id": "231528",
+   "famille": "Voiron (périodes anciennes)",
+   "produit": "Chartreuse Verte 1941-1951",
+   "cote_2026": 1788.0,
+   "serie_2021_2026": [
+    1430.4,
+    1478.95,
+    1788.0
+   ],
+   "nb_adj_affichees": 2,
+   "derniere_vente": "2026-01-30",
+   "adj_min": 1430.0,
+   "adj_max": 1788.0,
+   "adjudications": [
+    {
+     "date": "2024-06-07",
+     "prix": 1430.0
+    },
+    {
+     "date": "2026-01-30",
+     "prix": 1788.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/231528"
+  },
+  {
+   "id": "231581",
+   "famille": "Voiron (périodes anciennes)",
+   "produit": "Chartreuse Verte 1951-1956",
+   "cote_2026": 1490.01,
+   "serie_2021_2026": [
+    1192.0,
+    1232.46,
+    1490.01
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2024-06-07",
+   "adj_min": 1192.0,
+   "adj_max": 1192.0,
+   "adjudications": [
+    {
+     "date": "2024-06-07",
+     "prix": 1192.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/231581"
+  },
+  {
+   "id": "235538",
+   "famille": "Voiron (périodes anciennes)",
+   "produit": "Chartreuse Verte 1956-1962",
+   "cote_2026": 1132.4,
+   "serie_2021_2026": [
+    1192.0,
+    1132.4
+   ],
+   "nb_adj_affichees": 2,
+   "derniere_vente": "2026-01-30",
+   "adj_min": 1132.0,
+   "adj_max": 1192.0,
+   "adjudications": [
+    {
+     "date": "2025-10-03",
+     "prix": 1192.0
+    },
+    {
+     "date": "2026-01-30",
+     "prix": 1132.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/235538"
+  },
+  {
+   "id": "184229",
+   "famille": "Voiron (périodes anciennes)",
+   "produit": "Chartreuse Verte 1956-1962 1.5L",
+   "cote_2026": 2386.76,
+   "serie_2021_2026": [
+    2183.0,
+    2205.2,
+    1909.39,
+    1974.2,
+    2386.76
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2022-04-08",
+   "adj_min": 2183.0,
+   "adj_max": 2183.0,
+   "adjudications": [
+    {
+     "date": "2022-04-08",
+     "prix": 2183.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/184229"
+  },
+  {
+   "id": "209453",
+   "famille": "Voiron (périodes anciennes)",
+   "produit": "Chartreuse Verte 1962-1966",
+   "cote_2026": 1152.88,
+   "serie_2021_2026": [
+    1209.5,
+    953.6,
+    953.6,
+    1152.88
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2025-11-14",
+   "adj_min": 954.0,
+   "adj_max": 1003.0,
+   "adjudications": [
+    {
+     "date": "2023-03-17",
+     "prix": 1003.0
+    },
+    {
+     "date": "2024-11-15",
+     "prix": 954.0
+    },
+    {
+     "date": "2024-11-15",
+     "prix": 954.0
+    },
+    {
+     "date": "2025-11-14",
+     "prix": 954.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/209453"
+  },
+  {
+   "id": "180535",
+   "famille": "Voiron (périodes anciennes)",
+   "produit": "Chartreuse Verte 1972-1982",
+   "cote_2026": 461.15,
+   "serie_2021_2026": [
+    389.4,
+    429.12,
+    371.56,
+    381.44,
+    461.15
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2025-04-18",
+   "adj_min": 381.0,
+   "adj_max": 477.0,
+   "adjudications": [
+    {
+     "date": "2023-07-21",
+     "prix": 429.0
+    },
+    {
+     "date": "2023-07-21",
+     "prix": 405.0
+    },
+    {
+     "date": "2023-07-21",
+     "prix": 477.0
+    },
+    {
+     "date": "2025-04-18",
+     "prix": 381.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/180535"
+  },
+  {
+   "id": "180301",
+   "famille": "Voiron (périodes anciennes)",
+   "produit": "Chartreuse Verte 1982-1989",
+   "cote_2026": 223.5,
+   "serie_2021_2026": [
+    153.4,
+    154.96,
+    178.8,
+    184.87,
+    223.5
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2026-03-13",
+   "adj_min": 153.0,
+   "adj_max": 453.0,
+   "adjudications": [
+    {
+     "date": "2022-02-11",
+     "prix": 153.0
+    },
+    {
+     "date": "2024-03-08",
+     "prix": 179.0
+    },
+    {
+     "date": "2025-10-03",
+     "prix": 262.0
+    },
+    {
+     "date": "2026-03-13",
+     "prix": 453.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/180301"
+  },
+  {
+   "id": "232483",
+   "famille": "VEP",
+   "produit": "Chartreuse Jaune V.E.P. Mise 1964",
+   "cote_2026": 2383.77,
+   "serie_2021_2026": [
+    1907.0,
+    1971.73,
+    2383.77
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2024-10-04",
+   "adj_min": 1907.0,
+   "adj_max": 1907.0,
+   "adjudications": [
+    {
+     "date": "2024-10-04",
+     "prix": 1907.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/232483"
+  },
+  {
+   "id": "231391",
+   "famille": "VEP",
+   "produit": "Chartreuse Jaune V.E.P. Mise 1968",
+   "cote_2026": 2086.01,
+   "serie_2021_2026": [
+    1668.8,
+    1725.44,
+    2086.01
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2024-04-19",
+   "adj_min": 1669.0,
+   "adj_max": 1669.0,
+   "adjudications": [
+    {
+     "date": "2024-04-19",
+     "prix": 1669.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/231391"
+  },
+  {
+   "id": "234070",
+   "famille": "VEP",
+   "produit": "Chartreuse Jaune V.E.P. Mise 1972 1L.",
+   "cote_2026": 2017.54,
+   "serie_2021_2026": [
+    1668.8,
+    2017.54
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2025-03-14",
+   "adj_min": 1669.0,
+   "adj_max": 1669.0,
+   "adjudications": [
+    {
+     "date": "2025-03-14",
+     "prix": 1669.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/234070"
+  },
+  {
+   "id": "230800",
+   "famille": "VEP",
+   "produit": "Chartreuse Jaune V.E.P. Mise 1998",
+   "cote_2026": 685.4,
+   "serie_2021_2026": [
+    548.32,
+    566.93,
+    685.4
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2024-01-19",
+   "adj_min": 524.0,
+   "adj_max": 548.0,
+   "adjudications": [
+    {
+     "date": "2024-01-19",
+     "prix": 548.0
+    },
+    {
+     "date": "2024-01-19",
+     "prix": 548.0
+    },
+    {
+     "date": "2024-01-19",
+     "prix": 524.0
+    },
+    {
+     "date": "2024-01-19",
+     "prix": 524.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/230800"
+  },
+  {
+   "id": "230801",
+   "famille": "VEP",
+   "produit": "Chartreuse Jaune V.E.P. Mise 2000",
+   "cote_2026": 685.4,
+   "serie_2021_2026": [
+    548.32,
+    566.93,
+    685.4
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2024-01-19",
+   "adj_min": 524.0,
+   "adj_max": 548.0,
+   "adjudications": [
+    {
+     "date": "2024-01-19",
+     "prix": 548.0
+    },
+    {
+     "date": "2024-01-19",
+     "prix": 548.0
+    },
+    {
+     "date": "2024-01-19",
+     "prix": 524.0
+    },
+    {
+     "date": "2024-01-19",
+     "prix": 548.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/230801"
+  },
+  {
+   "id": "214469",
+   "famille": "VEP",
+   "produit": "Chartreuse Jaune V.E.P. Mise 2004 50cl.",
+   "cote_2026": 506.61,
+   "serie_2021_2026": [
+    448.4,
+    405.28,
+    419.04,
+    506.61
+   ],
+   "nb_adj_affichees": 2,
+   "derniere_vente": "2024-04-19",
+   "adj_min": 405.0,
+   "adj_max": 448.0,
+   "adjudications": [
+    {
+     "date": "2023-03-17",
+     "prix": 448.0
+    },
+    {
+     "date": "2024-04-19",
+     "prix": 405.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/214469"
+  },
+  {
+   "id": "231014",
+   "famille": "VEP",
+   "produit": "Chartreuse Jaune V.E.P. Mise 2012",
+   "cote_2026": 417.2,
+   "serie_2021_2026": [
+    333.76,
+    345.09,
+    417.2
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2024-03-08",
+   "adj_min": 334.0,
+   "adj_max": 334.0,
+   "adjudications": [
+    {
+     "date": "2024-03-08",
+     "prix": 334.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/231014"
+  },
+  {
+   "id": "233870",
+   "famille": "VEP",
+   "produit": "Chartreuse Jaune V.E.P. Mise 2013 1L.",
+   "cote_2026": 605.26,
+   "serie_2021_2026": [
+    500.64,
+    605.26
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2025-01-24",
+   "adj_min": 501.0,
+   "adj_max": 501.0,
+   "adjudications": [
+    {
+     "date": "2025-01-24",
+     "prix": 501.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/233870"
+  },
+  {
+   "id": "231265",
+   "famille": "VEP",
+   "produit": "Chartreuse Jaune V.E.P. Mise 2016 1L",
+   "cote_2026": 452.96,
+   "serie_2021_2026": [
+    387.4,
+    400.55,
+    452.96
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2026-03-13",
+   "adj_min": 405.0,
+   "adj_max": 477.0,
+   "adjudications": [
+    {
+     "date": "2026-03-13",
+     "prix": 453.0
+    },
+    {
+     "date": "2026-03-13",
+     "prix": 429.0
+    },
+    {
+     "date": "2026-03-13",
+     "prix": 477.0
+    },
+    {
+     "date": "2026-03-13",
+     "prix": 405.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/231265"
+  },
+  {
+   "id": "224349",
+   "famille": "VEP",
+   "produit": "Chartreuse Jaune V.E.P. Mise 2018 3L.",
+   "cote_2026": 3890.96,
+   "serie_2021_2026": [
+    3218.4,
+    3890.96
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2025-03-14",
+   "adj_min": 3218.0,
+   "adj_max": 3218.0,
+   "adjudications": [
+    {
+     "date": "2025-03-14",
+     "prix": 3218.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/224349"
+  },
+  {
+   "id": "231263",
+   "famille": "VEP",
+   "produit": "Chartreuse Jaune V.E.P. Mise 2019",
+   "cote_2026": 417.2,
+   "serie_2021_2026": [
+    333.76,
+    345.09,
+    417.2
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2024-03-08",
+   "adj_min": 334.0,
+   "adj_max": 334.0,
+   "adjudications": [
+    {
+     "date": "2024-03-08",
+     "prix": 334.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/231263"
+  },
+  {
+   "id": "231264",
+   "famille": "VEP",
+   "produit": "Chartreuse Jaune V.E.P. Mise 2020 1L.",
+   "cote_2026": 410.71,
+   "serie_2021_2026": [
+    309.92,
+    339.72,
+    410.71
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2025-04-18",
+   "adj_min": 298.0,
+   "adj_max": 346.0,
+   "adjudications": [
+    {
+     "date": "2024-03-08",
+     "prix": 322.0
+    },
+    {
+     "date": "2024-03-08",
+     "prix": 298.0
+    },
+    {
+     "date": "2025-04-18",
+     "prix": 346.0
+    },
+    {
+     "date": "2025-04-18",
+     "prix": 334.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/231264"
+  },
+  {
+   "id": "231246",
+   "famille": "VEP",
+   "produit": "Chartreuse Jaune V.E.P. Mise 2021 1L.",
+   "cote_2026": 381.89,
+   "serie_2021_2026": [
+    298.0,
+    315.88,
+    381.89
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2025-06-06",
+   "adj_min": 310.0,
+   "adj_max": 322.0,
+   "adjudications": [
+    {
+     "date": "2025-04-18",
+     "prix": 310.0
+    },
+    {
+     "date": "2025-04-18",
+     "prix": 310.0
+    },
+    {
+     "date": "2025-06-06",
+     "prix": 322.0
+    },
+    {
+     "date": "2025-06-06",
+     "prix": 322.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/231246"
+  },
+  {
+   "id": "207769",
+   "famille": "VEP",
+   "produit": "Chartreuse Jaune V.E.P. Mise 2022 1L.",
+   "cote_2026": 403.51,
+   "serie_2021_2026": [
+    405.28,
+    345.0,
+    333.76,
+    403.51
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2025-04-18",
+   "adj_min": 322.0,
+   "adj_max": 345.0,
+   "adjudications": [
+    {
+     "date": "2024-10-04",
+     "prix": 345.0
+    },
+    {
+     "date": "2025-03-14",
+     "prix": 334.0
+    },
+    {
+     "date": "2025-03-14",
+     "prix": 334.0
+    },
+    {
+     "date": "2025-04-18",
+     "prix": 322.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/207769"
+  },
+  {
+   "id": "215989",
+   "famille": "VEP",
+   "produit": "Chartreuse Jaune V.E.P. Mise 2023 1L.",
+   "cote_2026": 377.56,
+   "serie_2021_2026": [
+    381.44,
+    357.0,
+    312.3,
+    377.56
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2026-07-17",
+   "adj_min": 312.0,
+   "adj_max": 429.0,
+   "adjudications": [
+    {
+     "date": "2025-04-18",
+     "prix": 312.0
+    },
+    {
+     "date": "2025-07-18",
+     "prix": 393.0
+    },
+    {
+     "date": "2025-07-18",
+     "prix": 358.0
+    },
+    {
+     "date": "2026-07-17",
+     "prix": 429.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/215989"
+  },
+  {
+   "id": "234462",
+   "famille": "VEP",
+   "produit": "Chartreuse Jaune V.E.P. Mise 2024 1L.",
+   "cote_2026": 374.69,
+   "serie_2021_2026": [
+    309.92,
+    374.69
+   ],
+   "nb_adj_affichees": 2,
+   "derniere_vente": "2025-04-18",
+   "adj_min": 310.0,
+   "adj_max": 310.0,
+   "adjudications": [
+    {
+     "date": "2025-04-18",
+     "prix": 310.0
+    },
+    {
+     "date": "2025-04-18",
+     "prix": 310.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/234462"
+  },
+  {
+   "id": "232665",
+   "famille": "VEP",
+   "produit": "Chartreuse Verte V.E.P. 200th Anniversary of American Independance - bottled 1975 Special Limited Edition",
+   "cote_2026": 5661.29,
+   "serie_2021_2026": [
+    4529.0,
+    4682.72,
+    5661.29
+   ],
+   "nb_adj_affichees": 0,
+   "derniere_vente": "",
+   "adj_min": null,
+   "adj_max": null,
+   "adjudications": [],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/232665"
+  },
+  {
+   "id": "234501",
+   "famille": "VEP",
+   "produit": "Chartreuse Verte V.E.P. Mise 1964 1L.",
+   "cote_2026": 1907.2,
+   "serie_2021_2026": [
+    2205.2,
+    1907.2
+   ],
+   "nb_adj_affichees": 3,
+   "derniere_vente": "2026-04-24",
+   "adj_min": 1788.0,
+   "adj_max": 2205.0,
+   "adjudications": [
+    {
+     "date": "2025-04-18",
+     "prix": 2205.0
+    },
+    {
+     "date": "2025-12-12",
+     "prix": 1788.0
+    },
+    {
+     "date": "2026-04-24",
+     "prix": 1907.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/234501"
+  },
+  {
+   "id": "232081",
+   "famille": "VEP",
+   "produit": "Chartreuse Verte V.E.P. Mise 1968 1L.",
+   "cote_2026": 2161.65,
+   "serie_2021_2026": [
+    1966.0,
+    1788.0,
+    2161.65
+   ],
+   "nb_adj_affichees": 3,
+   "derniere_vente": "2025-12-12",
+   "adj_min": 1550.0,
+   "adj_max": 1966.0,
+   "adjudications": [
+    {
+     "date": "2024-08-02",
+     "prix": 1966.0
+    },
+    {
+     "date": "2025-10-03",
+     "prix": 1788.0
+    },
+    {
+     "date": "2025-12-12",
+     "prix": 1550.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/232081"
+  },
+  {
+   "id": "234071",
+   "famille": "VEP",
+   "produit": "Chartreuse Verte V.E.P. Mise 1970 1L.",
+   "cote_2026": 2089.59,
+   "serie_2021_2026": [
+    1728.4,
+    2089.59
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2025-03-14",
+   "adj_min": 1728.0,
+   "adj_max": 1728.0,
+   "adjudications": [
+    {
+     "date": "2025-03-14",
+     "prix": 1728.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/234071"
+  },
+  {
+   "id": "230665",
+   "famille": "VEP",
+   "produit": "Chartreuse Verte V.E.P. Mise 1972",
+   "cote_2026": 1490.01,
+   "serie_2021_2026": [
+    1192.0,
+    1232.46,
+    1490.01
+   ],
+   "nb_adj_affichees": 2,
+   "derniere_vente": "2024-04-19",
+   "adj_min": 1132.0,
+   "adj_max": 1252.0,
+   "adjudications": [
+    {
+     "date": "2024-01-19",
+     "prix": 1252.0
+    },
+    {
+     "date": "2024-04-19",
+     "prix": 1132.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/230665"
+  },
+  {
+   "id": "210131",
+   "famille": "VEP",
+   "produit": "Chartreuse Verte V.E.P. Mise 1974",
+   "cote_2026": 1532.58,
+   "serie_2021_2026": [
+    1416.0,
+    1226.06,
+    1267.67,
+    1532.58
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2023-02-03",
+   "adj_min": 1416.0,
+   "adj_max": 1416.0,
+   "adjudications": [
+    {
+     "date": "2023-02-03",
+     "prix": 1416.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/210131"
+  },
+  {
+   "id": "230664",
+   "famille": "VEP",
+   "produit": "Chartreuse Verte V.E.P. Mise 1975 1L.",
+   "cote_2026": 1729.32,
+   "serie_2021_2026": [
+    1192.0,
+    1430.4,
+    1729.32
+   ],
+   "nb_adj_affichees": 3,
+   "derniere_vente": "2025-12-12",
+   "adj_min": 834.0,
+   "adj_max": 1430.0,
+   "adjudications": [
+    {
+     "date": "2024-01-19",
+     "prix": 1192.0
+    },
+    {
+     "date": "2025-10-03",
+     "prix": 1430.0
+    },
+    {
+     "date": "2025-12-12",
+     "prix": 834.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/230664"
+  },
+  {
+   "id": "235021",
+   "famille": "VEP",
+   "produit": "Chartreuse Verte V.E.P. Mise 1992 1L.",
+   "cote_2026": 691.73,
+   "serie_2021_2026": [
+    572.16,
+    691.73
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2025-06-06",
+   "adj_min": 572.0,
+   "adj_max": 572.0,
+   "adjudications": [
+    {
+     "date": "2025-06-06",
+     "prix": 572.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/235021"
+  },
+  {
+   "id": "185592",
+   "famille": "VEP",
+   "produit": "Chartreuse Verte V.E.P. Mise 1995 50cl.",
+   "cote_2026": 610.46,
+   "serie_2021_2026": [
+    542.8,
+    548.32,
+    488.36,
+    504.94,
+    610.46
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2024-11-15",
+   "adj_min": 464.0,
+   "adj_max": 536.0,
+   "adjudications": [
+    {
+     "date": "2024-08-02",
+     "prix": 464.0
+    },
+    {
+     "date": "2024-08-02",
+     "prix": 536.0
+    },
+    {
+     "date": "2024-08-02",
+     "prix": 488.0
+    },
+    {
+     "date": "2024-11-15",
+     "prix": 489.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/185592"
+  },
+  {
+   "id": "235069",
+   "famille": "VEP",
+   "produit": "Chartreuse Verte V.E.P. Mise 1997 1L.",
+   "cote_2026": 936.71,
+   "serie_2021_2026": [
+    774.8,
+    936.71
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2025-07-18",
+   "adj_min": 775.0,
+   "adj_max": 775.0,
+   "adjudications": [
+    {
+     "date": "2025-07-18",
+     "prix": 775.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/235069"
+  },
+  {
+   "id": "232202",
+   "famille": "VEP",
+   "produit": "Chartreuse Verte V.E.P. Mise 1997 50cl.",
+   "cote_2026": 625.8,
+   "serie_2021_2026": [
+    500.64,
+    517.63,
+    625.8
+   ],
+   "nb_adj_affichees": 2,
+   "derniere_vente": "2024-11-15",
+   "adj_min": 465.0,
+   "adj_max": 536.0,
+   "adjudications": [
+    {
+     "date": "2024-11-15",
+     "prix": 536.0
+    },
+    {
+     "date": "2024-11-15",
+     "prix": 465.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/232202"
+  },
+  {
+   "id": "234242",
+   "famille": "VEP",
+   "produit": "Chartreuse Verte V.E.P. Mise 1999 50cl.",
+   "cote_2026": 662.9,
+   "serie_2021_2026": [
+    548.32,
+    662.9
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2025-03-14",
+   "adj_min": 548.0,
+   "adj_max": 548.0,
+   "adjudications": [
+    {
+     "date": "2025-03-14",
+     "prix": 548.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/234242"
+  },
+  {
+   "id": "181681",
+   "famille": "VEP",
+   "produit": "Chartreuse Verte V.E.P. Mise 2000",
+   "cote_2026": 894.0,
+   "serie_2021_2026": [
+    885.0,
+    826.0,
+    715.2,
+    739.47,
+    894.0
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2026-04-24",
+   "adj_min": 715.0,
+   "adj_max": 894.0,
+   "adjudications": [
+    {
+     "date": "2022-02-11",
+     "prix": 885.0
+    },
+    {
+     "date": "2023-03-17",
+     "prix": 826.0
+    },
+    {
+     "date": "2024-01-19",
+     "prix": 715.0
+    },
+    {
+     "date": "2026-04-24",
+     "prix": 894.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/181681"
+  },
+  {
+   "id": "234703",
+   "famille": "VEP",
+   "produit": "Chartreuse Verte V.E.P. Mise 2001 1L.",
+   "cote_2026": 634.08,
+   "serie_2021_2026": [
+    524.48,
+    634.08
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2025-04-18",
+   "adj_min": 524.0,
+   "adj_max": 524.0,
+   "adjudications": [
+    {
+     "date": "2025-04-18",
+     "prix": 524.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/234703"
+  },
+  {
+   "id": "235202",
+   "famille": "VEP",
+   "produit": "Chartreuse Verte V.E.P. Mise 2007 1L.",
+   "cote_2026": 605.26,
+   "serie_2021_2026": [
+    500.64,
+    605.26
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2025-10-03",
+   "adj_min": 501.0,
+   "adj_max": 501.0,
+   "adjudications": [
+    {
+     "date": "2025-10-03",
+     "prix": 501.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/235202"
+  },
+  {
+   "id": "214470",
+   "famille": "VEP",
+   "produit": "Chartreuse Verte V.E.P. Mise 2007 50cl.",
+   "cote_2026": 408.69,
+   "serie_2021_2026": [
+    377.6,
+    326.95,
+    338.05,
+    408.69
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2023-03-17",
+   "adj_min": 378.0,
+   "adj_max": 378.0,
+   "adjudications": [
+    {
+     "date": "2023-03-17",
+     "prix": 378.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/214470"
+  },
+  {
+   "id": "214471",
+   "famille": "VEP",
+   "produit": "Chartreuse Verte V.E.P. Mise 2008 50cl.",
+   "cote_2026": 383.14,
+   "serie_2021_2026": [
+    354.0,
+    306.51,
+    316.91,
+    383.14
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2023-03-17",
+   "adj_min": 354.0,
+   "adj_max": 354.0,
+   "adjudications": [
+    {
+     "date": "2023-03-17",
+     "prix": 354.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/214471"
+  },
+  {
+   "id": "230075",
+   "famille": "VEP",
+   "produit": "Chartreuse Verte V.E.P. Mise 2010",
+   "cote_2026": 464.45,
+   "serie_2021_2026": [
+    429.12,
+    371.56,
+    384.17,
+    464.45
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2023-11-03",
+   "adj_min": 429.0,
+   "adj_max": 429.0,
+   "adjudications": [
+    {
+     "date": "2023-11-03",
+     "prix": 429.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/230075"
+  },
+  {
+   "id": "214472",
+   "famille": "VEP",
+   "produit": "Chartreuse Verte V.E.P. Mise 2010 50cl.",
+   "cote_2026": 383.14,
+   "serie_2021_2026": [
+    354.0,
+    306.51,
+    316.91,
+    383.14
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2023-03-17",
+   "adj_min": 354.0,
+   "adj_max": 354.0,
+   "adjudications": [
+    {
+     "date": "2023-03-17",
+     "prix": 354.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/214472"
+  },
+  {
+   "id": "233150",
+   "famille": "VEP",
+   "produit": "Chartreuse Verte V.E.P. Mise 2011 1L.",
+   "cote_2026": 1355.91,
+   "serie_2021_2026": [
+    1084.72,
+    1121.54,
+    1355.91
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2024-12-13",
+   "adj_min": 1085.0,
+   "adj_max": 1085.0,
+   "adjudications": [
+    {
+     "date": "2024-12-13",
+     "prix": 1085.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/233150"
+  },
+  {
+   "id": "209569",
+   "famille": "VEP",
+   "produit": "Chartreuse Verte V.E.P. Mise 2011 50cl.",
+   "cote_2026": 514.06,
+   "serie_2021_2026": [
+    542.8,
+    411.24,
+    425.2,
+    514.06
+   ],
+   "nb_adj_affichees": 3,
+   "derniere_vente": "2024-04-19",
+   "adj_min": 322.0,
+   "adj_max": 543.0,
+   "adjudications": [
+    {
+     "date": "2023-02-03",
+     "prix": 543.0
+    },
+    {
+     "date": "2024-03-08",
+     "prix": 501.0
+    },
+    {
+     "date": "2024-04-19",
+     "prix": 322.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/209569"
+  },
+  {
+   "id": "178567",
+   "famille": "VEP",
+   "produit": "Chartreuse Verte V.E.P. Mise 2012",
+   "cote_2026": 374.14,
+   "serie_2021_2026": [
+    342.2,
+    342.2,
+    345.68,
+    299.31,
+    309.47,
+    374.14
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2021-12-10",
+   "adj_min": 342.0,
+   "adj_max": 342.0,
+   "adjudications": [
+    {
+     "date": "2021-12-10",
+     "prix": 342.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/178567"
+  },
+  {
+   "id": "234781",
+   "famille": "VEP",
+   "produit": "Chartreuse Verte V.E.P. Mise 2015 50cl.",
+   "cote_2026": 302.63,
+   "serie_2021_2026": [
+    250.32,
+    302.63
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2025-04-18",
+   "adj_min": 250.0,
+   "adj_max": 250.0,
+   "adjudications": [
+    {
+     "date": "2025-04-18",
+     "prix": 250.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/234781"
+  },
+  {
+   "id": "235135",
+   "famille": "VEP",
+   "produit": "Chartreuse Verte V.E.P. Mise 2016 1L.",
+   "cote_2026": 634.08,
+   "serie_2021_2026": [
+    524.48,
+    634.08
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2025-07-18",
+   "adj_min": 524.0,
+   "adj_max": 524.0,
+   "adjudications": [
+    {
+     "date": "2025-07-18",
+     "prix": 524.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/235135"
+  },
+  {
+   "id": "233896",
+   "famille": "VEP",
+   "produit": "Chartreuse Verte V.E.P. Mise 2016 3L.",
+   "cote_2026": 3458.63,
+   "serie_2021_2026": [
+    2860.8,
+    3458.63
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2025-03-14",
+   "adj_min": 2861.0,
+   "adj_max": 2861.0,
+   "adjudications": [
+    {
+     "date": "2025-03-14",
+     "prix": 2861.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/233896"
+  },
+  {
+   "id": "233897",
+   "famille": "VEP",
+   "produit": "Chartreuse Verte V.E.P. Mise 2017 3L.",
+   "cote_2026": 3386.58,
+   "serie_2021_2026": [
+    2801.2,
+    3386.58
+   ],
+   "nb_adj_affichees": 2,
+   "derniere_vente": "2025-04-18",
+   "adj_min": 2622.0,
+   "adj_max": 2980.0,
+   "adjudications": [
+    {
+     "date": "2025-03-14",
+     "prix": 2980.0
+    },
+    {
+     "date": "2025-04-18",
+     "prix": 2622.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/233897"
+  },
+  {
+   "id": "231261",
+   "famille": "VEP",
+   "produit": "Chartreuse Verte V.E.P. Mise 2018 1L.",
+   "cote_2026": 387.4,
+   "serie_2021_2026": [
+    309.92,
+    320.44,
+    387.4
+   ],
+   "nb_adj_affichees": 2,
+   "derniere_vente": "2026-06-12",
+   "adj_min": 310.0,
+   "adj_max": 477.0,
+   "adjudications": [
+    {
+     "date": "2024-03-08",
+     "prix": 310.0
+    },
+    {
+     "date": "2026-06-12",
+     "prix": 477.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/231261"
+  },
+  {
+   "id": "231262",
+   "famille": "VEP",
+   "produit": "Chartreuse Verte V.E.P. Mise 2019 1L.",
+   "cote_2026": 405.28,
+   "serie_2021_2026": [
+    327.8,
+    338.93,
+    405.28
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2026-04-24",
+   "adj_min": 310.0,
+   "adj_max": 405.0,
+   "adjudications": [
+    {
+     "date": "2024-03-08",
+     "prix": 310.0
+    },
+    {
+     "date": "2024-04-19",
+     "prix": 405.0
+    },
+    {
+     "date": "2026-04-24",
+     "prix": 405.0
+    },
+    {
+     "date": "2026-04-24",
+     "prix": 405.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/231262"
+  },
+  {
+   "id": "168152",
+   "famille": "VEP",
+   "produit": "Chartreuse Verte V.E.P. Mise 2020 1L.",
+   "cote_2026": 389.1,
+   "serie_2021_2026": [
+    399.32,
+    309.92,
+    321.84,
+    389.1
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2025-07-18",
+   "adj_min": 310.0,
+   "adj_max": 405.0,
+   "adjudications": [
+    {
+     "date": "2025-04-18",
+     "prix": 322.0
+    },
+    {
+     "date": "2025-04-18",
+     "prix": 310.0
+    },
+    {
+     "date": "2025-06-06",
+     "prix": 322.0
+    },
+    {
+     "date": "2025-07-18",
+     "prix": 405.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/168152"
+  },
+  {
+   "id": "214729",
+   "famille": "VEP",
+   "produit": "Chartreuse Verte V.E.P. Mise 2021 1L.",
+   "cote_2026": 374.69,
+   "serie_2021_2026": [
+    271.4,
+    298.0,
+    309.92,
+    374.69
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2025-06-06",
+   "adj_min": 298.0,
+   "adj_max": 322.0,
+   "adjudications": [
+    {
+     "date": "2025-04-18",
+     "prix": 298.0
+    },
+    {
+     "date": "2025-04-18",
+     "prix": 322.0
+    },
+    {
+     "date": "2025-06-06",
+     "prix": 310.0
+    },
+    {
+     "date": "2025-06-06",
+     "prix": 310.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/214729"
+  },
+  {
+   "id": "187789",
+   "famille": "VEP",
+   "produit": "Chartreuse Verte V.E.P. Mise 2022 1L.",
+   "cote_2026": 374.69,
+   "serie_2021_2026": [
+    325.68,
+    247.8,
+    321.84,
+    309.92,
+    374.69
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2025-07-18",
+   "adj_min": 286.0,
+   "adj_max": 346.0,
+   "adjudications": [
+    {
+     "date": "2025-04-18",
+     "prix": 286.0
+    },
+    {
+     "date": "2025-06-06",
+     "prix": 310.0
+    },
+    {
+     "date": "2025-06-06",
+     "prix": 310.0
+    },
+    {
+     "date": "2025-07-18",
+     "prix": 346.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/187789"
+  },
+  {
+   "id": "215990",
+   "famille": "VEP",
+   "produit": "Chartreuse Verte V.E.P. Mise 2023 1L.",
+   "cote_2026": 389.1,
+   "serie_2021_2026": [
+    309.92,
+    369.52,
+    321.84,
+    389.1
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2026-07-17",
+   "adj_min": 322.0,
+   "adj_max": 429.0,
+   "adjudications": [
+    {
+     "date": "2025-07-18",
+     "prix": 358.0
+    },
+    {
+     "date": "2025-07-18",
+     "prix": 405.0
+    },
+    {
+     "date": "2025-11-14",
+     "prix": 322.0
+    },
+    {
+     "date": "2026-07-17",
+     "prix": 429.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/215990"
+  },
+  {
+   "id": "233023",
+   "famille": "VEP",
+   "produit": "Chartreuse Verte V.E.P. Mise 2024 1L.",
+   "cote_2026": 405.28,
+   "serie_2021_2026": [
+    309.92,
+    298.0,
+    405.28
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2026-07-17",
+   "adj_min": 298.0,
+   "adj_max": 477.0,
+   "adjudications": [
+    {
+     "date": "2025-04-18",
+     "prix": 298.0
+    },
+    {
+     "date": "2026-03-13",
+     "prix": 477.0
+    },
+    {
+     "date": "2026-06-12",
+     "prix": 405.0
+    },
+    {
+     "date": "2026-07-17",
+     "prix": 405.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/233023"
+  },
+  {
+   "id": "178566",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Episcopale du IIIe Millénaire 1L.",
+   "cote_2026": 1370.8,
+   "serie_2021_2026": [
+    1180.0,
+    1180.0,
+    1192.0,
+    1192.0,
+    1221.8,
+    1370.8
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2026-04-24",
+   "adj_min": 1013.0,
+   "adj_max": 1609.0,
+   "adjudications": [
+    {
+     "date": "2025-04-18",
+     "prix": 1013.0
+    },
+    {
+     "date": "2025-06-06",
+     "prix": 1609.0
+    },
+    {
+     "date": "2025-11-14",
+     "prix": 1311.0
+    },
+    {
+     "date": "2026-04-24",
+     "prix": 1371.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/178566"
+  },
+  {
+   "id": "234704",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Fous de Chartreuse Mise 2018 - One of 400 1L.",
+   "cote_2026": 518.79,
+   "serie_2021_2026": [
+    429.12,
+    518.79
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2025-04-18",
+   "adj_min": 429.0,
+   "adj_max": 429.0,
+   "adjudications": [
+    {
+     "date": "2025-04-18",
+     "prix": 429.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/234704"
+  },
+  {
+   "id": "231238",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Fous de Chartreuse Mise 2020 50cl.",
+   "cote_2026": 208.6,
+   "serie_2021_2026": [
+    166.88,
+    172.54,
+    208.6
+   ],
+   "nb_adj_affichees": 3,
+   "derniere_vente": "2024-11-15",
+   "adj_min": 167.0,
+   "adj_max": 191.0,
+   "adjudications": [
+    {
+     "date": "2024-03-08",
+     "prix": 167.0
+    },
+    {
+     "date": "2024-11-15",
+     "prix": 167.0
+    },
+    {
+     "date": "2024-11-15",
+     "prix": 191.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/231238"
+  },
+  {
+   "id": "231239",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Fous de Chartreuse Mise 2021 35cl.",
+   "cote_2026": 131.86,
+   "serie_2021_2026": [
+    105.49,
+    109.07,
+    131.86
+   ],
+   "nb_adj_affichees": 2,
+   "derniere_vente": "2024-03-08",
+   "adj_min": 103.0,
+   "adj_max": 108.0,
+   "adjudications": [
+    {
+     "date": "2024-03-08",
+     "prix": 108.0
+    },
+    {
+     "date": "2024-03-08",
+     "prix": 103.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/231239"
+  },
+  {
+   "id": "232901",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Fous de Chartreuse Mise 2022 1L.",
+   "cote_2026": 447.01,
+   "serie_2021_2026": [
+    357.6,
+    369.74,
+    447.01
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2024-11-15",
+   "adj_min": 358.0,
+   "adj_max": 358.0,
+   "adjudications": [
+    {
+     "date": "2024-11-15",
+     "prix": 358.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/232901"
+  },
+  {
+   "id": "232885",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Fous de Chartreuse Mise 2022 35cl.",
+   "cote_2026": 126.65,
+   "serie_2021_2026": [
+    101.32,
+    104.76,
+    126.65
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2024-11-15",
+   "adj_min": 89.0,
+   "adj_max": 107.0,
+   "adjudications": [
+    {
+     "date": "2024-11-15",
+     "prix": 107.0
+    },
+    {
+     "date": "2024-11-15",
+     "prix": 89.0
+    },
+    {
+     "date": "2024-11-15",
+     "prix": 101.0
+    },
+    {
+     "date": "2024-11-15",
+     "prix": 101.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/232885"
+  },
+  {
+   "id": "232900",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Fous de Chartreuse Mise 2023 35cl.",
+   "cote_2026": 111.75,
+   "serie_2021_2026": [
+    89.4,
+    92.43,
+    111.75
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2024-11-15",
+   "adj_min": 83.0,
+   "adj_max": 95.0,
+   "adjudications": [
+    {
+     "date": "2024-11-15",
+     "prix": 89.0
+    },
+    {
+     "date": "2024-11-15",
+     "prix": 95.0
+    },
+    {
+     "date": "2024-11-15",
+     "prix": 83.0
+    },
+    {
+     "date": "2024-11-15",
+     "prix": 89.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/232900"
+  },
+  {
+   "id": "232902",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Fous de Chartreuse Mise 2023 70cl.",
+   "cote_2026": 432.1,
+   "serie_2021_2026": [
+    345.68,
+    357.41,
+    432.1
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2024-11-15",
+   "adj_min": 346.0,
+   "adj_max": 346.0,
+   "adjudications": [
+    {
+     "date": "2024-11-15",
+     "prix": 346.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/232902"
+  },
+  {
+   "id": "233059",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Jaune - Reine des Liqueurs Mise 2017 - 1084 bouteilles marché export",
+   "cote_2026": 518.79,
+   "serie_2021_2026": [
+    452.96,
+    429.12,
+    518.79
+   ],
+   "nb_adj_affichees": 2,
+   "derniere_vente": "2025-03-14",
+   "adj_min": 429.0,
+   "adj_max": 453.0,
+   "adjudications": [
+    {
+     "date": "2024-11-15",
+     "prix": 453.0
+    },
+    {
+     "date": "2025-03-14",
+     "prix": 429.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/233059"
+  },
+  {
+   "id": "206590",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Jaune - Reine des Liqueurs Mise 2018 - 2018 bouteilles",
+   "cote_2026": 432.33,
+   "serie_2021_2026": [
+    354.0,
+    401.2,
+    347.38,
+    357.6,
+    432.33
+   ],
+   "nb_adj_affichees": 3,
+   "derniere_vente": "2025-03-14",
+   "adj_min": 354.0,
+   "adj_max": 401.0,
+   "adjudications": [
+    {
+     "date": "2022-11-04",
+     "prix": 354.0
+    },
+    {
+     "date": "2023-03-17",
+     "prix": 401.0
+    },
+    {
+     "date": "2025-03-14",
+     "prix": 358.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/206590"
+  },
+  {
+   "id": "231248",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Jaune - Reine des Liqueurs Mise 2019 - 1300 bouteilles marché export",
+   "cote_2026": 387.4,
+   "serie_2021_2026": [
+    309.92,
+    320.44,
+    387.4
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2024-03-08",
+   "adj_min": 310.0,
+   "adj_max": 322.0,
+   "adjudications": [
+    {
+     "date": "2024-03-08",
+     "prix": 322.0
+    },
+    {
+     "date": "2024-03-08",
+     "prix": 310.0
+    },
+    {
+     "date": "2024-03-08",
+     "prix": 322.0
+    },
+    {
+     "date": "2024-03-08",
+     "prix": 310.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/231248"
+  },
+  {
+   "id": "231247",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Jaune - Reine des Liqueurs Mise 2019 - 2019 bouteilles",
+   "cote_2026": 410.71,
+   "serie_2021_2026": [
+    339.72,
+    410.71
+   ],
+   "nb_adj_affichees": 2,
+   "derniere_vente": "2025-04-18",
+   "adj_min": 334.0,
+   "adj_max": 346.0,
+   "adjudications": [
+    {
+     "date": "2025-03-14",
+     "prix": 334.0
+    },
+    {
+     "date": "2025-04-18",
+     "prix": 346.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/231247"
+  },
+  {
+   "id": "231267",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Jaune - Reine des Liqueurs Mise 2020 - 1350 bouteilles marché export",
+   "cote_2026": 357.6,
+   "serie_2021_2026": [
+    286.08,
+    295.79,
+    357.6
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2024-03-08",
+   "adj_min": 274.0,
+   "adj_max": 298.0,
+   "adjudications": [
+    {
+     "date": "2024-03-08",
+     "prix": 274.0
+    },
+    {
+     "date": "2024-03-08",
+     "prix": 286.0
+    },
+    {
+     "date": "2024-03-08",
+     "prix": 286.0
+    },
+    {
+     "date": "2024-03-08",
+     "prix": 298.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/231267"
+  },
+  {
+   "id": "231249",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Jaune - Reine des Liqueurs Mise 2020 - 2020 bouteilles",
+   "cote_2026": 389.1,
+   "serie_2021_2026": [
+    321.84,
+    389.1
+   ],
+   "nb_adj_affichees": 2,
+   "derniere_vente": "2025-03-14",
+   "adj_min": 310.0,
+   "adj_max": 334.0,
+   "adjudications": [
+    {
+     "date": "2025-03-14",
+     "prix": 334.0
+    },
+    {
+     "date": "2025-03-14",
+     "prix": 310.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/231249"
+  },
+  {
+   "id": "231268",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Jaune - Reine des Liqueurs Mise 2021 - 1700 bouteilles marché export",
+   "cote_2026": 357.6,
+   "serie_2021_2026": [
+    286.08,
+    295.79,
+    357.6
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2024-04-19",
+   "adj_min": 274.0,
+   "adj_max": 346.0,
+   "adjudications": [
+    {
+     "date": "2024-03-08",
+     "prix": 274.0
+    },
+    {
+     "date": "2024-03-08",
+     "prix": 274.0
+    },
+    {
+     "date": "2024-03-08",
+     "prix": 286.0
+    },
+    {
+     "date": "2024-04-19",
+     "prix": 346.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/231268"
+  },
+  {
+   "id": "214488",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Jaune - Reine des Liqueurs Mise 2021 - 2500 bouteilles",
+   "cote_2026": 389.1,
+   "serie_2021_2026": [
+    354.0,
+    306.51,
+    321.84,
+    389.1
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2025-06-06",
+   "adj_min": 286.0,
+   "adj_max": 334.0,
+   "adjudications": [
+    {
+     "date": "2025-04-18",
+     "prix": 286.0
+    },
+    {
+     "date": "2025-04-18",
+     "prix": 298.0
+    },
+    {
+     "date": "2025-06-06",
+     "prix": 322.0
+    },
+    {
+     "date": "2025-06-06",
+     "prix": 334.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/214488"
+  },
+  {
+   "id": "209451",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Jaune - Reine des Liqueurs Mise 2022 - 1700 bouteilles marché export",
+   "cote_2026": 309.64,
+   "serie_2021_2026": [
+    283.2,
+    286.08,
+    247.71,
+    256.12,
+    309.64
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2022-12-09",
+   "adj_min": 283.0,
+   "adj_max": 283.0,
+   "adjudications": [
+    {
+     "date": "2022-12-09",
+     "prix": 283.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/209451"
+  },
+  {
+   "id": "215009",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Jaune - Reine des Liqueurs Mise 2022 - 2400 bouteilles",
+   "cote_2026": 374.69,
+   "serie_2021_2026": [
+    318.6,
+    275.86,
+    309.92,
+    374.69
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2025-06-06",
+   "adj_min": 274.0,
+   "adj_max": 346.0,
+   "adjudications": [
+    {
+     "date": "2025-03-14",
+     "prix": 334.0
+    },
+    {
+     "date": "2025-04-18",
+     "prix": 286.0
+    },
+    {
+     "date": "2025-04-18",
+     "prix": 274.0
+    },
+    {
+     "date": "2025-06-06",
+     "prix": 346.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/215009"
+  },
+  {
+   "id": "231236",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Jaune - Reine des Liqueurs Mise 2023 - 1700 bouteilles",
+   "cote_2026": 374.69,
+   "serie_2021_2026": [
+    286.08,
+    309.92,
+    374.69
+   ],
+   "nb_adj_affichees": 3,
+   "derniere_vente": "2025-11-14",
+   "adj_min": 286.0,
+   "adj_max": 322.0,
+   "adjudications": [
+    {
+     "date": "2024-03-08",
+     "prix": 286.0
+    },
+    {
+     "date": "2025-01-24",
+     "prix": 298.0
+    },
+    {
+     "date": "2025-11-14",
+     "prix": 322.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/231236"
+  },
+  {
+   "id": "232884",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Jaune - Reine des Liqueurs Mise 2023 - 2400 bouteilles",
+   "cote_2026": 331.45,
+   "serie_2021_2026": [
+    333.76,
+    274.16,
+    331.45
+   ],
+   "nb_adj_affichees": 2,
+   "derniere_vente": "2025-04-18",
+   "adj_min": 274.0,
+   "adj_max": 334.0,
+   "adjudications": [
+    {
+     "date": "2024-11-15",
+     "prix": 334.0
+    },
+    {
+     "date": "2025-04-18",
+     "prix": 274.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/232884"
+  },
+  {
+   "id": "224370",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Jaune 1903-2003 Commémorative de l'arrivée à Tarragone",
+   "cote_2026": 1490.01,
+   "serie_2021_2026": [
+    1549.6,
+    1192.0,
+    1232.46,
+    1490.01
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2026-07-17",
+   "adj_min": 1192.0,
+   "adj_max": 1788.0,
+   "adjudications": [
+    {
+     "date": "2023-07-21",
+     "prix": 1550.0
+    },
+    {
+     "date": "2024-01-19",
+     "prix": 1192.0
+    },
+    {
+     "date": "2025-12-12",
+     "prix": 1490.0
+    },
+    {
+     "date": "2026-07-17",
+     "prix": 1788.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/224370"
+  },
+  {
+   "id": "215869",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Jaune Edition Cuivre - Mise 2021 3L.",
+   "cote_2026": 2125.62,
+   "serie_2021_2026": [
+    1758.2,
+    2125.62
+   ],
+   "nb_adj_affichees": 3,
+   "derniere_vente": "2025-12-12",
+   "adj_min": 1609.0,
+   "adj_max": 1907.0,
+   "adjudications": [
+    {
+     "date": "2025-03-14",
+     "prix": 1609.0
+    },
+    {
+     "date": "2025-04-18",
+     "prix": 1907.0
+    },
+    {
+     "date": "2025-12-12",
+     "prix": 1907.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/215869"
+  },
+  {
+   "id": "231240",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Jaune Fêtes de la Chartreuse 2021 Edition Limitée",
+   "cote_2026": 87.17,
+   "serie_2021_2026": [
+    69.73,
+    72.1,
+    87.17
+   ],
+   "nb_adj_affichees": 2,
+   "derniere_vente": "2024-03-08",
+   "adj_min": 61.0,
+   "adj_max": 79.0,
+   "adjudications": [
+    {
+     "date": "2024-03-08",
+     "prix": 61.0
+    },
+    {
+     "date": "2024-03-08",
+     "prix": 79.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/231240"
+  },
+  {
+   "id": "222769",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Jaune Les Fêtes de la Chartreuse 2023 Edition Limitée",
+   "cote_2026": 67.05,
+   "serie_2021_2026": [
+    53.64,
+    55.46,
+    67.05
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2024-08-02",
+   "adj_min": 42.0,
+   "adj_max": 50.0,
+   "adjudications": [
+    {
+     "date": "2024-08-02",
+     "prix": 42.0
+    },
+    {
+     "date": "2024-08-02",
+     "prix": 50.0
+    },
+    {
+     "date": "2024-08-02",
+     "prix": 50.0
+    },
+    {
+     "date": "2024-08-02",
+     "prix": 50.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/222769"
+  },
+  {
+   "id": "231389",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Jaune Santa Tecla 2004 - One of 4000",
+   "cote_2026": 745.01,
+   "serie_2021_2026": [
+    596.0,
+    616.23,
+    745.01
+   ],
+   "nb_adj_affichees": 2,
+   "derniere_vente": "2024-04-19",
+   "adj_min": 596.0,
+   "adj_max": 596.0,
+   "adjudications": [
+    {
+     "date": "2024-04-19",
+     "prix": 596.0
+    },
+    {
+     "date": "2024-04-19",
+     "prix": 596.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/231389"
+  },
+  {
+   "id": "180303",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Jaune Santa Tecla 2006 Serie Limitada",
+   "cote_2026": 438.65,
+   "serie_2021_2026": [
+    401.2,
+    405.28,
+    350.92,
+    362.83,
+    438.65
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2022-02-11",
+   "adj_min": 401.0,
+   "adj_max": 401.0,
+   "adjudications": [
+    {
+     "date": "2022-02-11",
+     "prix": 401.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/180303"
+  },
+  {
+   "id": "180304",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Jaune Santa Tecla 2007 Serie Limitada",
+   "cote_2026": 412.84,
+   "serie_2021_2026": [
+    377.6,
+    381.44,
+    330.27,
+    341.48,
+    412.84
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2022-02-11",
+   "adj_min": 378.0,
+   "adj_max": 378.0,
+   "adjudications": [
+    {
+     "date": "2022-02-11",
+     "prix": 378.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/180304"
+  },
+  {
+   "id": "180305",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Jaune Santa Tecla 2008 Serie Limitada",
+   "cote_2026": 412.84,
+   "serie_2021_2026": [
+    377.6,
+    381.44,
+    330.27,
+    341.48,
+    412.84
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2022-02-11",
+   "adj_min": 378.0,
+   "adj_max": 378.0,
+   "adjudications": [
+    {
+     "date": "2022-02-11",
+     "prix": 378.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/180305"
+  },
+  {
+   "id": "180307",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Jaune Santa Tecla 2011 Serie Limitada",
+   "cote_2026": 283.83,
+   "serie_2021_2026": [
+    259.6,
+    262.24,
+    227.06,
+    234.77,
+    283.83
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2022-02-11",
+   "adj_min": 260.0,
+   "adj_max": 260.0,
+   "adjudications": [
+    {
+     "date": "2022-02-11",
+     "prix": 260.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/180307"
+  },
+  {
+   "id": "180308",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Jaune Santa Tecla 2012 Serie Limitada",
+   "cote_2026": 193.52,
+   "serie_2021_2026": [
+    177.0,
+    178.8,
+    154.82,
+    160.07,
+    193.52
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2022-02-11",
+   "adj_min": 177.0,
+   "adj_max": 177.0,
+   "adjudications": [
+    {
+     "date": "2022-02-11",
+     "prix": 177.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/180308"
+  },
+  {
+   "id": "230716",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Jaune Santa Tecla 2017 Serie Limitada",
+   "cote_2026": 178.8,
+   "serie_2021_2026": [
+    143.04,
+    147.89,
+    178.8
+   ],
+   "nb_adj_affichees": 3,
+   "derniere_vente": "2024-03-08",
+   "adj_min": 131.0,
+   "adj_max": 143.0,
+   "adjudications": [
+    {
+     "date": "2024-01-19",
+     "prix": 143.0
+    },
+    {
+     "date": "2024-03-08",
+     "prix": 131.0
+    },
+    {
+     "date": "2024-03-08",
+     "prix": 143.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/230716"
+  },
+  {
+   "id": "231232",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Jaune Santa Tecla 2018 Serie Limitada",
+   "cote_2026": 163.9,
+   "serie_2021_2026": [
+    131.12,
+    135.57,
+    163.9
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2024-04-19",
+   "adj_min": 119.0,
+   "adj_max": 191.0,
+   "adjudications": [
+    {
+     "date": "2024-03-08",
+     "prix": 119.0
+    },
+    {
+     "date": "2024-03-08",
+     "prix": 131.0
+    },
+    {
+     "date": "2024-03-08",
+     "prix": 131.0
+    },
+    {
+     "date": "2024-04-19",
+     "prix": 191.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/231232"
+  },
+  {
+   "id": "231231",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Jaune Santa Tecla 2019 Serie Limitada",
+   "cote_2026": 163.9,
+   "serie_2021_2026": [
+    131.12,
+    135.57,
+    163.9
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2024-12-13",
+   "adj_min": 131.0,
+   "adj_max": 203.0,
+   "adjudications": [
+    {
+     "date": "2024-03-08",
+     "prix": 143.0
+    },
+    {
+     "date": "2024-03-08",
+     "prix": 131.0
+    },
+    {
+     "date": "2024-04-19",
+     "prix": 203.0
+    },
+    {
+     "date": "2024-12-13",
+     "prix": 203.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/231231"
+  },
+  {
+   "id": "172316",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Jaune Santa Tecla 2020 Serie Limitada",
+   "cote_2026": 149.01,
+   "serie_2021_2026": [
+    94.4,
+    94.4,
+    95.36,
+    119.2,
+    123.25,
+    149.01
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2024-06-07",
+   "adj_min": 143.0,
+   "adj_max": 167.0,
+   "adjudications": [
+    {
+     "date": "2024-04-19",
+     "prix": 167.0
+    },
+    {
+     "date": "2024-04-19",
+     "prix": 155.0
+    },
+    {
+     "date": "2024-06-07",
+     "prix": 143.0
+    },
+    {
+     "date": "2024-06-07",
+     "prix": 143.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/172316"
+  },
+  {
+   "id": "231235",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Jaune Santa Tecla 2021 Serie Limitada",
+   "cote_2026": 149.01,
+   "serie_2021_2026": [
+    119.2,
+    123.25,
+    149.01
+   ],
+   "nb_adj_affichees": 3,
+   "derniere_vente": "2024-03-08",
+   "adj_min": 119.0,
+   "adj_max": 131.0,
+   "adjudications": [
+    {
+     "date": "2024-03-08",
+     "prix": 119.0
+    },
+    {
+     "date": "2024-03-08",
+     "prix": 119.0
+    },
+    {
+     "date": "2024-03-08",
+     "prix": 131.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/231235"
+  },
+  {
+   "id": "231431",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Jaune Une Chartreuse Mise 2017",
+   "cote_2026": 4023.03,
+   "serie_2021_2026": [
+    3218.4,
+    3327.64,
+    4023.03
+   ],
+   "nb_adj_affichees": 2,
+   "derniere_vente": "2025-12-12",
+   "adj_min": 3099.0,
+   "adj_max": 3218.0,
+   "adjudications": [
+    {
+     "date": "2024-04-19",
+     "prix": 3218.0
+    },
+    {
+     "date": "2025-12-12",
+     "prix": 3099.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/231431"
+  },
+  {
+   "id": "230969",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Liqueur d'Elixir 1605",
+   "cote_2026": 100.88,
+   "serie_2021_2026": [
+    72.71,
+    83.44,
+    100.88
+   ],
+   "nb_adj_affichees": 3,
+   "derniere_vente": "2026-03-13",
+   "adj_min": 73.0,
+   "adj_max": 113.0,
+   "adjudications": [
+    {
+     "date": "2024-01-19",
+     "prix": 73.0
+    },
+    {
+     "date": "2025-06-06",
+     "prix": 83.0
+    },
+    {
+     "date": "2026-03-13",
+     "prix": 113.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/230969"
+  },
+  {
+   "id": "229193",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Liqueur d'Elixir 1605 3L",
+   "cote_2026": 461.15,
+   "serie_2021_2026": [
+    381.44,
+    461.15
+   ],
+   "nb_adj_affichees": 2,
+   "derniere_vente": "2025-04-18",
+   "adj_min": 381.0,
+   "adj_max": 381.0,
+   "adjudications": [
+    {
+     "date": "2025-03-14",
+     "prix": 381.0
+    },
+    {
+     "date": "2025-04-18",
+     "prix": 381.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/229193"
+  },
+  {
+   "id": "232883",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Liqueur d'Elixir 1605 Mise 2023",
+   "cote_2026": 74.5,
+   "serie_2021_2026": [
+    59.6,
+    61.62,
+    74.5
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2024-11-15",
+   "adj_min": 60.0,
+   "adj_max": 60.0,
+   "adjudications": [
+    {
+     "date": "2024-11-15",
+     "prix": 60.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/232883"
+  },
+  {
+   "id": "204069",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Liqueur du 9e Centenaire 70cl.",
+   "cote_2026": 206.42,
+   "serie_2021_2026": [
+    188.8,
+    190.72,
+    165.14,
+    170.74,
+    206.42
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2022-11-04",
+   "adj_min": 189.0,
+   "adj_max": 189.0,
+   "adjudications": [
+    {
+     "date": "2022-11-04",
+     "prix": 189.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/204069"
+  },
+  {
+   "id": "231215",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Liqueur du 9e Centenaire 75cl.",
+   "cote_2026": 543.86,
+   "serie_2021_2026": [
+    435.08,
+    449.85,
+    543.86
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2024-03-08",
+   "adj_min": 435.0,
+   "adj_max": 435.0,
+   "adjudications": [
+    {
+     "date": "2024-03-08",
+     "prix": 435.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/231215"
+  },
+  {
+   "id": "231004",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Liqueur du 9e Centenaire Mise 2017",
+   "cote_2026": 208.6,
+   "serie_2021_2026": [
+    166.88,
+    172.54,
+    208.6
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2024-01-19",
+   "adj_min": 167.0,
+   "adj_max": 167.0,
+   "adjudications": [
+    {
+     "date": "2024-01-19",
+     "prix": 167.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/231004"
+  },
+  {
+   "id": "230959",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Liqueur du 9e Centenaire Mise 2018",
+   "cote_2026": 134.1,
+   "serie_2021_2026": [
+    107.28,
+    110.92,
+    134.1
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2024-01-19",
+   "adj_min": 107.0,
+   "adj_max": 107.0,
+   "adjudications": [
+    {
+     "date": "2024-01-19",
+     "prix": 107.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/230959"
+  },
+  {
+   "id": "231233",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Liqueur du 9e Centenaire Mise 2019",
+   "cote_2026": 178.8,
+   "serie_2021_2026": [
+    143.04,
+    147.89,
+    178.8
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2024-03-08",
+   "adj_min": 143.0,
+   "adj_max": 143.0,
+   "adjudications": [
+    {
+     "date": "2024-03-08",
+     "prix": 143.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/231233"
+  },
+  {
+   "id": "230960",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Liqueur du 9e Centenaire Mise 2020",
+   "cote_2026": 115.48,
+   "serie_2021_2026": [
+    92.38,
+    95.52,
+    115.48
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2024-06-07",
+   "adj_min": 83.0,
+   "adj_max": 107.0,
+   "adjudications": [
+    {
+     "date": "2024-03-08",
+     "prix": 83.0
+    },
+    {
+     "date": "2024-04-19",
+     "prix": 95.0
+    },
+    {
+     "date": "2024-04-19",
+     "prix": 107.0
+    },
+    {
+     "date": "2024-06-07",
+     "prix": 107.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/230960"
+  },
+  {
+   "id": "231226",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Liqueur du 9e Centenaire Mise 2021",
+   "cote_2026": 111.25,
+   "serie_2021_2026": [
+    89.0,
+    92.02,
+    111.25
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2025-10-03",
+   "adj_min": 83.0,
+   "adj_max": 167.0,
+   "adjudications": [
+    {
+     "date": "2024-10-04",
+     "prix": 89.0
+    },
+    {
+     "date": "2024-10-04",
+     "prix": 89.0
+    },
+    {
+     "date": "2024-10-04",
+     "prix": 83.0
+    },
+    {
+     "date": "2025-10-03",
+     "prix": 167.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/231226"
+  },
+  {
+   "id": "210991",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Liqueur du 9e Centenaire Mise 2021 3L",
+   "cote_2026": 756.58,
+   "serie_2021_2026": [
+    708.0,
+    613.03,
+    625.8,
+    756.58
+   ],
+   "nb_adj_affichees": 3,
+   "derniere_vente": "2025-04-18",
+   "adj_min": 596.0,
+   "adj_max": 708.0,
+   "adjudications": [
+    {
+     "date": "2023-03-17",
+     "prix": 708.0
+    },
+    {
+     "date": "2025-03-14",
+     "prix": 656.0
+    },
+    {
+     "date": "2025-04-18",
+     "prix": 596.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/210991"
+  },
+  {
+   "id": "214489",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Liqueur du 9e Centenaire Mise 2022",
+   "cote_2026": 107.28,
+   "serie_2021_2026": [
+    83.78,
+    101.32,
+    104.76,
+    107.28
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2026-01-30",
+   "adj_min": 95.0,
+   "adj_max": 113.0,
+   "adjudications": [
+    {
+     "date": "2024-11-15",
+     "prix": 113.0
+    },
+    {
+     "date": "2024-11-15",
+     "prix": 107.0
+    },
+    {
+     "date": "2024-12-13",
+     "prix": 95.0
+    },
+    {
+     "date": "2026-01-30",
+     "prix": 107.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/214489"
+  },
+  {
+   "id": "234401",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Liqueur du 9e Centenaire Mise 2022 3L",
+   "cote_2026": 864.66,
+   "serie_2021_2026": [
+    715.2,
+    864.66
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2025-03-14",
+   "adj_min": 715.0,
+   "adj_max": 715.0,
+   "adjudications": [
+    {
+     "date": "2025-03-14",
+     "prix": 715.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/234401"
+  },
+  {
+   "id": "233102",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Liqueur du 9e Centenaire Mise 2024",
+   "cote_2026": 119.2,
+   "serie_2021_2026": [
+    95.36,
+    98.6,
+    119.2
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2024-12-13",
+   "adj_min": 95.0,
+   "adj_max": 95.0,
+   "adjudications": [
+    {
+     "date": "2024-12-13",
+     "prix": 95.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/233102"
+  },
+  {
+   "id": "230968",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Liqueur du foudre 147",
+   "cote_2026": 158.52,
+   "serie_2021_2026": [
+    107.28,
+    131.12,
+    158.52
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2025-04-18",
+   "adj_min": 131.0,
+   "adj_max": 167.0,
+   "adjudications": [
+    {
+     "date": "2025-01-24",
+     "prix": 131.0
+    },
+    {
+     "date": "2025-01-24",
+     "prix": 131.0
+    },
+    {
+     "date": "2025-01-24",
+     "prix": 131.0
+    },
+    {
+     "date": "2025-04-18",
+     "prix": 167.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/230968"
+  },
+  {
+   "id": "222771",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Liqueur du foudre 147 Mise 2023",
+   "cote_2026": 149.01,
+   "serie_2021_2026": [
+    143.04,
+    119.2,
+    123.25,
+    149.01
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2026-06-12",
+   "adj_min": 119.0,
+   "adj_max": 453.0,
+   "adjudications": [
+    {
+     "date": "2024-11-15",
+     "prix": 119.0
+    },
+    {
+     "date": "2025-06-06",
+     "prix": 334.0
+    },
+    {
+     "date": "2025-11-14",
+     "prix": 453.0
+    },
+    {
+     "date": "2026-06-12",
+     "prix": 167.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/222771"
+  },
+  {
+   "id": "233024",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Liqueur du foudre 147 Mise 2024",
+   "cote_2026": 126.65,
+   "serie_2021_2026": [
+    101.32,
+    104.76,
+    126.65
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2026-03-13",
+   "adj_min": 101.0,
+   "adj_max": 149.0,
+   "adjudications": [
+    {
+     "date": "2024-11-15",
+     "prix": 101.0
+    },
+    {
+     "date": "2024-11-15",
+     "prix": 101.0
+    },
+    {
+     "date": "2024-11-15",
+     "prix": 119.0
+    },
+    {
+     "date": "2026-03-13",
+     "prix": 149.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/233024"
+  },
+  {
+   "id": "208912",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Marseille 1921-2021 One of 760",
+   "cote_2026": 4768.0,
+   "serie_2021_2026": [
+    6903.0,
+    6832.8,
+    5916.25,
+    4768.0,
+    4768.0
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2026-03-13",
+   "adj_min": 4291.0,
+   "adj_max": 5364.0,
+   "adjudications": [
+    {
+     "date": "2023-07-21",
+     "prix": 5364.0
+    },
+    {
+     "date": "2023-11-03",
+     "prix": 4291.0
+    },
+    {
+     "date": "2025-07-18",
+     "prix": 4768.0
+    },
+    {
+     "date": "2026-03-13",
+     "prix": 4768.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/208912"
+  },
+  {
+   "id": "231112",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Meilleurs Ouvriers de France Sommeliers Mise 2020",
+   "cote_2026": 95.36,
+   "serie_2021_2026": [
+    81.65,
+    84.42,
+    95.36
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2026-01-30",
+   "adj_min": 73.0,
+   "adj_max": 226.0,
+   "adjudications": [
+    {
+     "date": "2024-01-19",
+     "prix": 73.0
+    },
+    {
+     "date": "2024-03-08",
+     "prix": 91.0
+    },
+    {
+     "date": "2025-10-03",
+     "prix": 226.0
+    },
+    {
+     "date": "2026-01-30",
+     "prix": 95.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/231112"
+  },
+  {
+   "id": "219714",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Meilleurs Ouvriers de France Sommeliers Mise 2021",
+   "cote_2026": 96.85,
+   "serie_2021_2026": [
+    95.36,
+    77.48,
+    80.11,
+    96.85
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2026-01-30",
+   "adj_min": 77.0,
+   "adj_max": 107.0,
+   "adjudications": [
+    {
+     "date": "2024-03-08",
+     "prix": 77.0
+    },
+    {
+     "date": "2024-03-08",
+     "prix": 79.0
+    },
+    {
+     "date": "2024-03-08",
+     "prix": 83.0
+    },
+    {
+     "date": "2026-01-30",
+     "prix": 107.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/219714"
+  },
+  {
+   "id": "217111",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Meilleurs Ouvriers de France Sommeliers Mise 2022",
+   "cote_2026": 89.4,
+   "serie_2021_2026": [
+    66.75,
+    77.48,
+    80.11,
+    89.4
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2026-01-30",
+   "adj_min": 77.0,
+   "adj_max": 119.0,
+   "adjudications": [
+    {
+     "date": "2024-11-15",
+     "prix": 77.0
+    },
+    {
+     "date": "2024-11-15",
+     "prix": 89.0
+    },
+    {
+     "date": "2025-10-03",
+     "prix": 119.0
+    },
+    {
+     "date": "2026-01-30",
+     "prix": 89.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/217111"
+  },
+  {
+   "id": "231224",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Meilleurs Ouvriers de France Sommeliers Mise 2022 3L.",
+   "cote_2026": 518.79,
+   "serie_2021_2026": [
+    429.12,
+    518.79
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2025-07-18",
+   "adj_min": 405.0,
+   "adj_max": 524.0,
+   "adjudications": [
+    {
+     "date": "2025-03-14",
+     "prix": 453.0
+    },
+    {
+     "date": "2025-04-18",
+     "prix": 405.0
+    },
+    {
+     "date": "2025-04-18",
+     "prix": 405.0
+    },
+    {
+     "date": "2025-07-18",
+     "prix": 524.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/231224"
+  },
+  {
+   "id": "235419",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Meilleurs Ouvriers de France Sommeliers Mise 2023",
+   "cote_2026": 107.28,
+   "serie_2021_2026": [
+    95.36,
+    107.28
+   ],
+   "nb_adj_affichees": 2,
+   "derniere_vente": "2026-01-30",
+   "adj_min": 95.0,
+   "adj_max": 107.0,
+   "adjudications": [
+    {
+     "date": "2025-10-03",
+     "prix": 95.0
+    },
+    {
+     "date": "2026-01-30",
+     "prix": 107.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/235419"
+  },
+  {
+   "id": "234344",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Meilleurs Ouvriers de France Sommeliers Mise 2023 3L",
+   "cote_2026": 489.97,
+   "serie_2021_2026": [
+    405.28,
+    489.97
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2025-03-14",
+   "adj_min": 405.0,
+   "adj_max": 405.0,
+   "adjudications": [
+    {
+     "date": "2025-03-14",
+     "prix": 405.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/234344"
+  },
+  {
+   "id": "234982",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Meilleurs Ouvriers de France Sommeliers Mise 2024",
+   "cote_2026": 108.08,
+   "serie_2021_2026": [
+    89.4,
+    108.08
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2025-06-06",
+   "adj_min": 89.0,
+   "adj_max": 89.0,
+   "adjudications": [
+    {
+     "date": "2025-06-06",
+     "prix": 89.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/234982"
+  },
+  {
+   "id": "233781",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Tau Mise 2018",
+   "cote_2026": 187.34,
+   "serie_2021_2026": [
+    154.96,
+    187.34
+   ],
+   "nb_adj_affichees": 2,
+   "derniere_vente": "2025-01-24",
+   "adj_min": 155.0,
+   "adj_max": 155.0,
+   "adjudications": [
+    {
+     "date": "2025-01-24",
+     "prix": 155.0
+    },
+    {
+     "date": "2025-01-24",
+     "prix": 155.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/233781"
+  },
+  {
+   "id": "233425",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Tau Mise 2019",
+   "cote_2026": 149.01,
+   "serie_2021_2026": [
+    119.2,
+    123.25,
+    149.01
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2024-12-13",
+   "adj_min": 119.0,
+   "adj_max": 119.0,
+   "adjudications": [
+    {
+     "date": "2024-12-13",
+     "prix": 119.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/233425"
+  },
+  {
+   "id": "231228",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Tau Mise 2020",
+   "cote_2026": 178.8,
+   "serie_2021_2026": [
+    143.04,
+    147.89,
+    178.8
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2026-01-30",
+   "adj_min": 143.0,
+   "adj_max": 179.0,
+   "adjudications": [
+    {
+     "date": "2024-06-07",
+     "prix": 143.0
+    },
+    {
+     "date": "2024-06-07",
+     "prix": 155.0
+    },
+    {
+     "date": "2024-06-07",
+     "prix": 155.0
+    },
+    {
+     "date": "2026-01-30",
+     "prix": 179.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/231228"
+  },
+  {
+   "id": "210090",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Tau Mise 2021 On Trade Cocktail Group",
+   "cote_2026": 149.01,
+   "serie_2021_2026": [
+    153.4,
+    119.2,
+    123.25,
+    149.01
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2026-01-30",
+   "adj_min": 119.0,
+   "adj_max": 179.0,
+   "adjudications": [
+    {
+     "date": "2024-03-08",
+     "prix": 119.0
+    },
+    {
+     "date": "2024-03-08",
+     "prix": 119.0
+    },
+    {
+     "date": "2024-03-08",
+     "prix": 119.0
+    },
+    {
+     "date": "2026-01-30",
+     "prix": 179.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/210090"
+  },
+  {
+   "id": "231229",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Tau Mise 2022",
+   "cote_2026": 178.8,
+   "serie_2021_2026": [
+    143.04,
+    147.89,
+    178.8
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2024-06-07",
+   "adj_min": 143.0,
+   "adj_max": 167.0,
+   "adjudications": [
+    {
+     "date": "2024-04-19",
+     "prix": 167.0
+    },
+    {
+     "date": "2024-06-07",
+     "prix": 143.0
+    },
+    {
+     "date": "2024-06-07",
+     "prix": 155.0
+    },
+    {
+     "date": "2024-06-07",
+     "prix": 155.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/231229"
+  },
+  {
+   "id": "235426",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Tau Mise 2023 On Trade Cocktail Group",
+   "cote_2026": 149.88,
+   "serie_2021_2026": [
+    123.97,
+    149.88
+   ],
+   "nb_adj_affichees": 2,
+   "derniere_vente": "2026-01-30",
+   "adj_min": 124.0,
+   "adj_max": 167.0,
+   "adjudications": [
+    {
+     "date": "2025-10-03",
+     "prix": 124.0
+    },
+    {
+     "date": "2026-01-30",
+     "prix": 167.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/235426"
+  },
+  {
+   "id": "235425",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Tau Mise 2024 On Trade Cocktail Group",
+   "cote_2026": 131.12,
+   "serie_2021_2026": [
+    120.39,
+    131.12
+   ],
+   "nb_adj_affichees": 2,
+   "derniere_vente": "2026-01-30",
+   "adj_min": 120.0,
+   "adj_max": 131.0,
+   "adjudications": [
+    {
+     "date": "2025-10-03",
+     "prix": 120.0
+    },
+    {
+     "date": "2026-01-30",
+     "prix": 131.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/235425"
+  },
+  {
+   "id": "231241",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Verte Fêtes de la Chartreuse 2021 Edition Limitée",
+   "cote_2026": 83.44,
+   "serie_2021_2026": [
+    66.75,
+    69.02,
+    83.44
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2024-03-08",
+   "adj_min": 67.0,
+   "adj_max": 67.0,
+   "adjudications": [
+    {
+     "date": "2024-03-08",
+     "prix": 67.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/231241"
+  },
+  {
+   "id": "222770",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Verte Les Fêtes de la Chartreuse 2023 Edition Limitée",
+   "cote_2026": 71.52,
+   "serie_2021_2026": [
+    77.48,
+    57.22,
+    59.16,
+    71.52
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2024-08-02",
+   "adj_min": 50.0,
+   "adj_max": 53.0,
+   "adjudications": [
+    {
+     "date": "2024-08-02",
+     "prix": 50.0
+    },
+    {
+     "date": "2024-08-02",
+     "prix": 50.0
+    },
+    {
+     "date": "2024-08-02",
+     "prix": 50.0
+    },
+    {
+     "date": "2024-08-02",
+     "prix": 53.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/222770"
+  },
+  {
+   "id": "211038",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Verte Mise 2017 Série Connectée",
+   "cote_2026": 156.38,
+   "serie_2021_2026": [
+    168.99,
+    125.1,
+    129.35,
+    156.38
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2024-12-13",
+   "adj_min": 119.0,
+   "adj_max": 171.0,
+   "adjudications": [
+    {
+     "date": "2023-02-03",
+     "prix": 171.0
+    },
+    {
+     "date": "2023-12-08",
+     "prix": 167.0
+    },
+    {
+     "date": "2024-10-04",
+     "prix": 131.0
+    },
+    {
+     "date": "2024-12-13",
+     "prix": 119.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/211038"
+  },
+  {
+   "id": "201591",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Verte Mise 2020 Aiguenoire - One of 20000",
+   "cote_2026": 141.55,
+   "serie_2021_2026": [
+    106.2,
+    131.12,
+    113.24,
+    117.08,
+    141.55
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2024-01-19",
+   "adj_min": 113.0,
+   "adj_max": 131.0,
+   "adjudications": [
+    {
+     "date": "2023-07-21",
+     "prix": 131.0
+    },
+    {
+     "date": "2023-11-03",
+     "prix": 113.0
+    },
+    {
+     "date": "2023-12-08",
+     "prix": 119.0
+    },
+    {
+     "date": "2024-01-19",
+     "prix": 113.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/201591"
+  },
+  {
+   "id": "231230",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Verte Santa Tecla 2014 Serie Limitada",
+   "cote_2026": 223.5,
+   "serie_2021_2026": [
+    178.8,
+    184.87,
+    223.5
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2024-03-08",
+   "adj_min": 179.0,
+   "adj_max": 179.0,
+   "adjudications": [
+    {
+     "date": "2024-03-08",
+     "prix": 179.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/231230"
+  },
+  {
+   "id": "231234",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Verte Santa Tecla 2019 Serie Limitada",
+   "cote_2026": 201.15,
+   "serie_2021_2026": [
+    160.92,
+    166.38,
+    201.15
+   ],
+   "nb_adj_affichees": 2,
+   "derniere_vente": "2024-03-08",
+   "adj_min": 143.0,
+   "adj_max": 179.0,
+   "adjudications": [
+    {
+     "date": "2024-03-08",
+     "prix": 179.0
+    },
+    {
+     "date": "2024-03-08",
+     "prix": 143.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/231234"
+  },
+  {
+   "id": "172318",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Verte Santa Tecla 2020 Serie Limitada",
+   "cote_2026": 149.01,
+   "serie_2021_2026": [
+    97.35,
+    97.35,
+    98.34,
+    119.2,
+    123.25,
+    149.01
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2024-03-08",
+   "adj_min": 113.0,
+   "adj_max": 119.0,
+   "adjudications": [
+    {
+     "date": "2024-03-08",
+     "prix": 119.0
+    },
+    {
+     "date": "2024-03-08",
+     "prix": 119.0
+    },
+    {
+     "date": "2024-03-08",
+     "prix": 119.0
+    },
+    {
+     "date": "2024-03-08",
+     "prix": 113.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/172318"
+  },
+  {
+   "id": "210089",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Verte Santa Tecla 2021 Serie Limitada",
+   "cote_2026": 149.01,
+   "serie_2021_2026": [
+    177.0,
+    119.2,
+    123.25,
+    149.01
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2024-03-08",
+   "adj_min": 113.0,
+   "adj_max": 177.0,
+   "adjudications": [
+    {
+     "date": "2023-02-03",
+     "prix": 177.0
+    },
+    {
+     "date": "2024-03-08",
+     "prix": 113.0
+    },
+    {
+     "date": "2024-03-08",
+     "prix": 119.0
+    },
+    {
+     "date": "2024-03-08",
+     "prix": 143.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/210089"
+  },
+  {
+   "id": "232298",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Verte Une Chartreuse Mise 2015",
+   "cote_2026": null,
+   "serie_2021_2026": [],
+   "nb_adj_affichees": 0,
+   "derniere_vente": "",
+   "adj_min": null,
+   "adj_max": null,
+   "adjudications": [],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/232298"
+  },
+  {
+   "id": "231430",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Verte Une Chartreuse Mise 2016",
+   "cote_2026": 3799.53,
+   "serie_2021_2026": [
+    3039.6,
+    3142.77,
+    3799.53
+   ],
+   "nb_adj_affichees": 2,
+   "derniere_vente": "2024-08-02",
+   "adj_min": 2980.0,
+   "adj_max": 3099.0,
+   "adjudications": [
+    {
+     "date": "2024-04-19",
+     "prix": 3099.0
+    },
+    {
+     "date": "2024-08-02",
+     "prix": 2980.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/231430"
+  },
+  {
+   "id": "232121",
+   "famille": "Éditions limitées",
+   "produit": "Chartreuse Verte Une Chartreuse Mise 2022 - One of 120",
+   "cote_2026": 3277.52,
+   "serie_2021_2026": [
+    2622.0,
+    2710.99,
+    3277.52
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2024-08-02",
+   "adj_min": 2622.0,
+   "adj_max": 2622.0,
+   "adjudications": [
+    {
+     "date": "2024-08-02",
+     "prix": 2622.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/232121"
+  },
+  {
+   "id": "233698",
+   "famille": "Mises courantes",
+   "produit": "Chartreuse Jaune",
+   "cote_2026": 116.73,
+   "serie_2021_2026": [
+    96.55,
+    116.73
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2025-12-12",
+   "adj_min": 57.0,
+   "adj_max": 191.0,
+   "adjudications": [
+    {
+     "date": "2025-03-14",
+     "prix": 191.0
+    },
+    {
+     "date": "2025-06-06",
+     "prix": 57.0
+    },
+    {
+     "date": "2025-06-06",
+     "prix": 97.0
+    },
+    {
+     "date": "2025-12-12",
+     "prix": 107.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/233698"
+  },
+  {
+   "id": "235420",
+   "famille": "Mises courantes",
+   "produit": "Chartreuse Jaune Mise 2016",
+   "cote_2026": 97.74,
+   "serie_2021_2026": [
+    132.31,
+    97.74
+   ],
+   "nb_adj_affichees": 2,
+   "derniere_vente": "2026-01-30",
+   "adj_min": 98.0,
+   "adj_max": 132.0,
+   "adjudications": [
+    {
+     "date": "2025-10-03",
+     "prix": 132.0
+    },
+    {
+     "date": "2026-01-30",
+     "prix": 98.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/235420"
+  },
+  {
+   "id": "235421",
+   "famille": "Mises courantes",
+   "produit": "Chartreuse Jaune Mise 2017 Trade Coktail Group Import",
+   "cote_2026": 116.73,
+   "serie_2021_2026": [
+    96.55,
+    116.73
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2025-10-03",
+   "adj_min": 97.0,
+   "adj_max": 97.0,
+   "adjudications": [
+    {
+     "date": "2025-10-03",
+     "prix": 97.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/235421"
+  },
+  {
+   "id": "235422",
+   "famille": "Mises courantes",
+   "produit": "Chartreuse Jaune Mise 2018",
+   "cote_2026": 116.73,
+   "serie_2021_2026": [
+    96.55,
+    116.73
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2025-10-03",
+   "adj_min": 97.0,
+   "adj_max": 97.0,
+   "adjudications": [
+    {
+     "date": "2025-10-03",
+     "prix": 97.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/235422"
+  },
+  {
+   "id": "231685",
+   "famille": "Mises courantes",
+   "produit": "Chartreuse Jaune Mise 2019",
+   "cote_2026": 73.9,
+   "serie_2021_2026": [
+    57.22,
+    59.16,
+    73.9
+   ],
+   "nb_adj_affichees": 2,
+   "derniere_vente": "2026-01-30",
+   "adj_min": 57.0,
+   "adj_max": 74.0,
+   "adjudications": [
+    {
+     "date": "2024-06-07",
+     "prix": 57.0
+    },
+    {
+     "date": "2026-01-30",
+     "prix": 74.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/231685"
+  },
+  {
+   "id": "235022",
+   "famille": "Mises courantes",
+   "produit": "Chartreuse Jaune Mise 2021",
+   "cote_2026": 85.03,
+   "serie_2021_2026": [
+    70.33,
+    85.03
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2025-06-06",
+   "adj_min": 70.0,
+   "adj_max": 70.0,
+   "adjudications": [
+    {
+     "date": "2025-06-06",
+     "prix": 70.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/235022"
+  },
+  {
+   "id": "223052",
+   "famille": "Mises courantes",
+   "produit": "Chartreuse Jaune Mise 2022",
+   "cote_2026": 41.27,
+   "serie_2021_2026": [
+    38.14,
+    33.02,
+    34.14,
+    41.27
+   ],
+   "nb_adj_affichees": 2,
+   "derniere_vente": "2023-07-21",
+   "adj_min": 38.0,
+   "adj_max": 38.0,
+   "adjudications": [
+    {
+     "date": "2023-07-21",
+     "prix": 38.0
+    },
+    {
+     "date": "2023-07-21",
+     "prix": 38.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/223052"
+  },
+  {
+   "id": "232903",
+   "famille": "Mises courantes",
+   "produit": "Chartreuse Jaune Mise 2023 35cl.",
+   "cote_2026": 49.18,
+   "serie_2021_2026": [
+    39.34,
+    40.68,
+    49.18
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2024-11-15",
+   "adj_min": 39.0,
+   "adj_max": 39.0,
+   "adjudications": [
+    {
+     "date": "2024-11-15",
+     "prix": 39.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/232903"
+  },
+  {
+   "id": "233045",
+   "famille": "Mises courantes",
+   "produit": "Chartreuse La Chartreuse bottled 2017 Velier 70 years old 50cl.",
+   "cote_2026": 149.01,
+   "serie_2021_2026": [
+    119.2,
+    123.25,
+    149.01
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2024-11-15",
+   "adj_min": 119.0,
+   "adj_max": 119.0,
+   "adjudications": [
+    {
+     "date": "2024-11-15",
+     "prix": 119.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/233045"
+  },
+  {
+   "id": "232927",
+   "famille": "Mises courantes",
+   "produit": "Chartreuse Verte",
+   "cote_2026": 121.05,
+   "serie_2021_2026": [
+    77.48,
+    100.13,
+    121.05
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2025-10-03",
+   "adj_min": 51.0,
+   "adj_max": 180.0,
+   "adjudications": [
+    {
+     "date": "2025-06-06",
+     "prix": 132.0
+    },
+    {
+     "date": "2025-06-06",
+     "prix": 108.0
+    },
+    {
+     "date": "2025-06-06",
+     "prix": 51.0
+    },
+    {
+     "date": "2025-10-03",
+     "prix": 180.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/232927"
+  },
+  {
+   "id": "233060",
+   "famille": "Mises courantes",
+   "produit": "Chartreuse Verte 250 ans",
+   "cote_2026": 208.6,
+   "serie_2021_2026": [
+    166.88,
+    172.54,
+    208.6
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2024-11-15",
+   "adj_min": 167.0,
+   "adj_max": 167.0,
+   "adjudications": [
+    {
+     "date": "2024-11-15",
+     "prix": 167.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/233060"
+  },
+  {
+   "id": "207789",
+   "famille": "Mises courantes",
+   "produit": "Chartreuse Verte 3L",
+   "cote_2026": 593.46,
+   "serie_2021_2026": [
+    542.8,
+    548.32,
+    474.77,
+    490.88,
+    593.46
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2022-12-09",
+   "adj_min": 543.0,
+   "adj_max": 543.0,
+   "adjudications": [
+    {
+     "date": "2022-12-09",
+     "prix": 543.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/207789"
+  },
+  {
+   "id": "235424",
+   "famille": "Mises courantes",
+   "produit": "Chartreuse Verte Mise 2017 Trade Coktail Group Import",
+   "cote_2026": 125.37,
+   "serie_2021_2026": [
+    103.7,
+    125.37
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2025-10-03",
+   "adj_min": 104.0,
+   "adj_max": 104.0,
+   "adjudications": [
+    {
+     "date": "2025-10-03",
+     "prix": 104.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/235424"
+  },
+  {
+   "id": "235423",
+   "famille": "Mises courantes",
+   "produit": "Chartreuse Verte Mise 2019",
+   "cote_2026": 73.9,
+   "serie_2021_2026": [
+    91.78,
+    73.9
+   ],
+   "nb_adj_affichees": 2,
+   "derniere_vente": "2026-01-30",
+   "adj_min": 74.0,
+   "adj_max": 92.0,
+   "adjudications": [
+    {
+     "date": "2025-10-03",
+     "prix": 92.0
+    },
+    {
+     "date": "2026-01-30",
+     "prix": 74.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/235423"
+  },
+  {
+   "id": "209070",
+   "famille": "Mises courantes",
+   "produit": "Chartreuse Verte Mise 2020",
+   "cote_2026": 48.37,
+   "serie_2021_2026": [
+    44.25,
+    44.7,
+    38.7,
+    40.01,
+    48.37
+   ],
+   "nb_adj_affichees": 3,
+   "derniere_vente": "2026-01-30",
+   "adj_min": 42.0,
+   "adj_max": 74.0,
+   "adjudications": [
+    {
+     "date": "2022-12-09",
+     "prix": 46.0
+    },
+    {
+     "date": "2022-12-09",
+     "prix": 42.0
+    },
+    {
+     "date": "2026-01-30",
+     "prix": 74.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/209070"
+  },
+  {
+   "id": "223053",
+   "famille": "Mises courantes",
+   "produit": "Chartreuse Verte Mise 2022",
+   "cote_2026": 46.44,
+   "serie_2021_2026": [
+    42.91,
+    37.15,
+    38.41,
+    46.44
+   ],
+   "nb_adj_affichees": 2,
+   "derniere_vente": "2023-07-21",
+   "adj_min": 43.0,
+   "adj_max": 43.0,
+   "adjudications": [
+    {
+     "date": "2023-07-21",
+     "prix": 43.0
+    },
+    {
+     "date": "2023-07-21",
+     "prix": 43.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/223053"
+  },
+  {
+   "id": "235131",
+   "famille": "Mises courantes",
+   "produit": "Chartreuse Verte Mise 2023",
+   "cote_2026": 82.14,
+   "serie_2021_2026": [
+    67.94,
+    82.14
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2025-07-18",
+   "adj_min": 68.0,
+   "adj_max": 68.0,
+   "adjudications": [
+    {
+     "date": "2025-07-18",
+     "prix": 68.0
+    }
+   ],
+   "vivante_2025_2026": true,
+   "url": "https://www.finespirits.auction/fr/prix-spi/235131"
+  },
+  {
+   "id": "231227",
+   "famille": "Mises courantes",
+   "produit": "Chartreuse Verte Mise 2023 Coffret avec 2 verres",
+   "cote_2026": 75.98,
+   "serie_2021_2026": [
+    60.79,
+    62.85,
+    75.98
+   ],
+   "nb_adj_affichees": 4,
+   "derniere_vente": "2024-03-08",
+   "adj_min": 57.0,
+   "adj_max": 67.0,
+   "adjudications": [
+    {
+     "date": "2024-03-08",
+     "prix": 67.0
+    },
+    {
+     "date": "2024-03-08",
+     "prix": 61.0
+    },
+    {
+     "date": "2024-03-08",
+     "prix": 57.0
+    },
+    {
+     "date": "2024-03-08",
+     "prix": 61.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/231227"
+  },
+  {
+   "id": "214509",
+   "famille": "Élixir végétal",
+   "produit": "Chartreuse Elixir Végétal",
+   "cote_2026": 153.26,
+   "serie_2021_2026": [
+    141.6,
+    122.61,
+    126.77,
+    153.26
+   ],
+   "nb_adj_affichees": 1,
+   "derniere_vente": "2023-03-17",
+   "adj_min": 142.0,
+   "adj_max": 142.0,
+   "adjudications": [
+    {
+     "date": "2023-03-17",
+     "prix": 142.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/214509"
+  },
+  {
+   "id": "231072",
+   "famille": "Élixir végétal",
+   "produit": "Chartreuse Elixir Végétal Porcelain decanter 100ml.",
+   "cote_2026": 78.97,
+   "serie_2021_2026": [
+    63.18,
+    65.32,
+    78.97
+   ],
+   "nb_adj_affichees": 3,
+   "derniere_vente": "2024-11-15",
+   "adj_min": 51.0,
+   "adj_max": 86.0,
+   "adjudications": [
+    {
+     "date": "2024-01-19",
+     "prix": 86.0
+    },
+    {
+     "date": "2024-11-15",
+     "prix": 63.0
+    },
+    {
+     "date": "2024-11-15",
+     "prix": 51.0
+    }
+   ],
+   "vivante_2025_2026": false,
+   "url": "https://www.finespirits.auction/fr/prix-spi/231072"
+  }
+ ]
+}
