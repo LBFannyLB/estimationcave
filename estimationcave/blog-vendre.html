@@ -77,56 +77,234 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
-        :root { --bordeaux-hover: #3D2940; --border-strong: rgba(45, 27, 46, 0.16); --ease: cubic-bezier(0.33, 1, 0.68, 1); }
-        a { text-decoration: none; color: inherit; }
-        .bs-hero { max-width: 880px; margin: 0 auto; padding: clamp(3rem, 6vw, 4.5rem) 1.5rem 2rem; text-align: center; }
-        .bs-breadcrumb { font-size: 0.75rem; letter-spacing: 0.04em; color: var(--texte-light); margin-bottom: 1.75rem; }
-        .bs-breadcrumb a { color: var(--texte-light); border-bottom: 1px solid transparent; transition: color 0.25s var(--ease), border-color 0.25s var(--ease); }
-        .bs-breadcrumb a:hover { color: var(--or); border-bottom-color: var(--or); }
-        .bs-breadcrumb .sep { margin: 0 0.5rem; opacity: 0.5; }
-        .bs-eyebrow { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--or); font-weight: 500; margin-bottom: 1.25rem; }
-        .bs-eyebrow svg { width: 18px; height: 18px; }
-        .bs-hero h1 { font-family: var(--font-display); font-weight: 500; font-size: clamp(2.25rem, 4.5vw, 3.25rem); line-height: 1.1; letter-spacing: -0.018em; color: var(--bordeaux); margin: 0 0 1.25rem; text-wrap: balance; }
-        .bs-hero p { font-size: 1.05rem; line-height: 1.65; color: var(--texte-light); max-width: 600px; margin: 0 auto; }
-        .bs-listing { max-width: 1180px; margin: 0 auto; padding: 1rem 1.5rem 4rem; }
-        .bs-listing__count { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--texte-light); font-weight: 500; margin: 0 0 1.5rem; display: flex; align-items: center; gap: 0.85rem; }
-        .bs-listing__count::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-        .bs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-        .bs-article { background: var(--blanc); border: 1px solid var(--border); border-radius: 4px; padding: 1.75rem 1.6rem 1.5rem; display: flex; flex-direction: column; text-decoration: none; transition: all 0.3s var(--ease); position: relative; min-height: 240px; }
-        .bs-article:hover { border-color: var(--or); transform: translateY(-2px); box-shadow: 0 12px 30px rgba(45, 27, 46, 0.06); }
-        .bs-article--guide { background: rgba(197, 162, 88, 0.05); border-color: rgba(197, 162, 88, 0.25); grid-column: span 3; min-height: 200px; display: grid; grid-template-columns: auto 1fr; gap: 2.5rem; align-items: center; padding: 2.25rem 2.5rem; }
-        .bs-article--guide:hover { border-color: var(--or); box-shadow: 0 14px 34px rgba(197, 162, 88, 0.14); }
-        .bs-article--guide .bs-article__num { font-family: var(--font-display); font-style: italic; font-size: 4.5rem; line-height: 0.9; color: var(--or); opacity: 0.6; letter-spacing: -0.04em; }
-        .bs-article--guide .bs-article__visual { width: 104px; height: auto; display: block; opacity: 0.92; mix-blend-mode: multiply; }
-        .bs-article--guide .bs-article__body { display: flex; flex-direction: column; }
-        .bs-article__tag { display: inline-flex; align-items: center; gap: 0.4rem; align-self: flex-start; font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--texte-light); font-weight: 500; margin-bottom: 1rem; }
-        .bs-article__tag-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--or); }
-        .bs-article--guide .bs-article__tag { color: var(--or); font-weight: 600; }
-        .bs-article__title { font-family: var(--font-display); font-weight: 500; font-size: 1.18rem; line-height: 1.25; color: var(--bordeaux); margin: 0 0 0.7rem; letter-spacing: -0.005em; text-wrap: balance; }
-        .bs-article--guide .bs-article__title { font-size: clamp(1.4rem, 2.2vw, 1.7rem); margin-bottom: 0.85rem; }
-        .bs-article__excerpt { font-size: 0.88rem; line-height: 1.55; color: var(--texte-light); margin: 0; flex: 1; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-        .bs-article--guide .bs-article__excerpt { font-size: 0.95rem; -webkit-line-clamp: 2; }
-        .bs-article__foot { display: flex; justify-content: flex-end; align-items: baseline; margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--border); font-size: 0.78rem; }
-        .bs-article--guide .bs-article__foot { margin-top: 1rem; padding-top: 0.85rem; border-top-color: rgba(197, 162, 88, 0.22); }
-        .bs-article__cta { color: var(--or); font-weight: 500; display: inline-flex; align-items: center; gap: 0.35rem; transition: gap 0.3s var(--ease); }
-        .bs-article:hover .bs-article__cta { gap: 0.6rem; }
-        .bs-related { max-width: 1180px; margin: 0 auto; padding: 0 1.5rem 4rem; }
-        .bs-related__head { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--texte-light); font-weight: 500; margin: 0 0 1.25rem; display: flex; align-items: center; gap: 0.85rem; }
-        .bs-related__head::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-        .bs-related__grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.75rem; }
-        .bs-related__card { display: flex; flex-direction: column; padding: 1.1rem 1rem 1rem; background: var(--blanc); border: 1px solid var(--border); border-radius: 4px; text-decoration: none; transition: all 0.3s var(--ease); min-height: 110px; }
-        .bs-related__card:hover { border-color: var(--or); transform: translateY(-2px); }
-        .bs-related__card svg { width: 24px; height: 24px; margin-bottom: 0.6rem; }
-        .bs-related__card-title { font-family: var(--font-display); font-size: 0.95rem; font-weight: 500; color: var(--bordeaux); line-height: 1.2; margin: 0; }
-        .bs-cta-strip { background: var(--bordeaux); color: var(--fond); padding: 4rem 1.5rem; margin-top: 1rem; }
-        .bs-cta-strip__inner { max-width: 760px; margin: 0 auto; text-align: center; }
-        .bs-cta-strip h2 { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.7rem, 2.8vw, 2.2rem); line-height: 1.15; letter-spacing: -0.01em; color: var(--fond); margin: 0 0 1rem; }
-        .bs-cta-strip p { color: rgba(250, 246, 240, 0.75); font-size: 1rem; line-height: 1.6; max-width: 520px; margin: 0 auto 2rem; }
-        .bs-cta-strip__btn { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--or); color: var(--bordeaux); border: none; padding: 0.9rem 1.75rem; font-family: var(--font-body); font-weight: 600; font-size: 0.95rem; letter-spacing: 0.04em; cursor: pointer; border-radius: 3px; text-decoration: none; transition: background 0.25s var(--ease), transform 0.25s var(--ease); }
-        .bs-cta-strip__btn:hover { background: var(--or-light); transform: translateY(-1px); }
-        @media (max-width: 1100px) { .bs-grid { grid-template-columns: repeat(2, 1fr); } .bs-article--guide { grid-column: span 2; } .bs-related__grid { grid-template-columns: repeat(3, 1fr); } }
-        @media (max-width: 700px) { .bs-grid { grid-template-columns: 1fr; } .bs-article--guide { grid-column: span 1; grid-template-columns: 1fr; gap: 1rem; padding: 1.75rem 1.6rem; } .bs-article--guide .bs-article__num { font-size: 3.5rem; } .bs-article--guide .bs-article__visual { width: 72px; } .bs-related__grid { grid-template-columns: repeat(2, 1fr); } }
-    </style>
+
+/* ═══════════════════════════════════════════════════════════
+   HUB DE SILO — index de catalogue (21/09/2026), vocabulaire « catalogue de vente »
+   Tokens inchangés : bordeaux, or, fond, Cormorant + DM Sans.
+   Ajouts : rouge vin (celui des graphiques du rapport), crème 2.
+   Retirés : grain, pulsation, scroll-reveal, ombres 30 px, coins arrondis.
+   ═══════════════════════════════════════════════════════════ */
+:root {
+  --bordeaux: #2D1B2E;
+  --or: #C5A258;
+  --or-pale: rgba(197, 162, 88, 0.14);
+  --fond: #FAF6F0;
+  --creme: #F3EBDD;
+  --vin: #8B3A3A;
+  --texte: #3A3035;
+  --texte-light: #6B5F65;
+  --blanc: #FFFFFF;
+  --filet: rgba(45, 27, 46, 0.16);
+  --filet-fort: rgba(45, 27, 46, 0.45);
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'DM Sans', -apple-system, sans-serif;
+  --mesure: 1120px;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-padding-top: 88px; }
+body {
+  font-family: var(--font-body);
+  background: var(--fond);
+  color: var(--texte);
+  line-height: 1.65;
+  font-size: 1rem;
+  -webkit-font-smoothing: antialiased;
+  font-variant-numeric: oldstyle-nums;
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--bordeaux); text-decoration: none; }
+p a { text-decoration: underline; text-decoration-color: var(--or); text-underline-offset: 3px; }
+*:focus-visible { outline: 2px solid var(--or); outline-offset: 2px; }
+
+.container { max-width: var(--mesure); margin: 0 auto; padding: 0 2rem; }
+section { padding: 5.5rem 0; }
+@media (max-width: 768px) { section { padding: 3.5rem 0; } .container { padding: 0 1.25rem; } }
+
+/* ── Typographie ── */
+blockquote { text-wrap: pretty; }
+h1, h2, h3, .display { font-family: var(--font-display); font-weight: 500; color: var(--bordeaux); line-height: 1.1; letter-spacing: -0.005em; }
+h1 { font-size: clamp(2.6rem, 5.2vw, 4.2rem); font-weight: 500; }
+h2 { font-size: clamp(2rem, 3.6vw, 2.8rem); }
+h3 { font-size: 1.45rem; font-weight: 600; }
+.lead { font-size: 1.12rem; color: var(--texte-light); line-height: 1.65; }
+
+/* Le label de section : petites capitales Cormorant en bordeaux,
+   à la place du DM Sans majuscules doré espacé. */
+.sc {
+  font-family: var(--font-display);
+  font-variant: small-caps;
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  color: var(--bordeaux);
+  display: flex; align-items: center; gap: 0.75rem;
+  margin-bottom: 1.2rem;
+}
+.sc::before { content: ''; width: 2.25rem; height: 1px; background: var(--or); }
+.sc.center { justify-content: center; }
+.sc.center::after { content: ''; width: 2.25rem; height: 1px; background: var(--or); }
+.sc.on-dark { color: var(--or); }
+
+/* Filets « catalogue » */
+.filet-double { height: 5px; border-top: 1px solid var(--filet-fort); border-bottom: 1px solid var(--filet-fort); }
+.filet { height: 1px; background: var(--filet); }
+.fleuron { display: flex; align-items: center; justify-content: center; gap: 1rem; margin: 2.5rem 0; }
+.fleuron::before, .fleuron::after { content: ''; flex: 0 0 4rem; height: 1px; background: var(--or); }
+.fleuron img { width: 26px; height: 26px; opacity: 0.85; }
+
+/* Boutons : coins vifs, aucune animation */
+.btn { display: inline-block; font-family: var(--font-body); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.02em; padding: 0.85rem 1.7rem; border: 1px solid var(--bordeaux); background: var(--bordeaux); color: var(--fond); cursor: pointer; transition: background 0.2s, color 0.2s; }
+.btn:hover { background: #3D2940; }
+.btn-gold { background: var(--or); border-color: var(--or); color: var(--bordeaux); }
+.btn-gold:hover { background: #B8944C; }
+.btn-outline { background: transparent; color: var(--bordeaux); }
+.btn-outline:hover { background: var(--bordeaux); color: var(--fond); }
+.btn-outline.on-dark { color: var(--fond); border-color: var(--or); }
+.btn-outline.on-dark:hover { background: var(--or); color: var(--bordeaux); }
+.lien-suite { font-family: var(--font-display); font-style: italic; font-size: 1.15rem; color: var(--bordeaux); border-bottom: 1px solid var(--or); }
+
+/* Cartouche technique : remplace le bandeau à 4 KPI */
+.fiche-technique { border-top: 1px solid var(--or); border-bottom: 1px solid var(--filet); margin-top: 3rem; }
+.fiche-technique ul { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); }
+.fiche-technique li { padding: 1.1rem 1.4rem; border-right: 1px solid var(--filet); font-size: 0.86rem; color: var(--texte-light); line-height: 1.45; }
+.fiche-technique li:last-child { border-right: 0; }
+.fiche-technique li b { display: block; font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--bordeaux); line-height: 1.2; margin-bottom: 0.15rem; }
+.fiche-technique li a { border-bottom: 1px solid var(--or); color: var(--bordeaux); }
+@media (max-width: 860px) {
+  .fiche-technique ul { grid-template-columns: 1fr 1fr; }
+  .fiche-technique li:nth-child(2) { border-right: 0; }
+  .fiche-technique li:nth-child(-n+2) { border-bottom: 1px solid var(--filet); }
+}
+
+/* ── Fanny : la personne, haut dans la page ── */
+.experte-grid { display: grid; grid-template-columns: 3fr 7fr; gap: 4rem; align-items: center; }
+.cadre-double { position: relative; padding: 10px; border: 1px solid var(--filet-fort); }
+.cadre-double::after { content: ''; position: absolute; inset: 3px; border: 1px solid var(--filet-fort); pointer-events: none; }
+.cadre-double img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 20%; filter: saturate(0.85); }
+.experte h2 { margin-bottom: 1.4rem; }
+.experte p { margin-bottom: 1rem; font-size: 1.02rem; }
+.bulle { width: 100%; max-width: 16.5rem; aspect-ratio: 4 / 5; border-radius: 50%; overflow: hidden; margin: 0 auto; box-shadow: 0 0 0 1px var(--filet-fort), 0 0 0 6px var(--fond), 0 0 0 7px var(--or); }
+.bulle img { width: 100%; height: 100%; object-fit: cover; object-position: 58% 22%; transform: scale(1.15); transform-origin: 58% 30%; filter: saturate(0.92); }
+.experte .signature { font-family: var(--font-display); font-style: italic; font-size: 1.9rem; color: var(--bordeaux); margin: 1.4rem 0 0.2rem; }
+.experte .signature-sub { font-size: 0.85rem; color: var(--texte-light); margin-bottom: 1.4rem; }
+@media (max-width: 860px) { .experte-grid { grid-template-columns: 1fr; gap: 2rem; } .bulle { max-width: 16rem; } }
+
+/* ── Comment ça marche : bandeau bordeaux, 3 lignes sur filet ── */
+.process { background: var(--bordeaux); color: var(--fond); }
+.process h2 { color: var(--fond); margin-bottom: 3rem; }
+.etapes { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(250,246,240,0.35); }
+.etapes li { padding: 1.6rem 1.6rem 1.6rem 0; border-top: 3px double rgba(197,162,88,0.6); margin-top: -1px; }
+.etapes .num { font-family: var(--font-display); font-size: 1rem; font-variant: small-caps; letter-spacing: 0.1em; color: var(--or); margin-bottom: 0.4rem; }
+.etapes h3 { color: var(--fond); font-weight: 500; margin-bottom: 0.4rem; }
+.etapes p { font-size: 0.92rem; color: rgba(250,246,240,0.75); }
+.process-suite { margin-top: 2.5rem; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+.process-suite p { font-size: 0.92rem; color: rgba(250,246,240,0.8); max-width: 40rem; }
+@media (max-width: 860px) { .etapes { grid-template-columns: 1fr; } .etapes li { padding-right: 0; } }
+
+/* ── Engagements : deux colonnes + cartouche (comme la couverture du rapport) ── */
+.engagements { background: var(--bordeaux); color: var(--fond); }
+.engagements .sc { color: var(--or); }
+.engagements h3 { color: var(--fond); }
+.engagements .cartouche { border-color: rgba(197,162,88,0.6); outline-color: rgba(197,162,88,0.6); }
+.engagements .cartouche div { border-right-color: rgba(250,246,240,0.18); color: rgba(250,246,240,0.7); }
+.engagements .cartouche b { color: var(--fond); }
+.engagements .cartouche .sc { color: var(--or); }
+.engagements-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-bottom: 3rem; }
+.engagements-grid h3 { margin-bottom: 0.6rem; }
+.engagements-grid p { color: rgba(250,246,240,0.78); font-size: 0.98rem; text-align: justify; hyphens: auto; }
+.cartouche { border: 1px solid var(--filet-fort); outline: 1px solid var(--filet-fort); outline-offset: 3px; display: grid; grid-template-columns: repeat(3, 1fr); }
+.cartouche div { padding: 1.4rem 1.6rem; border-right: 1px solid var(--filet); text-align: center; font-size: 0.85rem; color: var(--texte-light); }
+.cartouche div:last-child { border-right: 0; }
+.cartouche .sc { justify-content: center; margin-bottom: 0.4rem; font-size: 0.95rem; }
+.cartouche .sc::before { display: none; }
+.cartouche b { display: block; font-family: var(--font-display); font-size: 1.35rem; font-weight: 600; color: var(--bordeaux); margin-bottom: 0.2rem; }
+@media (max-width: 860px) { .engagements-grid { grid-template-columns: 1fr; gap: 2rem; } .cartouche { grid-template-columns: 1fr; } .cartouche div { border-right: 0; border-bottom: 1px solid rgba(250,246,240,0.18); } .cartouche div:last-child { border-bottom: 0; } }
+
+/* CTA final : bandeau bordeaux */
+.cta-final { background: var(--bordeaux); color: var(--fond); text-align: center; }
+.cta-final h2 { color: var(--fond); margin-bottom: 1rem; }
+.cta-final .lead { color: rgba(250,246,240,0.8); max-width: 40rem; margin: 0 auto 2rem; }
+.cta-final .subtext { font-size: 0.85rem; color: rgba(250,246,240,0.6); max-width: 40rem; margin: 1.2rem auto 0; }
+
+
+/* ═══ Page « blog » : index de catalogue ═══ */
+.masthead { text-align: center; padding: 3.5rem 0 2.5rem; }
+.masthead .sc { justify-content: center; }
+.masthead .sc::after { content: ''; width: 2.25rem; height: 1px; background: var(--or); }
+.masthead h1 { font-size: clamp(2.6rem, 5vw, 3.8rem); margin: 0.2rem 0 1rem; }
+.masthead h1 em { font-style: italic; font-weight: 400; }
+.masthead img { width: 7.5rem; margin: 0 auto 1.2rem; opacity: 0.9; }
+.masthead .lead { max-width: 34rem; margin: 0 auto; }
+
+/* Rubriques : quadrillage à six cases */
+.rubriques { list-style: none; display: grid; grid-template-columns: repeat(6, 1fr); border-top: 1px solid var(--or); border-bottom: 1px solid var(--filet); margin-top: 2.5rem; }
+.rubriques li { border-right: 1px solid var(--filet); }
+.rubriques li:last-child { border-right: 0; }
+.rubriques a { display: block; padding: 1.1rem 1rem 1rem; text-align: center; }
+.rubriques a:hover b { color: var(--vin); }
+.rubriques b { display: block; font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; color: var(--bordeaux); line-height: 1.15; margin-bottom: 0.25rem; }
+.rubriques small { font-family: var(--font-display); font-variant: small-caps; letter-spacing: 0.06em; font-size: 0.92rem; color: var(--texte-light); }
+@media (max-width: 860px) { .rubriques { grid-template-columns: repeat(3, 1fr); } .rubriques li:nth-child(3) { border-right: 0; } .rubriques li:nth-child(-n+3) { border-bottom: 1px solid var(--filet); } }
+@media (max-width: 480px) { .rubriques { grid-template-columns: 1fr 1fr; } .rubriques li:nth-child(3) { border-right: 1px solid var(--filet); } .rubriques li:nth-child(even) { border-right: 0; } .rubriques li:nth-child(-n+4) { border-bottom: 1px solid var(--filet); } .rubriques li:nth-child(5), .rubriques li:nth-child(6) { border-bottom: 0; } }
+
+/* À la une : bandeau bordeaux, à plat */
+.une { background: var(--bordeaux); color: var(--fond); padding: 4rem 0; }
+.une .sc { color: var(--or); }
+.une h2 { color: var(--fond); font-size: clamp(1.8rem, 3.4vw, 2.6rem); max-width: 26ch; margin-bottom: 1rem; }
+.une h2 a { color: inherit; }
+.une h2 a:hover { color: var(--or); }
+.une p { color: rgba(250,246,240,0.8); max-width: 40rem; margin-bottom: 1.2rem; }
+.une-meta { display: flex; gap: 1.5rem; align-items: baseline; flex-wrap: wrap; font-family: var(--font-display); font-variant: small-caps; letter-spacing: 0.06em; font-size: 0.95rem; color: rgba(250,246,240,0.6); }
+.une-meta .lien-suite { color: var(--or); font-variant: normal; letter-spacing: 0; font-size: 1.1rem; }
+
+/* Recherche : un champ sur filet */
+.recherche { max-width: 40rem; margin: 0 auto; padding: 0.5rem 0 0; }
+.recherche label { display: flex; align-items: baseline; gap: 1rem; border-bottom: 1px solid var(--filet-fort); padding: 0.4rem 0 0.5rem; }
+.recherche .sc { margin: 0; white-space: nowrap; }
+.recherche .sc::before { display: none; }
+.recherche input { flex: 1; border: 0; background: transparent; font-family: var(--font-body); font-size: 1rem; color: var(--texte); padding: 0.3rem 0; outline: none; }
+.recherche input::placeholder { color: rgba(58,48,53,0.45); }
+
+/* Rubriques : index sur filets */
+.rubrique { padding: 4rem 0 1rem; scroll-margin-top: 90px; }
+.rubrique-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; border-bottom: 1px solid var(--or); padding-bottom: 1rem; margin-bottom: 0.5rem; }
+.rubrique-head h2 { display: flex; align-items: baseline; gap: 0.9rem; font-size: clamp(1.7rem, 3vw, 2.3rem); }
+.rubrique-head h2 .num { font-size: 1.15rem; color: var(--vin); font-variant: small-caps; letter-spacing: 0.08em; }
+.rubrique-head p { font-size: 0.95rem; color: var(--texte-light); margin-top: 0.3rem; max-width: 40rem; }
+.rubrique-head .lien-suite { white-space: nowrap; font-size: 1.05rem; }
+.index { list-style: none; display: grid; grid-template-columns: 1fr 1fr; column-gap: 3rem; }
+.index li { border-bottom: 1px solid var(--filet); padding: 1.1rem 0 1rem; }
+.index li.une-rubrique { grid-column: 1 / -1; padding: 1.4rem 0 1.3rem; background: var(--creme); margin: 0 -1.2rem; padding-left: 1.2rem; padding-right: 1.2rem; border-bottom: 1px solid var(--filet-fort); }
+.index li.une-rubrique .titre { font-size: 1.55rem; }
+.index a { display: block; }
+.index a:hover .titre { color: var(--vin); }
+.index .tag { display: inline-block; font-family: var(--font-display); font-variant: small-caps; font-weight: 600; letter-spacing: 0.06em; font-size: 0.95rem; color: var(--vin); margin-bottom: 0.15rem; }
+.index .titre { font-family: var(--font-display); font-size: 1.28rem; font-weight: 600; color: var(--bordeaux); line-height: 1.2; margin-bottom: 0.3rem; transition: color 0.2s; }
+.index .resume { font-size: 0.9rem; color: var(--texte-light); line-height: 1.55; }
+@media (max-width: 860px) { .index { grid-template-columns: 1fr; } .rubrique-head { flex-direction: column; align-items: flex-start; gap: 0.6rem; } .index li.une-rubrique { margin: 0; padding-left: 0; padding-right: 0; background: transparent; } }
+.rubrique.hidden { display: none; }
+.index li.hidden { display: none; }
+
+/* CTA final */
+.cta-final { margin-top: 4rem; }
+
+/* ═══ Hub de silo ═══ */
+.masthead .crumb { font-family: var(--font-display); font-variant: small-caps; letter-spacing: 0.08em; font-size: 1rem; color: var(--texte-light); margin-bottom: 1.2rem; }
+.masthead .crumb a { color: var(--texte-light); border-bottom: 1px solid var(--or); }
+.masthead .crumb span { margin: 0 0.5rem; color: var(--or); }
+.masthead img.guide { width: 9rem; }
+.hub-index { padding: 3rem 0 1rem; }
+.rubriques.cinq { grid-template-columns: repeat(5, 1fr); margin-top: 1.2rem; }
+.autres { padding: 3rem 0 0; }
+.autres .sc { justify-content: center; }
+.autres .sc::after { content: ''; width: 2.25rem; height: 1px; background: var(--or); }
+@media (max-width: 860px) { .rubriques.cinq { grid-template-columns: repeat(3, 1fr); } .rubriques.cinq li:nth-child(4), .rubriques.cinq li:nth-child(5) { border-bottom: 0; } }
+@media (max-width: 480px) { .rubriques.cinq { grid-template-columns: 1fr 1fr; } .rubriques.cinq li:nth-child(3) { border-right: 1px solid var(--filet); } .rubriques.cinq li:nth-child(4) { border-bottom: 0; } .rubriques.cinq li:nth-child(5) { border-right: 0; } }
+
+/* Nav du site (styles.css) : collante et opaque, comme sur l'accueil */
+.nav { position: sticky; background: var(--fond); backdrop-filter: none; -webkit-backdrop-filter: none; }
+.nav-right .btn-gold { border-radius: 0; }
+</style>
 <script src="/js/parcours.js" defer></script>
 </head>
 <body>
@@ -147,99 +325,65 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
     </nav>
     <div class="nav-overlay"></div>
 
-    <section class="bs-hero">
-        <p class="bs-breadcrumb"><a href="blog.html">Blog</a><span class="sep">/</span><span>Vendre ses vins</span></p>
-        <span class="bs-eyebrow">
-            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="8" width="28" height="22" rx="2" stroke="#C5A258" stroke-width="1.2"/><path d="M10 24l6-8 5 5 5-7" stroke="#C5A258" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="26" cy="14" r="2" stroke="#C5A258" stroke-width="1.2"/></svg>
-            Conseils · Vendre ses vins
-        </span>
-        <h1>Vendre ses <em style="font-style: italic; font-weight: 400;">bouteilles de vin</em></h1>
-        <p>Canaux de vente, préparation, négociation. 9 guides pour bien céder une cave&nbsp;: comparatif des canaux, fixation du prix, erreurs à éviter et stratégies par profil de cave.</p>
-    </section>
+<main id="main">
 
-    <main id="main" class="bs-listing">
-        <p class="bs-listing__count"><span><strong style="font-family:var(--font-display);font-size:1.05rem;color:var(--bordeaux);margin-right:0.3rem;">9</strong>articles</span></p>
-        <div class="bs-grid">
-            <a href="/vendre/" class="bs-article bs-article--guide">
-                <img width="320" height="442" src="tonneau.webp" alt="" class="bs-article__visual">
-                <div class="bs-article__body">
-                    <span class="bs-article__tag"><span class="bs-article__tag-dot"></span>Guide pilier</span>
-                    <h2 class="bs-article__title">Comment vendre ses bouteilles de vin&nbsp;: le guide complet</h2>
-                    <p class="bs-article__excerpt">Enchères, négociant, caviste, entre particuliers — canaux, frais, préparation et erreurs à éviter pour vendre vos vins au meilleur prix.</p>
-                    <div class="bs-article__foot"><span class="bs-article__cta">Lire le guide pilier →</span></div>
-                </div>
-            </a>
-            <a href="/vendre/fixer-le-prix/" class="bs-article">
-                <span class="bs-article__tag"><span class="bs-article__tag-dot"></span>Prix</span>
-                <h2 class="bs-article__title">À quel prix vendre mes bouteilles de vin&nbsp;?</h2>
-                <p class="bs-article__excerpt">Cotes, frais par canal de vente, décotes à prévoir et conseils pour fixer le juste prix de vos bouteilles.</p>
-                <div class="bs-article__foot"><span class="bs-article__cta">Lire →</span></div>
-            </a>
-            <a href="/vendre/revente-en-france/" class="bs-article">
-                <span class="bs-article__tag"><span class="bs-article__tag-dot"></span>Marché</span>
-                <h2 class="bs-article__title">Quels vins se revendent le mieux en France&nbsp;?</h2>
-                <p class="bs-article__excerpt">Bordeaux, Bourgogne, Rhône, champagne — régions, appellations et critères du marché secondaire de la revente.</p>
-                <div class="bs-article__foot"><span class="bs-article__cta">Lire →</span></div>
-            </a>
-            <a href="/vendre/aux-encheres/" class="bs-article">
-                <span class="bs-article__tag"><span class="bs-article__tag-dot"></span>Enchères</span>
-                <h2 class="bs-article__title">Vendre ses vins aux enchères&nbsp;: comment ça marche&nbsp;?</h2>
-                <p class="bs-article__excerpt">Étapes, frais, délais, bouteilles adaptées et erreurs à éviter — guide complet pour valoriser vos bouteilles aux enchères.</p>
-                <div class="bs-article__foot"><span class="bs-article__cta">Lire →</span></div>
-            </a>
-            <a href="/vendre/frais-encheres/" class="bs-article">
-                <span class="bs-article__tag"><span class="bs-article__tag-dot"></span>Frais</span>
-                <h2 class="bs-article__title">Frais de vente aux enchères de vin&nbsp;: à quoi s'attendre</h2>
-                <p class="bs-article__excerpt">Commission vendeur, frais acheteur, frais annexes et fiscalité — calculs détaillés du montant net réellement perçu sur chaque lot.</p>
-                <div class="bs-article__foot"><span class="bs-article__cta">Lire →</span></div>
-            </a>
-            <a href="/vendre/encheres-ou-conserver/" class="bs-article">
-                <span class="bs-article__tag"><span class="bs-article__tag-dot"></span>Décision</span>
-                <h2 class="bs-article__title">Vente aux enchères ou conservation&nbsp;: comment décider&nbsp;?</h2>
-                <p class="bs-article__excerpt">Les critères objectifs pour trancher entre vendre, garder ou boire — avec un arbre de décision clair en quatre questions.</p>
-                <div class="bs-article__foot"><span class="bs-article__cta">Lire →</span></div>
-            </a>
-            <a href="/vendre/entre-particuliers/" class="bs-article">
-                <span class="bs-article__tag"><span class="bs-article__tag-dot"></span>Particuliers</span>
-                <h2 class="bs-article__title">Vendre du vin entre particuliers&nbsp;: plateformes et précautions</h2>
-                <p class="bs-article__excerpt">Cadre légal, plateformes disponibles, risques et précautions — tout ce qu'il faut savoir pour vendre ses bouteilles entre particuliers.</p>
-                <div class="bs-article__foot"><span class="bs-article__cta">Lire →</span></div>
-            </a>
-            <a href="/vendre/caviste-negociant/" class="bs-article">
-                <span class="bs-article__tag"><span class="bs-article__tag-dot"></span>Négociant</span>
-                <h2 class="bs-article__title">Vendre sa cave à un caviste ou négociant&nbsp;: avantages et limites</h2>
-                <p class="bs-article__excerpt">Fonctionnement, prix de rachat, marges pratiquées — ce que rapporte la vente à un professionnel et quand c'est la meilleure option.</p>
-                <div class="bs-article__foot"><span class="bs-article__cta">Lire →</span></div>
-            </a>
-            <a href="/vendre/vendre-en-baisse-de-marche/" class="bs-article">
-                <span class="bs-article__tag"><span class="bs-article__tag-dot"></span>Timing</span>
-                <h2 class="bs-article__title">Vendre ses vins en période de baisse du marché&nbsp;: stratégie et timing</h2>
-                <p class="bs-article__excerpt">Faut-il vendre, attendre ou adapter sa stratégie quand le marché baisse&nbsp;? Vins qui résistent, timing et erreurs à éviter.</p>
-                <div class="bs-article__foot"><span class="bs-article__cta">Lire →</span></div>
-            </a>
-        </div>
-    </main>
+<section class="masthead">
+  <div class="container">
+    <p class="crumb"><a href="blog.html">Blog</a><span>/</span>Vendre ses vins</p>
+    <p class="sc">Conseils · Vendre ses vins</p>
+    <h1>Vendre ses <em>bouteilles de vin</em></h1>
+    <img class="guide" src="tonneau.webp" alt="">
+    <p class="lead">Canaux de vente, préparation, négociation. 9 guides pour bien céder une cave&nbsp;: comparatif des canaux, fixation du prix, erreurs à éviter et stratégies par profil de cave.</p>
+  </div>
+</section>
 
-    <section class="bs-related">
-        <p class="bs-related__head">Explorer les autres thèmes</p>
-        <div class="bs-related__grid">
-            <a href="blog-estimer.html" class="bs-related__card"><svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><text x="18" y="25" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="26" font-weight="500" fill="none" stroke="#C5A258" stroke-width="1.2">€</text></svg><h3 class="bs-related__card-title">Estimer sa cave</h3></a>
-            <a href="blog-cotes.html" class="bs-related__card"><svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 29h26" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round"/><path d="M9 24v-6M15 24v-12M21 24v-8M27 24v-15" stroke="#C5A258" stroke-width="1.6" stroke-linecap="round"/><path d="M7 15l6-5 6 3 8-8" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="27" cy="5" r="1.5" fill="#C5A258"/></svg><h3 class="bs-related__card-title">Cotes &amp; marché</h3></a>
-            <a href="blog-heritage.html" class="bs-related__card"><svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 30V12l12-8 12 8v18H6z" stroke="#C5A258" stroke-width="1.2" stroke-linejoin="round"/><rect x="14" y="20" width="8" height="10" stroke="#C5A258" stroke-width="1.2"/><circle cx="18" cy="16" r="2" stroke="#C5A258" stroke-width="1.2"/></svg><h3 class="bs-related__card-title">Héritage &amp; succession</h3></a>
-            <a href="blog-gestion.html" class="bs-related__card"><svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 6h20v28H8z" stroke="#C5A258" stroke-width="1.2" stroke-linejoin="round"/><path d="M12 12h12M12 17h12M12 22h8" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round"/><path d="M14 6V4h8v2" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg><h3 class="bs-related__card-title">Gérer sa cave</h3></a>
-            <a href="blog-professionnels.html" class="bs-related__card"><svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="18" y1="4" x2="18" y2="30" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round"/><line x1="8" y1="10" x2="28" y2="10" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round"/><path d="M8 10l-2 10h8L12 10" stroke="#C5A258" stroke-width="1.2" stroke-linejoin="round"/><path d="M24 10l-2 10h8L28 10" stroke="#C5A258" stroke-width="1.2" stroke-linejoin="round"/><path d="M6 20a4 2 0 0 0 8 0" stroke="#C5A258" stroke-width="1.2"/><path d="M22 20a4 2 0 0 0 8 0" stroke="#C5A258" stroke-width="1.2"/><line x1="12" y1="30" x2="24" y2="30" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round"/></svg><h3 class="bs-related__card-title">Professionnels</h3></a>
-        </div>
-    </section>
+<section class="hub-index">
+  <div class="container">
+    <div class="rubrique-head">
+      <div><h2><span class="num">Sommaire</span></h2></div>
+      <span class="lien-suite" style="border:0">9 articles</span>
+    </div>
+    <ol class="index">
+      <li class="une-rubrique"><a href="/vendre/"><span class="tag">Guide pilier</span><span class="titre" style="display:block">Comment vendre ses bouteilles de vin&nbsp;: le guide complet</span><span class="resume" style="display:block">Enchères, négociant, caviste, entre particuliers — canaux, frais, préparation et erreurs à éviter pour vendre vos vins au meilleur prix.</span></a></li>
+      <li><a href="/vendre/fixer-le-prix/"><span class="tag">Prix</span><span class="titre" style="display:block">À quel prix vendre mes bouteilles de vin&nbsp;?</span><span class="resume" style="display:block">Cotes, frais par canal de vente, décotes à prévoir et conseils pour fixer le juste prix de vos bouteilles.</span></a></li>
+      <li><a href="/vendre/revente-en-france/"><span class="tag">Marché</span><span class="titre" style="display:block">Quels vins se revendent le mieux en France&nbsp;?</span><span class="resume" style="display:block">Bordeaux, Bourgogne, Rhône, champagne — régions, appellations et critères du marché secondaire de la revente.</span></a></li>
+      <li><a href="/vendre/aux-encheres/"><span class="tag">Enchères</span><span class="titre" style="display:block">Vendre ses vins aux enchères&nbsp;: comment ça marche&nbsp;?</span><span class="resume" style="display:block">Étapes, frais, délais, bouteilles adaptées et erreurs à éviter — guide complet pour valoriser vos bouteilles aux enchères.</span></a></li>
+      <li><a href="/vendre/frais-encheres/"><span class="tag">Frais</span><span class="titre" style="display:block">Frais de vente aux enchères de vin&nbsp;: à quoi s'attendre</span><span class="resume" style="display:block">Commission vendeur, frais acheteur, frais annexes et fiscalité — calculs détaillés du montant net réellement perçu sur chaque lot.</span></a></li>
+      <li><a href="/vendre/encheres-ou-conserver/"><span class="tag">Décision</span><span class="titre" style="display:block">Vente aux enchères ou conservation&nbsp;: comment décider&nbsp;?</span><span class="resume" style="display:block">Les critères objectifs pour trancher entre vendre, garder ou boire — avec un arbre de décision clair en quatre questions.</span></a></li>
+      <li><a href="/vendre/entre-particuliers/"><span class="tag">Particuliers</span><span class="titre" style="display:block">Vendre du vin entre particuliers&nbsp;: plateformes et précautions</span><span class="resume" style="display:block">Cadre légal, plateformes disponibles, risques et précautions — tout ce qu'il faut savoir pour vendre ses bouteilles entre particuliers.</span></a></li>
+      <li><a href="/vendre/caviste-negociant/"><span class="tag">Négociant</span><span class="titre" style="display:block">Vendre sa cave à un caviste ou négociant&nbsp;: avantages et limites</span><span class="resume" style="display:block">Fonctionnement, prix de rachat, marges pratiquées — ce que rapporte la vente à un professionnel et quand c'est la meilleure option.</span></a></li>
+      <li><a href="/vendre/vendre-en-baisse-de-marche/"><span class="tag">Timing</span><span class="titre" style="display:block">Vendre ses vins en période de baisse du marché&nbsp;: stratégie et timing</span><span class="resume" style="display:block">Faut-il vendre, attendre ou adapter sa stratégie quand le marché baisse&nbsp;? Vins qui résistent, timing et erreurs à éviter.</span></a></li>
+    </ol>
+  </div>
+</section>
 
-    <section class="bs-cta-strip">
-        <div class="bs-cta-strip__inner">
-            <h2>Prêt à connaître la valeur de votre cave&nbsp;?</h2>
-            <p>Audit indépendant à distance, rapport PDF complet et cote actuelle de chaque bouteille — sans déplacement.</p>
-            <a href="/#formulaire" class="bs-cta-strip__btn">Faire estimer ma cave →</a>
-        </div>
-    </section>
+<section class="autres">
+  <div class="container">
+    <p class="sc">Explorer les autres thèmes</p>
+    <ol class="rubriques cinq">
+      <li><a href="blog-estimer.html"><b>Estimer sa cave</b></a></li>
+      <li><a href="blog-cotes.html"><b>Cotes &amp; marché</b></a></li>
+      <li><a href="blog-heritage.html"><b>Héritage &amp; succession</b></a></li>
+      <li><a href="blog-gestion.html"><b>Gérer sa cave</b></a></li>
+      <li><a href="blog-professionnels.html"><b>Professionnels</b></a></li>
+    </ol>
+  </div>
+</section>
 
-    <footer class="footer">
+<section class="cta-final">
+  <div class="container">
+    <p class="sc on-dark center">L'audit complet</p>
+    <h2>Prêt à connaître la valeur de votre cave&nbsp;?</h2>
+    <p class="lead">Audit indépendant à distance, rapport PDF complet et cote actuelle de chaque bouteille, sans déplacement.</p>
+    <a href="/#formulaire" class="btn btn-gold">Faire estimer ma cave</a>
+  </div>
+</section>
+
+
+<div class="container"><div class="fleuron"><img src="grappe-doree.webp" alt=""></div></div>
+</main>
+
+<footer class="footer">
         <div class="footer-grid">
             <div class="footer-col">
                 <div class="footer-logo">estimation<span>cave</span>.com</div>
@@ -264,7 +408,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
     <script>
     (function(){var b=document.getElementById('btt');window.addEventListener('scroll',function(){if(window.scrollY>300){b.style.opacity='1';b.style.visibility='visible'}else{b.style.opacity='0';b.style.visibility='hidden'}});b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})})})();
     (function(){var hamburger=document.querySelector('.hamburger');var navRight=document.querySelector('.nav-right');var overlay=document.querySelector('.nav-overlay');if(!hamburger)return;function toggleMenu(){var isOpen=navRight.classList.toggle('open');hamburger.classList.toggle('active');overlay.classList.toggle('active');hamburger.setAttribute('aria-expanded',isOpen);document.body.style.overflow=isOpen?'hidden':''}function closeMenu(){navRight.classList.remove('open');hamburger.classList.remove('active');overlay.classList.remove('active');hamburger.setAttribute('aria-expanded','false');document.body.style.overflow=''}hamburger.addEventListener('click',toggleMenu);overlay.addEventListener('click',closeMenu);navRight.querySelectorAll('a').forEach(function(link){link.addEventListener('click',closeMenu)})})();
-    (function(){var targets=document.querySelectorAll('.bs-hero, .bs-listing, .bs-related, .bs-cta-strip');targets.forEach(function(el){el.classList.add('reveal')});var allReveal=document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .ornament-reveal');var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});allReveal.forEach(function(el){observer.observe(el)})})();
     </script>
   <script src="/js/estimation-slidein.js" defer></script>
 </body>
