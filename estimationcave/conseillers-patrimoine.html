@@ -313,6 +313,12 @@ h3 { font-size: 1.45rem; font-weight: 600; }
 .argument.long { font-size: 1.3rem; max-width: 52rem; }
 @media (max-width: 860px) { .niveaux.quatre { grid-template-columns: 1fr 1fr; } .niveaux.quatre li, .niveaux.quatre li + li { padding: 1.3rem 1.2rem 1.3rem 0; border-right: 1px solid var(--filet); border-bottom: 1px solid var(--filet); } .niveaux.quatre li:nth-child(even) { border-right: 0; padding-left: 1.2rem; padding-right: 0; } .niveaux.quatre li:nth-last-child(-n+2) { border-bottom: 0; } }
 @media (max-width: 560px) { .niveaux.quatre { grid-template-columns: 1fr; } .niveaux.quatre li, .niveaux.quatre li + li, .niveaux.quatre li:nth-child(even) { padding: 1.2rem 0; border-right: 0; border-bottom: 1px solid var(--filet); } .niveaux.quatre li:last-child { border-bottom: 0; } }
+
+/* Page CGP : photo à droite, constat centré */
+.experte-grid.inverse { grid-template-columns: 7fr 3fr; }
+.experte-grid.inverse .bulle { order: 2; }
+.constat-head.centre { max-width: 46rem; margin-left: auto; margin-right: auto; text-align: center; }
+@media (max-width: 860px) { .experte-grid.inverse { grid-template-columns: 1fr; } .experte-grid.inverse .bulle { order: 0; } }
 </style>
 <script type="application/ld+json">
 {
@@ -386,8 +392,8 @@ h3 { font-size: 1.45rem; font-weight: 600; }
 <!-- ═══ LE CONSTAT ═══ -->
 <section class="constat">
   <div class="container">
-    <div class="constat-head">
-      <p class="sc">Le constat</p>
+    <div class="constat-head centre">
+      <p class="sc center">Le constat</p>
       <h2>Connue, parfois précieuse, mais ni chiffrée, ni datée, ni documentée.</h2>
       <p class="lead">Dans un patrimoine, la cave appartient à la famille des <strong>actifs passion</strong>, au même titre que l'art, les montres ou les voitures de collection. Et comme eux, elle échappe à vos systèmes&nbsp;: les valeurs sont obsolètes, la documentation éparpillée entre une vieille expertise et une police d'assurance, et personne n'ose s'appuyer sur ces chiffres pour décider.</p>
       <p class="lead">C'est précisément ce vide que je comble. Là où vous portez la cave «&nbsp;pour mémoire&nbsp;», je vous remets <strong>une valeur de référence</strong> que vous pouvez inscrire au bilan, transmettre à un notaire ou présenter à un assureur, en toute confiance.</p>
@@ -422,7 +428,7 @@ h3 { font-size: 1.45rem; font-weight: 600; }
 <!-- ═══ L'EXPERTE ═══ -->
 <section class="experte" style="background: var(--creme)">
   <div class="container">
-    <div class="experte-grid">
+    <div class="experte-grid inverse">
       <div class="bulle"><img src="fanny-terrasse.webp" width="1086" height="1448" alt="Fanny Lonqueu-Brochard, experte indépendante en estimation de cave"></div>
       <div>
         <p class="sc">Qui établit la valeur</p>
