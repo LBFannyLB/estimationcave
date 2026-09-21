@@ -933,3 +933,90 @@ body .eoc-card {
 }
 body .eoc-cta { border-radius: 0; }
 body .eoc-cta:hover { transform: none; }
+
+/* ═══════════════════════════════════════════════════════════════
+   LOT 7 — /cotes/ : extraits de rapport des fiches domaine en cadre
+   catalogue (cartouche à la place des cartes KPI, étiquettes à la
+   place des pastilles). Les carrousels de régions des hubs restent
+   tels quels (choix de Fanny, 21/09 : plus lisibles qu'une grille).
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Fiches domaine : l'extrait de rapport dans un cadre à double filet */
+body .report-block {
+    background: transparent;
+    border: 1px solid var(--filet-fort);
+    outline: 1px solid var(--filet-fort);
+    outline-offset: 4px;
+    border-radius: 0;
+    margin: 1.8rem 5px;
+    padding: 1.6rem 1.8rem 1.8rem;
+}
+body .report-flag {
+    background: var(--creme);
+    color: var(--texte);
+    border-radius: 0;
+    padding: 0.9rem 1.2rem;
+    font-size: 0.88rem;
+}
+body .report-flag strong { color: var(--vin); font-weight: 600; }
+
+/* Cartes KPI → cartouche sur filet doré, quadrillage intérieur */
+body .synth-grid { gap: 0; border-top: 1px solid var(--or); border-bottom: 1px solid var(--filet); margin: 1.4rem 0 1.2rem; }
+body .synth-card { background: transparent; border: 0; border-right: 1px solid var(--filet); border-radius: 0; padding: 1rem 0.8rem 0.9rem; }
+body .synth-card:last-child { border-right: 0; }
+body .synth-card .num { font-size: 1.6rem; font-weight: 600; }
+body .synth-card .num span { font-size: 0.9rem; color: var(--or); }
+body .synth-card .lbl {
+    font-family: var(--font-display);
+    font-variant: small-caps;
+    letter-spacing: 0.06em;
+    font-size: 0.95rem;
+    color: var(--texte-light);
+    margin-top: 0.25rem;
+}
+@media (max-width: 600px) {
+    body .synth-grid { grid-template-columns: 1fr; }
+    body .synth-card { border-right: 0; border-bottom: 1px solid var(--filet); }
+    body .synth-card:last-child { border-bottom: 0; }
+}
+
+/* Fiches par millésime : lignes sur filets, plus de carte à bord doré */
+body .fiche { background: transparent; border: 0; border-top: 1px solid var(--filet); border-radius: 0; padding: 1.3rem 0 1.1rem; margin: 0; }
+body .fiche:first-of-type { border-top: 1px solid var(--filet-fort); }
+body .fiche__head h3 { font-size: 1.5rem; }
+body .fiche__label { font-family: var(--font-display); font-style: italic; font-size: 1.02rem; color: var(--texte-light); letter-spacing: 0; }
+body .fiche .fiche__note { -webkit-hyphens: auto; hyphens: auto; }
+
+/* Pastilles → étiquettes en petites capitales */
+body .badge {
+    font-family: var(--font-display);
+    font-variant: small-caps;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    font-size: 0.98rem;
+    line-height: 1.4;
+    padding: 0 0.55rem;
+    border-radius: 0;
+    background: transparent;
+    border: 1px solid currentColor;
+}
+body .badge-garder { color: var(--bordeaux); }
+body .badge-vendre { color: var(--vin); }
+body .badge-arbitrer { color: #7A6420; border-color: #7A6420; }
+
+/* Tableau d'inventaire de l'exemple Mouton : style catalogue */
+body .inv-wrap { border: 0; border-radius: 0; }
+body table.inv thead th {
+    background: transparent;
+    color: var(--bordeaux);
+    font-family: var(--font-display);
+    font-variant: small-caps;
+    text-transform: none;
+    letter-spacing: 0.06em;
+    font-size: 1rem;
+    border-top: 1px solid var(--or);
+    border-bottom: 1px solid var(--or);
+}
+body table.inv tbody tr:nth-child(even) { background: transparent; }
+body table.inv td { border-bottom: 1px solid var(--filet); }
+body table.inv tfoot td { background: var(--creme); border-top: 1px solid var(--filet-fort); }
