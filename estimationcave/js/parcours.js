@@ -15,8 +15,12 @@
 
     var p = null;
     try { p = JSON.parse(sessionStorage.getItem(KEY) || "null"); } catch (_) { p = null; }
-    if (!p || typeof p !== "object" || !p.landing) {
-      var q = new URLSearchParams(location.search);
+    // Une arrivée par campagne (utm_* ou clic Google Ads) est toujours une nouvelle entrée,
+    // même si l'onglet avait déjà visité le site : l'attribution suit le dernier clic.
+    var q = new URLSearchParams(location.search);
+    var campagne = q.has("utm_source") || q.has("utm_campaign") ||
+      q.has("gclid") || q.has("gad_source") || q.has("gbraid") || q.has("wbraid");
+    if (!p || typeof p !== "object" || !p.landing || campagne) {
       var utm = {};
       ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"].forEach(function (k) {
         var v = q.get(k);
