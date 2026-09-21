@@ -67,453 +67,267 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
     <link rel="stylesheet" href="styles.css">
 
     <style>
-        a { text-decoration: none; color: inherit; }
 
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        .container-narrow {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        .container-mid {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        .container-tight {
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
+/* ═══════════════════════════════════════════════════════════
+   LANDING PRESCRIPTEURS — vocabulaire « catalogue de vente » (21/09/2026), gabarit assureurs.html
+   Tokens inchangés : bordeaux, or, fond, Cormorant + DM Sans.
+   Ajouts : rouge vin (celui des graphiques du rapport), crème 2.
+   Retirés : grain, pulsation, scroll-reveal, ombres 30 px, coins arrondis.
+   ═══════════════════════════════════════════════════════════ */
+:root {
+  --bordeaux: #2D1B2E;
+  --or: #C5A258;
+  --or-pale: rgba(197, 162, 88, 0.14);
+  --fond: #FAF6F0;
+  --creme: #F3EBDD;
+  --vin: #8B3A3A;
+  --texte: #3A3035;
+  --texte-light: #6B5F65;
+  --blanc: #FFFFFF;
+  --filet: rgba(45, 27, 46, 0.16);
+  --filet-fort: rgba(45, 27, 46, 0.45);
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'DM Sans', -apple-system, sans-serif;
+  --mesure: 1120px;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-padding-top: 88px; }
+body {
+  font-family: var(--font-body);
+  background: var(--fond);
+  color: var(--texte);
+  line-height: 1.65;
+  font-size: 1rem;
+  -webkit-font-smoothing: antialiased;
+  font-variant-numeric: oldstyle-nums;
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--bordeaux); text-decoration: none; }
+p a { text-decoration: underline; text-decoration-color: var(--or); text-underline-offset: 3px; }
+*:focus-visible { outline: 2px solid var(--or); outline-offset: 2px; }
 
-        /* ── SECTIONS GÉNÉRIQUES ── */
-        .section {
-            padding: 4rem 0;
-        }
-        .section-alt {
-            background: var(--blanc);
-        }
-        .section-dark {
-            background: var(--bordeaux);
-            color: var(--blanc);
-        }
+.container { max-width: var(--mesure); margin: 0 auto; padding: 0 2rem; }
+section { padding: 5.5rem 0; }
+@media (max-width: 768px) { section { padding: 3.5rem 0; } .container { padding: 0 1.25rem; } }
 
-        /* ── HERO ── */
-        .hero {
-            padding: 9rem 0 4rem;
-            text-align: center;
-        }
-        .hero .eyebrow {
-            font-family: var(--font-body);
-            font-size: 0.78rem;
-            font-weight: 600;
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
-            color: var(--or);
-            margin-bottom: 1.25rem;
-        }
-        .hero h1 {
-            font-family: var(--font-display);
-            font-size: clamp(2.4rem, 4.5vw, 3.2rem);
-            font-weight: 600;
-            color: var(--bordeaux);
-            line-height: 1.15;
-            letter-spacing: -0.02em;
-            margin-bottom: 1.5rem;
-        }
-        .hero h1 em { font-style: italic; font-weight: 400; }
-        h2 em { font-style: italic; font-weight: 400; }
-        .hero .lead {
-            font-family: var(--font-body);
-            font-size: 1.15rem;
-            line-height: 1.65;
-            color: var(--texte);
-            margin: 0 auto;
-            max-width: 720px;
-        }
-        .hero-ctas {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-        .hero-ctas .btn-primary,
-        .hero-ctas .btn-outline {
-            padding: 0.9rem 1.8rem;
-            font-size: 0.95rem;
-        }
-        .btn-outline {
-            display: inline-block;
-            font-family: var(--font-body);
-            font-weight: 500;
-            font-size: 0.85rem;
-            letter-spacing: 0.03em;
-            background: transparent;
-            color: var(--bordeaux);
-            padding: 0.65rem 1.5rem;
-            border-radius: 4px;
-            border: 1.5px solid var(--bordeaux);
-            cursor: pointer;
-            text-decoration: none;
-            transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-        }
-        .btn-outline:hover,
-        .btn-outline:focus,
-        .btn-outline:active {
-            background: var(--or);
-            color: var(--bordeaux);
-            border-color: var(--or);
-        }
+/* ── Typographie ── */
+blockquote { text-wrap: pretty; }
+h1, h2, h3, .display { font-family: var(--font-display); font-weight: 500; color: var(--bordeaux); line-height: 1.1; letter-spacing: -0.005em; }
+h1 { font-size: clamp(2.6rem, 5.2vw, 4.2rem); font-weight: 500; }
+h2 { font-size: clamp(2rem, 3.6vw, 2.8rem); }
+h3 { font-size: 1.45rem; font-weight: 600; }
+.lead { font-size: 1.12rem; color: var(--texte-light); line-height: 1.65; }
 
-        /* ── H2 commun ── */
-        h2 {
-            font-family: var(--font-display);
-            font-size: clamp(1.7rem, 3vw, 2.1rem);
-            font-weight: 600;
-            color: var(--bordeaux);
-            line-height: 1.25;
-            text-align: center;
-            margin: 0 0 1.25rem;
-        }
-        .section-dark h2 { color: var(--blanc); }
+/* Le label de section : petites capitales Cormorant en bordeaux,
+   à la place du DM Sans majuscules doré espacé. */
+.sc {
+  font-family: var(--font-display);
+  font-variant: small-caps;
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  color: var(--bordeaux);
+  display: flex; align-items: center; gap: 0.75rem;
+  margin-bottom: 1.2rem;
+}
+.sc::before { content: ''; width: 2.25rem; height: 1px; background: var(--or); }
+.sc.center { justify-content: center; }
+.sc.center::after { content: ''; width: 2.25rem; height: 1px; background: var(--or); }
+.sc.on-dark { color: var(--or); }
 
-        .section-intro {
-            font-size: 1.02rem;
-            line-height: 1.7;
-            color: var(--texte);
-            text-align: center;
-            max-width: 720px;
-            margin: 0 auto 2rem;
-        }
+/* Filets « catalogue » */
+.filet-double { height: 5px; border-top: 1px solid var(--filet-fort); border-bottom: 1px solid var(--filet-fort); }
+.filet { height: 1px; background: var(--filet); }
+.fleuron { display: flex; align-items: center; justify-content: center; gap: 1rem; margin: 2.5rem 0; }
+.fleuron::before, .fleuron::after { content: ''; flex: 0 0 4rem; height: 1px; background: var(--or); }
+.fleuron img { width: 26px; height: 26px; opacity: 0.85; }
 
-        /* ── SECTION 2 — PAIN POINTS ── */
-        .pains-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        .pain-card {
-            background: var(--blanc);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 2rem;
-            transition: all 0.3s cubic-bezier(0.33, 1, 0.68, 1);
-        }
-        @media (hover: hover) {
-            .pain-card:hover {
-                border-color: rgba(197, 162, 88, 0.4);
-                box-shadow: 0 8px 24px rgba(45, 27, 46, 0.05);
-            }
-        }
-        .pain-number {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            border: 2px solid var(--or);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 0 1.25rem;
-            font-family: var(--font-display);
-            font-size: 1.15rem;
-            font-weight: 600;
-            color: var(--or);
-        }
-        .pain-card h3 {
-            font-family: var(--font-display);
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--bordeaux);
-            margin-bottom: 0.85rem;
-            line-height: 1.3;
-        }
-        .pain-card p {
-            font-size: 0.95rem;
-            color: var(--texte);
-            line-height: 1.7;
-            margin: 0;
-            text-align: justify;
-        }
-        .pain-card strong { color: var(--bordeaux); font-weight: 600; }
+/* Boutons : coins vifs, aucune animation */
+.btn { display: inline-block; font-family: var(--font-body); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.02em; padding: 0.85rem 1.7rem; border: 1px solid var(--bordeaux); background: var(--bordeaux); color: var(--fond); cursor: pointer; transition: background 0.2s, color 0.2s; }
+.btn:hover { background: #3D2940; }
+.btn-gold { background: var(--or); border-color: var(--or); color: var(--bordeaux); }
+.btn-gold:hover { background: #B8944C; }
+.btn-outline { background: transparent; color: var(--bordeaux); }
+.btn-outline:hover { background: var(--bordeaux); color: var(--fond); }
+.btn-outline.on-dark { color: var(--fond); border-color: var(--or); }
+.btn-outline.on-dark:hover { background: var(--or); color: var(--bordeaux); }
+.lien-suite { font-family: var(--font-display); font-style: italic; font-size: 1.15rem; color: var(--bordeaux); border-bottom: 1px solid var(--or); }
 
-        /* ── SECTION 3 — USAGES ── */
-        .usage-block {
-            margin: 2rem 0;
-        }
-        .usage-block h3 {
-            font-family: var(--font-display);
-            font-size: 1.35rem;
-            font-weight: 600;
-            color: var(--bordeaux);
-            margin-bottom: 1rem;
-            line-height: 1.3;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        .usage-block h3 .pain-number {
-            margin: 0;
-            flex-shrink: 0;
-        }
-        .usage-block p {
-            font-size: 1rem;
-            line-height: 1.8;
-            color: var(--texte);
-            margin-bottom: 0.85rem;
-        }
-        .usage-block .livrable {
-            font-style: italic;
-            font-size: 0.95rem;
-            color: var(--texte-light);
-            border-left: 2px solid var(--or);
-            padding-left: 1rem;
-            margin-top: 1rem;
-        }
+/* Cartouche technique : remplace le bandeau à 4 KPI */
+.fiche-technique { border-top: 1px solid var(--or); border-bottom: 1px solid var(--filet); margin-top: 3rem; }
+.fiche-technique ul { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); }
+.fiche-technique li { padding: 1.1rem 1.4rem; border-right: 1px solid var(--filet); font-size: 0.86rem; color: var(--texte-light); line-height: 1.45; }
+.fiche-technique li:last-child { border-right: 0; }
+.fiche-technique li b { display: block; font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--bordeaux); line-height: 1.2; margin-bottom: 0.15rem; }
+.fiche-technique li a { border-bottom: 1px solid var(--or); color: var(--bordeaux); }
+@media (max-width: 860px) {
+  .fiche-technique ul { grid-template-columns: 1fr 1fr; }
+  .fiche-technique li:nth-child(2) { border-right: 0; }
+  .fiche-technique li:nth-child(-n+2) { border-bottom: 1px solid var(--filet); }
+}
 
-        /* ── SECTION 4 — MATRICE ── */
-        .matrix-wrap { margin-top: 2rem; }
-        .matrix {
-            width: 100%;
-            border-collapse: collapse;
-            background: var(--blanc);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 16px rgba(45, 27, 46, 0.04);
-            font-size: 0.92rem;
-        }
-        .matrix thead th {
-            background: var(--bordeaux);
-            color: var(--blanc);
-            font-family: var(--font-body);
-            font-weight: 600;
-            padding: 1rem 0.9rem;
-            text-align: left;
-            font-size: 0.88rem;
-        }
-        .matrix tbody td {
-            padding: 0.95rem 0.9rem;
-            border-bottom: 1px solid var(--or);
-            color: var(--texte);
-            vertical-align: top;
-        }
-        .matrix tbody tr:last-child td { border-bottom: none; }
-        .matrix tbody td:first-child {
-            font-weight: 600;
-            color: var(--bordeaux);
-            background: rgba(45, 27, 46, 0.02);
-        }
-        .matrix .col-ec {
-            background: var(--or-pale);
-            font-weight: 600;
-            color: var(--bordeaux);
-        }
-        .matrix thead .col-ec {
-            background: #8B6B2E;
-            color: var(--blanc);
-        }
-        .bon-a-savoir {
-            background: var(--or-pale);
-            border-radius: 6px;
-            padding: 1.5rem 1.75rem;
-            margin: 2rem 0 0;
-            font-size: 0.98rem;
-            line-height: 1.7;
-            color: var(--texte);
-        }
+/* ── Fanny : la personne, haut dans la page ── */
+.experte-grid { display: grid; grid-template-columns: 3fr 7fr; gap: 4rem; align-items: center; }
+.cadre-double { position: relative; padding: 10px; border: 1px solid var(--filet-fort); }
+.cadre-double::after { content: ''; position: absolute; inset: 3px; border: 1px solid var(--filet-fort); pointer-events: none; }
+.cadre-double img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 20%; filter: saturate(0.85); }
+.experte h2 { margin-bottom: 1.4rem; }
+.experte p { margin-bottom: 1rem; font-size: 1.02rem; }
+.bulle { width: 100%; max-width: 16.5rem; aspect-ratio: 4 / 5; border-radius: 50%; overflow: hidden; margin: 0 auto; box-shadow: 0 0 0 1px var(--filet-fort), 0 0 0 6px var(--fond), 0 0 0 7px var(--or); }
+.bulle img { width: 100%; height: 100%; object-fit: cover; object-position: 58% 22%; transform: scale(1.15); transform-origin: 58% 30%; filter: saturate(0.92); }
+.experte .signature { font-family: var(--font-display); font-style: italic; font-size: 1.9rem; color: var(--bordeaux); margin: 1.4rem 0 0.2rem; }
+.experte .signature-sub { font-size: 0.85rem; color: var(--texte-light); margin-bottom: 1.4rem; }
+@media (max-width: 860px) { .experte-grid { grid-template-columns: 1fr; gap: 2rem; } .bulle { max-width: 16rem; } }
 
-        /* ── SECTION PROFIL (fond bordeaux) ── */
-        .profil-section {
-            background: var(--bordeaux);
-            color: var(--blanc);
-        }
-        .profil-section h2 { color: var(--blanc); }
-        .profil-section h2 em { color: var(--or); font-style: italic; font-weight: 400; }
-        .profil p {
-            font-size: 1rem;
-            line-height: 1.85;
-            color: var(--blanc);
-            margin-bottom: 1.5rem;
-            text-align: justify;
-        }
-        .profil-link {
-            display: inline-block;
-            margin-top: 0.5rem;
-            color: var(--or) !important;
-            font-weight: 500;
-            text-decoration: none !important;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.25s ease;
-        }
-        .profil-link:hover { border-bottom-color: var(--or); }
+/* ── Comment ça marche : bandeau bordeaux, 3 lignes sur filet ── */
+.process { background: var(--bordeaux); color: var(--fond); }
+.process h2 { color: var(--fond); margin-bottom: 3rem; }
+.etapes { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(250,246,240,0.35); }
+.etapes li { padding: 1.6rem 1.6rem 1.6rem 0; border-top: 3px double rgba(197,162,88,0.6); margin-top: -1px; }
+.etapes .num { font-family: var(--font-display); font-size: 1rem; font-variant: small-caps; letter-spacing: 0.1em; color: var(--or); margin-bottom: 0.4rem; }
+.etapes h3 { color: var(--fond); font-weight: 500; margin-bottom: 0.4rem; }
+.etapes p { font-size: 0.92rem; color: rgba(250,246,240,0.75); }
+.process-suite { margin-top: 2.5rem; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+.process-suite p { font-size: 0.92rem; color: rgba(250,246,240,0.8); max-width: 40rem; }
+@media (max-width: 860px) { .etapes { grid-template-columns: 1fr; } .etapes li { padding-right: 0; } }
 
-        /* ── SECTION 6 — PARTENARIATS ── */
-        .partner-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 2rem;
-            align-items: stretch;
-        }
-        .partner-card {
-            background: var(--blanc);
-            border: 2px solid var(--border);
-            border-radius: 8px;
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
-        }
-        .partner-card:hover {
-            border-color: var(--or);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(45, 27, 46, 0.08);
-        }
-        .partner-card .eyebrow {
-            font-family: var(--font-body);
-            font-size: 0.72rem;
-            font-weight: 600;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--or);
-            margin-bottom: 0.85rem;
-        }
-        .partner-card h3 {
-            font-family: var(--font-display);
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--bordeaux);
-            margin-bottom: 1rem;
-            line-height: 1.3;
-        }
-        .partner-card p {
-            font-size: 0.95rem;
-            color: var(--texte);
-            line-height: 1.7;
-            margin: 0;
-            text-align: justify;
-        }
-        .partner-cta {
-            text-align: center;
-            margin-top: 2.5rem;
-            font-size: 1rem;
-            color: var(--texte);
-        }
-        .partner-cta a {
-            font-family: var(--font-display);
-            font-size: 1.35rem;
-            color: var(--or) !important;
-            font-weight: 600;
-            text-decoration: none !important;
-            display: inline-block;
-            margin-top: 0.5rem;
-        }
-        .partner-cta a:hover { color: var(--bordeaux) !important; }
+/* ── Engagements : deux colonnes + cartouche (comme la couverture du rapport) ── */
+.engagements { background: var(--bordeaux); color: var(--fond); }
+.engagements .sc { color: var(--or); }
+.engagements h3 { color: var(--fond); }
+.engagements .cartouche { border-color: rgba(197,162,88,0.6); outline-color: rgba(197,162,88,0.6); }
+.engagements .cartouche div { border-right-color: rgba(250,246,240,0.18); color: rgba(250,246,240,0.7); }
+.engagements .cartouche b { color: var(--fond); }
+.engagements .cartouche .sc { color: var(--or); }
+.engagements-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-bottom: 3rem; }
+.engagements-grid h3 { margin-bottom: 0.6rem; }
+.engagements-grid p { color: rgba(250,246,240,0.78); font-size: 0.98rem; text-align: justify; hyphens: auto; }
+.cartouche { border: 1px solid var(--filet-fort); outline: 1px solid var(--filet-fort); outline-offset: 3px; display: grid; grid-template-columns: repeat(3, 1fr); }
+.cartouche div { padding: 1.4rem 1.6rem; border-right: 1px solid var(--filet); text-align: center; font-size: 0.85rem; color: var(--texte-light); }
+.cartouche div:last-child { border-right: 0; }
+.cartouche .sc { justify-content: center; margin-bottom: 0.4rem; font-size: 0.95rem; }
+.cartouche .sc::before { display: none; }
+.cartouche b { display: block; font-family: var(--font-display); font-size: 1.35rem; font-weight: 600; color: var(--bordeaux); margin-bottom: 0.2rem; }
+@media (max-width: 860px) { .engagements-grid { grid-template-columns: 1fr; gap: 2rem; } .cartouche { grid-template-columns: 1fr; } .cartouche div { border-right: 0; border-bottom: 1px solid rgba(250,246,240,0.18); } .cartouche div:last-child { border-bottom: 0; } }
 
-        /* ── SECTION 7 — RAPPORT EXEMPLE ── */
-        .rapport-block { text-align: center; }
-        .rapport-block p {
-            font-size: 1rem;
-            line-height: 1.8;
-            color: var(--texte);
-            margin-bottom: 2rem;
-        }
-        .btn-download {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            font-family: var(--font-body);
-            font-weight: 500;
-            font-size: 0.95rem;
-            background: var(--bordeaux);
-            color: var(--fond);
-            padding: 0.9rem 1.8rem;
-            border-radius: 4px;
-            border: none;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.33, 1, 0.68, 1);
-        }
-        @media (hover: hover) {
-            .btn-download:hover {
-                background: #3D2940;
-                color: var(--fond);
-                transform: translateY(-1px);
-                box-shadow: 0 8px 30px rgba(45, 27, 46, 0.2);
-            }
-        }
-        .btn-download svg { width: 18px; height: 18px; }
+/* ═══ Page « assureurs » ═══ */
+.hero { padding: 4.5rem 0 3.5rem; overflow: hidden; }
+.hero-grid { display: grid; grid-template-columns: 7fr 5fr; gap: 3rem; align-items: center; }
+.hero h1 { margin: 0.6rem 0 1.4rem; max-width: 20ch; font-size: clamp(2.3rem, 4.2vw, 3.4rem); }
+.hero h1 em { font-style: italic; font-weight: 400; }
+.hero .lead { max-width: 36rem; margin-bottom: 2rem; }
+.hero-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+.hero-illus { width: 83%; margin-left: auto; opacity: 0.9; }
+@media (max-width: 860px) { .hero { padding: 2.5rem 0 2rem; } .hero-grid { grid-template-columns: 1fr; gap: 1.5rem; } .hero h1 { max-width: none; } .hero-illus { width: 67%; margin: 0.5rem auto 0; } }
 
-        /* ── SECTION 8 — CTA FINAL ── */
-        .cta-final {
-            padding: 5rem 0;
-            background: var(--bordeaux);
-            color: var(--blanc);
-            text-align: center;
-        }
-        .cta-final h2 { color: var(--blanc); margin-bottom: 1rem; }
-        .cta-final .lead {
-            font-size: 1.05rem;
-            line-height: 1.7;
-            color: var(--blanc);
-            opacity: 0.9;
-            max-width: 640px;
-            margin: 0 auto 2rem;
-        }
-        .cta-mailto {
-            font-family: var(--font-display);
-            font-size: clamp(1.5rem, 3.5vw, 2rem);
-            font-weight: 600;
-            color: var(--or) !important;
-            text-decoration: none !important;
-            display: inline-block;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.01em;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.25s ease;
-        }
-        .cta-mailto:hover { border-bottom-color: var(--or); }
-        .cta-final .subtext {
-            font-size: 0.92rem;
-            color: var(--blanc);
-            opacity: 0.7;
-            max-width: 580px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
+/* Le constat : trois douleurs en quadrillage */
+.constat-head { max-width: 44rem; margin-bottom: 2.5rem; }
+.constat-head .lead { margin-top: 1rem; }
+.douleurs { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--or); }
+.douleurs li { padding: 1.6rem 1.6rem 1.6rem 0; border-right: 1px solid var(--filet); }
+.douleurs li + li { padding-left: 1.6rem; }
+.douleurs li:last-child { border-right: 0; padding-right: 0; }
+.douleurs .num { font-family: var(--font-display); font-size: 1.6rem; color: var(--vin); line-height: 1; margin-bottom: 0.7rem; }
+.douleurs h3 { font-size: 1.3rem; margin-bottom: 0.6rem; min-height: 2.6em; }
+.douleurs p { font-size: 0.93rem; color: var(--texte-light); text-align: justify; hyphens: auto; }
+.douleurs strong { color: var(--bordeaux); font-weight: 500; }
+@media (max-width: 860px) { .douleurs { grid-template-columns: 1fr; } .douleurs li, .douleurs li + li { padding: 1.3rem 0; border-right: 0; border-bottom: 1px solid var(--filet); } .douleurs li:last-child { border-bottom: 0; } .douleurs h3 { min-height: 0; } }
 
-        /* ── ANCHOR OFFSET ── */
-        #rapport-exemple { scroll-margin-top: 96px; }
+/* Fanny + les deux valorisations */
+.experte-grid { align-items: start; }
+.experte .bulle { margin-top: 0.6rem; }
+.valorisations { margin-top: 2.2rem; border-top: 1px solid var(--or); border-bottom: 1px solid var(--filet); display: grid; grid-template-columns: 1fr 1fr; }
+.valorisations div { padding: 1.2rem 1.4rem 1.2rem 0; border-right: 1px solid var(--filet); font-size: 0.92rem; color: var(--texte-light); }
+.valorisations div + div { padding-left: 1.4rem; border-right: 0; padding-right: 0; }
+.valorisations .sc { margin-bottom: 0.4rem; font-size: 1rem; }
+.valorisations .sc::before { display: none; }
+.valorisations b { display: block; font-family: var(--font-display); font-size: 1.35rem; font-weight: 600; color: var(--bordeaux); margin-bottom: 0.3rem; line-height: 1.15; }
+.valorisations-note { font-size: 0.9rem; color: var(--texte-light); border-top: 1px solid var(--filet); padding-top: 0.9rem; font-style: italic; }
+@media (max-width: 640px) { .valorisations { grid-template-columns: 1fr; } .valorisations div, .valorisations div + div { padding: 1rem 0; border-right: 0; border-bottom: 1px solid var(--filet); } }
 
-        /* ── RESPONSIVE ── */
-        @media (max-width: 900px) {
-            .pains-grid,
-            .partner-grid { grid-template-columns: 1fr; gap: 1.25rem; }
-        }
-        @media (max-width: 700px) {
-            .matrix { font-size: 0.82rem; }
-            .matrix thead th,
-            .matrix tbody td { padding: 0.7rem 0.55rem; }
-        }
-        @media (max-width: 600px) {
-            .container,
-            .container-narrow,
-            .container-mid,
-            .container-tight { padding: 0 1.25rem; }
-            .hero { padding: 7.5rem 0 3rem; }
-            .section { padding: 3rem 0; }
-            .cta-final { padding: 3.5rem 0; }
-            .matrix-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-            .matrix { min-width: 560px; }
-            .pain-card,
-            .partner-card { padding: 1.5rem; }
-        }
-    </style>
+/* Cas d'usage : lignes numérotées sur filets */
+.usages { background: var(--creme); }
+.usages-head { max-width: 44rem; margin-bottom: 2rem; }
+.cas { list-style: none; border-top: 1px solid var(--filet-fort); }
+.cas li { display: grid; grid-template-columns: 3.2rem 1fr; padding: 1.8rem 0; border-bottom: 1px solid var(--filet); }
+.cas .num { font-family: var(--font-display); font-size: 1.9rem; color: var(--vin); line-height: 1; padding-top: 0.2rem; }
+.cas h3 { margin-bottom: 0.6rem; }
+.cas p { font-size: 0.97rem; margin-bottom: 0.7rem; max-width: 46rem; }
+.cas .livrable { font-family: var(--font-display); font-style: italic; font-size: 1.1rem; color: var(--bordeaux); border-left: 1px solid var(--or); padding-left: 1rem; margin: 0.9rem 0 0; }
+.cas .livrable b { font-style: normal; font-variant: small-caps; letter-spacing: 0.06em; font-weight: 600; color: var(--vin); margin-right: 0.3rem; }
+
+/* Méthodologie : bandeau bordeaux, quatre étapes en 2×2 */
+.process .etapes { grid-template-columns: 1fr 1fr; }
+.process .etapes li { padding: 1.6rem 2.4rem 1.6rem 0; }
+.process .etapes li:nth-child(even) { padding-left: 2.4rem; padding-right: 0; border-left: 1px solid rgba(250,246,240,0.18); }
+.process .etapes p { text-align: justify; hyphens: auto; }
+@media (max-width: 860px) { .process .etapes { grid-template-columns: 1fr; } .process .etapes li, .process .etapes li:nth-child(even) { padding: 1.4rem 0; border-left: 0; } }
+
+/* Comparatif : tableau catalogue */
+.comparatif h2 { max-width: 30ch; margin-bottom: 2rem; }
+.comparatif h2 em { font-style: italic; font-weight: 400; }
+.matrix-wrap { overflow-x: auto; }
+.matrix { width: 100%; border-collapse: collapse; font-size: 0.92rem; border-top: 1px solid var(--or); }
+.matrix th { font-family: var(--font-display); font-variant: small-caps; letter-spacing: 0.06em; font-size: 1.05rem; font-weight: 600; color: var(--bordeaux); text-align: left; padding: 0.8rem 0.9rem; border-bottom: 1px solid var(--or); vertical-align: bottom; }
+.matrix td { padding: 0.85rem 0.9rem; border-bottom: 1px solid var(--filet); vertical-align: top; color: var(--texte-light); }
+.matrix td:first-child { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; color: var(--bordeaux); }
+.matrix .col-ec { background: var(--creme); color: var(--bordeaux); font-weight: 500; }
+.matrix th.col-ec { color: var(--vin); }
+.matrix .col-ec:not(th) { border-left: 1px solid var(--filet-fort); border-right: 1px solid var(--filet-fort); }
+.argument { max-width: 48rem; margin: 2.5rem auto 0; text-align: center; font-family: var(--font-display); font-style: italic; font-size: 1.45rem; line-height: 1.4; color: var(--bordeaux); }
+.argument::before { content: ''; display: block; width: 4rem; height: 1px; background: var(--or); margin: 0 auto 1.2rem; }
+@media (max-width: 640px) { .matrix { min-width: 640px; font-size: 0.85rem; } }
+
+/* Rapport exemple : planche dans un cadre double */
+.rapport { background: var(--creme); }
+.rapport-cadre { background: var(--fond); border: 1px solid var(--filet-fort); outline: 1px solid var(--filet-fort); outline-offset: 4px; margin: 4px; padding: 2.2rem 2.4rem; display: grid; grid-template-columns: 4fr 7fr; gap: 2.5rem; align-items: center; }
+.rapport-cadre img { width: 100%; max-width: 18rem; margin: 0 auto; border: 1px solid var(--filet); }
+.rapport-cadre h2 { margin-bottom: 1rem; font-size: clamp(1.8rem, 3vw, 2.3rem); }
+.rapport-cadre p { margin-bottom: 1.4rem; font-size: 0.98rem; }
+.rapport-cadre .btn svg { width: 15px; height: 15px; vertical-align: -2px; margin-right: 0.4rem; }
+@media (max-width: 860px) { .rapport-cadre { grid-template-columns: 1fr; padding: 1.5rem 1.2rem; } .rapport-cadre img { max-width: 13rem; } }
+
+/* Trois niveaux d'engagement : quadrillage */
+.niveaux-head { max-width: 44rem; margin-bottom: 2.5rem; }
+.niveaux { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--or); border-bottom: 1px solid var(--filet); }
+.niveaux li { padding: 1.6rem 1.6rem 1.6rem 0; border-right: 1px solid var(--filet); }
+.niveaux li + li { padding-left: 1.6rem; }
+.niveaux li:last-child { border-right: 0; padding-right: 0; }
+.niveaux .sc { font-size: 0.95rem; color: var(--vin); margin-bottom: 0.5rem; min-height: 2.4em; align-items: flex-start; }
+.niveaux .sc::before { display: none; }
+.niveaux h3 { margin-bottom: 0.6rem; }
+.niveaux p { font-size: 0.93rem; color: var(--texte-light); }
+.niveaux-cta { text-align: center; margin-top: 2rem; font-size: 0.98rem; color: var(--texte-light); }
+.niveaux-cta a { font-family: var(--font-display); font-size: 1.3rem; color: var(--bordeaux); border-bottom: 1px solid var(--or); }
+@media (max-width: 860px) { .niveaux { grid-template-columns: 1fr; } .niveaux li, .niveaux li + li { padding: 1.3rem 0; border-right: 0; border-bottom: 1px solid var(--filet); } .niveaux li:last-child { border-bottom: 0; } .niveaux .sc { min-height: 0; } }
+
+/* CTA final : bandeau bordeaux */
+.cta-final { background: var(--bordeaux); color: var(--fond); text-align: center; }
+.cta-final h2 { color: var(--fond); margin-bottom: 1rem; }
+.cta-final .lead { color: rgba(250,246,240,0.8); max-width: 40rem; margin: 0 auto 2rem; }
+.cta-final .subtext { font-size: 0.85rem; color: rgba(250,246,240,0.6); max-width: 40rem; margin: 1.2rem auto 0; }
+.cta-final .mail { display: inline-block; font-family: var(--font-display); font-size: clamp(1.4rem, 3vw, 2rem); color: var(--or); border-bottom: 1px solid var(--or); margin-bottom: 0.4rem; }
+
+
+
+/* Nav du site (styles.css) : collante et opaque, comme sur l'accueil */
+.nav { position: sticky; background: var(--fond); backdrop-filter: none; -webkit-backdrop-filter: none; }
+.nav-right .btn-gold { border-radius: 0; }
+    
+/* Déclinaisons prescripteurs */
+.comparatif .lead { max-width: 44rem; margin: -1rem 0 2rem; }
+.rapport-note { margin-top: 1.4rem; padding-top: 1rem; border-top: 1px solid var(--filet); font-size: 0.88rem; color: var(--texte-light); }
+.rapport-note b { color: var(--bordeaux); font-weight: 500; }
+.constat-head p + p { margin-top: 0.9rem; }
+.niveaux.quatre { grid-template-columns: repeat(4, 1fr); }
+.niveaux.quatre .sc { min-height: 0; }
+.argument-head { text-align: center; }
+.argument-head .sc { justify-content: center; }
+.argument-head .sc::after { content: ''; width: 2.25rem; height: 1px; background: var(--or); }
+.argument.long { font-size: 1.3rem; max-width: 52rem; }
+@media (max-width: 860px) { .niveaux.quatre { grid-template-columns: 1fr 1fr; } .niveaux.quatre li, .niveaux.quatre li + li { padding: 1.3rem 1.2rem 1.3rem 0; border-right: 1px solid var(--filet); border-bottom: 1px solid var(--filet); } .niveaux.quatre li:nth-child(even) { border-right: 0; padding-left: 1.2rem; padding-right: 0; } .niveaux.quatre li:nth-last-child(-n+2) { border-bottom: 0; } }
+@media (max-width: 560px) { .niveaux.quatre { grid-template-columns: 1fr; } .niveaux.quatre li, .niveaux.quatre li + li, .niveaux.quatre li:nth-child(even) { padding: 1.2rem 0; border-right: 0; border-bottom: 1px solid var(--filet); } .niveaux.quatre li:last-child { border-bottom: 0; } }
+</style>
 
     <script type="application/ld+json">
     {
@@ -557,207 +371,148 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
 
     <main id="main">
 
-        <!-- ── SECTION 1 — HERO ── -->
-        <header class="hero">
-            <div class="container-narrow">
-                <p class="eyebrow reveal">POUR LES NOTAIRES ET LEURS DOSSIERS</p>
-                <h1 class="reveal">La cave à vins d'une succession <em>mérite mieux qu'un forfait à 5 %.</em></h1>
-                <p class="lead reveal">Une estimation indépendante, détaillée et argumentée, qui vous donne une base de valeur réelle — et sécurise votre déclaration comme votre responsabilité.</p>
-                <span class="ornament-diamond"></span>
-                <div class="hero-ctas reveal">
-                    <a href="mailto:contact@estimationcave.com?subject=Discussion%20dossier%20notaire" class="btn-primary">Écrivez-moi au sujet d'un dossier</a>
-                    <a href="/exemples/rapport-anonymise.pdf" class="btn-outline">Voir un exemple de rapport</a>
-                </div>
-            </div>
-        </header>
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <p class="sc">Pour les notaires et leurs dossiers</p>
+        <h1>La cave à vins d'une succession <em>mérite mieux qu'un forfait à 5&nbsp;%.</em></h1>
+        <p class="lead">Une estimation indépendante, détaillée et argumentée, qui vous donne une base de valeur réelle, et sécurise votre déclaration comme votre responsabilité.</p>
+        <div class="hero-actions">
+          <a href="mailto:contact@estimationcave.com?subject=Discussion%20dossier%20notaire" class="btn">Écrivez-moi au sujet d'un dossier</a>
+          <a href="#rapport-exemple" class="btn btn-outline">Voir un exemple de rapport</a>
+        </div>
+      </div>
+      <img class="hero-illus" src="empilementcaisse.webp" width="600" height="564" alt="">
+    </div>
+    <div class="fiche-technique">
+      <ul>
+        <li><b>199&nbsp;€, tarif unique</b>Par cave, quel que soit le nombre de bouteilles. Aucune commission.</li>
+        <li><b>5 jours ouvrés</b>Rapport PDF daté et argumenté, à verser au dossier.</li>
+        <li><b>100&nbsp;% à distance</b>Sur photos et liste, partout en France, sans déplacement.</li>
+        <li><b>Valeur vénale réelle</b>La base chiffrée pour arbitrer entre forfait mobilier et inventaire.</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-        <!-- ── SECTION 2 — LE CONSTAT ── -->
-        <section class="section section-alt">
-            <div class="container">
-                <h2>Trois écueils dans la valorisation d'une cave en dossier</h2>
-                <p class="section-intro">La cave à vins est l'un des actifs les plus mal évalués d'une succession. Voici pourquoi, et ce que cela vous coûte concrètement.</p>
-                <span class="ornament-long"></span>
-                <div class="pains-grid">
-                    <article class="pain-card reveal">
-                        <div class="pain-number">1</div>
-                        <h3>Un actif sans référentiel</h3>
-                        <p>Vous évaluez sans peine un bien immobilier, un portefeuille titres, une assurance-vie. La cave à vins, elle, n'offre <strong>aucun référentiel à portée de main</strong> : cotes du marché secondaire, écarts de liquidité entre domaines, impact de l'état du flacon et du millésime. Autant de paramètres pour lesquels une étude ne dispose, sauf exception, d'aucune base de comparaison immédiate.</p>
-                    </article>
-                    <article class="pain-card reveal">
-                        <div class="pain-number">2</div>
-                        <h3>Le forfait 5 %, faux dans les deux sens</h3>
-                        <p>À défaut d'inventaire, la cave est souvent rattachée au <strong>forfait mobilier de 5 % de l'actif brut</strong> (art. 764 du CGI). Or ce forfait vise les meubles meublants : une cave qui a de la valeur n'en relève pas vraiment — c'est un bien meuble corporel, qui doit en principe être déclaré à sa valeur vénale réelle. Faute de base chiffrée, deux dérives apparaissent : pour une cave modeste dans une grosse succession, les héritiers paient des droits sur une valeur gonflée ; pour une cave de valeur, l'écart se révèle dès la première vente aux enchères.</p>
-                    </article>
-                    <article class="pain-card reveal">
-                        <div class="pain-number">3</div>
-                        <h3>Votre responsabilité dans le temps</h3>
-                        <p>Une cave omise de la déclaration peut être reprise par l'administration jusqu'à six ans ; un bien déclaré mais sous-évalué relève du délai de reprise plus court de trois ans. Dans les deux cas, les pénalités peuvent être lourdes — et une valorisation documentée et datée devient une sécurité, pas un confort.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
+<!-- ═══ LE CONSTAT ═══ -->
+<section class="constat">
+  <div class="container">
+    <div class="constat-head">
+      <p class="sc">Le constat</p>
+      <h2>Trois écueils dans la valorisation d'une cave en dossier</h2>
+      <p class="lead">La cave à vins est l'un des actifs les plus mal évalués d'une succession. Voici pourquoi, et ce que cela vous coûte concrètement.</p>
+    </div>
+    <ol class="douleurs">
+      <li><p class="num">I</p><h3>Un actif sans référentiel</h3><p>Vous évaluez sans peine un bien immobilier, un portefeuille titres, une assurance-vie. La cave à vins, elle, n'offre <strong>aucun référentiel à portée de main</strong>&nbsp;: cotes du marché secondaire, écarts de liquidité entre domaines, impact de l'état du flacon et du millésime. Autant de paramètres pour lesquels une étude ne dispose, sauf exception, d'aucune base de comparaison immédiate.</p></li>
+      <li><p class="num">II</p><h3>Le forfait 5&nbsp;%, faux dans les deux sens</h3><p>À défaut d'inventaire, la cave est souvent rattachée au <strong>forfait mobilier de 5&nbsp;% de l'actif brut</strong> (art. 764 du CGI). Or ce forfait vise les meubles meublants&nbsp;: une cave qui a de la valeur n'en relève pas vraiment, c'est un bien meuble corporel, qui doit en principe être déclaré à sa valeur vénale réelle. Faute de base chiffrée, deux dérives apparaissent&nbsp;: pour une cave modeste dans une grosse succession, les héritiers paient des droits sur une valeur gonflée&nbsp;; pour une cave de valeur, l'écart se révèle dès la première vente aux enchères.</p></li>
+      <li><p class="num">III</p><h3>Votre responsabilité dans le temps</h3><p>Une cave omise de la déclaration peut être reprise par l'administration jusqu'à six ans&nbsp;; un bien déclaré mais sous-évalué relève du délai de reprise plus court de trois ans. Dans les deux cas, les pénalités peuvent être lourdes, et une valorisation documentée et datée devient une sécurité, pas un confort.</p></li>
+    </ol>
+  </div>
+</section>
 
-        <!-- ── SECTION PROFIL (entre Trois écueils et Trois contextes) ── -->
-        <section class="section profil-section">
-            <div class="container-tight profil">
-                <h2><em>L'expertise</em> qui sous-tend chaque rapport</h2>
-                <span class="ornament-diamond"></span>
-                <p>Près de dix ans dans le vin, dont six ans responsable des ventes aux enchères. WSET niveau 3 avec distinction.</p>
-                <p>Mon positionnement tient en une phrase : <strong style="color: var(--or);">je n'achète pas, je ne revends pas, je n'ai aucun intérêt dans la valeur que j'établis.</strong> C'est précisément ce qui rend mon estimation utilisable dans un dossier où la neutralité fait foi.</p>
-                <p style="text-align: center;">
-                    <a href="/apropos.html" class="profil-link">En savoir plus sur mon parcours →</a>
-                </p>
-                <span class="ornament-diamond"></span>
-                <!-- TODO Fanny : insérer ici un témoignage réel (idéalement contexte succession) -->
-            </div>
-        </section>
+<!-- ═══ L'EXPERTE ═══ -->
+<section class="experte" style="padding-top:0">
+  <div class="container">
+    <div class="experte-grid">
+      <div class="bulle"><img src="fanny-terrasse.webp" width="1086" height="1448" alt="Fanny Lonqueu-Brochard, experte indépendante en estimation de cave"></div>
+      <div>
+        <p class="sc">L'expertise qui sous-tend chaque rapport</p>
+        <h2>Je n'achète pas, je ne revends pas, je n'ai aucun intérêt dans la valeur que j'établis.</h2>
+        <p>Je m'appelle Fanny Lonqueu-Brochard. Près de dix ans dans le vin, dont six ans responsable des ventes aux enchères&nbsp;: des milliers de caves estimées dans tous les contextes patrimoniaux, successions, divorces, liquidations. WSET niveau&nbsp;3 avec distinction.</p>
+        <p>Mon positionnement tient en une phrase, celle du titre. C'est précisément ce qui rend mon estimation utilisable dans un dossier où la neutralité fait foi.</p>
+        <p class="signature">Fanny</p>
+        <p class="signature-sub">Experte indépendante en estimation de cave · WSET&nbsp;3 · <a href="apropos.html" class="lien-suite" style="font-size:1rem">mon parcours</a></p>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <!-- ── SECTION 3 — CE QUE J'APPORTE ── -->
-        <section class="section" style="background: var(--fond);">
-            <div class="container-mid">
-                <h2>Trois contextes où l'estimation indépendante <em>fait la différence</em></h2>
-                <span class="ornament-long"></span>
+<!-- ═══ CONTEXTES ═══ -->
+<section class="usages">
+  <div class="container">
+    <div class="usages-head">
+      <p class="sc">Ce que j'apporte</p>
+      <h2>Trois contextes où l'estimation indépendante fait la différence</h2>
+    </div>
+    <ol class="cas">
+      <li><p class="num">I</p><div><h3>Succession</h3><p>Une estimation détaillée, bouteille par bouteille ou par lot homogène, qui vous donne la <strong>base de valeur réelle</strong> pour arbitrer entre forfait et inventaire et sécuriser la valeur déclarée.</p></div></li>
+      <li><p class="num">II</p><div><h3>Divorce et partage de communauté</h3><p>Une valorisation neutre, établie par un tiers sans intérêt dans le partage, qui <strong>désamorce les conflits</strong> sur la répartition d'une cave commune.</p></div></li>
+      <li><p class="num">III</p><div><h3>Donation et indivision</h3><p>Une <strong>valeur de référence partagée et incontestable</strong> pour calculer des droits de donation ou arbitrer une sortie d'indivision.</p></div></li>
+    </ol>
+  </div>
+</section>
 
-                <div class="usage-block">
-                    <h3><span class="pain-number">1</span>Succession</h3>
-                    <p>Une estimation détaillée, bouteille par bouteille ou par lot homogène, qui vous donne la <strong>base de valeur réelle</strong> pour arbitrer entre forfait et inventaire et sécuriser la valeur déclarée.</p>
-                </div>
+<!-- ═══ COMPARATIF ═══ -->
+<section class="comparatif">
+  <div class="container">
+    <p class="sc">Comment je me situe</p>
+    <h2>Parmi les options existantes</h2>
+    <p class="lead">Je ne remplace ni le commissaire de justice ni la maison de ventes&nbsp;: je fournis la base de valeur documentée qui manque souvent au dossier, en particulier quand aucun professionnel du chiffre n'est mobilisé sur la cave.</p>
+    <div class="matrix-wrap">
+      <table class="matrix">
+        <thead><tr><th></th><th>Commissaire-priseur</th><th>Maison de ventes</th><th>Forfait 5&nbsp;%</th><th class="col-ec">estimationcave.com</th></tr></thead>
+        <tbody>
+          <tr><td>Spécialiste du marché du vin</td><td>Généraliste</td><td>Oui</td><td>—</td><td class="col-ec">Oui</td></tr>
+          <tr><td>Sans conflit d'intérêt (ne vend pas les bouteilles)</td><td>Variable</td><td>Non</td><td>—</td><td class="col-ec">Oui</td></tr>
+          <tr><td>Granularité réelle</td><td>Oui</td><td>Oui</td><td>Non (global)</td><td class="col-ec">Oui</td></tr>
+          <tr><td>Document daté et argumenté</td><td>Variable</td><td>Variable</td><td>Non</td><td class="col-ec">Oui (20 à 40 pages)</td></tr>
+          <tr><td>Inspection physique des flacons</td><td>Oui</td><td>Oui</td><td>—</td><td class="col-ec">Non (sur photos)</td></tr>
+          <tr><td>Délai et format</td><td>Sur déplacement</td><td>Variable</td><td>Immédiat mais forfaitaire</td><td class="col-ec">5 jours, tarif fixe</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
 
-                <div class="ornament-dots"><span></span></div>
+<!-- ═══ TROIS FAÇONS DE TRAVAILLER ENSEMBLE ═══ -->
+<section class="niveaux-section" style="padding-top:0">
+  <div class="container">
+    <div class="niveaux-head">
+      <p class="sc">Travailler ensemble</p>
+      <h2>Trois façons de travailler ensemble</h2>
+      <p class="lead">Du plus souple au plus engageant, à vous de choisir le niveau qui convient à votre étude.</p>
+    </div>
+    <ol class="niveaux">
+      <li><p class="sc">Le plus simple, sans engagement</p><h3>Référencement passif</h3><p>Vous gardez estimationcave.com dans votre boîte à outils et orientez vers moi les héritiers ayant une cave à valoriser. Aucun engagement.</p></li>
+      <li><p class="sc">Avec une introduction de votre part</p><h3>Mise en relation directe</h3><p>Quand un dossier s'y prête, vous me présentez directement aux héritiers ou aux parties, par mail, par téléphone, comme vous préférez. Je prends le relais à partir de là.</p></li>
+      <li><p class="sc">Dans le cadre d'un dossier</p><h3>Commande directe</h3><p>Vous commandez l'estimation dans le cadre d'un dossier. Le rapport vient nourrir votre inventaire ou étayer la valeur déclarée.</p></li>
+    </ol>
+  </div>
+</section>
 
-                <div class="usage-block">
-                    <h3><span class="pain-number">2</span>Divorce et partage de communauté</h3>
-                    <p>Une valorisation neutre, établie par un tiers sans intérêt dans le partage, qui <strong>désamorce les conflits</strong> sur la répartition d'une cave commune.</p>
-                </div>
+<!-- ═══ RAPPORT EXEMPLE ═══ -->
+<section class="rapport" id="rapport-exemple">
+  <div class="container">
+    <div class="rapport-cadre">
+      <img src="rapport-synthese.webp" width="660" height="934" alt="Page de synthèse d'un rapport d'estimation">
+      <div>
+        <p class="sc">À quoi ressemble un rapport</p>
+        <h2>Jugez sur pièces.</h2>
+        <p>Téléchargez un exemple de rapport anonymisé pour juger de la structure, du niveau de détail et de la méthodologie.</p>
+        <a href="/exemples/rapport-anonymise.pdf" class="btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Voir un exemple de rapport (PDF)</a>
+        <p class="rapport-note">Ce rapport est un <b>document d'expertise et d'aide à la décision</b>. Il ne constitue pas un inventaire authentique au sens de l'article 789 du Code civil, que seul un notaire ou un commissaire de justice peut dresser. Il fournit la valorisation détaillée et argumentée que vous pouvez intégrer à votre inventaire ou verser au dossier.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-                <div class="ornament-dots"><span></span></div>
+<!-- ═══ CTA FINAL ═══ -->
+<section class="cta-final">
+  <div class="container">
+    <p class="sc on-dark center">Parlons-en</p>
+    <h2>Une cave dans un dossier en cours&nbsp;?</h2>
+    <p class="lead">Si vous avez un dossier en cours ou souhaitez engager un partenariat, écrivez-moi. Je reviens vers vous sous 24 à 48&nbsp;heures ouvrées.</p>
+    <a href="mailto:contact@estimationcave.com?subject=Discussion%20dossier%20notaire" class="mail">contact@estimationcave.com</a>
+    <p class="subtext">Les éléments que vous me transmettez sont traités de manière strictement confidentielle, conformément au RGPD, et ne sont pas conservés au-delà de la mission.</p>
+  </div>
+</section>
 
-                <div class="usage-block">
-                    <h3><span class="pain-number">3</span>Donation et indivision</h3>
-                    <p>Une <strong>valeur de référence partagée et incontestable</strong> pour calculer des droits de donation ou arbitrer une sortie d'indivision.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- ── SECTION 4 — POURQUOI MOI (matrice) ── -->
-        <section class="section section-dark">
-            <div class="container">
-                <h2>Comment <em style="color: var(--or);">je me situe</em> parmi les options existantes</h2>
-                <p class="section-intro" style="color: var(--blanc); opacity: 0.9;">Je ne remplace ni le commissaire de justice ni la maison de ventes : je fournis la base de valeur documentée qui manque souvent au dossier, en particulier quand aucun professionnel du chiffre n'est mobilisé sur la cave.</p>
-                <div class="matrix-wrap">
-                    <table class="matrix">
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th>Commissaire-priseur</th>
-                                <th>Maison de ventes</th>
-                                <th>Forfait 5 %</th>
-                                <th class="col-ec">estimationcave.com</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Spécialiste du marché du vin</td>
-                                <td>Généraliste</td>
-                                <td>Oui</td>
-                                <td>—</td>
-                                <td class="col-ec">Oui</td>
-                            </tr>
-                            <tr>
-                                <td>Sans conflit d'intérêt (ne vend pas les bouteilles)</td>
-                                <td>Variable</td>
-                                <td>Non</td>
-                                <td>—</td>
-                                <td class="col-ec">Oui</td>
-                            </tr>
-                            <tr>
-                                <td>Granularité réelle</td>
-                                <td>Oui</td>
-                                <td>Oui</td>
-                                <td>Non (global)</td>
-                                <td class="col-ec">Oui</td>
-                            </tr>
-                            <tr>
-                                <td>Document daté et argumenté</td>
-                                <td>Variable</td>
-                                <td>Variable</td>
-                                <td>Non</td>
-                                <td class="col-ec">Oui (20 à 40 pages)</td>
-                            </tr>
-                            <tr>
-                                <td>Inspection physique des flacons</td>
-                                <td>Oui</td>
-                                <td>Oui</td>
-                                <td>—</td>
-                                <td class="col-ec">Non (sur photos)</td>
-                            </tr>
-                            <tr>
-                                <td>Délai et format</td>
-                                <td>Sur déplacement</td>
-                                <td>Variable</td>
-                                <td>Immédiat mais forfaitaire</td>
-                                <td class="col-ec">5 jours, tarif fixe</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
-
-        <!-- ── SECTION 6 — PARTENARIATS ── -->
-        <section class="section">
-            <div class="container">
-                <h2>Trois façons de <em>travailler ensemble</em></h2>
-                <p class="section-intro">Du plus souple au plus engageant, à vous de choisir le niveau qui convient à votre étude.</p>
-                <div class="partner-grid">
-                    <article class="partner-card reveal">
-                        <p class="eyebrow">LE PLUS SIMPLE, SANS ENGAGEMENT</p>
-                        <h3>Référencement passif</h3>
-                        <p>Vous gardez estimationcave.com dans votre boîte à outils et orientez vers moi les héritiers ayant une cave à valoriser. Aucun engagement.</p>
-                    </article>
-                    <article class="partner-card reveal">
-                        <p class="eyebrow">AVEC UNE INTRODUCTION DE VOTRE PART</p>
-                        <h3>Mise en relation directe</h3>
-                        <p>Quand un dossier s'y prête, vous me présentez directement aux héritiers ou aux parties — par mail, par téléphone, comme vous préférez. Je prends le relais à partir de là.</p>
-                    </article>
-                    <article class="partner-card reveal">
-                        <p class="eyebrow">DANS LE CADRE D'UN DOSSIER</p>
-                        <h3>Commande directe</h3>
-                        <p>Vous commandez l'estimation dans le cadre d'un dossier. Le rapport vient nourrir votre inventaire ou étayer la valeur déclarée.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- ── SECTION 7 — RAPPORT EXEMPLE ── -->
-        <section class="section section-alt" id="rapport-exemple">
-            <div class="container-tight rapport-block">
-                <h2>À quoi ressemble un rapport</h2>
-                <span class="ornament-long"></span>
-                <p>Téléchargez un exemple de rapport anonymisé pour juger sur pièces de la structure, du niveau de détail et de la méthodologie.</p>
-                <a href="/exemples/rapport-anonymise.pdf" class="btn-download">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                    Voir un exemple de rapport
-                </a>
-
-                <div class="bon-a-savoir" style="background: var(--or-pale); border-left: 3px solid var(--or); text-align: left; margin-top: 3rem;">
-                    <p style="margin: 0; font-size: 0.95rem; line-height: 1.7; color: var(--texte);">Ce rapport est un <strong style="color: var(--bordeaux);">document d'expertise et d'aide à la décision</strong>. Il ne constitue pas un inventaire authentique au sens de l'article 789 du Code civil — que seul un notaire ou un commissaire de justice peut dresser. Il fournit la valorisation détaillée et argumentée que vous pouvez intégrer à votre inventaire ou verser au dossier.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- ── SECTION 8 — CTA FINAL ── -->
-        <section class="cta-final">
-            <div class="container-narrow">
-                <h2>Une cave dans un dossier en cours&nbsp;?</h2>
-                <p class="lead">Si vous avez un dossier en cours ou souhaitez engager un partenariat, écrivez-moi. Je reviens vers vous sous 24 à 48 heures ouvrées.</p>
-                <a href="mailto:contact@estimationcave.com?subject=Discussion%20dossier%20notaire" class="cta-mailto">Me contacter</a>
-                <p class="subtext">contact@estimationcave.com — réponse sous 24 à 48 heures ouvrées.</p>
-                <p class="subtext" style="margin-top: 0.75rem;">Les éléments que vous me transmettez sont traités de manière strictement confidentielle, conformément au RGPD, et ne sont pas conservés au-delà de la mission.</p>
-            </div>
-        </section>
-
-    </main>
+</main>
+<div class="container"><div class="fleuron"><img src="grappe-doree.webp" alt=""></div></div>
+</main>
 
     <footer class="footer">
         <div class="footer-grid">
@@ -835,26 +590,6 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
         navRight.querySelectorAll('a').forEach(function(link) {
             link.addEventListener('click', closeMenu);
         });
-    })();
-    </script>
-
-    <script>
-    (function(){
-        var targets = document.querySelectorAll('.hero .eyebrow, .hero h1, .lead, .hero-ctas, .pain-card, .partner-card, .usage-block, .matrix-wrap, .bon-a-savoir, .profil p, .rapport-block, .cta-final h2, .cta-final .lead, .cta-mailto, .section-intro');
-        targets.forEach(function(el){ if(!el.classList.contains('reveal')) el.classList.add('reveal'); });
-
-        document.querySelectorAll('.ornament, .ornament-double, .ornament-dots, .ornament-diamond, .ornament-long, .section-divider').forEach(function(el){ el.classList.add('ornament-reveal'); });
-
-        var allReveal = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .ornament-reveal');
-        var observer = new IntersectionObserver(function(entries){
-            entries.forEach(function(entry){
-                if(entry.isIntersecting){
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {threshold: 0.1, rootMargin: '0px 0px -40px 0px'});
-        allReveal.forEach(function(el){ observer.observe(el); });
     })();
     </script>
   <script src="/js/estimation-slidein.js" defer></script>
