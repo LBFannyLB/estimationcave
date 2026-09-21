@@ -67,577 +67,308 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
     <link rel="stylesheet" href="styles.css">
 
     <style>
-        a { text-decoration: none; color: inherit; }
 
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
-        .container-narrow { max-width: 800px; margin: 0 auto; padding: 0 2rem; }
-        .container-mid { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
-        .container-tight { max-width: 700px; margin: 0 auto; padding: 0 2rem; }
+/* ═══════════════════════════════════════════════════════════
+   LANDING CAVE D'INVESTISSEMENT — vocabulaire « catalogue de vente » (21/09/2026), gabarit assureurs.html
+   Tokens inchangés : bordeaux, or, fond, Cormorant + DM Sans.
+   Ajouts : rouge vin (celui des graphiques du rapport), crème 2.
+   Retirés : grain, pulsation, scroll-reveal, ombres 30 px, coins arrondis.
+   ═══════════════════════════════════════════════════════════ */
+:root {
+  --bordeaux: #2D1B2E;
+  --or: #C5A258;
+  --or-pale: rgba(197, 162, 88, 0.14);
+  --fond: #FAF6F0;
+  --creme: #F3EBDD;
+  --vin: #8B3A3A;
+  --texte: #3A3035;
+  --texte-light: #6B5F65;
+  --blanc: #FFFFFF;
+  --filet: rgba(45, 27, 46, 0.16);
+  --filet-fort: rgba(45, 27, 46, 0.45);
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'DM Sans', -apple-system, sans-serif;
+  --mesure: 1120px;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-padding-top: 88px; }
+body {
+  font-family: var(--font-body);
+  background: var(--fond);
+  color: var(--texte);
+  line-height: 1.65;
+  font-size: 1rem;
+  -webkit-font-smoothing: antialiased;
+  font-variant-numeric: oldstyle-nums;
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--bordeaux); text-decoration: none; }
+p a { text-decoration: underline; text-decoration-color: var(--or); text-underline-offset: 3px; }
+*:focus-visible { outline: 2px solid var(--or); outline-offset: 2px; }
 
-        /* ── SECTIONS GÉNÉRIQUES ── */
-        .section { padding: 4rem 0; }
-        .section-alt { background: var(--blanc); }
-        .section-dark { background: var(--bordeaux); color: var(--blanc); }
+.container { max-width: var(--mesure); margin: 0 auto; padding: 0 2rem; }
+section { padding: 5.5rem 0; }
+@media (max-width: 768px) { section { padding: 3.5rem 0; } .container { padding: 0 1.25rem; } }
 
-        /* ── HERO ── */
-        .hero { padding: 9rem 0 4rem; text-align: center; }
-        .hero-inner { display: flex; align-items: center; justify-content: center; gap: 3.5rem; }
-        .hero-visual { flex-shrink: 0; }
-        .hero-logo { display: block; height: 299px; width: auto; }
-        .hero-content { text-align: center; max-width: 620px; }
-        .hero-content .lead { margin: 0 auto; }
-        .hero-content .hero-ctas { justify-content: center; }
-        @media (max-width: 820px) {
-            .hero-inner { flex-direction: column; gap: 1.5rem; }
-            .hero-content { max-width: 720px; }
-            .hero-logo { height: 172px; }
-        }
-        @media (max-width: 600px) { .hero-logo { height: 138px; } }
-        .hero .eyebrow {
-            font-family: var(--font-body); font-size: 0.78rem; font-weight: 600;
-            letter-spacing: 0.22em; text-transform: uppercase; color: var(--or); margin-bottom: 1.25rem;
-        }
-        .hero h1 {
-            font-family: var(--font-display); font-size: clamp(2.4rem, 4.5vw, 3.2rem); font-weight: 600;
-            color: var(--bordeaux); line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 1.5rem;
-        }
-        .hero h1 em { font-style: italic; font-weight: 400; }
-        h2 em { font-style: italic; font-weight: 400; }
-        .hero .lead {
-            font-family: var(--font-body); font-size: 1.15rem; line-height: 1.65;
-            color: var(--texte); margin: 0 auto; max-width: 720px;
-        }
-        .hero-ctas { display: flex; justify-content: center; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
-        .hero-ctas .btn-primary, .hero-ctas .btn-outline { padding: 0.9rem 1.8rem; font-size: 0.95rem; }
-        .btn-outline {
-            display: inline-block; font-family: var(--font-body); font-weight: 500; font-size: 0.85rem;
-            letter-spacing: 0.03em; background: transparent; color: var(--bordeaux); padding: 0.65rem 1.5rem;
-            border-radius: 4px; border: 1.5px solid var(--bordeaux); cursor: pointer; text-decoration: none;
-            transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-        }
-        .btn-outline:hover, .btn-outline:focus, .btn-outline:active {
-            background: var(--or); color: var(--bordeaux); border-color: var(--or);
-        }
+/* ── Typographie ── */
+blockquote { text-wrap: pretty; }
+h1, h2, h3, .display { font-family: var(--font-display); font-weight: 500; color: var(--bordeaux); line-height: 1.1; letter-spacing: -0.005em; }
+h1 { font-size: clamp(2.6rem, 5.2vw, 4.2rem); font-weight: 500; }
+h2 { font-size: clamp(2rem, 3.6vw, 2.8rem); }
+h3 { font-size: 1.45rem; font-weight: 600; }
+.lead { font-size: 1.12rem; color: var(--texte-light); line-height: 1.65; }
 
-        /* ── H2 commun ── */
-        h2 {
-            font-family: var(--font-display); font-size: clamp(1.7rem, 3vw, 2.1rem); font-weight: 600;
-            color: var(--bordeaux); line-height: 1.25; text-align: center; margin: 0 0 1.25rem;
-        }
-        .section-dark h2 { color: var(--blanc); }
-        .section-intro {
-            font-size: 1.02rem; line-height: 1.7; color: var(--texte); text-align: center;
-            max-width: 720px; margin: 0 auto 2rem;
-        }
-        .section-dark .section-intro { color: var(--blanc); opacity: 0.9; }
+/* Le label de section : petites capitales Cormorant en bordeaux,
+   à la place du DM Sans majuscules doré espacé. */
+.sc {
+  font-family: var(--font-display);
+  font-variant: small-caps;
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  color: var(--bordeaux);
+  display: flex; align-items: center; gap: 0.75rem;
+  margin-bottom: 1.2rem;
+}
+.sc::before { content: ''; width: 2.25rem; height: 1px; background: var(--or); }
+.sc.center { justify-content: center; }
+.sc.center::after { content: ''; width: 2.25rem; height: 1px; background: var(--or); }
+.sc.on-dark { color: var(--or); }
 
-        /* ── PAIN POINTS ── */
-        .pains-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2rem; }
-        .pain-card {
-            background: var(--blanc); border: 1px solid var(--border); border-radius: 8px; padding: 2rem;
-            transition: all 0.3s cubic-bezier(0.33, 1, 0.68, 1);
-        }
-        @media (hover: hover) {
-            .pain-card:hover { border-color: rgba(197, 162, 88, 0.4); box-shadow: 0 8px 24px rgba(45, 27, 46, 0.05); }
-        }
-        .pain-number {
-            width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--or);
-            display: flex; align-items: center; justify-content: center; margin: 0 0 1.25rem;
-            font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; color: var(--or);
-        }
-        .pain-card h3 {
-            font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; color: var(--bordeaux);
-            margin-bottom: 0.85rem; line-height: 1.3;
-        }
-        .pain-card p { font-size: 0.95rem; color: var(--texte); line-height: 1.7; margin: 0; text-align: justify; }
-        .pain-card strong { color: var(--bordeaux); font-weight: 600; }
+/* Filets « catalogue » */
+.filet-double { height: 5px; border-top: 1px solid var(--filet-fort); border-bottom: 1px solid var(--filet-fort); }
+.filet { height: 1px; background: var(--filet); }
+.fleuron { display: flex; align-items: center; justify-content: center; gap: 1rem; margin: 2.5rem 0; }
+.fleuron::before, .fleuron::after { content: ''; flex: 0 0 4rem; height: 1px; background: var(--or); }
+.fleuron img { width: 26px; height: 26px; opacity: 0.85; }
 
-        /* ── USAGE BLOCKS (étapes / méthode) ── */
-        .usage-block { margin: 2rem 0; }
-        .usage-block h3 {
-            font-family: var(--font-display); font-size: 1.35rem; font-weight: 600; color: var(--bordeaux);
-            margin-bottom: 1rem; line-height: 1.3; display: flex; align-items: center; gap: 1rem;
-        }
-        .usage-block h3 .pain-number { margin: 0; flex-shrink: 0; }
-        .usage-block p { font-size: 1rem; line-height: 1.8; color: var(--texte); margin-bottom: 0.85rem; text-align: justify; }
-        .usage-block .livrable {
-            font-style: italic; font-size: 0.95rem; color: var(--texte-light);
-            border-left: 2px solid var(--or); padding-left: 1rem; margin-top: 1rem; text-align: left;
-        }
+/* Boutons : coins vifs, aucune animation */
+.btn { display: inline-block; font-family: var(--font-body); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.02em; padding: 0.85rem 1.7rem; border: 1px solid var(--bordeaux); background: var(--bordeaux); color: var(--fond); cursor: pointer; transition: background 0.2s, color 0.2s; }
+.btn:hover { background: #3D2940; }
+.btn-gold { background: var(--or); border-color: var(--or); color: var(--bordeaux); }
+.btn-gold:hover { background: #B8944C; }
+.btn-outline { background: transparent; color: var(--bordeaux); }
+.btn-outline:hover { background: var(--bordeaux); color: var(--fond); }
+.btn-outline.on-dark { color: var(--fond); border-color: var(--or); }
+.btn-outline.on-dark:hover { background: var(--or); color: var(--bordeaux); }
+.lien-suite { font-family: var(--font-display); font-style: italic; font-size: 1.15rem; color: var(--bordeaux); border-bottom: 1px solid var(--or); }
 
-        /* ── MATRICE ── */
-        .matrix-wrap { margin-top: 2rem; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-        .matrix {
-            width: 100%; min-width: 680px; border-collapse: collapse; background: var(--blanc); border-radius: 8px;
-            overflow: hidden; box-shadow: 0 4px 16px rgba(45, 27, 46, 0.04); font-size: 0.92rem;
-        }
-        .matrix thead th {
-            background: var(--bordeaux); color: var(--blanc); font-family: var(--font-body); font-weight: 600;
-            padding: 1rem 0.9rem; text-align: left; font-size: 0.88rem;
-        }
-        .matrix tbody td { padding: 0.95rem 0.9rem; border-bottom: 1px solid var(--or); color: var(--texte); vertical-align: top; }
-        .matrix tbody tr:last-child td { border-bottom: none; }
-        .matrix tbody td:first-child { font-weight: 600; color: var(--bordeaux); background: rgba(45, 27, 46, 0.02); }
-        .matrix .col-ec { background: var(--or-pale); font-weight: 600; color: var(--bordeaux); }
-        .matrix thead .col-ec { background: #8B6B2E; color: var(--blanc); }
-        .reco { font-weight: 700; }
-        .reco-garder { color: #6B5F65; }
-        .reco-arbitrer { color: #9A7B2E; }
-        .reco-vendre { color: #8B6B2E; }
+/* Cartouche technique : remplace le bandeau à 4 KPI */
+.fiche-technique { border-top: 1px solid var(--or); border-bottom: 1px solid var(--filet); margin-top: 3rem; }
+.fiche-technique ul { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); }
+.fiche-technique li { padding: 1.1rem 1.4rem; border-right: 1px solid var(--filet); font-size: 0.86rem; color: var(--texte-light); line-height: 1.45; }
+.fiche-technique li:last-child { border-right: 0; }
+.fiche-technique li b { display: block; font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--bordeaux); line-height: 1.2; margin-bottom: 0.15rem; }
+.fiche-technique li a { border-bottom: 1px solid var(--or); color: var(--bordeaux); }
+@media (max-width: 860px) {
+  .fiche-technique ul { grid-template-columns: 1fr 1fr; }
+  .fiche-technique li:nth-child(2) { border-right: 0; }
+  .fiche-technique li:nth-child(-n+2) { border-bottom: 1px solid var(--filet); }
+}
 
-        .bon-a-savoir {
-            background: var(--or-pale); border-radius: 6px; padding: 1.5rem 1.75rem; margin: 2rem 0 0;
-            font-size: 0.98rem; line-height: 1.7; color: var(--texte);
-        }
+/* ── Fanny : la personne, haut dans la page ── */
+.experte-grid { display: grid; grid-template-columns: 3fr 7fr; gap: 4rem; align-items: center; }
+.cadre-double { position: relative; padding: 10px; border: 1px solid var(--filet-fort); }
+.cadre-double::after { content: ''; position: absolute; inset: 3px; border: 1px solid var(--filet-fort); pointer-events: none; }
+.cadre-double img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 20%; filter: saturate(0.85); }
+.experte h2 { margin-bottom: 1.4rem; }
+.experte p { margin-bottom: 1rem; font-size: 1.02rem; }
+.bulle { width: 100%; max-width: 16.5rem; aspect-ratio: 4 / 5; border-radius: 50%; overflow: hidden; margin: 0 auto; box-shadow: 0 0 0 1px var(--filet-fort), 0 0 0 6px var(--fond), 0 0 0 7px var(--or); }
+.bulle img { width: 100%; height: 100%; object-fit: cover; object-position: 58% 22%; transform: scale(1.15); transform-origin: 58% 30%; filter: saturate(0.92); }
+.experte .signature { font-family: var(--font-display); font-style: italic; font-size: 1.9rem; color: var(--bordeaux); margin: 1.4rem 0 0.2rem; }
+.experte .signature-sub { font-size: 0.85rem; color: var(--texte-light); margin-bottom: 1.4rem; }
+@media (max-width: 860px) { .experte-grid { grid-template-columns: 1fr; gap: 2rem; } .bulle { max-width: 16rem; } }
 
-        /* ── SECTION PROFIL (fond bordeaux) ── */
-        .profil-section { background: var(--bordeaux); color: var(--blanc); }
-        .profil-section h2 { color: var(--blanc); }
-        .profil-section h2 em { color: var(--or); font-style: italic; font-weight: 400; }
-        .profil p { font-size: 1rem; line-height: 1.85; color: var(--blanc); margin-bottom: 1.5rem; text-align: justify; }
-        .profil-link {
-            display: inline-block; margin-top: 0.5rem; color: var(--or) !important; font-weight: 500;
-            text-decoration: none !important; border-bottom: 1px solid transparent; transition: border-color 0.25s ease;
-        }
-        .profil-link:hover { border-bottom-color: var(--or); }
+/* ── Comment ça marche : bandeau bordeaux, 3 lignes sur filet ── */
+.process { background: var(--bordeaux); color: var(--fond); }
+.process h2 { color: var(--fond); margin-bottom: 3rem; }
+.etapes { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(250,246,240,0.35); }
+.etapes li { padding: 1.6rem 1.6rem 1.6rem 0; border-top: 3px double rgba(197,162,88,0.6); margin-top: -1px; }
+.etapes .num { font-family: var(--font-display); font-size: 1rem; font-variant: small-caps; letter-spacing: 0.1em; color: var(--or); margin-bottom: 0.4rem; }
+.etapes h3 { color: var(--fond); font-weight: 500; margin-bottom: 0.4rem; }
+.etapes p { font-size: 0.92rem; color: rgba(250,246,240,0.75); }
+.process-suite { margin-top: 2.5rem; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+.process-suite p { font-size: 0.92rem; color: rgba(250,246,240,0.8); max-width: 40rem; }
+@media (max-width: 860px) { .etapes { grid-template-columns: 1fr; } .etapes li { padding-right: 0; } }
 
-        /* ── VISUELS SVG ── */
-        .visual-block { margin: 2.5rem auto 0; max-width: 720px; }
-        .visual-title {
-            font-family: var(--font-display); font-size: 1.05rem; font-weight: 600;
-            color: var(--bordeaux); margin-bottom: 0.75rem; text-align: center;
-        }
+/* ── Engagements : deux colonnes + cartouche (comme la couverture du rapport) ── */
+.engagements { background: var(--bordeaux); color: var(--fond); }
+.engagements .sc { color: var(--or); }
+.engagements h3 { color: var(--fond); }
+.engagements .cartouche { border-color: rgba(197,162,88,0.6); outline-color: rgba(197,162,88,0.6); }
+.engagements .cartouche div { border-right-color: rgba(250,246,240,0.18); color: rgba(250,246,240,0.7); }
+.engagements .cartouche b { color: var(--fond); }
+.engagements .cartouche .sc { color: var(--or); }
+.engagements-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-bottom: 3rem; }
+.engagements-grid h3 { margin-bottom: 0.6rem; }
+.engagements-grid p { color: rgba(250,246,240,0.78); font-size: 0.98rem; text-align: justify; hyphens: auto; }
+.cartouche { border: 1px solid var(--filet-fort); outline: 1px solid var(--filet-fort); outline-offset: 3px; display: grid; grid-template-columns: repeat(3, 1fr); }
+.cartouche div { padding: 1.4rem 1.6rem; border-right: 1px solid var(--filet); text-align: center; font-size: 0.85rem; color: var(--texte-light); }
+.cartouche div:last-child { border-right: 0; }
+.cartouche .sc { justify-content: center; margin-bottom: 0.4rem; font-size: 0.95rem; }
+.cartouche .sc::before { display: none; }
+.cartouche b { display: block; font-family: var(--font-display); font-size: 1.35rem; font-weight: 600; color: var(--bordeaux); margin-bottom: 0.2rem; }
+@media (max-width: 860px) { .engagements-grid { grid-template-columns: 1fr; gap: 2rem; } .cartouche { grid-template-columns: 1fr; } .cartouche div { border-right: 0; border-bottom: 1px solid rgba(250,246,240,0.18); } .cartouche div:last-child { border-bottom: 0; } }
 
-        /* ── FISCALITÉ / NOTE ── */
-        .highlight-note {
-            background: var(--or-pale); border-radius: 6px; padding: 1.5rem 1.75rem; margin: 2rem auto 0;
-            max-width: 760px; font-size: 0.96rem; line-height: 1.7; color: var(--texte);
-        }
-        .highlight-note strong { color: var(--bordeaux); }
-        .highlight-note a { color: var(--or); border-bottom: 1px solid transparent; transition: border-color .25s ease; }
-        .highlight-note a:hover { border-bottom-color: var(--or); }
+/* ═══ Page « assureurs » ═══ */
+.hero { padding: 4.5rem 0 3.5rem; overflow: hidden; }
+.hero-grid { display: grid; grid-template-columns: 7fr 5fr; gap: 3rem; align-items: center; }
+.hero h1 { margin: 0.6rem 0 1.4rem; max-width: 20ch; font-size: clamp(2.3rem, 4.2vw, 3.4rem); }
+.hero h1 em { font-style: italic; font-weight: 400; }
+.hero .lead { max-width: 36rem; margin-bottom: 2rem; }
+.hero-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+.hero-illus { width: 83%; margin-left: auto; opacity: 0.9; }
+@media (max-width: 860px) { .hero { padding: 2.5rem 0 2rem; } .hero-grid { grid-template-columns: 1fr; gap: 1.5rem; } .hero h1 { max-width: none; } .hero-illus { width: 67%; margin: 0.5rem auto 0; } }
 
-        /* ── FAQ ── */
-        .inline-faq { max-width: 800px; margin: 2rem auto 0; }
-        .inline-faq-item { border-bottom: 1px solid var(--border); }
-        .inline-faq-trigger {
-            width: 100%; background: none; border: none; padding: 1.1rem 2.5rem 1.1rem 0; text-align: left;
-            cursor: pointer; font-family: var(--font-body); font-size: 0.98rem; font-weight: 500;
-            color: var(--bordeaux); line-height: 1.5; position: relative; transition: color 0.2s ease;
-        }
-        .inline-faq-trigger:hover { color: var(--or); }
-        .inline-faq-trigger::after {
-            content: '+'; position: absolute; right: 0; top: 50%; transform: translateY(-50%);
-            font-size: 1.3rem; font-weight: 300; color: var(--or);
-        }
-        .inline-faq-item.open .inline-faq-trigger::after { content: '−'; }
-        .inline-faq-content { max-height: 0; overflow: hidden; transition: max-height 0.35s cubic-bezier(0.33, 1, 0.68, 1); }
-        .inline-faq-item.open .inline-faq-content { max-height: var(--faq-height, 500px); }
-        .inline-faq-answer { padding: 0 0 1.25rem; font-size: 0.95rem; color: var(--texte-light); line-height: 1.8; }
+/* Le constat : trois douleurs en quadrillage */
+.constat-head { max-width: 44rem; margin-bottom: 2.5rem; }
+.constat-head .lead { margin-top: 1rem; }
+.douleurs { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--or); }
+.douleurs li { padding: 1.6rem 1.6rem 1.6rem 0; border-right: 1px solid var(--filet); }
+.douleurs li + li { padding-left: 1.6rem; }
+.douleurs li:last-child { border-right: 0; padding-right: 0; }
+.douleurs .num { font-family: var(--font-display); font-size: 1.6rem; color: var(--vin); line-height: 1; margin-bottom: 0.7rem; }
+.douleurs h3 { font-size: 1.3rem; margin-bottom: 0.6rem; min-height: 2.6em; }
+.douleurs p { font-size: 0.93rem; color: var(--texte-light); text-align: justify; hyphens: auto; }
+.douleurs strong { color: var(--bordeaux); font-weight: 500; }
+@media (max-width: 860px) { .douleurs { grid-template-columns: 1fr; } .douleurs li, .douleurs li + li { padding: 1.3rem 0; border-right: 0; border-bottom: 1px solid var(--filet); } .douleurs li:last-child { border-bottom: 0; } .douleurs h3 { min-height: 0; } }
 
-        /* ── CTA FINAL ── */
-        .cta-final { padding: 5rem 0; background: var(--bordeaux); color: var(--blanc); text-align: center; }
-        .cta-final h2 { color: var(--blanc); margin-bottom: 1rem; }
-        .cta-final .lead {
-            font-size: 1.05rem; line-height: 1.7; color: var(--blanc); opacity: 0.9;
-            max-width: 640px; margin: 0 auto 2rem;
-        }
-        .cta-final .btn-gold { padding: 1rem 2.2rem; font-size: 1rem; }
-        .cta-final .subtext { font-size: 0.92rem; color: var(--blanc); opacity: 0.7; max-width: 580px; margin: 1.5rem auto 0; line-height: 1.6; }
+/* Fanny + les deux valorisations */
+.experte-grid { align-items: start; }
+.experte .bulle { margin-top: 0.6rem; }
+.valorisations { margin-top: 2.2rem; border-top: 1px solid var(--or); border-bottom: 1px solid var(--filet); display: grid; grid-template-columns: 1fr 1fr; }
+.valorisations div { padding: 1.2rem 1.4rem 1.2rem 0; border-right: 1px solid var(--filet); font-size: 0.92rem; color: var(--texte-light); }
+.valorisations div + div { padding-left: 1.4rem; border-right: 0; padding-right: 0; }
+.valorisations .sc { margin-bottom: 0.4rem; font-size: 1rem; }
+.valorisations .sc::before { display: none; }
+.valorisations b { display: block; font-family: var(--font-display); font-size: 1.35rem; font-weight: 600; color: var(--bordeaux); margin-bottom: 0.3rem; line-height: 1.15; }
+.valorisations-note { font-size: 0.9rem; color: var(--texte-light); border-top: 1px solid var(--filet); padding-top: 0.9rem; font-style: italic; }
+@media (max-width: 640px) { .valorisations { grid-template-columns: 1fr; } .valorisations div, .valorisations div + div { padding: 1rem 0; border-right: 0; border-bottom: 1px solid var(--filet); } }
 
-        /* ── ÉTAPES (COMMENT ÇA MARCHE) + LIVRABLE (CE QUE VOUS RECEVEZ) ── */
-        .section-eyebrow {
-            font-family: var(--font-body); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em;
-            text-transform: uppercase; color: var(--or); text-align: center; margin: 0 0 0.85rem;
-        }
-        .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2rem; }
-        .step { text-align: center; }
-        .step .pain-number { margin: 0 auto 1.25rem; }
-        .step h3 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; color: var(--bordeaux); margin-bottom: 0.6rem; }
-        .step p { font-size: 0.95rem; color: var(--texte-light); line-height: 1.7; margin: 0; }
-        .report-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 2rem; }
-        .report-card { background: var(--blanc); border: 1px solid var(--border); border-left: 3px solid var(--or); border-radius: 6px; padding: 1.5rem 1.6rem; }
-        .report-card h3 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; color: var(--bordeaux); margin: 0 0 0.5rem; }
-        .report-card p { font-size: 0.92rem; color: var(--texte-light); line-height: 1.65; margin: 0; }
-        @media (max-width: 700px) { .steps { grid-template-columns: 1fr; gap: 1.5rem; } .report-grid { grid-template-columns: 1fr; } }
+/* Cas d'usage : lignes numérotées sur filets */
+.usages { background: var(--creme); }
+.usages-head { max-width: 44rem; margin-bottom: 2rem; }
+.cas { list-style: none; border-top: 1px solid var(--filet-fort); }
+.cas li { display: grid; grid-template-columns: 3.2rem 1fr; padding: 1.8rem 0; border-bottom: 1px solid var(--filet); }
+.cas .num { font-family: var(--font-display); font-size: 1.9rem; color: var(--vin); line-height: 1; padding-top: 0.2rem; }
+.cas h3 { margin-bottom: 0.6rem; }
+.cas p { font-size: 0.97rem; margin-bottom: 0.7rem; max-width: 46rem; }
+.cas .livrable { font-family: var(--font-display); font-style: italic; font-size: 1.1rem; color: var(--bordeaux); border-left: 1px solid var(--or); padding-left: 1rem; margin: 0.9rem 0 0; }
+.cas .livrable b { font-style: normal; font-variant: small-caps; letter-spacing: 0.06em; font-weight: 600; color: var(--vin); margin-right: 0.3rem; }
 
-        /* ── CE QUE VOUS RECEVEZ — aperçu interactif (porté de la home) ── */
-    .section-label {
-      font-family: var(--font-body);
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--or);
-      margin-bottom: 0.75rem;
-    }
-    .section-subtitle {
-      font-family: var(--font-body);
-      font-size: 1.05rem;
-      color: var(--texte-light);
-      font-weight: 400;
-      max-width: 600px;
-      margin: 1rem auto 0;
-      line-height: 1.8;
-    }
-    .apercu {
-      padding: 6rem 0;
-      background: var(--fond);
-      scroll-margin-top: 90px;
-    }
+/* Méthodologie : bandeau bordeaux, quatre étapes en 2×2 */
+.process .etapes { grid-template-columns: 1fr 1fr; }
+.process .etapes li { padding: 1.6rem 2.4rem 1.6rem 0; }
+.process .etapes li:nth-child(even) { padding-left: 2.4rem; padding-right: 0; border-left: 1px solid rgba(250,246,240,0.18); }
+.process .etapes p { text-align: justify; hyphens: auto; }
+@media (max-width: 860px) { .process .etapes { grid-template-columns: 1fr; } .process .etapes li, .process .etapes li:nth-child(even) { padding: 1.4rem 0; border-left: 0; } }
 
-    .apercu-header {
-      text-align: left;
-      margin-bottom: 3rem;
-    }
+/* Comparatif : tableau catalogue */
+.comparatif h2 { max-width: 30ch; margin-bottom: 2rem; }
+.comparatif h2 em { font-style: italic; font-weight: 400; }
+.matrix-wrap { overflow-x: auto; }
+.matrix { width: 100%; border-collapse: collapse; font-size: 0.92rem; border-top: 1px solid var(--or); }
+.matrix th { font-family: var(--font-display); font-variant: small-caps; letter-spacing: 0.06em; font-size: 1.05rem; font-weight: 600; color: var(--bordeaux); text-align: left; padding: 0.8rem 0.9rem; border-bottom: 1px solid var(--or); vertical-align: bottom; }
+.matrix td { padding: 0.85rem 0.9rem; border-bottom: 1px solid var(--filet); vertical-align: top; color: var(--texte-light); }
+.matrix td:first-child { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; color: var(--bordeaux); }
+.matrix .col-ec { background: var(--creme); color: var(--bordeaux); font-weight: 500; }
+.matrix th.col-ec { color: var(--vin); }
+.matrix .col-ec:not(th) { border-left: 1px solid var(--filet-fort); border-right: 1px solid var(--filet-fort); }
+.argument { max-width: 48rem; margin: 2.5rem auto 0; text-align: center; font-family: var(--font-display); font-style: italic; font-size: 1.45rem; line-height: 1.4; color: var(--bordeaux); }
+.argument::before { content: ''; display: block; width: 4rem; height: 1px; background: var(--or); margin: 0 auto 1.2rem; }
+@media (max-width: 640px) { .matrix { min-width: 640px; font-size: 0.85rem; } }
 
-    .apercu-header h2 {
-      font-weight: 500;
-      line-height: 1.15;
-      letter-spacing: -0.01em;
-      text-align: left;
-    }
+/* Rapport exemple : planche dans un cadre double */
+.rapport { background: var(--creme); }
+.rapport-cadre { background: var(--fond); border: 1px solid var(--filet-fort); outline: 1px solid var(--filet-fort); outline-offset: 4px; margin: 4px; padding: 2.2rem 2.4rem; display: grid; grid-template-columns: 4fr 7fr; gap: 2.5rem; align-items: center; }
+.rapport-cadre img { width: 100%; max-width: 18rem; margin: 0 auto; border: 1px solid var(--filet); }
+.rapport-cadre h2 { margin-bottom: 1rem; font-size: clamp(1.8rem, 3vw, 2.3rem); }
+.rapport-cadre p { margin-bottom: 1.4rem; font-size: 0.98rem; }
+.rapport-cadre .btn svg { width: 15px; height: 15px; vertical-align: -2px; margin-right: 0.4rem; }
+@media (max-width: 860px) { .rapport-cadre { grid-template-columns: 1fr; padding: 1.5rem 1.2rem; } .rapport-cadre img { max-width: 13rem; } }
 
-    .apercu-header h2 em {
-      font-style: italic;
-      font-weight: 500;
-    }
+/* Trois niveaux d'engagement : quadrillage */
+.niveaux-head { max-width: 44rem; margin-bottom: 2.5rem; }
+.niveaux { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--or); border-bottom: 1px solid var(--filet); }
+.niveaux li { padding: 1.6rem 1.6rem 1.6rem 0; border-right: 1px solid var(--filet); }
+.niveaux li + li { padding-left: 1.6rem; }
+.niveaux li:last-child { border-right: 0; padding-right: 0; }
+.niveaux .sc { font-size: 0.95rem; color: var(--vin); margin-bottom: 0.5rem; min-height: 2.4em; align-items: flex-start; }
+.niveaux .sc::before { display: none; }
+.niveaux h3 { margin-bottom: 0.6rem; }
+.niveaux p { font-size: 0.93rem; color: var(--texte-light); }
+.niveaux-cta { text-align: center; margin-top: 2rem; font-size: 0.98rem; color: var(--texte-light); }
+.niveaux-cta a { font-family: var(--font-display); font-size: 1.3rem; color: var(--bordeaux); border-bottom: 1px solid var(--or); }
+@media (max-width: 860px) { .niveaux { grid-template-columns: 1fr; } .niveaux li, .niveaux li + li { padding: 1.3rem 0; border-right: 0; border-bottom: 1px solid var(--filet); } .niveaux li:last-child { border-bottom: 0; } .niveaux .sc { min-height: 0; } }
 
-    .apercu-header .ornament-dots {
-      margin: 1.5rem 0;
-    }
+/* CTA final : bandeau bordeaux */
+.cta-final { background: var(--bordeaux); color: var(--fond); text-align: center; }
+.cta-final h2 { color: var(--fond); margin-bottom: 1rem; }
+.cta-final .lead { color: rgba(250,246,240,0.8); max-width: 40rem; margin: 0 auto 2rem; }
+.cta-final .subtext { font-size: 0.85rem; color: rgba(250,246,240,0.6); max-width: 40rem; margin: 1.2rem auto 0; }
+.cta-final .mail { display: inline-block; font-family: var(--font-display); font-size: clamp(1.4rem, 3vw, 2rem); color: var(--or); border-bottom: 1px solid var(--or); margin-bottom: 0.4rem; }
 
-    .apercu-header .section-subtitle {
-      margin: 1rem 0 0;
-    }
 
-    .apercu-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 1fr;
-      gap: 3.5rem;
-      max-width: 1060px;
-      margin: 0 auto;
-      align-items: start;
-    }
+/* FAQ en liste sur filets */
+.faq { background: var(--creme); }
+.faq-list { max-width: 46rem; margin: 0 auto; border-top: 1px solid var(--filet-fort); }
+.faq-list details { border-bottom: 1px solid var(--filet); }
+.faq-list summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: 1.1rem 0; font-family: var(--font-display); font-size: 1.3rem; font-weight: 500; color: var(--bordeaux); }
+.faq-list summary::-webkit-details-marker { display: none; }
+.faq-list summary::after { content: '+'; color: var(--or); font-size: 1.4rem; }
+.faq-list details[open] summary::after { content: '–'; }
+.faq-list details p { padding: 0 0 1.2rem; font-size: 0.95rem; color: var(--texte-light); max-width: 42rem; }
 
-    .apercu-content {
-      min-width: 0;
-    }
 
-    .apercu-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      border-top: 1px solid var(--border);
-    }
+/* ═══ Page « cave d'investissement » ═══ */
+.constat-grid { display: grid; grid-template-columns: 6fr 6fr; gap: 3.5rem; align-items: center; margin-bottom: 3rem; }
+.constat-grid .constat-head { margin-bottom: 0; }
+.graphe { border-top: 1px solid var(--or); border-bottom: 1px solid var(--filet); padding: 0.6rem 0 0.8rem; }
+.graphe figcaption { font-family: var(--font-display); font-variant: small-caps; letter-spacing: 0.06em; font-size: 0.95rem; color: var(--texte-light); margin-top: 0.3rem; }
+.graphe svg { width: 100%; height: auto; display: block; }
+@media (max-width: 860px) { .constat-grid { grid-template-columns: 1fr; gap: 2rem; } }
 
-    .apercu-item {
-      border-bottom: 1px solid var(--border);
-    }
+/* Grille garder / vendre / arbitrer */
+.grille h2 { margin-bottom: 1rem; }
+.grille .lead { max-width: 44rem; margin: 0 0 2rem; }
+.tag { display: inline-block; font-family: var(--font-display); font-variant: small-caps; font-weight: 600; letter-spacing: 0.06em; font-size: 0.98rem; color: var(--vin); border: 1px solid var(--vin); padding: 0 0.55rem; line-height: 1.4; white-space: nowrap; }
+.tag.garder { color: var(--bordeaux); border-color: var(--bordeaux); }
+.tag.arbitrer { color: #7A6420; border-color: #7A6420; }
+.note { max-width: 46rem; margin-top: 2rem; font-family: var(--font-display); font-style: italic; font-size: 1.15rem; line-height: 1.5; color: var(--bordeaux); border-left: 1px solid var(--or); padding-left: 1.2rem; }
+@media (max-width: 640px) { .grille .matrix { min-width: 0; } .grille .matrix td:last-child { white-space: nowrap; width: 1%; } .grille .matrix th:last-child { hyphens: auto; overflow-wrap: anywhere; } .grille .matrix th, .grille .matrix td { padding-left: 0.5rem; padding-right: 0.5rem; } }
 
-    .apercu-tab {
-      width: 100%;
-      display: flex;
-      align-items: baseline;
-      gap: 0.4rem;
-      background: transparent;
-      border: none;
-      padding: 1.4rem 0.5rem 1.4rem 1rem;
-      margin-left: -1rem;
-      text-align: left;
-      cursor: pointer;
-      font-family: var(--font-body);
-      border-left: 2px solid transparent;
-      transition: border-color 0.25s cubic-bezier(0.33, 1, 0.68, 1);
-    }
+/* Comment ça marche : bandeau bordeaux à trois étapes (accueil) */
+.process .etapes { grid-template-columns: repeat(3, 1fr); }
+.process .etapes li, .process .etapes li:nth-child(even) { padding: 1.6rem 1.6rem 1.6rem 0; border-left: 0; }
+.process .etapes p { text-align: left; }
+.process-suite { margin-top: 2.5rem; text-align: center; }
+@media (max-width: 860px) { .process .etapes { grid-template-columns: 1fr; } .process .etapes li, .process .etapes li:nth-child(even) { padding: 1.4rem 0; } }
 
-    .apercu-tab:focus-visible {
-      outline: 2px solid var(--or);
-      outline-offset: 2px;
-      border-radius: 2px;
-    }
+/* Ce que vous recevez : sommaire + planche (accueil) */
+.recevez { background: var(--creme); }
+.recevez-grid { display: grid; grid-template-columns: 6fr 5fr; gap: 4rem; align-items: start; }
+.sommaire { list-style: none; border-top: 1px solid var(--filet-fort); margin-top: 2rem; }
+.sommaire li { border-bottom: 1px solid var(--filet); }
+.sommaire button { all: unset; display: grid; grid-template-columns: 2.4rem 1fr; align-items: baseline; gap: 0.75rem; width: 100%; padding: 0.95rem 0; cursor: pointer; font-family: var(--font-display); font-size: 1.3rem; color: var(--bordeaux); }
+.sommaire button .n { font-variant: small-caps; font-size: 1rem; letter-spacing: 0.05em; color: var(--vin); }
+.sommaire li.active button { color: var(--vin); }
+.sommaire .detail { display: none; padding: 0 0 1.1rem 3.15rem; font-size: 0.93rem; color: var(--texte-light); }
+.sommaire li.active .detail { display: block; }
+.planche { position: sticky; top: 96px; }
+.planche .cadre-double { background: var(--fond); }
+.planche .cadre-double img { aspect-ratio: 660 / 934; object-position: top; filter: none; }
+.planche figcaption { display: flex; justify-content: space-between; margin-top: 0.8rem; font-family: var(--font-display); font-variant: small-caps; letter-spacing: 0.06em; font-size: 0.95rem; color: var(--texte-light); }
+.recevez-usage { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--filet-fort); display: flex; gap: 2rem; align-items: center; flex-wrap: wrap; justify-content: space-between; }
+.recevez-usage p { max-width: 36rem; font-size: 0.95rem; color: var(--texte-light); }
+@media (max-width: 860px) { .recevez-grid { grid-template-columns: 1fr; gap: 2rem; } .planche { position: static; max-width: 22rem; margin: 0 auto; } }
 
-    .apercu-page-num {
-      flex-shrink: 0;
-      width: 1.75rem;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      align-self: center;
-    }
+/* CTA final */
+.cta-final .btn { margin-top: 0.4rem; }
 
-    .apercu-page-num::before {
-      content: '';
-      display: block;
-      width: 7px;
-      height: 7px;
-      background: var(--or);
-      transform: rotate(45deg);
-      transition: background 0.25s cubic-bezier(0.33, 1, 0.68, 1), transform 0.25s cubic-bezier(0.33, 1, 0.68, 1);
-    }
-
-    .apercu-item.active .apercu-page-num::before {
-      background: var(--bordeaux);
-      transform: rotate(45deg) scale(1.15);
-    }
-
-    .apercu-page-title {
-      font-family: var(--font-display);
-      font-size: 1.15rem;
-      font-weight: 500;
-      color: var(--bordeaux);
-      line-height: 1.3;
-      flex-grow: 1;
-      transition: color 0.25s cubic-bezier(0.33, 1, 0.68, 1), font-weight 0.2s;
-    }
-
-    .apercu-item.active .apercu-tab {
-      border-left-color: var(--bordeaux);
-    }
-    .apercu-item.active .apercu-page-title {
-      font-weight: 600;
-    }
-
-    @media (hover: hover) {
-      .apercu-tab:hover .apercu-page-title {
-        color: var(--or);
-      }
-    }
-
-    .apercu-panel {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.25s cubic-bezier(0.33, 1, 0.68, 1);
-    }
-
-    .apercu-item.active .apercu-panel {
-      max-height: 600px;
-    }
-
-    .apercu-panel-inner {
-      padding: 0 0.5rem 1.5rem 2.6rem;
-      font-family: var(--font-body);
-      font-size: 0.92rem;
-      line-height: 1.7;
-      color: var(--texte-light);
-    }
-
-    /* Mobile inline preview (hidden on desktop) */
-    .apercu-mobile-image {
-      display: none;
-    }
-
-    /* Right column : preview card — décalé pour s'aligner sur le sous-titre */
-    .apercu-preview {
-      position: sticky;
-      top: 6rem;
-      /* aligne le haut de la carte avec la ligne du sous-titre (≈ section-label + h2 + ornement) */
-      margin-top: calc(0.7rem + 4.5rem + 1px + 1.5rem);
-    }
-
-    @media (max-width: 1100px) {
-      .apercu-preview {
-        margin-top: calc(0.7rem + 4rem + 1px + 1.5rem);
-      }
-    }
-
-    .apercu-preview-card {
-      background: var(--blanc);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
-      cursor: pointer;
-      box-shadow: 0 12px 40px rgba(45, 27, 46, 0.06);
-      transition: box-shadow 0.3s cubic-bezier(0.33, 1, 0.68, 1);
-    }
-
-    .apercu-preview-card:focus-visible {
-      outline: 2px solid var(--or);
-      outline-offset: 4px;
-    }
-
-    @media (hover: hover) {
-      .apercu-preview-card:hover {
-        box-shadow: 0 20px 56px rgba(45, 27, 46, 0.12);
-      }
-    }
-
-    .apercu-preview-image {
-      position: relative;
-      aspect-ratio: 3 / 4;
-      background: var(--fond);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    .apercu-preview-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top;
-      display: block;
-      transition: opacity 0.2s ease;
-    }
-
-    .apercu-placeholder {
-      font-family: var(--font-body);
-      font-size: 0.85rem;
-      color: var(--texte-light);
-      letter-spacing: 0.04em;
-      text-align: center;
-      padding: 0 1.5rem;
-      transition: opacity 0.2s ease;
-    }
-
-    .apercu-preview-badge {
-      position: absolute;
-      top: 1rem;
-      left: 1rem;
-      background: rgba(255, 255, 255, 0.92);
-      color: var(--bordeaux);
-      font-family: var(--font-body);
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      padding: 0.3rem 0.6rem;
-      border-radius: 3px;
-      z-index: 2;
-    }
-
-    .apercu-preview-caption {
-      padding: 1rem 1.25rem 1.25rem;
-      font-family: var(--font-display);
-      font-size: 1.05rem;
-      font-weight: 500;
-      color: var(--bordeaux);
-      border-top: 1px solid var(--border);
-    }
-
-    .apercu-preview-nav {
-      display: flex;
-      justify-content: center;
-      gap: 0.55rem;
-      margin-top: 1.25rem;
-    }
-
-    .apercu-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      border: none;
-      padding: 0;
-      background: var(--border);
-      cursor: pointer;
-      transition: background 0.25s cubic-bezier(0.33, 1, 0.68, 1), transform 0.25s cubic-bezier(0.33, 1, 0.68, 1);
-    }
-
-    .apercu-dot:hover {
-      background: var(--or);
-    }
-
-    .apercu-dot.active {
-      background: var(--bordeaux);
-      transform: scale(1.25);
-    }
-
-    .apercu-dot:focus-visible {
-      outline: 2px solid var(--or);
-      outline-offset: 3px;
-    }
-
-    .apercu-preview-credit {
-      margin-top: 0.85rem;
-      text-align: center;
-      font-family: var(--font-body);
-      font-size: 0.78rem;
-      color: var(--texte-light);
-      letter-spacing: 0.02em;
-    }
-
-    .apercu-cta {
-      text-align: center;
-      margin-top: 4rem;
-    }
-
-    @media (max-width: 900px) {
-      .apercu-grid {
-        grid-template-columns: 1fr;
-        gap: 0;
-      }
-      .apercu-preview {
-        display: none;
-      }
-      .apercu-header {
-        margin-bottom: 2.5rem;
-      }
-      .apercu-mobile-image {
-        display: block;
-        margin-top: 1.25rem;
-        max-width: 320px;
-        aspect-ratio: 3 / 4;
-        border: 1px solid var(--border);
-        border-radius: 6px;
-        overflow: hidden;
-        background: var(--fond);
-      }
-      .apercu-mobile-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: top;
-        display: block;
-      }
-      .apercu-panel-inner {
-        padding-left: 2.6rem;
-        padding-right: 0;
-      }
-    }
-
-    @media (max-width: 500px) {
-      .apercu-page-num {
-        width: 1.5rem;
-      }
-      .apercu-page-title {
-        font-size: 1.02rem;
-      }
-      .apercu-panel-inner {
-        padding-left: 2rem;
-        font-size: 0.88rem;
-      }
-      .apercu-mobile-image {
-        max-width: none;
-      }
-    }
-
-        /* ── BANDEAU RÉASSURANCE ── */
-        .garanties { padding: 3rem 0; background: var(--bordeaux); color: rgba(250, 246, 240, 0.85); }
-        .garanties-grid { display: flex; justify-content: center; gap: 4rem; }
-        .garantie-item { text-align: center; max-width: 220px; }
-        .garantie-item svg { margin: 0 auto 1rem; display: block; }
-        .garantie-titre { font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: var(--fond); margin-bottom: 0.35rem; }
-        .garantie-desc { font-size: 0.82rem; color: rgba(250, 246, 240, 0.7); line-height: 1.55; }
-        @media (max-width: 600px) { .garanties-grid { flex-direction: column; align-items: center; gap: 2.5rem; } }
-
-        /* ── RESPONSIVE ── */
-        @media (max-width: 900px) {
-            .pains-grid { grid-template-columns: 1fr; gap: 1.25rem; }
-        }
-        @media (max-width: 700px) {
-            .matrix { font-size: 0.82rem; }
-            .matrix thead th, .matrix tbody td { padding: 0.7rem 0.55rem; }
-        }
-        @media (max-width: 600px) {
-            .container, .container-narrow, .container-mid, .container-tight { padding: 0 1.25rem; }
-            .hero { padding: 7.5rem 0 3rem; }
-            .section { padding: 3rem 0; }
-            .cta-final { padding: 3.5rem 0; }
-            .matrix-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-            .matrix { min-width: 620px; }
-            .pain-card { padding: 1.5rem; }
-        }
-    </style>
+/* Nav du site (styles.css) : collante et opaque, comme sur l'accueil */
+.nav { position: sticky; background: var(--fond); backdrop-filter: none; -webkit-backdrop-filter: none; }
+.nav-right .btn-gold { border-radius: 0; }
+</style>
 
     <script type="application/ld+json">
     {
@@ -676,394 +407,183 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
 
     <main id="main">
 
-        <!-- ── SECTION 1 — HERO ── -->
-        <header class="hero">
-            <div class="container hero-inner">
-                <div class="hero-visual reveal">
-                    <img src="hero-logo.png" width="1024" height="1024" alt="Illustration d'une cave à vins voûtée" class="hero-logo">
-                </div>
-                <div class="hero-content">
-                <p class="eyebrow reveal">CAVE D'INVESTISSEMENT</p>
-                <h1 class="reveal">Le marché des grands crus a corrigé de 25 %. <em>Combien vaut vraiment votre cave d'investissement</em> aujourd'hui&nbsp;?</h1>
-                <p class="lead reveal">Un audit patrimonial indépendant de votre cave d'investissement : la valeur de revente réelle de chaque bouteille, et quoi garder, vendre ou arbitrer — sans intérêt à vous racheter vos vins. Livré sous 5 jours, 199 €.</p>
-                <span class="ornament-diamond"></span>
-                <div class="hero-ctas reveal">
-                    <a href="/#formulaire" class="btn-primary">Faire auditer ma cave</a>
-                    <a href="#exemple-rapport" class="btn-outline">Voir un exemple de rapport</a>
-                </div>
-                </div>
-            </div>
-        </header>
-
-        <!-- ── BANDEAU RÉASSURANCE ── -->
-        <section class="garanties">
-            <div class="container">
-                <div class="garanties-grid">
-                    <div class="garantie-item">
-                        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="18" cy="18" r="17" stroke="#C5A258" stroke-width="1.2"/>
-                            <path d="M18 8v10l6 4" stroke="#C5A258" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <p class="garantie-titre">Livraison sous 5 jours</p>
-                        <p class="garantie-desc">Rapport garanti sous 5 jours ouvrés ou remboursement intégral</p>
-                    </div>
-                    <div class="garantie-item">
-                        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="6" y="14" width="24" height="16" rx="2" stroke="#C5A258" stroke-width="1.2"/>
-                            <path d="M6 20h24" stroke="#C5A258" stroke-width="1.2"/>
-                            <circle cx="12" cy="26" r="1.5" fill="#C5A258"/>
-                            <path d="M10 14V10a8 8 0 0 1 16 0v4" stroke="#C5A258" stroke-width="1.2" stroke-linecap="round"/>
-                        </svg>
-                        <p class="garantie-titre">Paiement 100% sécurisé</p>
-                        <p class="garantie-desc">Transaction chiffrée via Stripe — aucune donnée bancaire stockée</p>
-                    </div>
-                    <div class="garantie-item">
-                        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M18 4L6 10v8c0 7.2 5.1 13.9 12 16 6.9-2.1 12-8.8 12-16v-8L18 4z" stroke="#C5A258" stroke-width="1.2" stroke-linejoin="round"/>
-                            <path d="M13 18l3.5 3.5L23 15" stroke="#C5A258" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <p class="garantie-titre">Confidentialité totale</p>
-                        <p class="garantie-desc">Vos données et photos sont supprimées après livraison du rapport</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ── SECTION 2 — LE CONSTAT ── -->
-        <section class="section section-alt">
-            <div class="container">
-                <h2>Le « gardez, ça monte toujours » <em>ne suffit plus</em></h2>
-                <p class="section-intro">Pendant une décennie, le placement dans le vin a semblé presque sans risque : on achetait de grands crus, on les laissait dormir, et la cote montait. Investir dans le vin était devenu un réflexe patrimonial — le vin, une classe d'actifs comme une autre. Cette époque est terminée, et trois conséquences concrètes en découlent pour les détenteurs de cave.</p>
-                <span class="ornament-long"></span>
-
-                <div class="visual-block">
-                    <p class="visual-title">Évolution de l'indice des grands vins (2020 → 2026)</p>
-                    <svg viewBox="0 0 660 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
-                        <rect width="660" height="280" rx="8" fill="#FAF6F0"/>
-                        <rect x="0" y="0" width="660" height="3" rx="1.5" fill="#C5A258"/>
-                        <line x1="70" y1="40" x2="70" y2="215" stroke="#2D1B2E" stroke-opacity="0.15" stroke-width="1"/>
-                        <line x1="70" y1="215" x2="625" y2="215" stroke="#2D1B2E" stroke-opacity="0.15" stroke-width="1"/>
-                        <text x="34" y="130" font-family="DM Sans, sans-serif" font-size="10" fill="#6B5F65" text-anchor="middle" transform="rotate(-90, 34, 130)">VALEUR DE L'INDICE</text>
-                        <rect x="270" y="40" width="355" height="175" fill="#2D1B2E" fill-opacity="0.03"/>
-                        <line x1="90" y1="150" x2="615" y2="150" stroke="#2D1B2E" stroke-opacity="0.22" stroke-width="1" stroke-dasharray="4 4"/>
-                        <path d="M90,150 C150,134 215,92 335,55 C415,92 475,128 555,147 C580,151 600,150 615,150" fill="none" stroke="#C5A258" stroke-width="2.5"/>
-                        <circle cx="90" cy="150" r="4" fill="#C5A258"/>
-                        <circle cx="335" cy="55" r="4.5" fill="#C5A258"/>
-                        <text x="335" y="42" font-family="DM Sans, sans-serif" font-size="10" font-weight="600" fill="#2D1B2E" text-anchor="middle">Pic 2022</text>
-                        <circle cx="615" cy="150" r="4.5" fill="#C5A258"/>
-                        <text x="495" y="82" font-family="DM Sans, sans-serif" font-size="15" font-weight="700" fill="#C5A258" text-anchor="middle">− 25 %</text>
-                        <text x="495" y="98" font-family="DM Sans, sans-serif" font-size="9.5" fill="#6B5F65" text-anchor="middle">depuis le sommet</text>
-                        <text x="90" y="232" font-family="DM Sans, sans-serif" font-size="10" fill="#6B5F65" text-anchor="middle">2020</text>
-                        <text x="335" y="232" font-family="DM Sans, sans-serif" font-size="10" fill="#6B5F65" text-anchor="middle">2022</text>
-                        <text x="500" y="232" font-family="DM Sans, sans-serif" font-size="10" fill="#6B5F65" text-anchor="middle">2024</text>
-                        <text x="612" y="232" font-family="DM Sans, sans-serif" font-size="10" fill="#6B5F65" text-anchor="middle">2026</text>
-                        <text x="330" y="262" font-family="DM Sans, sans-serif" font-size="9.5" fill="#6B5F65" text-anchor="middle" font-style="italic">Indice Liv-ex Fine Wine 100 : retour au niveau de 2020, soit −25 % depuis le pic de 2022 (Liv-ex / Knight Frank, 2026).</text>
-                    </svg>
-                </div>
-
-                <div class="pains-grid">
-                    <article class="pain-card reveal">
-                        <div class="pain-number">1</div>
-                        <h3>La fin de la plus-value automatique</h3>
-                        <p>L'indice de référence des grands vins a reculé d'environ <strong>25 % depuis son pic de 2022</strong>. Le marché ne récompense plus le simple fait de détenir une étiquette prestigieuse : il valorise la rareté réelle, la provenance et la sélectivité. C'est maintenant un placement sans plus-value garantie, avec un horizon à moyen/long terme, à 8 ou 10 ans.</p>
-                    </article>
-                    <article class="pain-card reveal">
-                        <div class="pain-number">2</div>
-                        <h3>Prix d'achat ≠ cote ≠ revente</h3>
-                        <p>Trois chiffres que l'on confond à tort. Le <strong>prix d'achat</strong> appartient au passé. La <strong>cote affichée</strong> en ligne est une moyenne qui inclut souvent les frais à la charge de l'acheteur — ce n'est pas ce que vous encaissez. La <strong>valeur de revente réelle</strong>, elle, dépend de l'état exact de la bouteille et du canal. L'écart peut atteindre 20 à 40 %.</p>
-                    </article>
-                    <article class="pain-card reveal">
-                        <div class="pain-number">3</div>
-                        <h3>Le risque de concentration et de timing</h3>
-                        <p>Deux risques restent invisibles sans état des lieux précis. <strong>La concentration</strong> : si une seule référence pèse une grosse part de votre cave, son décrochage entraîne tout le reste avec elle. <strong>Le mauvais timing</strong> : un grand vin conservé au-delà de son apogée perd de la valeur chaque année. L'audit révèle ces deux angles morts, ligne par ligne.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- ── SECTION 3 — PROFIL / EXPERTISE ── -->
-        <section class="section profil-section">
-            <div class="container-tight profil">
-                <h2><em>L'expertise</em> qui sous-tend chaque audit patrimonial</h2>
-                <span class="ornament-diamond"></span>
-                <p>Je m'appelle Fanny et depuis presque 10 ans, j'ai estimé plusieurs milliers de caves dans tous les contextes patrimoniaux — successions, divorces, liquidations, ventes volontaires.</p>
-                <p>Avec estimationcave.com, je propose la même méthodologie d'expertise — indépendante et structurée — en 100 % distanciel. Je ne rachète rien, je ne touche aucune commission sur une vente : mon seul produit, c'est le rapport. Pour vous, c'est la garantie d'une valeur neutre, ni minorée pour racheter, ni gonflée pour flatter.</p>
-                <p style="text-align: center;">
-                    <a href="/apropos.html" class="profil-link">En savoir plus sur mon parcours →</a>
-                </p>
-                <span class="ornament-diamond"></span>
-            </div>
-        </section>
-
-        <!-- ── SECTION 6 — GARDER / VENDRE / ARBITRER ── -->
-        <section class="section">
-            <div class="container">
-                <h2>Garder, vendre, arbitrer&nbsp;: <em>quand revendre ses grands crus</em></h2>
-                <p class="section-intro">La question n'est pas « faut-il vendre ? » mais « quelle bouteille, et quand ? ». Un vin possède une fenêtre de maturité au-delà de laquelle la valeur décline. Voici la grille de lecture appliquée à chaque ligne de la cave.</p>
-                <div class="matrix-wrap">
-                    <table class="matrix">
-                        <thead>
-                            <tr>
-                                <th>Situation de la bouteille</th>
-                                <th>Signal</th>
-                                <th class="col-ec">Recommandation</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Avant l'apogée, domaine porteur</td>
-                                <td>Marge de progression, demande solide</td>
-                                <td class="col-ec"><span class="reco reco-garder">Garder</span></td>
-                            </tr>
-                            <tr>
-                                <td>À l'apogée, forte plus-value latente</td>
-                                <td>Cote haute, marché liquide</td>
-                                <td class="col-ec"><span class="reco reco-vendre">Vendre</span></td>
-                            </tr>
-                            <tr>
-                                <td>Concentration excessive sur 1 référence</td>
-                                <td>Trop de valeur sur une seule ligne</td>
-                                <td class="col-ec"><span class="reco reco-arbitrer">Arbitrer</span></td>
-                            </tr>
-                            <tr>
-                                <td>Au-delà de l'apogée, à boire</td>
-                                <td>Valeur qui commence à décliner</td>
-                                <td class="col-ec"><span class="reco reco-vendre">Vendre vite</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="bon-a-savoir">
-                    Une estimation n'est valable que pour une période donnée — typiquement 12 à 24 mois maximum — parce que le marché et la maturité des vins évoluent. Sur un marché qui vient de corriger, un audit récent est un véritable outil de pilotage&nbsp;; un chiffre de 2021 décrit un monde qui n'existe plus.
-                </div>
-            </div>
-        </section>
-
-        <!-- ── COMMENT ÇA MARCHE ── -->
-        <section class="section section-alt">
-            <div class="container">
-                <p class="section-eyebrow">Comment ça marche</p>
-                <h2>Simple. Rapide. <em>À distance.</em></h2>
-                <span class="ornament-long"></span>
-                <div class="steps">
-                    <div class="step">
-                        <div class="pain-number">1</div>
-                        <h3>Décrivez votre cave</h3>
-                        <p>Remplissez le formulaire en ligne et décrivez votre cave d'investissement en 5 minutes.</p>
-                    </div>
-                    <div class="step">
-                        <div class="pain-number">2</div>
-                        <h3>Envoyez vos photos</h3>
-                        <p>Ajoutez vos photos directement via le formulaire ou partagez un lien Drive.</p>
-                    </div>
-                    <div class="step">
-                        <div class="pain-number">3</div>
-                        <h3>Recevez votre rapport</h3>
-                        <p>Vous recevez votre rapport PDF complet sous 5 jours ouvrés par e-mail.</p>
-                    </div>
-                </div>
-                <div style="text-align:center; margin-top:2.5rem;">
-                    <a href="/#formulaire" class="btn-primary">Démarrer ma demande</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- ── CE QUE VOUS RECEVEZ (aperçu interactif) ── -->
-  <section class="apercu" id="exemple-rapport">
-    <div class="container">
-      <div class="apercu-grid">
-        <div class="apercu-content">
-          <div class="apercu-header">
-            <p class="section-label">Ce que vous recevez</p>
-            <h2>Un rapport complet,<br><em>personnalisé et opposable.</em></h2>
-            <div class="ornament-dots"><span></span></div>
-            <p class="section-subtitle">Cliquez sur chaque section pour découvrir ce qu'elle contient.</p>
-          </div>
-
-          <ul class="apercu-list" role="tablist" aria-label="Sommaire du rapport">
-          <li class="apercu-item active"
-              data-page="2"
-              data-title="Synthèse exécutive"
-              data-img="rapport-synthese.jpg">
-            <button class="apercu-tab" role="tab" aria-selected="true" aria-expanded="true" tabindex="0" id="apercu-tab-1" aria-controls="apercu-panel-1">
-              <span class="apercu-page-num" aria-hidden="true"></span>
-              <span class="apercu-page-title">Synthèse exécutive</span>
-            </button>
-            <div class="apercu-panel" id="apercu-panel-1" role="region" aria-labelledby="apercu-tab-1">
-              <div class="apercu-panel-inner">
-                Une vue d'ensemble immédiate : valeur totale estimée, répartition par recommandation (à vendre / à conserver / à surveiller), points d'attention prioritaires. La page que vous lirez en premier.
-                <div class="apercu-mobile-image"><img width="660" height="934" src="rapport-synthese.webp" alt="Aperçu p. 2 — Synthèse exécutive" loading="lazy"></div>
-              </div>
-            </div>
-          </li>
-
-          <li class="apercu-item"
-              data-page="4"
-              data-title="Inventaire détaillé"
-              data-img="rapport-inventaire.jpg">
-            <button class="apercu-tab" role="tab" aria-selected="false" aria-expanded="false" tabindex="-1" id="apercu-tab-2" aria-controls="apercu-panel-2">
-              <span class="apercu-page-num" aria-hidden="true"></span>
-              <span class="apercu-page-title">Inventaire détaillé</span>
-            </button>
-            <div class="apercu-panel" id="apercu-panel-2" role="region" aria-labelledby="apercu-tab-2">
-              <div class="apercu-panel-inner">
-                Chaque référence identifiée et documentée : appellation, domaine, millésime, format, état observé, valeur estimée. Le tableau complet de votre cave, lot par lot.
-                <div class="apercu-mobile-image"><img width="660" height="934" src="rapport-inventaire.webp" alt="Aperçu p. 4 — Inventaire détaillé" loading="lazy"></div>
-              </div>
-            </div>
-          </li>
-
-          <li class="apercu-item"
-              data-page="5"
-              data-title="Répartition par format, région, couleur"
-              data-img="rapport-repartition.jpg">
-            <button class="apercu-tab" role="tab" aria-selected="false" aria-expanded="false" tabindex="-1" id="apercu-tab-3" aria-controls="apercu-panel-3">
-              <span class="apercu-page-num" aria-hidden="true"></span>
-              <span class="apercu-page-title">Répartition par format, région, couleur</span>
-            </button>
-            <div class="apercu-panel" id="apercu-panel-3" role="region" aria-labelledby="apercu-tab-3">
-              <div class="apercu-panel-inner">
-                Votre cave en visualisations : graphiques de répartition par région, couleur, format et potentiel. Pour comprendre d'un coup d'œil la composition de votre patrimoine liquide.
-                <div class="apercu-mobile-image"><img width="660" height="934" src="rapport-repartition.webp" alt="Aperçu p. 5 — Répartition" loading="lazy"></div>
-              </div>
-            </div>
-          </li>
-
-          <li class="apercu-item"
-              data-page="6"
-              data-title="Contexte de marché"
-              data-img="rapport-contexte-marche.jpg">
-            <button class="apercu-tab" role="tab" aria-selected="false" aria-expanded="false" tabindex="-1" id="apercu-tab-4" aria-controls="apercu-panel-4">
-              <span class="apercu-page-num" aria-hidden="true"></span>
-              <span class="apercu-page-title">Contexte de marché</span>
-            </button>
-            <div class="apercu-panel" id="apercu-panel-4" role="region" aria-labelledby="apercu-tab-4">
-              <div class="apercu-panel-inner">
-                L'état actuel des enchères et du négoce pour vos références : tendances, liquidité, dynamique sur les douze derniers mois. Le marché derrière les chiffres de votre cave.
-                <div class="apercu-mobile-image"><img width="660" height="934" src="rapport-contexte-marche.webp" alt="Aperçu p. 6 — Contexte de marché" loading="lazy"></div>
-              </div>
-            </div>
-          </li>
-
-          <li class="apercu-item"
-              data-page="10"
-              data-title="Recommandations lot par lot"
-              data-img="rapport-recommandations.jpg">
-            <button class="apercu-tab" role="tab" aria-selected="false" aria-expanded="false" tabindex="-1" id="apercu-tab-5" aria-controls="apercu-panel-5">
-              <span class="apercu-page-num" aria-hidden="true"></span>
-              <span class="apercu-page-title">Recommandations lot par lot</span>
-            </button>
-            <div class="apercu-panel" id="apercu-panel-5" role="region" aria-labelledby="apercu-tab-5">
-              <div class="apercu-panel-inner">
-                Pour chaque référence : à vendre, à conserver ou à surveiller — avec une justification claire fondée sur la cote, l'apogée du vin et la dynamique de marché actuelle.
-                <div class="apercu-mobile-image"><img width="660" height="934" src="rapport-recommandations.webp" alt="Aperçu p. 10 — Recommandations" loading="lazy"></div>
-              </div>
-            </div>
-          </li>
-
-          <li class="apercu-item"
-              data-page="12"
-              data-title="Potentiel de garde"
-              data-img="rapport-garde.jpg">
-            <button class="apercu-tab" role="tab" aria-selected="false" aria-expanded="false" tabindex="-1" id="apercu-tab-6" aria-controls="apercu-panel-6">
-              <span class="apercu-page-num" aria-hidden="true"></span>
-              <span class="apercu-page-title">Potentiel de garde</span>
-            </button>
-            <div class="apercu-panel" id="apercu-panel-6" role="region" aria-labelledby="apercu-tab-6">
-              <div class="apercu-panel-inner">
-                Fenêtre d'apogée pour chaque lot. Quatre horizons : à boire maintenant, proche apogée, en développement, garde longue. Pour savoir quoi ouvrir et quand.
-                <div class="apercu-mobile-image"><img width="660" height="934" src="rapport-garde.webp" alt="Aperçu p. 12 — Potentiel de garde" loading="lazy"></div>
-              </div>
-            </div>
-          </li>
-
-          <li class="apercu-item"
-              data-page="14"
-              data-title="Plan d'action"
-              data-img="rapport-plan-action.jpg">
-            <button class="apercu-tab" role="tab" aria-selected="false" aria-expanded="false" tabindex="-1" id="apercu-tab-7" aria-controls="apercu-panel-7">
-              <span class="apercu-page-num" aria-hidden="true"></span>
-              <span class="apercu-page-title">Plan d'action</span>
-            </button>
-            <div class="apercu-panel" id="apercu-panel-7" role="region" aria-labelledby="apercu-tab-7">
-              <div class="apercu-panel-inner">
-                Des étapes concrètes adaptées à votre situation et vos objectifs — succession, vente, partage familial, conservation. Un calendrier opérationnel pour passer à l'action sans hésiter.
-                <div class="apercu-mobile-image"><img width="660" height="934" src="rapport-plan-action.webp" alt="Aperçu p. 14 — Plan d'action" loading="lazy"></div>
-              </div>
-            </div>
-          </li>
-        </ul>
-        </div><!-- /.apercu-content -->
-
-        <aside class="apercu-preview" aria-label="Aperçu de la page sélectionnée">
-          <div class="apercu-preview-card" role="button" tabindex="0" aria-label="Agrandir l'aperçu">
-            <div class="apercu-preview-image">
-              <span class="apercu-preview-badge" id="apercu-preview-badge">p. 2</span>
-              <img width="660" height="934" id="apercu-preview-img" src="rapport-synthese.webp" alt="Synthèse exécutive" loading="lazy">
-              <span class="apercu-placeholder" id="apercu-preview-placeholder" style="display:none;">Aperçu p. 2 — Synthèse exécutive</span>
-            </div>
-            <div class="apercu-preview-caption" id="apercu-preview-caption">Synthèse exécutive</div>
-          </div>
-          <div class="apercu-preview-nav" role="tablist" aria-label="Navigation rapide entre les pages">
-            <button class="apercu-dot active" type="button" aria-label="Aller à la page 2 — Synthèse exécutive" data-target="0"></button>
-            <button class="apercu-dot" type="button" aria-label="Aller à la page 4 — Inventaire détaillé" data-target="1"></button>
-            <button class="apercu-dot" type="button" aria-label="Aller à la page 5 — Répartition" data-target="2"></button>
-            <button class="apercu-dot" type="button" aria-label="Aller à la page 6 — Contexte de marché" data-target="3"></button>
-            <button class="apercu-dot" type="button" aria-label="Aller à la page 10 — Recommandations" data-target="4"></button>
-            <button class="apercu-dot" type="button" aria-label="Aller à la page 12 — Potentiel de garde" data-target="5"></button>
-            <button class="apercu-dot" type="button" aria-label="Aller à la page 14 — Plan d'action" data-target="6"></button>
-          </div>
-          <p class="apercu-preview-credit">Rapport d'exemple</p>
-        </aside>
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <p class="sc">Cave d'investissement</p>
+        <h1>Le marché des grands crus a corrigé de 25&nbsp;%. <em>Combien vaut vraiment votre cave d'investissement</em> aujourd'hui&nbsp;?</h1>
+        <p class="lead">Un audit patrimonial indépendant de votre cave d'investissement&nbsp;: la valeur de revente réelle de chaque bouteille, et quoi garder, vendre ou arbitrer, sans intérêt à vous racheter vos vins. Livré sous 5&nbsp;jours, 199&nbsp;€.</p>
+        <div class="hero-actions">
+          <a href="/#formulaire" class="btn">Faire auditer ma cave</a>
+          <a href="#exemple-rapport" class="btn btn-outline">Voir un exemple de rapport</a>
+        </div>
       </div>
+      <img class="hero-illus" src="hero-logo.webp" width="900" height="900" alt="Illustration d'une cave à vins voûtée">
+    </div>
+    <div class="fiche-technique">
+      <ul>
+        <li><b>199&nbsp;€, tarif unique</b>Par cave, quel que soit le nombre de bouteilles. Aucune commission.</li>
+        <li><b>5 jours ouvrés</b>Rapport garanti sous 5&nbsp;jours ouvrés, ou remboursement intégral.</li>
+        <li><b>Paiement sécurisé</b>Transaction chiffrée via Stripe, aucune donnée bancaire stockée.</li>
+        <li><b>Confidentialité totale</b>Vos données et photos sont supprimées après livraison du rapport.</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-      <div class="apercu-cta">
-        <a href="/#formulaire" class="btn btn-primary" data-cta="apercu">Recevoir ce rapport — 199&thinsp;€</a>
+<!-- ═══ LE CONSTAT ═══ -->
+<section class="constat">
+  <div class="container">
+    <div class="constat-grid">
+      <div class="constat-head">
+        <p class="sc">Le constat</p>
+        <h2>Le «&nbsp;gardez, ça monte toujours&nbsp;» ne suffit plus</h2>
+        <p class="lead">Pendant une décennie, le placement dans le vin a semblé presque sans risque&nbsp;: on achetait de grands crus, on les laissait dormir, et la cote montait. Investir dans le vin était devenu un réflexe patrimonial, le vin, une classe d'actifs comme une autre. Cette époque est terminée, et trois conséquences concrètes en découlent pour les détenteurs de cave.</p>
+      </div>
+      <figure class="graphe">
+        <svg viewBox="0 0 660 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+<rect width="660" height="280" fill="#FAF6F0"/>
+<rect x="0" y="0" width="660" height="1" fill="#C5A258"/>
+<line x1="70" y1="40" x2="70" y2="215" stroke="#2D1B2E" stroke-opacity="0.15" stroke-width="1"/>
+<line x1="70" y1="215" x2="625" y2="215" stroke="#2D1B2E" stroke-opacity="0.15" stroke-width="1"/>
+<text x="34" y="130" font-family="DM Sans, sans-serif" font-size="10" fill="#6B5F65" text-anchor="middle" transform="rotate(-90, 34, 130)">VALEUR DE L'INDICE</text>
+<rect x="270" y="40" width="355" height="175" fill="#2D1B2E" fill-opacity="0.03"/>
+<line x1="90" y1="150" x2="615" y2="150" stroke="#2D1B2E" stroke-opacity="0.22" stroke-width="1" stroke-dasharray="4 4"/>
+<path d="M90,150 C150,134 215,92 335,55 C415,92 475,128 555,147 C580,151 600,150 615,150" fill="none" stroke="#C5A258" stroke-width="2.5"/>
+<circle cx="90" cy="150" r="4" fill="#C5A258"/>
+<circle cx="335" cy="55" r="4.5" fill="#C5A258"/>
+<text x="335" y="42" font-family="DM Sans, sans-serif" font-size="10" font-weight="600" fill="#2D1B2E" text-anchor="middle">Pic 2022</text>
+<circle cx="615" cy="150" r="4.5" fill="#C5A258"/>
+<text x="495" y="82" font-family="DM Sans, sans-serif" font-size="15" font-weight="700" fill="#C5A258" text-anchor="middle">− 25 %</text>
+<text x="495" y="98" font-family="DM Sans, sans-serif" font-size="9.5" fill="#6B5F65" text-anchor="middle">depuis le sommet</text>
+<text x="90" y="232" font-family="DM Sans, sans-serif" font-size="10" fill="#6B5F65" text-anchor="middle">2020</text>
+<text x="335" y="232" font-family="DM Sans, sans-serif" font-size="10" fill="#6B5F65" text-anchor="middle">2022</text>
+<text x="500" y="232" font-family="DM Sans, sans-serif" font-size="10" fill="#6B5F65" text-anchor="middle">2024</text>
+<text x="612" y="232" font-family="DM Sans, sans-serif" font-size="10" fill="#6B5F65" text-anchor="middle">2026</text>
+<text x="330" y="262" font-family="DM Sans, sans-serif" font-size="9.5" fill="#6B5F65" text-anchor="middle" font-style="italic">Indice Liv-ex Fine Wine 100 : retour au niveau de 2020, soit −25 % depuis le pic de 2022 (Liv-ex / Knight Frank, 2026).</text>
+</svg>
+        <figcaption>Évolution de l'indice des grands vins, 2020 à 2026</figcaption>
+      </figure>
+    </div>
+    <ol class="douleurs">
+      <li><p class="num">I</p><h3>La fin de la plus-value automatique</h3><p>L'indice de référence des grands vins a reculé d'environ <strong>25&nbsp;% depuis son pic de 2022</strong>. Le marché ne récompense plus le simple fait de détenir une étiquette prestigieuse&nbsp;: il valorise la rareté réelle, la provenance et la sélectivité. C'est maintenant un placement sans plus-value garantie, avec un horizon à moyen ou long terme, à 8 ou 10&nbsp;ans.</p></li>
+      <li><p class="num">II</p><h3>Prix d'achat ≠ cote ≠ revente</h3><p>Trois chiffres que l'on confond à tort. Le <strong>prix d'achat</strong> appartient au passé. La <strong>cote affichée</strong> en ligne est une moyenne qui inclut souvent les frais à la charge de l'acheteur, ce n'est pas ce que vous encaissez. La <strong>valeur de revente réelle</strong>, elle, dépend de l'état exact de la bouteille et du canal. L'écart peut atteindre 20 à 40&nbsp;%.</p></li>
+      <li><p class="num">III</p><h3>Le risque de concentration et de timing</h3><p>Deux risques restent invisibles sans état des lieux précis. <strong>La concentration</strong>&nbsp;: si une seule référence pèse une grosse part de votre cave, son décrochage entraîne tout le reste avec elle. <strong>Le mauvais timing</strong>&nbsp;: un grand vin conservé au-delà de son apogée perd de la valeur chaque année. L'audit révèle ces deux angles morts, ligne par ligne.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ═══ L'EXPERTE ═══ -->
+<section class="experte" style="padding-top:0">
+  <div class="container">
+    <div class="experte-grid">
+      <div class="bulle"><img src="fanny-terrasse.webp" width="1086" height="1448" alt="Fanny, experte indépendante en estimation de cave"></div>
+      <div>
+        <p class="sc">L'expertise qui sous-tend chaque audit patrimonial</p>
+        <h2>Une valeur neutre, ni minorée pour racheter, ni gonflée pour flatter.</h2>
+        <p>Je m'appelle Fanny et depuis presque 10&nbsp;ans, j'ai estimé plusieurs milliers de caves dans tous les contextes patrimoniaux&nbsp;: successions, divorces, liquidations, ventes volontaires.</p>
+        <p>Avec estimationcave.com, je propose la même méthodologie d'expertise, indépendante et structurée, en 100&nbsp;% distanciel. Je ne rachète rien, je ne touche aucune commission sur une vente&nbsp;: mon seul produit, c'est le rapport.</p>
+        <p class="signature">Fanny</p>
+        <p class="signature-sub">Experte indépendante en estimation de cave · WSET&nbsp;3 · <a href="apropos.html" class="lien-suite" style="font-size:1rem">mon parcours</a></p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-        <!-- ── SECTION 10 — CTA FINAL ── -->
-        <section class="cta-final">
-            <div class="container-narrow">
-                <h2>Faites le point sur votre cave d'investissement</h2>
-                <p class="lead">Un audit indépendant, bouteille par bouteille : valeur de revente réelle, recommandations garder / vendre / arbitrer et plan d'action. Rapport complet sous 5 jours ouvrés, au tarif unique de 199 €.</p>
-                <a href="/#formulaire" class="btn-gold">Faire auditer ma cave</a>
-                <p class="subtext">100 % à distance, sans déplacement ni rendez-vous. Accessible partout en France et en francophonie (Belgique, Suisse, Luxembourg, Monaco).</p>
-            </div>
-        </section>
+<!-- ═══ GARDER / VENDRE / ARBITRER ═══ -->
+<section class="grille" style="background: var(--creme)">
+  <div class="container">
+    <p class="sc">Garder, vendre, arbitrer</p>
+    <h2>Quand revendre ses grands crus</h2>
+    <p class="lead">La question n'est pas «&nbsp;faut-il vendre&nbsp;?&nbsp;» mais «&nbsp;quelle bouteille, et quand&nbsp;?&nbsp;». Un vin possède une fenêtre de maturité au-delà de laquelle la valeur décline. Voici la grille de lecture appliquée à chaque ligne de la cave.</p>
+    <div class="matrix-wrap">
+      <table class="matrix">
+        <thead><tr><th>Situation de la bouteille</th><th>Signal</th><th>Recommandation</th></tr></thead>
+        <tbody>
+          <tr><td>Avant l'apogée, domaine porteur</td><td>Marge de progression, demande solide</td><td><span class="tag garder">Garder</span></td></tr>
+          <tr><td>À l'apogée, forte plus-value latente</td><td>Cote haute, marché liquide</td><td><span class="tag">Vendre</span></td></tr>
+          <tr><td>Concentration excessive sur une référence</td><td>Trop de valeur sur une seule ligne</td><td><span class="tag arbitrer">Arbitrer</span></td></tr>
+          <tr><td>Au-delà de l'apogée, à boire</td><td>Valeur qui commence à décliner</td><td><span class="tag">Vendre vite</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Une estimation n'est valable que pour une période donnée, typiquement 12 à 24&nbsp;mois au maximum, parce que le marché et la maturité des vins évoluent. Sur un marché qui vient de corriger, un audit récent est un véritable outil de pilotage&nbsp;; un chiffre de 2021 décrit un monde qui n'existe plus.</p>
+  </div>
+</section>
 
-        <!-- ── SECTION 9 — FAQ ── -->
-        <section class="section section-alt">
-            <div class="container-narrow">
-                <h2>Questions <em>fréquentes</em></h2>
-                <div class="inline-faq">
-                    <div class="inline-faq-item">
-                        <button class="inline-faq-trigger" id="faq-trigger-1" aria-expanded="false" aria-controls="faq-1">Le vin est-il encore un bon investissement en 2026 ?</button>
-                        <div class="inline-faq-content" id="faq-1" role="region" aria-labelledby="faq-trigger-1"><div class="inline-faq-answer">Le marché des grands vins a corrigé d'environ 25 % depuis son pic de 2022 et s'est partiellement stabilisé en 2025. L'époque où n'importe quel grand cru prenait de la valeur mécaniquement est révolue : le marché récompense désormais la rareté, la provenance et la sélectivité. Le vin reste un actif de diversification pertinent sur un horizon de 8 à 10 ans, à condition de savoir précisément ce que l'on détient.</div></div>
-                    </div>
-                    <div class="inline-faq-item">
-                        <button class="inline-faq-trigger" id="faq-trigger-2" aria-expanded="false" aria-controls="faq-2">Comment connaître la valeur réelle de sa cave d'investissement ?</button>
-                        <div class="inline-faq-content" id="faq-2" role="region" aria-labelledby="faq-trigger-2"><div class="inline-faq-answer">En faisant estimer chaque bouteille à sa valeur de revente actuelle — celle que le marché paie réellement aujourd'hui — et non au prix d'achat ni à la cote affichée en ligne, qui inclut souvent les frais d'achat. Un audit indépendant croise plusieurs sources de transactions, intègre l'état des bouteilles et la structure du portefeuille, et débouche sur un rapport chiffré.</div></div>
-                    </div>
-                    <div class="inline-faq-item">
-                        <button class="inline-faq-trigger" id="faq-trigger-3" aria-expanded="false" aria-controls="faq-3">Quand faut-il revendre ses grands crus ?</button>
-                        <div class="inline-faq-content" id="faq-3" role="region" aria-labelledby="faq-trigger-3"><div class="inline-faq-answer">Idéalement dans la fenêtre de maturité du vin, lorsque la cote est haute et la demande forte, et avant le début du déclin. Plusieurs signaux justifient un arbitrage : un vin qui atteint son apogée, une plus-value latente importante, ou une trop forte concentration de la valeur sur une seule référence. Un audit identifie ces situations bouteille par bouteille.</div></div>
-                    </div>
-                    <div class="inline-faq-item">
-                        <button class="inline-faq-trigger" id="faq-trigger-4" aria-expanded="false" aria-controls="faq-4">Quelle fiscalité s'applique à la revente de vin en France ?</button>
-                        <div class="inline-faq-content" id="faq-4" role="region" aria-labelledby="faq-trigger-4"><div class="inline-faq-answer">Pour un particulier, la cession est exonérée d'impôt lorsque son montant ne dépasse pas 5 000 €. Au-delà, deux régimes sont possibles : une taxe forfaitaire de 6,5 % sur le prix de vente, ou le régime des plus-values sur biens meubles (19 % d'impôt sur le revenu et 17,2 % de prélèvements sociaux) avec un abattement par année de détention au-delà de la deuxième année, soit une exonération totale après 22 ans. Information générale, à confirmer selon votre situation.</div></div>
-                    </div>
-                    <div class="inline-faq-item">
-                        <button class="inline-faq-trigger" id="faq-trigger-6" aria-expanded="false" aria-controls="faq-6">Un audit de cave engage-t-il à vendre ?</button>
-                        <div class="inline-faq-content" id="faq-6" role="region" aria-labelledby="faq-trigger-6"><div class="inline-faq-answer">Non. L'audit est un outil d'information : il vous donne la valeur de votre cave et des recommandations, bouteille par bouteille. Vous restez entièrement libre de vendre, conserver, arbitrer, assurer ou transmettre. L'expert est indépendant et n'a aucun intérêt à racheter vos vins.</div></div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- ═══ COMMENT ÇA MARCHE ═══ -->
+<section class="process">
+  <div class="container">
+    <p class="sc on-dark">Comment ça marche</p>
+    <h2>Simple, rapide, à distance.</h2>
+    <ol class="etapes">
+      <li><p class="num">Étape une</p><h3>Décrivez votre cave</h3><p>Remplissez le formulaire en ligne et décrivez votre cave d'investissement en 5&nbsp;minutes.</p></li>
+      <li><p class="num">Étape deux</p><h3>Transmettez votre liste</h3><p>Ajoutez vos photos directement via le formulaire ou partagez un lien Drive. Les photos sont facultatives.</p></li>
+      <li><p class="num">Étape trois</p><h3>Recevez votre rapport</h3><p>Vous recevez votre rapport PDF complet sous 5&nbsp;jours ouvrés par e-mail.</p></li>
+    </ol>
+    <div class="process-suite"><a href="/#formulaire" class="btn btn-gold">Démarrer ma demande</a></div>
+  </div>
+</section>
+
+<!-- ═══ CE QUE VOUS RECEVEZ ═══ -->
+<section class="recevez" id="exemple-rapport">
+  <div class="container">
+    <div class="recevez-grid">
+      <div>
+        <p class="sc">Ce que vous recevez</p>
+        <h2>Un rapport complet, personnalisé et opposable.</h2>
+        <ol class="sommaire" id="sommaire">
+          <li class="active" data-img="rapport-synthese.webp"><button type="button"><span class="n">i</span><span>Synthèse exécutive</span></button><p class="detail">Une vue d'ensemble immédiate : valeur totale estimée, répartition par recommandation (à vendre / à conserver / à surveiller), points d'attention prioritaires. La page que vous lirez en premier.</p></li>
+          <li data-img="rapport-inventaire.webp"><button type="button"><span class="n">ii</span><span>Inventaire détaillé</span></button><p class="detail">Chaque référence identifiée et documentée : appellation, domaine, millésime, format, état observé, valeur estimée. Le tableau complet de votre cave, lot par lot.</p></li>
+          <li data-img="rapport-repartition.webp"><button type="button"><span class="n">iii</span><span>Répartition par format, région, couleur</span></button><p class="detail">Votre cave en visualisations : graphiques de répartition par région, couleur, format et potentiel. Pour comprendre d'un coup d'œil la composition de votre patrimoine liquide.</p></li>
+          <li data-img="rapport-contexte-marche.webp"><button type="button"><span class="n">iv</span><span>Contexte de marché</span></button><p class="detail">L'état actuel des enchères et du négoce pour vos références : tendances, liquidité, dynamique sur les douze derniers mois. Le marché derrière les chiffres de votre cave.</p></li>
+          <li data-img="rapport-recommandations.webp"><button type="button"><span class="n">v</span><span>Recommandations lot par lot</span></button><p class="detail">Pour chaque référence : à vendre, à conserver ou à surveiller — avec une justification claire fondée sur la cote, l'apogée du vin et la dynamique de marché actuelle.</p></li>
+          <li data-img="rapport-garde.webp"><button type="button"><span class="n">vi</span><span>Potentiel de garde</span></button><p class="detail">Fenêtre d'apogée pour chaque lot. Quatre horizons : à boire maintenant, proche apogée, en développement, garde longue. Pour savoir quoi ouvrir et quand.</p></li>
+          <li data-img="rapport-plan-action.webp"><button type="button"><span class="n">vii</span><span>Plan d'action</span></button><p class="detail">Des étapes concrètes adaptées à votre situation et vos objectifs — succession, vente, partage familial, conservation. Un calendrier opérationnel pour passer à l'action sans hésiter.</p></li>
+        </ol>
+      </div>
+      <figure class="planche">
+        <div class="cadre-double"><img id="planche-img" src="rapport-synthese.webp" width="660" height="934" alt="Page du rapport d'exemple"></div>
+        <figcaption><span id="planche-cap">Synthèse exécutive</span><span>Rapport d'exemple</span></figcaption>
+      </figure>
+    </div>
+    <div class="recevez-usage">
+      <p>Chaque ligne de la cave reçoit une recommandation garder, vendre ou arbitrer, justifiée par la cote, l'apogée du vin et la dynamique de marché actuelle.</p>
+      <a href="/#formulaire" class="btn" data-cta="apercu">Recevoir ce rapport — 199&thinsp;€</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA FINAL ═══ -->
+<section class="cta-final">
+  <div class="container">
+    <p class="sc on-dark center">L'audit patrimonial</p>
+    <h2>Faites le point sur votre cave d'investissement</h2>
+    <p class="lead">Un audit indépendant, bouteille par bouteille&nbsp;: valeur de revente réelle, recommandations garder, vendre ou arbitrer et plan d'action. Rapport complet sous 5&nbsp;jours ouvrés, au tarif unique de 199&nbsp;€.</p>
+    <a href="/#formulaire" class="btn btn-gold">Faire auditer ma cave</a>
+    <p class="subtext">100&nbsp;% à distance, sans déplacement ni rendez-vous. Accessible partout en France et en francophonie (Belgique, Suisse, Luxembourg, Monaco).</p>
+  </div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<section class="faq" style="background: var(--fond)">
+  <div class="container">
+    <p class="sc center">Questions fréquentes</p>
+    <div class="faq-list">
+      <details><summary>Le vin est-il encore un bon investissement en 2026 ?</summary><p>Le marché des grands vins a corrigé d'environ 25 % depuis son pic de 2022 et s'est partiellement stabilisé en 2025. L'époque où n'importe quel grand cru prenait de la valeur mécaniquement est révolue : le marché récompense désormais la rareté, la provenance et la sélectivité. Le vin reste un actif de diversification pertinent sur un horizon de 8 à 10 ans, à condition de savoir précisément ce que l'on détient.</p></details>
+      <details><summary>Comment connaître la valeur réelle de sa cave d'investissement ?</summary><p>En faisant estimer chaque bouteille à sa valeur de revente actuelle — celle que le marché paie réellement aujourd'hui — et non au prix d'achat ni à la cote affichée en ligne, qui inclut souvent les frais d'achat. Un audit indépendant croise plusieurs sources de transactions, intègre l'état des bouteilles et la structure du portefeuille, et débouche sur un rapport chiffré.</p></details>
+      <details><summary>Quand faut-il revendre ses grands crus ?</summary><p>Idéalement dans la fenêtre de maturité du vin, lorsque la cote est haute et la demande forte, et avant le début du déclin. Plusieurs signaux justifient un arbitrage : un vin qui atteint son apogée, une plus-value latente importante, ou une trop forte concentration de la valeur sur une seule référence. Un audit identifie ces situations bouteille par bouteille.</p></details>
+      <details><summary>Quelle fiscalité s'applique à la revente de vin en France ?</summary><p>Pour un particulier, la cession est exonérée d'impôt lorsque son montant ne dépasse pas 5 000 €. Au-delà, deux régimes sont possibles : une taxe forfaitaire de 6,5 % sur le prix de vente, ou le régime des plus-values sur biens meubles (19 % d'impôt sur le revenu et 17,2 % de prélèvements sociaux) avec un abattement par année de détention au-delà de la deuxième année, soit une exonération totale après 22 ans. Information générale, à confirmer selon votre situation.</p></details>
+      <details><summary>Un audit de cave engage-t-il à vendre ?</summary><p>Non. L'audit est un outil d'information : il vous donne la valeur de votre cave et des recommandations, bouteille par bouteille. Vous restez entièrement libre de vendre, conserver, arbitrer, assurer ou transmettre. L'expert est indépendant et n'a aucun intérêt à racheter vos vins.</p></details>
+    </div>
+  </div>
+</section>
 
 
-    </main>
+<div class="container"><div class="fleuron"><img src="grappe-doree.webp" alt=""></div></div>
+</main>
 
     <footer class="footer">
         <div class="footer-grid">
@@ -1141,122 +661,19 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
         navRight.querySelectorAll('a').forEach(function(link) { link.addEventListener('click', closeMenu); });
     })();
     </script>
-
-    <script>
-    (function(){
-        var targets = document.querySelectorAll('.hero .eyebrow, .hero h1, .lead, .hero-ctas, .pain-card, .usage-block, .matrix-wrap, .bon-a-savoir, .profil p, .visual-block, .section-intro, .highlight-note, .inline-faq, .step, .report-card, .section-eyebrow, .cta-final h2, .cta-final .lead');
-        targets.forEach(function(el){ if(!el.classList.contains('reveal')) el.classList.add('reveal'); });
-        document.querySelectorAll('.ornament, .ornament-double, .ornament-dots, .ornament-diamond, .ornament-long, .section-divider').forEach(function(el){ el.classList.add('ornament-reveal'); });
-        var allReveal = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .ornament-reveal');
-        var observer = new IntersectionObserver(function(entries){
-            entries.forEach(function(entry){
-                if(entry.isIntersecting){ entry.target.classList.add('visible'); observer.unobserve(entry.target); }
-            });
-        }, {threshold: 0.1, rootMargin: '0px 0px -40px 0px'});
-        allReveal.forEach(function(el){ observer.observe(el); });
-    })();
-    </script>
-    <script>
-    (function(){
-      var items = document.querySelectorAll('.apercu-item');
-      if (!items.length) return;
-      var previewImg = document.getElementById('apercu-preview-img');
-      var previewPh = document.getElementById('apercu-preview-placeholder');
-      var previewBadge = document.getElementById('apercu-preview-badge');
-      var previewCaption = document.getElementById('apercu-preview-caption');
-      var previewCard = document.querySelector('.apercu-preview-card');
-      var dots = document.querySelectorAll('.apercu-dot');
-
-      function setPreview(item){
-        var page = item.dataset.page;
-        var title = item.dataset.title;
-        var src = item.dataset.img;
-        if (previewBadge) previewBadge.textContent = 'p. ' + page;
-        if (previewCaption) previewCaption.textContent = title;
-        if (!previewImg || !previewPh) return;
-        previewImg.style.opacity = '0';
-        setTimeout(function(){
-          if (src) {
-            previewImg.src = src;
-            previewImg.alt = title;
-            previewImg.style.display = 'block';
-            previewPh.style.display = 'none';
-          } else {
-            previewImg.removeAttribute('src');
-            previewImg.style.display = 'none';
-            previewPh.textContent = 'Aperçu p. ' + page + ' — ' + title;
-            previewPh.style.display = 'flex';
-          }
-          previewImg.style.opacity = '1';
-        }, 100);
-      }
-
-      function activate(target){
-        var activeIdx = -1;
-        items.forEach(function(item, idx){
-          var tab = item.querySelector('.apercu-tab');
-          var isActive = item === target;
-          if (isActive) activeIdx = idx;
-          item.classList.toggle('active', isActive);
-          tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
-          tab.setAttribute('aria-expanded', isActive ? 'true' : 'false');
-          tab.setAttribute('tabindex', isActive ? '0' : '-1');
-        });
-        dots.forEach(function(dot, idx){
-          dot.classList.toggle('active', idx === activeIdx);
-          dot.setAttribute('aria-current', idx === activeIdx ? 'true' : 'false');
-        });
-        setPreview(target);
-      }
-
-      dots.forEach(function(dot, idx){
-        dot.addEventListener('click', function(){
-          if (items[idx]) activate(items[idx]);
-        });
-      });
-
-      items.forEach(function(item, idx){
-        var tab = item.querySelector('.apercu-tab');
-        tab.addEventListener('click', function(){ activate(item); });
-        tab.addEventListener('keydown', function(e){
-          var next = null;
-          if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
-            next = items[(idx + 1) % items.length];
-          } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
-            next = items[(idx - 1 + items.length) % items.length];
-          } else if (e.key === 'Home') {
-            next = items[0];
-          } else if (e.key === 'End') {
-            next = items[items.length - 1];
-          } else if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            activate(item);
-            return;
-          } else {
-            return;
-          }
-          e.preventDefault();
-          activate(next);
-          next.querySelector('.apercu-tab').focus();
-        });
-      });
-
-      if (previewCard) {
-        previewCard.addEventListener('click', function(){
-          var active = document.querySelector('.apercu-item.active');
-          if (!active) return;
-          var src = active.dataset.img;
-          if (src && typeof window.openApercuLightbox === 'function') {
-            window.openApercuLightbox(src, active.dataset.title || '');
-          }
-        });
-      }
-
-      // Init: first item active by default (already has .active in HTML, but ensure preview state)
-      var initial = document.querySelector('.apercu-item.active') || items[0];
-      setPreview(initial);
-    })();
-    </script>
+  <script>
+(function(){
+  var lis = document.querySelectorAll('#sommaire li');
+  lis.forEach(function(li){
+    li.querySelector('button').addEventListener('click', function(){
+      lis.forEach(function(x){ x.classList.remove('active'); });
+      li.classList.add('active');
+      document.getElementById('planche-img').src = li.dataset.img;
+      document.getElementById('planche-cap').textContent = li.querySelector('button span:nth-child(2)').textContent;
+    });
+  });
+})();
+</script>
   <script src="/js/estimation-slidein.js" defer></script>
 </body>
 </html>
