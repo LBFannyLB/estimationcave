@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Sitemap temporaire de migration : anciennes URL redirigées en 301 (silo Vendre du 29/07/2026, piliers Cotes/Loire).
+<!-- Sitemap temporaire de migration : anciennes URL redirigées en 301 (silo Vendre du 29/07/2026, piliers Cotes/Loire, article spiritueux → hub /cotes/spiritueux/ du 20/09/2026).
      Objectif : faire repasser Googlebot sur ces URL pour qu'il prenne en compte les redirections.
      À retirer (fichier + Search Console) une fois que ces URL ne sont plus dans l'index. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -12,4 +12,5 @@
   <url><loc>https://estimationcave.com/article-vendre-cave-caviste-negociant.html</loc><lastmod>2026-09-17</lastmod></url>
   <url><loc>https://estimationcave.com/article-cotes-pilier.html</loc><lastmod>2026-09-17</lastmod></url>
   <url><loc>https://estimationcave.com/article-vins-loire-cote-valeur.html</loc><lastmod>2026-09-17</lastmod></url>
+  <url><loc>https://estimationcave.com/article-spiritueux-herites-valeur.html</loc><lastmod>2026-09-21</lastmod></url>
 </urlset>
