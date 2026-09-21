@@ -19,7 +19,7 @@
 
 
 <meta charset="utf-8">
-<title>Rapport d'estimation — {{ client.nom }}</title>
+<title>{% if mode == 'assureur' %}Inventaire valorisé à usage assurantiel — {{ client.nom }}{% else %}Rapport d'estimation — {{ client.nom }}{% endif %}</title>
 <link rel="icon" href="../assets/images/seal.png">
 <style>/* cyrillic-ext */
 @font-face {
@@ -1110,6 +1110,10 @@ p {
     border-top: none;
   }
   .tops-head + .chart-row.with-sep::before { display: none; }
+  /* Page 7 : les deux Top 5 côte à côte (listes courtes), pour que la page
+     tienne avec le graphique des recommandations et sa légende. */
+  .chart-row.with-sep.tops-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+  .chart-row.with-sep.tops-grid > .chart-card + .chart-card { margin-top: 0; }
   .tops-title {
     margin-top: 32px;
     padding-top: 22px;
@@ -1203,7 +1207,7 @@ p {
   /* Horizontal bar list */
   .bar-list {
     list-style: none; padding: 0; margin: 0;
-    display: grid; gap: 7px;
+    display: grid; gap: 5px;
   }
   .bar-list li {
     display: grid;
@@ -1439,10 +1443,9 @@ p {
   }
   .reco-split-legend {
     list-style: none; padding: 0; margin: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 28px;
     padding-top: 14px;
     border-top: 1px solid rgba(30,10,15,0.08);
     font-family: var(--font-body);
@@ -1450,7 +1453,6 @@ p {
     color: var(--texte);
   }
   .reco-split-legend li {
-    flex: 0 1 200px;
     display: grid;
     grid-template-columns: 12px 1fr;
     gap: 10px;
@@ -1583,7 +1585,18 @@ p {
     font-family: var(--font-body);
     font-size: 10.5px;
     color: var(--texte);
+    /* Largeurs fixées : les quatre fenêtres (à boire maintenant, quatre ans,
+       cinq à dix ans, garde longue) doivent aligner leurs colonnes d'un
+       tableau à l'autre, quel que soit le nom le plus long de chacun. */
+    table-layout: fixed;
   }
+  .garde-table th, .garde-table td { box-sizing: border-box; }
+  .garde-table .g-dom { width: 38%; }
+  .garde-table .g-app { width: 19%; }
+  .garde-table .g-mil { width: 8%; }
+  .garde-table .g-qte { width: 6%; }
+  .garde-table .g-apo { width: 15%; white-space: nowrap; }
+  .garde-table .g-ori { width: 14%; white-space: nowrap; }
   .garde-table thead th {
     text-align: left;
     font-weight: 600;
@@ -1714,6 +1727,7 @@ p {
     color: var(--texte);
     max-width: 640px;
     text-wrap: pretty;
+    text-align: justify;
   }
   .market-block + .market-block { margin-top: 28px; }
   .market-head {
@@ -1954,6 +1968,10 @@ p {
     font-weight: 500;
   }
   .recap-row.total .price { color: var(--or); font-weight:500; }
+  /* Double barème : sixième colonne, le prix marteau par orientation. */
+  .recap.with-rev .recap-row { grid-template-columns: 24px 1.4fr 0.8fr 0.9fr 1.2fr 1.2fr; }
+  .recap .price.rev { font-style: italic; color: #6F6156; }
+  .recap-row.total .price.rev { color: rgba(250,246,240,0.75); }
   .recap-dot {
     width: 10px; height: 10px;
     background: var(--bordeaux);
@@ -1986,6 +2004,38 @@ p {
     color: var(--texte);
     max-width: 620px;
   }
+  /* Second barème (Val_revente) : ce que la bouteille rapporte à la revente,
+     empilé sous la valeur de remplacement dans la même cellule. Le tableau est
+     déjà à 11 colonnes réglées en nth-child : ajouter une colonne décalerait
+     toutes les règles, d'où l'empilement. */
+  .inv-rev {
+    display: block;
+    font-size: 7.4px;
+    font-style: italic;
+    color: #8A7B6B;
+    letter-spacing: 0.01em;
+    margin-top: 1px;
+    white-space: nowrap;
+  }
+  /* Sous-libellé d'en-tête : nomme la seconde ligne de chaque cellule de prix
+     sans élargir la colonne (« Remplacement » déborderait sur Qté). */
+  .th-rev {
+    font-size: 6.6px;
+    font-style: normal;
+    letter-spacing: 0.04em;
+    text-transform: lowercase;
+    color: #A8998A;
+    margin-top: 0;
+  }
+  .inv-total-rev {
+    display: block;
+    font-size: 9px;
+    font-style: italic;
+    font-weight: 400;
+    color: #8A7B6B;
+    margin-top: 2px;
+  }
+
   table.inv {
     width: 100%;
     border-collapse: collapse;
@@ -1994,20 +2044,43 @@ p {
     color: var(--texte);
     table-layout: fixed;
   }
-  /* Largeurs colonnes — fixées pour garantir Domaine > Appellation
-     + colonnes courtes (Région, État, Orientation) en nowrap */
-  table.inv th:nth-child(1), table.inv td:nth-child(1) { width: 3%; }   /* # */
-  table.inv th:nth-child(2), table.inv td:nth-child(2) { width: 16%; }  /* Domaine */
-  table.inv th:nth-child(3), table.inv td:nth-child(3) { width: 17%; } /* Appellation — wrap autorisé pour libellés longs type "Nuits-Saint-Georges 1er Cru Aux Boudots" */
-  table.inv th:nth-child(4), table.inv td:nth-child(4) { width: 4%; text-align: center; }  /* CBO */
-  table.inv th:nth-child(5), table.inv td:nth-child(5) { width: 18%; white-space: nowrap; padding-right: 60px !important; } /* Région — gros padding-right pour bien détacher de Couleur */
-  table.inv th:nth-child(6), table.inv td:nth-child(6) { width: 8%; text-align: center; padding-left: 24px !important; padding-right: 60px !important; } /* Couleur — gros padding-right pour bien détacher de Millésime */
-  table.inv th:nth-child(7), table.inv td:nth-child(7) { width: 5%; text-align: center !important; }   /* Millésime — centré */
-  table.inv th:nth-child(8), table.inv td:nth-child(8) { width: 6%; white-space: nowrap; text-align: center !important; }  /* État — centré */
-  table.inv th:nth-child(9), table.inv td:nth-child(9) { width: 2%; padding-right: 0 !important; text-align: right !important; }   /* Qté — resserré contre Unit */
-  table.inv th:nth-child(10), table.inv td:nth-child(10) { width: 3%; white-space: nowrap; padding-left: 2px !important; padding-right: 0 !important; text-align: right !important; } /* Unit — collé à droite, resserré contre Qté */
-  table.inv th:nth-child(11), table.inv td:nth-child(11) { width: 5%; white-space: nowrap; padding-left: 0 !important; padding-right: 0 !important; text-align: center !important; } /* Total — centré */
-  table.inv th:nth-child(12), table.inv td:nth-child(12) { width: 13%; white-space: nowrap; } /* Orientation */
+  /* Largeurs colonnes du tableau CLIENT — par classe (c-*), pour servir le
+     simple barème (12 colonnes) comme le double barème (+ Adjud.). L'appellation
+     n'a pas de largeur : elle absorbe ce que la colonne absente libère.
+     Les largeurs sont des pourcentages bord à bord : sans border-box, chaque
+     cellule ajoute son padding et la colonne libre tombe à zéro. */
+  table.inv:not(.no-orient) th, table.inv:not(.no-orient) td { box-sizing: border-box; }
+  table.inv:not(.no-orient) .c-idx  { width: 3%; }
+  table.inv:not(.no-orient) .c-dom  { width: 15%; }
+  table.inv:not(.no-orient) .c-cbo  { width: 4%; text-align: center; }
+  table.inv:not(.no-orient) .c-reg  { width: 8.5%; white-space: nowrap; }
+  table.inv:not(.no-orient) .c-col  { width: 6%; text-align: center !important; }
+  table.inv:not(.no-orient) .c-mil  { width: 6%; text-align: center !important; white-space: nowrap; }
+  table.inv:not(.no-orient) .c-fmt  { width: 6.5%; text-align: center !important; white-space: nowrap; }
+  table.inv:not(.no-orient) .c-eta  { width: 7.5%; text-align: center !important; white-space: nowrap; }
+  table.inv:not(.no-orient) .c-qte  { width: 4%; text-align: right !important; padding-right: 2px !important; }
+  table.inv:not(.no-orient) .c-unit { width: 7%; text-align: right !important; white-space: nowrap; }
+  table.inv:not(.no-orient) .c-adj  { width: 7%; text-align: right !important; white-space: nowrap; color: #6F6156; font-style: italic; }
+  table.inv:not(.no-orient) .c-tot  { width: 7.5%; text-align: right !important; white-space: nowrap; }
+  table.inv:not(.no-orient) .c-ori  { width: 12.5%; white-space: nowrap; padding-left: 12px !important; }
+  table.inv:not(.no-orient) thead th.c-adj { font-style: normal; }
+  table.inv:not(.no-orient) thead th { letter-spacing: 0.12em; }
+
+  /* Tableau ASSUREUR (no-orient) — mise en page validée le 13/09/2026, figée :
+     colgroup en pixels + règles positionnelles. #, Domaine, Appellation, Région,
+     Coul., Mill., Format, État, Qté, Unit., Total. Ne pas retoucher sans
+     regénérer et comparer la variante --assureur. */
+  table.inv.no-orient th:nth-child(1),  table.inv.no-orient td:nth-child(1)  { width: 3%; }
+  table.inv.no-orient th:nth-child(2),  table.inv.no-orient td:nth-child(2)  { width: 16%; }
+  table.inv.no-orient th:nth-child(3),  table.inv.no-orient td:nth-child(3)  { width: 19%; }
+  table.inv.no-orient th:nth-child(4),  table.inv.no-orient td:nth-child(4)  { width: 12%; white-space: nowrap; padding-right: 20px !important; text-align: left; }
+  table.inv.no-orient th:nth-child(5),  table.inv.no-orient td:nth-child(5)  { width: 7%; text-align: center !important; padding-left: 6px !important; padding-right: 6px !important; }
+  table.inv.no-orient th:nth-child(6),  table.inv.no-orient td:nth-child(6)  { width: 8%; white-space: nowrap; text-align: center !important; padding-left: 4px !important; padding-right: 10px !important; }
+  table.inv.no-orient th:nth-child(7),  table.inv.no-orient td:nth-child(7)  { width: 8%; white-space: nowrap; text-align: center !important; padding-left: 10px !important; padding-right: 4px !important; }
+  table.inv.no-orient th:nth-child(8),  table.inv.no-orient td:nth-child(8)  { width: 8%; white-space: nowrap; text-align: center !important; padding-left: 4px !important; padding-right: 4px !important; }
+  table.inv.no-orient th:nth-child(9),  table.inv.no-orient td:nth-child(9)  { width: 4%; padding-right: 0 !important; padding-left: 0 !important; text-align: right !important; white-space: nowrap; }
+  table.inv.no-orient th:nth-child(10), table.inv.no-orient td:nth-child(10) { width: 8%; white-space: nowrap; padding-left: 2px !important; padding-right: 0 !important; text-align: right !important; }
+  table.inv.no-orient th:nth-child(11), table.inv.no-orient td:nth-child(11) { width: 9%; white-space: nowrap; padding-left: 2px !important; padding-right: 6px !important; text-align: right !important; }
   table.inv thead th {
     text-align: left;
     font-weight: 600;
@@ -2371,7 +2444,9 @@ html, body { background: #FAF6F0 !important; }
 /* Compacte le bloc Potentiel de garde pour qu'il rentre systématiquement
    derrière les bars sur la même A4 — c'est notre contrainte principale,
    sinon il se retrouve seul sur la page suivante. */
-.chart-row.one { margin-top: 60px; }
+/* 28px et non 60 : le profil temporel doit rester sur la même A4 que les
+   deux graphiques régionaux — la fiche 5 tient ainsi sur une page. */
+.chart-row.one { margin-top: 28px; }
 .chart-row.one .chart-card { padding-top: 0; }
 .chart-row.one .chart-head { padding-bottom: 4px; margin-bottom: 6px; }
 .chart-row.one .chart-head h3.chart-title { font-size: 18px; }
@@ -2498,10 +2573,20 @@ html, body { background: #FAF6F0 !important; }
   color: var(--texte);
   white-space: nowrap;
   flex-shrink: 0;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
 }
+/* La quantité s'efface pour que l'estimation porte seule le regard :
+   c'est le chiffre que le client cherche sur chaque carte. */
+.reco-card-stats .qte { font-size: 9.5px; color: var(--texte-light); }
 .reco-card-stats b {
   color: var(--bordeaux);
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 12px;
+  background: var(--or-pale);
+  padding: 1px 6px;
+  border-radius: 2px;
 }
 .reco-card-just {
   font-family: var(--font-body);
@@ -2524,6 +2609,7 @@ html, body { background: #FAF6F0 !important; }
   color: var(--texte-light);
   margin-top: 1px;
 }
+.reco-card-meta .meta-right { margin-left: auto; }
 .reco-card-meta .lbl {
   text-transform: uppercase;
   letter-spacing: 0.14em;
@@ -2762,16 +2848,18 @@ html, body { background: #FAF6F0 !important; }
 .sect-sub:first-of-type { margin-top: 8px; }
 .hero-value     { padding: 12px 22px; margin-top: 8px; }
 .hv-value       { font-size: 48px !important; }
-.bars           { margin-top: 4px; }
+.bars           { margin-top: 4px; row-gap: 6px; }
 .bar-row        { padding: 0 0; }
 .bar-track      { height: 6px; }
 .color-split    { margin-top: 4px; }
 .color-split-head { padding: 2px 0; font-size: 10px; }
 .stacked        { height: 16px; }
 .legend-dots    { margin-top: 2px; padding: 2px 0; font-size: 9.5px; }
-.recap          { margin-top: 4px; page-break-inside: avoid; break-inside: avoid; }
+.recap          { margin-top: 2px; page-break-inside: avoid; break-inside: avoid; }
 .recap-row      {
-  padding: 3px 18px;
+  /* 2px : le tableau doit tenir sous les graphiques de la synthèse, y compris
+     quand « À conserver » se scinde en deux lignes (garde / table). */
+  padding: 2px 18px;
 }
 .recap-row.head { padding: 4px 18px; }
 .recap-row.total { padding: 4px 18px; }
@@ -2798,7 +2886,12 @@ html, body { background: #FAF6F0 !important; }
 
 /* Répartition II (p7) — save a few px */
 .chart-card.solo { margin-top: 8px; }
-.tops-head      { margin-top: 50px; }
+/* Bloc « Concentration des valeurs » : espacements resserrés pour que les
+   deux Top 5 tiennent sur la même A4 que la répartition des recommandations,
+   qui a gagné une ligne de légende avec la scission garde / table. */
+.tops-head      { margin-top: 26px; }
+.tops-title     { margin-top: 18px; padding-top: 14px; }
+.chart-row.with-sep > .chart-card + .chart-card { margin-top: 12px; }
 .chart-row.with-sep { margin-top: 12px; padding-top: 10px; }
 .top-list li    { padding: 3px 0; }
 .reco-split-col .split-total { margin-top: 2px; }
@@ -2829,7 +2922,17 @@ html, body { background: #FAF6F0 !important; }
       </div>
 
       <div class="cover-center">
-        <div class="cover-eyebrow">Rapport d'audit et d'estimation</div>
+{% if mode == 'assureur' %}        <div class="cover-eyebrow">Évaluation à usage assurantiel</div>
+        <img src="../assets/images/cover-illus.png" alt="" class="cover-illus">
+        <h1 class="cover-title">
+          Inventaire valorisé<br>
+          <em>de la cave à vins</em>
+        </h1>
+        <div class="cover-sub">
+          Valeur de remplacement, référence par référence,<br>
+          arrêtée au {{ rapport.date_emission }}.
+        </div>
+{% else %}        <div class="cover-eyebrow">Rapport d'audit et d'estimation</div>
         <img src="../assets/images/cover-illus.png" alt="" class="cover-illus">
         <h1 class="cover-title">
           Audit et estimation<br>
@@ -2839,7 +2942,7 @@ html, body { background: #FAF6F0 !important; }
           Inventaire, valorisation de marché<br>
           et recommandations d'arbitrage patrimonial.
         </div>
-
+{% endif %}
         <div class="cover-ornament" aria-hidden="true">
           <span class="line"></span>
           <span class="diamond"></span>
@@ -2849,11 +2952,11 @@ html, body { background: #FAF6F0 !important; }
         <div class="cover-meta">
           <div>
             <div class="label">Établi pour</div>
-            <div class="val">{{ client.nom }}<small>{{ client.localisation }}</small></div>
+            <div class="val">{{ client.nom }}{% if client.localisation %}<small>{{ client.localisation }}</small>{% endif %}</div>
           </div>
           <div>
             <div class="label">Objectif</div>
-            <div class="val">{{ client.objectif_court }}<small>{{ client.objectif_detail }}</small></div>
+            <div class="val">{{ client.objectif_court }}{% if client.objectif_detail %}<small>{{ client.objectif_detail }}</small>{% endif %}</div>
           </div>
           <div>
             <div class="label">Date d'émission</div>
@@ -2861,7 +2964,7 @@ html, body { background: #FAF6F0 !important; }
           </div>
           <div>
             <div class="label">Périmètre</div>
-            <div class="val">{{ perimetre.nb_references }} réf. · {{ perimetre.nb_bouteilles }} bouteilles<small>{{ perimetre.base_estimation }}</small></div>
+            <div class="val">{{ perimetre.nb_references }} réf. · {{ perimetre.nb_bouteilles }} bouteilles{% if perimetre.base_estimation %}<small>{{ perimetre.base_estimation }}</small>{% endif %}</div>
           </div>
         </div>
 
@@ -2887,13 +2990,14 @@ html, body { background: #FAF6F0 !important; }
     <h2 class="sect-title">Périmètre <em>et méthode</em></h2>
 
     <p class="mission-intro">
-      Le présent rapport fait suite à la demande d'audit et d'estimation adressée par <b style="color:var(--bordeaux);">{{ client.nom }}</b>. Il fixe le périmètre, la méthode et les limites de l'estimation.
-    </p>
+{% if mode == 'assureur' %}      Le présent document fait suite à la demande d'évaluation adressée par <b style="color:var(--bordeaux);">{{ client.nom }}</b> en vue de la déclaration de sa cave à son assureur. Il fixe le périmètre, la méthode et les limites de l'estimation.
+{% else %}      Le présent rapport fait suite à la demande d'audit et d'estimation adressée par <b style="color:var(--bordeaux);">{{ client.nom }}</b>. Il fixe le périmètre, la méthode et les limites de l'estimation.
+{% endif %}    </p>
 
     <div class="mission-grid">
       <div><dt>Client</dt><dd class="highlight">{{ client.nom }}</dd></div>
       <div><dt>Contact</dt><dd>{{ client.email }}</dd></div>
-      <div><dt>Localisation</dt><dd>{{ client.localisation }}</dd></div>
+      {% if client.localisation %}<div><dt>Localisation</dt><dd>{{ client.localisation }}</dd></div>{% endif %}
       <div><dt>Référence dossier</dt><dd>{{ client.ref_dossier }}</dd></div>
       <div><dt>Date du rapport</dt><dd>{{ rapport.date_emission }}</dd></div>
       <div><dt>Objectif</dt><dd>{{ client.objectif_long }}</dd></div>
@@ -2903,7 +3007,14 @@ html, body { background: #FAF6F0 !important; }
       <div><dt>Références</dt><dd><span class="num-big">{{ perimetre.nb_references }}</span>références auditées</dd></div>
       <div><dt>Bouteilles</dt><dd><span class="num-big">{{ perimetre.nb_bouteilles }}</span>flacons audités</dd></div>
     </div>
+  </section>
 
+  <!-- La méthodologie a sa propre page : avec un périmètre détaillé (conditions,
+       conservation, provenance sur trois ou quatre lignes chacun), elle ne tient
+       plus sous la grille de mission et laissait sa fin orpheline en page 3. -->
+  <section class="page" id="p2b">
+    <div class="sect-eyebrow">— 1. Informations de la mission, suite —</div>
+    <h2 class="sect-title">Méthode <em>et limites</em></h2>
     <div class="mission-sub">
       <div class="mission-sub-head">
         <h3>Méthodologie &amp; limites de l'estimation</h3>
@@ -2911,14 +3022,31 @@ html, body { background: #FAF6F0 !important; }
       </div>
 
       <div class="method-body">
-        <div class="method-col-label">Sources et données</div>
+{% if mode == 'assureur' %}        <div class="method-col-label">Identification et état</div>
         <p class="lead with-dropcap">
-          <span class="dropcap">L</span>e rapport s'appuie sur trois sources de référence du marché secondaire du vin&nbsp;: la <b>Cote iDealwine</b>, leader européen des ventes aux enchères spécialisées, qui consolide les résultats hebdomadaires des adjudications réalisées en France&nbsp;; <b>Wine-Searcher</b>, agrégateur international des prix pratiqués en retail&nbsp;; et les résultats publiés des principales maisons de ventes françaises et internationales (Sotheby's, Christie's, Baghera/wines, Artcurial, Drouot, Hart Davis Hart, Zachys, Acker), consultés pour les références à faible rotation ou à forte valeur unitaire. Les données sont extraites dans les 5&nbsp;jours précédant l'émission du rapport, afin de refléter l'état du marché à une date proche de la livraison. L'analyse de tendance et de liquidité s'appuie en complément sur les indices Liv-ex, référence mondiale du marché secondaire, sur laquelle estimationcave.com ne négocie pas.
+          <span class="dropcap">C</span>haque référence a d'abord été identifiée à partir de l'inventaire transmis par le client, puis vérifiée sur les photographies&nbsp;: nom du vin, millésime et format lus sur l'étiquette, et corrections apportées lorsque la liste et l'étiquette ne concordaient pas. L'état de présentation est apprécié sur photo selon trois niveaux — excellent, très bon, bon — qui décrivent la bouteille (niveau, étiquette, capsule) et non le vin qu'elle contient.
+        </p>
+        <div class="method-col-label" style="margin-top:14px;">Valeur de remplacement</div>
+        <p>
+          La valeur retenue pour chaque référence est sa <b>valeur de remplacement</b>&nbsp;: le prix auquel le même flacon — même vin, même millésime, même format — peut être racheté aujourd'hui chez un marchand professionnel établi en France, toutes taxes comprises, sans décote. Elle est établie référence par référence à partir des offres en stock relevées chez les cavistes et marchands spécialisés dans les jours précédant l'émission du document, sur la base d'une bouteille de 75&nbsp;cl vendue à l'unité. La valeur retenue est la <b>médiane des prix constatés</b>, sur un minimum de quatre offres&nbsp;; en deçà, le relevé est élargi aux ventes par caisse, ramenées au prix de la bouteille, puis aux marchands étrangers, chaque marchand ne comptant qu'une fois. Les grands formats sont valorisés sur leurs propres offres ou, à défaut, au double de la bouteille, ratio constaté chez les marchands qui proposent les deux. Les vins qui ne passent pas par le commerce — vendus à la propriété seulement, cuvées réservées au personnel, flacons personnalisés — sont valorisés au prix du producteur ou, à défaut, à une valeur de principe, signalée comme telle dans le détail de la ligne. Les valeurs sont arrondies au multiple de cinq euros inférieur.
         </p>
         <p>
-          La valeur marchande de chaque référence est établie par croisement pondéré de ces sources, de manière à neutraliser les biais propres à chaque canal — forte volatilité des adjudications isolées, dispersion des prix de détail internationaux, saisonnalité marquée de certaines ventes prestigieuses. La valeur globale de la cave est proposée sous forme de fourchette <b>±15&nbsp;%</b>, qui reflète à la fois la volatilité normale des cours observée sur les douze derniers mois et les aléas d'adjudication spécifiques au marché aux enchères.
+          La valeur globale est la somme des valeurs établies référence par référence, à la date d'émission, sur des relevés effectués dans les jours qui la précèdent. Le détail de ces relevés — marchands consultés, prix constatés, dates — est conservé au dossier pour chaque référence et peut être communiqué à l'assureur sur simple demande.
         </p>
-
+{% else %}        <div class="method-col-label">Sources et données</div>
+        <p class="lead with-dropcap">
+          <span class="dropcap">L</span>e rapport s'appuie sur deux familles de sources, croisées référence par référence. <b>Les résultats publics de ventes aux enchères</b> d'abord&nbsp;: ceux que publient les opérateurs spécialisés du marché secondaire et les grandes maisons de ventes françaises et internationales, consultés en priorité pour les références à faible rotation ou à forte valeur unitaire. <b>Le marché de détail</b> ensuite, relevé chez les cavistes et marchands spécialisés, qui permet de situer chaque référence par rapport au prix réellement demandé à la vente. L'écart entre ces deux niveaux est en lui-même un indicateur&nbsp;: un rapport inhabituel entre prix de détail et prix d'adjudication signale une référence mal cotée, qu'il faut alors vérifier ailleurs. Les données sont extraites dans les jours précédant l'émission du rapport, afin de refléter l'état du marché à une date proche de la livraison. L'analyse de tendance s'appuie en complément sur les indices de référence du marché secondaire international.
+        </p>
+{% if inventaire_a_revente %}        <p>
+          Ce rapport porte <b>deux valeurs par référence</b>. La <b>valeur de remplacement</b> est le prix auquel le même flacon — même vin, même millésime, même format — peut être racheté aujourd'hui chez un marchand professionnel établi en France, toutes taxes comprises, sans décote&nbsp;: médiane des offres en stock, sur un minimum de quatre, élargie en deçà aux ventes par caisse puis aux marchands étrangers, chaque marchand ne comptant qu'une fois. C'est la base du capital à assurer. Le <b>prix d'adjudication</b> est ce que le flacon obtiendrait en vente publique, avant frais de vente, établi sur la cote d'enchères du millésime et les dernières ventes constatées. C'est la base des recommandations. Les vins sans cote établie portent une estimation, signalée comme telle dans leur fiche.
+        </p>
+{% else %}        <p>
+          La valeur marchande de chaque référence est établie par croisement pondéré de ces sources, de manière à neutraliser les biais propres à chaque canal — forte volatilité des adjudications isolées, dispersion des prix de détail internationaux, saisonnalité marquée de certaines ventes prestigieuses.
+        </p>
+{% endif %}        <p>
+          La valeur globale retenue est la somme des valeurs établies référence par référence, à la date d'émission&nbsp;: les cours évoluent, et le canal de vente retenu fait varier le produit final.
+        </p>
+{% endif %}
         <div class="method-cols">
           <div class="method-col">
             <div class="method-col-label">Indépendance</div>
@@ -2929,8 +3057,9 @@ html, body { background: #FAF6F0 !important; }
           <div class="method-col">
             <div class="method-col-label">Portée du document</div>
             <p>
-              Le rapport fournit une lecture structurée et datée de la cave auditée, destinée à l'aide à la décision dans une logique de conservation, d'arbitrage patrimonial, de cession partielle ou totale, de souscription ou de réévaluation d'un contrat d'assurance objets de valeur, ou d'inventaire dans le cadre d'une succession.
-            </p>
+{% if mode == 'assureur' %}              Le document fournit une lecture datée, référence par référence, de la valeur de remplacement de la cave. Il est destiné à la fixation du capital à déclarer lors de la souscription ou de la réévaluation d'un contrat d'assurance, et à la justification de la valeur déclarée en cas de sinistre. Il peut être communiqué à l'assureur ou au courtier du client.
+{% else %}              Le rapport fournit une lecture structurée et datée de la cave auditée, destinée à l'aide à la décision dans une logique de conservation, d'arbitrage patrimonial, de cession partielle ou totale, de souscription ou de réévaluation d'un contrat d'assurance objets de valeur, ou d'inventaire dans le cadre d'une succession.
+{% endif %}            </p>
           </div>
         </div>
 
@@ -2955,18 +3084,21 @@ html, body { background: #FAF6F0 !important; }
 
     <div class="hero-value">
       <div>
-        <div class="hv-label">Valeur estimée de la cave</div>
+        <div class="hv-label">{{ synthese.libelle_valeur or "Valeur estimée de la cave" }}</div>
         <div class="hv-value" style="text-align: left;">{{ synthese.valeur_totale_fmt }}<sup style="text-align: left;">€</sup></div>
         <div class="hv-range" style="font-size: 13.5px;">
-          Fourchette indicative de marché à date<br>
-          <strong style="color: var(--or); font-weight: 500; font-size: 18.5px;">{{ synthese.fourchette_min_fmt }} €  —  {{ synthese.fourchette_max_fmt }} €</strong>
+          Valeur arrêtée au {{ rapport.date_emission }}
         </div>
-      </div>
+{% if inventaire_a_revente and mode != 'assureur' %}        <div class="hv-range" style="font-size: 12.5px; margin-top: 6px;">
+          <b style="color:var(--or); font-size: 15px;">{{ synthese.revente_totale_fmt }} €</b> en vente publique — prix d'adjudication, avant frais
+        </div>
+{% endif %}      </div>
       <div class="hv-stats">
         <div class="row"><span class="k">Références</span><span class="v">{{ perimetre.nb_references }}</span></div>
         <div class="row"><span class="k">Bouteilles</span><span class="v">{{ perimetre.nb_bouteilles }}</span></div>
-        <div class="row"><span class="k">Liquidité globale</span><span class="v" style="font-size:15px;">{{ synthese.liquidite_globale }}</span></div>
-      </div>
+{% if mode == 'assureur' %}        <div class="row"><span class="k">Validité</span><span class="v" style="font-size:15px;">12 mois</span></div>
+{% else %}        <div class="row"><span class="k">Liquidité globale</span><span class="v" style="font-size:15px;">{{ synthese.liquidite_globale }}</span></div>
+{% endif %}      </div>
     </div>
 
     <div class="sect-sub">Valeur par {{ synthese.geo_axis | default('région') }}</div>
@@ -2999,66 +3131,89 @@ html, body { background: #FAF6F0 !important; }
 {% for c in synthese.color_split.legende %}      <span><i style="background:{{ c.color }}"></i>{{ c.label }}</span>
 {% endfor %}    </div>
 
-    <div class="sect-sub">Recommandation synthétique</div>
+{% if mode == 'assureur' %}    <div class="sect-sub">Répartition par état de présentation</div>
     <div class="recap">
       <div class="recap-row head">
         <span></span>
-        <span>Orientation</span>
-        <span style="text-align:right">Lots</span>
+        <span>État</span>
+        <span style="text-align:right">Références</span>
         <span style="text-align:right">Bouteilles</span>
-        <span style="text-align:right">Valeur estimée</span>
+        <span style="text-align:right">Valeur de remplacement</span>
       </div>
-{% for row in synthese.recap %}      <div class="recap-row">
+{% for row in synthese.recap_etat %}      <div class="recap-row">
         <span class="recap-dot{% if row.dot_class %} {{ row.dot_class }}{% endif %}"></span>
         <span class="label-cell">{{ row.label }}</span>
         <span class="num-cell" style="text-align:right">{{ row.lots }}</span>
         <span class="num-cell" style="text-align:right">{{ row.btl }}</span>
         <span class="price">{{ row.valeur_fmt }} €</span>
       </div>
-{% endfor %}      <div class="recap-row total">
+{% endfor %}{% else %}    <div class="sect-sub">Recommandation synthétique</div>
+    <div class="recap{% if inventaire_a_revente %} with-rev{% endif %}">
+      <div class="recap-row head">
+        <span></span>
+        <span>Orientation</span>
+        <span style="text-align:right">Lots</span>
+        <span style="text-align:right">Bouteilles</span>
+        <span style="text-align:right">{% if inventaire_a_revente %}Remplacement{% else %}Valeur estimée{% endif %}</span>
+{% if inventaire_a_revente %}        <span style="text-align:right">Vente publique</span>
+{% endif %}      </div>
+{% for row in synthese.recap %}      <div class="recap-row">
+        <span class="recap-dot{% if row.dot_class %} {{ row.dot_class }}{% endif %}"></span>
+        <span class="label-cell">{{ row.label }}</span>
+        <span class="num-cell" style="text-align:right">{{ row.lots }}</span>
+        <span class="num-cell" style="text-align:right">{{ row.btl }}</span>
+        <span class="price">{{ row.valeur_fmt }} €</span>
+{% if inventaire_a_revente %}        <span class="price rev">{{ row.revente_fmt }} €</span>
+{% endif %}      </div>
+{% endfor %}{% endif %}      <div class="recap-row total">
         <span></span>
         <span style="font-family:var(--font-display);font-size:15px;">Total de la cave</span>
         <span style="text-align:right">{{ perimetre.nb_references }}</span>
         <span style="text-align:right">{{ perimetre.nb_bouteilles }}</span>
         <span class="price">{{ synthese.valeur_totale_fmt }} €</span>
-      </div>
+{% if inventaire_a_revente and mode != 'assureur' %}        <span class="price rev">{{ synthese.revente_totale_fmt }} €</span>
+{% endif %}      </div>
     </div>
   </section>
 
   <!-- ════════════ PAGE 3 — INVENTAIRE ════════════ -->
   <section class="page" id="p4">
     <div class="sect-eyebrow">— 3. Inventaire détaillé —</div>
-    <h2 class="sect-title">Lecture <em>technique</em> de la cave</h2>
-
-    <table class="inv">
-      <colgroup>
-        <col style="width:22px"><col style="width:120px"><col><col style="width:66px"><col style="width:38px"><col style="width:48px"><col style="width:62px"><col style="width:20px"><col style="width:50px"><col style="width:58px"><col style="width:80px">
+{% if mode == 'assureur' %}    <h2 class="sect-title">Inventaire <em>valorisé</em></h2>
+{% else %}    <h2 class="sect-title">Lecture <em>technique</em> de la cave</h2>
+{% endif %}
+    <table class="inv{% if not inventaire_a_cbo %} no-cbo{% endif %}{% if mode == 'assureur' %} no-orient{% endif %}">
+{% if mode == 'assureur' %}      <colgroup>
+        <col style="width:22px"><col style="width:120px"><col><col style="width:66px"><col style="width:38px"><col style="width:40px"><col style="width:44px"><col style="width:62px"><col style="width:26px"><col style="width:50px"><col style="width:58px">
       </colgroup>
-      <thead>
+{% endif %}      <thead>
         <tr>
-          <th>#</th>
-          <th>Domaine</th>
-          <th>Appellation</th>
-          <th>CBO</th>
-          <th>Région</th>
-          <th>Coul.</th>
-          <th>Mill.</th>
-          <th>État</th>
-          <th class="num">Qté</th>
-          <th class="num">Unit.</th>
-          <th class="num">Total</th>
-          <th>Orientation</th>
-        </tr>
+          <th class="c-idx">#</th>
+          <th class="c-dom">Domaine</th>
+          <th class="c-app">Appellation</th>
+{% if inventaire_a_cbo %}          <th class="c-cbo">CBO</th>
+{% endif %}          <th class="c-reg">Région</th>
+          <th class="c-col">Coul.</th>
+          <th class="c-mil">Mill.</th>
+          <th class="c-fmt">Format</th>
+          <th class="c-eta">État</th>
+          <th class="c-qte num">Qté</th>
+{% if inventaire_a_revente %}          <th class="c-unit num">Rempl.</th>
+          <th class="c-adj num">Adjud.</th>
+{% else %}          <th class="c-unit num">Unit.</th>
+{% endif %}{% if mode == 'assureur' %}          <th class="c-tot num">Total</th>
+{% else %}          <th class="c-ori">Orientation</th>
+{% endif %}        </tr>
       </thead>
       <tbody>
-{% for vin in inventaire %}        <tr><td class="idx">{{ "%02d" | format(loop.index) }}</td><td class="domaine-cell">{{ vin.domaine }}</td><td class="appellation-cell">{{ vin.appellation }}{% if vin.cuvee %} · <em>{{ vin.cuvee }}</em>{% endif %}</td><td class="cbo-cell">{{ vin.cbo }}</td><td>{{ vin.region }}</td><td>{{ vin.couleur }}</td><td>{{ vin.millesime }}</td><td><span class="etat-dot {{ vin.etat_class }}"></span>{{ vin.etat }}</td><td class="num">{{ vin.qte }}</td><td class="num">{{ vin.unit_fmt }} €</td><td class="num total-val">{{ vin.total_fmt }} €</td><td><span class="pill {{ vin.orientation_class }}">{{ vin.orientation }}</span></td></tr>
+{% for vin in inventaire %}        <tr><td class="idx c-idx">{{ "%02d" | format(loop.index) }}</td><td class="domaine-cell c-dom">{{ vin.domaine }}</td><td class="appellation-cell c-app">{{ vin.appellation_seule or vin.appellation }}{% if vin.cuvee %} · <em>{{ vin.cuvee }}</em>{% endif %}</td>{% if inventaire_a_cbo %}<td class="cbo-cell c-cbo">{{ vin.cbo }}</td>{% endif %}<td class="c-reg">{{ vin.region }}</td><td class="c-col">{{ vin.couleur }}</td><td class="c-mil">{{ vin.millesime }}</td><td class="c-fmt">{{ vin.format or '75cl' }}</td><td class="c-eta"><span class="etat-dot {{ vin.etat_class }}"></span>{{ vin.etat }}</td><td class="num c-qte">{{ vin.qte }}</td><td class="num c-unit">{{ vin.unit_fmt }} €</td>{% if inventaire_a_revente %}<td class="num c-adj">{% if vin.revente_unit %}{{ vin.revente_unit_fmt }} €{% else %}—{% endif %}</td>{% endif %}{% if mode == 'assureur' %}<td class="num total-val c-tot">{{ vin.total_fmt }} €</td>{% else %}<td class="c-ori"><span class="pill {{ vin.orientation_class }}">{{ vin.orientation }}</span></td>{% endif %}</tr>
 {% endfor %}      </tbody>
     </table>
 
     <div class="inv-total">
-      <span class="inv-total-label">Total estimé de la cave</span>
+      <span class="inv-total-label">{% if mode == 'assureur' %}Valeur de remplacement totale{% else %}Total estimé de la cave{% endif %}</span>
       <span class="inv-total-btl">{{ perimetre.nb_bouteilles }}</span>
-      <span class="inv-total-val">{{ synthese.valeur_totale_fmt }} €</span>
+      <span class="inv-total-val">{{ synthese.valeur_totale_fmt }} €{% if inventaire_a_revente %}<span class="inv-total-rev">{{ synthese.revente_totale_fmt }} € en vente publique</span>{% endif %}</span>
     </div>
 
     <div class="inv-legend">
@@ -3066,16 +3221,20 @@ html, body { background: #FAF6F0 !important; }
       Excellent — présentation optimale &nbsp;·&nbsp;
       Très bon — signes du temps sans incidence &nbsp;·&nbsp;
       Bon — défauts compatibles avec une valorisation normale &nbsp;·&nbsp;
-      NM = non millésimé &nbsp;·&nbsp; CBO = caisse bois d'origine &nbsp;·&nbsp; Val. en euros.
+      NM = non millésimé{% if inventaire_a_cbo %} &nbsp;·&nbsp; CBO = caisse bois d'origine{% endif %} &nbsp;·&nbsp; Val. en euros.{% if inventaire_a_revente %}<br>
+      <strong style="color:var(--bordeaux);letter-spacing:0.18em;text-transform:uppercase;font-size:9px;">Les deux chiffres</strong> &nbsp;·&nbsp;
+      <b>Rempl.</b> = valeur de remplacement du flacon, prix de rachat chez un marchand et base du capital à déclarer à l'assurance &nbsp;·&nbsp;
+      <b>Adjud.</b> = prix atteint en vente publique, avant frais de vente.{% endif %}
     </div>
   </section>
 
+{% if mode != 'assureur' %}
   <!-- ════════════ PAGE 4 — CONTEXTE MARCHÉ ════════════ -->
   <section class="page" id="p5">
     <div class="sect-eyebrow">— 4. Contexte marché —</div>
     <h2 class="sect-title">Lecture <em>du marché</em> à date</h2>
 
-    <p class="market-lede">{{ marche.lede }}</p>
+    <p class="market-lede">{{ marche.lede | safe }}</p>
 
 {% for block in marche.blocs %}    <section class="market-block">
       <header class="market-head">
@@ -3097,7 +3256,7 @@ html, body { background: #FAF6F0 !important; }
     <h2 class="sect-title">Lecture <em>analytique</em></h2>
 
     <p class="mission-intro">
-      Quatre axes de lecture complémentaires pour comprendre la structure de votre cave : géographie, valeur, arbitrage, et profil de garde. Chaque graphique est exprimé en pourcentage de la référence indiquée.
+      Quatre axes de lecture complémentaires pour comprendre la structure de votre cave : géographie, valeur, arbitrage, et profil de garde. Chaque graphique est exprimé en pourcentage de la référence indiquée.{% if repartition.basis == 'adjudication' %} Les valeurs de cette section sont des <b>prix d'adjudication, avant frais</b> — ce que le marché paie — et non des valeurs de remplacement.{% endif %}
     </p>
 
     <div class="chart-row stacked-full">
@@ -3115,7 +3274,7 @@ html, body { background: #FAF6F0 !important; }
       <section class="chart-card">
         <header class="chart-head">
           <div class="chart-kicker">Par {{ repartition.geo_axis | default("région") }}</div>
-          <h3 class="chart-title">Valeur estimée</h3>
+          <h3 class="chart-title">{% if repartition.basis == 'adjudication' %}Valeur en vente publique{% else %}Valeur estimée{% endif %}</h3>
           <div class="chart-base">Base : <b>{{ repartition.valeur_region_base_fmt }} €</b></div>
         </header>
         <ul class="bar-list">
@@ -3175,11 +3334,11 @@ html, body { background: #FAF6F0 !important; }
     <header class="chart-head tops-head">
       <div class="chart-kicker">Concentration des valeurs</div>
     </header>
-    <div class="chart-row with-sep">
+    <div class="chart-row with-sep tops-grid">
       <section class="chart-card">
         <header class="chart-head">
           <h3 class="chart-title">Top 5 — valeur unitaire</h3>
-          <div class="chart-base">Prix moyen estimé par flacon</div>
+          <div class="chart-base">{% if repartition.basis == 'adjudication' %}Prix marteau par flacon, avant frais{% else %}Prix moyen estimé par flacon{% endif %}</div>
         </header>
         <ol class="top-list">
 {% for item in repartition.top_unitaire %}          <li><span class="rk">{{ loop.index }}</span><div class="top-main"><b>{{ item.nom }}</b><em>{{ item.detail }}</em></div><span class="top-val">{{ item.value_fmt }} €</span></li>
@@ -3195,7 +3354,7 @@ html, body { background: #FAF6F0 !important; }
 {% for item in repartition.top_totale %}          <li><span class="rk">{{ loop.index }}</span><div class="top-main"><b>{{ item.nom }}</b><em>{{ item.detail }}</em></div><span class="top-val">{{ item.value_fmt }} €</span></li>
 {% endfor %}        </ol>
         <div class="top-summary">
-          Les <b>5 premières références</b> concentrent <b style="color:var(--bordeaux);">{{ repartition.top_concentration_pct }} %</b> de la valeur totale estimée.
+          Les <b>5 premières références</b> concentrent <b style="color:var(--bordeaux);">{{ repartition.top_concentration_pct }} %</b> de la {% if repartition.basis == 'adjudication' %}valeur de marché de la cave{% else %}valeur totale estimée{% endif %}.
         </div>
       </section>
     </div>
@@ -3205,7 +3364,11 @@ html, body { background: #FAF6F0 !important; }
   <section class="page" id="p8">
     <div class="sect-eyebrow">— 6. Recommandations détaillées —</div>
     <h2 class="sect-title">Pour chaque lot, <em>une justification</em></h2>
-
+{% if repartition.basis == 'adjudication' %}
+    <p class="mission-intro">
+      Le montant en regard de chaque lot est son <b>prix d'adjudication, avant frais</b> — ce qu'il rapporterait en vente publique, et ce sur quoi la recommandation se fonde. La valeur de remplacement, base du capital assuré, figure sur chaque fiche.
+    </p>
+{% endif %}
 {% for groupe in recommandations %}    <div class="reco-group-head{% if groupe.class_mod %} {{ groupe.class_mod }}{% endif %}">
       <span class="glyph"></span>
       <span class="title">{{ groupe.titre }}</span>
@@ -3217,12 +3380,12 @@ html, body { background: #FAF6F0 !important; }
           <span class="reco-card-name">{{ lot.nom }}</span>
           <span class="reco-card-app">{{ lot.appellation }}</span>
         </div>
-        <span class="reco-card-stats">{{ lot.qte }}&nbsp;btl&nbsp;·&nbsp;<b>{{ lot.valeur_fmt }}&nbsp;€</b></span>
+        <span class="reco-card-stats">{% if lot.sans_marche %}<span class="qte">{{ lot.qte }}&nbsp;btl</span><b>sans marché</b>{% else %}<span class="qte">{{ lot.qte }}&nbsp;btl&nbsp;×&nbsp;{{ lot.unit_fmt }}</span><b>{{ lot.valeur_fmt }}&nbsp;€</b>{% endif %}</span>
       </div>
       <p class="reco-card-just">{{ lot.justification | safe }}</p>
 {% if lot.garde or lot.meta %}      <div class="reco-card-meta">
 {% if lot.garde %}        <span><span class="lbl">Garde</span><b>{{ lot.garde }}</b></span>
-{% endif %}{% for meta in lot.meta %}        <span><span class="lbl">{{ meta.lbl }}</span><b>{{ meta.val }}</b></span>
+{% endif %}{% for meta in lot.meta %}        <span{% if meta.right %} class="meta-right"{% endif %}><span class="lbl">{{ meta.lbl }}</span><b>{{ meta.val }}</b></span>
 {% endfor %}      </div>
 {% endif %}    </article>
 {% endfor %}
@@ -3243,9 +3406,9 @@ html, body { background: #FAF6F0 !important; }
         <span class="garde-count">{{ g.nb_bouteilles }} bouteilles · {{ g.valeur_fmt }} €</span>
       </header>
       <table class="garde-table">
-        <thead><tr><th>Domaine / Cuvée</th><th>Appellation</th><th>Mill.</th><th class="num">Qté</th><th>Apogée estimée</th><th>Orientation</th></tr></thead>
+        <thead><tr><th class="g-dom">Domaine / Cuvée</th><th class="g-app">Appellation</th><th class="g-mil">Mill.</th><th class="num g-qte">Qté</th><th class="g-apo">Apogée estimée</th><th class="g-ori">Orientation</th></tr></thead>
         <tbody>
-{% for row in g.lignes %}          <tr><td class="domaine">{{ row.domaine }}</td><td>{{ row.appellation }}</td><td>{{ row.millesime }}</td><td class="num">{{ row.qte }}</td><td>{{ row.apogee }}</td><td><span class="pill {{ row.orientation_class }}">{{ row.orientation }}</span></td></tr>
+{% for row in g.lignes %}          <tr><td class="domaine g-dom">{{ row.domaine }}</td><td class="g-app">{{ row.appellation }}</td><td class="g-mil">{{ row.millesime }}</td><td class="num g-qte">{{ row.qte }}</td><td class="g-apo">{{ row.apogee }}</td><td class="g-ori"><span class="pill {{ row.orientation_class }}">{{ row.orientation }}</span></td></tr>
 {% endfor %}        </tbody>
       </table>
     </div>
@@ -3321,7 +3484,81 @@ html, body { background: #FAF6F0 !important; }
       </div>
     </div>
   </section>
+{% else %}
+  <!-- ════════════ ASSUREUR — CONCENTRATION ════════════ -->
+  <section class="page" id="pa1">
+    <div class="sect-eyebrow">— 4. Concentration des valeurs —</div>
+    <h2 class="sect-title">Où se trouve <em>la valeur</em></h2>
 
+    <p class="mission-intro">
+      La valeur de remplacement n'est pas répartie uniformément entre les flacons&nbsp;: une part importante du capital repose sur un petit nombre de références, qui concentrent le préjudice indemnisable en cas de sinistre.
+    </p>
+
+    <div class="chart-row with-sep">
+      <section class="chart-card">
+        <header class="chart-head">
+          <h3 class="chart-title">Top 5 — valeur unitaire</h3>
+          <div class="chart-base">Valeur de remplacement par flacon</div>
+        </header>
+        <ol class="top-list">
+{% for item in repartition.top_unitaire %}          <li><span class="rk">{{ loop.index }}</span><div class="top-main"><b>{{ item.nom }}</b><em>{{ item.detail }}</em></div><span class="top-val">{{ item.value_fmt }} €</span></li>
+{% endfor %}        </ol>
+      </section>
+
+      <section class="chart-card">
+        <header class="chart-head">
+          <h3 class="chart-title">Top 5 — valeur totale</h3>
+          <div class="chart-base">Valeur cumulée par référence</div>
+        </header>
+        <ol class="top-list">
+{% for item in repartition.top_totale %}          <li><span class="rk">{{ loop.index }}</span><div class="top-main"><b>{{ item.nom }}</b><em>{{ item.detail }}</em></div><span class="top-val">{{ item.value_fmt }} €</span></li>
+{% endfor %}        </ol>
+        <div class="top-summary">
+          Les <b>5 premières références</b> concentrent <b style="color:var(--bordeaux);">{{ repartition.top_concentration_pct }} %</b> de la valeur de remplacement totale.
+        </div>
+      </section>
+    </div>
+
+  </section>
+
+  <!-- ════════════ ASSUREUR — ATTESTATION ════════════ -->
+  <section class="page" id="pa2">
+    <div class="sect-eyebrow">— 5. Attestation —</div>
+    <h2 class="sect-title">Attestation <em>de l'expert</em></h2>
+
+    <div class="mission-sub">
+      <div class="mission-sub-head">
+        <h3>{{ assureur.attestation.titre }}</h3>
+        <span class="sub-tag">{{ assureur.attestation.tag }}</span>
+      </div>
+{% for para in assureur.attestation.paragraphes %}      <p{% if loop.first %} class="lead"{% else %} style="margin-top:10px;"{% endif %}>{{ para | safe }}</p>
+{% endfor %}    </div>
+
+    <div class="mission-sub">
+      <div class="mission-sub-head">
+        <h3>{{ assureur.limites.titre }}</h3>
+        <span class="sub-tag">{{ assureur.limites.tag }}</span>
+      </div>
+      <p>{{ assureur.limites.corps | safe }}</p>
+    </div>
+
+    <div class="mission-sub">
+      <div class="mission-sub-head">
+        <h3>{{ assureur.validite.titre }}</h3>
+        <span class="sub-tag">{{ assureur.validite.tag }}</span>
+      </div>
+      <p>{{ assureur.validite.corps | safe }}</p>
+      <div class="closing-signature">
+        <div class="sig-rule"></div>
+        <div class="sig-block">
+          <div class="sig-name">{{ expert.nom }}</div>
+          <div class="sig-title">{{ expert.titre }}</div>
+          <div class="sig-title">{{ assureur.signature_ligne }}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endif %}
 </div>
 
 

@@ -48,6 +48,35 @@ Avant de commencer une session de valorisation/estimation, lire impérativement 
 
 Ces fichiers sont aussi accessibles via le symlink `~/.claude/projects/.../memory/` (chargement auto par Claude Code).
 
+## Aperçu d'estimation (coup de sonde offert)
+
+Le PDF d'une page remis gratuitement sur 2-3 bouteilles, pour montrer le livrable avant l'audit.
+
+```bash
+cd skills/expertise-cave
+python3 generate_apercu.py ../../rapports/<client>/apercu.json ../../rapports/<client>
+```
+
+- Template : [`skills/expertise-cave/templates/apercu.html`](skills/expertise-cave/templates/apercu.html) — **tient sur une seule page**, le débordement est masqué : resserrer les textes du JSON plutôt que d'ajouter des lignes.
+- **Assurance** → `libelle_valeur: "Valeur de remplacement"` = **prix de rachat chez un marchand** (médiane des offres relevées, jamais la cote d'enchères). **Vente / succession** → net vendeur (cote × 0,8). Les deux peuvent cohabiter : remplacement en gros et en or, net à la revente en secondaire.
+- Toute valeur est relevée à la source (API iDealwine, cf. mémoire `reference_courbe_cote_idealwine_api`) — jamais de prix de mémoire.
+
+## Facturation client (micro-entreprise)
+
+Même pipeline **Jinja2 → HTML → Playwright → PDF** que les rapports.
+
+```bash
+cd skills/expertise-cave
+python3 generate_facture.py ../../rapports/<client>/facture.json ../../rapports/<client>
+python3 generate_facture.py --exemple /tmp   # facture de démonstration
+```
+
+- Template : [`skills/expertise-cave/templates/facture.html`](skills/expertise-cave/templates/facture.html)
+- Prestataire, SIREN, adresse et mentions légales sont **codés en dur** dans `generate_facture.py` — le JSON ne porte que le client, les lignes et le règlement.
+- **Numérotation `AAAA-MM-NNN`** (compteur remis à 001 chaque mois), calculée sur l'ensemble de `rapports/**/facture-*.pdf` — la séquence doit rester **continue et sans trou** : ne jamais réutiliser ni sauter un numéro.
+- Mention obligatoire : **« TVA non applicable, article 293 B du CGI »** (franchise en base).
+- Une facture est due pour toute prestation de service ≥ 25 € TTC : le reçu Stripe n'en tient pas lieu.
+
 ## Déploiement
 
 Repo GitHub : `LBFannyLB/estimationcave` → Vercel (auto sur push `main`).
@@ -64,7 +93,14 @@ python3 generate_report.py <inventaire.xlsx> <client.json> [output_dir]
 # Exemple
 python3 generate_report.py ../../rapports/unia/unia_inventaire.xlsx \
                            ../../rapports/unia/unia.json /tmp/outputs
+# Variante pour l'assureur (contexte assurance) : valeur de remplacement seule,
+# sans prix marteau, sans orientation ni recommandations — ~10 pages,
+# fichier « Inventaire_valorise_assurance__NOM__REF__Mois_Année.pdf »
+python3 generate_report.py --assureur <inventaire.xlsx> <client.json> [output_dir]
 ```
+
+- **Deux livrables en contexte assurance** : le rapport complet (double barème, recommandations, plan d'action) pour le client, et la variante `--assureur` pour l'assureur — jamais de prix d'adjudication ni de ligne « à vendre » / « sans marché » face à l'assureur. Les textes propres à cette variante (périmètre reformulé, attestation, limites, validité) se surchargent via la clé `assureur` du JSON client ; défauts dans `default_assureur()`.
+- **Double barème dans le rapport client** (`Val_revente` renseigné) : synthèse, inventaire et capital en valeur de remplacement ; sections 4 à 7 (marché, répartition, fiches, apogées) en prix d'adjudication — le prix marteau en gros sur chaque fiche, le remplacement dans la ligne de méta. Chaque ligne doit porter un prix marteau (estimation signalée dans la note si aucune vente constatée). La méthodologie des deux documents ne nomme aucune plateforme de prix (cf. règle du 03/09).
 
 **Chemins clés** :
 - Template HTML : [`skills/expertise-cave/templates/rapport.html`](skills/expertise-cave/templates/rapport.html)

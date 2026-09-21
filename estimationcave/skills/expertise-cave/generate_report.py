@@ -50,14 +50,14 @@ MOIS_FR = {
 # ═════════════════════════════════════════════════════════════════
 JUSTIFICATION_CODES = {
     # À CONSERVER
-    1: "Fenêtre d'apogée non atteinte",
+    1: "A encore du potentiel devant lui",
     2: "Cote en progression",
     3: "Référence rare ou confidentielle",
     4: "Millésime exceptionnel",
     5: "Grand format (meilleure conservation)",
     6: "Valeur de dégustation supérieure à la valeur de revente",
     # À VENDRE
-    7: "Apogée atteinte ou dépassée",
+    7: "Apogée atteinte, plus de progression à attendre",
     8: "Fenêtre de vente favorable",
     9: "État non compatible avec une conservation prolongée",
     10: "Référence accessible, ne se valorisera pas à l'avenir",
@@ -106,6 +106,9 @@ def lire_inventaire_excel(fichier_excel: pathlib.Path) -> list[dict]:
         "cbo": "CBO", "caisse bois": "CBO",
         "val_unit": "Val_unit", "val unit": "Val_unit", "valeur unitaire": "Val_unit",
         "val. unit.": "Val_unit", "prix": "Val_unit", "valeur": "Val_unit",
+        "val_revente": "Val_revente", "val revente": "Val_revente",
+        "valeur de revente": "Val_revente", "net vendeur": "Val_revente",
+        "val_net_vendeur": "Val_revente", "revente": "Val_revente",
         "reco": "Reco", "recommandation": "Reco", "reco.": "Reco",
         "justification_code": "Justification_code", "justification": "Justification_code",
         "code justification": "Justification_code", "code": "Justification_code",
@@ -145,7 +148,10 @@ def lire_inventaire_excel(fichier_excel: pathlib.Path) -> list[dict]:
         padded = list(row) + [None] * (len(headers) - len(row))
         d = dict(zip(headers, padded))
         domaine_val = safe_str(d.get("Domaine"))
-        if not domaine_val or domaine_val.lower() == "domaine" or not domaine_val[0].isalnum():
+        # Un nom peut ouvrir sur un guillemet (« Code 315 ») : seuls les
+        # séparateurs (—, #, *) signalent une ligne à ignorer.
+        if (not domaine_val or domaine_val.lower() == "domaine"
+                or not (domaine_val[0].isalnum() or domaine_val[0] in "«\"'")):
             continue
 
         # Filtrer les lignes fusionnées (Qte=0 + note "FUSIONNÉ AVEC LX").
@@ -185,6 +191,15 @@ def lire_inventaire_excel(fichier_excel: pathlib.Path) -> list[dict]:
         except (ValueError, TypeError):
             val_unit = 0
 
+        # Second barème facultatif : ce que la bouteille rapporterait à la
+        # revente, net de frais. Val_unit reste la valeur de référence (elle
+        # porte les totaux et tous les graphiques) ; Val_revente n'est
+        # affichée que si l'inventaire la renseigne.
+        try:
+            val_revente = int(float(d.get("Val_revente") or 0))
+        except (ValueError, TypeError):
+            val_revente = 0
+
         inventaire.append({
             "bouteille": domaine_val,
             "appellation": safe_str(d.get("Appellation")),
@@ -197,16 +212,32 @@ def lire_inventaire_excel(fichier_excel: pathlib.Path) -> list[dict]:
             "cbo": safe_str(d.get("CBO"), "Non"),
             "qte": qte,
             "val_unit": val_unit,
+            "val_revente": val_revente,
             "reco": reco_val,
             "justification_code": jcode,
             "duree_garde": safe_str(d.get("Duree_garde")),
             "canal_vente": safe_str(d.get("Canal_vente")),
             "reexamen": safe_year(d.get("Reexamen")),
-            "note_marche": safe_str(d.get("Note_marche")),
+            "note_marche": strip_code_prefix(safe_str(d.get("Note_marche"))),
         })
 
     print(f"  → {len(inventaire)} références chargées")
     return inventaire
+
+
+
+CODE_PREFIX_RE = re.compile(
+    r"^\s*Code\s+\d{1,2}\s*[—–-]\s*[^.]{0,90}?\.\s*", re.IGNORECASE)
+
+
+def strip_code_prefix(note: str) -> str:
+    """Retire le "Code N — Libellé." de tête des notes.
+
+    Les notes de l'Excel ouvrent par la dénomination du code (format de
+    relecture de l'experte) ; le template la réinjecte déjà en gras devant
+    la justification. Sans ce nettoyage, le PDF l'afficherait deux fois.
+    """
+    return CODE_PREFIX_RE.sub("", note or "", count=1).strip()
 
 
 def generate_ref_mission(nom: str) -> str:
@@ -309,10 +340,32 @@ def fmt_int(n: int) -> str:
     return f"{int(n):,}".replace(",", "\u202f")
 
 
-def _ceil10(x: float) -> int:
-    """Plafond au multiple de 10 supérieur (4887,5 → 4890 ; 6325 → 6330)."""
-    import math
-    return int(math.ceil(x / 10)) * 10
+# Libellés courts pour l'affichage. La colonne « Région » du tableau
+# d'inventaire est étroite : « Vallée du Rhône » y déborde sur la colonne
+# suivante. Le libellé canonique reste celui de l'Excel — c'est la clé de
+# SUBREGION_KEYWORDS, à ne pas toucher.
+REGION_COURTE = {
+    "Vallée du Rhône": "Rhône",
+}
+
+
+def region_courte(region: str) -> str:
+    """Libellé d'affichage d'une région (canonique si aucun raccourci)."""
+    return REGION_COURTE.get(region, region)
+
+
+def appellation_avec_format(b: dict) -> str:
+    """Appellation, suivie du format quand il n'est pas la bouteille standard.
+
+    Le tableau d'inventaire n'a pas de colonne Format : sans cette mention, un
+    magnum et une 75cl du même vin et du même millésime s'affichent comme deux
+    lignes identiques à des prix différents, sans explication.
+    """
+    app = b.get("appellation") or "—"
+    fmt = (b.get("format") or "").strip()
+    if fmt and fmt.lower() not in ("75cl", "bouteille", ""):
+        return f"{app} · {fmt}"
+    return app
 
 
 def couleur_abbrev(c: str) -> str:
@@ -549,10 +602,10 @@ COULEUR_COLORS = [
 ]
 
 GARDE_GROUPS = [
-    ('À boire&nbsp;<span class="garde-sub">— consommation immédiate</span>',                      "#8B3A3A"),
-    ('Proche apogée (2/4 ans)&nbsp;<span class="garde-sub">— fenêtre qui s\'ouvre bientôt</span>', "#B8883A"),
-    ('En développement (5/10 ans)&nbsp;<span class="garde-sub">— patience requise</span>',         "#5A7A4B"),
-    ('Garde longue (10 ans et plus)&nbsp;<span class="garde-sub">— patrimoine à long terme</span>', "#2D1B2E"),
+    ('À boire maintenant&nbsp;<span class="garde-sub">— fenêtre close ou sur le point de l\'être</span>', "#8B3A3A"),
+    ('À boire dans les quatre ans&nbsp;<span class="garde-sub">— fin de fenêtre proche</span>',            "#B8883A"),
+    ('Encore cinq à dix ans&nbsp;<span class="garde-sub">— aucune urgence</span>',                        "#5A7A4B"),
+    ('Garde longue (dix ans et plus)&nbsp;<span class="garde-sub">— patrimoine à long terme</span>',      "#2D1B2E"),
 ]
 
 
@@ -588,14 +641,18 @@ def apogee_bucket(apogee: str) -> int:
     m = re.match(r"(\d{4})\s*[–\-]\s*(\d{4})", apogee)
     if not m:
         return 0
-    start, end = int(m.group(1)), int(m.group(2))
-    mid = (start + end) / 2
-    diff = mid - CURRENT_YEAR
-    if diff <= 0:
+    end = int(m.group(2))
+    # On classe sur la FIN de fenêtre : la section répond à « combien de temps
+    # me reste-t-il », pas « où en suis-je dans la fenêtre ». Le milieu de
+    # fenêtre, utilisé auparavant, envoyait en « À boire » tout vin de garde
+    # dont la fenêtre était ouverte depuis longtemps — un Haut-Brion 1989
+    # buvable jusqu'en 2040 s'y retrouvait en consommation immédiate.
+    reste = end - CURRENT_YEAR
+    if reste < 0:
         return 0
-    if diff <= 3:
+    if reste <= 4:
         return 1
-    if diff <= 10:
+    if reste <= 10:
         return 2
     return 3
 
@@ -617,12 +674,12 @@ def _group_by_geo(inv: list[dict], mono_region: str | None) -> tuple[dict, dict,
     ("région" ou "sous-région").
 
     Consolidation appliquée en multi-régions :
-    - Toutes les régions « Étranger — XXX » sont regroupées sous « Étranger »
-    - Provence, Languedoc et Spiritueux sont regroupés sous « Autres »
-      (régions résiduelles à faible valeur secondaire en France)
+    - Provence, Languedoc, Spiritueux et toutes les régions « Étranger — XXX »
+      sont regroupés sous « Autres » (régions résiduelles à faible valeur
+      sur le marché secondaire français)
     """
     # Régions de petite valeur secondaire à regrouper sous « Autres »
-    SMALL_REGIONS_OTHER = {"Provence", "Languedoc", "Spiritueux"}
+    SMALL_REGIONS_OTHER = {"Corse", "Languedoc", "Spiritueux"}
 
     by_vol: dict[str, int] = defaultdict(int)
     by_val: dict[str, int] = defaultdict(int)
@@ -644,11 +701,9 @@ def _group_by_geo(inv: list[dict], mono_region: str | None) -> tuple[dict, dict,
             return by_vol, by_val, "appellation"
         return by_vol, by_val, "sous-région"
     for b in inv:
-        r = b["region"] or "Autres"
+        r = region_courte(b["region"]) or "Autres"
         # Consolidation des régions étrangères et des petites régions résiduelles
-        if r.startswith("Étranger"):
-            r = "Étranger"
-        elif r in SMALL_REGIONS_OTHER:
+        if r.startswith("Étranger") or r in SMALL_REGIONS_OTHER:
             r = "Autres"
         by_vol[r] += b["qte"]
         by_val[r] += b["qte"] * b["val_unit"]
@@ -682,6 +737,22 @@ def build_synthese(inv: list[dict]) -> dict:
         by_col_vol[key] += b["qte"]
         by_col_val[key] += b["qte"] * b["val_unit"]
 
+    # Le vin jaune est un blanc sec : quand il ne pèse presque rien, lui donner
+    # son propre segment ne produit qu'un filet invisible et une ligne de
+    # légende trompeuse. On le fond alors dans « Blanc ». Au-delà du seuil
+    # (cave du Jura, par exemple), il garde sa distinction. Le tableau
+    # d'inventaire, lui, reste exact dans tous les cas.
+    SEUIL_JAUNE = 0.03
+    jaune_marginal = (
+        by_col_vol.get("Jaune", 0) < SEUIL_JAUNE * total_btl
+        and by_col_val.get("Jaune", 0) < SEUIL_JAUNE * total_val
+    )
+    if jaune_marginal:
+        for bucket in (by_col_vol, by_col_val):
+            report = bucket.pop("Jaune", 0)
+            if report:
+                bucket["Blanc"] += report
+
     def color_segments(buckets: dict, total: int) -> list[dict]:
         segments = []
         for label, color, text_color, small, _ in COULEUR_COLORS:
@@ -712,28 +783,46 @@ def build_synthese(inv: list[dict]) -> dict:
     }
 
     # Recap orientations : lots (≠ références pour les 3 catégories)
+    #
+    # « À conserver » recouvre deux réalités opposées qu'une ligne unique
+    # rendait illisibles : les flacons qu'on protège, et ceux dont la valeur
+    # de dégustation dépasse la valeur de revente (code 6) — sur le dossier
+    # OB, 173 bouteilles à 200 €/btl d'un côté, 208 à 15 €/btl de l'autre.
     recap = []
     for label, dot_class, _ in RECAP_ORDER:
         lots = [b for b in inv if b["reco"] == label]
-        btl = sum(b["qte"] for b in lots)
-        val = sum(b["qte"] * b["val_unit"] for b in lots)
-        recap.append({
-            "label": label,
-            "dot_class": dot_class,
-            "lots": len(lots),
-            "btl": btl,
-            "valeur_fmt": fmt_int(val),
-        })
+        # Une catégorie vide n'a rien à faire dans la synthèse : elle laisse
+        # croire à une lacune de l'analyse alors qu'aucune ligne n'y tombe.
+        if not lots:
+            continue
+        if label == "À conserver":
+            parts = [
+                ("À conserver — pour la garde",
+                 [b for b in lots if b.get("justification_code") != 6]),
+                ("À conserver — pour la table",
+                 [b for b in lots if b.get("justification_code") == 6]),
+            ]
+        else:
+            parts = [(label, lots)]
+        for libelle, sous_lots in parts:
+            if not sous_lots:
+                continue
+            recap.append({
+                "label": libelle,
+                "dot_class": dot_class,
+                "lots": len(sous_lots),
+                "btl": sum(b["qte"] for b in sous_lots),
+                "valeur_fmt": fmt_int(sum(b["qte"] * b["val_unit"] for b in sous_lots)),
+                "revente_fmt": fmt_int(sum(b["qte"] * (b.get("val_revente") or 0) for b in sous_lots)),
+            })
+
+    revente_totale = sum(b["qte"] * (b.get("val_revente") or 0) for b in inv)
 
     return {
         "valeur_totale": total_val,
         "valeur_totale_fmt": fmt_int(total_val),
-        # Fourchette symétrique ±15 % — la borne basse reflète les décotes
-        # d'adjudication, la borne haute les remontées sur cycles favorables.
-        # Les deux bornes sont arrondies au multiple de 10 supérieur pour une
-        # lecture "ronde" cohérente avec l'ancien rapport.
-        "fourchette_min_fmt": fmt_int(_ceil10(total_val * 0.85)),
-        "fourchette_max_fmt": fmt_int(_ceil10(total_val * 1.15)),
+        "revente_totale": revente_totale,
+        "revente_totale_fmt": fmt_int(revente_totale),
         "geo_axis": geo_axis,
         "regions_valeur": regions_valeur,
         "color_split": color_split,
@@ -772,12 +861,12 @@ def build_repartition(inv: list[dict], synthese: dict) -> dict:
     segments = []
     legende = []
     legende_details = [
-        "fenêtre de consommation ouverte",
-        "2 à 4 ans avant le pic",
-        "encore en phase de garde active",
+        "fenêtre close ou sur le point de l'être",
+        "fin de fenêtre dans 4 ans ou moins",
+        "encore 5 à 10 ans de fenêtre",
         "potentiel > 10 ans",
     ]
-    plain_labels = ["À boire", "Proche apogée", "En développement", "Garde longue"]
+    plain_labels = ["À boire", "Sous 4 ans", "5 à 10 ans", "Garde longue"]
     for idx, ((_rich_label, color), count) in enumerate(zip(GARDE_GROUPS, buckets)):
         if count == 0:
             continue
@@ -790,15 +879,29 @@ def build_repartition(inv: list[dict], synthese: dict) -> dict:
             "color": color,
         })
 
-    # Reco split (page 7)
-    reco_colors = {"À conserver": "#5A7A4B", "À surveiller": "#B8883A", "À vendre": "#8B3A3A"}
-    reco_order = ["À conserver", "À surveiller", "À vendre"]
-    vol_seg, val_seg = [], []
+    # Reco split (page 7) — « À conserver » y est scindé comme dans la synthèse
+    # et dans les recommandations détaillées : garde d'un côté, table de
+    # l'autre. Les deux gardent une teinte de la même famille.
+    GARDE, TABLE = "À conserver — pour la garde", "À conserver — pour la table"
+    reco_colors = {GARDE: "#5A7A4B", TABLE: "#91A883",
+                   "À surveiller": "#B8883A", "À vendre": "#8B3A3A"}
+    reco_courts = {GARDE: "Garde", TABLE: "Table",
+                   "À surveiller": "Surveiller", "À vendre": "Vendre"}
+    reco_longs = {GARDE: "Conserver — pour la garde", TABLE: "Conserver — pour la table",
+                  "À surveiller": "Surveiller", "À vendre": "Vendre"}
+    reco_order = [GARDE, TABLE, "À surveiller", "À vendre"]
+
+    def reco_key(b: dict) -> str:
+        if b["reco"] != "À conserver":
+            return b["reco"]
+        return TABLE if b.get("justification_code") == 6 else GARDE
+
     vol_by_reco, val_by_reco, btl_by_reco = defaultdict(int), defaultdict(int), defaultdict(int)
     for b in inv:
-        vol_by_reco[b["reco"]] += b["qte"]
-        val_by_reco[b["reco"]] += b["qte"] * b["val_unit"]
-        btl_by_reco[b["reco"]] += b["qte"]
+        k = reco_key(b)
+        vol_by_reco[k] += b["qte"]
+        val_by_reco[k] += b["qte"] * b["val_unit"]
+        btl_by_reco[k] += b["qte"]
 
     def reco_segment(buckets: dict, total: int) -> list[dict]:
         out = []
@@ -808,26 +911,29 @@ def build_repartition(inv: list[dict], synthese: dict) -> dict:
                 continue
             pct = val / total * 100 if total else 0
             out.append({
-                "label": label.replace("À ", "").capitalize(),
+                "label": reco_courts[label],
                 "pct": round(pct, 1),
                 "pct_int": round(pct),
                 "color": reco_colors[label],
             })
         return out
 
+    # Légende sur deux lignes : les deux « conserver » ensemble, puis vendre
+    # et surveiller côte à côte (l'ordre des barres, lui, ne change pas).
     reco_legende = []
-    for label in reco_order:
+    for label in [GARDE, TABLE, "À vendre", "À surveiller"]:
         btl = btl_by_reco.get(label, 0)
         val = val_by_reco.get(label, 0)
         if btl == 0 and val == 0:
             continue
         detail_suffix = {
-            "À conserver": "cœur patrimonial, à maintenir en cave.",
+            GARDE: "cœur patrimonial, à maintenir en cave.",
+            TABLE: "valeur de dégustation supérieure à la valeur de revente.",
             "À surveiller": "à réexaminer selon les échéances indiquées.",
             "À vendre": "fenêtre de cession favorable.",
         }[label]
         reco_legende.append({
-            "label": label.replace("À ", "").capitalize(),
+            "label": reco_longs[label],
             "detail": f"{btl} btl / {fmt_int(val)} € — {detail_suffix}",
             "color": reco_colors[label],
         })
@@ -892,8 +998,10 @@ def build_inventaire_rows(inv: list[dict]) -> list[dict]:
         rows.append({
             "domaine": b["bouteille"],
             "cuvee": None,  # on laisse l'appellation dans sa propre colonne
-            "appellation": b["appellation"] or "—",
-            "region": b["region"] or "—",
+            "appellation": appellation_avec_format(b),
+            "appellation_seule": b.get("appellation") or "—",
+            "format": (b.get("format") or "75cl").strip(),
+            "region": region_courte(b["region"]) or "—",
             "couleur": couleur_abbrev(b["couleur"]),
             "millesime": millesime_str(b["millesime"]),
             "cbo": b.get("cbo") or "Non",
@@ -904,30 +1012,105 @@ def build_inventaire_rows(inv: list[dict]) -> list[dict]:
             "total_val": b["qte"] * b["val_unit"],
             "unit_fmt": fmt_int(b["val_unit"]),
             "total_fmt": fmt_int(b["qte"] * b["val_unit"]),
+            "revente_unit": b.get("val_revente") or 0,
+            "revente_unit_fmt": (fmt_int(b["val_revente"]) if b.get("val_revente") else "—"),
+            "revente_total_fmt": (fmt_int(b["qte"] * b["val_revente"])
+                                  if b.get("val_revente") else "—"),
             "orientation": b["reco"],
             "orientation_class": orientation_class(b["reco"]),
         })
     return rows
 
 
-def build_recommandations(inv: list[dict]) -> list[dict]:
-    """Groupes conserver / vendre / surveiller avec cartes détaillées."""
+
+
+def join_distinct(values) -> str:
+    """Valeurs distinctes dans l'ordre d'apparition, séparées par des virgules."""
+    seen: list[str] = []
+    for v in values:
+        v = (v or "").strip() if isinstance(v, str) else (str(v) if v else "")
+        if v and v not in seen:
+            seen.append(v)
+    return ", ".join(seen)
+
+
+def merge_apogee(values) -> str:
+    """Fusionne des apogées "AAAA-AAAA" en une fourchette englobante.
+
+    Les libellés textuels ("Très longue garde") sont conservés tels quels.
+    """
+    vals = [v.strip() for v in values if v and v.strip()]
+    if not vals:
+        return ""
+    uniq = list(dict.fromkeys(vals))
+    if len(uniq) == 1:
+        return uniq[0]
+    spans = [re.fullmatch(r"(\d{4})\s*[-–]\s*(\d{4})", v) for v in uniq]
+    if all(spans):
+        return f"{min(int(m.group(1)) for m in spans)}-{max(int(m.group(2)) for m in spans)}"
+    return uniq[0]
+
+
+
+
+def build_recommandations(inv: list[dict], bareme: str = "remplacement") -> list[dict]:
+    """Groupes conserver / vendre / surveiller avec cartes détaillées.
+
+    bareme = "adjudication" (double barème, rapport client) : le chiffre en
+    gros à droite de chaque carte est le prix marteau — c'est lui qui décide
+    de l'arbitrage — et la valeur de remplacement passe dans la ligne de méta
+    (« Remplacement »). Les lots sans marché l'affichent en toutes lettres.
+    """
+    adj = bareme == "adjudication"
+    def prix(b: dict) -> int:
+        return (b.get("val_revente") or 0) if adj else b["val_unit"]
     groups = []
-    for label, class_mod, _orient_class in RECAP_ORDER:
-        lots = [b for b in inv if b["reco"] == label]
+    # « À conserver » se scinde en deux, comme dans la synthèse p3 : les flacons
+    # qu'on protège d'un côté, ceux dont la valeur de dégustation dépasse la
+    # valeur de revente (code 6) de l'autre. Une seule catégorie mélangeait des
+    # bouteilles à 200 € et des bouteilles à 15 €.
+    sections = []
+    for label, class_mod, orient in RECAP_ORDER:
+        base = [b for b in inv if b["reco"] == label]
+        if label == "À conserver":
+            sections.append(("À conserver — pour la garde", class_mod, orient,
+                             [b for b in base if b.get("justification_code") != 6]))
+            sections.append(("À conserver — pour la table", class_mod, orient,
+                             [b for b in base if b.get("justification_code") == 6]))
+        else:
+            sections.append((label, class_mod, orient, base))
+
+    for titre_groupe, class_mod, _orient_class, lots in sections:
+        label = titre_groupe.split(" — ")[0]
         # Tri par millésime ASC, NM en fin, puis par domaine alphabétique.
         # Cohérent avec l'inventaire détaillé p4.
-        lots.sort(key=lambda b: (b.get("millesime") or 9999, b.get("bouteille", "")))
+        lots = sorted(lots, key=lambda b: (b.get("millesime") or 9999, b.get("bouteille", "")))
         if not lots:
             continue
         nb_btl = sum(b["qte"] for b in lots)
-        val = sum(b["qte"] * b["val_unit"] for b in lots)
+        val = sum(b["qte"] * prix(b) for b in lots)
+
+        # Fusion des lignes qui ne diffèrent que par le millésime : même
+        # domaine, même cuvée, même couleur, même code. Une verticale d'un
+        # même vin ne mérite pas une carte par millésime (cf. les 30 lignes
+        # de Sancerre du dossier OB, ramenées à 12 cartes).
+        merged: dict[tuple, list[dict]] = {}
+        for b in lots:
+            # La note fait partie de la clé : deux lignes qui partagent domaine,
+            # appellation, couleur et code mais portent des notes différentes ne
+            # doivent PAS fusionner — la carte n'affiche que la note de la
+            # première et les autres disparaîtraient du rapport.
+            key = (b.get("bouteille", ""), b.get("appellation", ""),
+                   b.get("couleur", ""), b.get("justification_code"),
+                   b.get("note_marche", ""))
+            merged.setdefault(key, []).append(b)
 
         lot_blocks = []
-        for b in lots:
-            code = b.get("justification_code")
+        for bottles in merged.values():
+            head = bottles[0]
+            code = head.get("justification_code")
             code_title = JUSTIFICATION_CODES.get(code) if code else None
-            note = b.get("note_marche") or ""
+            note = head.get("note_marche") or ""
             if code_title and note:
                 justification = f"<b>{code_title}.</b> {note}"
             elif code_title:
@@ -935,32 +1118,70 @@ def build_recommandations(inv: list[dict]) -> list[dict]:
             else:
                 justification = note or "[Justification à compléter]"
 
-            mill = millesime_str(b["millesime"])
-            appellation_parts = [b["appellation"] or "—", mill, b.get("format") or "75cl"]
-            if b.get("cbo", "").lower() == "oui":
+            mills = join_distinct(millesime_str(x["millesime"]) for x in bottles)
+            formats = join_distinct((x.get("format") or "75cl") for x in bottles)
+            appellation_parts = [head["appellation"] or "—", mills, formats]
+            if any(x.get("cbo", "").lower() == "oui" for x in bottles):
                 appellation_parts.append("CBO")
             appellation = " · ".join(appellation_parts)
 
             meta = []
-            if b.get("apogee"):
-                meta.append({"lbl": "Apogée", "val": b["apogee"]})
-            if label == "À vendre" and b.get("canal_vente"):
-                meta.append({"lbl": "Canal de vente", "val": b["canal_vente"]})
-            if label == "À surveiller" and b.get("reexamen"):
-                meta.append({"lbl": "Réexamen", "val": b["reexamen"]})
+            # Les deux barèmes sur la même carte : le client doit voir sur la
+            # même fiche ce que la bouteille coûte à remplacer et ce qu'elle
+            # rapporterait en vente publique. En double barème, le prix marteau
+            # est en gros à droite et le remplacement passe ici ; sinon l'inverse.
+            def fourchette(vals: list[int]) -> str:
+                vals = sorted(set(vals))
+                return (f"{fmt_int(vals[0])} €" if len(vals) == 1
+                        else f"{fmt_int(vals[0])} à {fmt_int(vals[-1])} €")
+            remplacement_meta = None
+            if adj:
+                # Ajouté en dernier et calé à droite, sous le prix marteau.
+                remplacement_meta = {"lbl": "Remplacement",
+                                     "val": f"{fourchette([x['val_unit'] for x in bottles])} par flacon",
+                                     "right": True}
+            else:
+                reventes = [x["val_revente"] for x in bottles if x.get("val_revente")]
+                if reventes:
+                    meta.append({"lbl": "Vente publique",
+                                 "val": f"{fourchette(reventes)} par flacon, avant frais"})
+            apogee = merge_apogee(x.get("apogee") for x in bottles)
+            if apogee:
+                meta.append({"lbl": "Apogée", "val": apogee})
+            if label == "À vendre":
+                canal = join_distinct(x.get("canal_vente") for x in bottles)
+                if canal:
+                    meta.append({"lbl": "Canal de vente", "val": canal})
+            if label == "À surveiller":
+                reex = join_distinct(str(x["reexamen"]) for x in bottles if x.get("reexamen"))
+                if reex:
+                    meta.append({"lbl": "Réexamen", "val": reex})
+            if remplacement_meta:
+                meta.append(remplacement_meta)
+
+            # Valeur unitaire : c'est le chiffre que le client cherche d'abord.
+            # Une carte peut regrouper plusieurs millésimes d'un même vin —
+            # on affiche alors la fourchette plutôt qu'une moyenne trompeuse.
+            unites = sorted({prix(x) for x in bottles})
+            sans_marche = adj and not any(prix(x) for x in bottles)
+            unit_fmt = (f"{fmt_int(unites[0])} €" if len(unites) == 1
+                        else f"{fmt_int(unites[0])} à {fmt_int(unites[-1])} €")
 
             lot_blocks.append({
-                "nom": b["bouteille"],
+                "nom": head["bouteille"],
                 "appellation": appellation,
-                "qte": b["qte"],
-                "valeur_fmt": fmt_int(b["qte"] * b["val_unit"]),
-                "garde": b.get("duree_garde") if label == "À conserver" else None,
+                "qte": sum(x["qte"] for x in bottles),
+                "unit_fmt": unit_fmt,
+                "valeur_fmt": fmt_int(sum(x["qte"] * prix(x) for x in bottles)),
+                "sans_marche": sans_marche,
+                "garde": (join_distinct(x.get("duree_garde") for x in bottles)
+                          if label == "À conserver" else None),
                 "justification": justification,
                 "meta": meta,
             })
 
         groups.append({
-            "titre": label,
+            "titre": titre_groupe,
             "class_mod": class_mod,
             "nb_bouteilles": nb_btl,
             "valeur_fmt": fmt_int(val),
@@ -986,7 +1207,7 @@ def build_potentiel_garde(inv: list[dict]) -> dict:
         lignes = [
             {
                 "domaine": b["bouteille"],
-                "appellation": b["appellation"] or "—",
+                "appellation": appellation_avec_format(b),
                 "millesime": millesime_str(b["millesime"]),
                 "qte": b["qte"],
                 "apogee": b["apogee"] or "—",
@@ -1055,13 +1276,101 @@ def split_paragraphs(text: str) -> list[str]:
     return [p.strip() for p in (text or "").split("\n\n") if p.strip()]
 
 
-def build_render_context(inv: list[dict], client_json: dict) -> dict:
-    """Assemble le dict complet passé au template Jinja."""
+def build_recap_etat(inv: list[dict]) -> list[dict]:
+    """Recap par état de présentation (variante assureur) : références,
+    flacons et valeur de remplacement par niveau d'état, du meilleur au moins bon."""
+    ordre = ["Excellent", "Très bon", "Bon", "Moyen", "Médiocre"]
+    classes = {"Excellent": "", "Très bon": "vendre", "Bon": "surveiller"}
+    etats = sorted({(b.get("etat") or "Bon").strip() for b in inv},
+                   key=lambda e: ordre.index(e) if e in ordre else len(ordre))
+    recap = []
+    for etat in etats:
+        lots = [b for b in inv if (b.get("etat") or "Bon").strip() == etat]
+        recap.append({
+            "label": etat,
+            "dot_class": classes.get(etat, "surveiller"),
+            "lots": len(lots),
+            "btl": sum(b["qte"] for b in lots),
+            "valeur_fmt": fmt_int(sum(b["qte"] * b["val_unit"] for b in lots)),
+        })
+    return recap
+
+
+def default_assureur(client_json: dict, rapport: dict) -> dict:
+    """Textes de la variante assureur : attestation, limites, validité.
+    Surchargeables bloc par bloc via la clé « assureur » du JSON client."""
+    nom_client = (client_json.get("client") or {}).get("nom", "le client")
+    date_emission = rapport.get("date_emission") or "la date d'émission"
+    base = {
+        "objectif_court": "Déclaration à l'assurance",
+        "objectif_detail": "Valeur de remplacement de la cave",
+        "objectif_long": "Établir la valeur de remplacement de la cave, référence par référence, "
+                         "pour la fixation du capital à déclarer au contrat d'assurance.",
+        "attestation": {
+            "titre": "Ce que j'atteste",
+            "tag": "Estimation amiable",
+            "paragraphes": [
+                f"Je soussignée, experte indépendante en estimation de cave, atteste avoir procédé à "
+                f"l'évaluation de la cave de <b>{nom_client}</b> sur la base de l'inventaire et des "
+                f"photographies transmis, référence par référence, selon la méthode décrite en page 2. "
+                f"La valeur de remplacement totale s'établit à la somme figurant en synthèse, à la date "
+                f"d'émission du présent document.",
+                "Cette évaluation est établie en toute indépendance&nbsp;: estimationcave.com "
+                "n'achète, ne vend ni ne courtière aucun vin, et n'a aucun intérêt dans la valeur retenue.",
+            ],
+        },
+        "limites": {
+            "titre": "Limites de l'évaluation",
+            "tag": "Cadre",
+            "corps": "L'évaluation a été conduite à distance, sur pièces&nbsp;: aucune bouteille n'a été "
+                     "examinée physiquement. Elle ne vaut ni certification d'authenticité des flacons, ni "
+                     "garantie de l'état du vin, ni expertise judiciaire. Les valeurs retenues sont des "
+                     "valeurs de remplacement à la date d'émission&nbsp;; elles ne préjugent pas du prix "
+                     "qu'obtiendraient les mêmes flacons en vente publique.",
+        },
+        "validite": {
+            "titre": "Validité et contact",
+            "tag": "Clôture",
+            "corps": f"Les valeurs figurant dans ce document sont valables <b>12 mois</b> à compter du "
+                     f"{date_emission}. Au-delà, ou après tout achat significatif, une réévaluation est "
+                     f"recommandée. Pour toute vérification&nbsp;: <b>contact@estimationcave.com</b>",
+        },
+        "signature_ligne": f"Fait le {date_emission}",
+    }
+    perso = client_json.get("assureur") or {}
+    for k, v in perso.items():
+        if isinstance(v, dict) and isinstance(base.get(k), dict):
+            base[k].update(v)
+        else:
+            base[k] = v
+    return base
+
+
+def build_render_context(inv: list[dict], client_json: dict, mode: str = "client") -> dict:
+    """Assemble le dict complet passé au template Jinja.
+
+    mode = "assureur" : variante à destination de l'assureur — valeur de
+    remplacement seule (pas de second barème, pas d'orientation), sections
+    marché / recommandations / plan d'action remplacées par une page de
+    concentration des valeurs et une attestation signée."""
     synthese = build_synthese(inv)
-    repartition = build_repartition(inv, synthese)
+    a_revente = any((b.get("val_revente") or 0) > 0 for b in inv)
+    # Section 5 (répartition) : en double barème, côté client, la lecture se
+    # fait en prix d'adjudication — ce que le marché paie — et non en valeur
+    # de remplacement, qui reste le chiffre de l'assurance (synthèse, inventaire).
+    # Les lignes sans marché comptent alors pour zéro.
+    if mode != "assureur" and a_revente:
+        inv_marche = [dict(b, val_unit=(b.get("val_revente") or 0)) for b in inv]
+        repartition = build_repartition(inv_marche, build_synthese(inv_marche))
+        repartition["basis"] = "adjudication"
+    else:
+        repartition = build_repartition(inv, synthese)
+        repartition["basis"] = "remplacement"
     inventaire_rows = build_inventaire_rows(inv)
-    recommandations = build_recommandations(inv)
-    potentiel = build_potentiel_garde(inv)
+    recommandations = build_recommandations(
+        inv, bareme="adjudication" if (mode != "assureur" and a_revente) else "remplacement")
+    # Section 7 : même base que les sections 4 à 6 (prix marteau en double barème).
+    potentiel = build_potentiel_garde(inv_marche if (mode != "assureur" and a_revente) else inv)
 
     liquidite = (client_json.get("synthese") or {}).get("liquidite_globale") or build_liquidite_globale(inv)
 
@@ -1087,14 +1396,40 @@ def build_render_context(inv: list[dict], client_json: dict) -> dict:
     }
 
     synthese["liquidite_globale"] = liquidite
+    # Libellé de la valeur principale (ex. « Valeur de remplacement de la
+    # cave » pour un rapport à usage assurantiel) ; défaut dans le template.
+    synthese["libelle_valeur"] = (client_json.get("synthese") or {}).get("libelle_valeur") or ""
+
+    assureur = {}
+    inventaire_a_revente = any((v.get("revente_unit") or 0) > 0 for v in inventaire_rows)
+    if mode == "assureur":
+        assureur = default_assureur(client_json, rapport)
+        # Le périmètre peut être reformulé pour l'assureur (clé assureur.perimetre)
+        perimetre.update({k: v for k, v in (assureur.get("perimetre") or {}).items() if v})
+        client["objectif_court"] = assureur["objectif_court"]
+        client["objectif_detail"] = assureur["objectif_detail"]
+        client["objectif_long"] = assureur["objectif_long"]
+        synthese["libelle_valeur"] = synthese["libelle_valeur"] or "Valeur de remplacement de la cave"
+        synthese["recap_etat"] = build_recap_etat(inv)
+        inventaire_a_revente = False  # jamais de prix marteau face à l'assureur
 
     return {
+        "mode": mode,
+        "assureur": assureur,
         "client": client,
         "expert": expert,
         "rapport": rapport,
         "perimetre": perimetre,
         "synthese": synthese,
         "inventaire": inventaire_rows,
+        # La colonne CBO n'a de sens que si au moins une ligne en porte une :
+        # une colonne de « Non » se lit comme un constat vérifié alors que
+        # c'est souvent un champ jamais renseigné.
+        "inventaire_a_cbo": any(str(v.get("cbo", "")).strip().lower() == "oui"
+                                for v in inventaire_rows),
+        # Idem pour le second barème : la colonne « Revente » n'apparaît que
+        # si l'inventaire porte au moins une valeur de revente renseignée.
+        "inventaire_a_revente": inventaire_a_revente,
         "marche": client_json.get("marche", default_marche()),
         "repartition": repartition,
         "recommandations": recommandations,
@@ -1196,14 +1531,16 @@ async def render_pdf(context: dict, output_path: pathlib.Path, template_name: st
 # ═════════════════════════════════════════════════════════════════
 # Nommage du fichier de sortie
 # ═════════════════════════════════════════════════════════════════
-def build_output_path(nom: str, ref: str, output_dir: pathlib.Path) -> pathlib.Path:
+def build_output_path(nom: str, ref: str, output_dir: pathlib.Path,
+                      mode: str = "client") -> pathlib.Path:
     cleaned = nom.replace("M.", "").replace("Mme", "").replace("et", "").strip()
     words = [w for w in cleaned.split() if len(w) > 1]
     nom_famille = unicodedata.normalize("NFD", words[-1] if words else "CLIENT")
     nom_ascii = nom_famille.encode("ascii", "ignore").decode("ascii").upper()
     now = datetime.now()
     mois_annee = f"{MOIS_FR[now.month].capitalize()}_{now.year}"
-    filename = f"Audit_et_estimation_de_cave__{nom_ascii}__{ref}__{mois_annee}.pdf"
+    prefix = "Inventaire_valorise_assurance" if mode == "assureur" else "Audit_et_estimation_de_cave"
+    filename = f"{prefix}__{nom_ascii}__{ref}__{mois_annee}.pdf"
     return output_dir / filename
 
 
@@ -1223,6 +1560,9 @@ def main() -> int:
                         help="Chemin du PDF de sortie (fichier ou dossier). Si fichier, on conserve ce nom exact.")
     parser.add_argument("--template", dest="template", default=DEFAULT_TEMPLATE,
                         help="Nom ou chemin du template Jinja2 (défaut : rapport.html)")
+    parser.add_argument("--assureur", action="store_true",
+                        help="Variante à destination de l'assureur : valeur de remplacement seule, "
+                             "sans prix marteau, sans recommandations ni plan d'action.")
     parser.add_argument("--strict", action="store_true",
                         help="Échec si la passe anti-artefacts détecte au moins une occurrence (sinon WARNING).")
     args = parser.parse_args()
@@ -1266,7 +1606,8 @@ def main() -> int:
     client_json = json.loads(client_path.read_text())
 
     print("→ Calcul des agrégats")
-    context = build_render_context(inv, client_json)
+    mode = "assureur" if args.assureur else "client"
+    context = build_render_context(inv, client_json, mode=mode)
     ref = context["client"]["ref_dossier"]
     nom = context["client"]["nom"]
 
@@ -1278,11 +1619,11 @@ def main() -> int:
             out = out_arg
         else:
             out_arg.mkdir(parents=True, exist_ok=True)
-            out = build_output_path(nom, ref, out_arg)
+            out = build_output_path(nom, ref, out_arg, mode=mode)
     else:
         output_dir = args.output_dir or DEFAULT_OUTPUT_DIR
         output_dir.mkdir(parents=True, exist_ok=True)
-        out = build_output_path(nom, ref, output_dir)
+        out = build_output_path(nom, ref, output_dir, mode=mode)
 
     print(f"→ Rendu PDF ({nom}, {ref}) — template : {template_name}")
     asyncio.run(render_pdf(context, out, template_name=template_name,

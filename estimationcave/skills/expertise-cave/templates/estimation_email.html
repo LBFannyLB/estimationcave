@@ -11,9 +11,18 @@
 
         <tr><td style="padding:24px 30px 8px;font-family:Arial,Helvetica,sans-serif;font-size:13.5px;line-height:1.6;color:#4a3f48;">
           Bonjour,<br><br>
-          Merci pour votre demande. Voici l'estimation de la bouteille que vous m'avez confiée.
+          Merci pour votre demande. {% if intro %}{{ intro }}{% else %}Voici l'estimation de la bouteille que vous m'avez confiée.{% endif %}
         </td></tr>
 
+        {% set _bottles = bottles if (bottles is defined and bottles) else [{
+          'domaine': domaine, 'appellation': appellation, 'millesime': millesime,
+          'format': format, 'quantite': quantite, 'cote': cote,
+          'cote_label': (cote_label if cote_label is defined else 'la bouteille'),
+          'tendance': tendance, 'tendance_dir': tendance_dir, 'liquidite': liquidite,
+          'apogee': apogee, 'orientation': orientation,
+          'justification_lead': justification_lead, 'justification': justification
+        }] %}
+        {% for b in _bottles %}
         <tr><td style="padding:8px 30px 4px;">
           <table width="100%" cellpadding="0" cellspacing="0" style="background:#fff;border:1px solid #e3d9c4;">
             <tr><td style="padding:18px 20px;">
@@ -21,41 +30,44 @@
               <table width="100%" cellpadding="0" cellspacing="0"><tr>
                 <td style="vertical-align:top;">
                   <div style="font-family:Arial,sans-serif;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:#C5A258;font-weight:bold;margin-bottom:3px;">Estimation</div>
-                  <div style="font-size:19px;color:#2D1B2E;line-height:1.15;">{{ domaine }}</div>
-                  <div style="font-style:italic;font-size:12.5px;color:#8a7d86;margin-top:4px;">{{ appellation }} &middot; {{ millesime }} &middot; {{ format }}{% if quantite %} &middot; {{ quantite }}{% endif %}</div>
+                  <div style="font-size:19px;color:#2D1B2E;line-height:1.15;">{{ b.domaine }}</div>
+                  <div style="font-style:italic;font-size:12.5px;color:#8a7d86;margin-top:4px;">{{ b.appellation }} &middot; {{ b.millesime }} &middot; {{ b.format }}{% if b.quantite %} &middot; {{ b.quantite }}{% endif %}</div>
                 </td>
                 <td style="vertical-align:top;text-align:right;white-space:nowrap;">
-                  <div style="font-size:23px;color:#2D1B2E;font-weight:bold;">{{ cote }}</div>
-                  {% set _cote_label = cote_label if cote_label is defined else 'la bouteille' %}{% if _cote_label %}<div style="font-family:Arial,sans-serif;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#8a7d86;">{{ _cote_label }}</div>{% endif %}
+                  <div style="font-size:23px;color:#2D1B2E;font-weight:bold;">{{ b.cote }}</div>
+                  {% set _cote_label = b.cote_label if b.cote_label is defined else 'la bouteille' %}{% if _cote_label %}<div style="font-family:Arial,sans-serif;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#8a7d86;">{{ _cote_label }}</div>{% endif %}
                 </td>
               </tr></table>
 
               <table width="100%" cellpadding="0" cellspacing="0" style="margin:16px 0;border-top:1px solid #ecdfc4;border-bottom:1px solid #ecdfc4;"><tr>
                 <td style="padding:12px 0;vertical-align:top;">
                   <div style="font-family:Arial,sans-serif;font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:#C5A258;font-weight:bold;">Tendance</div>
-                  <div style="font-size:13px;color:#2D1B2E;margin-top:3px;">{% if tendance_dir == 'down' %}&#9660;{% elif tendance_dir == 'up' %}&#9650;{% else %}&#8594;{% endif %}&nbsp;{{ tendance }}</div>
+                  <div style="font-size:13px;color:#2D1B2E;margin-top:3px;">{% if b.tendance_dir == 'down' %}&#9660;{% elif b.tendance_dir == 'up' %}&#9650;{% else %}&#8594;{% endif %}&nbsp;{{ b.tendance }}</div>
                 </td>
                 <td style="padding:12px 0;vertical-align:top;">
                   <div style="font-family:Arial,sans-serif;font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:#C5A258;font-weight:bold;">Liquidité</div>
-                  <div style="font-size:13px;color:#2D1B2E;margin-top:3px;">{{ liquidite }}</div>
+                  <div style="font-size:13px;color:#2D1B2E;margin-top:3px;">{{ b.liquidite }}</div>
                 </td>
                 <td style="padding:12px 0;vertical-align:top;">
                   <div style="font-family:Arial,sans-serif;font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:#C5A258;font-weight:bold;">Apogée</div>
-                  <div style="font-size:13px;color:#2D1B2E;margin-top:3px;">{{ apogee }}</div>
+                  <div style="font-size:13px;color:#2D1B2E;margin-top:3px;">{{ b.apogee }}</div>
                 </td>
               </tr></table>
 
               <div style="font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:1.6;color:#4a3f48;">
-                {% if justification_lead %}<span style="color:#2D1B2E;font-weight:bold;">{{ justification_lead }}</span> {% endif %}{{ justification }}
+                {% set _paras = (b.justification or '').split('\n\n') %}
+                {% if b.justification_lead %}<span style="color:#2D1B2E;font-weight:bold;">{{ b.justification_lead }}</span> {% endif %}{{ _paras[0] }}
+                {% for _p in _paras[1:] %}<div style="margin-top:12px;">{{ _p }}</div>{% endfor %}
               </div>
 
               <div style="margin-top:14px;">
-                <span style="display:inline-block;font-family:Arial,sans-serif;font-size:10.5px;letter-spacing:0.10em;text-transform:uppercase;color:#2D1B2E;font-weight:bold;background:#FAF6F0;border:1px solid #C5A258;padding:5px 12px;">{{ orientation }}</span>
+                <span style="display:inline-block;font-family:Arial,sans-serif;font-size:10.5px;letter-spacing:0.10em;text-transform:uppercase;color:#2D1B2E;font-weight:bold;background:#FAF6F0;border:1px solid #C5A258;padding:5px 12px;">{{ b.orientation }}</span>
               </div>
 
             </td></tr>
           </table>
         </td></tr>
+        {% endfor %}
 
         <tr><td style="padding:16px 30px 4px;">
           <table width="100%" cellpadding="0" cellspacing="0" style="background:#C5A258;"><tr>

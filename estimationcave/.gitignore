@@ -17,3 +17,4 @@ node_modules/
 
 # Dossiers clients & leads — contiennent des données personnelles (emails prospects)
 rapports/
+.vercel

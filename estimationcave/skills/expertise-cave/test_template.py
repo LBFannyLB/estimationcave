@@ -3,7 +3,7 @@
 Rend `templates/rapport.html` avec `templates/sample_data.json` (démo
 Dupont, 16 réf) et vérifie :
 
-    • le PDF produit contient entre 11 et 12 pages A4
+    • le PDF produit contient entre 13 et 15 pages A4
     • le fichier pèse entre 1 Mo et 4 Mo
     • aucun placeholder résiduel ({{ x }} ou ⌈X⌉ non substitué)
     • le tout en moins de 30 secondes
@@ -29,7 +29,10 @@ DATA_FILE = TEMPLATES / "sample_data.json"
 OUTPUT = pathlib.Path("/tmp/test_rapport.pdf")
 
 # ── Critères d'acceptation ─────────────────────────────────────
-PAGES_MIN, PAGES_MAX = 11, 12          # Dupont = 16 réf → 11-12 pages
+PAGES_MIN, PAGES_MAX = 13, 15          # Dupont = 16 réf → 14 pages (borne
+                                       # relevée le 14/09/2026 : la méthodologie
+                                       # a désormais sa propre page, +1 depuis
+                                       # le réglage 12-14 du 09/09)
 SIZE_MIN, SIZE_MAX = 1_000_000, 4_000_000  # 1 Mo < poids < 4 Mo
 RUNTIME_MAX_S = 30
 
