@@ -558,19 +558,25 @@
   </url>
   <url>
     <loc>https://estimationcave.com/cotes/rhone/</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://estimationcave.com/cotes/rhone/cotes-du-rhone/</loc>
-    <lastmod>2026-07-28</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://estimationcave.com/cotes/rhone/saint-joseph/</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://estimationcave.com/cotes/rhone/cornas/</loc>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -588,25 +594,25 @@
   </url>
   <url>
     <loc>https://estimationcave.com/cotes/rhone/chateauneuf-du-pape/</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://estimationcave.com/cotes/rhone/gigondas/</loc>
-    <lastmod>2026-07-28</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://estimationcave.com/cotes/rhone/condrieu/</loc>
-    <lastmod>2026-07-28</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://estimationcave.com/cotes/rhone/hermitage/</loc>
-    <lastmod>2026-07-28</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
