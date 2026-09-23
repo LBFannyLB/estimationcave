@@ -343,6 +343,7 @@ h3 { font-size: 1.45rem; font-weight: 600; }
 .eo-feedback { display: none; font-size: 0.9rem; line-height: 1.5; padding: 0.9rem 1rem; margin-bottom: 1.2rem; }
 .eo-feedback.is-success { display: block; background: var(--bordeaux); color: var(--fond); }
 .eo-feedback.is-error { display: block; background: rgba(139,58,58,0.08); border-left: 2px solid var(--vin); color: var(--vin); }
+.eo-feedback.is-note { display: block; background: var(--or-pale); border-left: 2px solid var(--or); color: var(--texte); }
 .eo-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 .depot .btn:disabled { opacity: 0.6; cursor: default; }
 .footer .fleuron { margin: 0 auto 2.5rem; }
@@ -473,10 +474,45 @@ h3 { font-size: 1.45rem; font-weight: 600; }
               var __fsStarted=false;form.addEventListener('focusin',function(){if(__fsStarted)return;__fsStarted=true;try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'form_start',form_location:'lp_apercu'});}catch(_){}});
               var btn=document.getElementById('eo-btn');
               var feedback=document.getElementById('eo-feedback');
-              function setFeedback(type,msg){feedback.className='eo-feedback';if(!msg)return;feedback.classList.add(type==='success'?'is-success':'is-error');feedback.textContent=msg;}
+              function setFeedback(type,msg){feedback.className='eo-feedback';if(!msg)return;feedback.classList.add(type==='success'?'is-success':(type==='note'?'is-note':'is-error'));feedback.textContent=msg;}
+              /* Contrôle souple du millésime : sans l'année, aucune cote n'est possible et
+                 il faut réécrire au visiteur — ce qui ruine la promesse des 48 h. On intercepte
+                 UNE fois pour le signaler, puis on laisse passer : sur un aimant à leads, la
+                 friction coûte plus cher que l'aller-retour. */
+              var LIBELLE_BTN=btn.textContent;
+              var MILLESIME=/(?:^|[^0-9])(1[6-9][0-9]{2}|20[0-4][0-9])(?:[^0-9]|$)/;
+              var LOTS=[['eo-b1','i'],['eo-b2','ii'],['eo-b3','iii']];
+              var millesimeSignale=false;
+              function lotsSansMillesime(){
+                var out=[];
+                LOTS.forEach(function(p){
+                  var el=document.getElementById(p[0]);
+                  if(!el)return;
+                  var v=(el.value||'').trim();
+                  if(v&&!MILLESIME.test(v))out.push(p[1]);
+                });
+                return out;
+              }
+              LOTS.forEach(function(p){
+                var el=document.getElementById(p[0]);
+                if(!el)return;
+                el.addEventListener('input',function(){
+                  if(!millesimeSignale)return;
+                  millesimeSignale=false;btn.textContent=LIBELLE_BTN;setFeedback(null,'');
+                });
+              });
               form.addEventListener('submit',async function(e){
                 e.preventDefault();
                 setFeedback(null,'');
+                var sansAnnee=lotsSansMillesime();
+                if(sansAnnee.length&&!millesimeSignale){
+                  millesimeSignale=true;
+                  var quoi=sansAnnee.length>1?('les lots '+sansAnnee.slice(0,-1).join(', ')+' et '+sansAnnee[sansAnnee.length-1]):('le lot '+sansAnnee[0]);
+                  setFeedback('note',"Il manque l'année sur "+quoi+". Deux bouteilles du même nom peuvent valoir dix fois moins selon le millésime : avec l'année, votre aperçu part sous 48 h. Si vous ne la connaissez pas, envoyez quand même — je vous écrirai.");
+                  btn.textContent='Envoyer quand même';
+                  try{feedback.scrollIntoView({block:'center',behavior:'smooth'});}catch(_){}
+                  return;
+                }
                 var original=btn.textContent;
                 btn.disabled=true;btn.textContent='Envoi en cours…';
                 try{
