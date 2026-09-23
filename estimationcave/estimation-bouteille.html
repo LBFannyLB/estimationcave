@@ -262,6 +262,7 @@ h3 { font-size: 1.45rem; font-weight: 600; }
 .lot .num small { display: block; font-family: var(--font-body); font-variant: normal; font-weight: 400; letter-spacing: 0; font-size: 0.68rem; color: var(--texte-light); }
 .lot input { width: 100%; font-family: var(--font-body); font-size: 0.95rem; color: var(--texte); background: var(--blanc); border: 1px solid var(--filet-fort); padding: 0.8rem 0.9rem; }
 .lot input::placeholder { color: rgba(58,48,53,0.45); }
+.lot-aide { font-size: 0.78rem; color: var(--texte-light); line-height: 1.5; margin: -0.2rem 0 0 4.4rem; }
 .depot .sc.groupe { margin: 1.8rem 0 0.9rem; font-size: 0.95rem; }
 .depot .row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
 .depot .field label { display: block; font-size: 0.85rem; font-weight: 500; color: var(--bordeaux); margin-bottom: 0.4rem; }
@@ -422,7 +423,7 @@ h3 { font-size: 1.45rem; font-weight: 600; }
     <div class="depot-head-section">
       <p class="sc center">Aperçu offert</p>
       <h2>Trois bouteilles de votre cave</h2>
-      <p class="lead">Nommez-les comme vous pouvez&nbsp;: domaine ou château, appellation, millésime. Une seule suffit pour commencer.</p>
+      <p class="lead">Domaine ou château, appellation, millésime&nbsp;: les trois comptent. Deux bouteilles du même nom peuvent valoir dix fois moins selon l'année. Une seule suffit pour commencer.</p>
     </div>
     <form class="depot" id="eo-form" novalidate>
       <div class="eo-hp" aria-hidden="true">
@@ -434,6 +435,7 @@ h3 { font-size: 1.45rem; font-weight: 600; }
       <div class="lot"><label class="num" for="eo-b1">Lot i</label><input type="text" id="eo-b1" name="bouteille_1" required autocomplete="off" placeholder="Ex. Château Lynch-Bages, Pauillac, 2005"></div>
       <div class="lot"><label class="num" for="eo-b2">Lot ii<small>facultatif</small></label><input type="text" id="eo-b2" name="bouteille_2" autocomplete="off" placeholder="Ex. Domaine Leflaive, Puligny-Montrachet 1er cru, 2017"></div>
       <div class="lot"><label class="num" for="eo-b3">Lot iii<small>facultatif</small></label><input type="text" id="eo-b3" name="bouteille_3" autocomplete="off" placeholder="Ex. Guigal, Côte-Rôtie La Mouline, 1999"></div>
+      <p class="lot-aide">Recopiez l'étiquette telle quelle. Si le millésime n'y figure pas, il est souvent gravé sur la capsule ou le bouchon.</p>
       <p class="sc groupe">Votre cave</p>
       <div class="row">
         <div class="field"><label for="eo-contexte">Votre situation <span class="req">*</span></label>
