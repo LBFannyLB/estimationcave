@@ -134,6 +134,11 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
         .article-body table td a { color: var(--or); text-decoration: none; border-bottom: 1px solid rgba(197,162,88,0.4); }
         .article-body table td a:hover { color: var(--bordeaux); }
         .article-body table tbody td:last-child { white-space: nowrap; }
+        @media (min-width: 701px) {
+            .article-body table th:first-child, .article-body table td:first-child { width: 26%; }
+            .article-body table th:nth-child(2), .article-body table td:nth-child(2) { width: 20%; }
+            .article-body table th:last-child, .article-body table td:last-child { width: 13%; }
+        }
         @media (max-width: 700px) {
             .article-body table, .article-body table thead, .article-body table tbody, .article-body table tr, .article-body table th, .article-body table td { display: block; width: 100%; }
             .article-body table thead { display: none; }
