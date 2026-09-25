@@ -155,10 +155,16 @@ tarteaucitron.user.googletagmanagerId = 'GTM-PZ7XM58P';
       "@type": "AggregateRating",
       "ratingValue": "5",
       "bestRating": "5",
-      "ratingCount": "4",
-      "reviewCount": "4"
+      "ratingCount": "5",
+      "reviewCount": "5"
     },
     "review": [
+      {
+        "@type": "Review",
+        "author": {"@type": "Person", "name": "Olivier B."},
+        "reviewRating": {"@type": "Rating", "ratingValue": "5"},
+        "reviewBody": "Le travail réalisé a été remarquable. Les délais ont été impressionnants (3 jours). L'analyse précise et très documentée. Le compte rendu fourni de plus de 38 pages va très fortement nous aider à orienter nos choix dans la gestion de la cave dont nous héritons."
+      },
       {
         "@type": "Review",
         "author": {"@type": "Person", "name": "Richard"},
@@ -465,7 +471,8 @@ h3 { font-size: 1.45rem; font-weight: 600; }
 .lettre-main blockquote::before { content: '«'; display: block; font-size: 4rem; line-height: 0.6; color: var(--vin); margin-bottom: 1rem; }
 .lettre-meta { margin-top: 1.6rem; font-size: 0.85rem; color: var(--texte-light); }
 .lettre-meta b { font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--bordeaux); display: block; margin-bottom: 0.15rem; }
-.lettres-courtes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; margin-top: 3.5rem; padding-top: 2.5rem; border-top: 1px solid var(--filet-fort); }
+.lettres-courtes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5rem; margin-top: 3.5rem; padding-top: 2.5rem; border-top: 1px solid var(--filet-fort); }
+@media (max-width: 1100px) { .lettres-courtes { grid-template-columns: repeat(2, 1fr); } }
 .lettres-courtes blockquote { font-family: var(--font-display); font-size: 1.15rem; line-height: 1.4; color: var(--bordeaux); margin-bottom: 0.7rem; }
 .lettres-courtes cite { font-style: normal; font-size: 0.82rem; color: var(--texte-light); }
 .lettres-courtes cite b { color: var(--bordeaux); font-weight: 500; }
@@ -903,10 +910,11 @@ h3 { font-size: 1.45rem; font-weight: 600; }
   <div class="container">
     <h2 class="sc center" style="font-size:1.05rem">Ce qu'en pensent mes clients</h2>
     <div class="lettre-main">
-      <blockquote>J'ai particulièrement apprécié la richesse et la qualité de votre analyse, qui va bien au-delà d'un simple inventaire. Le document offre une vision très claire du contenu de ma cave, de sa structuration et de son positionnement par rapport aux tendances du marché. J'ai vraiment apprécié la pertinence des recommandations par bouteille, qui apportent un éclairage très concret pour orienter mes futures décisions. Cela pourrait devenir vraiment un bon livre de chevet&nbsp;!&nbsp;»</blockquote>
-      <p class="lettre-meta"><b>Richard</b>600 bouteilles</p>
+      <blockquote>Le travail réalisé a été remarquable. Les délais ont été impressionnants (3&nbsp;jours). L'analyse précise et très documentée. Le compte rendu fourni de plus de 38&nbsp;pages va très fortement nous aider à orienter nos choix dans la gestion de la cave dont nous héritons.&nbsp;»</blockquote>
+      <p class="lettre-meta"><b>Olivier B.</b>Cave reçue en succession · avis Google</p>
     </div>
     <div class="lettres-courtes">
+      <div><blockquote>« J'ai particulièrement apprécié la richesse et la qualité de votre analyse, qui va bien au-delà d'un simple inventaire. »</blockquote><cite><b>Richard</b> · 600 bouteilles</cite></div>
       <div><blockquote>« Le rapport m'a permis de segmenter ma cave en bénéficiant d'avis en matière de garde, valorisation et tendances du marché. »</blockquote><cite><b>Lionel</b> · 51 bouteilles</cite></div>
       <div><blockquote>« Une belle analyse, complète autant sur la particularité de chaque bouteille que sur la tendance de marché actuelle. »</blockquote><cite><b>Simon</b> · 33 bouteilles</cite></div>
       <div><blockquote>« Des conseils très précis et des indications claires pour la suite&nbsp;: vendre ou garder notamment. »</blockquote><cite><b>Guillaume</b> · 122 bouteilles</cite></div>
